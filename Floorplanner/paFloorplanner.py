@@ -37,7 +37,7 @@ def main():
 
     #init
 
-    for rrName in rrList():
+    for rrName in rrList:
         rr = ReconfigurableRegion(rrName, 0, 0, 0, 0, powerFH.readline(), 0)
         for rrName2 in rrList():
             thermCondDict[rrName][rrName2] = getWordFromLine(thermCondFH.readline(), rrName2)
