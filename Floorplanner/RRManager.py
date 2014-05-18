@@ -24,11 +24,9 @@ class RRManager:
     def getRR(self, pos):
         return self.collection[pos]
 
-    @staticmethod
     def getTempConstant(self, rr1, rr2):
         return self.thermCondDict[self.collection.index(rr1)][self.collection.index(rr2)]
 
-    @staticmethod
     def getSectArea(self, rr1, rr2):
         return self.aSectDict[self.collection.index(rr1)][self.collection.index(rr2)]
 

@@ -26,3 +26,9 @@ class ReconfigurableRegion:
             else:
                 Lij = self.xLeft - rr.xLeft + self.yBottom - rr.yBottom
         return Lij / (self.mgr.getTempConstant(self, rr) * self.mgr.getSectArea(self, rr))
+
+    def isOnTopOf(self, rr):
+        return self.mgr.isOnTop(self, rr)
+
+    def isToTheLeftOf(self, rr):
+        return self.mgr.isOnLeft(self, rr)
