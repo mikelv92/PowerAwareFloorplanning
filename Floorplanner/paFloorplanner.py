@@ -41,27 +41,27 @@ def main():
     rrManager = RRManager(thermCondDict, aSectDict)
 
     for rrName in rrList:
-        rr = ReconfigurableRegion(rrName, 0, 0, 0, 0, powerFH.readline(), 0, rrManager)
+        rr = ReconfigurableRegion(rrName, 0, 0, 0, 0, powerFH.readline(), 100, rrManager)
         rrManager.addRR(rr)
 
     int saTemperature = 10000
     float saCoolingRate = 0.003
     minDistanceVector = [0 for x in xrange(len(rr))]
 
-    currentSolution = rrManager.generateSolution()
     currentSolutionCost = rrManager.getSolutionCost()
 
     while not rrManager.isUniformityReached() and saTemperature > 1:
+        newSequencePair = rrManager.swapInSequencePair() #pass this sequence pair to the milp
+
         rrManager.applyMILP()
         rrManager.calculateTemperatures()
         
-        newSolution = rrManager.generateSolution()
         newSolutionCost = rrManager.getSolutionCost()
 
         if acceptanceProbability(currentSolutionCost, newSolutionCost, saTemperature) > random():
-            currentSolution = newSolution
+            currentSequencePair = newSequencePair
             currentSolutionCost = newSolutionCost
-            rrManager.updateSolution(currentSolution)
+            rrManager.updateSequencePair(newSequencePair)
             
         saTemperature *= 1 - saCoolingRate
 
