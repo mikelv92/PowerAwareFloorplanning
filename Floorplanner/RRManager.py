@@ -2,15 +2,21 @@ __author__ = 'mikel'
 
 import numpy
 
-class RRCollection:
+class RRManager:
     def __init__(self, thermCondDict, aSectDict):
         self.collection = []
         self.thermCondDict = thermCondDict
         self.aSectDict = aSectDict
-        self.thermResDict = [[]]
         self.tempArray = []
+        self.sequence1 = []
+        self.sequence1 = []
+
     def addRR(self, rr):
         self.collection.append(rr)
+        self.sequence1.append(rr)
+        self.sequence2.append(rr)
+        self.randomPermute(self.sequence1)
+        self.randomPermute(self.sequence2)
 
     def popRR(self, pos):
         return self.collection.pop(pos)
@@ -18,41 +24,27 @@ class RRCollection:
     def getRR(self, pos):
         return self.collection[pos]
 
-#    def getRR(self, rr):
-#        for i in xrange(len(self.collection)):
-#            if rr == self.collection[i].name:
-#                return self.collection[i]
-
-    def calcThermResistance(self, rr1, rr2):
-        Lij = 0
-        if rr1.xLeft < rr2.xLeft:
-            if rr1.yBottom < rr2.yBottom:
-                Lij = rr2.xLeft - rr1.xLeft + rr2.yBottom - rr1.yBottom
-            else:
-                Lij = rr2.xLeft - rr1.xLeft + rr1.yBottom - rr2.yBottom
-        else:
-            if rr1.yBottom < rr2.yBottom:
-                Lij = rr1.xLeft - rr2.xLeft + rr2.yBottom - rr1.yBottom
-            else:
-                Lij = rr1.xLeft - rr2.xLeft + rr1.yBottom - rr2.yBottom
-        return Lij / (self.getTempConstant(rr1, rr2) * self.getSectArea(rr1, rr2))
-
-    def updateThermResistances(self):
-        for rri in self.collection:
-            for rrj in self.collection:
-                i = self.collection.index(rri)
-                j = self.collection.index(rrj)
-                self.thermResDict[i][j] = self.calcThermResistance(rri, rrj)
-        return
-
+    @staticmethod
     def getTempConstant(self, rr1, rr2):
         return self.thermCondDict[self.collection.index(rr1)][self.collection.index(rr2)]
 
+    @staticmethod
     def getSectArea(self, rr1, rr2):
         return self.aSectDict[self.collection.index(rr1)][self.collection.index(rr2)]
 
-    def applyMILP(self):
-        return
+    @staticmethod
+    def randomPermute(l):
+        a = l
+        b = []
+        while len(a) > 0:
+            b.append(a.pop(randint(0, len(a)-1)))
+        return b
+
+    def isOnTop(self, rr1, rr2):
+        return self.sequence1.index(rr1) < self.sequence1.index(rr2) and self.sequence2.index(rr1) > self.sequence2.index(rr2)
+
+    def isOnLeft(self, rr1, rr2):
+        return self.sequence1.index(rr1) < self.sequence1.index(rr2) and self.sequence2.index(rr1) > self.sequence2.index(rr2)
 
     def calculateTemperatures(self):
         #declare the coefficient and known term matrixes
@@ -62,11 +54,14 @@ class RRCollection:
         #fill the coefficient matrix
         for i in xrange(len(self.collection) - 1):
             for j in xrange(len(self.collection) - 1):
+                rri = self.collection[i]
+                rrj = self.collection[j]
                 if i == j:
                     for k in xrange(len(self.collection) - 1):
-                        a[i][j] += 1 / self.thermResDict[i][k]
+                        rrk = self.collection[k]
+                        a[i][j] += 1 / rri.calcThermResistance(rrk)
                 else:
-                    a[i][j] = -1 / self.thermResDict[i][j]
+                    a[i][j] = -1 / rri.calcThermResistance(rrk)
 
         #fill the known term matrix
         for i in xrange(len(self.collection) - 1):
@@ -76,3 +71,5 @@ class RRCollection:
         coefficientMatrix = numpy.array(a);
         knownTermMatrix = numpy.array(b);
         self.tempArray = numpy.linalg.solve(coefficientMatrix, knownTermMatrix)
+        for i in len(self.collection) - 1:
+            self.collection[i].temp = self.tempArray[i]
