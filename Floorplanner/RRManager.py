@@ -105,3 +105,18 @@ class RRManager:
     def updateSolution(self, currentSolution):
         self.solution = currentSolution
         return
+
+    def isUniformityReached(self):
+        epsilon = 20
+        maxTemp = 0
+        minTemp = 1000
+        for i in xrange(len(self.collection) - 1):
+            if self.collection[i].temp > maxTemp:
+                maxTemp = self.collection[i].temp
+            if self.collection[i].temp < minTemp:
+                minTemp = self.collection[i].temp
+        return maxTemp - minTemp < epsilon
+
+    def applyMILP(self):
+        # should assign the return values of MILP to the reconfigurable regions in self.collection
+        return

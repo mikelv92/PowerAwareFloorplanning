@@ -41,11 +41,11 @@ def main():
     rrManager = RRManager(thermCondDict, aSectDict)
 
     for rrName in rrList:
-        rr = ReconfigurableRegion(rrName, 0, 0, 0, 0, powerFH.readline(), 100, rrManager)
+        rr = ReconfigurableRegion(rrName, 0, 0, 0, 0, powerFH.readline(), 1000, rrManager)
         rrManager.addRR(rr)
 
-    int saTemperature = 10000
-    float saCoolingRate = 0.003
+    saTemperature = 10000
+    saCoolingRate = 0.003
     minDistanceVector = [0 for x in xrange(len(rr))]
 
     currentSolutionCost = rrManager.getSolutionCost()
