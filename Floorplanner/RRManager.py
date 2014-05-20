@@ -10,7 +10,8 @@ class RRManager:
         self.thermCondDict = thermCondDict
         self.aSectDict = aSectDict
         self.tempArray = []
-        self.solution = SequencePair()
+        self.sequencePair = SequencePair()
+        self.distanceVector = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
 
     def addRR(self, rr):
         self.collection.append(rr)
@@ -46,10 +47,10 @@ class RRManager:
         return self.getSequence1().index(rr1) < self.getSequence1().index(rr2) and self.getSequence2().index(rr1) > self.getSequence2().index(rr2)
     
     def getSequence1(self):
-        return self.solution.sequence1
+        return self.sequencePair.sequence1
     
     def getSequence2(self):
-        return self.solution.sequence2
+        return self.sequencePair.sequence2
 
     def calculateTemperatures(self):
         #declare the coefficient and known term matrixes
@@ -79,7 +80,14 @@ class RRManager:
         for i in len(self.collection) - 1:
             self.collection[i].temp = self.tempArray[i]
 
-    def swapInSequencePair(self):
+    def makeSwapMove(self):
+        choice = randint(0, 1)
+        if choice == 0:
+            return self.randomSwapInSequencePair()
+        else:
+            return self.intelligentSwapInSequencePair()
+
+    def randomSwapInSequencePair(self):
         index1 = 0
         index2 = 0
         a = list(self.getSequence1())
@@ -92,8 +100,62 @@ class RRManager:
             a[index1], a[index2] = a[index2], a[index1]
         else:
             b[index1], b[index2] = b[index2], b[index1]
-
         return SequencePair(a, b)
+
+    def intelligentSwapInSequencePair(self):
+        a = list(self.getSequence1())
+        b = list(self.getSequence2())
+        maxTempIndex = 0
+        minTempIndex = 0
+        maxTemp = 0
+        minTemp = 1000
+        for i in xrange(len(a) - 1):
+            if self.collection[i].temp > maxTemp:
+                maxTemp = self.collection[i].temp
+                maxTempIndex = i
+            if self.collection[i].temp < minTemp:
+                minTemp = self.collection[i].temp
+                minTempIndex = i
+        sequenceToAlter = randint(1, 2)
+        if sequenceToAlter == 1:
+            a[minTempIndex], a[maxTempIndex] = a[maxTempIndex], a[minTempIndex]
+        else:
+            b[minTempIndex], b[maxTempIndex] = b[maxTempIndex], b[minTempIndex]
+        return SequencePair(a, b)
+
+    def makeDistanceVectorMove(self):
+        choice = randint(0, 1)
+        if choice == 0:
+            return self.randomIncDistanceVector()
+        else:
+            return self.intelligentIncDistanceVector()
+
+    def intelligentIncDistanceVector(self):
+        index1 = 0
+        index2 = 0
+        maxTempIndex1 = 0
+        maxTempIndex2 = 0
+        a = list(self.distanceVector)
+        for i in xrange(0, len(a) - 1):
+            if self.collection[i].temp > self.collection[maxTempIndex1].temp:
+                maxTempIndex1 = i
+        for i in xrange(0, len(a) - 1):
+            if self.collection[i].temp > self.collection[maxTempIndex2].temp:
+                if self.collection[i].temp <= self.collection[maxTempIndex1].temp:
+                    maxTempIndex2 = i
+        a[maxTempIndex1][maxTempIndex2] += 1
+        return a
+
+
+    def randomIncDistanceVector(self):
+        index1 = 0
+        index2 = 0
+        a = list(self.distanceVector)
+        while index1 == index2:
+            index1 = randint(0, len(a) - 1)
+            index2 = randint(0, len(a) - 1)
+        a[index1][index2] += 1
+        return a
 
     def getSolutionCost(self):
         maxTemp = 0
@@ -102,10 +164,11 @@ class RRManager:
                 maxTemp = self.collection[i].temp
         return maxTemp
 
-    def updateSolution(self, currentSolution):
-        self.solution = currentSolution
-        return
+    def updateSequencePair(self, pair):
+        self.sequencePair = pair
 
+    def updateDistanceVector(self, vector):
+        self.distanceVector = vector
     def isUniformityReached(self):
         epsilon = 20
         maxTemp = 0
@@ -119,4 +182,9 @@ class RRManager:
 
     def applyMILP(self):
         # should assign the return values of MILP to the reconfigurable regions in self.collection
+
+        #resultFile = MILP()
+        #for rr in self.collection:
+        #    parse(resultFile)
+        #    assign to rr
         return

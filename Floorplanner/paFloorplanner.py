@@ -6,6 +6,7 @@ from random import randint
 from random import random
 import ReconfigurableRegion
 import RRManager
+import SequencePair
 
 def getWordFromLine(line, pos):
     words = line.split()
@@ -46,22 +47,24 @@ def main():
 
     saTemperature = 10000
     saCoolingRate = 0.003
-    minDistanceVector = [0 for x in xrange(len(rr))]
 
     currentSolutionCost = rrManager.getSolutionCost()
-
+    sequencePair = SequencePair()
+    distanceVector = [[0 for x in xrange(len(rrCount))] for x in xrange(len(rrCount))]
     while not rrManager.isUniformityReached() and saTemperature > 1:
-        newSequencePair = rrManager.swapInSequencePair() #pass this sequence pair to the milp
-
+        choice = randint(1, 2)
+        if choice == 1:
+            sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
+        else:
+            distanceVector = rrManager.makeDistanceVectorMove()
         rrManager.applyMILP()
         rrManager.calculateTemperatures()
         
         newSolutionCost = rrManager.getSolutionCost()
 
         if acceptanceProbability(currentSolutionCost, newSolutionCost, saTemperature) > random():
-            currentSequencePair = newSequencePair
-            currentSolutionCost = newSolutionCost
-            rrManager.updateSequencePair(newSequencePair)
+            rrManager.updateSequencePair(sequencePair)
+            rrManager.updateDistanceVector(distanceVector)
             
         saTemperature *= 1 - saCoolingRate
 
