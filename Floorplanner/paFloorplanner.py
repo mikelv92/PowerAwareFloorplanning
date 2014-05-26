@@ -7,6 +7,7 @@ from random import random
 import ReconfigurableRegion
 import RRManager
 import SequencePair
+import Solution
 
 def getWordFromLine(line, pos):
     words = line.split()
@@ -51,6 +52,8 @@ def main():
     currentSolutionCost = rrManager.getSolutionCost()
     sequencePair = SequencePair()
     distanceVector = [[0 for x in xrange(len(rrCount))] for x in xrange(len(rrCount))]
+    goodSolutions = []
+
     while not rrManager.isUniformityReached() and saTemperature > 1:
         choice = randint(1, 2)
         if choice == 1:
@@ -61,6 +64,9 @@ def main():
         rrManager.calculateTemperatures()
         
         newSolutionCost = rrManager.getSolutionCost()
+        #if it has a better cost, save it in the good solutions array to not lose it
+        if currentSolutionCost - newSolutionCost > 0:
+            goodSolutions.append(Solution(sequencePair, distanceVector, newSolutionCost))
 
         if acceptanceProbability(currentSolutionCost, newSolutionCost, saTemperature) > random():
             rrManager.updateSequencePair(sequencePair)
