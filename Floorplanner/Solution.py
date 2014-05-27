@@ -1,4 +1,3 @@
-__author__ = 'mikel'
 import SequencePair
 
 class Solution:

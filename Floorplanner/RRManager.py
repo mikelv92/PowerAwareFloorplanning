@@ -1,17 +1,17 @@
-__author__ = 'mikel'
-
+import os
 import numpy
 from random import randint
 import SequencePair
 
 class RRManager:
-    def __init__(self, thermCondDict, aSectDict):
+    def __init__(self, thermCondDict, aSectDict, fh):
         self.collection = []
         self.thermCondDict = thermCondDict
         self.aSectDict = aSectDict
         self.tempArray = []
         self.sequencePair = SequencePair()
         self.distanceVector = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
+        self.fh = fh
 
     def addRR(self, rr):
         self.collection.append(rr)
@@ -162,13 +162,14 @@ class RRManager:
         for i in xrange(len(self.collection) - 1):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
-        return maxTemp
+        return maxTemp #should return alpha*maxTemp + beta*milpCost
 
     def updateSequencePair(self, pair):
         self.sequencePair = pair
 
     def updateDistanceVector(self, vector):
         self.distanceVector = vector
+
     def isUniformityReached(self):
         epsilon = 20
         maxTemp = 0
@@ -180,11 +181,17 @@ class RRManager:
                 minTemp = self.collection[i].temp
         return maxTemp - minTemp < epsilon
 
-    def applyMILP(self):
+    def applyMILP(self, sequencePair, distanceVector):
+        self.fh.createDat(sequencePair, distanceVector)
+        os.system("glpsol -d base.dat -d temp.dat -m floorplan.mod --wlp model.lp --check")
+        os.system("gurobi_cl ResultFile=problem.sol model.lp")
+
+
         # should assign the return values of MILP to the reconfigurable regions in self.collection
 
-        #resultFile = MILP()
         #for rr in self.collection:
         #    parse(resultFile)
         #    assign to rr
+
         return
+

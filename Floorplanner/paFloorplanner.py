@@ -1,5 +1,3 @@
-__author__ = 'mikel'
-
 import sys
 import math
 from random import randint
@@ -8,10 +6,7 @@ import ReconfigurableRegion
 import RRManager
 import SequencePair
 import Solution
-
-def getWordFromLine(line, pos):
-    words = line.split()
-    return words[pos]
+import FileHandler
 
 def acceptanceProbability(current, new, temp):
     if current > new:
@@ -20,30 +15,18 @@ def acceptanceProbability(current, new, temp):
         return math.exp(current - new / temp)
 
 def main():
-    #File handles that contain the input information
-    rrFH = open(sys.argv[1])
-    powerFH = open(sys.argv[2])
-    thermCondFH = open(sys.argv[3])
-    aSectFH = open(sys.argv[4])
+    fh = FileHandler(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 
     #Data structures to hold the input information
+    rrCount = fh.getRRCount()
+    rrList = fh.getRRList()
+    thermCondDict = fh.getThermCondDict()
+    aSectDict = fh.getASectDict()
 
-    rrCount = len(rrFH.readlines())
-    rrList = rrFH.readLines()
-    thermCondDict = [[0 for x in xrange(len(rrCount))] for x in xrange(len(rrCount))]
-    aSectDict = [[0 for x in xrange(len(rrCount))] for x in xrange(len(rrCount))]
+    rrManager = RRManager(thermCondDict, aSectDict, fh)
 
-    #init
-
-    for rrName in rrList:
-        for rrName2 in rrList():
-            thermCondDict[rrName][rrName2] = getWordFromLine(thermCondFH.readline(), rrName2)
-            aSectDict[rrName][rrName2] = getWordFromLine(aSectFH.readline(), rrName2)
-
-    rrManager = RRManager(thermCondDict, aSectDict)
-
-    for rrName in rrList:
-        rr = ReconfigurableRegion(rrName, 0, 0, 0, 0, powerFH.readline(), 1000, rrManager)
+    for rr in fh.getRRList():
+        #rr = ReconfigurableRegion(rrName, 0, 0, 0, 0, powerFH.readline(), 1000, rrManager)
         rrManager.addRR(rr)
 
     saTemperature = 10000
@@ -60,7 +43,7 @@ def main():
             sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
         else:
             distanceVector = rrManager.makeDistanceVectorMove()
-        rrManager.applyMILP()
+        rrManager.applyMILP(sequencePair, distanceVector)
         rrManager.calculateTemperatures()
         
         newSolutionCost = rrManager.getSolutionCost()

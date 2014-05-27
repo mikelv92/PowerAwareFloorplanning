@@ -1,9 +1,7 @@
-__author__ = 'mikel'
-
 import RRManager
 
 class ReconfigurableRegion:
-    def __init__(self, name, xLeft, yBottom, width, height, power, temp, rrManager):
+    def __init__(self, name, xLeft, yBottom, width, height, power, temp, dspRes, bramRes, clbRes, rrManager):
         self.name = name
         self.xLeft = xLeft
         self.yBottom = yBottom
@@ -12,8 +10,12 @@ class ReconfigurableRegion:
         self.power = power
         self.temp = temp
         self.mgr = rrManager
+        self.dspRes = dspRes
+        self.bramRes = bramRes
+        self.clbRes = clbRes
 
     def calcThermResistance(self, rr):
+        #TODO should change the calc using DC instead of xleft ybottom etc
         Lij = 0
         if self.xLeft < rr.xLeft:
             if self.yBottom < rr.yBottom:
