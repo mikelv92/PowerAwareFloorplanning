@@ -182,7 +182,7 @@ class RRManager:
         return maxTemp - minTemp < epsilon
 
     def applyMILP(self, sequencePair, distanceVector):
-        self.fh.createDat(sequencePair, distanceVector)
+        self.fh.changeDat(sequencePair, distanceVector)
         os.system("glpsol -d base.dat -d temp.dat -m floorplan.mod --wlp model.lp --check")
         os.system("gurobi_cl ResultFile=problem.sol model.lp")
 

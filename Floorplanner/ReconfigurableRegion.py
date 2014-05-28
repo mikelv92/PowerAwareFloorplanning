@@ -1,32 +1,26 @@
 import RRManager
 
 class ReconfigurableRegion:
-    def __init__(self, name, xLeft, yBottom, width, height, power, temp, dspRes, bramRes, clbRes, rrManager):
+    def __init__(self, name, cx, cy, power, temp, rrManager):
         self.name = name
-        self.xLeft = xLeft
-        self.yBottom = yBottom
-        self.width = width
-        self.height = height
+        self.cx = cx
+        self.cy = cy
         self.power = power
         self.temp = temp
         self.mgr = rrManager
-        self.dspRes = dspRes
-        self.bramRes = bramRes
-        self.clbRes = clbRes
-
+        
     def calcThermResistance(self, rr):
-        #TODO should change the calc using DC instead of xleft ybottom etc
         Lij = 0
-        if self.xLeft < rr.xLeft:
-            if self.yBottom < rr.yBottom:
-                Lij = rr.xLeft - self.xLeft + rr.yBottom - self.yBottom
+        if self.cx < rr.cx:
+            if self.cy < rr.cy:
+                Lij = rr.cx - self.cx + rr.cy - self.cy
             else:
-                Lij = rr.xLeft - self.xLeft + self.yBottom - rr.yBottom
+                Lij = rr.cx - self.cx + self.cy - rr.cy
         else:
-            if self.yBottom < rr.yBottom:
-                Lij = self.xLeft - rr.xLeft + rr.yBottom - self.yBottom
+            if self.cy < rr.cy:
+                Lij = self.cx - rr.cx + rr.cy - self.cy
             else:
-                Lij = self.xLeft - rr.xLeft + self.yBottom - rr.yBottom
+                Lij = self.cx - rr.cx + self.cy - rr.cy
         return Lij / (self.mgr.getTempConstant(self, rr) * self.mgr.getSectArea(self, rr))
 
     def isOnTopOf(self, rr):
