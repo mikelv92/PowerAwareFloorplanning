@@ -5,6 +5,3 @@ class Solution:
         self.sequencePair = sequencePair
         self.distanceVector = distanceVector
         self.cost = cost
-
-    def __init__(self):
-        return

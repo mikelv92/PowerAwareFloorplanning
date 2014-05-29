@@ -60,26 +60,29 @@ class RRManager:
         b = [0 for x in xrange(len(self.collection))]
 
         #fill the coefficient matrix
-        for i in xrange(len(self.collection) - 1):
-            for j in xrange(len(self.collection) - 1):
+        for i in xrange(len(self.collection)):
+            for j in xrange(len(self.collection)):
+                print "i", i, "j", j
                 rri = self.collection[i]
                 rrj = self.collection[j]
                 if i == j:
-                    for k in xrange(len(self.collection) - 1):
-                        rrk = self.collection[k]
-                        a[i][j] += 1 / rri.calcThermResistance(rrk)
+                    for k in xrange(len(self.collection)):
+                        print "k", k
+                        if i != k:
+                            rrk = self.collection[k]
+                            a[i][j] += 1 / rri.calcThermResistance(rrk)
                 else:
-                    a[i][j] = -1 / rri.calcThermResistance(rrk)
+                    a[i][j] = -1 / rri.calcThermResistance(rrj)
 
         #fill the known term matrix
-        for i in xrange(len(self.collection) - 1):
+        for i in xrange(len(self.collection)):
             b[i] = -1 * self.collection[i].power
 
         #solve
         coefficientMatrix = numpy.array(a);
         knownTermMatrix = numpy.array(b);
         self.tempArray = numpy.linalg.solve(coefficientMatrix, knownTermMatrix)
-        for i in len(self.collection) - 1:
+        for i in xrange(len(self.collection)):
             self.collection[i].temp = self.tempArray[i]
 
     def makeSwapMove(self):
@@ -194,29 +197,29 @@ class RRManager:
         #Objective value
         startIndex = outputAsString.index("Objective value =")
         realstartIndex = outputAsString.index("= ",startIndex)
-        endIndex = outputAsString.index("\n",startIndex)
+        endIndex = outputAsString.index("\r\n",startIndex)
         objvalue = outputAsString[realstartIndex+2:endIndex]
 
-        self.milpObjVal = objvalue
+        self.milpObjVal = float(objvalue)
 
         #CX
         for rrname in self.fh.rrList:
             startIndex = outputAsString.index("Cx("+rrname+")")
             realstartIndex = outputAsString.index(" ",startIndex)
-            endIndex = outputAsString.index("\n",startIndex)
+            endIndex = outputAsString.index("\r\n",startIndex)
             cx = outputAsString[realstartIndex+1:endIndex]
             for rr in self.collection:
                 if rr.name == rrname:
-                    rr.cx = cx
+                    rr.cx = float(cx)
 
-        #Cy
+        #CY
         for rrname in self.fh.rrList:
             startIndex = outputAsString.index("Cy("+rrname+")")
             realstartIndex = outputAsString.index(" ",startIndex)
-            endIndex = outputAsString.index("\n",startIndex)
+            endIndex = outputAsString.index("\r\n",startIndex)
             cy = outputAsString[realstartIndex+1:endIndex]
             for rr in self.collection:
                 if rr.name == rrname:
-                    rr.cy = cy
+                    rr.cy = float(cy)
         return
 
