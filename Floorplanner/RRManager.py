@@ -12,6 +12,7 @@ class RRManager:
         self.sequencePair = SequencePair()
         self.distanceVector = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
         self.fh = fh
+        self.milpObjVal = 0
 
     def addRR(self, rr):
         self.collection.append(rr)
@@ -183,15 +184,39 @@ class RRManager:
 
     def applyMILP(self, sequencePair, distanceVector):
         self.fh.changeDat(sequencePair, distanceVector)
-        os.system("glpsol -d base.dat -d temp.dat -m floorplan.mod --wlp model.lp --check")
+        os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan.mod --wlp model.lp --check")
         os.system("gurobi_cl ResultFile=problem.sol model.lp")
 
+        with open("problem.sol", 'r') as f_in:
+            outputAsString = f_in.read()
 
-        # should assign the return values of MILP to the reconfigurable regions in self.collection
+        #Objective value
+        startIndex = outputAsString.index("Objective value =")
+        realstartIndex = outputAsString.index("= ",startIndex)
+        endIndex = outputAsString.index("\n",startIndex)
+        objvalue = outputAsString[realstartIndex+2:endIndex]
 
-        #for rr in self.collection:
-        #    parse(resultFile)
-        #    assign to rr
+        self.milpObjVal = objvalue
 
+        #CX
+        for rrname in self.fh.rrList:
+            startIndex = outputAsString.index("Cx("+rrname+")")
+            realstartIndex = outputAsString.index(" ",startIndex)
+            endIndex = outputAsString.index("\n",startIndex)
+            cx = outputAsString[realstartIndex+1:endIndex]
+            for rr in self.collection:
+                if rr.name == rrname:
+                    rr.cx = cx
+
+        #Cy
+        for rrname in self.fh.rrList:
+            startIndex = outputAsString.index("Cy("+rrname+")")
+            realstartIndex = outputAsString.index(" ",startIndex)
+            endIndex = outputAsString.index("\n",startIndex)
+            cy = outputAsString[realstartIndex+1:endIndex]
+            print(rrname + " ::::: " + cy)
+            for rr in self.collection:
+                if rr.name == rrname:
+                    rr.cy = cy
         return
 

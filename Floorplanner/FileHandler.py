@@ -1,19 +1,27 @@
 import ReconfigurableRegion
 
 class FileHandler:
-    def __init__(self, dat, power, thermCond, aSect):
-        self.dat = dat
+    def __init__(self, confu, power, thermCond, aSect):
+        self.confu = confu
         self.power = power
         self.thermCond = thermCond
         self.aSect = aSect
         self.changeIndex = 0
 
-        datFH = open(self.dat)
-        self.count = len(datFH.readLines())
-        datFH.close()
+        with open(self.confu, 'r') as f_in:
+            s2 = f_in.read()
 
-        #TODO should read the .dat, parse it, create the reconfigurable regions and put them in self.rrList
-        datFH = open(self.dat)
+        startIndex = s2.index("set N := ")
+        endIndex = s2.index(";",startIndex)
+        set = s2[startIndex:endIndex] #set = "set N := rec1 rec2 rec3 .. recn"
+
+        self.count = len(set.split()) - 3
+
+        self.rrList = list()
+
+        for i in xrange(self.count):
+            recNum = i + 1
+            self.rrList.append("rec" + `recNum`)
 
         self.thermCondDict = [[0 for x in xrange(self.count)] for x in xrange(self.count)]
         self.aSectDict = [[0 for x in xrange(self.count)] for x in xrange(self.count)]
@@ -21,13 +29,21 @@ class FileHandler:
         thermCondFH = open(self.thermCond)
         aSectFH = open(self.aSect)
 
-        for rrName in self.rrList:
-            for rrName2 in self.rrList:
-                self.thermCondDict[rrName][rrName2] = self.getWordFromLine(thermCondFH.readline(), rrName2)
-                self.aSectDict[rrName][rrName2] = self.getWordFromLine(aSectFH.readline(), rrName2)
+        for rr1 in xrange(self.count):
+            for rr2 in xrange(self.count):
+                self.thermCondDict[rr1][rr2] = self.getWordFromLine(thermCondFH.readline(), rr2)
+                self.aSectDict[rr1][rr2] = self.getWordFromLine(aSectFH.readline(), rr2)
 
         thermCondFH.close()
         aSectFH.close()
+
+        powerFH = open(self.power)
+        self.powerDict = [0 for x in xrange(self.count)]
+
+        for rrName in self.rrList:
+            self.powerDict[rrName] = powerFH.readline()
+
+        powerFH.close()
 
 
     def getRRCount(self):
@@ -38,14 +54,16 @@ class FileHandler:
         return self.thermCondDict
     def getASectDict(self):
         return self.aSectDict
+    def getPowerDict(self):
+        return self.powerDict
 
     def createFirstDat(self, sequencePair, distanceVector):
         #TODO
         # when this is called a valid sequence pair should be available
         #call this after you put all the reconfig regions in the RRManager (after the parsing is of .dat is done)
 
-        with open ("confu.dat", "r") as myfile:
-            text=myfile.readlines()
+        with open (self.confu, "r") as myfile:
+            text=myfile.read()
 
         self.changeIndex = len(text)
         #PARTE CHE CAMBIA

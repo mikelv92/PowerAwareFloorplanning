@@ -6,7 +6,7 @@ import ReconfigurableRegion
 import RRManager
 import SequencePair
 import Solution
-import FileHandler
+from FileHandler import FileHandler
 
 def acceptanceProbability(current, new, temp):
     if current > new:
@@ -15,6 +15,7 @@ def acceptanceProbability(current, new, temp):
         return math.exp(current - new / temp)
 
 def main():
+    #confu, power, thermCond, ASect
     fh = FileHandler(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 
     #Data structures to hold the input information
@@ -25,9 +26,12 @@ def main():
 
     rrManager = RRManager(thermCondDict, aSectDict, fh)
 
-    for rr in fh.getRRList():
-        #rr = ReconfigurableRegion(rrName, 0, 0, 0, 0, powerFH.readline(), 1000, rrManager)
+    powerDict = fh.getPowerDict()
+    for rrName in fh.getRRList():
+        rr = ReconfigurableRegion(rrName, 0, 0, powerDict[rrName], 1000, rrManager)
         rrManager.addRR(rr)
+
+    fh.createFirstDat(rrManager.sequencePair, rrManager.distanceVector)
 
     saTemperature = 10000
     saCoolingRate = 0.003

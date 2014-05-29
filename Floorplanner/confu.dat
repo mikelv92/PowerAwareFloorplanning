@@ -1,0 +1,39 @@
+data;
+# set delle regioni da piazzare
+set N := rec1 rec2 rec3 rec4;
+
+# connessioni tra una regione ed un punto fisso sull'FPGA che rappresenta un IO (lasciare vuoto)
+param:	IO:		ioX		ioY		ioWires :=
+;
+
+# requisiti di risorse per le regioni
+param	c:	CLB	BRAM	DSP :=
+	rec1	1000	0	0
+	rec2	300	4	0
+	rec3	200	0	4
+	rec4	200	0	0
+;
+
+# interconnessioni (wires) tra le regioni, (esempi qui sotto: 4 fili da rec2 a rec1, 10 fili da rec3 a rec1)
+param comm default 0:=
+		rec1	rec2	40
+		rec3	rec1	100
+;
+
+# pesi assegnati alle metriche della funzione obiettivo, le metriche assumono tutte valori da 0 a 1 (sono normalizzate)
+# peso per la wire length totale
+param qWL := 0.3333333333333333;
+
+# peso per il consumo di risorse totale
+param qR := 0.3333333333333333;
+
+# perso per il "consumo" di perimetro totale
+param qP := 0.3333333333333333;
+
+# pesi per dire quanto mi costa sprecare una CLB, DSP o BRAM, in questo esempio i costi sono tutti unitari e non c'è
+# differenza tra sprecare una risorsa piuttosto che un'altra
+param: rct :=
+	CLB	1
+	DSP	1
+	BRAM	1
+;

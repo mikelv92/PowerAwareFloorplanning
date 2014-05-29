@@ -4,4 +4,6 @@ class SequencePair:
         self.sequence1 = seq2
 
     def __init__(self):
+        self.sequence1 = list()
+        self.sequence2 = list()
         return
