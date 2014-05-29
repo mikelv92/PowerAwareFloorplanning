@@ -1,7 +1,7 @@
 import os
 import numpy
 from random import randint
-import SequencePair
+from SequencePair import SequencePair
 
 class RRManager:
     def __init__(self, thermCondDict, aSectDict, fh):
@@ -9,17 +9,18 @@ class RRManager:
         self.thermCondDict = thermCondDict
         self.aSectDict = aSectDict
         self.tempArray = []
-        self.sequencePair = SequencePair()
-        self.distanceVector = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
+        self.sequencePair = SequencePair(list(), list())
         self.fh = fh
         self.milpObjVal = 0
 
     def addRR(self, rr):
         self.collection.append(rr)
-        self.getSequence1().append(rr)
-        self.getSequence2().append(rr)
+        self.getSequence1().append(rr.name)
+        self.getSequence2().append(rr.name)
         self.randomPermute(self.getSequence1())
         self.randomPermute(self.getSequence2())
+        self.distanceVector = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
+
 
     def popRR(self, pos):
         return self.collection.pop(pos)
@@ -175,7 +176,7 @@ class RRManager:
         epsilon = 20
         maxTemp = 0
         minTemp = 1000
-        for i in xrange(len(self.collection) - 1):
+        for i in xrange(len(self.collection)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
             if self.collection[i].temp < minTemp:
@@ -214,7 +215,6 @@ class RRManager:
             realstartIndex = outputAsString.index(" ",startIndex)
             endIndex = outputAsString.index("\n",startIndex)
             cy = outputAsString[realstartIndex+1:endIndex]
-            print(rrname + " ::::: " + cy)
             for rr in self.collection:
                 if rr.name == rrname:
                     rr.cy = cy

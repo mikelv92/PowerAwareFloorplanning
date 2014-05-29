@@ -1,5 +1,3 @@
-import RRManager
-
 class ReconfigurableRegion:
     def __init__(self, name, cx, cy, power, temp, rrManager):
         self.name = name
@@ -13,14 +11,17 @@ class ReconfigurableRegion:
         Lij = 0
         if self.cx < rr.cx:
             if self.cy < rr.cy:
-                Lij = rr.cx - self.cx + rr.cy - self.cy
+                Lij = (rr.cx - self.cx) + (rr.cy - self.cy)
             else:
-                Lij = rr.cx - self.cx + self.cy - rr.cy
+                Lij = (rr.cx - self.cx) + (self.cy - rr.cy)
         else:
             if self.cy < rr.cy:
-                Lij = self.cx - rr.cx + rr.cy - self.cy
+                Lij = (self.cx - rr.cx) + (rr.cy - self.cy)
             else:
-                Lij = self.cx - rr.cx + self.cy - rr.cy
+                Lij = (self.cx - rr.cx) + (self.cy - rr.cy)
+        print Lij
+        print self.cx, self.cy, rr.cx, rr.cy
+        print Lij / (self.mgr.getTempConstant(self, rr) * self.mgr.getSectArea(self, rr))
         return Lij / (self.mgr.getTempConstant(self, rr) * self.mgr.getSectArea(self, rr))
 
     def isOnTopOf(self, rr):

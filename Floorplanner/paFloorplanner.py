@@ -2,10 +2,10 @@ import sys
 import math
 from random import randint
 from random import random
-import ReconfigurableRegion
-import RRManager
-import SequencePair
-import Solution
+from ReconfigurableRegion import ReconfigurableRegion
+from RRManager import RRManager
+from SequencePair import SequencePair
+from Solution import Solution
 from FileHandler import FileHandler
 
 def acceptanceProbability(current, new, temp):
@@ -27,8 +27,10 @@ def main():
     rrManager = RRManager(thermCondDict, aSectDict, fh)
 
     powerDict = fh.getPowerDict()
-    for rrName in fh.getRRList():
-        rr = ReconfigurableRegion(rrName, 0, 0, powerDict[rrName], 1000, rrManager)
+    for rrNum in xrange(rrCount):
+        #what values to give as cx and cy?
+        print rrNum
+        rr = ReconfigurableRegion("rec" + `rrNum + 1`, 0, 0, powerDict[rrNum], 1000*random(), rrManager)
         rrManager.addRR(rr)
 
     fh.createFirstDat(rrManager.sequencePair, rrManager.distanceVector)
@@ -37,11 +39,12 @@ def main():
     saCoolingRate = 0.003
 
     currentSolutionCost = rrManager.getSolutionCost()
-    sequencePair = SequencePair()
-    distanceVector = [[0 for x in xrange(len(rrCount))] for x in xrange(len(rrCount))]
+    sequencePair = SequencePair(list(), list())
+    distanceVector = [[0 for x in xrange(rrCount)] for x in xrange(rrCount)]
     goodSolutions = []
 
     while not rrManager.isUniformityReached() and saTemperature > 1:
+        print "annealing"
         choice = randint(1, 2)
         if choice == 1:
             sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
