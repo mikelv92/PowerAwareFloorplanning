@@ -44,13 +44,17 @@ def main():
     distanceVector = [[0 for x in xrange(rrCount)] for x in xrange(rrCount)]
     goodSolutions = []
 
-    while not rrManager.isUniformityReached() and saTemperature > 1:
+    for i in xrange(3):
+    #while not rrManager.isUniformityReached() and saTemperature > 1:
         print "annealing"
         choice = randint(1, 2)
+        sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
         if choice == 1:
             sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
         else:
+            print("sequence prima "+str(sequencePair.sequence1))
             distanceVector = rrManager.makeDistanceVectorMove()
+            print("sequence dopo "+str(sequencePair.sequence1))
         rrManager.applyMILP(sequencePair, distanceVector)
         rrManager.calculateTemperatures()
         

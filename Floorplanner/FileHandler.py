@@ -68,20 +68,22 @@ class FileHandler:
         #Sequence pair 1
         text = text + " \n\nparam: pair1Regions: pair1 :=\n"
         i = 0
+        print(sequencePair.sequence1)
         for rrName in sequencePair.sequence1:
             text = text + "\t" + rrName + "\t" + `i` + "\n"
             i += 1
 
         #Sequence pair 2
-        text += text + ";\n\nparam: pair2Regions: pair2 :=\n"
+        text = text + ";\n\nparam: pair2Regions: pair2 :=\n"
         i = 0
+        print(sequencePair.sequence2)
         for rrName in sequencePair.sequence2:
             text = text + "\t" + rrName + "\t" + `i` + "\n"
             i += 1
 
         #Distanze minime
-        text += text +";\nparam minDist default 0:=\n"
-        #print distanceVector
+        text = text +";\nparam minDist default 0:=\n"
+        print distanceVector
         for reg1 in range(self.getRRCount()):
             for reg2 in range(self.getRRCount()):
                 if distanceVector[reg1][reg2]!=0:

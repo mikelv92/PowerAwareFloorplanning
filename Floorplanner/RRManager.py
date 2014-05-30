@@ -147,6 +147,7 @@ class RRManager:
         maxTempIndex1 = 0
         maxTempIndex2 = 0
         a = self.distanceVector[:]
+        print(a)
         for i in xrange(0, len(a) - 1):
             if self.collection[i].temp > self.collection[maxTempIndex1].temp:
                 maxTempIndex1 = i
@@ -162,6 +163,7 @@ class RRManager:
         index1 = 0
         index2 = 0
         a = self.distanceVector[:]
+        print(a)
         while index1 == index2:
             index1 = randint(0, len(a) - 1)
             index2 = randint(0, len(a) - 1)
