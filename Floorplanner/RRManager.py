@@ -17,10 +17,11 @@ class RRManager:
         self.collection.append(rr)
         self.getSequence1().append(rr.name)
         self.getSequence2().append(rr.name)
-        self.randomPermute(self.getSequence1())
-        self.randomPermute(self.getSequence2())
+        seq1 = self.randomPermute(self.getSequence1())
+        seq2 =self.randomPermute(self.getSequence2())
+        self.sequencePair.sequence1 = seq1
+        self.sequencePair.sequence2 = seq2
         self.distanceVector = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
-
 
     def popRR(self, pos):
         return self.collection.pop(pos)
@@ -36,7 +37,7 @@ class RRManager:
 
     @staticmethod
     def randomPermute(l):
-        a = list(l)
+        a = l[:]
         b = []
         while len(a) > 0:
             b.append(a.pop(randint(0, len(a)-1)))
@@ -62,12 +63,10 @@ class RRManager:
         #fill the coefficient matrix
         for i in xrange(len(self.collection)):
             for j in xrange(len(self.collection)):
-                print "i", i, "j", j
                 rri = self.collection[i]
                 rrj = self.collection[j]
                 if i == j:
                     for k in xrange(len(self.collection)):
-                        print "k", k
                         if i != k:
                             rrk = self.collection[k]
                             a[i][j] += 1 / rri.calcThermResistance(rrk)
@@ -88,15 +87,18 @@ class RRManager:
     def makeSwapMove(self):
         choice = randint(0, 1)
         if choice == 0:
+            print "RandomSwapping"
             return self.randomSwapInSequencePair()
         else:
+            print "IntelligentSwapping"
             return self.intelligentSwapInSequencePair()
 
     def randomSwapInSequencePair(self):
         index1 = 0
         index2 = 0
-        a = list(self.getSequence1())
-        b = list(self.getSequence2())
+        a = self.getSequence1()[:]
+        b = self.getSequence2()[:]
+        print "a", a
         while index1 == index2:
             index1 = randint(0, len(a) - 1)
             index2 = randint(0, len(a) - 1)
@@ -108,13 +110,14 @@ class RRManager:
         return SequencePair(a, b)
 
     def intelligentSwapInSequencePair(self):
-        a = list(self.getSequence1())
-        b = list(self.getSequence2())
+        a = self.getSequence1()[:]
+        b = self.getSequence2()[:]
+        print "a", a, "b", b
         maxTempIndex = 0
         minTempIndex = 0
         maxTemp = 0
         minTemp = 1000
-        for i in xrange(len(a) - 1):
+        for i in xrange(len(a)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
                 maxTempIndex = i
@@ -122,6 +125,7 @@ class RRManager:
                 minTemp = self.collection[i].temp
                 minTempIndex = i
         sequenceToAlter = randint(1, 2)
+        print "minIndex", minTempIndex, "maxIndex", maxTempIndex
         if sequenceToAlter == 1:
             a[minTempIndex], a[maxTempIndex] = a[maxTempIndex], a[minTempIndex]
         else:
@@ -131,8 +135,10 @@ class RRManager:
     def makeDistanceVectorMove(self):
         choice = randint(0, 1)
         if choice == 0:
+            print "RandomVectoring"
             return self.randomIncDistanceVector()
         else:
+            print "IntelligentVectoring"
             return self.intelligentIncDistanceVector()
 
     def intelligentIncDistanceVector(self):
@@ -140,7 +146,7 @@ class RRManager:
         index2 = 0
         maxTempIndex1 = 0
         maxTempIndex2 = 0
-        a = list(self.distanceVector)
+        a = self.distanceVector[:]
         for i in xrange(0, len(a) - 1):
             if self.collection[i].temp > self.collection[maxTempIndex1].temp:
                 maxTempIndex1 = i
@@ -155,7 +161,7 @@ class RRManager:
     def randomIncDistanceVector(self):
         index1 = 0
         index2 = 0
-        a = list(self.distanceVector)
+        a = self.distanceVector[:]
         while index1 == index2:
             index1 = randint(0, len(a) - 1)
             index2 = randint(0, len(a) - 1)
@@ -187,7 +193,7 @@ class RRManager:
         return maxTemp - minTemp < epsilon
 
     def applyMILP(self, sequencePair, distanceVector):
-        self.fh.changeDat(sequencePair, distanceVector)
+        self.fh.updateDat(sequencePair, distanceVector)
         os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan.mod --wlp model.lp --check")
         os.system("gurobi_cl ResultFile=problem.sol model.lp")
 

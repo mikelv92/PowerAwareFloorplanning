@@ -32,8 +32,9 @@ def main():
         print rrNum
         rr = ReconfigurableRegion("rec" + `rrNum + 1`, 0, 0, powerDict[rrNum], 1000*random(), rrManager)
         rrManager.addRR(rr)
+        print rrManager.getSequence1()
 
-    fh.createFirstDat(rrManager.sequencePair, rrManager.distanceVector)
+    fh.updateDat(rrManager.sequencePair, rrManager.distanceVector)
 
     saTemperature = 10000
     saCoolingRate = 0.003

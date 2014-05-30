@@ -57,7 +57,7 @@ class FileHandler:
     def getPowerDict(self):
         return self.powerDict
 
-    def createFirstDat(self, sequencePair, distanceVector):
+    def updateDat(self, sequencePair, distanceVector):
         with open (self.confu, "r") as myfile:
             text=myfile.read()
 
@@ -69,72 +69,31 @@ class FileHandler:
         text = text + " \n\nparam: pair1Regions: pair1 :=\n"
         i = 0
         for rrName in sequencePair.sequence1:
-            text = text + "\t" + rrName + " " + `i` + "\n"
+            text = text + "\t" + rrName + "\t" + `i` + "\n"
             i += 1
 
         #Sequence pair 2
-        text = text + ";\n\nparam: pair2Regions: pair2 :=\n"
+        text += text + ";\n\nparam: pair2Regions: pair2 :=\n"
         i = 0
         for rrName in sequencePair.sequence2:
-            text = text + "\t" + rrName + " " + `i` + "\n"
+            text = text + "\t" + rrName + "\t" + `i` + "\n"
             i += 1
 
         #Distanze minime
-        text = text +";\nparam minDist default 0:=\n"
-        print distanceVector
+        text += text +";\nparam minDist default 0:=\n"
+        #print distanceVector
         for reg1 in range(self.getRRCount()):
             for reg2 in range(self.getRRCount()):
                 if distanceVector[reg1][reg2]!=0:
-                    text= "rec" + str(reg1+1) + " rec" + str(reg2+1) + distanceVector[reg1][reg2] + "\n"
+                    text = text +"rec" + str(reg1+1) + " rec" + str(reg2+1) + " " + str(distanceVector[reg1][reg2]) + "\n"
 
 
-        text= text + "\;\n\nend;"
+        text = text + ";\n\nend;"
 
 
 
         f = open("/tmp/temp.dat", "w")
         f.seek(0)
-        f.write(text)
-        f.truncate()
-        f.close()
-        return
-
-    def changeDat(self, sequencePair, distanceVector):
-
-
-        #PARTE CHE CAMBIA
-
-
-        #Sequence pair 1
-        text = " \n\nparam: pair1Regions: pair1 :=\n"
-        i = 0
-        for rrName in sequencePair.sequence1:
-            text = text + "\t" + rrName + " " + str(i) + '\n'
-            i += 1
-
-
-        #Sequence pair 2
-        text = text + ";\n\nparam: pair2Regions: pair2 :=\n"
-        i = 0
-        for rrName in sequencePair.sequence2:
-            text = text + "\t" + rrName + " " + str(i) + '\n'
-            i += 1
-
-
-
-        #Distanze minime
-        text = text +";\nparam minDist default 0:=\n"
-        for reg1 in range(self.getRRCount()):
-            for reg2 in range(self.getRRCount()):
-                if distanceVector[reg1][reg2]!=0:
-                    text= "rec" + str(reg1+1) + " rec" + str(reg2+1) + str(distanceVector[reg1][reg2]) + "\n"
-
-
-        text= text + "\;\n\nend;"
-
-
-        f = open("/tmp/temp.dat", "w")
-        f.seek(self.changeIndex)
         f.write(text)
         f.truncate()
         f.close()

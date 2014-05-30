@@ -19,9 +19,6 @@ class ReconfigurableRegion:
                 Lij = (self.cx - rr.cx) + (rr.cy - self.cy)
             else:
                 Lij = (self.cx - rr.cx) + (self.cy - rr.cy)
-        print Lij
-        print self.cx, self.cy, rr.cx, rr.cy
-        print Lij / (self.mgr.getTempConstant(self, rr) * self.mgr.getSectArea(self, rr))
         return Lij / (self.mgr.getTempConstant(self, rr) * self.mgr.getSectArea(self, rr))
 
     def isOnTopOf(self, rr):
