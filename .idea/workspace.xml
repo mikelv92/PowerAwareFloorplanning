@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23bd5179-dd7f-4f7a-ad10-a11740496e68" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" afterPath="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/RRManager.py" afterPath="$PROJECT_DIR$/Floorplanner/RRManager.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PowerAwareFloorplanning.iws" />
@@ -26,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="paFloorplanner.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="paFloorplanner.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="4" selection-start="1407" selection-end="1407" vertical-scroll-proportion="0.4238156" vertical-offset="239" max-vertical-offset="1050">
+            <state line="67" column="54" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="1200">
               <folding />
             </state>
           </provider>
@@ -62,10 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RRManager.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RRManager.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="205" column="62" selection-start="7320" selection-end="7320" vertical-scroll-proportion="0.0" vertical-offset="2640" max-vertical-offset="3540">
+            <state line="167" column="0" selection-start="6077" selection-end="6077" vertical-scroll-proportion="0.63380283" vertical-offset="1965" max-vertical-offset="3780">
               <folding />
             </state>
           </provider>
@@ -100,8 +100,8 @@
         <option value="$PROJECT_DIR$/Floorplanner/Solution.py" />
         <option value="$PROJECT_DIR$/Floorplanner/FileHandler.py" />
         <option value="$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py" />
-        <option value="$PROJECT_DIR$/Floorplanner/RRManager.py" />
         <option value="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" />
+        <option value="$PROJECT_DIR$/Floorplanner/RRManager.py" />
       </list>
     </option>
   </component>
@@ -676,16 +676,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
+    <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="205" column="62" selection-start="7320" selection-end="7320" vertical-scroll-proportion="0.0" vertical-offset="2640" max-vertical-offset="3540">
+        <state line="67" column="54" selection-start="2518" selection-end="2518" vertical-scroll-proportion="0.0" vertical-offset="299" max-vertical-offset="1080">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
+    <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="4" selection-start="1407" selection-end="1407" vertical-scroll-proportion="0.4238156" vertical-offset="239" max-vertical-offset="1050">
+        <state line="167" column="0" selection-start="6077" selection-end="6077" vertical-scroll-proportion="0.63380283" vertical-offset="1965" max-vertical-offset="3780">
           <folding />
         </state>
       </provider>

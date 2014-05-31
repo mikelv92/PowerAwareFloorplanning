@@ -151,16 +151,20 @@ class RRManager:
         maxTempIndex2 = 0
         a = self.distanceVector[:]
         print(a)
-        for i in xrange(0, len(a) - 1):
+        for i in xrange(len(a)):
             if self.collection[i].temp > self.collection[maxTempIndex1].temp:
                 maxTempIndex1 = i
-        for i in xrange(0, len(a) - 1):
-            if self.collection[i].temp > self.collection[maxTempIndex2].temp:
-                if self.collection[i].temp <= self.collection[maxTempIndex1].temp:
-                    maxTempIndex2 = i
-        a[maxTempIndex1][maxTempIndex2] += 1
-        return a
-
+            for j in xrange(len(a)):
+                if i == j: continue
+                else:
+                    if self.collection[j].temp > self.collection[maxTempIndex2].temp:
+                        if self.collection[j].temp <= self.collection[maxTempIndex1].temp:
+                            maxTempIndex2 = j
+        if maxTempIndex1 == maxTempIndex2:
+            return self.randomIncDistanceVector()
+        else:
+            a[maxTempIndex1][maxTempIndex2] += 1
+            return a
 
     def randomIncDistanceVector(self):
         index1 = 0
