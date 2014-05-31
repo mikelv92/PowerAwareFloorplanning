@@ -174,11 +174,13 @@ class RRManager:
         return a
 
     def getSolutionCost(self):
+        weightSA = 0.5
+        weightMILP = 0.5
         maxTemp = 0
         for i in xrange(len(self.collection) - 1):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
-        return maxTemp #should return alpha*maxTemp + beta*milpCost
+        return weightSA*maxTemp+weightMILP*self.milpObjVal
 
     def updateSequencePair(self, pair):
         self.sequencePair = pair
