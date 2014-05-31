@@ -174,6 +174,8 @@ class RRManager:
         return a
 
     def getSolutionCost(self):
+        if self.milpObjVal == 817609:
+            return 817609
         weightSA = 0.5
         weightMILP = 0.5
         maxTemp = 0
@@ -208,12 +210,15 @@ class RRManager:
             outputAsString = f_in.read()
 
         #Objective value
-        startIndex = outputAsString.index("Objective value =")
-        realstartIndex = outputAsString.index("= ",startIndex)
-        endIndex = outputAsString.index("\n",startIndex)
-        objvalue = outputAsString[realstartIndex+2:endIndex]
-        print("OBJ VALUE IS "+objvalue)
-        self.milpObjVal = float(objvalue)
+        try:
+            startIndex = outputAsString.index("Objective value =")
+            realstartIndex = outputAsString.index("= ",startIndex)
+            endIndex = outputAsString.index("\n",startIndex)
+            objvalue = outputAsString[realstartIndex+2:endIndex]
+            print("OBJ VALUE IS "+objvalue)
+            self.milpObjVal = float(objvalue)
+        except:
+            self.milpObjVal = 817609 #wow such big number very matricola not much accept many magic number
 
         #CX
         for rrname in self.fh.rrList:

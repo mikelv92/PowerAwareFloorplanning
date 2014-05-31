@@ -9,6 +9,8 @@ from Solution import Solution
 from FileHandler import FileHandler
 
 def acceptanceProbability(current, new, temp):
+    if new == 817609:
+        return 0
     if current > new:
         return 1
     else:

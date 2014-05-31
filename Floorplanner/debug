@@ -1,0 +1,1300 @@
+0
+['rec1']
+1
+['rec1', 'rec2']
+2
+['rec1', 'rec2', 'rec3']
+3
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec3', 'rec4', 'rec1', 'rec2']
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4']
+sequence prima ['rec2', 'rec3', 'rec1', 'rec4']
+RandomVectoring
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec2', 'rec3', 'rec1', 'rec4']
+['rec2', 'rec3', 'rec1', 'rec4']
+['rec3', 'rec4', 'rec1', 'rec2']
+[[0, 0, 0, 1], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4']
+sequence prima ['rec2', 'rec3', 'rec1', 'rec4']
+RandomVectoring
+[[0, 0, 0, 1], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec2', 'rec3', 'rec1', 'rec4']
+['rec2', 'rec3', 'rec1', 'rec4']
+['rec3', 'rec2', 'rec1', 'rec4']
+[[0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4']
+IntelligentSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4'] b ['rec3', 'rec2', 'rec1', 'rec4']
+minIndex 2 maxIndex 0
+['rec2', 'rec3', 'rec1', 'rec4']
+['rec1', 'rec2', 'rec3', 'rec4']
+[[0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4'] b ['rec1', 'rec2', 'rec3', 'rec4']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4'] b ['rec1', 'rec2', 'rec3', 'rec4']
+minIndex 2 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec2', 'rec3', 'rec4']
+[[0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec2', 'rec3', 'rec4']
+minIndex 2 maxIndex 0
+sequence prima ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec2', 'rec1', 'rec4']
+[[0, 1, 0, 1], [1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+sequence prima ['rec3', 'rec1', 'rec2', 'rec4']
+RandomVectoring
+[[0, 1, 0, 1], [1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec2', 'rec1', 'rec4']
+[[0, 1, 0, 1], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+sequence prima ['rec3', 'rec1', 'rec2', 'rec4']
+RandomVectoring
+[[0, 1, 0, 1], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec2', 'rec4', 'rec1']
+[[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec3', 'rec2', 'rec4', 'rec1']
+[[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4']
+RandomSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec3', 'rec4', 'rec1']
+[[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec2', 'rec3', 'rec4', 'rec1']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec2', 'rec3', 'rec4', 'rec1']
+minIndex 2 maxIndex 0
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec4', 'rec3', 'rec2', 'rec1']
+[[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4']
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec4', 'rec3', 'rec2', 'rec1']
+minIndex 2 maxIndex 0
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec4', 'rec3', 'rec2', 'rec1']
+[[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4'] b ['rec4', 'rec3', 'rec2', 'rec1']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+sequence prima ['rec2', 'rec1', 'rec3', 'rec4']
+RandomVectoring
+[[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[0, 1, 1, 1], [2, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4']
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[0, 1, 1, 1], [2, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4']
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[0, 1, 1, 1], [2, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+sequence prima ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[0, 1, 1, 1], [2, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[0, 1, 1, 1], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+['rec2', 'rec3', 'rec1', 'rec4']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[0, 1, 1, 1], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[0, 1, 1, 1], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+sequence prima ['rec3', 'rec1', 'rec2', 'rec4']
+IntelligentVectoring
+[[0, 1, 1, 1], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[1, 1, 1, 1], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[1, 1, 1, 1], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4']
+sequence prima ['rec2', 'rec1', 'rec3', 'rec4']
+RandomVectoring
+[[1, 1, 1, 1], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[1, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4']
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec1', 'rec3', 'rec2', 'rec4']
+minIndex 2 maxIndex 0
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[1, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4'] b ['rec1', 'rec3', 'rec2', 'rec4']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec4', 'rec3', 'rec2', 'rec1']
+[[1, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+sequence prima ['rec3', 'rec4', 'rec2', 'rec1']
+IntelligentVectoring
+[[1, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec3', 'rec4', 'rec2', 'rec1']
+['rec3', 'rec4', 'rec2', 'rec1']
+['rec4', 'rec3', 'rec2', 'rec1']
+[[2, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec4', 'rec2', 'rec1']
+RandomSwapping
+a ['rec3', 'rec4', 'rec2', 'rec1']
+['rec3', 'rec4', 'rec2', 'rec1']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[2, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec4', 'rec2', 'rec1']
+sequence prima ['rec3', 'rec4', 'rec2', 'rec1']
+IntelligentVectoring
+[[2, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec3', 'rec4', 'rec2', 'rec1']
+['rec3', 'rec4', 'rec2', 'rec1']
+['rec1', 'rec2', 'rec3', 'rec4']
+[[3, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec4', 'rec2', 'rec1']
+sequence prima ['rec1', 'rec4', 'rec2', 'rec3']
+IntelligentVectoring
+[[3, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec2', 'rec3', 'rec4']
+[[4, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[4, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+sequence prima ['rec1', 'rec4', 'rec2', 'rec3']
+RandomVectoring
+[[4, 1, 1, 2], [2, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[4, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+['rec2', 'rec4', 'rec1', 'rec3']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[4, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec4', 'rec1', 'rec3']
+IntelligentSwapping
+a ['rec2', 'rec4', 'rec1', 'rec3'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+['rec2', 'rec4', 'rec1', 'rec3']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[4, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec4', 'rec1', 'rec3']
+sequence prima ['rec2', 'rec1', 'rec4', 'rec3']
+IntelligentVectoring
+[[4, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec2', 'rec1', 'rec4', 'rec3']
+['rec2', 'rec1', 'rec4', 'rec3']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[5, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+sequence prima ['rec4', 'rec1', 'rec2', 'rec3']
+IntelligentVectoring
+[[5, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec4', 'rec1', 'rec2', 'rec3']
+['rec4', 'rec1', 'rec2', 'rec3']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[6, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+sequence prima ['rec2', 'rec1', 'rec4', 'rec3']
+IntelligentVectoring
+[[6, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec2', 'rec1', 'rec4', 'rec3']
+['rec2', 'rec1', 'rec4', 'rec3']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[7, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[7, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+sequence prima ['rec3', 'rec1', 'rec2', 'rec4']
+RandomVectoring
+[[7, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0]]
+sequence dopo ['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[7, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+sequence prima ['rec3', 'rec1', 'rec2', 'rec4']
+IntelligentVectoring
+[[7, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[8, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[8, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+sequence prima ['rec3', 'rec1', 'rec2', 'rec4']
+IntelligentVectoring
+[[8, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec4', 'rec1', 'rec3', 'rec2']
+[[9, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+sequence prima ['rec3', 'rec1', 'rec2', 'rec4']
+RandomVectoring
+[[9, 1, 1, 2], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+[[9, 1, 1, 3], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4'] b ['rec2', 'rec1', 'rec3', 'rec4']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+['rec3', 'rec2', 'rec1', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+[[9, 1, 1, 3], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec2', 'rec1', 'rec4']
+sequence prima ['rec3', 'rec2', 'rec1', 'rec4']
+IntelligentVectoring
+[[9, 1, 1, 3], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec3', 'rec2', 'rec1', 'rec4']
+['rec3', 'rec2', 'rec1', 'rec4']
+['rec2', 'rec4', 'rec3', 'rec1']
+[[10, 1, 1, 3], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec2', 'rec1', 'rec4']
+sequence prima ['rec3', 'rec2', 'rec1', 'rec4']
+RandomVectoring
+[[10, 1, 1, 3], [3, 0, 0, 0], [2, 0, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec3', 'rec2', 'rec1', 'rec4']
+['rec3', 'rec2', 'rec1', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+[[10, 1, 1, 3], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec2', 'rec1', 'rec4'] b ['rec2', 'rec1', 'rec3', 'rec4']
+minIndex 2 maxIndex 0
+sequence prima ['rec1', 'rec2', 'rec3', 'rec4']
+RandomVectoring
+[[10, 1, 1, 3], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec1', 'rec2', 'rec3', 'rec4']
+['rec1', 'rec2', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+[[10, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec2', 'rec3', 'rec4']
+IntelligentSwapping
+a ['rec1', 'rec2', 'rec3', 'rec4'] b ['rec2', 'rec1', 'rec3', 'rec4']
+minIndex 2 maxIndex 0
+['rec3', 'rec2', 'rec1', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+[[10, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec2', 'rec1', 'rec4'] b ['rec2', 'rec1', 'rec3', 'rec4']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec3', 'rec2', 'rec1', 'rec4']
+['rec3', 'rec4', 'rec1', 'rec2']
+['rec2', 'rec1', 'rec3', 'rec4']
+[[10, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec4', 'rec1', 'rec2'] b ['rec2', 'rec1', 'rec3', 'rec4']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec3', 'rec4', 'rec1', 'rec2']
+['rec4', 'rec3', 'rec1', 'rec2']
+['rec2', 'rec1', 'rec3', 'rec4']
+[[10, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec3', 'rec1', 'rec2'] b ['rec2', 'rec1', 'rec3', 'rec4']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec4', 'rec3', 'rec1', 'rec2'] b ['rec2', 'rec1', 'rec3', 'rec4']
+minIndex 2 maxIndex 0
+['rec4', 'rec3', 'rec1', 'rec2']
+['rec3', 'rec1', 'rec2', 'rec4']
+[[10, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec3', 'rec1', 'rec2']
+sequence prima ['rec4', 'rec2', 'rec1', 'rec3']
+IntelligentVectoring
+[[10, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec4', 'rec2', 'rec1', 'rec3']
+['rec4', 'rec2', 'rec1', 'rec3']
+['rec3', 'rec1', 'rec2', 'rec4']
+[[11, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3']
+RandomSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3']
+['rec4', 'rec2', 'rec1', 'rec3']
+['rec4', 'rec1', 'rec2', 'rec3']
+[[11, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3']
+IntelligentSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3'] b ['rec4', 'rec1', 'rec2', 'rec3']
+minIndex 2 maxIndex 0
+['rec4', 'rec2', 'rec1', 'rec3']
+['rec2', 'rec1', 'rec4', 'rec3']
+[[11, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3']
+RandomSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3']
+['rec4', 'rec1', 'rec2', 'rec3']
+['rec2', 'rec1', 'rec4', 'rec3']
+[[11, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3'] b ['rec2', 'rec1', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec4', 'rec1', 'rec2', 'rec3']
+RandomVectoring
+[[11, 1, 1, 4], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec4', 'rec1', 'rec2', 'rec3']
+['rec4', 'rec1', 'rec2', 'rec3']
+['rec4', 'rec1', 'rec2', 'rec3']
+[[11, 1, 1, 5], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3'] b ['rec4', 'rec1', 'rec2', 'rec3']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3'] b ['rec4', 'rec1', 'rec2', 'rec3']
+minIndex 2 maxIndex 0
+['rec4', 'rec1', 'rec2', 'rec3']
+['rec2', 'rec1', 'rec4', 'rec3']
+[[11, 1, 1, 5], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3'] b ['rec2', 'rec1', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec2', 'rec1', 'rec4', 'rec3']
+IntelligentVectoring
+[[11, 1, 1, 5], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec2', 'rec1', 'rec4', 'rec3']
+['rec2', 'rec1', 'rec4', 'rec3']
+['rec2', 'rec1', 'rec4', 'rec3']
+[[12, 1, 1, 5], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3']
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3'] b ['rec2', 'rec1', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+['rec2', 'rec1', 'rec4', 'rec3']
+['rec4', 'rec1', 'rec2', 'rec3']
+[[12, 1, 1, 5], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3'] b ['rec4', 'rec1', 'rec2', 'rec3']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3']
+['rec1', 'rec2', 'rec4', 'rec3']
+['rec4', 'rec1', 'rec2', 'rec3']
+[[12, 1, 1, 5], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec2', 'rec4', 'rec3'] b ['rec4', 'rec1', 'rec2', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec1', 'rec2', 'rec4', 'rec3']
+RandomVectoring
+[[12, 1, 1, 5], [3, 0, 0, 0], [2, 1, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec1', 'rec2', 'rec4', 'rec3']
+['rec1', 'rec2', 'rec4', 'rec3']
+['rec2', 'rec1', 'rec4', 'rec3']
+[[12, 1, 1, 5], [3, 0, 0, 0], [2, 2, 0, 0], [0, 1, 0, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec2', 'rec4', 'rec3']
+sequence prima ['rec1', 'rec2', 'rec3', 'rec4']
+RandomVectoring
+[[12, 1, 1, 5], [3, 0, 0, 0], [2, 2, 0, 0], [0, 1, 0, 0]]
+sequence dopo ['rec1', 'rec2', 'rec3', 'rec4']
+['rec1', 'rec2', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec4', 'rec3']
+[[12, 1, 1, 5], [3, 0, 0, 0], [2, 2, 0, 1], [0, 1, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec2', 'rec3', 'rec4'] b ['rec2', 'rec1', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec3', 'rec2', 'rec1', 'rec4']
+RandomVectoring
+[[12, 1, 1, 5], [3, 0, 0, 0], [2, 2, 0, 1], [0, 1, 0, 0]]
+sequence dopo ['rec3', 'rec2', 'rec1', 'rec4']
+['rec3', 'rec2', 'rec1', 'rec4']
+['rec2', 'rec1', 'rec4', 'rec3']
+[[12, 1, 1, 5], [3, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec2', 'rec1', 'rec4']
+sequence prima ['rec3', 'rec2', 'rec1', 'rec4']
+RandomVectoring
+[[12, 1, 1, 5], [3, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+sequence dopo ['rec3', 'rec2', 'rec1', 'rec4']
+['rec3', 'rec2', 'rec1', 'rec4']
+['rec2', 'rec3', 'rec4', 'rec1']
+[[12, 2, 1, 5], [3, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec2', 'rec1', 'rec4'] b ['rec2', 'rec3', 'rec4', 'rec1']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec3', 'rec2', 'rec1', 'rec4']
+['rec4', 'rec2', 'rec1', 'rec3']
+['rec2', 'rec3', 'rec4', 'rec1']
+[[12, 2, 1, 5], [3, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3'] b ['rec2', 'rec3', 'rec4', 'rec1']
+minIndex 2 maxIndex 0
+sequence prima ['rec1', 'rec2', 'rec4', 'rec3']
+RandomVectoring
+[[12, 2, 1, 5], [3, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+sequence dopo ['rec1', 'rec2', 'rec4', 'rec3']
+['rec1', 'rec2', 'rec4', 'rec3']
+['rec2', 'rec3', 'rec4', 'rec1']
+[[12, 2, 1, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec2', 'rec4', 'rec3'] b ['rec2', 'rec3', 'rec4', 'rec1']
+minIndex 2 maxIndex 0
+sequence prima ['rec4', 'rec2', 'rec1', 'rec3']
+IntelligentVectoring
+[[12, 2, 1, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+sequence dopo ['rec4', 'rec2', 'rec1', 'rec3']
+['rec4', 'rec2', 'rec1', 'rec3']
+['rec2', 'rec3', 'rec4', 'rec1']
+[[13, 2, 1, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3'] b ['rec2', 'rec3', 'rec4', 'rec1']
+minIndex 2 maxIndex 0
+sequence prima ['rec4', 'rec2', 'rec1', 'rec3']
+IntelligentVectoring
+[[13, 2, 1, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+sequence dopo ['rec4', 'rec2', 'rec1', 'rec3']
+['rec4', 'rec2', 'rec1', 'rec3']
+['rec4', 'rec3', 'rec2', 'rec1']
+[[14, 2, 1, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3'] b ['rec4', 'rec3', 'rec2', 'rec1']
+minIndex 2 maxIndex 0
+sequence prima ['rec1', 'rec2', 'rec4', 'rec3']
+RandomVectoring
+[[14, 2, 1, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+sequence dopo ['rec1', 'rec2', 'rec4', 'rec3']
+['rec1', 'rec2', 'rec4', 'rec3']
+['rec4', 'rec3', 'rec2', 'rec1']
+[[14, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec2', 'rec4', 'rec3'] b ['rec4', 'rec3', 'rec2', 'rec1']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec1', 'rec2', 'rec4', 'rec3']
+['rec1', 'rec2', 'rec4', 'rec3']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[14, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec2', 'rec4', 'rec3']
+sequence prima ['rec4', 'rec2', 'rec1', 'rec3']
+RandomVectoring
+[[14, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 1, 1, 0]]
+sequence dopo ['rec4', 'rec2', 'rec1', 'rec3']
+['rec4', 'rec2', 'rec1', 'rec3']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[14, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec4', 'rec2', 'rec1', 'rec3']
+['rec4', 'rec2', 'rec3', 'rec1']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[14, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec2', 'rec3', 'rec1']
+IntelligentSwapping
+a ['rec4', 'rec2', 'rec3', 'rec1'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+['rec3', 'rec2', 'rec4', 'rec1']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[14, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec2', 'rec4', 'rec1']
+IntelligentSwapping
+a ['rec3', 'rec2', 'rec4', 'rec1'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+['rec3', 'rec2', 'rec4', 'rec1']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[14, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec2', 'rec4', 'rec1'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+sequence prima ['rec3', 'rec2', 'rec4', 'rec1']
+IntelligentVectoring
+[[14, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec3', 'rec2', 'rec4', 'rec1']
+['rec3', 'rec2', 'rec4', 'rec1']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[15, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec2', 'rec4', 'rec1']
+sequence prima ['rec1', 'rec2', 'rec4', 'rec3']
+IntelligentVectoring
+[[15, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec1', 'rec2', 'rec4', 'rec3']
+['rec1', 'rec2', 'rec4', 'rec3']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[16, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec2', 'rec4', 'rec3']
+IntelligentSwapping
+a ['rec1', 'rec2', 'rec4', 'rec3'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+['rec1', 'rec2', 'rec4', 'rec3']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[16, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec2', 'rec4', 'rec3']
+sequence prima ['rec2', 'rec1', 'rec4', 'rec3']
+IntelligentVectoring
+[[16, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec2', 'rec1', 'rec4', 'rec3']
+['rec2', 'rec1', 'rec4', 'rec3']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[17, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3']
+RandomSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3']
+['rec2', 'rec1', 'rec4', 'rec3']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[17, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3'] b ['rec1', 'rec3', 'rec2', 'rec4']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3'] b ['rec1', 'rec3', 'rec2', 'rec4']
+minIndex 2 maxIndex 0
+['rec2', 'rec1', 'rec4', 'rec3']
+['rec2', 'rec3', 'rec1', 'rec4']
+[[17, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3']
+RandomSwapping
+a ['rec2', 'rec1', 'rec4', 'rec3']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec3', 'rec1', 'rec4']
+[[17, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec2', 'rec3', 'rec1', 'rec4']
+minIndex 2 maxIndex 0
+sequence prima ['rec2', 'rec1', 'rec3', 'rec4']
+RandomVectoring
+[[17, 2, 2, 5], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[17, 2, 2, 6], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4']
+sequence prima ['rec2', 'rec1', 'rec3', 'rec4']
+RandomVectoring
+[[17, 2, 2, 6], [4, 0, 0, 0], [2, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[17, 2, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4']
+sequence prima ['rec2', 'rec1', 'rec3', 'rec4']
+RandomVectoring
+[[17, 2, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[17, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec1', 'rec2', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec1', 'rec2', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[17, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4'] b ['rec1', 'rec2', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec2', 'rec1', 'rec3', 'rec4']
+IntelligentVectoring
+[[17, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[18, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec1', 'rec2', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec2', 'rec1', 'rec3', 'rec4']
+IntelligentVectoring
+[[18, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec2', 'rec1', 'rec3', 'rec4']
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec4', 'rec2', 'rec1', 'rec3']
+[[19, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec4', 'rec2', 'rec1', 'rec3']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec2', 'rec1', 'rec3', 'rec4'] b ['rec4', 'rec2', 'rec1', 'rec3']
+minIndex 2 maxIndex 0
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec4', 'rec2', 'rec1', 'rec3']
+[[19, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4'] b ['rec4', 'rec2', 'rec1', 'rec3']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4'] b ['rec4', 'rec2', 'rec1', 'rec3']
+minIndex 2 maxIndex 0
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[19, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec1', 'rec2', 'rec4']
+sequence prima ['rec3', 'rec4', 'rec2', 'rec1']
+IntelligentVectoring
+[[19, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec3', 'rec4', 'rec2', 'rec1']
+['rec3', 'rec4', 'rec2', 'rec1']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[20, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec4', 'rec2', 'rec1']
+RandomSwapping
+a ['rec3', 'rec4', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[20, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3'] b ['rec1', 'rec2', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec4', 'rec2', 'rec1', 'rec3']
+[[20, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec2', 'rec4', 'rec1', 'rec3']
+[[20, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[20, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec1', 'rec4', 'rec2', 'rec3']
+IntelligentVectoring
+[[20, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec2', 'rec4', 'rec1', 'rec3']
+[[21, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3'] b ['rec2', 'rec4', 'rec1', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec1', 'rec4', 'rec2', 'rec3']
+IntelligentVectoring
+[[21, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[22, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+IntelligentSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 2 maxIndex 0
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec2', 'rec4', 'rec1', 'rec3']
+[[22, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+sequence prima ['rec1', 'rec4', 'rec2', 'rec3']
+IntelligentVectoring
+[[22, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec2', 'rec3', 'rec1', 'rec4']
+[[23, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3'] b ['rec2', 'rec3', 'rec1', 'rec4']
+minIndex 2 maxIndex 0
+sequence prima ['rec1', 'rec4', 'rec2', 'rec3']
+RandomVectoring
+[[23, 3, 2, 6], [4, 0, 0, 0], [3, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[23, 3, 2, 6], [4, 0, 0, 1], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3'] b ['rec1', 'rec3', 'rec2', 'rec4']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+['rec2', 'rec3', 'rec1', 'rec4']
+[[23, 3, 2, 6], [4, 0, 0, 1], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec1', 'rec4', 'rec2', 'rec3'] b ['rec2', 'rec3', 'rec1', 'rec4']
+minIndex 2 maxIndex 0
+sequence prima ['rec2', 'rec4', 'rec1', 'rec3']
+RandomVectoring
+[[23, 3, 2, 6], [4, 0, 0, 1], [3, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec2', 'rec4', 'rec1', 'rec3']
+['rec2', 'rec4', 'rec1', 'rec3']
+['rec2', 'rec3', 'rec1', 'rec4']
+[[23, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec4', 'rec1', 'rec3'] b ['rec2', 'rec3', 'rec1', 'rec4']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec2', 'rec4', 'rec1', 'rec3']
+['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec3', 'rec1', 'rec4']
+[[23, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 1], [0, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec4', 'rec3', 'rec1'] b ['rec2', 'rec3', 'rec1', 'rec4']
+minIndex 2 maxIndex 0
+sequence prima ['rec3', 'rec4', 'rec2', 'rec1']
+RandomVectoring
+[[23, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 1], [0, 2, 1, 0]]
+sequence dopo ['rec3', 'rec4', 'rec2', 'rec1']
+['rec3', 'rec4', 'rec2', 'rec1']
+['rec2', 'rec3', 'rec1', 'rec4']
+[[23, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 1], [1, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec3', 'rec4', 'rec2', 'rec1'] b ['rec2', 'rec3', 'rec1', 'rec4']
+minIndex 2 maxIndex 0
+sequence prima ['rec2', 'rec4', 'rec3', 'rec1']
+RandomVectoring
+[[23, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 1], [1, 2, 1, 0]]
+sequence dopo ['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec3', 'rec1', 'rec4']
+[[23, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec4', 'rec3', 'rec1']
+sequence prima ['rec2', 'rec4', 'rec3', 'rec1']
+IntelligentVectoring
+[[23, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 2, 1, 0]]
+sequence dopo ['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec3', 'rec4', 'rec1']
+[[24, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec4', 'rec3', 'rec1']
+sequence prima ['rec2', 'rec4', 'rec3', 'rec1']
+IntelligentVectoring
+[[24, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 2, 1, 0]]
+sequence dopo ['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec1', 'rec4', 'rec3']
+[[25, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec4', 'rec3', 'rec1'] b ['rec2', 'rec1', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec2', 'rec4', 'rec3', 'rec1']
+IntelligentVectoring
+[[25, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 2, 1, 0]]
+sequence dopo ['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec4', 'rec3', 'rec1']
+['rec4', 'rec1', 'rec2', 'rec3']
+[[26, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 2, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec4', 'rec3', 'rec1']
+IntelligentSwapping
+a ['rec2', 'rec4', 'rec3', 'rec1'] b ['rec4', 'rec1', 'rec2', 'rec3']
+minIndex 2 maxIndex 0
+['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec1', 'rec4', 'rec3']
+[[26, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 2, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec4', 'rec3', 'rec1'] b ['rec2', 'rec1', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec2', 'rec4', 'rec3', 'rec1']
+RandomVectoring
+[[26, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 2, 1, 0]]
+sequence dopo ['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec4', 'rec3', 'rec1']
+['rec4', 'rec1', 'rec2', 'rec3']
+[[26, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec4', 'rec3', 'rec1']
+sequence prima ['rec2', 'rec3', 'rec4', 'rec1']
+RandomVectoring
+[[26, 3, 2, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+sequence dopo ['rec2', 'rec3', 'rec4', 'rec1']
+['rec2', 'rec3', 'rec4', 'rec1']
+['rec4', 'rec1', 'rec2', 'rec3']
+[[26, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1'] b ['rec4', 'rec1', 'rec2', 'rec3']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1']
+['rec2', 'rec3', 'rec4', 'rec1']
+['rec4', 'rec2', 'rec1', 'rec3']
+[[26, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1'] b ['rec4', 'rec2', 'rec1', 'rec3']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1']
+['rec2', 'rec3', 'rec4', 'rec1']
+['rec3', 'rec2', 'rec1', 'rec4']
+[[26, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1'] b ['rec3', 'rec2', 'rec1', 'rec4']
+minIndex 2 maxIndex 0
+sequence prima ['rec2', 'rec3', 'rec4', 'rec1']
+IntelligentVectoring
+[[26, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+sequence dopo ['rec2', 'rec3', 'rec4', 'rec1']
+['rec2', 'rec3', 'rec4', 'rec1']
+['rec1', 'rec2', 'rec3', 'rec4']
+[[27, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1']
+RandomSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1']
+['rec2', 'rec3', 'rec1', 'rec4']
+['rec1', 'rec2', 'rec3', 'rec4']
+[[27, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4']
+sequence prima ['rec2', 'rec3', 'rec1', 'rec4']
+IntelligentVectoring
+[[27, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+sequence dopo ['rec2', 'rec3', 'rec1', 'rec4']
+['rec2', 'rec3', 'rec1', 'rec4']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[28, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4'] b ['rec1', 'rec2', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[28, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 2], [1, 3, 1, 0]]
+sequence dopo ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[28, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+sequence prima ['rec4', 'rec3', 'rec2', 'rec1']
+IntelligentVectoring
+[[28, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+sequence dopo ['rec4', 'rec3', 'rec2', 'rec1']
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[29, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec3', 'rec2', 'rec1'] b ['rec1', 'rec2', 'rec4', 'rec3']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec4', 'rec3', 'rec2', 'rec1']
+['rec4', 'rec1', 'rec2', 'rec3']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[29, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3']
+RandomSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3']
+['rec4', 'rec1', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[29, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3']
+sequence prima ['rec4', 'rec1', 'rec2', 'rec3']
+IntelligentVectoring
+[[29, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+sequence dopo ['rec4', 'rec1', 'rec2', 'rec3']
+['rec4', 'rec1', 'rec2', 'rec3']
+['rec1', 'rec4', 'rec3', 'rec2']
+[[30, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3'] b ['rec1', 'rec4', 'rec3', 'rec2']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3'] b ['rec1', 'rec4', 'rec3', 'rec2']
+minIndex 2 maxIndex 0
+['rec4', 'rec1', 'rec2', 'rec3']
+['rec3', 'rec4', 'rec1', 'rec2']
+[[30, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3'] b ['rec3', 'rec4', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+RandomSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3']
+['rec4', 'rec1', 'rec2', 'rec3']
+['rec4', 'rec3', 'rec1', 'rec2']
+[[30, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3']
+IntelligentSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3'] b ['rec4', 'rec3', 'rec1', 'rec2']
+minIndex 2 maxIndex 0
+['rec4', 'rec1', 'rec2', 'rec3']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[30, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3']
+RandomSwapping
+a ['rec4', 'rec1', 'rec2', 'rec3']
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[30, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec3', 'rec2', 'rec1'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec4', 'rec3', 'rec2', 'rec1'] b ['rec1', 'rec3', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+['rec2', 'rec3', 'rec4', 'rec1']
+['rec1', 'rec3', 'rec4', 'rec2']
+[[30, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1']
+RandomSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1']
+['rec2', 'rec3', 'rec4', 'rec1']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[30, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1']
+RandomSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1']
+['rec2', 'rec3', 'rec4', 'rec1']
+['rec4', 'rec2', 'rec1', 'rec3']
+[[30, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1']
+sequence prima ['rec2', 'rec3', 'rec4', 'rec1']
+IntelligentVectoring
+[[30, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+sequence dopo ['rec2', 'rec3', 'rec4', 'rec1']
+['rec2', 'rec3', 'rec4', 'rec1']
+['rec2', 'rec4', 'rec1', 'rec3']
+[[31, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec3', 'rec4', 'rec1'] b ['rec2', 'rec4', 'rec1', 'rec3']
+minIndex 2 maxIndex 0
+sequence prima ['rec4', 'rec3', 'rec2', 'rec1']
+RandomVectoring
+[[31, 3, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+sequence dopo ['rec4', 'rec3', 'rec2', 'rec1']
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec2', 'rec4', 'rec1', 'rec3']
+[[31, 4, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec3', 'rec2', 'rec1']
+sequence prima ['rec4', 'rec2', 'rec3', 'rec1']
+IntelligentVectoring
+[[31, 4, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+sequence dopo ['rec4', 'rec2', 'rec3', 'rec1']
+['rec4', 'rec2', 'rec3', 'rec1']
+['rec2', 'rec4', 'rec1', 'rec3']
+[[32, 4, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec2', 'rec3', 'rec1']
+sequence prima ['rec4', 'rec2', 'rec3', 'rec1']
+RandomVectoring
+[[32, 4, 3, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+sequence dopo ['rec4', 'rec2', 'rec3', 'rec1']
+['rec4', 'rec2', 'rec3', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[32, 4, 4, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec2', 'rec3', 'rec1']
+sequence prima ['rec4', 'rec2', 'rec3', 'rec1']
+RandomVectoring
+[[32, 4, 4, 7], [4, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+sequence dopo ['rec4', 'rec2', 'rec3', 'rec1']
+['rec4', 'rec2', 'rec3', 'rec1']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[32, 4, 4, 7], [5, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec2', 'rec3', 'rec1'] b ['rec1', 'rec3', 'rec2', 'rec4']
+minIndex 2 maxIndex 0
+sequence prima ['rec4', 'rec2', 'rec3', 'rec1']
+IntelligentVectoring
+[[32, 4, 4, 7], [5, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+sequence dopo ['rec4', 'rec2', 'rec3', 'rec1']
+['rec4', 'rec2', 'rec3', 'rec1']
+['rec2', 'rec3', 'rec1', 'rec4']
+[[33, 4, 4, 7], [5, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+IntelligentSwapping
+a ['rec4', 'rec2', 'rec3', 'rec1'] b ['rec2', 'rec3', 'rec1', 'rec4']
+minIndex 2 maxIndex 0
+IntelligentSwapping
+a ['rec4', 'rec2', 'rec3', 'rec1'] b ['rec2', 'rec3', 'rec1', 'rec4']
+minIndex 2 maxIndex 0
+['rec4', 'rec2', 'rec3', 'rec1']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[33, 4, 4, 7], [5, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec4', 'rec2', 'rec3', 'rec1']
+IntelligentSwapping
+a ['rec4', 'rec2', 'rec3', 'rec1'] b ['rec1', 'rec3', 'rec2', 'rec4']
+minIndex 2 maxIndex 0
+['rec3', 'rec2', 'rec4', 'rec1']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[33, 4, 4, 7], [5, 0, 0, 1], [3, 2, 0, 3], [1, 3, 1, 0]]
+annealing
+RandomSwapping
+a ['rec3', 'rec2', 'rec4', 'rec1']
+RandomSwapping
+a ['rec3', 'rec2', 'rec4', 'rec1']
+['rec3', 'rec2', 'rec4', 'rec1']
+['rec2', 'rec3', 'rec1', 'rec4
