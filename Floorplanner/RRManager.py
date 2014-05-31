@@ -77,12 +77,17 @@ class RRManager:
         for i in xrange(len(self.collection)):
             b[i] = -1 * self.collection[i].power
 
+
+        print("coefficent matrix: "+str(a))
+        print("know term matrix: "+str(b))
+
         #solve
         coefficientMatrix = numpy.array(a);
         knownTermMatrix = numpy.array(b);
         self.tempArray = numpy.linalg.solve(coefficientMatrix, knownTermMatrix)
         for i in xrange(len(self.collection)):
             self.collection[i].temp = self.tempArray[i]
+            print("Temperatura regione "+str(i)+" = "+str(self.collection[i].temp))
 
     def makeSwapMove(self):
         choice = randint(0, 1)
@@ -142,8 +147,6 @@ class RRManager:
             return self.intelligentIncDistanceVector()
 
     def intelligentIncDistanceVector(self):
-        index1 = 0
-        index2 = 0
         maxTempIndex1 = 0
         maxTempIndex2 = 0
         a = self.distanceVector[:]
@@ -196,7 +199,7 @@ class RRManager:
 
     def applyMILP(self, sequencePair, distanceVector):
         self.fh.updateDat(sequencePair, distanceVector)
-        os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan.mod --wlp model.lp --check")
+        os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan.mod --wlp model.lp --check > /dev/null")
         os.system("gurobi_cl ResultFile=problem.sol model.lp")
 
         with open("problem.sol", 'r') as f_in:
@@ -205,17 +208,18 @@ class RRManager:
         #Objective value
         startIndex = outputAsString.index("Objective value =")
         realstartIndex = outputAsString.index("= ",startIndex)
-        endIndex = outputAsString.index("\r\n",startIndex)
+        endIndex = outputAsString.index("\n",startIndex)
         objvalue = outputAsString[realstartIndex+2:endIndex]
-
+        print("OBJ VALUE IS "+objvalue)
         self.milpObjVal = float(objvalue)
 
         #CX
         for rrname in self.fh.rrList:
             startIndex = outputAsString.index("Cx("+rrname+")")
             realstartIndex = outputAsString.index(" ",startIndex)
-            endIndex = outputAsString.index("\r\n",startIndex)
+            endIndex = outputAsString.index("\n",startIndex)
             cx = outputAsString[realstartIndex+1:endIndex]
+            print("Cx "+rrname +" is "+cx)
             for rr in self.collection:
                 if rr.name == rrname:
                     rr.cx = float(cx)
@@ -224,8 +228,9 @@ class RRManager:
         for rrname in self.fh.rrList:
             startIndex = outputAsString.index("Cy("+rrname+")")
             realstartIndex = outputAsString.index(" ",startIndex)
-            endIndex = outputAsString.index("\r\n",startIndex)
+            endIndex = outputAsString.index("\n",startIndex)
             cy = outputAsString[realstartIndex+1:endIndex]
+            print("Cy "+rrname +" is "+cy)
             for rr in self.collection:
                 if rr.name == rrname:
                     rr.cy = float(cy)

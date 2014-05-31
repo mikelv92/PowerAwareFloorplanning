@@ -1,0 +1,83 @@
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2466 rows and 352 columns
+Presolve time: 0.05s
+Presolved: 1033 rows, 338 columns, 3828 nonzeros
+Variable types: 255 continuous, 83 integer (70 binary)
+Found heuristic solution: objective 0.3152493
+
+Root relaxation: objective 1.037023e-01, 244 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10370    0   18    0.31525    0.10370  67.1%     -    0s
+H    0     0                       0.1818076    0.10370  43.0%     -    0s
+H    0     0                       0.1777406    0.10370  41.7%     -    0s
+     0     0    0.10681    0   25    0.17774    0.10681  39.9%     -    0s
+     0     0    0.10681    0   28    0.17774    0.10681  39.9%     -    0s
+     0     0    0.10681    0   23    0.17774    0.10681  39.9%     -    0s
+H    0     0                       0.1334182    0.10681  19.9%     -    0s
+     0     0    0.10681    0   19    0.13342    0.10681  19.9%     -    0s
+     0     0    0.10681    0   15    0.13342    0.10681  19.9%     -    0s
+     0     0    0.10681    0    9    0.13342    0.10681  19.9%     -    0s
+     0     0    0.10681    0   15    0.13342    0.10681  19.9%     -    0s
+     0     0    0.10681    0   14    0.13342    0.10681  19.9%     -    0s
+H    0     0                       0.1142116    0.10681  6.48%     -    0s
+     0     0    0.10681    0   19    0.11421    0.10681  6.48%     -    0s
+     0     0    0.10681    0   20    0.11421    0.10681  6.48%     -    0s
+     0     0    0.10681    0   20    0.11421    0.10681  6.48%     -    0s
+     0     2    0.10681    0   17    0.11421    0.10681  6.48%     -    0s
+
+Cutting planes:
+  Gomory: 5
+  Cover: 1
+  MIR: 6
+  Flow cover: 8
+
+Explored 5699 nodes (55383 simplex iterations) in 4.80 seconds
+Thread count was 2 (of 2 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.142116472594e-01, best bound 1.142116472594e-01, gap 0.0%
+
+Wrote result file 'problem.sol'
+
+0
+['rec1']
+1
+['rec1', 'rec2']
+2
+['rec1', 'rec3', 'rec2']
+3
+['rec2', 'rec4', 'rec3', 'rec1']
+['rec2', 'rec4', 'rec3', 'rec1']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+IntelligentSwapping
+a ['rec2', 'rec4', 'rec3', 'rec1'] b ['rec1', 'rec3', 'rec2', 'rec4']
+minIndex 1 maxIndex 3
+IntelligentSwapping
+a ['rec2', 'rec4', 'rec3', 'rec1'] b ['rec1', 'rec3', 'rec2', 'rec4']
+minIndex 1 maxIndex 3
+['rec2', 'rec1', 'rec3', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+OBJ VALUE IS 1.1421164725935018e-01
+Cx rec1 is 16
+Cx rec2 is 17
+Cx rec3 is 38
+Cx rec4 is 70
+Cy rec1 is 3.9999999999999929e+01
+Cy rec2 is 8.9999999999999801e+01
+Cy rec3 is 40
+Cy rec4 is 6.9999999999999730e+01
+coefficent matrix: [[12.83868092691621, -2.8235294117647127, -7.681818181818158, -2.333333333333339], [-8.647058823529433, 23.98817400778567, -7.450704225352134, -7.890410958904101], [-43.68181818181804, -14.422535211267647, 76.74951468340835, -18.645161290322662], [-20.01190476190481, -24.164383561643813, -29.82258064516142, 73.99886896871004]]
+coefficent matrix: [-123, -123, -123, -123]
