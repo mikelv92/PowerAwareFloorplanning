@@ -164,6 +164,7 @@ class RRManager:
             return self.randomIncDistanceVector()
         else:
             a[maxTempIndex1][maxTempIndex2] += 1
+            a[maxTempIndex2][maxTempIndex1] = a[maxTempIndex1][maxTempIndex2]
             return a
 
     def randomIncDistanceVector(self):
@@ -175,6 +176,7 @@ class RRManager:
             index1 = randint(0, len(a) - 1)
             index2 = randint(0, len(a) - 1)
         a[index1][index2] += 1
+        a[index2][index1] = a[index1][index2]
         return a
 
     def getSolutionCost(self):

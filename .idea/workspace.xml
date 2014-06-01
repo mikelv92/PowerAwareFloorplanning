@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="23bd5179-dd7f-4f7a-ad10-a11740496e68" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/RRManager.py" afterPath="$PROJECT_DIR$/Floorplanner/RRManager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/model.lp" afterPath="$PROJECT_DIR$/Floorplanner/model.lp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PowerAwareFloorplanning.iws" />
@@ -65,7 +66,7 @@
       <file leaf-file-name="RRManager.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="0" selection-start="6077" selection-end="6077" vertical-scroll-proportion="0.63380283" vertical-offset="1965" max-vertical-offset="3780">
+            <state line="89" column="83" selection-start="3311" selection-end="3311" vertical-scroll-proportion="0.65300894" vertical-offset="780" max-vertical-offset="3810">
               <folding />
             </state>
           </provider>
@@ -685,7 +686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="0" selection-start="6077" selection-end="6077" vertical-scroll-proportion="0.63380283" vertical-offset="1965" max-vertical-offset="3780">
+        <state line="89" column="83" selection-start="3311" selection-end="3311" vertical-scroll-proportion="0.65300894" vertical-offset="780" max-vertical-offset="3810">
           <folding />
         </state>
       </provider>
