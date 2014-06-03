@@ -283,8 +283,8 @@ class RRManager:
 
 
             x1= round(float(x))
-            y1= round(float(y-1))
-            w1= round(float(w+1))
+            y1= round(float(y)-1)
+            w1= round(float(w)+1)
             a1= round(float(a))
             #     x,y,w,a
             #addRegion(2,1,8,1);
@@ -301,7 +301,7 @@ class RRManager:
         f.close()
         os.system("gnome-open '/home/davide/Downloads/HPPS MILP/FCCM_demo/index"+str(self.filescritti)+".html'")
         time.sleep(5)
-        os.system("sleep 10;import -window root $HOME/Desktop/img/filename"+str(self.filescritti)+".png")
+        os.system("sleep 3;import -window root $HOME/Desktop/img/filename"+str(self.filescritti)+".png")
         #os.system("xdotool key --windowid \"$(xdotool --search --title FCCM 2014 | head -n 1)\" F5")
         os.system("xdotool search \"Mozilla Firefox\" windowactivate --sync key --clearmodifiers ctrl+w")
         self.filescritti +=1
