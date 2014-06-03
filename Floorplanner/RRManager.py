@@ -73,7 +73,7 @@ class RRManager:
         b = [0 for x in xrange(len(self.collection) + 1)]
 
         #fill the coefficient matrix
-        for i in xrange(len(self.collection)):
+        for i in xrange(1, len(self.collection)):
             for j in xrange(len(self.collection)):
                 rri = self.collection[i]
                 rrj = self.collection[j]
@@ -89,7 +89,7 @@ class RRManager:
             a[len(self.collection)][i] = -1 / self.airResistance
 
         #fill the known term matrix
-        for i in xrange(len(self.collection)):
+        for i in xrange(1, len(self.collection)):
             b[i] = (-1 * self.collection[i].power) + (self.airTemp / self.airResistance)
         b[len(self.collection)] = (len(self.collection) * self.airTemp) / self.airResistance
 
