@@ -6,12 +6,14 @@ from SequencePair import SequencePair
 
 class RRManager:
     filescritti = 1
-    def __init__(self, thermCond, aSect, sliceHeight, sliceWidth, fh):
+    def __init__(self, thermCond, aSect, sliceHeight, sliceWidth, airTemp, airResistance, fh):
         self.collection = []
         self.thermCond = thermCond
         self.aSect = aSect
         self.sliceHeight = sliceHeight
         self.sliceWidth = sliceWidth
+        self.airTemp = airTemp
+        self.airResistance = airResistance
         self.tempArray = []
         self.sequencePair = SequencePair(list(), list())
         self.fh = fh
@@ -66,9 +68,9 @@ class RRManager:
         return self.sequencePair.sequence2
 
     def calculateTemperatures(self):
-        #declare the coefficient and known term matrices
-        a = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
-        b = [0 for x in xrange(len(self.collection))]
+        #declare the coefficient and known term matrices, +1 for Tair
+        a = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection) + 1)]
+        b = [0 for x in xrange(len(self.collection) + 1)]
 
         #fill the coefficient matrix
         for i in xrange(len(self.collection)):
@@ -80,12 +82,16 @@ class RRManager:
                         if i != k:
                             rrk = self.collection[k]
                             a[i][j] += 1 / rri.calcThermResistance(rrk)
+                    a[i][j] += 1 / self.airResistance
                 else:
                     a[i][j] = -1 / rri.calcThermResistance(rrj)
+        for i in xrange(len(self.collection)):
+            a[i][len(self.collection)] = -1 / self.airResistance
 
         #fill the known term matrix
         for i in xrange(len(self.collection)):
-            b[i] = -1 * self.collection[i].power
+            b[i] = (-1 * self.collection[i].power) + (self.airTemp / self.airResistance)
+        b[len(self.collection)] = (len(self.collection) * self.airTemp) / self.airResistance
 
 
         print("coefficent matrix: "+str(a))
@@ -260,10 +266,11 @@ class RRManager:
                 for rr in self.collection:
                     if rr.name == rrname:
                         rr.cy = float(cy)
+
+            self.drawOnBrowser(outputAsString)
         except:
             self.milpObjVal = 817609 #wow such big number very matricola not much accept many magic number
 
-        self.drawOnBrowser(outputAsString)
         return
 
 

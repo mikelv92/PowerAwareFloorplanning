@@ -4,8 +4,8 @@
     <list default="true" id="23bd5179-dd7f-4f7a-ad10-a11740496e68" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/FileHandler.py" afterPath="$PROJECT_DIR$/Floorplanner/FileHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/RRManager.py" afterPath="$PROJECT_DIR$/Floorplanner/RRManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py" afterPath="$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" afterPath="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PowerAwareFloorplanning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +31,7 @@
       <file leaf-file-name="paFloorplanner.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="24" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
+            <state line="31" column="93" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
               <folding />
             </state>
           </provider>
@@ -40,7 +40,16 @@
       <file leaf-file-name="RRManager.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="52" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.13671875" vertical-offset="870" max-vertical-offset="4755">
+            <state line="93" column="92" selection-start="3364" selection-end="3364" vertical-scroll-proportion="0.47265625" vertical-offset="972" max-vertical-offset="4860">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileHandler.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Floorplanner/FileHandler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="25" selection-start="1603" selection-end="1603" vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="1620">
               <folding />
             </state>
           </provider>
@@ -64,10 +73,10 @@
         <option value="$PROJECT_DIR$/Floorplanner/__init__.py" />
         <option value="$PROJECT_DIR$/Floorplanner/SequencePair.py" />
         <option value="$PROJECT_DIR$/Floorplanner/Solution.py" />
+        <option value="$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py" />
         <option value="$PROJECT_DIR$/Floorplanner/FileHandler.py" />
         <option value="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" />
         <option value="$PROJECT_DIR$/Floorplanner/RRManager.py" />
-        <option value="$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py" />
       </list>
     </option>
   </component>
@@ -103,6 +112,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -137,13 +147,17 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="false" />
     <property name="SearchEverywhereHistory" value="" />
     <property name="recentsLimit" value="5" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings />
+    </option>
   </component>
   <component name="RunManager" selected="Python.paFloorplanner">
     <configuration default="false" name="paFloorplanner" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -319,11 +333,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -347,9 +361,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Floorplanner/Solution.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="24" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
-          <folding />
-        </state>
+        <state line="6" column="24" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
@@ -644,16 +656,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/Solution.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="24" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
+        <state line="6" column="24" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/SequencePair.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="22" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
-          <folding />
-        </state>
+        <state line="3" column="22" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py">
@@ -665,21 +673,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/FileHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="14" selection-start="2842" selection-end="2842" vertical-scroll-proportion="0.9615877" vertical-offset="749" max-vertical-offset="1590">
+        <state line="53" column="25" selection-start="1603" selection-end="1603" vertical-scroll-proportion="0.0" vertical-offset="89" max-vertical-offset="1620">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="24" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
+        <state line="31" column="93" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="52" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.13671875" vertical-offset="870" max-vertical-offset="4755">
+        <state line="93" column="92" selection-start="3364" selection-end="3364" vertical-scroll-proportion="0.47265625" vertical-offset="972" max-vertical-offset="4860">
           <folding />
         </state>
       </provider>

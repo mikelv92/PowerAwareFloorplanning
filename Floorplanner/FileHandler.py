@@ -20,16 +20,14 @@ class FileHandler:
             recNum = i + 1
             self.rrList.append("rec" + `recNum`)
 
-        self.thermCond = 0
-        self.aSect = 0
-
         constFH = open(self.const)
 
         self.thermCond = int(constFH.readline().split()[0])
         self.aSect = int(constFH.readline().split()[0])
         self.sliceHeight = int(constFH.readline().split()[0])
         self.sliceWidth = int(constFH.readline().split()[0])
-
+        self.airTemp = int(constFH.readline().split()[0])
+        self.airResistance = int(constFH.readline().split()[0])
         constFH.close()
 
         powerFH = open(self.power)
@@ -53,6 +51,10 @@ class FileHandler:
         return self.sliceHeight
     def getSliceWidth(self):
         return self.sliceWidth
+    def getAirTemp(self):
+        return self.airTemp
+    def getAirResistance(self):
+        return self.airResistance
     def getPowerDict(self):
         return self.powerDict
 

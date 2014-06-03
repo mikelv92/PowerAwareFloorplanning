@@ -27,8 +27,9 @@ def main():
     aSect = fh.getASectDict()
     sliceHeight = fh.getSliceHeight()
     sliceWidth = fh.getSliceWidth()
-
-    rrManager = RRManager(thermCond, aSect, sliceHeight, sliceWidth, fh)
+    airTemp = fh.getAirTemp()
+    airResistance = fh.getAirResistance()
+    rrManager = RRManager(thermCond, aSect, sliceHeight, sliceWidth, airTemp, airResistance, fh)
 
     powerDict = fh.getPowerDict()
     for rrNum in xrange(rrCount):
