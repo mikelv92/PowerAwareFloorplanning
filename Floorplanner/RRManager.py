@@ -70,7 +70,7 @@ class RRManager:
     def calculateTemperatures(self):
         #declare the coefficient and known term matrices, +1 for Tair
         a = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
-        b = [0 for x in xrange(len(self.collection) + 1)]
+        b = [0 for x in xrange(len(self.collection))]
 
         #fill the coefficient matrix
         for i in xrange(1, len(self.collection)):
@@ -81,10 +81,10 @@ class RRManager:
                     for k in xrange(len(self.collection)):
                         if i != k:
                             rrk = self.collection[k]
-                            a[i][j] += 1 / rri.calcThermResistance(rrk)
-                    a[i][j] += 1 / self.airResistance
+                            a[i - 1][j] += 1 / rri.calcThermResistance(rrk)
+                    a[i - 1][j] += 1 / self.airResistance
                 else:
-                    a[i][j] = -1 / rri.calcThermResistance(rrj)
+                    a[i - 1][j] = -1 / rri.calcThermResistance(rrj)
         for i in xrange(len(self.collection)):
             a[len(self.collection) - 1][i] = -1 / self.airResistance
 
