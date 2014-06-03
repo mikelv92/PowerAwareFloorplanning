@@ -230,31 +230,30 @@ class RRManager:
             objvalue = outputAsString[realstartIndex+2:endIndex]
             print("OBJ VALUE IS "+objvalue)
             self.milpObjVal = float(objvalue)
-        except:
-            self.milpObjVal = 817609 #wow such big number very matricola not much accept many magic number
 
         #CX
-        for rrname in self.fh.rrList:
-            startIndex = outputAsString.index("Cx("+rrname+")")
-            realstartIndex = outputAsString.index(" ",startIndex)
-            endIndex = outputAsString.index("\n",startIndex)
-            cx = outputAsString[realstartIndex+1:endIndex]
-            print("Cx "+rrname +" is "+cx)
-            for rr in self.collection:
-                if rr.name == rrname:
-                    rr.cx = float(cx)
+            for rrname in self.fh.rrList:
+                startIndex = outputAsString.index("Cx("+rrname+")")
+                realstartIndex = outputAsString.index(" ",startIndex)
+                endIndex = outputAsString.index("\n",startIndex)
+                cx = outputAsString[realstartIndex+1:endIndex]
+                print("Cx "+rrname +" is "+cx)
+                for rr in self.collection:
+                    if rr.name == rrname:
+                        rr.cx = float(cx)
 
         #CY
-        for rrname in self.fh.rrList:
-            startIndex = outputAsString.index("Cy("+rrname+")")
-            realstartIndex = outputAsString.index(" ",startIndex)
-            endIndex = outputAsString.index("\n",startIndex)
-            cy = outputAsString[realstartIndex+1:endIndex]
-            print("Cy "+rrname +" is "+cy)
-            for rr in self.collection:
-                if rr.name == rrname:
-                    rr.cy = float(cy)
-
+            for rrname in self.fh.rrList:
+                startIndex = outputAsString.index("Cy("+rrname+")")
+                realstartIndex = outputAsString.index(" ",startIndex)
+                endIndex = outputAsString.index("\n",startIndex)
+                cy = outputAsString[realstartIndex+1:endIndex]
+                print("Cy "+rrname +" is "+cy)
+                for rr in self.collection:
+                    if rr.name == rrname:
+                        rr.cy = float(cy)
+        except:
+            self.milpObjVal = 817609 #wow such big number very matricola not much accept many magic number
 
         self.drawOnBrowser(outputAsString)
         return
