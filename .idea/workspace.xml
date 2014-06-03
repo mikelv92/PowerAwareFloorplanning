@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23bd5179-dd7f-4f7a-ad10-a11740496e68" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/problem.sol" afterPath="$PROJECT_DIR$/Floorplanner/problem.sol" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/RRManager.py" afterPath="$PROJECT_DIR$/Floorplanner/RRManager.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/gurobi.log" afterPath="$PROJECT_DIR$/Floorplanner/gurobi.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/model.lp" afterPath="$PROJECT_DIR$/Floorplanner/model.lp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/problem.sol" afterPath="$PROJECT_DIR$/Floorplanner/problem.sol" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PowerAwareFloorplanning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +32,7 @@
       <file leaf-file-name="paFloorplanner.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="0" selection-start="2365" selection-end="2365" vertical-scroll-proportion="-15.76" vertical-offset="461" max-vertical-offset="1080">
+            <state line="65" column="0" selection-start="2365" selection-end="2365" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="1200">
               <folding />
             </state>
           </provider>
@@ -67,7 +68,7 @@
       <file leaf-file-name="RRManager.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="293" column="8" selection-start="21620" selection-end="21620" vertical-scroll-proportion="0.7967033" vertical-offset="3915" max-vertical-offset="4470">
+            <state line="297" column="8" selection-start="21653" selection-end="21653" vertical-scroll-proportion="0.767642" vertical-offset="3964" max-vertical-offset="4545">
               <folding />
             </state>
           </provider>
@@ -139,6 +140,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -173,7 +175,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,11 +356,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -708,14 +709,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="2365" selection-end="2365" vertical-scroll-proportion="-15.76" vertical-offset="461" max-vertical-offset="1080">
+        <state line="65" column="0" selection-start="2365" selection-end="2365" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="1200">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="293" column="8" selection-start="21620" selection-end="21620" vertical-scroll-proportion="0.7967033" vertical-offset="3915" max-vertical-offset="4470">
+        <state line="297" column="8" selection-start="21653" selection-end="21653" vertical-scroll-proportion="0.767642" vertical-offset="3964" max-vertical-offset="4545">
           <folding />
         </state>
       </provider>

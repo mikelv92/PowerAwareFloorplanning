@@ -277,9 +277,14 @@ class RRManager:
             endIndex = outputAsString.index("\n",startIndex)
             y = outputAsString[startIndex+7:endIndex]
 
+
+            x1= round(float(x))
+            y1= round(float(y))
+            w1= round(float(w))
+            a1= round(float(a))
             #     x,y,w,a
-                        #addRegion(2,1,8,1);
-            addRegions =addRegions + "addRegion("+str(x)+","+str(y)+","+str(w)+","+str(a)+");\n"
+            #addRegion(2,1,8,1);
+            addRegions =addRegions + "addRegion("+str(x1)+","+str(y1)+","+str(w1)+","+str(a1)+");\n"
 
         print ("REGIONS: "+ addRegions)
         index="<!DOCTYPE html>\n<html>\n<head>\n        <title>FCCM 2014 - Floorplanner demo</title>\n  <link rel=\"stylesheet\" href=\"jquery-ui.css\" />\n    <script type=\"text/javascript\" src=\"jquery-2.1.1.min.js\"></script>\n        <script type=\"text/javascript\" src=\"jquery-ui.js\"></script>\n       <script type=\"text/javascript\" src=\"fabric.js\"></script>\n  <script type=\"text/javascript\" src=\"Virtex-5-XC5VLX110T.js\"></script>\n     <script type=\"text/javascript\" src=\"index.js\"></script>\n   <script type=\"text/javascript\">\n\n           var info = getFPGAinfo();\n\n           window.onload = function () {\n\n                       setupCanvas(info);\n"
@@ -291,5 +296,5 @@ class RRManager:
         f.truncate()
         f.close()
         os.system("gnome-open '/home/davide/Downloads/HPPS MILP/FCCM_demo/index.html'")
-        os.system("import -window root $HOME/Desktop/filename.png")
+        #os.system("import -window root $HOME/Desktop/filename.png")
         return
