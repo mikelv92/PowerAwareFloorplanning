@@ -6171,20 +6171,20 @@ Subject To
  - 4 l(rec4,por14,4) - 4 l(rec4,por14,5) - 4 l(rec4,por14,6)
  - 4 l(rec4,por14,7) - 4 l(rec4,por14,8) + DRes(rec4,BRAM) = -0
  minRegionDist(rec1,rec1): + DCx(rec1,rec1) + DCy(rec1,rec1) >= -0
- minRegionDist(rec1,rec2): + DCx(rec1,rec2) + DCy(rec1,rec2) >= 4
- minRegionDist(rec1,rec3): + DCx(rec1,rec3) + DCy(rec1,rec3) >= 5
- minRegionDist(rec1,rec4): + DCx(rec1,rec4) + DCy(rec1,rec4) >= 1
- minRegionDist(rec2,rec1): + DCx(rec2,rec1) + DCy(rec2,rec1) >= 4
+ minRegionDist(rec1,rec2): + DCx(rec1,rec2) + DCy(rec1,rec2) >= 7
+ minRegionDist(rec1,rec3): + DCx(rec1,rec3) + DCy(rec1,rec3) >= 3
+ minRegionDist(rec1,rec4): + DCx(rec1,rec4) + DCy(rec1,rec4) >= 4
+ minRegionDist(rec2,rec1): + DCx(rec2,rec1) + DCy(rec2,rec1) >= 7
  minRegionDist(rec2,rec2): + DCx(rec2,rec2) + DCy(rec2,rec2) >= -0
  minRegionDist(rec2,rec3): + DCx(rec2,rec3) + DCy(rec2,rec3) >= 7
- minRegionDist(rec2,rec4): + DCx(rec2,rec4) + DCy(rec2,rec4) >= 5
- minRegionDist(rec3,rec1): + DCx(rec3,rec1) + DCy(rec3,rec1) >= 5
+ minRegionDist(rec2,rec4): + DCx(rec2,rec4) + DCy(rec2,rec4) >= 7
+ minRegionDist(rec3,rec1): + DCx(rec3,rec1) + DCy(rec3,rec1) >= 3
  minRegionDist(rec3,rec2): + DCx(rec3,rec2) + DCy(rec3,rec2) >= 7
  minRegionDist(rec3,rec3): + DCx(rec3,rec3) + DCy(rec3,rec3) >= -0
- minRegionDist(rec3,rec4): + DCx(rec3,rec4) + DCy(rec3,rec4) >= 10
- minRegionDist(rec4,rec1): + DCx(rec4,rec1) + DCy(rec4,rec1) >= 1
- minRegionDist(rec4,rec2): + DCx(rec4,rec2) + DCy(rec4,rec2) >= 5
- minRegionDist(rec4,rec3): + DCx(rec4,rec3) + DCy(rec4,rec3) >= 10
+ minRegionDist(rec3,rec4): + DCx(rec3,rec4) + DCy(rec3,rec4) >= 14
+ minRegionDist(rec4,rec1): + DCx(rec4,rec1) + DCy(rec4,rec1) >= 4
+ minRegionDist(rec4,rec2): + DCx(rec4,rec2) + DCy(rec4,rec2) >= 7
+ minRegionDist(rec4,rec3): + DCx(rec4,rec3) + DCy(rec4,rec3) >= 14
  minRegionDist(rec4,rec4): + DCx(rec4,rec4) + DCy(rec4,rec4) >= -0
  widthLowerBound(rec1): + w(rec1) >= 6
  widthLowerBound(rec2): + w(rec2) >= 1
@@ -6480,15 +6480,15 @@ Subject To
  atRightCut(rec2,rec1): + absX(rec1,rec2) = -0
  atRightCut(rec3,rec1): + absX(rec1,rec3) = -0
  atRightCut(rec3,rec2): + absX(rec2,rec3) = -0
- atRightCut(rec4,rec1): + absX(rec1,rec4) = -0
+ atLeftCut(rec1,rec4): + absX(rec1,rec4) = 1
  atLeftCut(rec2,rec4): + absX(rec2,rec4) = 1
  atLeftCut(rec3,rec4): + absX(rec3,rec4) = 1
+ atLeft(rec1,rec4): + x(rec1) - x(rec4) + w(rec1) <= -1
  atLeft(rec2,rec1): - x(rec1) + x(rec2) + w(rec2) <= -1
  atLeft(rec2,rec4): + x(rec2) - x(rec4) + w(rec2) <= -1
  atLeft(rec3,rec1): - x(rec1) + x(rec3) + w(rec3) <= -1
  atLeft(rec3,rec2): - x(rec2) + x(rec3) + w(rec3) <= -1
  atLeft(rec3,rec4): + x(rec3) - x(rec4) + w(rec3) <= -1
- atLeft(rec4,rec1): - x(rec1) + x(rec4) + w(rec4) <= -1
 
 Bounds
  0 <= h(rec1,1) <= 1
