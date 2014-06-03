@@ -17,16 +17,18 @@ def acceptanceProbability(current, new, temp):
         return math.exp(current - new / temp)
 
 def main():
-    #confu, power, thermCond, ASect
-    fh = FileHandler(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    #confu, power, const
+    fh = FileHandler(sys.argv[1], sys.argv[2], sys.argv[3])
 
     #Data structures to hold the input information
     rrCount = fh.getRRCount()
     rrList = fh.getRRList()
-    thermCondDict = fh.getThermCondDict()
-    aSectDict = fh.getASectDict()
+    thermCond = fh.getThermCondDict()
+    aSect = fh.getASectDict()
+    sliceHeight = fh.getSliceHeight()
+    sliceWidth = fh.getSliceWidth()
 
-    rrManager = RRManager(thermCondDict, aSectDict, fh)
+    rrManager = RRManager(thermCond, aSect, sliceHeight, sliceWidth, fh)
 
     powerDict = fh.getPowerDict()
     for rrNum in xrange(rrCount):

@@ -6,10 +6,12 @@ from SequencePair import SequencePair
 
 class RRManager:
     filescritti = 1
-    def __init__(self, thermCondDict, aSectDict, fh):
+    def __init__(self, thermCond, aSect, sliceHeight, sliceWidth, fh):
         self.collection = []
-        self.thermCondDict = thermCondDict
-        self.aSectDict = aSectDict
+        self.thermCond = thermCond
+        self.aSect = aSect
+        self.sliceHeight = sliceHeight
+        self.sliceWidth = sliceWidth
         self.tempArray = []
         self.sequencePair = SequencePair(list(), list())
         self.fh = fh
@@ -31,11 +33,17 @@ class RRManager:
     def getRR(self, pos):
         return self.collection[pos]
 
-    def getTempConstant(self, rr1, rr2):
-        return self.thermCondDict[self.collection.index(rr1)][self.collection.index(rr2)]
+    def getTempConstant(self):
+        return self.thermCond
 
-    def getSectArea(self, rr1, rr2):
-        return self.aSectDict[self.collection.index(rr1)][self.collection.index(rr2)]
+    def getSectArea(self):
+        return self.aSect
+
+    def getSliceWidth(self):
+        return self.sliceWidth
+
+    def getSliceHeight(self):
+        return self.sliceHeight
 
     @staticmethod
     def randomPermute(l):
@@ -58,7 +66,7 @@ class RRManager:
         return self.sequencePair.sequence2
 
     def calculateTemperatures(self):
-        #declare the coefficient and known term matrixes
+        #declare the coefficient and known term matrices
         a = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
         b = [0 for x in xrange(len(self.collection))]
 

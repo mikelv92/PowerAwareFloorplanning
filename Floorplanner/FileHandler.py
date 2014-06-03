@@ -1,9 +1,8 @@
 class FileHandler:
-    def __init__(self, confu, power, thermCond, aSect):
+    def __init__(self, confu, power, const):
         self.confu = confu
         self.power = power
-        self.thermCond = thermCond
-        self.aSect = aSect
+        self.const = const
         self.changeIndex = 0
 
         with open(self.confu, 'r') as f_in:
@@ -21,21 +20,17 @@ class FileHandler:
             recNum = i + 1
             self.rrList.append("rec" + `recNum`)
 
-        self.thermCondDict = [[0 for x in xrange(self.count)] for x in xrange(self.count)]
-        self.aSectDict = [[0 for x in xrange(self.count)] for x in xrange(self.count)]
+        self.thermCond = 0
+        self.aSect = 0
 
-        thermCondFH = open(self.thermCond)
-        aSectFH = open(self.aSect)
+        constFH = open(self.const)
 
-        for rr1 in xrange(self.count):
-            thermWords = thermCondFH.readline().split()
-            sectWords = aSectFH.readline().split()
-            for rr2 in xrange(self.count):
-                self.thermCondDict[rr1][rr2] = int(thermWords[rr2])
-                self.aSectDict[rr1][rr2] = int(sectWords[rr2])
+        self.thermCond = int(constFH.readline().split()[0])
+        self.aSect = int(constFH.readline().split()[0])
+        self.sliceHeight = int(constFH.readline().split()[0])
+        self.sliceWidth = int(constFH.readline().split()[0])
 
-        thermCondFH.close()
-        aSectFH.close()
+        constFH.close()
 
         powerFH = open(self.power)
         self.powerDict = [0 for x in xrange(self.count)]
@@ -50,10 +45,14 @@ class FileHandler:
         return self.count
     def getRRList(self):
         return self.rrList
-    def getThermCondDict(self):
-        return self.thermCondDict
-    def getASectDict(self):
-        return self.aSectDict
+    def getThermCond(self):
+        return self.thermCond
+    def getASect(self):
+        return self.aSect
+    def getSliceHeight(self):
+        return self.sliceHeight
+    def getSliceWidth(self):
+        return self.sliceWidth
     def getPowerDict(self):
         return self.powerDict
 
