@@ -86,12 +86,12 @@ class RRManager:
                 else:
                     a[i][j] = -1 / rri.calcThermResistance(rrj)
         for i in xrange(len(self.collection)):
-            a[len(self.collection)][i] = -1 / self.airResistance
+            a[len(self.collection) - 1][i] = -1 / self.airResistance
 
         #fill the known term matrix
         for i in xrange(1, len(self.collection)):
-            b[i] = (-1 * self.collection[i].power) + (self.airTemp / self.airResistance)
-        b[len(self.collection)] = (len(self.collection) * self.airTemp) / self.airResistance
+            b[i - 1] = (-1 * self.collection[i].power) + (self.airTemp / self.airResistance)
+        b[len(self.collection) - 1] = (len(self.collection) * self.airTemp) / self.airResistance
 
 
         print("coefficent matrix: "+str(a))
