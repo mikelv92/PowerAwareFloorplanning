@@ -23,8 +23,8 @@ def main():
     #Data structures to hold the input information
     rrCount = fh.getRRCount()
     rrList = fh.getRRList()
-    thermCond = fh.getThermCondDict()
-    aSect = fh.getASectDict()
+    thermCond = fh.getThermCond()
+    aSect = fh.getASect()
     sliceHeight = fh.getSliceHeight()
     sliceWidth = fh.getSliceWidth()
     airTemp = fh.getAirTemp()
