@@ -69,7 +69,7 @@ class RRManager:
 
     def calculateTemperatures(self):
         #declare the coefficient and known term matrices, +1 for Tair
-        a = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection) + 1)]
+        a = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
         b = [0 for x in xrange(len(self.collection) + 1)]
 
         #fill the coefficient matrix
@@ -100,15 +100,11 @@ class RRManager:
         #solve
         coefficientMatrix = numpy.array(a);
         knownTermMatrix = numpy.array(b);
-        try:
-            self.tempArray = numpy.linalg.solve(coefficientMatrix, knownTermMatrix)
-            for i in xrange(len(self.collection)):
-                self.collection[i].temp = self.tempArray[i]
-                print("Temperatura regione "+str(i)+" = "+str(self.collection[i].temp))
 
-        except:
-            print("Singular exception :(")
-            pass
+        self.tempArray = numpy.linalg.solve(coefficientMatrix, knownTermMatrix)
+        for i in xrange(len(self.collection)):
+            self.collection[i].temp = self.tempArray[i]
+            print("Temperatura regione "+str(i)+" = "+str(self.collection[i].temp))
 
     def makeSwapMove(self):
         choice = randint(0, 1)
