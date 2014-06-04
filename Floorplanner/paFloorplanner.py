@@ -56,9 +56,7 @@ def main():
         if choice == 1:
             sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
         else:
-            print("sequence prima "+str(sequencePair.sequence1))
             distanceVector = rrManager.makeDistanceVectorMove()
-            print("sequence dopo "+str(sequencePair.sequence1))
         rrManager.applyMILP(sequencePair, distanceVector)
         rrManager.calculateTemperatures()
         
