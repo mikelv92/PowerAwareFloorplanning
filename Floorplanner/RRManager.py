@@ -1,6 +1,7 @@
 import os
 import time
 import numpy
+import decimal
 from random import randint
 from SequencePair import SequencePair
 
@@ -314,6 +315,33 @@ class RRManager:
             #addRegion(2,1,8,1);
             addRegions = addRegions + "addRegion(" + str(x1) + "," + str(y1) + "," + str(w1) + "," + str(a1) + ");\n"
 
+
+        actualDistance =""
+        for rrname1 in self.fh.rrList:
+            actualDistance+="["
+            for rrname2 in self.fh.rrList:
+                if rrname1==rrname2:
+                    actualDistance+="<font color=\"green\">0</font>,"
+                else:
+                    # DCx(rec1,rec2) 28
+                    startIndex = outputAsString.index("DCx(" + rrname1 +","+rrname2+ ")")
+                    realStartIndex = outputAsString.index(")",startIndex)
+                    endIndex = outputAsString.index("\n", startIndex)
+                    x = outputAsString[realStartIndex + 1:endIndex]
+                    print("DCx(" + rrname1 +","+rrname2+ ")"+x)
+                    startIndex = outputAsString.index("DCy(" + rrname1 +","+rrname2+ ")")
+                    realStartIndex = outputAsString.index(")",startIndex)
+                    endIndex = outputAsString.index("\n", startIndex)
+                    y = outputAsString[realStartIndex + 1:endIndex]
+                    print("DCy(" + rrname1 +","+rrname2+ ")"+y)
+                    z= float(x)+float(y)
+                    z1 = str(round(z)).rstrip('0').rstrip('.')
+                    actualDistance+=z1+", "
+            actualDistance+="]<br>"
+
+
+
+
         index = "<!DOCTYPE html>\n<html>\n<head>\n        <title>FCCM 2014 - Floorplanner demo</title>\n  <link rel=\"stylesheet\" href=\"jquery-ui.css\" />\n    <script type=\"text/javascript\" src=\"jquery-2.1.1.min.js\"></script>\n        <script type=\"text/javascript\" src=\"jquery-ui.js\"></script>\n       <script type=\"text/javascript\" src=\"fabric.js\"></script>\n  <script type=\"text/javascript\" src=\"Virtex-5-XC5VLX110T.js\"></script>\n     <script type=\"text/javascript\" src=\"index.js\"></script>\n   <script type=\"text/javascript\">\n\n           var info = getFPGAinfo();\n\n           window.onload = function () {\n\n                       setupCanvas(info);\n"
         index = index + addRegions
         index = index + "generateInterconnectionsTable();\n                     initConn();\n                   initResCost();\n                        initSliders();\n                        updateObj();\n          }\n\n   </script>\n     <style type=\"text/css\">\n             body,html\n             {\n                     margin:0px;\n                   padding:0px;\n          }\n             div.regionInfo, div.parInfo, div.objective, div.optimization\n          {\n                     border: dashed 1px #333;\n                      padding:10px;\n                 margin-left:5px;\n              }\n             div.parInfo input\n             {\n                     width:50px;\n           }\n             div.optimization\n              {\n                     margin-top:5px;\n                       width:430px;\n          }\n             div.optimization input\n                {\n                     width:70px;\n                   background:#DDD;\n              }\n             div.optimization table td\n             {\n                     border: solid 1px #DDD;\n                       padding:0px 4px;\n              }\n             div.optimization table\n                {\n                     border-collapse:collapse;\n             }\n             div.optimization p\n            {\n                     margin: 4px 0px;\n              }\n             div.optimization h3, div.parInfo h3\n           {\n                     margin: 8px 0px;\n              }\n             div.optimization h2\n           {\n                     color: #0000FF;\n               }\n             input.readonly\n                {\n                     background: #DDD;\n             }\n             div.regionInfo input\n          {\n                     width:40px;\n           }\n             div.head p\n            {\n                     margin:2px 5px;\n                       font-weight:bold;\n             }\n             div.sliders div\n               {\n                     height: 150px;\n                        margin: 0px auto;\n             }\n             div.sliders input\n             {\n                     width:50px;\n                   margin: 0px auto;\n                     display:block;\n                }\n             div.sliders table\n             {\n                     border-collapse:collapse;\n             }\n             div.sliders table td\n          {\n                     text-align: center;\n                   border:solid 1px #DDD;\n                }\n             div.sliders table thead td\n            {\n                     padding:0px 4px;\n              }\n             #statusStr\n            {\n                     font-weight:bold;\n             }\n             #reason\n               {\n                     color:#FF0000;\n                }\n             div.overlay\n           {\n                     z-index:10;\n                   position:fixed;\n                       width:100%;\n                   height:100%;\n                  background: rgba(0,0,0,0.5);\n                  display:none;\n         }\n             div.overlay div\n               {\n                     position:relative;\n                    top:50%;\n                      left:50%;\n                     padding:10px;\n                 border:solid 1px #222;\n                        background:#fff;\n                      width:150px;\n                  height:37px;\n                  font-weight:bold;\n                     margin-left:-20px;\n                    margin-top:-20px;\n             }\n     </style>\n</head>\n<body>\n     <div class=\"overlay\" id=\"overlay\">\n                <div id=\"loading\">\n                  <img src=\"/images/loading.gif\">\n                     &nbsp;\n                        Optimizing...\n         </div>\n                <div id=\"found\">\n                    <table>\n                               <tr>\n                                  <td>\n                                          Solution Found!\n                                       </td>\n                                 <td>\n                                          <button onclick=\"$('#overlay').css('display','none');\">OK</button>\n                                  </td>\n                         </tr>\n                 </table>\n              </div>\n                <div id=\"notfound\">\n                 <table>\n                               <tr>\n                                  <td>\n                                          Unable to find a solution...\n                                  </td>\n                                 <td>\n                                          <button onclick=\"$('#overlay').css('display','none');\">OK</button>\n                                  </td>\n                         </tr>\n                 </table>\n              </div>\n        </div>\n        <div style=\"position:relative\">\n             <div class=\"head\">\n                  <p>Xilinx Virtex-5 XC5VLX110T</p>\n             </div>\n\n              </div>\n                <div style=\"float:left; position:relative;\">\n                        <canvas style=\"border:solid 1px; display:block; top:0px; left:0px; position:absolute;\" id=\"FPGAcanvas\">\n                   </canvas>\n                     <canvas style=\"border:solid 1px; display:block; top:0px; left:0px; position:absolute;\" id=\"LINEScanvas\">\n                  </canvas>\n                     <canvas style=\"border:solid 1px; display:block; top:0px; left:0px; position:absolute;\" id=\"regionCanvas\">\n                 </canvas>\n             </div>\n                <div style=\"float:left;\">\n                   <div class=\"regionInfo\" id=\"regionInfo\">\n                          <h2>Regions info</h2>\n                 </div>\n                </div>\n"
@@ -328,9 +356,12 @@ class RRManager:
             index = index + str(self.distanceVector[i]) + "<br>"
             i += 1
 
-        index = index + "<p>The current floorplan is <span id=\"statusStr\"></span> <span id=\"reason\"></span></p></body>\n</html>"
+        index += "<b> Actual Distance: </b><br>" + actualDistance
+        index= index + "</body>\n</html>"
 
 
+
+        #index = index + "<p>The current floorplan is <span id=\"statusStr\"></span> <span id=\"reason\"></span></p></body>\n</html>"
 
         #ParInfo
         #index = index + "<div style=\"float:left;\">\n                   <div class=\"parInfo\" id=\"parInfo\">\n                                <h2>Parameters</h2>\n                           <h3>Interconnections</h3>\n                             <div id=\"connectionsArea\">\n                          </div>\n                                <h3>Resource Cost</h3>\n                                <div id=\"resCost\">\n\n                                </div>\n                        </div>\n                </div>\n                "
@@ -343,6 +374,8 @@ class RRManager:
         #"<h3>Objective</h3>\n                            <table>\n                                       <tr>\n                                          <td></td><td>Wirelength</td><td>Perimeter</td><td>Wasted Resources</td>\n                                       </tr>\n                                  <tr>\n                                          <td>Absolute values</td>\n                                              <td><input type=\"text\" id=\"a_WL\" readonly=\"readonly\"></td>\n                                              <td><input type=\"text\" id=\"a_P\" readonly=\"readonly\"></td>\n                                               <td><input type=\"text\" id=\"a_R\" readonly=\"readonly\"></td>\n                                       </tr>\n                                 <tr>\n                                          <td>Normalized values</td>\n                                            <td><input type=\"text\" id=\"n_WL\" readonly=\"readonly\"></td>\n                                              <td><input type=\"text\" id=\"n_P\" readonly=\"readonly\"></td>\n                                               <td><input type=\"text\" id=\"n_R\" readonly=\"readonly\"></td>\n                                       </tr>\n\n                               </table>\n                              <p>\n                                   "
         #"<b>Global Normalized Objective</b> <input type=\"text\" id=\"globalObj\" readonly=\"readonly\">\n                                       <input type=\"button\" value=\"OPTIMIZE\" id=\"optimizeButton\" onclick=\"optimize();\"></input>\n                              "
         #index = index + "</p>\n                  </div>\n                </div>\n        </div>\n</body>\n</html>"
+
+
 
         f = open(self.pathHTML + "/index" + str(self.filescritti) + ".html", "w+")
         f.seek(0)

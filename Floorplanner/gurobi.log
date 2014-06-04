@@ -48577,3 +48577,1001 @@ Best objective 1.221802002519e-01, best bound 1.221802002519e-01, gap 0.0%
 
 Wrote result file 'problem.sol'
 
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 10:52:14 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 1758 rows and 192 columns
+Presolve time: 0.06s
+Presolved: 1741 rows, 498 columns, 6630 nonzeros
+Variable types: 397 continuous, 101 integer (89 binary)
+
+Root relaxation: objective 1.032590e-01, 311 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10326    0   29          -    0.10326     -      -    0s
+     0     0    0.10337    0   41          -    0.10337     -      -    0s
+     0     0    0.10337    0   49          -    0.10337     -      -    0s
+     0     0    0.10337    0   22          -    0.10337     -      -    0s
+H    0     0                       0.1645638    0.10337  37.2%     -    0s
+H    0     0                       0.1533435    0.10337  32.6%     -    0s
+     0     0    0.10337    0   22    0.15334    0.10337  32.6%     -    0s
+     0     0    0.10337    0   26    0.15334    0.10337  32.6%     -    0s
+     0     0    0.10337    0   30    0.15334    0.10337  32.6%     -    0s
+     0     0    0.10337    0   30    0.15334    0.10337  32.6%     -    0s
+H    0     0                       0.1526680    0.10337  32.3%     -    0s
+     0     2    0.10337    0   30    0.15267    0.10337  32.3%     -    0s
+H   27    24                       0.1381958    0.10337  25.2%  38.3    0s
+H   54    36                       0.1314413    0.10337  21.4%  27.8    0s
+H   87    43                       0.1129423    0.10337  8.47%  21.6    0s
+H  190    80                       0.1122669    0.10337  7.92%  20.0    1s
+
+Cutting planes:
+  Gomory: 18
+  Cover: 5
+  Implied bound: 1
+  MIR: 34
+  Flow cover: 16
+  GUB cover: 2
+  Zero half: 1
+
+Explored 757 nodes (20363 simplex iterations) in 5.00 seconds
+Thread count was 2 (of 2 available processors)
+
+Time limit reached
+Best objective 1.122668568793e-01, best bound 1.035967578521e-01, gap 7.7228%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 10:52:24 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 1919 rows and 241 columns
+Presolve time: 0.06s
+Presolved: 1580 rows, 449 columns, 5920 nonzeros
+Variable types: 355 continuous, 94 integer (82 binary)
+
+Root relaxation: objective 1.032590e-01, 276 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10326    0   27          -    0.10326     -      -    0s
+H    0     0                       0.2171339    0.10326  52.4%     -    0s
+H    0     0                       0.1778075    0.10326  41.9%     -    0s
+     0     0    0.10337    0   34    0.17781    0.10337  41.9%     -    0s
+     0     0    0.10337    0   31    0.17781    0.10337  41.9%     -    0s
+     0     0    0.10337    0   25    0.17781    0.10337  41.9%     -    0s
+     0     0    0.10337    0   49    0.17781    0.10337  41.9%     -    0s
+H    0     0                       0.1771321    0.10337  41.6%     -    0s
+     0     0    0.10337    0   14    0.17713    0.10337  41.6%     -    0s
+     0     0    0.10337    0   21    0.17713    0.10337  41.6%     -    0s
+H    0     0                       0.1663948    0.10337  37.9%     -    0s
+     0     0    0.10337    0   33    0.16639    0.10337  37.9%     -    0s
+H    0     0                       0.1291876    0.10337  20.0%     -    0s
+     0     0    0.10337    0   23    0.12919    0.10337  20.0%     -    0s
+     0     0    0.10337    0   17    0.12919    0.10337  20.0%     -    0s
+     0     0    0.10337    0   16    0.12919    0.10337  20.0%     -    0s
+     0     0    0.10337    0   18    0.12919    0.10337  20.0%     -    0s
+     0     0    0.10337    0   18    0.12919    0.10337  20.0%     -    0s
+H    0     0                       0.1255310    0.10337  17.7%     -    0s
+H    0     4                       0.1237579    0.10337  16.5%     -    0s
+     0     4    0.10337    0   18    0.12376    0.10337  16.5%     -    0s
+H   64    26                       0.1095942    0.10337  5.68%  22.2    1s
+
+Cutting planes:
+  Gomory: 25
+  Cover: 9
+  Implied bound: 17
+  Clique: 3
+  MIR: 33
+  Flow cover: 19
+  Zero half: 1
+
+Explored 819 nodes (26352 simplex iterations) in 5.01 seconds
+Thread count was 2 (of 2 available processors)
+
+Time limit reached
+Best objective 1.095942331359e-01, best bound 1.035967578521e-01, gap 5.4724%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 10:52:35 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2146 rows and 285 columns
+Presolve time: 0.06s
+Presolved: 1353 rows, 405 columns, 5164 nonzeros
+Variable types: 315 continuous, 90 integer (76 binary)
+Found heuristic solution: objective 0.2667400
+
+Root relaxation: objective 1.112378e-01, 295 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.11124    0   15    0.26674    0.11124  58.3%     -    0s
+     0     0    0.11179    0   19    0.26674    0.11179  58.1%     -    0s
+     0     0    0.11179    0   20    0.26674    0.11179  58.1%     -    0s
+     0     0    0.11179    0   16    0.26674    0.11179  58.1%     -    0s
+     0     0    0.11179    0   13    0.26674    0.11179  58.1%     -    0s
+     0     0    0.11179    0   14    0.26674    0.11179  58.1%     -    0s
+H    0     0                       0.2041887    0.11179  45.3%     -    0s
+     0     0    0.11179    0   15    0.20419    0.11179  45.3%     -    0s
+H    0     0                       0.1653332    0.11179  32.4%     -    0s
+     0     0    0.11179    0   15    0.16533    0.11179  32.4%     -    0s
+     0     0    0.11179    0   14    0.16533    0.11179  32.4%     -    0s
+     0     0    0.11179    0   13    0.16533    0.11179  32.4%     -    0s
+     0     0    0.11179    0    5    0.16533    0.11179  32.4%     -    0s
+     0     0    0.11179    0   14    0.16533    0.11179  32.4%     -    0s
+     0     0    0.11179    0   14    0.16533    0.11179  32.4%     -    0s
+     0     2    0.11179    0   14    0.16533    0.11179  32.4%     -    0s
+*   59    36              31       0.1191029    0.11179  6.14%  25.3    1s
+*  459   143              23       0.1187477    0.11179  5.86%  12.7    1s
+
+Cutting planes:
+  Gomory: 25
+  Cover: 10
+  Implied bound: 59
+  Clique: 1
+  MIR: 35
+  Flow cover: 20
+  GUB cover: 1
+  Zero half: 2
+  Mod-K: 1
+
+Explored 916 nodes (22676 simplex iterations) in 5.00 seconds
+Thread count was 2 (of 2 available processors)
+
+Time limit reached
+Best objective 1.187476980889e-01, best bound 1.117865585951e-01, gap 5.8621%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 10:52:46 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 1878 rows and 219 columns
+Presolve time: 0.06s
+Presolved: 1621 rows, 471 columns, 6173 nonzeros
+Variable types: 369 continuous, 102 integer (90 binary)
+
+Root relaxation: objective 1.038501e-01, 287 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10385    0   16          -    0.10385     -      -    0s
+H    0     0                       0.1862712    0.10385  44.2%     -    0s
+     0     0    0.10385    0   16    0.18627    0.10385  44.2%     -    0s
+     0     0    0.10385    0   11    0.18627    0.10385  44.2%     -    0s
+     0     0    0.10385    0   16    0.18627    0.10385  44.2%     -    0s
+H    0     0                       0.1808357    0.10385  42.6%     -    0s
+     0     0    0.10385    0    7    0.18084    0.10385  42.6%     -    0s
+     0     0    0.10385    0   10    0.18084    0.10385  42.6%     -    0s
+     0     0    0.10385    0   10    0.18084    0.10385  42.6%     -    0s
+     0     0    0.10385    0   14    0.18084    0.10385  42.6%     -    0s
+     0     0    0.10385    0   11    0.18084    0.10385  42.6%     -    0s
+H    0     0                       0.1482803    0.10385  30.0%     -    0s
+     0     2    0.10385    0   11    0.14828    0.10385  30.0%     -    0s
+*   68    28              42       0.1123192    0.10385  7.54%  22.2    1s
+H   69    28                       0.1113556    0.10385  6.74%  21.9    1s
+H  128    35                       0.1105782    0.10385  6.08%  16.5    1s
+  1012   167     cutoff   22         0.11058    0.10385  6.08%  16.0    5s
+
+Cutting planes:
+  Gomory: 2
+  Implied bound: 3
+  Clique: 1
+  MIR: 7
+
+Explored 1034 nodes (22564 simplex iterations) in 5.00 seconds
+Thread count was 2 (of 2 available processors)
+
+Time limit reached
+Best objective 1.105782381694e-01, best bound 1.038500506586e-01, gap 6.0845%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 10:52:56 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2244 rows and 313 columns
+Presolve time: 0.06s
+Presolved: 1255 rows, 377 columns, 4659 nonzeros
+Variable types: 291 continuous, 86 integer (72 binary)
+
+Root relaxation: objective 1.077339e-01, 290 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10773    0   22          -    0.10773     -      -    0s
+H    0     0                       0.2087818    0.10773  48.4%     -    0s
+H    0     0                       0.1918956    0.10773  43.9%     -    0s
+     0     0    0.10773    0   20    0.19190    0.10773  43.9%     -    0s
+     0     0    0.10773    0   19    0.19190    0.10773  43.9%     -    0s
+     0     0    0.10773    0   18    0.19190    0.10773  43.9%     -    0s
+     0     0    0.10773    0   13    0.19190    0.10773  43.9%     -    0s
+     0     0    0.10773    0   21    0.19190    0.10773  43.9%     -    0s
+H    0     0                       0.1886291    0.10773  42.9%     -    0s
+     0     0    0.10773    0   12    0.18863    0.10773  42.9%     -    0s
+     0     0    0.10773    0   15    0.18863    0.10773  42.9%     -    0s
+     0     0    0.10773    0   15    0.18863    0.10773  42.9%     -    0s
+     0     0    0.10773    0   10    0.18863    0.10773  42.9%     -    0s
+H    0     0                       0.1724945    0.10773  37.5%     -    0s
+     0     2    0.10773    0   10    0.17249    0.10773  37.5%     -    0s
+*   56    30              26       0.1301689    0.10773  17.2%  28.9    0s
+*  103    27              28       0.1178568    0.10773  8.59%  21.2    0s
+*  107    24              30       0.1153413    0.10773  6.60%  20.8    0s
+H  371    89                       0.1132743    0.10773  4.89%  15.3    0s
+H  476    84                       0.1119234    0.10773  3.74%  14.8    1s
+*  706   136              37       0.1115857    0.10773  3.45%  13.3    1s
+
+Cutting planes:
+  MIR: 3
+  Flow cover: 1
+
+Explored 4283 nodes (46450 simplex iterations) in 4.46 seconds
+Thread count was 2 (of 2 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.115856516681e-01, best bound 1.115856516681e-01, gap 0.0%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:03:19 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2390 rows and 365 columns
+Presolve time: 0.05s
+Presolved: 1109 rows, 325 columns, 3965 nonzeros
+Variable types: 246 continuous, 79 integer (67 binary)
+Found heuristic solution: objective 0.2044330
+
+Root relaxation: objective 1.022459e-01, 210 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10225    0    8    0.20443    0.10225  50.0%     -    0s
+     0     0    0.10225    0   14    0.20443    0.10225  50.0%     -    0s
+     0     0    0.10225    0   11    0.20443    0.10225  50.0%     -    0s
+     0     0    0.10225    0   13    0.20443    0.10225  50.0%     -    0s
+     0     0    0.10225    0   15    0.20443    0.10225  50.0%     -    0s
+     0     0    0.10225    0   11    0.20443    0.10225  50.0%     -    0s
+     0     0    0.10225    0   13    0.20443    0.10225  50.0%     -    0s
+     0     0    0.10225    0   12    0.20443    0.10225  50.0%     -    0s
+H    0     0                       0.1659095    0.10225  38.4%     -    0s
+     0     0    0.10225    0   10    0.16591    0.10225  38.4%     -    0s
+     0     0    0.10225    0   10    0.16591    0.10225  38.4%     -    0s
+     0     0    0.10225    0   10    0.16591    0.10225  38.4%     -    0s
+H    0     0                       0.1484294    0.10225  31.1%     -    0s
+     0     5    0.10225    0   10    0.14843    0.10225  31.1%     -    0s
+H   27    17                       0.1283291    0.10225  20.3%  28.5    0s
+H   60    30                       0.1114429    0.10225  8.25%  19.9    0s
+*   73    36              32       0.1092651    0.10225  6.42%  19.4    0s
+  1496   142    0.10800   22   24    0.10927    0.10292  5.81%  16.8    5s
+
+Cutting planes:
+  Gomory: 4
+  Flow cover: 3
+
+Explored 1516 nodes (30245 simplex iterations) in 5.00 seconds
+Thread count was 2 (of 2 available processors)
+
+Time limit reached
+Best objective 1.092651459848e-01, best bound 1.029213103681e-01, gap 5.8059%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:03:30 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2075 rows and 278 columns
+Presolve time: 0.05s
+Presolved: 1424 rows, 412 columns, 5137 nonzeros
+Variable types: 317 continuous, 95 integer (83 binary)
+
+Root relaxation: objective 1.032590e-01, 280 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10326    0   19          -    0.10326     -      -    0s
+     0     0    0.10337    0   31          -    0.10337     -      -    0s
+     0     0    0.10337    0   25          -    0.10337     -      -    0s
+     0     0    0.10337    0   26          -    0.10337     -      -    0s
+     0     0    0.10337    0   28          -    0.10337     -      -    0s
+     0     0    0.10337    0   28          -    0.10337     -      -    0s
+     0     0    0.10337    0   26          -    0.10337     -      -    0s
+     0     0    0.10337    0   21          -    0.10337     -      -    0s
+     0     0    0.10337    0   26          -    0.10337     -      -    0s
+     0     0    0.10337    0   28          -    0.10337     -      -    0s
+     0     0    0.10337    0   22          -    0.10337     -      -    0s
+     0     2    0.10337    0   19          -    0.10337     -      -    0s
+*   77    50              36       0.1142059    0.10337  9.49%  19.5    0s
+*   79    48              35       0.1137837    0.10337  9.15%  19.1    0s
+H  176    71                       0.1124328    0.10337  8.06%  18.4    1s
+H  259    93                       0.1118739    0.10337  7.60%  17.9    1s
+H  358    99                       0.1095942    0.10343  5.63%  17.9    1s
+
+Cutting planes:
+  Gomory: 23
+  Cover: 6
+  Implied bound: 21
+  MIR: 24
+  Flow cover: 15
+  Zero half: 3
+
+Explored 884 nodes (25937 simplex iterations) in 5.01 seconds
+Thread count was 2 (of 2 available processors)
+
+Time limit reached
+Best objective 1.095942331359e-01, best bound 1.035967578521e-01, gap 5.4724%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:03:41 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 1984 rows and 252 columns
+Presolve time: 0.05s
+Presolved: 1515 rows, 438 columns, 5678 nonzeros
+Variable types: 342 continuous, 96 integer (84 binary)
+
+Root relaxation: objective 1.032590e-01, 276 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10326    0   16          -    0.10326     -      -    0s
+     0     0    0.10337    0   25          -    0.10337     -      -    0s
+     0     0    0.10337    0   31          -    0.10337     -      -    0s
+     0     0    0.10337    0   24          -    0.10337     -      -    0s
+     0     0    0.10337    0   20          -    0.10337     -      -    0s
+     0     0    0.10337    0   36          -    0.10337     -      -    0s
+     0     0    0.10337    0   19          -    0.10337     -      -    0s
+     0     0    0.10337    0   34          -    0.10337     -      -    0s
+     0     0    0.10337    0   26          -    0.10337     -      -    0s
+     0     0    0.10337    0   12          -    0.10337     -      -    0s
+H    0     0                       0.1543799    0.10337  33.0%     -    0s
+     0     0    0.10337    0   18    0.15438    0.10337  33.0%     -    0s
+     0     0    0.10337    0   18    0.15438    0.10337  33.0%     -    0s
+     0     2    0.10337    0   18    0.15438    0.10337  33.0%     -    0s
+*   73    43              32       0.1170940    0.10337  11.7%  19.3    1s
+*  254   108              35       0.1125493    0.10337  8.15%  18.1    1s
+H  377   107                       0.1095942    0.10340  5.65%  16.0    1s
+H  404   111                       0.1094108    0.10340  5.49%  15.3    1s
+
+Cutting planes:
+  Gomory: 12
+  Cover: 2
+  Implied bound: 1
+  MIR: 6
+  Flow cover: 15
+
+Explored 931 nodes (23985 simplex iterations) in 5.00 seconds
+Thread count was 2 (of 2 available processors)
+
+Time limit reached
+Best objective 1.094107881687e-01, best bound 1.035967578521e-01, gap 5.3139%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:03:51 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 1864 rows and 214 columns
+Presolve time: 0.06s
+Presolved: 1635 rows, 476 columns, 6376 nonzeros
+Variable types: 375 continuous, 101 integer (89 binary)
+
+Root relaxation: objective 1.038501e-01, 278 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10385    0   14          -    0.10385     -      -    0s
+     0     0    0.10385    0   17          -    0.10385     -      -    0s
+     0     0    0.10385    0    3          -    0.10385     -      -    0s
+     0     0    0.10385    0    7          -    0.10385     -      -    0s
+     0     0    0.10385    0    8          -    0.10385     -      -    0s
+     0     0    0.10385    0    8          -    0.10385     -      -    0s
+     0     0    0.10385    0    6          -    0.10385     -      -    0s
+H    0     0                       0.2604733    0.10385  60.1%     -    0s
+H    0     0                       0.1316683    0.10385  21.1%     -    0s
+H    0     0                       0.1271586    0.10385  18.3%     -    0s
+H    0     2                       0.1257232    0.10385  17.4%     -    0s
+     0     2    0.10385    0    5    0.12572    0.10385  17.4%     -    0s
+H   76    57                       0.1240346    0.10385  16.3%  28.8    0s
+*  116    29              36       0.1108315    0.10385  6.30%  24.2    0s
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:05:25 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 1908 rows and 228 columns
+Presolve time: 0.05s
+Presolved: 1591 rows, 462 columns, 6268 nonzeros
+Variable types: 359 continuous, 103 integer (91 binary)
+
+Root relaxation: objective 1.038501e-01, 257 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10385    0   23          -    0.10385     -      -    0s
+     0     0    0.10385    0   24          -    0.10385     -      -    0s
+     0     0    0.10385    0   24          -    0.10385     -      -    0s
+     0     0    0.10385    0   16          -    0.10385     -      -    0s
+     0     0    0.10385    0   19          -    0.10385     -      -    0s
+     0     0    0.10385    0    3          -    0.10385     -      -    0s
+     0     0    0.10385    0   14          -    0.10385     -      -    0s
+     0     0    0.10385    0    4          -    0.10385     -      -    0s
+     0     0    0.10385    0    7          -    0.10385     -      -    0s
+     0     0    0.10385    0    5          -    0.10385     -      -    0s
+H    0     0                       0.3079072    0.10385  66.3%     -    0s
+     0     2    0.10385    0    5    0.30791    0.10385  66.3%     -    0s
+H   30    23                       0.1121999    0.10385  7.44%  40.9    1s
+*   83    29              46       0.1113556    0.10385  6.74%  22.4    1s
+H  160    24                       0.1105782    0.10385  6.08%  19.6    1s
+
+Cutting planes:
+  Gomory: 11
+  Cover: 11
+  Implied bound: 54
+  Clique: 1
+  MIR: 12
+  Flow cover: 34
+  GUB cover: 3
+  Zero half: 2
+  Mod-K: 1
+
+Explored 918 nodes (23634 simplex iterations) in 5.01 seconds
+Thread count was 2 (of 2 available processors)
+
+Time limit reached
+Best objective 1.105782381694e-01, best bound 1.038500506586e-01, gap 6.0845%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:05:36 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2571 rows and 403 columns
+Presolve time: 0.05s
+Presolved: 928 rows, 287 columns, 3842 nonzeros
+Variable types: 211 continuous, 76 integer (64 binary)
+
+Root relaxation: infeasible, 222 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (222 simplex iterations) in 0.08 seconds
+Thread count was 2 (of 2 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:08:00 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.01 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2486 rows and 400 columns
+Presolve time: 0.05s
+Presolved: 1013 rows, 290 columns, 4159 nonzeros
+Variable types: 212 continuous, 78 integer (66 binary)
+Found heuristic solution: objective 0.5365390
+
+Root relaxation: objective 1.037023e-01, 193 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10370    0   26    0.53654    0.10370  80.7%     -    0s
+H    0     0                       0.1575006    0.10370  34.2%     -    0s
+     0     0    0.10782    0   28    0.15750    0.10782  31.5%     -    0s
+H    0     0                       0.1444636    0.10782  25.4%     -    0s
+     0     0    0.10782    0   25    0.14446    0.10782  25.4%     -    0s
+H    0     0                       0.1412904    0.10782  23.7%     -    0s
+     0     0    0.10782    0   21    0.14129    0.10782  23.7%     -    0s
+     0     0    0.10782    0   25    0.14129    0.10782  23.7%     -    0s
+     0     0    0.10782    0   18    0.14129    0.10782  23.7%     -    0s
+     0     0    0.10782    0   15    0.14129    0.10782  23.7%     -    0s
+H    0     0                       0.1319276    0.10782  18.3%     -    0s
+     0     0    0.10782    0   16    0.13193    0.10782  18.3%     -    0s
+H    0     0                       0.1150414    0.10782  6.28%     -    0s
+     0     0    0.10782    0   13    0.11504    0.10782  6.28%     -    0s
+     0     0    0.10782    0   23    0.11504    0.10782  6.28%     -    0s
+     0     0    0.10782    0   24    0.11504    0.10782  6.28%     -    0s
+     0     0    0.10782    0   24    0.11504    0.10782  6.28%     -    0s
+     0     0    0.10782    0   14    0.11504    0.10782  6.28%     -    0s
+
+Cutting planes:
+  Cover: 20
+  Implied bound: 13
+  MIR: 49
+  Flow cover: 13
+  Zero half: 1
+  Mod-K: 1
+
+Explored 191 nodes (6362 simplex iterations) in 0.64 seconds
+Thread count was 2 (of 2 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.150413735181e-01, best bound 1.150413735181e-01, gap 0.0%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:08:17 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2079 rows and 272 columns
+Presolve time: 0.05s
+Presolved: 1420 rows, 418 columns, 5940 nonzeros
+Variable types: 327 continuous, 91 integer (79 binary)
+Found heuristic solution: objective 0.4128607
+
+Root relaxation: objective 1.077339e-01, 284 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10773    0   15    0.41286    0.10773  73.9%     -    0s
+     0     0    0.10773    0   21    0.41286    0.10773  73.9%     -    0s
+H    0     0                       0.1970171    0.10773  45.3%     -    0s
+     0     0    0.10773    0   18    0.19702    0.10773  45.3%     -    0s
+     0     0    0.10773    0   12    0.19702    0.10773  45.3%     -    0s
+     0     0    0.10773    0   15    0.19702    0.10773  45.3%     -    0s
+H    0     0                       0.1870197    0.10773  42.4%     -    0s
+     0     0    0.10773    0   21    0.18702    0.10773  42.4%     -    0s
+H    0     0                       0.1733851    0.10773  37.9%     -    0s
+H    0     0                       0.1649742    0.10773  34.7%     -    0s
+     0     0    0.10773    0   17    0.16497    0.10773  34.7%     -    0s
+     0     0    0.10773    0   20    0.16497    0.10773  34.7%     -    0s
+     0     0    0.10773    0   16    0.16497    0.10773  34.7%     -    0s
+H    0     0                       0.1512385    0.10773  28.8%     -    0s
+     0     0    0.10773    0   17    0.15124    0.10773  28.8%     -    0s
+     0     0    0.10773    0   17    0.15124    0.10773  28.8%     -    0s
+H    0     0                       0.1372494    0.10773  21.5%     -    0s
+     0     2    0.10773    0   17    0.13725    0.10773  21.5%     -    0s
+H   65    30                       0.1239621    0.10773  13.1%  23.4    0s
+*   69    39              35       0.1220637    0.10773  11.7%  23.3    0s
+H  107    28                       0.1183925    0.10773  9.00%  20.4    0s
+H  151    48                       0.1172076    0.10773  8.08%  18.8    1s
+*  181    49              34       0.1165204    0.10773  7.54%  17.0    1s
+H  227    68                       0.1158450    0.10782  6.93%  17.4    1s
+H  315    81                       0.1157431    0.10790  6.78%  15.9    1s
+*  320    55              28       0.1123630    0.10790  3.97%  15.9    1s
+
+Cutting planes:
+  Learned: 1
+  Gomory: 2
+  Cover: 53
+  Implied bound: 22
+  MIR: 22
+  Flow cover: 21
+  Zero half: 4
+  Mod-K: 1
+
+Explored 1559 nodes (24693 simplex iterations) in 2.09 seconds
+Thread count was 2 (of 2 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.123629920474e-01, best bound 1.123629920474e-01, gap 0.0%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:08:25 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 1868 rows and 223 columns
+Presolve time: 0.06s
+Presolved: 1631 rows, 467 columns, 6460 nonzeros
+Variable types: 369 continuous, 98 integer (86 binary)
+
+Root relaxation: objective 1.038501e-01, 277 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10385    0   19          -    0.10385     -      -    0s
+     0     0    0.10385    0   28          -    0.10385     -      -    0s
+     0     0    0.10385    0   14          -    0.10385     -      -    0s
+     0     0    0.10385    0   13          -    0.10385     -      -    0s
+     0     0    0.10385    0    6          -    0.10385     -      -    0s
+     0     0    0.10385    0   11          -    0.10385     -      -    0s
+     0     0    0.10385    0    9          -    0.10385     -      -    0s
+     0     0    0.10385    0   25          -    0.10385     -      -    0s
+     0     0    0.10385    0    8          -    0.10385     -      -    0s
+H    0     0                       0.1745410    0.10385  40.5%     -    0s
+     0     0    0.10385    0   20    0.17454    0.10385  40.5%     -    0s
+H    0     0                       0.1552211    0.10385  33.1%     -    0s
+     0     0    0.10385    0   17    0.15522    0.10385  33.1%     -    0s
+     0     0    0.10385    0    7    0.15522    0.10385  33.1%     -    0s
+     0     0    0.10385    0   13    0.15522    0.10385  33.1%     -    0s
+     0     0    0.10385    0    7    0.15522    0.10385  33.1%     -    0s
+H    0     0                       0.1535995    0.10385  32.4%     -    1s
+     0     2    0.10385    0    3    0.15360    0.10385  32.4%     -    1s
+H   30    21                       0.1267364    0.10385  18.1%  49.7    1s
+H   85    40                       0.1240346    0.10385  16.3%  32.4    1s
+*  106    43              34       0.1122669    0.10385  7.50%  29.6    1s
+H  117    46                       0.1105782    0.10385  6.08%  28.2    1s
+   843   201    0.10901   11   25    0.11058    0.10385  6.08%  25.0    5s
+
+Cutting planes:
+  MIR: 5
+
+Explored 844 nodes (30601 simplex iterations) in 5.00 seconds
+Thread count was 2 (of 2 available processors)
+
+Time limit reached
+Best objective 1.105782381694e-01, best bound 1.038500506586e-01, gap 6.0845%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:11:27 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2233 rows and 304 columns
+Presolve time: 0.05s
+Presolved: 1266 rows, 386 columns, 5101 nonzeros
+Variable types: 299 continuous, 87 integer (75 binary)
+Found heuristic solution: objective 0.4766068
+
+Root relaxation: objective 1.038501e-01, 340 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10385    0   12    0.47661    0.10385  78.2%     -    0s
+H    0     0                       0.4733869    0.10385  78.1%     -    0s
+     0     0    0.10385    0   20    0.47339    0.10385  78.1%     -    0s
+     0     0    0.10385    0   14    0.47339    0.10385  78.1%     -    0s
+     0     0    0.10385    0   15    0.47339    0.10385  78.1%     -    0s
+     0     0    0.10385    0   13    0.47339    0.10385  78.1%     -    0s
+     0     0    0.10385    0   17    0.47339    0.10385  78.1%     -    0s
+H    0     0                       0.1756183    0.10385  40.9%     -    0s
+H    0     0                       0.1688465    0.10385  38.5%     -    0s
+     0     0    0.10385    0   14    0.16885    0.10385  38.5%     -    0s
+     0     0    0.10385    0   11    0.16885    0.10385  38.5%     -    0s
+     0     0    0.10385    0    8    0.16885    0.10385  38.5%     -    0s
+     0     0    0.10385    0   11    0.16885    0.10385  38.5%     -    0s
+     0     0    0.10385    0   11    0.16885    0.10385  38.5%     -    0s
+H    0     0                       0.1620921    0.10385  35.9%     -    0s
+     0     2    0.10385    0   11    0.16209    0.10385  35.9%     -    0s
+*   71    42              37       0.1164214    0.10385  10.8%  27.0    0s
+H  128    59                       0.1147328    0.10385  9.49%  21.8    0s
+H  179    83                       0.1139555    0.10385  8.87%  18.2    0s
+H  346    81                       0.1105782    0.10385  6.08%  14.4    1s
+
+Cutting planes:
+  Gomory: 4
+  Implied bound: 3
+  MIR: 9
+  Flow cover: 1
+
+Explored 2089 nodes (34099 simplex iterations) in 4.33 seconds
+Thread count was 2 (of 2 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.105782381694e-01, best bound 1.105782381694e-01, gap 0.0%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:11:37 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2288 rows and 318 columns
+Presolve time: 0.05s
+Presolved: 1211 rows, 372 columns, 4926 nonzeros
+Variable types: 285 continuous, 87 integer (73 binary)
+
+Root relaxation: objective 1.123945e-01, 274 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.11239    0   16          -    0.11239     -      -    0s
+     0     0    0.11263    0   15          -    0.11263     -      -    0s
+     0     0    0.11263    0   16          -    0.11263     -      -    0s
+     0     0    0.11263    0   11          -    0.11263     -      -    0s
+     0     0    0.11263    0   12          -    0.11263     -      -    0s
+     0     0    0.11263    0   13          -    0.11263     -      -    0s
+H    0     0                       0.2097364    0.11263  46.3%     -    0s
+     0     0    0.11263    0    9    0.20974    0.11263  46.3%     -    0s
+     0     0    0.11263    0   15    0.20974    0.11263  46.3%     -    0s
+     0     0    0.11263    0   15    0.20974    0.11263  46.3%     -    0s
+H    0     0                       0.1826376    0.11263  38.3%     -    0s
+H    0     0                       0.1784045    0.11263  36.9%     -    0s
+     0     7    0.11263    0   15    0.17840    0.11263  36.9%     -    0s
+H   67    41                       0.1582205    0.11263  28.8%  25.5    0s
+*   76    40              22       0.1514660    0.11263  25.6%  23.2    0s
+*  137    34              41       0.1299711    0.11263  13.3%  16.4    0s
+H  168    66                       0.1295489    0.11263  13.1%  16.8    0s
+*  208    58              33       0.1226024    0.11263  8.13%  15.2    0s
+*  223    53              34       0.1221802    0.11263  7.82%  15.3    0s
+
+Cutting planes:
+  Gomory: 2
+  Flow cover: 1
+
+Explored 2730 nodes (30999 simplex iterations) in 2.89 seconds
+Thread count was 2 (of 2 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.221802002519e-01, best bound 1.221802002519e-01, gap 0.0%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:11:45 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.02 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 2327 rows and 337 columns
+Presolve time: 0.05s
+Presolved: 1172 rows, 353 columns, 4738 nonzeros
+Variable types: 269 continuous, 84 integer (72 binary)
+Found heuristic solution: objective 0.4125118
+
+Root relaxation: objective 1.100304e-01, 242 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.11003    0   13    0.41251    0.11003  73.3%     -    0s
+H    0     0                       0.1394329    0.11003  21.1%     -    0s
+     0     0    0.11152    0   21    0.13943    0.11152  20.0%     -    0s
+H    0     0                       0.1340063    0.11152  16.8%     -    0s
+     0     0    0.11152    0   25    0.13401    0.11152  16.8%     -    0s
+     0     0    0.11152    0   17    0.13401    0.11152  16.8%     -    0s
+     0     0    0.11152    0   19    0.13401    0.11152  16.8%     -    0s
+     0     0    0.11152    0   15    0.13401    0.11152  16.8%     -    0s
+     0     0    0.11152    0   18    0.13401    0.11152  16.8%     -    0s
+     0     0    0.11152    0   18    0.13401    0.11152  16.8%     -    0s
+     0     0    0.11152    0   16    0.13401    0.11152  16.8%     -    0s
+     0     6    0.11152    0   16    0.13401    0.11152  16.8%     -    0s
+H   27    19                       0.1308766    0.11246  14.1%  17.8    0s
+*  235    63              33       0.1228556    0.11246  8.46%  11.1    0s
+*  776   150              35       0.1226024    0.11423  6.83%  10.5    1s
+*  971   167              39       0.1221802    0.11559  5.40%  11.9    1s
+
+Cutting planes:
+  Gomory: 1
+  Cover: 1
+  MIR: 3
+  Mod-K: 1
+
+Explored 1912 nodes (23153 simplex iterations) in 2.74 seconds
+Thread count was 2 (of 2 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.221802002519e-01, best bound 1.221802002519e-01, gap 0.0%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Wed Jun  4 11:12:42 2014
+
+Set parameter TimeLimit to value 5
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.01 seconds
+(null): 3499 rows, 690 columns, 9417 nonzeros
+Optimize a model with 3499 rows, 690 columns and 9417 nonzeros
+Presolve removed 1930 rows and 233 columns
+Presolve time: 0.05s
+Presolved: 1569 rows, 457 columns, 6157 nonzeros
+Variable types: 356 continuous, 101 integer (89 binary)
+Found heuristic solution: objective 0.5284931
+
+Root relaxation: objective 1.159406e-01, 258 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.11594    0   23    0.52849    0.11594  78.1%     -    0s
+     0     0    0.11736    0   31    0.52849    0.11736  77.8%     -    0s
+     0     0    0.11739    0   42    0.52849    0.11739  77.8%     -    0s
+     0     0    0.11739    0   37    0.52849    0.11739  77.8%     -    0s
+     0     0    0.11740    0   41    0.52849    0.11740  77.8%     -    0s
+     0     0    0.11740    0   40    0.52849    0.11740  77.8%     -    0s
+     0     0    0.11740    0   46    0.52849    0.11740  77.8%     -    0s
+H    0     0                       0.1820126    0.11740  35.5%     -    0s
+     0     0    0.11751    0   37    0.18201    0.11751  35.4%     -    0s
+     0     0    0.11755    0   38    0.18201    0.11755  35.4%     -    0s
+     0     0    0.11755    0   37    0.18201    0.11755  35.4%     -    0s
+     0     0    0.11755    0   32    0.18201    0.11755  35.4%     -    0s
+     0     0    0.11755    0   40    0.18201    0.11755  35.4%     -    0s
+     0     0    0.11755    0   34    0.18201    0.11755  35.4%     -    0s
+     0     0    0.11755    0   30    0.18201    0.11755  35.4%     -    0s
+H    0     0                       0.1651701    0.11755  28.8%     -    0s
+     0     0    0.11755    0   27    0.16517    0.11755  28.8%     -    0s
+     0     0    0.11755    0   37    0.16517    0.11755  28.8%     -    0s
+     0     0    0.11755    0   31    0.16517    0.11755  28.8%     -    0s
+     0     0    0.11755    0   28    0.16517    0.11755  28.8%     -    0s
+     0     0    0.11755    0   33    0.16517    0.11755  28.8%     -    0s
+     0     0    0.11755    0   31    0.16517    0.11755  28.8%     -    0s
+     0     2    0.11755    0   31    0.16517    0.11755  28.8%     -    1s
+*   64    23              37       0.1576034    0.11854  24.8%  25.8    1s
+*   69    23              37       0.1558303    0.11854  23.9%  24.4    1s
+H   89    52                       0.1550530    0.11854  23.5%  23.1    1s
+H  142    47                       0.1285417    0.11854  7.78%  20.0    1s
+*  252    42              37       0.1244395    0.11865  4.65%  16.0    1s
+*  372    60              34       0.1237640    0.11865  4.13%  13.4    1s
+
+Cutting planes:
+  Gomory: 12
+  Cover: 7
+  Implied bound: 29
+  MIR: 14
+  Flow cover: 12
+  Zero half: 3
+
+Explored 742 nodes (23948 simplex iterations) in 5.01 seconds
+Thread count was 2 (of 2 available processors)
+
+Time limit reached
+Best objective 1.237640472028e-01, best bound 1.188694886059e-01, gap 3.9547%
+
+Wrote result file 'problem.sol'
+
