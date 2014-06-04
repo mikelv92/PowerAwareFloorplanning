@@ -11,7 +11,7 @@ class RRManager:
 
     #Serve a determinare quale file scrivere (index1.html, screenshot1.png)
     filescritti = 1
-    pathHTML = "/home/mikel/Desktop/hpps project/FCCM_demo"
+    pathHTML = "/home/davide/Downloads/HPPS MILP/FCCM_demo"
     pathScreen = "$HOME/Desktop/img"
     #Serve a determinare di quante slice incrementa il distance vector ad ogni round
     incConst = 10
@@ -357,6 +357,7 @@ class RRManager:
             i += 1
 
         index += "<b> Actual Distance: </b><br>" + actualDistance
+        index += "<b> Solution Cost: </b><br>"+str(self.getSolutionCost())
         index= index + "</body>\n</html>"
 
 
