@@ -1,5 +1,5 @@
-1000 #thermCond
-0.000001 #asect
+10 #thermCond
+10 #asect
 10 #sliceHeight 
 10 #slicewidth
 10 #airtemp

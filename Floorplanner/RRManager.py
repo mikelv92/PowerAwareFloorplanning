@@ -11,7 +11,7 @@ class RRManager:
 
     #Serve a determinare quale file scrivere (index1.html, screenshot1.png)
     filescritti = 1
-    pathHTML = "/home/davide/Downloads/HPPS MILP/FCCM_demo"
+    pathHTML = "/home/mikel/Desktop/hpps project/FCCM_demo"
     pathScreen = "$HOME/Desktop/img"
     #Serve a determinare di quante slice incrementa il distance vector ad ogni round
     incConst = 10

@@ -23,7 +23,7 @@ class FileHandler:
         constFH = open(self.const)
 
         self.thermCond = int(constFH.readline().split()[0])
-        self.aSect = int(constFH.readline().split()[0])
+        self.aSect = float(constFH.readline().split()[0])
         self.sliceHeight = int(constFH.readline().split()[0])
         self.sliceWidth = int(constFH.readline().split()[0])
         self.airTemp = int(constFH.readline().split()[0])

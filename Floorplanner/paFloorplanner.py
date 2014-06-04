@@ -17,7 +17,10 @@ def acceptanceProbability(current, new, temp):
         return math.exp(current - new / temp)
 
 def main():
-    #confu, power, const
+    if len(sys.argv) < 3:
+        sys.stderr.write('Usage: python paFloorplanner.py <confu.dat> <power.txt> <const.txt>\n')
+        sys.exit(-1)
+
     fh = FileHandler(sys.argv[1], sys.argv[2], sys.argv[3])
 
     #Data structures to hold the input information
