@@ -2,6 +2,7 @@ import os
 import time
 import numpy
 import decimal
+from copy import copy, deepcopy
 from random import randint
 from SequencePair import SequencePair
 
@@ -17,9 +18,12 @@ class RRManager:
     incConst = 10
     #Se il delta tmax-tmin e minor di epsilon l'algoritmo si ferma
     epsilon = 0.1
-    #Pesi da dare al costo della funzione obiettivo
-    weightMILP = 1000000
+    #Pesi da dare al costo della funzione obiettivo, supposed to be between [0,1]
+    weightMILP = 0.5
     weightSA = 0.5
+    #Decide se normalizzare nella funzione obiettivo, 1 = NON normalizzare, 0 = normalizza
+    normalizeMILP = 1
+    normalizeSA = 0
 
     def __init__(self, thermCond, aSect, sliceHeight, sliceWidth, airTemp, airResistance, fh):
         self.collection = []
@@ -138,8 +142,8 @@ class RRManager:
     def randomSwapInSequencePair(self):
         index1 = 0
         index2 = 0
-        a = self.getSequence1()[:]
-        b = self.getSequence2()[:]
+        a = deepcopy(self.getSequence1()[:])
+        b = deepcopy(self.getSequence2()[:])
         print "a", a
         while index1 == index2:
             index1 = randint(0, len(a) - 1)
@@ -206,28 +210,36 @@ class RRManager:
             return a
 
     def randomIncDistanceVector(self):
+        print("Making sure doesn't change: "+str(self.distanceVector))
         index1 = 0
         index2 = 0
-        a = self.distanceVector[:]
+        a = deepcopy(self.distanceVector)
         print(a)
         while index1 == index2:
             index1 = randint(0, len(a) - 1)
             index2 = randint(0, len(a) - 1)
         a[index1][index2] += self.incConst
         a[index2][index1] = a[index1][index2]
+        print("Making sure doesn't change: "+str(self.distanceVector))
         return a
+
 
     def getSolutionCost(self):
         if self.milpObjVal == 817609:
             return 817609
-        weightSA = self.weightSA
-        #weightMILP = 0.5
-        weightMILP = self.weightMILP
+
+
         maxTemp = self.collection[0].temp
         for i in xrange(1,len(self.collection)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
-        return weightSA * maxTemp + weightMILP * self.milpObjVal
+        print("hi"+str(self.milpObjVal)+" " +str(maxTemp))
+        if self.normalizeSA == 0 :
+            self.normalizeSA = 1/maxTemp
+        if self.normalizeMILP == 0 :
+            self.normalizetMILP = 1/self.milpObjVal
+
+        return (self.weightSA *self.normalizeSA* maxTemp + self.normalizeMILP*self.weightMILP * self.milpObjVal)*500
 
     def updateSequencePair(self, pair):
         self.sequencePair = pair

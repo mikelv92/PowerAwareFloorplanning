@@ -17,7 +17,8 @@ def acceptanceProbability(current, new, temp):
     if current > new:
         return 1
     else:
-        return math.exp((current - new) / temp) > random()
+        print("exp: "+str(math.exp((current - new)*300 / temp))+"con current-new= "+str(current-new)+ "e temp= " +str(temp))
+        return math.exp((current - new)*300 / temp) > random()
 
 def main():
     if len(sys.argv) < 3:
@@ -40,17 +41,16 @@ def main():
     powerDict = fh.getPowerDict()
     for rrNum in xrange(rrCount):
         #what values to give as cx and cy?
-        print rrNum
         rr = ReconfigurableRegion("rec" + `rrNum + 1`, 0, 0, powerDict[rrNum], 1000*random(), rrManager)
         rrManager.addRR(rr)
         print rrManager.getSequence1()
 
     fh.updateDat(rrManager.sequencePair, rrManager.distanceVector)
 
-    saTemperature = 10000
+    saTemperature = 5000
     saCoolingRate = 0.003
 
-    currentSolutionCost = 1000000000000
+    currentSolutionCost = 1000000000000.0
     sequencePair = SequencePair(list(), list())
     distanceVector = [[0 for x in xrange(rrCount)] for x in xrange(rrCount)]
     goodSolutions = []
