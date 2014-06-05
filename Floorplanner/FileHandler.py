@@ -22,12 +22,12 @@ class FileHandler:
 
         constFH = open(self.const)
 
-        self.thermCond = int(constFH.readline().split()[0])
+        self.thermCond = float(constFH.readline().split()[0])
         self.aSect = float(constFH.readline().split()[0])
-        self.sliceHeight = int(constFH.readline().split()[0])
-        self.sliceWidth = int(constFH.readline().split()[0])
-        self.airTemp = int(constFH.readline().split()[0])
-        self.airResistance = int(constFH.readline().split()[0])
+        self.sliceHeight = float(constFH.readline().split()[0])
+        self.sliceWidth = float(constFH.readline().split()[0])
+        self.airTemp = float(constFH.readline().split()[0])
+        self.airResistance = float(constFH.readline().split()[0])
         constFH.close()
 
         powerFH = open(self.power)

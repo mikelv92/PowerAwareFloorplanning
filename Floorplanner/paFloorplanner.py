@@ -14,7 +14,7 @@ def acceptanceProbability(current, new, temp):
     if current > new:
         return 1
     else:
-        return math.exp(current - new / temp)
+        return math.exp((current - new) / temp) > random()
 
 def main():
     if len(sys.argv) < 3:
@@ -47,7 +47,7 @@ def main():
     saTemperature = 10000
     saCoolingRate = 0.003
 
-    currentSolutionCost = rrManager.getSolutionCost()
+    currentSolutionCost = 100000
     sequencePair = SequencePair(list(), list())
     distanceVector = [[0 for x in xrange(rrCount)] for x in xrange(rrCount)]
     goodSolutions = []
@@ -64,15 +64,23 @@ def main():
         rrManager.calculateTemperatures()
         
         newSolutionCost = rrManager.getSolutionCost()
+        print("Current: "+str(currentSolutionCost))
+        print("New: "+str(newSolutionCost))
         #if it has a better cost, save it in the good solutions array to not lose it
         if currentSolutionCost - newSolutionCost > 0:
             goodSolutions.append(Solution(sequencePair, distanceVector, newSolutionCost))
 
-        if acceptanceProbability(currentSolutionCost, newSolutionCost, saTemperature) > random():
+
+        if acceptanceProbability(currentSolutionCost, newSolutionCost, saTemperature):
+            print("soluzione accettata")
             rrManager.updateSequencePair(sequencePair)
             rrManager.updateDistanceVector(distanceVector)
-            
+            currentSolutionCost = newSolutionCost
+        else:
+            print("soluzione scartata")
         saTemperature *= 1 - saCoolingRate
+
+    print("finito!")
 
 
 if __name__ == '__main__':

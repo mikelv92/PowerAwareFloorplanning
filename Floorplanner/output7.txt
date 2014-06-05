@@ -1,0 +1,1264 @@
+0
+['rec1']
+1
+['rec1', 'rec2']
+2
+['rec3', 'rec1', 'rec2']
+3
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 0 maxIndex 3
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+OBJ VALUE IS 1.2454138758207306e-01
+Cx rec1 is 46
+Cx rec2 is 46
+Cx rec3 is 46
+Cx rec4 is 17
+Cy rec1 is 5.9999999999999787e+01
+Cy rec2 is 8.9999999999999687e+01
+Cy rec3 is 1.0999999999999955e+02
+Cy rec4 is 1.0999999999999903e+02
+coefficent matrix: [[-3.333333333333345e-06, 1.037414965986402e-05, -5.000000000000036e-06, -2.040816326530639e-06], [-2.0000000000000097e-06, -5.000000000000036e-06, 1.044827586206895e-05, -3.4482758620689044e-06], [-1.2658227848101386e-06, -2.040816326530639e-06, -3.4482758620689044e-06, 6.754914973409682e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 432233120.983
+Temperatura regione 1 = -88157331.6165
+Temperatura regione 2 = -143329705.717
+Temperatura regione 3 = -200746087.65
+Current: 427.365460049
+New: 216116560.554
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentVectoring
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 0, 0], [10, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+OBJ VALUE IS 1.2376404720279205e-01
+Cx rec1 is 48
+Cx rec2 is 48
+Cx rec3 is 48
+Cx rec4 is 20
+Cy rec1 is 80
+Cy rec2 is 1.1000000000000003e+02
+Cy rec3 is 1.2999999999999991e+02
+Cy rec4 is 1.0999999999999969e+02
+coefficent matrix: [[-3.33333333333333e-06, 1.1904761904761886e-05, -5.000000000000028e-06, -3.571428571428528e-06], [-2.0000000000000033e-06, -5.000000000000028e-06, 9.083333333333355e-06, -2.0833333333333233e-06], [-1.724137931034492e-06, -3.571428571428528e-06, -2.0833333333333233e-06, 7.378899835796343e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 397478516.495
+Temperatura regione 1 = -98331317.7587
+Temperatura regione 2 = -138709512.971
+Temperatura regione 3 = -160437689.766
+Current: 427.365460049
+New: 198739258.31
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec2', 'rec4', 'rec1', 'rec3']
+[[0, 10, 0, 0], [10, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+OBJ VALUE IS 1.1421164725935003e-01
+Cx rec1 is 16
+Cx rec2 is 17
+Cx rec3 is 38
+Cx rec4 is 66
+Cy rec1 is 80
+Cy rec2 is 3.0000000000000028e+01
+Cy rec3 is 80
+Cy rec4 is 2.9999999999999776e+01
+coefficent matrix: [[-1.9607843137254914e-06, 5.410051344481446e-06, -1.4084507042253525e-06, -2.040816326530602e-06], [-4.5454545454545455e-06, -1.4084507042253525e-06, 7.2359565317311764e-06, -1.2820512820512784e-06], [-9.999999999999978e-07, -2.040816326530602e-06, -1.2820512820512784e-06, 4.3228676085818786e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 420054131.082
+Temperatura regione 1 = -170657154.7
+Temperatura regione 2 = 14115395.7516
+Temperatura regione 3 = -263512376.134
+Current: 427.365460049
+New: 210027065.598
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentVectoring
+[[0, 10, 0, 0], [10, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+[[0, 10, 0, 0], [10, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 10, 0, 0], [10, 0, 0, 0], [0, 0, 0, 10], [0, 0, 10, 0]]
+OBJ VALUE IS 1.1477944412069005e-01
+Cx rec1 is 44
+Cx rec2 is 72
+Cx rec3 is 44
+Cx rec4 is 92
+Cy rec1 is 1.1999999999999997e+02
+Cy rec2 is 9.0000000000000028e+01
+Cy rec3 is 8.9999999999999972e+01
+Cy rec4 is 50
+coefficent matrix: [[-1.7241379310344844e-06, 6.962233169129715e-06, -3.571428571428564e-06, -1.666666666666666e-06], [-3.3333333333333333e-06, -3.571428571428564e-06, 8.041125541125533e-06, -1.1363636363636366e-06], [-8.474576271186442e-07, -1.666666666666666e-06, -1.1363636363636366e-06, 3.6504879301489466e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 507152680.625
+Temperatura regione 1 = -150634400.686
+Temperatura regione 2 = -52476823.5939
+Temperatura regione 3 = -304041460.344
+Current: 427.365460049
+New: 253576340.37
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[0, 10, 0, 0], [10, 0, 0, 0], [0, 0, 0, 10], [0, 0, 10, 0]]
+['rec1', 'rec2', 'rec3', 'rec4']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 10, 0], [10, 0, 0, 0], [10, 0, 0, 10], [0, 0, 10, 0]]
+OBJ VALUE IS 1.1893402191976202e-01
+Cx rec1 is 1.2999999999999970e+01
+Cx rec2 is 2.9999999999999986e+01
+Cx rec3 is 4.7999999999999972e+01
+Cx rec4 is 6.5999999999999957e+01
+Cy rec1 is 6.9999999999999929e+01
+Cy rec2 is 6.9999999999999929e+01
+Cy rec3 is 6.9999999999999929e+01
+Cy rec4 is 30
+coefficent matrix: [[-5.882352941176466e-06, 1.2753697970416238e-05, -5.55555555555556e-06, -1.315789473684212e-06], [-2.8571428571428573e-06, -5.55555555555556e-06, 1.0136836343732903e-05, -1.7241379310344852e-06], [-1.075268817204302e-06, -1.315789473684212e-06, -1.7241379310344852e-06, 4.115196221922999e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 324553054.387
+Temperatura regione 1 = -4313155.65557
+Temperatura regione 2 = -74007857.8499
+Temperatura regione 3 = -246232044.882
+Current: 427.365460049
+New: 162276527.253
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec2', 'rec3', 'rec4']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 10, 0], [10, 0, 0, 0], [10, 0, 0, 10], [0, 0, 10, 0]]
+OBJ VALUE IS 1.1893402191976202e-01
+Cx rec1 is 1.2999999999999970e+01
+Cx rec2 is 2.9999999999999986e+01
+Cx rec3 is 4.7999999999999972e+01
+Cx rec4 is 6.5999999999999957e+01
+Cy rec1 is 6.9999999999999929e+01
+Cy rec2 is 6.9999999999999929e+01
+Cy rec3 is 6.9999999999999929e+01
+Cy rec4 is 30
+coefficent matrix: [[-5.882352941176466e-06, 1.2753697970416238e-05, -5.55555555555556e-06, -1.315789473684212e-06], [-2.8571428571428573e-06, -5.55555555555556e-06, 1.0136836343732903e-05, -1.7241379310344852e-06], [-1.075268817204302e-06, -1.315789473684212e-06, -1.7241379310344852e-06, 4.115196221922999e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 324553054.387
+Temperatura regione 1 = -4313155.65557
+Temperatura regione 2 = -74007857.8499
+Temperatura regione 3 = -246232044.882
+Current: 427.365460049
+New: 162276527.253
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 10, 10, 0], [10, 0, 0, 0], [10, 0, 0, 10], [0, 0, 10, 0]]
+OBJ VALUE IS 1.1477944412069017e-01
+Cx rec1 is 46
+Cx rec2 is 74
+Cx rec3 is 46
+Cx rec4 is 7.0000000000000057e+01
+Cy rec1 is 140
+Cy rec2 is 110
+Cy rec3 is 110
+Cy rec4 is 70
+coefficent matrix: [[-1.7241379310344827e-06, 7.568293775190329e-06, -3.5714285714285714e-06, -2.2727272727272757e-06], [-3.3333333333333333e-06, -3.5714285714285714e-06, 8.467261904761903e-06, -1.5624999999999986e-06], [-1.0638297872340418e-06, -2.2727272727272757e-06, -1.5624999999999986e-06, 4.899057059961316e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 476043923.824
+Temperatura regione 1 = -160750577.198
+Temperatura regione 2 = -70683829.9802
+Temperatura regione 3 = -244609520.646
+Current: 427.365460049
+New: 238021961.969
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 10, 10, 0], [10, 0, 0, 0], [10, 0, 0, 10], [0, 0, 10, 0]]
+OBJ VALUE IS 1.1477944412069017e-01
+Cx rec1 is 46
+Cx rec2 is 74
+Cx rec3 is 46
+Cx rec4 is 7.0000000000000057e+01
+Cy rec1 is 140
+Cy rec2 is 110
+Cy rec3 is 110
+Cy rec4 is 70
+coefficent matrix: [[-1.7241379310344827e-06, 7.568293775190329e-06, -3.5714285714285714e-06, -2.2727272727272757e-06], [-3.3333333333333333e-06, -3.5714285714285714e-06, 8.467261904761903e-06, -1.5624999999999986e-06], [-1.0638297872340418e-06, -2.2727272727272757e-06, -1.5624999999999986e-06, 4.899057059961316e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 476043923.824
+Temperatura regione 1 = -160750577.198
+Temperatura regione 2 = -70683829.9802
+Temperatura regione 3 = -244609520.646
+Current: 427.365460049
+New: 238021961.969
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec2', 'rec4', 'rec1', 'rec3']
+[[0, 10, 10, 0], [10, 0, 0, 0], [10, 0, 0, 10], [0, 0, 10, 0]]
+OBJ VALUE IS 1.1421164725934979e-01
+Cx rec1 is 16
+Cx rec2 is 17
+Cx rec3 is 38
+Cx rec4 is 66
+Cy rec1 is 7.9999999999999474e+01
+Cy rec2 is 2.9999999999999837e+01
+Cy rec3 is 8.0000000000000156e+01
+Cy rec4 is 9.9999999999998579e+00
+coefficent matrix: [[-1.960784313725504e-06, 4.818510380269691e-06, -1.408450704225346e-06, -1.449275362318841e-06], [-4.545454545454405e-06, -1.408450704225346e-06, 6.9743134129450535e-06, -1.020408163265303e-06], [-8.333333333333361e-07, -1.449275362318841e-06, -1.020408163265303e-06, 3.30301685891748e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 444774889.572
+Temperatura regione 1 = -160009767.223
+Temperatura regione 2 = 34618030.4097
+Temperatura regione 3 = -319383156.759
+Current: 427.365460049
+New: 222387444.843
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 10, 0], [10, 0, 0, 0], [10, 0, 0, 10], [0, 0, 10, 0]]
+OBJ VALUE IS 1.2376404720279216e-01
+Cx rec1 is 4.7999999999999893e+01
+Cx rec2 is 4.7999999999999893e+01
+Cx rec3 is 48
+Cx rec4 is 20
+Cy rec1 is 40
+Cy rec2 is 70
+Cy rec3 is 90
+Cy rec4 is 110
+coefficent matrix: [[-3.3333333333333333e-06, 9.803921568627428e-06, -4.999999999999973e-06, -1.47058823529412e-06], [-1.9999999999999957e-06, -4.999999999999973e-06, 9.083333333333301e-06, -2.0833333333333334e-06], [-1.0204081632653073e-06, -1.47058823529412e-06, -2.0833333333333334e-06, 4.574329731892761e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 458842874.885
+Temperatura regione 1 = -74843080.9667
+Temperatura regione 2 = -133032468.722
+Temperatura regione 3 = -250967329.197
+Current: 427.365460049
+New: 229421437.504
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 10, 10, 0], [10, 0, 0, 0], [10, 0, 0, 10], [0, 0, 10, 0]]
+OBJ VALUE IS 1.1477944412069017e-01
+Cx rec1 is 46
+Cx rec2 is 74
+Cx rec3 is 46
+Cx rec4 is 7.0000000000000057e+01
+Cy rec1 is 140
+Cy rec2 is 110
+Cy rec3 is 110
+Cy rec4 is 70
+coefficent matrix: [[-1.7241379310344827e-06, 7.568293775190329e-06, -3.5714285714285714e-06, -2.2727272727272757e-06], [-3.3333333333333333e-06, -3.5714285714285714e-06, 8.467261904761903e-06, -1.5624999999999986e-06], [-1.0638297872340418e-06, -2.2727272727272757e-06, -1.5624999999999986e-06, 4.899057059961316e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 476043923.824
+Temperatura regione 1 = -160750577.198
+Temperatura regione 2 = -70683829.9802
+Temperatura regione 3 = -244609520.646
+Current: 427.365460049
+New: 238021961.969
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+RandomVectoring
+[[0, 10, 10, 0], [10, 0, 0, 0], [10, 0, 0, 10], [0, 0, 10, 0]]
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 10, 10], [10, 0, 0, 0], [10, 0, 0, 10], [10, 0, 10, 0]]
+OBJ VALUE IS 1.2376404720279258e-01
+Cx rec1 is 48
+Cx rec2 is 48
+Cx rec3 is 48
+Cx rec4 is 20
+Cy rec1 is 7.9999999999999872e+01
+Cy rec2 is 1.1000000000000026e+02
+Cy rec3 is 130
+Cy rec4 is 110
+coefficent matrix: [[-3.3333333333332905e-06, 1.1904761904761893e-05, -5.000000000000064e-06, -3.5714285714285387e-06], [-1.9999999999999953e-06, -5.000000000000064e-06, 9.083333333333393e-06, -2.0833333333333334e-06], [-1.7241379310344789e-06, -3.5714285714285387e-06, -2.0833333333333334e-06, 7.378899835796351e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 397478516.495
+Temperatura regione 1 = -98331317.7587
+Temperatura regione 2 = -138709512.971
+Temperatura regione 3 = -160437689.766
+Current: 427.365460049
+New: 198739258.31
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentVectoring
+[[0, 10, 10, 10], [10, 0, 0, 0], [10, 0, 0, 10], [10, 0, 10, 0]]
+[[0, 10, 10, 10], [10, 0, 0, 0], [10, 0, 0, 10], [10, 0, 10, 0]]
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 10, 10, 10], [10, 0, 10, 0], [10, 10, 0, 10], [10, 0, 10, 0]]
+OBJ VALUE IS 1.1477944412069017e-01
+Cx rec1 is 46
+Cx rec2 is 74
+Cx rec3 is 46
+Cx rec4 is 68
+Cy rec1 is 120
+Cy rec2 is 90
+Cy rec3 is 90
+Cy rec4 is 6.9999999999999972e+01
+coefficent matrix: [[-1.7241379310344827e-06, 9.141720348616896e-06, -3.5714285714285714e-06, -3.846153846153842e-06], [-3.3333333333333333e-06, -3.5714285714285714e-06, 9.285714285714284e-06, -2.3809523809523795e-06], [-1.3888888888888885e-06, -3.846153846153842e-06, -2.3809523809523795e-06, 7.615995115995109e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 442139057.794
+Temperatura regione 1 = -165044309.124
+Temperatura regione 2 = -86091129.6826
+Temperatura regione 3 = -191003622.987
+Current: 427.365460049
+New: 221069528.954
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentVectoring
+[[0, 10, 10, 10], [10, 0, 10, 0], [10, 10, 0, 10], [10, 0, 10, 0]]
+[[0, 10, 10, 10], [10, 0, 10, 0], [10, 10, 0, 10], [10, 0, 10, 0]]
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[0, 10, 10, 10], [10, 0, 20, 0], [10, 20, 0, 10], [10, 0, 10, 0]]
+OBJ VALUE IS 1.3011364054678468e-01
+Cx rec1 is 2.6000000000000114e+01
+Cx rec2 is 6.5000000000000057e+01
+Cx rec3 is 4.2000000000000227e+01
+Cx rec4 is 8.6000000000000114e+01
+Cy rec1 is 80
+Cy rec2 is 70
+Cy rec3 is 80
+Cy rec4 is 130
+coefficent matrix: [[-2.0408163265306146e-06, 6.3056872580682274e-06, -3.0303030303030457e-06, -1.234567901234567e-06], [-6.249999999999955e-06, -3.0303030303030457e-06, 1.0344132817537045e-05, -1.063829787234044e-06], [-9.09090909090909e-07, -1.234567901234567e-06, -1.063829787234044e-06, 3.2074885975595197e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 375029021.796
+Temperatura regione 1 = -112566106.45
+Temperatura regione 2 = 43356216.9014
+Temperatura regione 3 = -305819136.247
+Current: 427.365460049
+New: 187514510.963
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 10, 10], [10, 0, 20, 0], [10, 20, 0, 10], [10, 0, 10, 0]]
+OBJ VALUE IS 1.2376404720279202e-01
+Cx rec1 is 48
+Cx rec2 is 48
+Cx rec3 is 48
+Cx rec4 is 20
+Cy rec1 is 3.9999999999999709e+01
+Cy rec2 is 6.9999999999999645e+01
+Cy rec3 is 8.9999999999999645e+01
+Cy rec4 is 8.9999999999999559e+01
+coefficent matrix: [[-3.3333333333333405e-06, 1.0416666666666678e-05, -5e-06, -2.0833333333333372e-06], [-2.0000000000000025e-06, -5e-06, 1.0571428571428564e-05, -3.5714285714285603e-06], [-1.2820512820512845e-06, -2.0833333333333372e-06, -3.5714285714285603e-06, 6.9368131868131825e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 430733913.027
+Temperatura regione 1 = -88782738.5566
+Temperatura regione 2 = -143726267.968
+Temperatura regione 3 = -198224910.502
+Current: 427.365460049
+New: 215366956.575
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec2', 'rec4', 'rec3']
+[[0, 10, 10, 10], [10, 0, 20, 0], [10, 20, 0, 10], [10, 0, 10, 0]]
+OBJ VALUE IS 1.1314033242663277e-01
+Cx rec1 is 1.9999999999999943e+01
+Cx rec2 is 4.7999999999999957e+01
+Cx rec3 is 4.2000000000000007e+01
+Cx rec4 is 7.6999999999999943e+01
+Cy rec1 is 90
+Cy rec2 is 70
+Cy rec3 is 90
+Cy rec4 is 70
+coefficent matrix: [[-2.083333333333333e-06, 9.377763041556154e-06, -3.8461538461538536e-06, -3.448275862068967e-06], [-4.545454545454533e-06, -3.8461538461538536e-06, 1.0209790209790208e-05, -1.8181818181818204e-06], [-1.2987012987012986e-06, -3.448275862068967e-06, -1.8181818181818204e-06, 6.5651589789520865e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 373728894.046
+Temperatura regione 1 = -136849495.163
+Temperatura regione 2 = -40511096.4879
+Temperatura regione 3 = -196368306.396
+Current: 427.365460049
+New: 186864447.08
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentVectoring
+[[0, 10, 10, 10], [10, 0, 20, 0], [10, 20, 0, 10], [10, 0, 10, 0]]
+[[0, 10, 10, 10], [10, 0, 20, 0], [10, 20, 0, 10], [10, 0, 10, 0]]
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 10, 20], [10, 0, 20, 0], [10, 20, 0, 10], [20, 0, 10, 0]]
+OBJ VALUE IS 1.2376404720279173e-01
+Cx rec1 is 48
+Cx rec2 is 48
+Cx rec3 is 48
+Cx rec4 is 20
+Cy rec1 is 1.0000000000000037e+02
+Cy rec2 is 1.3000000000000017e+02
+Cy rec3 is 1.5000000000000011e+02
+Cy rec4 is 1.2999999999999986e+02
+coefficent matrix: [[-3.3333333333333553e-06, 1.1904761904761903e-05, -5.000000000000015e-06, -3.5714285714285315e-06], [-2.00000000000001e-06, -5.000000000000015e-06, 9.083333333333347e-06, -2.0833333333333224e-06], [-1.724137931034498e-06, -3.5714285714285315e-06, -2.0833333333333224e-06, 7.378899835796352e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 397478516.495
+Temperatura regione 1 = -98331317.7587
+Temperatura regione 2 = -138709512.971
+Temperatura regione 3 = -160437689.766
+Current: 427.365460049
+New: 198739258.31
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentVectoring
+[[0, 10, 10, 20], [10, 0, 20, 0], [10, 20, 0, 10], [20, 0, 10, 0]]
+[[0, 10, 10, 20], [10, 0, 20, 0], [10, 20, 0, 10], [20, 0, 10, 0]]
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 10, 20, 20], [10, 0, 20, 0], [20, 20, 0, 10], [20, 0, 10, 0]]
+OBJ VALUE IS 1.1477944412069033e-01
+Cx rec1 is 48
+Cx rec2 is 76
+Cx rec3 is 48
+Cx rec4 is 70
+Cy rec1 is 140
+Cy rec2 is 1.1000000000000003e+02
+Cy rec3 is 1.1000000000000010e+02
+Cy rec4 is 7.0000000000000227e+01
+coefficent matrix: [[-1.7241379310344835e-06, 7.469479545941316e-06, -3.5714285714285625e-06, -2.1739130434782704e-06], [-3.333333333333345e-06, -3.5714285714285625e-06, 8.517665130568363e-06, -1.612903225806455e-06], [-1.086956521739133e-06, -2.1739130434782704e-06, -1.612903225806455e-06, 4.873772791023858e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 473454341.264
+Temperatura regione 1 = -159936847.655
+Temperatura regione 2 = -71831633.4715
+Temperatura regione 3 = -241685864.137
+Current: 427.365460049
+New: 236727170.689
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentVectoring
+[[0, 10, 20, 20], [10, 0, 20, 0], [20, 20, 0, 10], [20, 0, 10, 0]]
+[[0, 10, 20, 20], [10, 0, 20, 0], [20, 20, 0, 10], [20, 0, 10, 0]]
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 20, 20], [10, 0, 20, 0], [20, 20, 0, 20], [20, 0, 20, 0]]
+OBJ VALUE IS 1.2376404720279179e-01
+Cx rec1 is 4.7999999999999993e+01
+Cx rec2 is 4.7999999999999993e+01
+Cx rec3 is 48
+Cx rec4 is 1.9999999999999975e+01
+Cy rec1 is 40
+Cy rec2 is 70
+Cy rec3 is 8.9999999999999559e+01
+Cy rec4 is 70
+coefficent matrix: [[-3.3333333333333333e-06, 1.1904761904762012e-05, -5.000000000000109e-06, -3.5714285714285692e-06], [-2.0000000000000173e-06, -5.000000000000109e-06, 9.083333333333477e-06, -2.0833333333333516e-06], [-1.724137931034482e-06, -3.5714285714285692e-06, -2.0833333333333516e-06, 7.378899835796403e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 397478516.495
+Temperatura regione 1 = -98331317.7587
+Temperatura regione 2 = -138709512.971
+Temperatura regione 3 = -160437689.766
+Current: 427.365460049
+New: 198739258.31
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+RandomVectoring
+[[0, 10, 20, 20], [10, 0, 20, 0], [20, 20, 0, 20], [20, 0, 20, 0]]
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 20, 30], [10, 0, 20, 0], [20, 20, 0, 20], [30, 0, 20, 0]]
+OBJ VALUE IS 1.2376404720279205e-01
+Cx rec1 is 48
+Cx rec2 is 48
+Cx rec3 is 48
+Cx rec4 is 20
+Cy rec1 is 1.0000000000000026e+02
+Cy rec2 is 1.3000000000000017e+02
+Cy rec3 is 1.5000000000000017e+02
+Cy rec4 is 130
+coefficent matrix: [[-3.333333333333343e-06, 1.1904761904761893e-05, -5e-06, -3.5714285714285498e-06], [-2.0000000000000033e-06, -5e-06, 9.08333333333333e-06, -2.083333333333326e-06], [-1.7241379310344903e-06, -3.5714285714285498e-06, -2.083333333333326e-06, 7.378899835796366e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 397478516.495
+Temperatura regione 1 = -98331317.7587
+Temperatura regione 2 = -138709512.971
+Temperatura regione 3 = -160437689.766
+Current: 427.365460049
+New: 198739258.31
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 10, 20, 30], [10, 0, 20, 0], [20, 20, 0, 20], [30, 0, 20, 0]]
+OBJ VALUE IS 1.1477944412069079e-01
+Cx rec1 is 44
+Cx rec2 is 72
+Cx rec3 is 44
+Cx rec4 is 66
+Cy rec1 is 6.0000000000000036e+01
+Cy rec2 is 2.9999999999999893e+01
+Cy rec3 is 30
+Cy rec4 is 9.9999999999998934e+00
+coefficent matrix: [[-1.7241379310344787e-06, 9.141720348616883e-06, -3.5714285714285582e-06, -3.846153846153846e-06], [-3.3333333333333295e-06, -3.5714285714285582e-06, 9.285714285714262e-06, -2.380952380952375e-06], [-1.3888888888888862e-06, -3.846153846153846e-06, -2.380952380952375e-06, 7.615995115995107e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 442139057.794
+Temperatura regione 1 = -165044309.124
+Temperatura regione 2 = -86091129.6826
+Temperatura regione 3 = -191003622.987
+Current: 427.365460049
+New: 221069528.954
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 20, 30], [10, 0, 20, 0], [20, 20, 0, 20], [30, 0, 20, 0]]
+OBJ VALUE IS 1.2376404720279205e-01
+Cx rec1 is 48
+Cx rec2 is 48
+Cx rec3 is 48
+Cx rec4 is 20
+Cy rec1 is 1.0000000000000026e+02
+Cy rec2 is 1.3000000000000017e+02
+Cy rec3 is 1.5000000000000017e+02
+Cy rec4 is 130
+coefficent matrix: [[-3.333333333333343e-06, 1.1904761904761893e-05, -5e-06, -3.5714285714285498e-06], [-2.0000000000000033e-06, -5e-06, 9.08333333333333e-06, -2.083333333333326e-06], [-1.7241379310344903e-06, -3.5714285714285498e-06, -2.083333333333326e-06, 7.378899835796366e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 397478516.495
+Temperatura regione 1 = -98331317.7587
+Temperatura regione 2 = -138709512.971
+Temperatura regione 3 = -160437689.766
+Current: 427.365460049
+New: 198739258.31
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+RandomVectoring
+[[0, 10, 20, 30], [10, 0, 20, 0], [20, 20, 0, 20], [30, 0, 20, 0]]
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 10, 20, 30], [10, 0, 20, 10], [20, 20, 0, 20], [30, 10, 20, 0]]
+OBJ VALUE IS 1.1477944412069002e-01
+Cx rec1 is 48
+Cx rec2 is 76
+Cx rec3 is 48
+Cx rec4 is 70
+Cy rec1 is 7.9999999999999943e+01
+Cy rec2 is 4.9999999999999908e+01
+Cy rec3 is 4.9999999999999957e+01
+Cy rec4 is 9.9999999999999929e+00
+coefficent matrix: [[-1.7241379310344816e-06, 7.469479545941311e-06, -3.5714285714285646e-06, -2.173913043478265e-06], [-3.3333333333333346e-06, -3.5714285714285646e-06, 8.51766513056835e-06, -1.6129032258064524e-06], [-1.0869565217391312e-06, -2.173913043478265e-06, -1.6129032258064524e-06, 4.873772791023848e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 473454341.264
+Temperatura regione 1 = -159936847.655
+Temperatura regione 2 = -71831633.4715
+Temperatura regione 3 = -241685864.137
+Current: 427.365460049
+New: 236727170.689
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 20, 30], [10, 0, 20, 10], [20, 20, 0, 20], [30, 10, 20, 0]]
+OBJ VALUE IS 1.2376404720279216e-01
+Cx rec1 is 48
+Cx rec2 is 4.7999999999999972e+01
+Cx rec3 is 48
+Cx rec4 is 20
+Cy rec1 is 20
+Cy rec2 is 50
+Cy rec3 is 70
+Cy rec4 is 90
+coefficent matrix: [[-3.33333333333333e-06, 9.803921568627441e-06, -4.999999999999993e-06, -1.4705882352941182e-06], [-2e-06, -4.999999999999993e-06, 9.083333333333325e-06, -2.0833333333333334e-06], [-1.020408163265306e-06, -1.4705882352941182e-06, -2.0833333333333334e-06, 4.574329731892757e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 458842874.885
+Temperatura regione 1 = -74843080.9667
+Temperatura regione 2 = -133032468.722
+Temperatura regione 3 = -250967329.197
+Current: 427.365460049
+New: 229421437.504
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec2', 'rec3', 'rec4']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 10, 20, 30], [10, 0, 20, 10], [20, 20, 0, 20], [30, 10, 20, 0]]
+OBJ VALUE IS 1.2062264062965738e-01
+Cx rec1 is 11
+Cx rec2 is 28
+Cx rec3 is 48
+Cx rec4 is 70
+Cy rec1 is 9.0000000000000014e+01
+Cy rec2 is 9.0000000000000014e+01
+Cy rec3 is 9.0000000000000014e+01
+Cy rec4 is 2.9999999999999904e+01
+coefficent matrix: [[-5.882352941176471e-06, 1.1862745098039216e-05, -5e-06, -9.80392156862744e-07], [-2.7027027027027026e-06, -5e-06, 8.922214897824652e-06, -1.2195121951219495e-06], [-8.403361344537807e-07, -9.80392156862744e-07, -1.2195121951219495e-06, 3.040240486438474e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 359346182.784
+Temperatura regione 1 = 22621659.0178
+Temperatura regione 2 = -60196872.3867
+Temperatura regione 3 = -321770973.415
+Current: 427.365460049
+New: 179673091.452
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentVectoring
+[[0, 10, 20, 30], [10, 0, 20, 10], [20, 20, 0, 20], [30, 10, 20, 0]]
+[[0, 10, 20, 30], [10, 0, 20, 10], [20, 20, 0, 20], [30, 10, 20, 0]]
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 20, 20, 30], [20, 0, 20, 10], [20, 20, 0, 20], [30, 10, 20, 0]]
+OBJ VALUE IS 1.1057823816942737e-01
+Cx rec1 is 44
+Cx rec2 is 81
+Cx rec3 is 44
+Cx rec4 is 92
+Cy rec1 is 1.0000000000000031e+02
+Cy rec2 is 1.0000000000000016e+02
+Cy rec3 is 130
+Cy rec4 is 4.9999999999999737e+01
+coefficent matrix: [[-2.702702702702691e-06, 5.834584278430602e-06, -1.4925373134328394e-06, -1.6393442622950707e-06], [-3.333333333333368e-06, -1.4925373134328394e-06, 5.607120646766206e-06, -7.812499999999984e-07], [-1.0204081632653001e-06, -1.6393442622950707e-06, -7.812499999999984e-07, 3.4410024255603694e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 425244385.807
+Temperatura regione 1 = -103268527.609
+Temperatura regione 2 = -33998416.6681
+Temperatura regione 3 = -287977445.53
+Current: 427.365460049
+New: 212622192.959
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 20, 20, 30], [20, 0, 20, 10], [20, 20, 0, 20], [30, 10, 20, 0]]
+OBJ VALUE IS 1.2376404720279181e-01
+Cx rec1 is 48
+Cx rec2 is 48
+Cx rec3 is 48
+Cx rec4 is 20
+Cy rec1 is 1.0000000000000031e+02
+Cy rec2 is 1.3000000000000017e+02
+Cy rec3 is 1.5000000000000011e+02
+Cy rec4 is 1.3000000000000034e+02
+coefficent matrix: [[-3.3333333333333494e-06, 1.1904761904761914e-05, -5.000000000000015e-06, -3.5714285714285498e-06], [-2.000000000000008e-06, -5.000000000000015e-06, 9.083333333333366e-06, -2.083333333333343e-06], [-1.724137931034482e-06, -3.5714285714285498e-06, -2.083333333333343e-06, 7.3788998357963746e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 397478516.495
+Temperatura regione 1 = -98331317.7587
+Temperatura regione 2 = -138709512.971
+Temperatura regione 3 = -160437689.766
+Current: 427.365460049
+New: 198739258.31
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentVectoring
+[[0, 20, 20, 30], [20, 0, 20, 10], [20, 20, 0, 20], [30, 10, 20, 0]]
+[[0, 20, 20, 30], [20, 0, 20, 10], [20, 20, 0, 20], [30, 10, 20, 0]]
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 20, 20, 40], [20, 0, 20, 10], [20, 20, 0, 20], [40, 10, 20, 0]]
+OBJ VALUE IS 1.2376404720279205e-01
+Cx rec1 is 48
+Cx rec2 is 48
+Cx rec3 is 48
+Cx rec4 is 20
+Cy rec1 is 2.0000000000000004e+01
+Cy rec2 is 5.0000000000000142e+01
+Cy rec3 is 70
+Cy rec4 is 70
+coefficent matrix: [[-3.3333333333333185e-06, 1.0416666666666693e-05, -5.000000000000036e-06, -2.0833333333333398e-06], [-2e-06, -5.000000000000036e-06, 1.0571428571428608e-05, -3.5714285714285714e-06], [-1.282051282051282e-06, -2.0833333333333398e-06, -3.5714285714285714e-06, 6.936813186813193e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 430733913.027
+Temperatura regione 1 = -88782738.5566
+Temperatura regione 2 = -143726267.968
+Temperatura regione 3 = -198224910.502
+Current: 427.365460049
+New: 215366956.575
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentVectoring
+[[0, 20, 20, 40], [20, 0, 20, 10], [20, 20, 0, 20], [40, 10, 20, 0]]
+[[0, 20, 20, 40], [20, 0, 20, 10], [20, 20, 0, 20], [40, 10, 20, 0]]
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec4', 'rec3', 'rec2']
+[[0, 20, 30, 40], [20, 0, 20, 10], [30, 20, 0, 20], [40, 10, 20, 0]]
+OBJ VALUE IS 1.2146407112095765e-01
+Cx rec1 is 20
+Cx rec2 is 72
+Cx rec3 is 40
+Cx rec4 is 70
+Cy rec1 is 110
+Cy rec2 is 1.0999999999999986e+02
+Cy rec3 is 100
+Cy rec4 is 70
+coefficent matrix: [[-1.9230769230769183e-06, 6.684981684981696e-06, -2.3809523809523892e-06, -2.3809523809523892e-06], [-3.3333333333333333e-06, -2.3809523809523892e-06, 7.38095238095239e-06, -1.6666666666666667e-06], [-1.111111111111111e-06, -2.3809523809523892e-06, -1.6666666666666667e-06, 5.158730158730167e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 456696072.681
+Temperatura regione 1 = -158627883.509
+Temperatura regione 2 = -64231872.8885
+Temperatura regione 3 = -233836320.283
+Current: 427.365460049
+New: 228348036.401
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[0, 20, 30, 40], [20, 0, 20, 10], [30, 20, 0, 20], [40, 10, 20, 0]]
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec4', 'rec3', 'rec2']
+[[0, 20, 30, 40], [20, 0, 20, 20], [30, 20, 0, 20], [40, 20, 20, 0]]
+OBJ VALUE IS 1.2762158290683667e-01
+Cx rec1 is 16
+Cx rec2 is 73
+Cx rec3 is 42
+Cx rec4 is 70
+Cy rec1 is 5.9999999999999986e+01
+Cy rec2 is 60
+Cy rec3 is 6.9999999999999829e+01
+Cy rec4 is 9.9999999999999609e+00
+coefficent matrix: [[-1.7543859649122803e-06, 6.0802028079863796e-06, -2.4390243902439125e-06, -1.886792452830187e-06], [-2.7777777777777898e-06, -2.4390243902439125e-06, 6.3531658043853395e-06, -1.136363636363638e-06], [-9.615384615384613e-07, -1.886792452830187e-06, -1.136363636363638e-06, 3.984694550732286e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 528665166.326
+Temperatura regione 1 = -168421254.363
+Temperatura regione 2 = -77526537.1793
+Temperatura regione 3 = -282717378.783
+Current: 427.365460049
+New: 264332583.227
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec4', 'rec2']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 20, 30, 40], [20, 0, 20, 20], [30, 20, 0, 20], [40, 20, 20, 0]]
+OBJ VALUE IS 1.2873376816444959e-01
+Cx rec1 is 16
+Cx rec2 is 7.1999999999999957e+01
+Cx rec3 is 4.1999999999999979e+01
+Cx rec4 is 43
+Cy rec1 is 60
+Cy rec2 is 50
+Cy rec3 is 70
+Cy rec4 is 30
+coefficent matrix: [[-1.5151515151515163e-06, 5.555967841682131e-06, -2.0000000000000008e-06, -2.040816326530614e-06], [-2.7777777777777796e-06, -2.0000000000000008e-06, 7.216802168021682e-06, -2.439024390243901e-06], [-1.7543859649122807e-06, -2.040816326530614e-06, -2.439024390243901e-06, 6.234226681686796e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 465118096.36
+Temperatura regione 1 = -193414216.97
+Temperatura regione 2 = -102168997.588
+Temperatura regione 3 = -169534885.801
+Current: 427.365460049
+New: 232559048.244
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 1 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec4', 'rec1', 'rec2', 'rec3']
+[[0, 20, 30, 40], [20, 0, 20, 20], [30, 20, 0, 20], [40, 20, 20, 0]]
+OBJ VALUE IS 1.2020048595218356e-01
+Cx rec1 is 13
+Cx rec2 is 42
+Cx rec3 is 43
+Cx rec4 is 66
+Cy rec1 is 110
+Cy rec2 is 9.0000000000000469e+01
+Cy rec3 is 1.1000000000000028e+02
+Cy rec4 is 2.9999999999999901e+01
+coefficent matrix: [[-2.0408163265306316e-06, 7.993197278911617e-06, -4.761904761904804e-06, -1.1904761904761823e-06], [-3.3333333333333016e-06, -4.761904761904804e-06, 9.066111881645869e-06, -9.708737864077634e-07], [-7.518796992481198e-07, -1.1904761904761823e-06, -9.708737864077634e-07, 2.913229676132065e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 499752323.194
+Temperatura regione 1 = -104821405.503
+Temperatura regione 2 = -44409404.0534
+Temperatura regione 3 = -350521517.638
+Current: 427.365460049
+New: 249876161.657
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[0, 20, 30, 40], [20, 0, 20, 20], [30, 20, 0, 20], [40, 20, 20, 0]]
+['rec1', 'rec3', 'rec4', 'rec2']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 20, 30, 50], [20, 0, 20, 20], [30, 20, 0, 20], [50, 20, 20, 0]]
+OBJ VALUE IS 1.2873376816444959e-01
+Cx rec1 is 16
+Cx rec2 is 7.1999999999999972e+01
+Cx rec3 is 4.1999999999999979e+01
+Cx rec4 is 4.2999999999999957e+01
+Cy rec1 is 120
+Cy rec2 is 110
+Cy rec3 is 130
+Cy rec4 is 90
+coefficent matrix: [[-1.5151515151515157e-06, 5.555967841682127e-06, -2.0000000000000003e-06, -2.0408163265306117e-06], [-2.7777777777777796e-06, -2.0000000000000003e-06, 7.216802168021684e-06, -2.439024390243904e-06], [-1.7543859649122822e-06, -2.0408163265306117e-06, -2.439024390243904e-06, 6.234226681686798e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 465118096.36
+Temperatura regione 1 = -193414216.97
+Temperatura regione 2 = -102168997.588
+Temperatura regione 3 = -169534885.801
+Current: 427.365460049
+New: 232559048.244
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 1 maxIndex 0
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 1 maxIndex 0
+['rec3', 'rec1', 'rec2', 'rec4']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 20, 30, 50], [20, 0, 20, 20], [30, 20, 0, 20], [50, 20, 20, 0]]
+OBJ VALUE IS 1.1057823816942847e-01
+Cx rec1 is 46
+Cx rec2 is 83
+Cx rec3 is 46
+Cx rec4 is 92
+Cy rec1 is 1.1999999999999969e+02
+Cy rec2 is 1.2000000000000017e+02
+Cy rec3 is 1.5000000000000006e+02
+Cy rec4 is 8.9999999999999929e+01
+coefficent matrix: [[-2.7027027027026674e-06, 6.759342580238055e-06, -1.4925373134328383e-06, -2.5641025641025483e-06], [-3.3333333333332927e-06, -1.4925373134328383e-06, 5.769266873181224e-06, -9.433962264150931e-07], [-1.3157894736842148e-06, -2.5641025641025483e-06, -9.433962264150931e-07, 4.823288264201856e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 393936012.522
+Temperatura regione 1 = -119911830.291
+Temperatura regione 2 = -52641733.5841
+Temperatura regione 3 = -221382452.646
+Current: 427.365460049
+New: 196968006.316
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[0, 20, 30, 50], [20, 0, 20, 20], [30, 20, 0, 20], [50, 20, 20, 0]]
+['rec1', 'rec2', 'rec3', 'rec4']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 20, 30, 50], [20, 0, 30, 20], [30, 30, 0, 20], [50, 20, 20, 0]]
+OBJ VALUE IS 1.2568849675934340e-01
+Cx rec1 is 11
+Cx rec2 is 28
+Cx rec3 is 4.6000000000000078e+01
+Cx rec4 is 6.5999999999999957e+01
+Cy rec1 is 70
+Cy rec2 is 5.0000000000000057e+01
+Cy rec3 is 70
+Cy rec4 is 10
+coefficent matrix: [[-2.702702702702707e-06, 6.616332932122408e-06, -2.6315789473684194e-06, -1.2820512820512818e-06], [-2.8571428571428505e-06, -2.6315789473684194e-06, 6.738721804511271e-06, -1.2500000000000018e-06], [-8.695652173913047e-07, -1.2820512820512818e-06, -1.2500000000000018e-06, 3.401616499442588e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 463224007.77
+Temperatura regione 1 = -85162721.8209
+Temperatura regione 2 = -75380253.3071
+Temperatura regione 3 = -302681036.642
+Current: 427.365460049
+New: 231612003.948
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 20, 30, 50], [20, 0, 30, 20], [30, 30, 0, 20], [50, 20, 20, 0]]
+OBJ VALUE IS 1.1545489160464845e-01
+Cx rec1 is 44
+Cx rec2 is 74
+Cx rec3 is 44
+Cx rec4 is 92
+Cy rec1 is 120
+Cy rec2 is 9.0000000000000242e+01
+Cy rec3 is 8.9999999999999915e+01
+Cy rec4 is 4.9999999999999993e+01
+coefficent matrix: [[-1.6666666666666734e-06, 6.724137931034446e-06, -3.3333333333332965e-06, -1.7241379310344755e-06], [-3.3333333333333236e-06, -3.3333333333332965e-06, 7.803030303030257e-06, -1.1363636363636374e-06], [-8.474576271186441e-07, -1.7241379310344755e-06, -1.1363636363636374e-06, 3.707959194516757e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 512567704.398
+Temperatura regione 1 = -158576220.454
+Temperatura regione 2 = -50483449.3698
+Temperatura regione 3 = -303508038.574
+Current: 427.365460049
+New: 256283852.257
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[0, 20, 30, 50], [20, 0, 30, 20], [30, 30, 0, 20], [50, 20, 20, 0]]
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 20, 30, 50], [20, 0, 30, 30], [30, 30, 0, 20], [50, 30, 20, 0]]
+OBJ VALUE IS 1.2810494883268198e-01
+Cx rec1 is 38
+Cx rec2 is 48
+Cx rec3 is 38
+Cx rec4 is 11
+Cy rec1 is 1.0000000000000007e+02
+Cy rec2 is 130
+Cy rec3 is 150
+Cy rec4 is 1.2999999999999994e+02
+coefficent matrix: [[-2.5000000000000044e-06, 8.536036036036035e-06, -3.3333333333333333e-06, -2.7027027027026984e-06], [-2.000000000000003e-06, -3.3333333333333333e-06, 7.4609929078014185e-06, -2.1276595744680823e-06], [-1.7543859649122846e-06, -2.7027027027026984e-06, -2.1276595744680823e-06, 6.584748242083065e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 444063537.025
+Temperatura regione 1 = -125774250.358
+Temperatura regione 2 = -149899236.263
+Temperatura regione 3 = -168390054.405
+Current: 427.365460049
+New: 222031768.577
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 20, 30, 50], [20, 0, 30, 30], [30, 30, 0, 20], [50, 30, 20, 0]]
+OBJ VALUE IS 1.1545489160464699e-01
+Cx rec1 is 44
+Cx rec2 is 74
+Cx rec3 is 44
+Cx rec4 is 66
+Cy rec1 is 9.9999999999999943e+01
+Cy rec2 is 6.9999999999999872e+01
+Cy rec3 is 70
+Cy rec4 is 2.9999999999999794e+01
+coefficent matrix: [[-1.6666666666666648e-06, 7.0833333333333135e-06, -3.3333333333333198e-06, -2.0833333333333296e-06], [-3.3333333333333397e-06, -3.3333333333333198e-06, 8.279569892473107e-06, -1.6129032258064465e-06], [-1.0869565217391289e-06, -2.0833333333333296e-06, -1.6129032258064465e-06, 4.783193080878905e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 478749676.732
+Temperatura regione 1 = -165342756.982
+Temperatura regione 2 = -69730318.9565
+Temperatura regione 3 = -243676604.794
+Current: 427.365460049
+New: 239374838.424
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[0, 20, 30, 50], [20, 0, 30, 30], [30, 30, 0, 20], [50, 30, 20, 0]]
+['rec1', 'rec3', 'rec4', 'rec2']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 30, 30, 50], [30, 0, 30, 30], [30, 30, 0, 20], [50, 30, 20, 0]]
+OBJ VALUE IS 1.2873376816444962e-01
+Cx rec1 is 16
+Cx rec2 is 7.1999999999999972e+01
+Cx rec3 is 4.1999999999999957e+01
+Cx rec4 is 43
+Cy rec1 is 120
+Cy rec2 is 110
+Cy rec3 is 130
+Cy rec4 is 70
+coefficent matrix: [[-1.5151515151515157e-06, 4.964426877470356e-06, -1.9999999999999995e-06, -1.449275362318841e-06], [-2.7777777777777813e-06, -1.9999999999999995e-06, 6.417122040072861e-06, -1.6393442622950806e-06], [-1.2987012987012986e-06, -1.449275362318841e-06, -1.6393442622950806e-06, 4.38732092331522e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 509856830.924
+Temperatura regione 1 = -194042516.772
+Temperatura regione 2 = -89188537.7783
+Temperatura regione 3 = -226625780.374
+Current: 427.365460049
+New: 254928415.526
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec2', 'rec3', 'rec4']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 30, 30, 50], [30, 0, 30, 30], [30, 30, 0, 20], [50, 30, 20, 0]]
+OBJ VALUE IS 1.2568849675934327e-01
+Cx rec1 is 13
+Cx rec2 is 30
+Cx rec3 is 4.7999999999999972e+01
+Cx rec4 is 6.5999999999999943e+01
+Cy rec1 is 70
+Cy rec2 is 50
+Cy rec3 is 70
+Cy rec4 is 10
+coefficent matrix: [[-2.7027027027027026e-06, 6.650071123755338e-06, -2.6315789473684232e-06, -1.3157894736842116e-06], [-2.8571428571428594e-06, -2.6315789473684232e-06, 6.770773086562565e-06, -1.2820512820512824e-06], [-8.849557522123897e-07, -1.3157894736842116e-06, -1.2820512820512824e-06, 3.4827965079478837e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 460767527.799
+Temperatura regione 1 = -86785395.074
+Temperatura regione 2 = -77037349.5332
+Temperatura regione 3 = -296944787.192
+Current: 427.365460049
+New: 230383763.962
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentVectoring
+[[0, 30, 30, 50], [30, 0, 30, 30], [30, 30, 0, 20], [50, 30, 20, 0]]
+[[0, 30, 30, 50], [30, 0, 30, 30], [30, 30, 0, 20], [50, 30, 20, 0]]
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 40, 30, 50], [40, 0, 30, 30], [30, 30, 0, 20], [50, 30, 20, 0]]
+OBJ VALUE IS 1.2810494883268206e-01
+Cx rec1 is 3.7999999999999986e+01
+Cx rec2 is 48
+Cx rec3 is 38
+Cx rec4 is 1.4999999999999863e+01
+Cy rec1 is 60
+Cy rec2 is 90
+Cy rec3 is 110
+Cy rec4 is 110
+coefficent matrix: [[-2.4999999999999994e-06, 7.720125786163516e-06, -3.3333333333333333e-06, -1.8867924528301838e-06], [-1.9999999999999995e-06, -3.3333333333333333e-06, 9.68115942028983e-06, -4.347826086956496e-06], [-1.3698630136986279e-06, -1.8867924528301838e-06, -4.347826086956496e-06, 7.604481553485308e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 476522116.539
+Temperatura regione 1 = -121389381.383
+Temperatura regione 2 = -158574718.37
+Temperatura regione 3 = -196558020.786
+Current: 427.365460049
+New: 238261058.334
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec4', 'rec2']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 40, 30, 50], [40, 0, 30, 30], [30, 30, 0, 20], [50, 30, 20, 0]]
+OBJ VALUE IS 1.2873376816444959e-01
+Cx rec1 is 16
+Cx rec2 is 7.1999999999999972e+01
+Cx rec3 is 4.1999999999999979e+01
+Cx rec4 is 43
+Cy rec1 is 80
+Cy rec2 is 70
+Cy rec3 is 90
+Cy rec4 is 30
+coefficent matrix: [[-1.5151515151515157e-06, 4.964426877470357e-06, -2.0000000000000003e-06, -1.449275362318841e-06], [-2.7777777777777796e-06, -2.0000000000000003e-06, 6.417122040072861e-06, -1.6393442622950813e-06], [-1.2987012987012986e-06, -1.449275362318841e-06, -1.6393442622950813e-06, 4.387320923315221e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 509856830.924
+Temperatura regione 1 = -194042516.772
+Temperatura regione 2 = -89188537.7783
+Temperatura regione 3 = -226625780.374
+Current: 427.365460049
+New: 254928415.526
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[0, 40, 30, 50], [40, 0, 30, 30], [30, 30, 0, 20], [50, 30, 20, 0]]
+['rec1', 'rec2', 'rec3', 'rec4']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 40, 30, 60], [40, 0, 30, 30], [30, 30, 0, 20], [60, 30, 20, 0]]
+OBJ VALUE IS 1.3204115774492636e-01
+Cx rec1 is 11
+Cx rec2 is 2.6999999999999993e+01
+Cx rec3 is 43
+Cx rec4 is 6.5999999999994913e+01
+Cy rec1 is 90
+Cy rec2 is 5.9999999999999716e+01
+Cy rec3 is 90
+Cy rec4 is 10
+coefficent matrix: [[-2.1739130434782476e-06, 5.471421592574539e-06, -2.173913043478247e-06, -1.1235955056180452e-06], [-3.125e-06, -2.173913043478247e-06, 6.269786829886062e-06, -9.708737864078151e-07], [-7.407407407407687e-07, -1.1235955056180452e-06, -9.708737864078151e-07, 2.8352100327666287e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 507030925.56
+Temperatura regione 1 = -111564293.254
+Temperatura regione 2 = -37428576.5991
+Temperatura regione 3 = -358038059.707
+Current: 427.365460049
+New: 253515462.846
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+['rec4', 'rec3', 'rec2', 'rec1']
+['rec1', 'rec4', 'rec2', 'rec3']
+[[0, 40, 30, 60], [40, 0, 30, 30], [30, 30, 0, 20], [60, 30, 20, 0]]
+OBJ VALUE IS 1.2810494883268195e-01
+Cx rec1 is 3.7999999999999986e+01
+Cx rec2 is 4.7999999999999815e+01
+Cx rec3 is 3.7999999999999986e+01
+Cx rec4 is 1.4999999999999988e+01
+Cy rec1 is 1.0000000000000009e+02
+Cy rec2 is 1.3000000000000026e+02
+Cy rec3 is 1.5000000000000011e+02
+Cy rec4 is 150
+coefficent matrix: [[-2.5e-06, 7.720125786163572e-06, -3.333333333333368e-06, -1.886792452830204e-06], [-1.9999999999999986e-06, -3.333333333333368e-06, 9.681159420289867e-06, -4.3478260869565e-06], [-1.369863013698632e-06, -1.886792452830204e-06, -4.3478260869565e-06, 7.604481553485336e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 476522116.539
+Temperatura regione 1 = -121389381.383
+Temperatura regione 2 = -158574718.37
+Temperatura regione 3 = -196558020.786
+Current: 427.365460049
+New: 238261058.334
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomVectoring
+[[0, 40, 30, 60], [40, 0, 30, 30], [30, 30, 0, 20], [60, 30, 20, 0]]
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec4', 'rec3', 'rec2']
+[[0, 40, 40, 60], [40, 0, 30, 30], [40, 30, 0, 20], [60, 30, 20, 0]]
+OBJ VALUE IS 1.3081249649580923e-01
+Cx rec1 is 16
+Cx rec2 is 73
+Cx rec3 is 46
+Cx rec4 is 66
+Cy rec1 is 3.9999999999999851e+01
+Cy rec2 is 4.0000000000000583e+01
+Cy rec3 is 2.9999999999999915e+01
+Cy rec4 is 1.0000000000000073e+01
+coefficent matrix: [[-1.7543859649122585e-06, 7.1597913703175775e-06, -2.702702702702654e-06, -2.7027027027026653e-06], [-2.500000000000004e-06, -2.702702702702654e-06, 7.702702702702669e-06, -2.50000000000001e-06], [-1.2500000000000037e-06, -2.7027027027026653e-06, -2.50000000000001e-06, 6.452702702702679e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 509969161.768
+Temperatura regione 1 = -173649007.035
+Temperatura regione 2 = -123908259.398
+Temperatura regione 3 = -212411899.334
+Current: 427.365460049
+New: 254984580.949
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 40, 40, 60], [40, 0, 30, 30], [40, 30, 0, 20], [60, 30, 20, 0]]
+OBJ VALUE IS 1.2070707156515190e-01
+Cx rec1 is 52
+Cx rec2 is 72
+Cx rec3 is 42
+Cx rec4 is 70
+Cy rec1 is 7.9999999999999829e+01
+Cy rec2 is 5.0000000000000185e+01
+Cy rec3 is 5.0000000000000242e+01
+Cy rec4 is 9.9999999999998721e+00
+coefficent matrix: [[-2.0000000000000143e-06, 7.714285714285704e-06, -3.333333333333327e-06, -2.380952380952363e-06], [-2.5000000000000256e-06, -3.333333333333327e-06, 7.3039215686274625e-06, -1.47058823529411e-06], [-1.136363636363637e-06, -2.380952380952363e-06, -1.47058823529411e-06, 4.98790425261011e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 502278629.376
+Temperatura regione 1 = -151380795.179
+Temperatura regione 2 = -113274967.15
+Temperatura regione 3 = -237622871.047
+Current: 427.365460049
+New: 251139314.749
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec4', 'rec2', 'rec1']
+[[0, 40, 40, 60], [40, 0, 30, 30], [40, 30, 0, 20], [60, 30, 20, 0]]
+OBJ VALUE IS 1.2070707156515190e-01
+Cx rec1 is 52
+Cx rec2 is 72
+Cx rec3 is 42
+Cx rec4 is 70
+Cy rec1 is 7.9999999999999829e+01
+Cy rec2 is 5.0000000000000185e+01
+Cy rec3 is 5.0000000000000242e+01
+Cy rec4 is 9.9999999999998721e+00
+coefficent matrix: [[-2.0000000000000143e-06, 7.714285714285704e-06, -3.333333333333327e-06, -2.380952380952363e-06], [-2.5000000000000256e-06, -3.333333333333327e-06, 7.3039215686274625e-06, -1.47058823529411e-06], [-1.136363636363637e-06, -2.380952380952363e-06, -1.47058823529411e-06, 4.98790425261011e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 502278629.376
+Temperatura regione 1 = -151380795.179
+Temperatura regione 2 = -113274967.15
+Temperatura regione 3 = -237622871.047
+Current: 427.365460049
+New: 251139314.749
+annealing
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+RandomSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec1', 'rec3', 'rec2', 'rec4']
+[[0, 40, 40, 60], [40, 0, 30, 30], [40, 30, 0, 20], [60, 30, 20, 0]]
+OBJ VALUE IS 1.4933491642517233e-01
+Cx rec1 is 25
+Cx rec2 is 6.4999999999999986e+01
+Cx rec3 is 42
+Cx rec4 is 85
+Cy rec1 is 90
+Cy rec2 is 90
+Cy rec3 is 6.0000000000000014e+01
+Cy rec4 is 4.0000000000000107e+01
+coefficent matrix: [[-2.5000000000000006e-06, 5.815363881401621e-06, -1.8867924528301895e-06, -1.4285714285714305e-06], [-2.1276595744680857e-06, -1.8867924528301895e-06, 5.6017536145998645e-06, -1.5873015873015896e-06], [-9.090909090909101e-07, -1.4285714285714305e-06, -1.5873015873015896e-06, 3.92496392496393e-06], [-1, -1, -1, -1]]
+know term matrix: [-1229, -1229, -1229, 4]
+Temperatura regione 0 = 521323505.913
+Temperatura regione 1 = -101153530.026
+Temperatura regione 2 = -135983549.553
+Temperatura regione 3 = -284186430.334
+Current: 427.365460049
+New: 260661753.031
+annealing
+IntelligentSwapping
+a ['rec1', 'rec3', 'rec2', 'rec4'] b ['rec1', 'rec4', 'rec2', 'rec3']
+minIndex 3 maxIndex 0
+Intellige

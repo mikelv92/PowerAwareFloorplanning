@@ -85,7 +85,7 @@ class RRManager:
         b = [0 for x in xrange(len(self.collection))]
 
         #fill the coefficient matrix
-        for i in xrange(1, len(self.collection)):
+        for i in xrange(0, len(self.collection)):
             for j in xrange(len(self.collection)):
                 rri = self.collection[i]
                 rrj = self.collection[j]
@@ -93,17 +93,19 @@ class RRManager:
                     for k in xrange(len(self.collection)):
                         if i != k:
                             rrk = self.collection[k]
-                            a[i - 1][j] += 1 / rri.calcThermResistance(rrk)
-                    a[i - 1][j] += 1 / self.airResistance
+                            a[i][j] += 1 / rri.calcThermResistance(rrk)
+                            print("i=j -> aggiungo k tra regioni"+str(i+1)+str(k+1)+" in "+str(i)+" "+str(j)+ str(a[i][j]))
+                    a[i][j] += 1 / self.airResistance
+                    print("i=j -> aggiungo aria tra regioni"+str(i+1)+str(k+1)+" in "+str(i)+" "+str(j) + str(a[i][j]))
+                    print("karia:" + str(self.airResistance))
                 else:
-                    a[i - 1][j] = -1 / rri.calcThermResistance(rrj)
-        for i in xrange(len(self.collection)):
-            a[len(self.collection) - 1][i] = -1 / self.airResistance
+                    a[i][j] = -1 / rri.calcThermResistance(rrj)
+                    print("i!=j -> aggiungo k tra regioni"+str(i+1)+str(j+1)+" in "+str(i)+" "+str(j))
 
         #fill the known term matrix
-        for i in xrange(1, len(self.collection)):
-            b[i - 1] = (-1 * self.collection[i].power) + (self.airTemp / self.airResistance)
-        b[len(self.collection) - 1] = (len(self.collection) * self.airTemp) / self.airResistance
+        for i in xrange(0, len(self.collection)):
+            b[i] = (+1 * self.collection[i].power) + (self.airTemp / self.airResistance)
+            print("termini noti -> aggiungo b in "+str(i))
 
         print("coefficent matrix: " + str(a))
         print("know term matrix: " + str(b))
@@ -119,7 +121,7 @@ class RRManager:
             print("Temperatura regione " + str(i) + " = " + str(self.collection[i].temp))
             temperature = temperature + "<b>Temperatura regione " + str(i) + "</b> = " + str(
                 self.collection[i].temp) + '<br>'
-        self.drawOnBrowser(temperature)
+        #self.drawOnBrowser(temperature)
 
 
     def makeSwapMove(self):
@@ -233,18 +235,19 @@ class RRManager:
     def isUniformityReached(self):
         epsilon = 20
         maxTemp = 0
-        minTemp = 1000
+        minTemp = 100000
         for i in xrange(len(self.collection)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
             if self.collection[i].temp < minTemp:
                 minTemp = self.collection[i].temp
+        print("Max Temp: " + str(maxTemp)+"Min Temp: " + str(minTemp))
         return maxTemp - minTemp < epsilon
 
     def applyMILP(self, sequencePair, distanceVector):
         self.fh.updateDat(sequencePair, distanceVector)
         os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan.mod --wlp model.lp --check > /dev/null")
-        os.system("gurobi_cl ResultFile=problem.sol TimeLimit=5 model.lp")
+        os.system("gurobi_cl ResultFile=problem.sol TimeLimit=5 model.lp > /dev/null")
 
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()
