@@ -50,7 +50,7 @@ def main():
     saTemperature = 10000
     saCoolingRate = 0.003
 
-    currentSolutionCost = 100000
+    currentSolutionCost = 1000000000000
     sequencePair = SequencePair(list(), list())
     distanceVector = [[0 for x in xrange(rrCount)] for x in xrange(rrCount)]
     goodSolutions = []

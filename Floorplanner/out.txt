@@ -1,0 +1,101 @@
+0
+['rec1']
+1
+['rec2', 'rec1']
+2
+['rec2', 'rec3', 'rec1']
+3
+['rec2', 'rec3', 'rec1', 'rec4']
+['rec2', 'rec3', 'rec1', 'rec4']
+['rec3', 'rec1', 'rec4', 'rec2']
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+Max Temp: 165.044494272Min Temp: 33.090659518
+annealing
+RandomSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4']
+IntelligentSwapping
+a ['rec2', 'rec3', 'rec1', 'rec4'] b ['rec3', 'rec1', 'rec4', 'rec2']
+minIndex 2 maxIndex 0
+['rec1', 'rec3', 'rec2', 'rec4']
+['rec3', 'rec1', 'rec4', 'rec2']
+[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+OBJ VALUE IS 1.1057823816942774e-01
+Cx rec1 is 48
+Cx rec2 is 85
+Cx rec3 is 48
+Cx rec4 is 92
+Cy rec1 is 120
+Cy rec2 is 120
+Cy rec3 is 8.9999999999999986e+01
+Cy rec4 is 4.9999999999999808e+01
+i=j -> aggiungo k tra regioni12 in 0 02.7027027027
+i=j -> aggiungo k tra regioni13 in 0 02.86936936937
+i=j -> aggiungo k tra regioni14 in 0 02.93862144693
+i=j -> aggiungo aria tra regioni14 in 0 03.03862144693
+karia:10.0
+i!=j -> aggiungo k tra regioni12 in 0 1
+i!=j -> aggiungo k tra regioni13 in 0 2
+i!=j -> aggiungo k tra regioni14 in 0 3
+i!=j -> aggiungo k tra regioni21 in 1 0
+i=j -> aggiungo k tra regioni21 in 1 12.7027027027
+i=j -> aggiungo k tra regioni23 in 1 12.85968857397
+i=j -> aggiungo k tra regioni24 in 1 12.93076177938
+i=j -> aggiungo aria tra regioni24 in 1 13.03076177938
+karia:10.0
+i!=j -> aggiungo k tra regioni23 in 1 2
+i!=j -> aggiungo k tra regioni24 in 1 3
+i!=j -> aggiungo k tra regioni31 in 2 0
+i!=j -> aggiungo k tra regioni32 in 2 1
+i=j -> aggiungo k tra regioni31 in 2 20.166666666667
+i=j -> aggiungo k tra regioni32 in 2 20.323652537938
+i=j -> aggiungo k tra regioni34 in 2 20.442135950261
+i=j -> aggiungo aria tra regioni34 in 2 20.542135950261
+karia:10.0
+i!=j -> aggiungo k tra regioni34 in 2 3
+i!=j -> aggiungo k tra regioni41 in 3 0
+i!=j -> aggiungo k tra regioni42 in 3 1
+i!=j -> aggiungo k tra regioni43 in 3 2
+i=j -> aggiungo k tra regioni41 in 3 30.0692520775623
+i=j -> aggiungo k tra regioni42 in 3 30.140325282964
+i=j -> aggiungo k tra regioni43 in 3 30.258808695286
+i=j -> aggiungo aria tra regioni44 in 3 30.358808695286
+karia:10.0
+termini noti -> aggiungo b in 0
+termini noti -> aggiungo b in 1
+termini noti -> aggiungo b in 2
+termini noti -> aggiungo b in 3
+coefficent matrix: [[3.038621446931696, -2.7027027027027026, -0.16666666666666657, -0.06925207756232668], [-2.7027027027027026, 3.0307617793758515, -0.15698587127158548, -0.07107320540156341], [-0.16666666666666657, -0.15698587127158548, 0.5421359502605264, -0.11848341232227437], [-0.06925207756232668, -0.07107320540156341, -0.11848341232227437, 0.35880869528616444]]
+know term matrix: [1231.0, 1231.0, 1231.0, 1231.0]
+Temperatura regione 0 = 12310.0
+Temperatura regione 1 = 12310.0
+Temperatura regione 2 = 12310.0
+Temperatura regione 3 = 12310.0
+Current: 100000
+New: 7260.78238169
+soluzione accettata
+DCx(rec1,rec2) 37
+DCy(rec1,rec2) 0
+DCx(rec1,rec3) 0
+DCy(rec1,rec3) 3.0000000000000014e+01
+DCx(rec1,rec4) 44
+DCy(rec1,rec4) 7.0000000000000199e+01
+DCx(rec2,rec1) 37
+DCy(rec2,rec1) 0
+DCx(rec2,rec3) 37
+DCy(rec2,rec3) 3.0000000000000014e+01
+DCx(rec2,rec4) 7
+DCy(rec2,rec4) 7.0000000000000199e+01
+DCx(rec3,rec1) 0
+DCy(rec3,rec1) 3.0000000000000014e+01
+DCx(rec3,rec2) 37
+DCy(rec3,rec2) 3.0000000000000014e+01
+DCx(rec3,rec4) 44
+DCy(rec3,rec4) 4.0000000000000178e+01
+DCx(rec4,rec1) 44
+DCy(rec4,rec1) 7.0000000000000199e+01
+DCx(rec4,rec2) 7
+DCy(rec4,rec2) 7.0000000000000199e+01
+DCx(rec4,rec3) 44
+DCy(rec4,rec3) 4.0000000000000178e+01
+Max Temp: 12310.0Min Temp: 12310.0
+finito!

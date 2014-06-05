@@ -15,6 +15,11 @@ class RRManager:
 
     #Serve a determinare di quante slice incrementa il distance vector ad ogni round
     incConst = 10
+    #Se il delta tmax-tmin e minor di epsilon l'algoritmo si ferma
+    epsilon = 0.1
+    #Pesi da dare al costo della funzione obiettivo
+    weightMILP = 1000000
+    weightSA = 0.5
 
     def __init__(self, thermCond, aSect, sliceHeight, sliceWidth, airTemp, airResistance, fh):
         self.collection = []
@@ -152,9 +157,9 @@ class RRManager:
         print "a", a, "b", b
         maxTempIndex = 0
         minTempIndex = 0
-        maxTemp = 0
-        minTemp = 1000
-        for i in xrange(len(a)):
+        maxTemp = self.collection[0].temp
+        minTemp = self.collection[0].temp
+        for i in xrange(1,len(a)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
                 maxTempIndex = i
@@ -215,11 +220,11 @@ class RRManager:
     def getSolutionCost(self):
         if self.milpObjVal == 817609:
             return 817609
-        weightSA = 0.5
+        weightSA = self.weightSA
         #weightMILP = 0.5
-        weightMILP = 10000
-        maxTemp = 0
-        for i in xrange(len(self.collection) - 1):
+        weightMILP = self.weightMILP
+        maxTemp = self.collection[0].temp
+        for i in xrange(1,len(self.collection)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
         return weightSA * maxTemp + weightMILP * self.milpObjVal
@@ -231,10 +236,10 @@ class RRManager:
         self.distanceVector = vector
 
     def isUniformityReached(self):
-        epsilon = 20
-        maxTemp = 0
-        minTemp = 100
-        for i in xrange(len(self.collection)):
+        epsilon = self.epsilon
+        maxTemp = self.collection[0].temp
+        minTemp = self.collection[0].temp
+        for i in xrange(1,len(self.collection)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
             if self.collection[i].temp < minTemp:

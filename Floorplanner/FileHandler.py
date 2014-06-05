@@ -34,7 +34,7 @@ class FileHandler:
         self.powerDict = [0 for x in xrange(self.count)]
 
         for i in xrange(len(self.rrList)):
-            self.powerDict[i] = int(powerFH.readline())
+            self.powerDict[i] = float(powerFH.readline())
 
         powerFH.close()
 
