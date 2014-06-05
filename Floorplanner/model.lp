@@ -6477,18 +6477,18 @@ Subject To
  = -0
  borderYDistanceSimmetry(rec4,rec3): - DBy(rec3,rec4) + DBy(rec4,rec3)
  = -0
- atRightCut(rec4,rec2): + absX(rec2,rec4) = -0
- belowCut(rec4,rec3): + absY(rec3,rec4) = 1
- atLeftCut(rec1,rec2): + absX(rec1,rec2) = 1
+ atRightCut(rec4,rec3): + absX(rec3,rec4) = -0
+ belowCut(rec4,rec2): + absY(rec2,rec4) = 1
+ atLeftCut(rec2,rec3): + absX(rec2,rec3) = 1
+ aboveCut(rec1,rec2): + absY(rec1,rec2) = -0
  aboveCut(rec1,rec3): + absY(rec1,rec3) = -0
  aboveCut(rec1,rec4): + absY(rec1,rec4) = -0
- aboveCut(rec2,rec3): + absY(rec2,rec3) = -0
- atLeft(rec1,rec2): + x(rec1) - x(rec2) + w(rec1) <= -1
- atLeft(rec4,rec2): - x(rec2) + x(rec4) + w(rec4) <= -1
+ atLeft(rec2,rec3): + x(rec2) - x(rec3) + w(rec2) <= -1
+ atLeft(rec4,rec3): - x(rec3) + x(rec4) + w(rec4) <= -1
+ above(rec1,rec2): + y(rec1) - y(rec2) - a(rec2) >= -0
  above(rec1,rec3): + y(rec1) - y(rec3) - a(rec3) >= -0
  above(rec1,rec4): + y(rec1) - y(rec4) - a(rec4) >= -0
- above(rec2,rec3): + y(rec2) - y(rec3) - a(rec3) >= -0
- above(rec4,rec3): - y(rec3) + y(rec4) - a(rec3) >= -0
+ above(rec4,rec2): - y(rec2) + y(rec4) - a(rec2) >= -0
 
 Bounds
  0 <= h(rec1,1) <= 1

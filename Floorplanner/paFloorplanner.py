@@ -8,6 +8,9 @@ from SequencePair import SequencePair
 from Solution import Solution
 from FileHandler import FileHandler
 
+
+
+
 def acceptanceProbability(current, new, temp):
     if new == 817609:
         return 0
@@ -76,8 +79,10 @@ def main():
             rrManager.updateSequencePair(sequencePair)
             rrManager.updateDistanceVector(distanceVector)
             currentSolutionCost = newSolutionCost
+            rrManager.drawOnBrowser("soluzione accettata")
         else:
             print("soluzione scartata")
+
         saTemperature *= 1 - saCoolingRate
 
     print("finito!")

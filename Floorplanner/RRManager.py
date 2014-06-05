@@ -8,11 +8,11 @@ from SequencePair import SequencePair
 
 class RRManager:
     #COSTANTI
-
     #Serve a determinare quale file scrivere (index1.html, screenshot1.png)
     filescritti = 1
     pathHTML = "/home/davide/Downloads/HPPS MILP/FCCM_demo"
     pathScreen = "$HOME/Desktop/img"
+
     #Serve a determinare di quante slice incrementa il distance vector ad ogni round
     incConst = 10
 
@@ -115,13 +115,10 @@ class RRManager:
         knownTermMatrix = numpy.array(b);
 
         self.tempArray = numpy.linalg.solve(coefficientMatrix, knownTermMatrix)
-        temperature = ""
+
         for i in xrange(len(self.collection)):
             self.collection[i].temp = self.tempArray[i]
             print("Temperatura regione " + str(i) + " = " + str(self.collection[i].temp))
-            temperature = temperature + "<b>Temperatura regione " + str(i) + "</b> = " + str(
-                self.collection[i].temp) + '<br>'
-        #self.drawOnBrowser(temperature)
 
 
     def makeSwapMove(self):
@@ -219,7 +216,8 @@ class RRManager:
         if self.milpObjVal == 817609:
             return 817609
         weightSA = 0.5
-        weightMILP = 0.5
+        #weightMILP = 0.5
+        weightMILP = 10000
         maxTemp = 0
         for i in xrange(len(self.collection) - 1):
             if self.collection[i].temp > maxTemp:
@@ -235,7 +233,7 @@ class RRManager:
     def isUniformityReached(self):
         epsilon = 20
         maxTemp = 0
-        minTemp = 100000
+        minTemp = 100
         for i in xrange(len(self.collection)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
@@ -288,7 +286,7 @@ class RRManager:
         return
 
 
-    def drawOnBrowser(self, temperature):
+    def drawOnBrowser(self, accettata):
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()
 
@@ -343,15 +341,18 @@ class RRManager:
             actualDistance+="]<br>"
 
 
-
+        temperature = ""
+        for i in xrange(len(self.collection)):
+            temperature = temperature + "<b>Temperatura regione " + str(i) + "</b> = " + str(
+                self.collection[i].temp) + '<br>'
 
         index = "<!DOCTYPE html>\n<html>\n<head>\n        <title>FCCM 2014 - Floorplanner demo</title>\n  <link rel=\"stylesheet\" href=\"jquery-ui.css\" />\n    <script type=\"text/javascript\" src=\"jquery-2.1.1.min.js\"></script>\n        <script type=\"text/javascript\" src=\"jquery-ui.js\"></script>\n       <script type=\"text/javascript\" src=\"fabric.js\"></script>\n  <script type=\"text/javascript\" src=\"Virtex-5-XC5VLX110T.js\"></script>\n     <script type=\"text/javascript\" src=\"index.js\"></script>\n   <script type=\"text/javascript\">\n\n           var info = getFPGAinfo();\n\n           window.onload = function () {\n\n                       setupCanvas(info);\n"
         index = index + addRegions
         index = index + "generateInterconnectionsTable();\n                     initConn();\n                   initResCost();\n                        initSliders();\n                        updateObj();\n          }\n\n   </script>\n     <style type=\"text/css\">\n             body,html\n             {\n                     margin:0px;\n                   padding:0px;\n          }\n             div.regionInfo, div.parInfo, div.objective, div.optimization\n          {\n                     border: dashed 1px #333;\n                      padding:10px;\n                 margin-left:5px;\n              }\n             div.parInfo input\n             {\n                     width:50px;\n           }\n             div.optimization\n              {\n                     margin-top:5px;\n                       width:430px;\n          }\n             div.optimization input\n                {\n                     width:70px;\n                   background:#DDD;\n              }\n             div.optimization table td\n             {\n                     border: solid 1px #DDD;\n                       padding:0px 4px;\n              }\n             div.optimization table\n                {\n                     border-collapse:collapse;\n             }\n             div.optimization p\n            {\n                     margin: 4px 0px;\n              }\n             div.optimization h3, div.parInfo h3\n           {\n                     margin: 8px 0px;\n              }\n             div.optimization h2\n           {\n                     color: #0000FF;\n               }\n             input.readonly\n                {\n                     background: #DDD;\n             }\n             div.regionInfo input\n          {\n                     width:40px;\n           }\n             div.head p\n            {\n                     margin:2px 5px;\n                       font-weight:bold;\n             }\n             div.sliders div\n               {\n                     height: 150px;\n                        margin: 0px auto;\n             }\n             div.sliders input\n             {\n                     width:50px;\n                   margin: 0px auto;\n                     display:block;\n                }\n             div.sliders table\n             {\n                     border-collapse:collapse;\n             }\n             div.sliders table td\n          {\n                     text-align: center;\n                   border:solid 1px #DDD;\n                }\n             div.sliders table thead td\n            {\n                     padding:0px 4px;\n              }\n             #statusStr\n            {\n                     font-weight:bold;\n             }\n             #reason\n               {\n                     color:#FF0000;\n                }\n             div.overlay\n           {\n                     z-index:10;\n                   position:fixed;\n                       width:100%;\n                   height:100%;\n                  background: rgba(0,0,0,0.5);\n                  display:none;\n         }\n             div.overlay div\n               {\n                     position:relative;\n                    top:50%;\n                      left:50%;\n                     padding:10px;\n                 border:solid 1px #222;\n                        background:#fff;\n                      width:150px;\n                  height:37px;\n                  font-weight:bold;\n                     margin-left:-20px;\n                    margin-top:-20px;\n             }\n     </style>\n</head>\n<body>\n     <div class=\"overlay\" id=\"overlay\">\n                <div id=\"loading\">\n                  <img src=\"/images/loading.gif\">\n                     &nbsp;\n                        Optimizing...\n         </div>\n                <div id=\"found\">\n                    <table>\n                               <tr>\n                                  <td>\n                                          Solution Found!\n                                       </td>\n                                 <td>\n                                          <button onclick=\"$('#overlay').css('display','none');\">OK</button>\n                                  </td>\n                         </tr>\n                 </table>\n              </div>\n                <div id=\"notfound\">\n                 <table>\n                               <tr>\n                                  <td>\n                                          Unable to find a solution...\n                                  </td>\n                                 <td>\n                                          <button onclick=\"$('#overlay').css('display','none');\">OK</button>\n                                  </td>\n                         </tr>\n                 </table>\n              </div>\n        </div>\n        <div style=\"position:relative\">\n             <div class=\"head\">\n                  <p>Xilinx Virtex-5 XC5VLX110T</p>\n             </div>\n\n              </div>\n                <div style=\"float:left; position:relative;\">\n                        <canvas style=\"border:solid 1px; display:block; top:0px; left:0px; position:absolute;\" id=\"FPGAcanvas\">\n                   </canvas>\n                     <canvas style=\"border:solid 1px; display:block; top:0px; left:0px; position:absolute;\" id=\"LINEScanvas\">\n                  </canvas>\n                     <canvas style=\"border:solid 1px; display:block; top:0px; left:0px; position:absolute;\" id=\"regionCanvas\">\n                 </canvas>\n             </div>\n                <div style=\"float:left;\">\n                   <div class=\"regionInfo\" id=\"regionInfo\">\n                          <h2>Regions info</h2>\n                 </div>\n                </div>\n"
 
         index = index + temperature
-        index = index + "<br><b>Sequence 1:</b> " + str(self.sequencePair.sequence1)
-        index = index + "<br><b>Sequence 2:</b> " + str(self.sequencePair.sequence2)
+        index = index + "<br><b>Sequence 1:</b><br> " + str(self.sequencePair.sequence1)
+        index = index + "<br><b>Sequence 2:</b><br> " + str(self.sequencePair.sequence2)
         index = index + "<br><b>Distance vector:</b> <br>"
 
         i = 0
@@ -361,6 +362,7 @@ class RRManager:
 
         index += "<b> Actual Distance: </b><br>" + actualDistance
         index += "<b> Solution Cost: </b><br>"+str(self.getSolutionCost())
+        index += "<br><b>"+accettata+"</b><br>"
         index= index + "</body>\n</html>"
 
 
@@ -392,6 +394,7 @@ class RRManager:
         os.system("sleep 5;import -window root " + self.pathScreen + "/filename" + str(self.filescritti) + ".png")
         #os.system("sleep 3;import -window root $HOME/Desktop/img/filename"+str(self.filescritti)+".png")
         #os.system("xdotool key --windowid \"$(xdotool --search --title FCCM 2014 | head -n 1)\" F5")
-        os.system("xdotool search \"Mozilla Firefox\" windowactivate --sync key --clearmodifiers ctrl+w")
+        #os.system("xdotool search \"Mozilla Firefox\" windowactivate --sync key --clearmodifiers ctrl+w")
+        os.system("xdotool getwindowfocus windowactivate --sync key --clearmodifiers ctrl+w")
         self.filescritti += 1
         return
