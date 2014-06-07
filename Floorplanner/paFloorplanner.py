@@ -57,12 +57,16 @@ def main():
 
     while not rrManager.isUniformityReached() and saTemperature > 1:
         print "annealing"
+        '''
         choice = randint(1, 2)
         sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
         if choice == 1:
             sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
         else:
             distanceVector = rrManager.makeDistanceVectorMove()
+        '''
+
+        sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
         rrManager.applyMILP(sequencePair, distanceVector)
         rrManager.calculateTemperatures()
         
@@ -77,7 +81,7 @@ def main():
         if acceptanceProbability(currentSolutionCost, newSolutionCost, saTemperature):
             print("soluzione accettata")
             rrManager.updateSequencePair(sequencePair)
-            rrManager.updateDistanceVector(distanceVector)
+            #rrManager.updateDistanceVector(distanceVector)
             currentSolutionCost = newSolutionCost
             rrManager.drawOnBrowser("soluzione accettata")
         else:
@@ -87,7 +91,7 @@ def main():
 
     print("finito!")
 
-    print(goodSolutions)
+    print(str(goodSolutions))
 
 
 if __name__ == '__main__':

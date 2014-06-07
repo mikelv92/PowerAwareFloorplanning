@@ -103,21 +103,21 @@ class RRManager:
                         if i != k:
                             rrk = self.collection[k]
                             a[i][j] += 1 / rri.calcThermResistance(rrk)
-                            print("i=j -> aggiungo k tra regioni"+str(i+1)+str(k+1)+" in "+str(i)+" "+str(j)+ str(a[i][j]))
+                            #print("i=j -> aggiungo k tra regioni"+str(i+1)+str(k+1)+" in "+str(i)+" "+str(j)+ str(a[i][j]))
                     a[i][j] += 1 / self.airResistance
-                    print("i=j -> aggiungo aria tra regioni"+str(i+1)+str(k+1)+" in "+str(i)+" "+str(j) + str(a[i][j]))
-                    print("karia:" + str(self.airResistance))
+                    #print("i=j -> aggiungo aria tra regioni"+str(i+1)+str(k+1)+" in "+str(i)+" "+str(j) + str(a[i][j]))
+                    #print("karia:" + str(self.airResistance))
                 else:
                     a[i][j] = -1 / rri.calcThermResistance(rrj)
-                    print("i!=j -> aggiungo k tra regioni"+str(i+1)+str(j+1)+" in "+str(i)+" "+str(j))
+                    #print("i!=j -> aggiungo k tra regioni"+str(i+1)+str(j+1)+" in "+str(i)+" "+str(j))
 
         #fill the known term matrix
         for i in xrange(0, len(self.collection)):
             b[i] = (+1 * self.collection[i].power) + (self.airTemp / self.airResistance)
-            print("termini noti -> aggiungo b in "+str(i))
+            #print("termini noti -> aggiungo b in "+str(i))
 
-        print("coefficent matrix: " + str(a))
-        print("know term matrix: " + str(b))
+        #print("coefficent matrix: " + str(a))
+        #print("know term matrix: " + str(b))
 
         #solve
         coefficientMatrix = numpy.array(a);
@@ -210,7 +210,7 @@ class RRManager:
             return a
 
     def randomIncDistanceVector(self):
-        print("Making sure doesn't change: "+str(self.distanceVector))
+        #print("Making sure doesn't change: "+str(self.distanceVector))
         index1 = 0
         index2 = 0
         a = deepcopy(self.distanceVector)
@@ -220,7 +220,7 @@ class RRManager:
             index2 = randint(0, len(a) - 1)
         a[index1][index2] += self.incConst
         a[index2][index1] = a[index1][index2]
-        print("Making sure doesn't change: "+str(self.distanceVector))
+        #print("Making sure doesn't change: "+str(self.distanceVector))
         return a
 
 
@@ -256,7 +256,7 @@ class RRManager:
                 maxTemp = self.collection[i].temp
             if self.collection[i].temp < minTemp:
                 minTemp = self.collection[i].temp
-        print("Max Temp: " + str(maxTemp)+"Min Temp: " + str(minTemp))
+        print("Max Temp: " + str(maxTemp)+" Min Temp: " + str(minTemp))
         return maxTemp - minTemp < epsilon
 
     def applyMILP(self, sequencePair, distanceVector):
@@ -264,7 +264,7 @@ class RRManager:
         os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan.mod --wlp model.lp --check > /dev/null")
         #os.system("gurobi_cl ResultFile=problem.sol TimeLimit=10 model.lp > /dev/null")
         os.system("gurobi_cl ResultFile=problem.sol MIPGap=0.2 model.lp > /dev/null")
-
+        #os.system("gurobi_cl ResultFile=problem.sol model.lp")
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()
 
@@ -283,7 +283,7 @@ class RRManager:
                 realstartIndex = outputAsString.index(" ", startIndex)
                 endIndex = outputAsString.index("\n", startIndex)
                 cx = outputAsString[realstartIndex + 1:endIndex]
-                print("Cx " + rrname + " is " + cx)
+                #print("Cx " + rrname + " is " + cx)
                 for rr in self.collection:
                     if rr.name == rrname:
                         rr.cx = float(cx)
@@ -294,7 +294,7 @@ class RRManager:
                 realstartIndex = outputAsString.index(" ", startIndex)
                 endIndex = outputAsString.index("\n", startIndex)
                 cy = outputAsString[realstartIndex + 1:endIndex]
-                print("Cy " + rrname + " is " + cy)
+                #print("Cy " + rrname + " is " + cy)
                 for rr in self.collection:
                     if rr.name == rrname:
                         rr.cy = float(cy)
@@ -305,6 +305,9 @@ class RRManager:
 
 
     def drawOnBrowser(self, accettata):
+
+
+
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()
 
@@ -312,19 +315,19 @@ class RRManager:
         for rrname in self.fh.rrList:
             startIndex = outputAsString.index("w(" + rrname + ")")
             endIndex = outputAsString.index("\n", startIndex)
-            w = outputAsString[startIndex + 7:endIndex]
+            w = outputAsString[startIndex + 8:endIndex]
 
             startIndex = outputAsString.index("a(" + rrname + ")")
             endIndex = outputAsString.index("\n", startIndex)
-            a = outputAsString[startIndex + 7:endIndex]
+            a = outputAsString[startIndex + 8:endIndex]
 
             startIndex = outputAsString.index("x(" + rrname + ")")
             endIndex = outputAsString.index("\n", startIndex)
-            x = outputAsString[startIndex + 7:endIndex]
+            x = outputAsString[startIndex + 8:endIndex]
 
             startIndex = outputAsString.index("y(" + rrname + ")")
             endIndex = outputAsString.index("\n", startIndex)
-            y = outputAsString[startIndex + 7:endIndex]
+            y = outputAsString[startIndex + 8:endIndex]
 
             x1 = round(float(x))
             y1 = round(float(y) - 1)
@@ -334,7 +337,7 @@ class RRManager:
             #addRegion(2,1,8,1);
             addRegions = addRegions + "addRegion(" + str(x1) + "," + str(y1) + "," + str(w1) + "," + str(a1) + ");\n"
 
-
+        '''
         actualDistance =""
         for rrname1 in self.fh.rrList:
             actualDistance+="["
@@ -357,19 +360,20 @@ class RRManager:
                     z1 = str(round(z)).rstrip('0').rstrip('.')
                     actualDistance+=z1+", "
             actualDistance+="]<br>"
-
+        '''
 
         temperature = ""
         for i in xrange(len(self.collection)):
             temperature = temperature + "<b>Temperatura regione " + str(i) + "</b> = " + str(
                 self.collection[i].temp) + '<br>'
 
-
+        '''
         distanceVector=""
         i = 0
         for j in self.sequencePair.sequence1:
             distanceVector = distanceVector + str(self.distanceVector[i]) + "<br>"
             i += 1
+        '''
 
         maxTemp = self.collection[0].temp
         for i in xrange(1,len(self.collection)):
@@ -386,10 +390,13 @@ class RRManager:
         index = index + "<br><b>Sequence 2:</b><br> " + str(self.sequencePair.sequence2)
         index += "<br><b> Solution Cost: </b><br>"+str(self.getSolutionCost())
         index = index + "<br><b>Tmax: </b>"+str(maxTemp)
+
+        """
         index = index + "<br><b>Distance vector:</b> <br>"
         index = index + distanceVector
         index += "<b> Actual Distance: </b><br>" + actualDistance
         index += "<br><b>"+accettata+"</b><br>"
+        """
         index= index + "</body>\n</html>"
 
 
@@ -419,9 +426,11 @@ class RRManager:
         os.system("gnome-open '" + self.pathHTML + "/index" + str(self.filescritti) + ".html'")
         #os.system("gnome-open '/home/davide/Downloads/HPPS MILP/FCCM_demo/index"+str(self.filescritti)+".html'")
         os.system("sleep 5;import -window root " + self.pathScreen + "/filename" + str(self.filescritti) + ".png")
+        #os.system("import -window root " + self.pathScreen + "/filename" + str(self.filescritti) + ".png")
         #os.system("sleep 3;import -window root $HOME/Desktop/img/filename"+str(self.filescritti)+".png")
+        os.system("xdotool getwindowfocus windowactivate --sync key --clearmodifiers ctrl+w")
         #os.system("xdotool key --windowid \"$(xdotool --search --title FCCM 2014 | head -n 1)\" F5")
         #os.system("xdotool search \"Mozilla Firefox\" windowactivate --sync key --clearmodifiers ctrl+w")
-        os.system("xdotool getwindowfocus windowactivate --sync key --clearmodifiers ctrl+w")
+
         self.filescritti += 1
         return
