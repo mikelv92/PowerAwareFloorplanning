@@ -25,6 +25,8 @@ class RRManager:
     normalizeMILP = 1
     normalizeSA = 0
 
+    tmax = 0
+
     def __init__(self, thermCond, aSect, sliceHeight, sliceWidth, airTemp, airResistance, fh):
         self.collection = []
         self.thermCond = thermCond
@@ -56,6 +58,13 @@ class RRManager:
 
     def getTempConstant(self):
         return self.thermCond
+
+
+    def getMILPObj(self):
+        return self.milpObjVal
+
+    def getTmax(self):
+        return self.tmax
 
     def getSectArea(self):
         return self.aSect
@@ -127,7 +136,7 @@ class RRManager:
 
         for i in xrange(len(self.collection)):
             self.collection[i].temp = self.tempArray[i]
-            print("Temperatura regione " + str(i) + " = " + str(self.collection[i].temp))
+            #print("Temperatura regione " + str(i) + " = " + str(self.collection[i].temp))
 
 
     def makeSwapMove(self):
@@ -144,7 +153,7 @@ class RRManager:
         index2 = 0
         a = deepcopy(self.getSequence1()[:])
         b = deepcopy(self.getSequence2()[:])
-        print "a", a
+        #print "a", a
         while index1 == index2:
             index1 = randint(0, len(a) - 1)
             index2 = randint(0, len(a) - 1)
@@ -158,7 +167,7 @@ class RRManager:
     def intelligentSwapInSequencePair(self):
         a = self.getSequence1()[:]
         b = self.getSequence2()[:]
-        print "a", a, "b", b
+        #print "a", a, "b", b
         maxTempIndex = 0
         minTempIndex = 0
         maxTemp = self.collection[0].temp
@@ -171,7 +180,7 @@ class RRManager:
                 minTemp = self.collection[i].temp
                 minTempIndex = i
         sequenceToAlter = randint(1, 2)
-        print "minIndex", minTempIndex, "maxIndex", maxTempIndex
+        #print "minIndex", minTempIndex, "maxIndex", maxTempIndex
         if sequenceToAlter == 1:
             a[minTempIndex], a[maxTempIndex] = a[maxTempIndex], a[minTempIndex]
         else:
@@ -233,11 +242,13 @@ class RRManager:
         for i in xrange(1,len(self.collection)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
-        print("hi"+str(self.milpObjVal)+" " +str(maxTemp))
+
         if self.normalizeSA == 0 :
             self.normalizeSA = 1/maxTemp
         if self.normalizeMILP == 0 :
             self.normalizetMILP = 1/self.milpObjVal
+
+        self.tmax=maxTemp
 
         return (self.weightSA *self.normalizeSA* maxTemp + self.normalizeMILP*self.weightMILP * self.milpObjVal)*500
 
@@ -274,7 +285,7 @@ class RRManager:
             realstartIndex = outputAsString.index("= ", startIndex)
             endIndex = outputAsString.index("\n", startIndex)
             objvalue = outputAsString[realstartIndex + 2:endIndex]
-            print("OBJ VALUE IS " + objvalue)
+            #print("OBJ VALUE IS " + objvalue)
             self.milpObjVal = float(objvalue)
 
             #CX

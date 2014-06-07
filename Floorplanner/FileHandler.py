@@ -84,7 +84,7 @@ class FileHandler:
 
         #Distanze minime
         text = text +";\nparam minDist default 0:=\n"
-        print distanceVector
+        #print distanceVector
         for reg1 in range(self.getRRCount()):
             for reg2 in range(self.getRRCount()):
                 if distanceVector[reg1][reg2]!=0:

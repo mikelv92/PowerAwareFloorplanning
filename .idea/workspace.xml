@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="23bd5179-dd7f-4f7a-ad10-a11740496e68" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/problem.sol" afterPath="$PROJECT_DIR$/Floorplanner/problem.sol" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/FileHandler.py" afterPath="$PROJECT_DIR$/Floorplanner/FileHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/RRManager.py" afterPath="$PROJECT_DIR$/Floorplanner/RRManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py" afterPath="$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/confu.dat" afterPath="$PROJECT_DIR$/Floorplanner/confu.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/model.lp" afterPath="$PROJECT_DIR$/Floorplanner/model.lp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" afterPath="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/power.txt" afterPath="$PROJECT_DIR$/Floorplanner/power.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PowerAwareFloorplanning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,16 +32,16 @@
       <file leaf-file-name="paFloorplanner.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="40" selection-start="2950" selection-end="2950" vertical-scroll-proportion="-9.6" vertical-offset="855" max-vertical-offset="1425">
+            <state line="70" column="25" selection-start="2418" selection-end="2418" vertical-scroll-proportion="-1.25" vertical-offset="855" max-vertical-offset="1440">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RRManager.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RRManager.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="19" selection-start="816" selection-end="816" vertical-scroll-proportion="0.5480769" vertical-offset="0" max-vertical-offset="6540">
+            <state line="144" column="17" selection-start="5022" selection-end="5028" vertical-scroll-proportion="-2.8833334" vertical-offset="1897" max-vertical-offset="6705">
               <folding />
             </state>
           </provider>
@@ -53,7 +50,7 @@
       <file leaf-file-name="SequencePair.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Floorplanner/SequencePair.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="8" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="135">
+            <state line="1" column="8" selection-start="28" selection-end="28" vertical-scroll-proportion="-0.6" vertical-offset="0" max-vertical-offset="135">
               <folding />
             </state>
           </provider>
@@ -62,16 +59,16 @@
       <file leaf-file-name="ReconfigurableRegion.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="9" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="570">
+            <state line="25" column="9" selection-start="1019" selection-end="1019" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="570">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileHandler.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FileHandler.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Floorplanner/FileHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620">
+            <state line="78" column="13" selection-start="2333" selection-end="2333" vertical-scroll-proportion="0.5290807" vertical-offset="888" max-vertical-offset="1620">
               <folding />
             </state>
           </provider>
@@ -113,10 +110,10 @@
         <option value="$PROJECT_DIR$/Floorplanner/__init__.py" />
         <option value="$PROJECT_DIR$/Floorplanner/SequencePair.py" />
         <option value="$PROJECT_DIR$/Floorplanner/Solution.py" />
-        <option value="$PROJECT_DIR$/Floorplanner/FileHandler.py" />
         <option value="$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py" />
-        <option value="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" />
         <option value="$PROJECT_DIR$/Floorplanner/RRManager.py" />
+        <option value="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" />
+        <option value="$PROJECT_DIR$/Floorplanner/FileHandler.py" />
       </list>
     </option>
   </component>
@@ -680,37 +677,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Floorplanner/FileHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1620">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Floorplanner/SequencePair.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="8" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="9" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="570">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="40" selection-start="2950" selection-end="2950" vertical-scroll-proportion="-9.6" vertical-offset="855" max-vertical-offset="1425">
+        <state line="70" column="25" selection-start="2418" selection-end="2418" vertical-scroll-proportion="-1.25" vertical-offset="855" max-vertical-offset="1440">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="19" selection-start="816" selection-end="816" vertical-scroll-proportion="0.5480769" vertical-offset="0" max-vertical-offset="6540">
+        <state line="144" column="17" selection-start="5022" selection-end="5028" vertical-scroll-proportion="-2.8833334" vertical-offset="1897" max-vertical-offset="6705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Floorplanner/SequencePair.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="8" selection-start="28" selection-end="28" vertical-scroll-proportion="-0.6" vertical-offset="0" max-vertical-offset="135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="9" selection-start="1019" selection-end="1019" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="570">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Floorplanner/FileHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="13" selection-start="2333" selection-end="2333" vertical-scroll-proportion="0.5290807" vertical-offset="888" max-vertical-offset="1620">
           <folding />
         </state>
       </provider>
