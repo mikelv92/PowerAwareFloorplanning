@@ -8,7 +8,7 @@ class ReconfigurableRegion:
         self.mgr = rrManager
         
     def calcThermResistance(self, rr):
-        Lij = 0
+        Lij = 0.0
         sliceWidth = self.mgr.getSliceWidth()
         sliceHeight = self.mgr.getSliceHeight()
         if self.cx < rr.cx:
@@ -21,6 +21,9 @@ class ReconfigurableRegion:
                 Lij = (self.cx - rr.cx) * sliceWidth + (rr.cy - self.cy) * sliceHeight
             else:
                 Lij = (self.cx - rr.cx) * sliceWidth + (self.cy - rr.cy) * sliceHeight
+        print("Lij: "+str(Lij))
+        print("temp/area: "+str((self.mgr.getTempConstant() * self.mgr.getSectArea())))
+        print("Rij: "+str(Lij / (self.mgr.getTempConstant() * self.mgr.getSectArea())))
         return Lij / (self.mgr.getTempConstant() * self.mgr.getSectArea())
 
     def isOnTopOf(self, rr):

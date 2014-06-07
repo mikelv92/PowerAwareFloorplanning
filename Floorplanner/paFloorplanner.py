@@ -87,6 +87,8 @@ def main():
 
     print("finito!")
 
+    print(goodSolutions)
+
 
 if __name__ == '__main__':
     main()
