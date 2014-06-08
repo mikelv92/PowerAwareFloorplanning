@@ -5,6 +5,7 @@ import decimal
 from copy import copy, deepcopy
 from random import randint
 from SequencePair import SequencePair
+from SwapMove import SwapMove
 
 
 class RRManager:
@@ -26,7 +27,6 @@ class RRManager:
     normalizeSA = 0
 
     tmax = 0
-
     def __init__(self, thermCond, aSect, sliceHeight, sliceWidth, airTemp, airResistance, fh):
         self.collection = []
         self.thermCond = thermCond
@@ -39,6 +39,7 @@ class RRManager:
         self.sequencePair = SequencePair(list(), list())
         self.fh = fh
         self.milpObjVal = 0
+        self.relaxDict = []
 
     def addRR(self, rr):
         self.collection.append(rr)
@@ -58,7 +59,6 @@ class RRManager:
 
     def getTempConstant(self):
         return self.thermCond
-
 
     def getMILPObj(self):
         return self.milpObjVal
@@ -151,22 +151,24 @@ class RRManager:
     def randomSwapInSequencePair(self):
         index1 = 0
         index2 = 0
-        a = deepcopy(self.getSequence1()[:])
-        b = deepcopy(self.getSequence2()[:])
+        sequenceToAlter = randint(1, 2)
+        a = deepcopy(self.getSequence1())
+        b = deepcopy(self.getSequence2())
         #print "a", a
-        while index1 == index2:
+        while index1 == index2 and not self.swapRelaxing(SwapMove(sequenceToAlter, index1, index2)):
+            sequenceToAlter = randint(1, 2)
             index1 = randint(0, len(a) - 1)
             index2 = randint(0, len(a) - 1)
-        sequenceToAlter = randint(1, 2)
         if sequenceToAlter == 1:
             a[index1], a[index2] = a[index2], a[index1]
         else:
             b[index1], b[index2] = b[index2], b[index1]
+        self.notMuchRelax() #decreases the number of relax iterations of each swap move in relaxDict
         return SequencePair(a, b)
 
     def intelligentSwapInSequencePair(self):
-        a = self.getSequence1()[:]
-        b = self.getSequence2()[:]
+        a = deepcopy(self.getSequence1())
+        b = deepcopy(self.getSequence2())
         #print "a", a, "b", b
         maxTempIndex = 0
         minTempIndex = 0
@@ -185,7 +187,39 @@ class RRManager:
             a[minTempIndex], a[maxTempIndex] = a[maxTempIndex], a[minTempIndex]
         else:
             b[minTempIndex], b[maxTempIndex] = b[maxTempIndex], b[minTempIndex]
+
+        if self.swaRelaxing(SwapMove(sequenceToAlter, minTempIndex, maxTempIndex)):
+            return self.randomSwapInSequencePair()
+        self.notMuchRelax() #decreases the number of relax iterations of each swap move in relaxDict
         return SequencePair(a, b)
+
+    def swapRelaxing(self, swapMove):
+        print "Trying to swap seqNo: " + str(swapMove.seqNo) + " index1: " + str(swapMove.index1) + " index2: " + str(swapMove.index2)
+        print "RelaxDict: "
+        for sm in self.relaxDict.keys():
+            print "SeqNo: " + str(sm.seqNo) + " Index1: " + str(sm.index1) + " Index2: " + str(sm.index2) + " relaxing for: " + str(self.relaxDict[sm])
+        for sm in self.relaxDict.keys():
+            if sm.seqNo == swapMove.seqNo and sm.index1 == swapMove.index1 and sm.index2 == swapMove.index2:
+                print "Can't swap, still relaxing"
+                return 1
+        print "Can swap, put in the dict doe"
+        self.relaxDict[swapMove] = len(self.collection) - 3
+        for sm in self.relaxDict.keys():
+            print "SeqNo: " + str(sm.seqNo) + " Index1: " + str(sm.index1) + " Index2: " + str(sm.index2) + " relaxing for: " + str(self.relaxDict[sm])
+        return 0
+
+    def notMuchRelax(self): #decreases the number of relax iterations of each swap move in relaxDict
+        print "not Much relax \n"
+        print "relaxDict before\n"
+        for sm in self.relaxDict.keys():
+            print "SeqNo: " + str(sm.seqNo) + " Index1: " + str(sm.index1) + " Index2: " + str(sm.index2) + " relaxing for: " + str(self.relaxDict[sm])
+        for sm in self.relaxDict.keys():
+            self.relaxDict[sm] -= 1
+            if self.relaxDict[sm] == 0:
+                del self.relaxDict[sm]
+        print "relaxDict after \n"
+        for sm in self.relaxDict.keys():
+            print "SeqNo: " + str(sm.seqNo) + " Index1: " + str(sm.index1) + " Index2: " + str(sm.index2) + " relaxing for: " + str(self.relaxDict[sm])
 
     def makeDistanceVectorMove(self):
         choice = randint(0, 1)

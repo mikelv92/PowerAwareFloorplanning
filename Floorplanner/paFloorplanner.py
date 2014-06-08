@@ -90,10 +90,19 @@ def main():
         saTemperature *= 1 - saCoolingRate
         print("saTemperature: " +str(saTemperature))
 
-    print("finito!")
+    print("SA finito!")
 
-    print(str(goodSolutions))
-
+    if saTemperature < 10:
+        print "Searching good Solutions for the best one..."
+        bestSolution = goodSolutions[0]
+        minCost = goodSolutions[0].cost
+        for solution in goodSolutions:
+            if solution.cost < minCost:
+                minCost = solution.cost
+                bestSolution = solution
+        bestSequencePair = bestSolution.sequencePair
+        rrManager.applyMILP(bestSequencePair, distanceVector)
+        rrManager.calculateTemperatures()
 
 if __name__ == '__main__':
     main()
