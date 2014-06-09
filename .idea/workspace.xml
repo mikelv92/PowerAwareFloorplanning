@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="23bd5179-dd7f-4f7a-ad10-a11740496e68" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/RRManager.py" afterPath="$PROJECT_DIR$/Floorplanner/RRManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/const.txt" afterPath="$PROJECT_DIR$/Floorplanner/const.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/gurobi.log" afterPath="$PROJECT_DIR$/Floorplanner/gurobi.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/model.lp" afterPath="$PROJECT_DIR$/Floorplanner/model.lp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" afterPath="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Floorplanner/problem.sol" afterPath="$PROJECT_DIR$/Floorplanner/problem.sol" />
     </list>
     <ignored path="PowerAwareFloorplanning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="paFloorplanner.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="paFloorplanner.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="517" max-vertical-offset="1575">
-              <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.8547718" vertical-offset="852" max-vertical-offset="1590">
+              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -43,18 +42,18 @@
       <file leaf-file-name="Solution.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Floorplanner/Solution.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
               <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RRManager.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RRManager.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3456464" vertical-offset="1920" max-vertical-offset="7320">
-              <caret line="196" column="53" selection-start-line="196" selection-start-column="53" selection-end-line="196" selection-end-column="53" />
+            <state vertical-scroll-proportion="-6.885714" vertical-offset="6134" max-vertical-offset="7320">
+              <caret line="425" column="42" selection-start-line="425" selection-start-column="41" selection-end-line="425" selection-end-column="42" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -113,8 +112,8 @@
         <option value="$PROJECT_DIR$/Floorplanner/ReconfigurableRegion.py" />
         <option value="$PROJECT_DIR$/Floorplanner/FileHandler.py" />
         <option value="$PROJECT_DIR$/Floorplanner/SwapMove.py" />
-        <option value="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" />
         <option value="$PROJECT_DIR$/Floorplanner/RRManager.py" />
+        <option value="$PROJECT_DIR$/Floorplanner/paFloorplanner.py" />
       </list>
     </option>
   </component>
@@ -785,14 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Floorplanner/Solution.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/SwapMove.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
@@ -801,21 +792,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
+    <entry file="file://$PROJECT_DIR$/Floorplanner/Solution.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="517" max-vertical-offset="1575">
-          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Floorplanner/RRManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3456464" vertical-offset="1920" max-vertical-offset="7320">
-          <caret line="196" column="53" selection-start-line="196" selection-start-column="53" selection-end-line="196" selection-end-column="53" />
+        <state vertical-scroll-proportion="-6.885714" vertical-offset="6134" max-vertical-offset="7320">
+          <caret line="425" column="42" selection-start-line="425" selection-start-column="41" selection-end-line="425" selection-end-column="42" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Floorplanner/paFloorplanner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8547718" vertical-offset="852" max-vertical-offset="1590">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

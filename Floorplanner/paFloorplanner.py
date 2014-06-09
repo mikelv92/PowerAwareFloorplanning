@@ -103,6 +103,7 @@ def main():
         bestSequencePair = bestSolution.sequencePair
         rrManager.applyMILP(bestSequencePair, distanceVector)
         rrManager.calculateTemperatures()
+        print " Tmax: "+str(rrManager.getTmax())+" MILP: "+str(rrManager.getMILPObj())
 
 if __name__ == '__main__':
     main()

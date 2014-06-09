@@ -155,7 +155,7 @@ class RRManager:
         a = deepcopy(self.getSequence1())
         b = deepcopy(self.getSequence2())
         #print "a", a
-        while index1 == index2 and not self.swapRelaxing(SwapMove(sequenceToAlter, index1, index2)):
+        while index1 == index2 or self.swapRelaxing(SwapMove(sequenceToAlter, index1, index2)):
             sequenceToAlter = randint(1, 2)
             index1 = randint(0, len(a) - 1)
             index2 = randint(0, len(a) - 1)
@@ -194,7 +194,7 @@ class RRManager:
         return SequencePair(a, b)
 
     def swapRelaxing(self, swapMove):
-        if swapMove.index1 == swapMove.index2: return
+        if swapMove.index1 == swapMove.index2: return 1
         print "Trying to swap seqNo: " + str(swapMove.seqNo) + " index1: " + str(swapMove.index1) + " index2: " + str(swapMove.index2)
         print "RelaxDict: "
         for sm in self.relaxDict.keys():
