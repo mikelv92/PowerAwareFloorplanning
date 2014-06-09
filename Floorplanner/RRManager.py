@@ -39,7 +39,7 @@ class RRManager:
         self.sequencePair = SequencePair(list(), list())
         self.fh = fh
         self.milpObjVal = 0
-        self.relaxDict = []
+        self.relaxDict = {}
 
     def addRR(self, rr):
         self.collection.append(rr)
@@ -188,12 +188,13 @@ class RRManager:
         else:
             b[minTempIndex], b[maxTempIndex] = b[maxTempIndex], b[minTempIndex]
 
-        if self.swaRelaxing(SwapMove(sequenceToAlter, minTempIndex, maxTempIndex)):
+        if self.swapRelaxing(SwapMove(sequenceToAlter, minTempIndex, maxTempIndex)):
             return self.randomSwapInSequencePair()
         self.notMuchRelax() #decreases the number of relax iterations of each swap move in relaxDict
         return SequencePair(a, b)
 
     def swapRelaxing(self, swapMove):
+        if swapMove.index1 == swapMove.index2: return
         print "Trying to swap seqNo: " + str(swapMove.seqNo) + " index1: " + str(swapMove.index1) + " index2: " + str(swapMove.index2)
         print "RelaxDict: "
         for sm in self.relaxDict.keys():

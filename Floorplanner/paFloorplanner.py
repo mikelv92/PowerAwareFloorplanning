@@ -55,7 +55,7 @@ def main():
     distanceVector = [[0 for x in xrange(rrCount)] for x in xrange(rrCount)]
     goodSolutions = []
 
-    while not rrManager.isUniformityReached() and saTemperature > 1:
+    while not rrManager.isUniformityReached() and saTemperature > 50:
         print "annealing"
         '''
         choice = randint(1, 2)
@@ -81,7 +81,7 @@ def main():
             rrManager.updateSequencePair(sequencePair)
             #rrManager.updateDistanceVector(distanceVector)
             currentSolutionCost = newSolutionCost
-            rrManager.drawOnBrowser("soluzione accettata")
+            #rrManager.drawOnBrowser("soluzione accettata")
         else:
             if(newSolutionCost == 817609):
                 print("soluzione scartata due to infeasibility")
@@ -92,7 +92,7 @@ def main():
 
     print("SA finito!")
 
-    if saTemperature < 10:
+    if saTemperature < 60:
         print "Searching good Solutions for the best one..."
         bestSolution = goodSolutions[0]
         minCost = goodSolutions[0].cost
