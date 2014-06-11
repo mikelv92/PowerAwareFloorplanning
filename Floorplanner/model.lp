@@ -1,15 +1,17 @@
 \* Problem: floorplan *\
 
 Minimize
- cost: + 3.94011032308905e-06 IOCost + 3.94011032308905e-06 CCost
- + 6.34678852500635e-05 RCost + 5.91016548463357e-05 PCost
+ cost: + 2.81436451649218e-06 IOCost + 2.81436451649218e-06 CCost
+ + 5.16635668526555e-05 RCost + 3.94011032308905e-05 PCost
 
 Subject To
  IOCost_def: + IOCost = -0
  CCost_def: - 40 DCx(rec1,rec2) - 40 DCx(rec2,rec8) - 100 DCx(rec3,rec1)
  - 40 DCx(rec3,rec7) - 40 DCx(rec5,rec6) - 40 DCx(rec5,rec7)
+ - 40 DCx(rec9,rec3) - 40 DCx(rec10,rec11) - 40 DCx(rec12,rec13)
  - 40 DCy(rec1,rec2) - 40 DCy(rec2,rec8) - 100 DCy(rec3,rec1)
- - 40 DCy(rec3,rec7) - 40 DCy(rec5,rec6) - 40 DCy(rec5,rec7) + CCost
+ - 40 DCy(rec3,rec7) - 40 DCy(rec5,rec6) - 40 DCy(rec5,rec7)
+ - 40 DCy(rec9,rec3) - 40 DCy(rec10,rec11) - 40 DCy(rec12,rec13) + CCost
  = -0
  RCost_def: - DRes(rec1,CLB) - DRes(rec1,DSP) - DRes(rec1,BRAM)
  - DRes(rec2,CLB) - DRes(rec2,DSP) - DRes(rec2,BRAM) - DRes(rec3,CLB)
@@ -18,12 +20,19 @@ Subject To
  - DRes(rec6,CLB) - DRes(rec6,DSP) - DRes(rec6,BRAM) - DRes(rec7,CLB)
  - DRes(rec7,DSP) - DRes(rec7,BRAM) - DRes(rec8,CLB) - DRes(rec8,DSP)
  - DRes(rec8,BRAM) - DRes(rec9,CLB) - DRes(rec9,DSP) - DRes(rec9,BRAM)
- - DRes(rec10,CLB) - DRes(rec10,DSP) - DRes(rec10,BRAM) + RCost = -0
+ - DRes(rec10,CLB) - DRes(rec10,DSP) - DRes(rec10,BRAM)
+ - DRes(rec11,CLB) - DRes(rec11,DSP) - DRes(rec11,BRAM)
+ - DRes(rec12,CLB) - DRes(rec12,DSP) - DRes(rec12,BRAM)
+ - DRes(rec13,CLB) - DRes(rec13,DSP) - DRes(rec13,BRAM)
+ - DRes(rec14,CLB) - DRes(rec14,DSP) - DRes(rec14,BRAM)
+ - DRes(rec15,CLB) - DRes(rec15,DSP) - DRes(rec15,BRAM) + RCost = -0
  PCost_def: - 4 w(rec1) - 4 w(rec2) - 4 w(rec3) - 4 w(rec4) - 4 w(rec5)
  - 4 w(rec6) - 4 w(rec7) - 4 w(rec8) - 4 w(rec9) - 4 w(rec10)
+ - 4 w(rec11) - 4 w(rec12) - 4 w(rec13) - 4 w(rec14) - 4 w(rec15)
  - 40 a(rec1) - 40 a(rec2) - 40 a(rec3) - 40 a(rec4) - 40 a(rec5)
  - 40 a(rec6) - 40 a(rec7) - 40 a(rec8) - 40 a(rec9) - 40 a(rec10)
- + PCost = 40
+ - 40 a(rec11) - 40 a(rec12) - 40 a(rec13) - 40 a(rec14) - 40 a(rec15)
+ + PCost = 60
  xCentroid(rec1): - 2 x(rec1) - w(rec1) + Cx(rec1) = 1
  xCentroid(rec2): - 2 x(rec2) - w(rec2) + Cx(rec2) = 1
  xCentroid(rec3): - 2 x(rec3) - w(rec3) + Cx(rec3) = 1
@@ -34,6 +43,11 @@ Subject To
  xCentroid(rec8): - 2 x(rec8) - w(rec8) + Cx(rec8) = 1
  xCentroid(rec9): - 2 x(rec9) - w(rec9) + Cx(rec9) = 1
  xCentroid(rec10): - 2 x(rec10) - w(rec10) + Cx(rec10) = 1
+ xCentroid(rec11): - 2 x(rec11) - w(rec11) + Cx(rec11) = 1
+ xCentroid(rec12): - 2 x(rec12) - w(rec12) + Cx(rec12) = 1
+ xCentroid(rec13): - 2 x(rec13) - w(rec13) + Cx(rec13) = 1
+ xCentroid(rec14): - 2 x(rec14) - w(rec14) + Cx(rec14) = 1
+ xCentroid(rec15): - 2 x(rec15) - w(rec15) + Cx(rec15) = 1
  yCentroid(rec1): - 20 y(rec1) - 10 a(rec1) + Cy(rec1) = -20
  yCentroid(rec2): - 20 y(rec2) - 10 a(rec2) + Cy(rec2) = -20
  yCentroid(rec3): - 20 y(rec3) - 10 a(rec3) + Cy(rec3) = -20
@@ -44,6 +58,11 @@ Subject To
  yCentroid(rec8): - 20 y(rec8) - 10 a(rec8) + Cy(rec8) = -20
  yCentroid(rec9): - 20 y(rec9) - 10 a(rec9) + Cy(rec9) = -20
  yCentroid(rec10): - 20 y(rec10) - 10 a(rec10) + Cy(rec10) = -20
+ yCentroid(rec11): - 20 y(rec11) - 10 a(rec11) + Cy(rec11) = -20
+ yCentroid(rec12): - 20 y(rec12) - 10 a(rec12) + Cy(rec12) = -20
+ yCentroid(rec13): - 20 y(rec13) - 10 a(rec13) + Cy(rec13) = -20
+ yCentroid(rec14): - 20 y(rec14) - 10 a(rec14) + Cy(rec14) = -20
+ yCentroid(rec15): - 20 y(rec15) - 10 a(rec15) + Cy(rec15) = -20
  deltaXCentroid_1(rec1,rec2): - Cx(rec1) + Cx(rec2) + DCx(rec1,rec2)
  >= -0
  deltaXCentroid_1(rec1,rec3): - Cx(rec1) + Cx(rec3) + DCx(rec1,rec3)
@@ -61,6 +80,16 @@ Subject To
  deltaXCentroid_1(rec1,rec9): - Cx(rec1) + Cx(rec9) + DCx(rec1,rec9)
  >= -0
  deltaXCentroid_1(rec1,rec10): - Cx(rec1) + Cx(rec10) + DCx(rec1,rec10)
+ >= -0
+ deltaXCentroid_1(rec1,rec11): - Cx(rec1) + Cx(rec11) + DCx(rec1,rec11)
+ >= -0
+ deltaXCentroid_1(rec1,rec12): - Cx(rec1) + Cx(rec12) + DCx(rec1,rec12)
+ >= -0
+ deltaXCentroid_1(rec1,rec13): - Cx(rec1) + Cx(rec13) + DCx(rec1,rec13)
+ >= -0
+ deltaXCentroid_1(rec1,rec14): - Cx(rec1) + Cx(rec14) + DCx(rec1,rec14)
+ >= -0
+ deltaXCentroid_1(rec1,rec15): - Cx(rec1) + Cx(rec15) + DCx(rec1,rec15)
  >= -0
  deltaXCentroid_1(rec2,rec1): + Cx(rec1) - Cx(rec2) + DCx(rec2,rec1)
  >= -0
@@ -80,6 +109,16 @@ Subject To
  >= -0
  deltaXCentroid_1(rec2,rec10): - Cx(rec2) + Cx(rec10) + DCx(rec2,rec10)
  >= -0
+ deltaXCentroid_1(rec2,rec11): - Cx(rec2) + Cx(rec11) + DCx(rec2,rec11)
+ >= -0
+ deltaXCentroid_1(rec2,rec12): - Cx(rec2) + Cx(rec12) + DCx(rec2,rec12)
+ >= -0
+ deltaXCentroid_1(rec2,rec13): - Cx(rec2) + Cx(rec13) + DCx(rec2,rec13)
+ >= -0
+ deltaXCentroid_1(rec2,rec14): - Cx(rec2) + Cx(rec14) + DCx(rec2,rec14)
+ >= -0
+ deltaXCentroid_1(rec2,rec15): - Cx(rec2) + Cx(rec15) + DCx(rec2,rec15)
+ >= -0
  deltaXCentroid_1(rec3,rec1): + Cx(rec1) - Cx(rec3) + DCx(rec3,rec1)
  >= -0
  deltaXCentroid_1(rec3,rec2): + Cx(rec2) - Cx(rec3) + DCx(rec3,rec2)
@@ -97,6 +136,16 @@ Subject To
  deltaXCentroid_1(rec3,rec9): - Cx(rec3) + Cx(rec9) + DCx(rec3,rec9)
  >= -0
  deltaXCentroid_1(rec3,rec10): - Cx(rec3) + Cx(rec10) + DCx(rec3,rec10)
+ >= -0
+ deltaXCentroid_1(rec3,rec11): - Cx(rec3) + Cx(rec11) + DCx(rec3,rec11)
+ >= -0
+ deltaXCentroid_1(rec3,rec12): - Cx(rec3) + Cx(rec12) + DCx(rec3,rec12)
+ >= -0
+ deltaXCentroid_1(rec3,rec13): - Cx(rec3) + Cx(rec13) + DCx(rec3,rec13)
+ >= -0
+ deltaXCentroid_1(rec3,rec14): - Cx(rec3) + Cx(rec14) + DCx(rec3,rec14)
+ >= -0
+ deltaXCentroid_1(rec3,rec15): - Cx(rec3) + Cx(rec15) + DCx(rec3,rec15)
  >= -0
  deltaXCentroid_1(rec4,rec1): + Cx(rec1) - Cx(rec4) + DCx(rec4,rec1)
  >= -0
@@ -116,6 +165,16 @@ Subject To
  >= -0
  deltaXCentroid_1(rec4,rec10): - Cx(rec4) + Cx(rec10) + DCx(rec4,rec10)
  >= -0
+ deltaXCentroid_1(rec4,rec11): - Cx(rec4) + Cx(rec11) + DCx(rec4,rec11)
+ >= -0
+ deltaXCentroid_1(rec4,rec12): - Cx(rec4) + Cx(rec12) + DCx(rec4,rec12)
+ >= -0
+ deltaXCentroid_1(rec4,rec13): - Cx(rec4) + Cx(rec13) + DCx(rec4,rec13)
+ >= -0
+ deltaXCentroid_1(rec4,rec14): - Cx(rec4) + Cx(rec14) + DCx(rec4,rec14)
+ >= -0
+ deltaXCentroid_1(rec4,rec15): - Cx(rec4) + Cx(rec15) + DCx(rec4,rec15)
+ >= -0
  deltaXCentroid_1(rec5,rec1): + Cx(rec1) - Cx(rec5) + DCx(rec5,rec1)
  >= -0
  deltaXCentroid_1(rec5,rec2): + Cx(rec2) - Cx(rec5) + DCx(rec5,rec2)
@@ -133,6 +192,16 @@ Subject To
  deltaXCentroid_1(rec5,rec9): - Cx(rec5) + Cx(rec9) + DCx(rec5,rec9)
  >= -0
  deltaXCentroid_1(rec5,rec10): - Cx(rec5) + Cx(rec10) + DCx(rec5,rec10)
+ >= -0
+ deltaXCentroid_1(rec5,rec11): - Cx(rec5) + Cx(rec11) + DCx(rec5,rec11)
+ >= -0
+ deltaXCentroid_1(rec5,rec12): - Cx(rec5) + Cx(rec12) + DCx(rec5,rec12)
+ >= -0
+ deltaXCentroid_1(rec5,rec13): - Cx(rec5) + Cx(rec13) + DCx(rec5,rec13)
+ >= -0
+ deltaXCentroid_1(rec5,rec14): - Cx(rec5) + Cx(rec14) + DCx(rec5,rec14)
+ >= -0
+ deltaXCentroid_1(rec5,rec15): - Cx(rec5) + Cx(rec15) + DCx(rec5,rec15)
  >= -0
  deltaXCentroid_1(rec6,rec1): + Cx(rec1) - Cx(rec6) + DCx(rec6,rec1)
  >= -0
@@ -152,6 +221,16 @@ Subject To
  >= -0
  deltaXCentroid_1(rec6,rec10): - Cx(rec6) + Cx(rec10) + DCx(rec6,rec10)
  >= -0
+ deltaXCentroid_1(rec6,rec11): - Cx(rec6) + Cx(rec11) + DCx(rec6,rec11)
+ >= -0
+ deltaXCentroid_1(rec6,rec12): - Cx(rec6) + Cx(rec12) + DCx(rec6,rec12)
+ >= -0
+ deltaXCentroid_1(rec6,rec13): - Cx(rec6) + Cx(rec13) + DCx(rec6,rec13)
+ >= -0
+ deltaXCentroid_1(rec6,rec14): - Cx(rec6) + Cx(rec14) + DCx(rec6,rec14)
+ >= -0
+ deltaXCentroid_1(rec6,rec15): - Cx(rec6) + Cx(rec15) + DCx(rec6,rec15)
+ >= -0
  deltaXCentroid_1(rec7,rec1): + Cx(rec1) - Cx(rec7) + DCx(rec7,rec1)
  >= -0
  deltaXCentroid_1(rec7,rec2): + Cx(rec2) - Cx(rec7) + DCx(rec7,rec2)
@@ -169,6 +248,16 @@ Subject To
  deltaXCentroid_1(rec7,rec9): - Cx(rec7) + Cx(rec9) + DCx(rec7,rec9)
  >= -0
  deltaXCentroid_1(rec7,rec10): - Cx(rec7) + Cx(rec10) + DCx(rec7,rec10)
+ >= -0
+ deltaXCentroid_1(rec7,rec11): - Cx(rec7) + Cx(rec11) + DCx(rec7,rec11)
+ >= -0
+ deltaXCentroid_1(rec7,rec12): - Cx(rec7) + Cx(rec12) + DCx(rec7,rec12)
+ >= -0
+ deltaXCentroid_1(rec7,rec13): - Cx(rec7) + Cx(rec13) + DCx(rec7,rec13)
+ >= -0
+ deltaXCentroid_1(rec7,rec14): - Cx(rec7) + Cx(rec14) + DCx(rec7,rec14)
+ >= -0
+ deltaXCentroid_1(rec7,rec15): - Cx(rec7) + Cx(rec15) + DCx(rec7,rec15)
  >= -0
  deltaXCentroid_1(rec8,rec1): + Cx(rec1) - Cx(rec8) + DCx(rec8,rec1)
  >= -0
@@ -188,6 +277,16 @@ Subject To
  >= -0
  deltaXCentroid_1(rec8,rec10): - Cx(rec8) + Cx(rec10) + DCx(rec8,rec10)
  >= -0
+ deltaXCentroid_1(rec8,rec11): - Cx(rec8) + Cx(rec11) + DCx(rec8,rec11)
+ >= -0
+ deltaXCentroid_1(rec8,rec12): - Cx(rec8) + Cx(rec12) + DCx(rec8,rec12)
+ >= -0
+ deltaXCentroid_1(rec8,rec13): - Cx(rec8) + Cx(rec13) + DCx(rec8,rec13)
+ >= -0
+ deltaXCentroid_1(rec8,rec14): - Cx(rec8) + Cx(rec14) + DCx(rec8,rec14)
+ >= -0
+ deltaXCentroid_1(rec8,rec15): - Cx(rec8) + Cx(rec15) + DCx(rec8,rec15)
+ >= -0
  deltaXCentroid_1(rec9,rec1): + Cx(rec1) - Cx(rec9) + DCx(rec9,rec1)
  >= -0
  deltaXCentroid_1(rec9,rec2): + Cx(rec2) - Cx(rec9) + DCx(rec9,rec2)
@@ -205,6 +304,16 @@ Subject To
  deltaXCentroid_1(rec9,rec8): + Cx(rec8) - Cx(rec9) + DCx(rec9,rec8)
  >= -0
  deltaXCentroid_1(rec9,rec10): - Cx(rec9) + Cx(rec10) + DCx(rec9,rec10)
+ >= -0
+ deltaXCentroid_1(rec9,rec11): - Cx(rec9) + Cx(rec11) + DCx(rec9,rec11)
+ >= -0
+ deltaXCentroid_1(rec9,rec12): - Cx(rec9) + Cx(rec12) + DCx(rec9,rec12)
+ >= -0
+ deltaXCentroid_1(rec9,rec13): - Cx(rec9) + Cx(rec13) + DCx(rec9,rec13)
+ >= -0
+ deltaXCentroid_1(rec9,rec14): - Cx(rec9) + Cx(rec14) + DCx(rec9,rec14)
+ >= -0
+ deltaXCentroid_1(rec9,rec15): - Cx(rec9) + Cx(rec15) + DCx(rec9,rec15)
  >= -0
  deltaXCentroid_1(rec10,rec1): + Cx(rec1) - Cx(rec10) + DCx(rec10,rec1)
  >= -0
@@ -224,6 +333,156 @@ Subject To
  >= -0
  deltaXCentroid_1(rec10,rec9): + Cx(rec9) - Cx(rec10) + DCx(rec10,rec9)
  >= -0
+ deltaXCentroid_1(rec10,rec11): - Cx(rec10) + Cx(rec11)
+ + DCx(rec10,rec11) >= -0
+ deltaXCentroid_1(rec10,rec12): - Cx(rec10) + Cx(rec12)
+ + DCx(rec10,rec12) >= -0
+ deltaXCentroid_1(rec10,rec13): - Cx(rec10) + Cx(rec13)
+ + DCx(rec10,rec13) >= -0
+ deltaXCentroid_1(rec10,rec14): - Cx(rec10) + Cx(rec14)
+ + DCx(rec10,rec14) >= -0
+ deltaXCentroid_1(rec10,rec15): - Cx(rec10) + Cx(rec15)
+ + DCx(rec10,rec15) >= -0
+ deltaXCentroid_1(rec11,rec1): + Cx(rec1) - Cx(rec11) + DCx(rec11,rec1)
+ >= -0
+ deltaXCentroid_1(rec11,rec2): + Cx(rec2) - Cx(rec11) + DCx(rec11,rec2)
+ >= -0
+ deltaXCentroid_1(rec11,rec3): + Cx(rec3) - Cx(rec11) + DCx(rec11,rec3)
+ >= -0
+ deltaXCentroid_1(rec11,rec4): + Cx(rec4) - Cx(rec11) + DCx(rec11,rec4)
+ >= -0
+ deltaXCentroid_1(rec11,rec5): + Cx(rec5) - Cx(rec11) + DCx(rec11,rec5)
+ >= -0
+ deltaXCentroid_1(rec11,rec6): + Cx(rec6) - Cx(rec11) + DCx(rec11,rec6)
+ >= -0
+ deltaXCentroid_1(rec11,rec7): + Cx(rec7) - Cx(rec11) + DCx(rec11,rec7)
+ >= -0
+ deltaXCentroid_1(rec11,rec8): + Cx(rec8) - Cx(rec11) + DCx(rec11,rec8)
+ >= -0
+ deltaXCentroid_1(rec11,rec9): + Cx(rec9) - Cx(rec11) + DCx(rec11,rec9)
+ >= -0
+ deltaXCentroid_1(rec11,rec10): + Cx(rec10) - Cx(rec11)
+ + DCx(rec11,rec10) >= -0
+ deltaXCentroid_1(rec11,rec12): - Cx(rec11) + Cx(rec12)
+ + DCx(rec11,rec12) >= -0
+ deltaXCentroid_1(rec11,rec13): - Cx(rec11) + Cx(rec13)
+ + DCx(rec11,rec13) >= -0
+ deltaXCentroid_1(rec11,rec14): - Cx(rec11) + Cx(rec14)
+ + DCx(rec11,rec14) >= -0
+ deltaXCentroid_1(rec11,rec15): - Cx(rec11) + Cx(rec15)
+ + DCx(rec11,rec15) >= -0
+ deltaXCentroid_1(rec12,rec1): + Cx(rec1) - Cx(rec12) + DCx(rec12,rec1)
+ >= -0
+ deltaXCentroid_1(rec12,rec2): + Cx(rec2) - Cx(rec12) + DCx(rec12,rec2)
+ >= -0
+ deltaXCentroid_1(rec12,rec3): + Cx(rec3) - Cx(rec12) + DCx(rec12,rec3)
+ >= -0
+ deltaXCentroid_1(rec12,rec4): + Cx(rec4) - Cx(rec12) + DCx(rec12,rec4)
+ >= -0
+ deltaXCentroid_1(rec12,rec5): + Cx(rec5) - Cx(rec12) + DCx(rec12,rec5)
+ >= -0
+ deltaXCentroid_1(rec12,rec6): + Cx(rec6) - Cx(rec12) + DCx(rec12,rec6)
+ >= -0
+ deltaXCentroid_1(rec12,rec7): + Cx(rec7) - Cx(rec12) + DCx(rec12,rec7)
+ >= -0
+ deltaXCentroid_1(rec12,rec8): + Cx(rec8) - Cx(rec12) + DCx(rec12,rec8)
+ >= -0
+ deltaXCentroid_1(rec12,rec9): + Cx(rec9) - Cx(rec12) + DCx(rec12,rec9)
+ >= -0
+ deltaXCentroid_1(rec12,rec10): + Cx(rec10) - Cx(rec12)
+ + DCx(rec12,rec10) >= -0
+ deltaXCentroid_1(rec12,rec11): + Cx(rec11) - Cx(rec12)
+ + DCx(rec12,rec11) >= -0
+ deltaXCentroid_1(rec12,rec13): - Cx(rec12) + Cx(rec13)
+ + DCx(rec12,rec13) >= -0
+ deltaXCentroid_1(rec12,rec14): - Cx(rec12) + Cx(rec14)
+ + DCx(rec12,rec14) >= -0
+ deltaXCentroid_1(rec12,rec15): - Cx(rec12) + Cx(rec15)
+ + DCx(rec12,rec15) >= -0
+ deltaXCentroid_1(rec13,rec1): + Cx(rec1) - Cx(rec13) + DCx(rec13,rec1)
+ >= -0
+ deltaXCentroid_1(rec13,rec2): + Cx(rec2) - Cx(rec13) + DCx(rec13,rec2)
+ >= -0
+ deltaXCentroid_1(rec13,rec3): + Cx(rec3) - Cx(rec13) + DCx(rec13,rec3)
+ >= -0
+ deltaXCentroid_1(rec13,rec4): + Cx(rec4) - Cx(rec13) + DCx(rec13,rec4)
+ >= -0
+ deltaXCentroid_1(rec13,rec5): + Cx(rec5) - Cx(rec13) + DCx(rec13,rec5)
+ >= -0
+ deltaXCentroid_1(rec13,rec6): + Cx(rec6) - Cx(rec13) + DCx(rec13,rec6)
+ >= -0
+ deltaXCentroid_1(rec13,rec7): + Cx(rec7) - Cx(rec13) + DCx(rec13,rec7)
+ >= -0
+ deltaXCentroid_1(rec13,rec8): + Cx(rec8) - Cx(rec13) + DCx(rec13,rec8)
+ >= -0
+ deltaXCentroid_1(rec13,rec9): + Cx(rec9) - Cx(rec13) + DCx(rec13,rec9)
+ >= -0
+ deltaXCentroid_1(rec13,rec10): + Cx(rec10) - Cx(rec13)
+ + DCx(rec13,rec10) >= -0
+ deltaXCentroid_1(rec13,rec11): + Cx(rec11) - Cx(rec13)
+ + DCx(rec13,rec11) >= -0
+ deltaXCentroid_1(rec13,rec12): + Cx(rec12) - Cx(rec13)
+ + DCx(rec13,rec12) >= -0
+ deltaXCentroid_1(rec13,rec14): - Cx(rec13) + Cx(rec14)
+ + DCx(rec13,rec14) >= -0
+ deltaXCentroid_1(rec13,rec15): - Cx(rec13) + Cx(rec15)
+ + DCx(rec13,rec15) >= -0
+ deltaXCentroid_1(rec14,rec1): + Cx(rec1) - Cx(rec14) + DCx(rec14,rec1)
+ >= -0
+ deltaXCentroid_1(rec14,rec2): + Cx(rec2) - Cx(rec14) + DCx(rec14,rec2)
+ >= -0
+ deltaXCentroid_1(rec14,rec3): + Cx(rec3) - Cx(rec14) + DCx(rec14,rec3)
+ >= -0
+ deltaXCentroid_1(rec14,rec4): + Cx(rec4) - Cx(rec14) + DCx(rec14,rec4)
+ >= -0
+ deltaXCentroid_1(rec14,rec5): + Cx(rec5) - Cx(rec14) + DCx(rec14,rec5)
+ >= -0
+ deltaXCentroid_1(rec14,rec6): + Cx(rec6) - Cx(rec14) + DCx(rec14,rec6)
+ >= -0
+ deltaXCentroid_1(rec14,rec7): + Cx(rec7) - Cx(rec14) + DCx(rec14,rec7)
+ >= -0
+ deltaXCentroid_1(rec14,rec8): + Cx(rec8) - Cx(rec14) + DCx(rec14,rec8)
+ >= -0
+ deltaXCentroid_1(rec14,rec9): + Cx(rec9) - Cx(rec14) + DCx(rec14,rec9)
+ >= -0
+ deltaXCentroid_1(rec14,rec10): + Cx(rec10) - Cx(rec14)
+ + DCx(rec14,rec10) >= -0
+ deltaXCentroid_1(rec14,rec11): + Cx(rec11) - Cx(rec14)
+ + DCx(rec14,rec11) >= -0
+ deltaXCentroid_1(rec14,rec12): + Cx(rec12) - Cx(rec14)
+ + DCx(rec14,rec12) >= -0
+ deltaXCentroid_1(rec14,rec13): + Cx(rec13) - Cx(rec14)
+ + DCx(rec14,rec13) >= -0
+ deltaXCentroid_1(rec14,rec15): - Cx(rec14) + Cx(rec15)
+ + DCx(rec14,rec15) >= -0
+ deltaXCentroid_1(rec15,rec1): + Cx(rec1) - Cx(rec15) + DCx(rec15,rec1)
+ >= -0
+ deltaXCentroid_1(rec15,rec2): + Cx(rec2) - Cx(rec15) + DCx(rec15,rec2)
+ >= -0
+ deltaXCentroid_1(rec15,rec3): + Cx(rec3) - Cx(rec15) + DCx(rec15,rec3)
+ >= -0
+ deltaXCentroid_1(rec15,rec4): + Cx(rec4) - Cx(rec15) + DCx(rec15,rec4)
+ >= -0
+ deltaXCentroid_1(rec15,rec5): + Cx(rec5) - Cx(rec15) + DCx(rec15,rec5)
+ >= -0
+ deltaXCentroid_1(rec15,rec6): + Cx(rec6) - Cx(rec15) + DCx(rec15,rec6)
+ >= -0
+ deltaXCentroid_1(rec15,rec7): + Cx(rec7) - Cx(rec15) + DCx(rec15,rec7)
+ >= -0
+ deltaXCentroid_1(rec15,rec8): + Cx(rec8) - Cx(rec15) + DCx(rec15,rec8)
+ >= -0
+ deltaXCentroid_1(rec15,rec9): + Cx(rec9) - Cx(rec15) + DCx(rec15,rec9)
+ >= -0
+ deltaXCentroid_1(rec15,rec10): + Cx(rec10) - Cx(rec15)
+ + DCx(rec15,rec10) >= -0
+ deltaXCentroid_1(rec15,rec11): + Cx(rec11) - Cx(rec15)
+ + DCx(rec15,rec11) >= -0
+ deltaXCentroid_1(rec15,rec12): + Cx(rec12) - Cx(rec15)
+ + DCx(rec15,rec12) >= -0
+ deltaXCentroid_1(rec15,rec13): + Cx(rec13) - Cx(rec15)
+ + DCx(rec15,rec13) >= -0
+ deltaXCentroid_1(rec15,rec14): + Cx(rec14) - Cx(rec15)
+ + DCx(rec15,rec14) >= -0
  deltaXCentroid_2(rec1,rec2): + Cx(rec1) - Cx(rec2) + DCx(rec1,rec2)
  >= -0
  deltaXCentroid_2(rec1,rec3): + Cx(rec1) - Cx(rec3) + DCx(rec1,rec3)
@@ -241,6 +500,16 @@ Subject To
  deltaXCentroid_2(rec1,rec9): + Cx(rec1) - Cx(rec9) + DCx(rec1,rec9)
  >= -0
  deltaXCentroid_2(rec1,rec10): + Cx(rec1) - Cx(rec10) + DCx(rec1,rec10)
+ >= -0
+ deltaXCentroid_2(rec1,rec11): + Cx(rec1) - Cx(rec11) + DCx(rec1,rec11)
+ >= -0
+ deltaXCentroid_2(rec1,rec12): + Cx(rec1) - Cx(rec12) + DCx(rec1,rec12)
+ >= -0
+ deltaXCentroid_2(rec1,rec13): + Cx(rec1) - Cx(rec13) + DCx(rec1,rec13)
+ >= -0
+ deltaXCentroid_2(rec1,rec14): + Cx(rec1) - Cx(rec14) + DCx(rec1,rec14)
+ >= -0
+ deltaXCentroid_2(rec1,rec15): + Cx(rec1) - Cx(rec15) + DCx(rec1,rec15)
  >= -0
  deltaXCentroid_2(rec2,rec1): - Cx(rec1) + Cx(rec2) + DCx(rec2,rec1)
  >= -0
@@ -260,6 +529,16 @@ Subject To
  >= -0
  deltaXCentroid_2(rec2,rec10): + Cx(rec2) - Cx(rec10) + DCx(rec2,rec10)
  >= -0
+ deltaXCentroid_2(rec2,rec11): + Cx(rec2) - Cx(rec11) + DCx(rec2,rec11)
+ >= -0
+ deltaXCentroid_2(rec2,rec12): + Cx(rec2) - Cx(rec12) + DCx(rec2,rec12)
+ >= -0
+ deltaXCentroid_2(rec2,rec13): + Cx(rec2) - Cx(rec13) + DCx(rec2,rec13)
+ >= -0
+ deltaXCentroid_2(rec2,rec14): + Cx(rec2) - Cx(rec14) + DCx(rec2,rec14)
+ >= -0
+ deltaXCentroid_2(rec2,rec15): + Cx(rec2) - Cx(rec15) + DCx(rec2,rec15)
+ >= -0
  deltaXCentroid_2(rec3,rec1): - Cx(rec1) + Cx(rec3) + DCx(rec3,rec1)
  >= -0
  deltaXCentroid_2(rec3,rec2): - Cx(rec2) + Cx(rec3) + DCx(rec3,rec2)
@@ -277,6 +556,16 @@ Subject To
  deltaXCentroid_2(rec3,rec9): + Cx(rec3) - Cx(rec9) + DCx(rec3,rec9)
  >= -0
  deltaXCentroid_2(rec3,rec10): + Cx(rec3) - Cx(rec10) + DCx(rec3,rec10)
+ >= -0
+ deltaXCentroid_2(rec3,rec11): + Cx(rec3) - Cx(rec11) + DCx(rec3,rec11)
+ >= -0
+ deltaXCentroid_2(rec3,rec12): + Cx(rec3) - Cx(rec12) + DCx(rec3,rec12)
+ >= -0
+ deltaXCentroid_2(rec3,rec13): + Cx(rec3) - Cx(rec13) + DCx(rec3,rec13)
+ >= -0
+ deltaXCentroid_2(rec3,rec14): + Cx(rec3) - Cx(rec14) + DCx(rec3,rec14)
+ >= -0
+ deltaXCentroid_2(rec3,rec15): + Cx(rec3) - Cx(rec15) + DCx(rec3,rec15)
  >= -0
  deltaXCentroid_2(rec4,rec1): - Cx(rec1) + Cx(rec4) + DCx(rec4,rec1)
  >= -0
@@ -296,6 +585,16 @@ Subject To
  >= -0
  deltaXCentroid_2(rec4,rec10): + Cx(rec4) - Cx(rec10) + DCx(rec4,rec10)
  >= -0
+ deltaXCentroid_2(rec4,rec11): + Cx(rec4) - Cx(rec11) + DCx(rec4,rec11)
+ >= -0
+ deltaXCentroid_2(rec4,rec12): + Cx(rec4) - Cx(rec12) + DCx(rec4,rec12)
+ >= -0
+ deltaXCentroid_2(rec4,rec13): + Cx(rec4) - Cx(rec13) + DCx(rec4,rec13)
+ >= -0
+ deltaXCentroid_2(rec4,rec14): + Cx(rec4) - Cx(rec14) + DCx(rec4,rec14)
+ >= -0
+ deltaXCentroid_2(rec4,rec15): + Cx(rec4) - Cx(rec15) + DCx(rec4,rec15)
+ >= -0
  deltaXCentroid_2(rec5,rec1): - Cx(rec1) + Cx(rec5) + DCx(rec5,rec1)
  >= -0
  deltaXCentroid_2(rec5,rec2): - Cx(rec2) + Cx(rec5) + DCx(rec5,rec2)
@@ -313,6 +612,16 @@ Subject To
  deltaXCentroid_2(rec5,rec9): + Cx(rec5) - Cx(rec9) + DCx(rec5,rec9)
  >= -0
  deltaXCentroid_2(rec5,rec10): + Cx(rec5) - Cx(rec10) + DCx(rec5,rec10)
+ >= -0
+ deltaXCentroid_2(rec5,rec11): + Cx(rec5) - Cx(rec11) + DCx(rec5,rec11)
+ >= -0
+ deltaXCentroid_2(rec5,rec12): + Cx(rec5) - Cx(rec12) + DCx(rec5,rec12)
+ >= -0
+ deltaXCentroid_2(rec5,rec13): + Cx(rec5) - Cx(rec13) + DCx(rec5,rec13)
+ >= -0
+ deltaXCentroid_2(rec5,rec14): + Cx(rec5) - Cx(rec14) + DCx(rec5,rec14)
+ >= -0
+ deltaXCentroid_2(rec5,rec15): + Cx(rec5) - Cx(rec15) + DCx(rec5,rec15)
  >= -0
  deltaXCentroid_2(rec6,rec1): - Cx(rec1) + Cx(rec6) + DCx(rec6,rec1)
  >= -0
@@ -332,6 +641,16 @@ Subject To
  >= -0
  deltaXCentroid_2(rec6,rec10): + Cx(rec6) - Cx(rec10) + DCx(rec6,rec10)
  >= -0
+ deltaXCentroid_2(rec6,rec11): + Cx(rec6) - Cx(rec11) + DCx(rec6,rec11)
+ >= -0
+ deltaXCentroid_2(rec6,rec12): + Cx(rec6) - Cx(rec12) + DCx(rec6,rec12)
+ >= -0
+ deltaXCentroid_2(rec6,rec13): + Cx(rec6) - Cx(rec13) + DCx(rec6,rec13)
+ >= -0
+ deltaXCentroid_2(rec6,rec14): + Cx(rec6) - Cx(rec14) + DCx(rec6,rec14)
+ >= -0
+ deltaXCentroid_2(rec6,rec15): + Cx(rec6) - Cx(rec15) + DCx(rec6,rec15)
+ >= -0
  deltaXCentroid_2(rec7,rec1): - Cx(rec1) + Cx(rec7) + DCx(rec7,rec1)
  >= -0
  deltaXCentroid_2(rec7,rec2): - Cx(rec2) + Cx(rec7) + DCx(rec7,rec2)
@@ -349,6 +668,16 @@ Subject To
  deltaXCentroid_2(rec7,rec9): + Cx(rec7) - Cx(rec9) + DCx(rec7,rec9)
  >= -0
  deltaXCentroid_2(rec7,rec10): + Cx(rec7) - Cx(rec10) + DCx(rec7,rec10)
+ >= -0
+ deltaXCentroid_2(rec7,rec11): + Cx(rec7) - Cx(rec11) + DCx(rec7,rec11)
+ >= -0
+ deltaXCentroid_2(rec7,rec12): + Cx(rec7) - Cx(rec12) + DCx(rec7,rec12)
+ >= -0
+ deltaXCentroid_2(rec7,rec13): + Cx(rec7) - Cx(rec13) + DCx(rec7,rec13)
+ >= -0
+ deltaXCentroid_2(rec7,rec14): + Cx(rec7) - Cx(rec14) + DCx(rec7,rec14)
+ >= -0
+ deltaXCentroid_2(rec7,rec15): + Cx(rec7) - Cx(rec15) + DCx(rec7,rec15)
  >= -0
  deltaXCentroid_2(rec8,rec1): - Cx(rec1) + Cx(rec8) + DCx(rec8,rec1)
  >= -0
@@ -368,6 +697,16 @@ Subject To
  >= -0
  deltaXCentroid_2(rec8,rec10): + Cx(rec8) - Cx(rec10) + DCx(rec8,rec10)
  >= -0
+ deltaXCentroid_2(rec8,rec11): + Cx(rec8) - Cx(rec11) + DCx(rec8,rec11)
+ >= -0
+ deltaXCentroid_2(rec8,rec12): + Cx(rec8) - Cx(rec12) + DCx(rec8,rec12)
+ >= -0
+ deltaXCentroid_2(rec8,rec13): + Cx(rec8) - Cx(rec13) + DCx(rec8,rec13)
+ >= -0
+ deltaXCentroid_2(rec8,rec14): + Cx(rec8) - Cx(rec14) + DCx(rec8,rec14)
+ >= -0
+ deltaXCentroid_2(rec8,rec15): + Cx(rec8) - Cx(rec15) + DCx(rec8,rec15)
+ >= -0
  deltaXCentroid_2(rec9,rec1): - Cx(rec1) + Cx(rec9) + DCx(rec9,rec1)
  >= -0
  deltaXCentroid_2(rec9,rec2): - Cx(rec2) + Cx(rec9) + DCx(rec9,rec2)
@@ -385,6 +724,16 @@ Subject To
  deltaXCentroid_2(rec9,rec8): - Cx(rec8) + Cx(rec9) + DCx(rec9,rec8)
  >= -0
  deltaXCentroid_2(rec9,rec10): + Cx(rec9) - Cx(rec10) + DCx(rec9,rec10)
+ >= -0
+ deltaXCentroid_2(rec9,rec11): + Cx(rec9) - Cx(rec11) + DCx(rec9,rec11)
+ >= -0
+ deltaXCentroid_2(rec9,rec12): + Cx(rec9) - Cx(rec12) + DCx(rec9,rec12)
+ >= -0
+ deltaXCentroid_2(rec9,rec13): + Cx(rec9) - Cx(rec13) + DCx(rec9,rec13)
+ >= -0
+ deltaXCentroid_2(rec9,rec14): + Cx(rec9) - Cx(rec14) + DCx(rec9,rec14)
+ >= -0
+ deltaXCentroid_2(rec9,rec15): + Cx(rec9) - Cx(rec15) + DCx(rec9,rec15)
  >= -0
  deltaXCentroid_2(rec10,rec1): - Cx(rec1) + Cx(rec10) + DCx(rec10,rec1)
  >= -0
@@ -404,6 +753,156 @@ Subject To
  >= -0
  deltaXCentroid_2(rec10,rec9): - Cx(rec9) + Cx(rec10) + DCx(rec10,rec9)
  >= -0
+ deltaXCentroid_2(rec10,rec11): + Cx(rec10) - Cx(rec11)
+ + DCx(rec10,rec11) >= -0
+ deltaXCentroid_2(rec10,rec12): + Cx(rec10) - Cx(rec12)
+ + DCx(rec10,rec12) >= -0
+ deltaXCentroid_2(rec10,rec13): + Cx(rec10) - Cx(rec13)
+ + DCx(rec10,rec13) >= -0
+ deltaXCentroid_2(rec10,rec14): + Cx(rec10) - Cx(rec14)
+ + DCx(rec10,rec14) >= -0
+ deltaXCentroid_2(rec10,rec15): + Cx(rec10) - Cx(rec15)
+ + DCx(rec10,rec15) >= -0
+ deltaXCentroid_2(rec11,rec1): - Cx(rec1) + Cx(rec11) + DCx(rec11,rec1)
+ >= -0
+ deltaXCentroid_2(rec11,rec2): - Cx(rec2) + Cx(rec11) + DCx(rec11,rec2)
+ >= -0
+ deltaXCentroid_2(rec11,rec3): - Cx(rec3) + Cx(rec11) + DCx(rec11,rec3)
+ >= -0
+ deltaXCentroid_2(rec11,rec4): - Cx(rec4) + Cx(rec11) + DCx(rec11,rec4)
+ >= -0
+ deltaXCentroid_2(rec11,rec5): - Cx(rec5) + Cx(rec11) + DCx(rec11,rec5)
+ >= -0
+ deltaXCentroid_2(rec11,rec6): - Cx(rec6) + Cx(rec11) + DCx(rec11,rec6)
+ >= -0
+ deltaXCentroid_2(rec11,rec7): - Cx(rec7) + Cx(rec11) + DCx(rec11,rec7)
+ >= -0
+ deltaXCentroid_2(rec11,rec8): - Cx(rec8) + Cx(rec11) + DCx(rec11,rec8)
+ >= -0
+ deltaXCentroid_2(rec11,rec9): - Cx(rec9) + Cx(rec11) + DCx(rec11,rec9)
+ >= -0
+ deltaXCentroid_2(rec11,rec10): - Cx(rec10) + Cx(rec11)
+ + DCx(rec11,rec10) >= -0
+ deltaXCentroid_2(rec11,rec12): + Cx(rec11) - Cx(rec12)
+ + DCx(rec11,rec12) >= -0
+ deltaXCentroid_2(rec11,rec13): + Cx(rec11) - Cx(rec13)
+ + DCx(rec11,rec13) >= -0
+ deltaXCentroid_2(rec11,rec14): + Cx(rec11) - Cx(rec14)
+ + DCx(rec11,rec14) >= -0
+ deltaXCentroid_2(rec11,rec15): + Cx(rec11) - Cx(rec15)
+ + DCx(rec11,rec15) >= -0
+ deltaXCentroid_2(rec12,rec1): - Cx(rec1) + Cx(rec12) + DCx(rec12,rec1)
+ >= -0
+ deltaXCentroid_2(rec12,rec2): - Cx(rec2) + Cx(rec12) + DCx(rec12,rec2)
+ >= -0
+ deltaXCentroid_2(rec12,rec3): - Cx(rec3) + Cx(rec12) + DCx(rec12,rec3)
+ >= -0
+ deltaXCentroid_2(rec12,rec4): - Cx(rec4) + Cx(rec12) + DCx(rec12,rec4)
+ >= -0
+ deltaXCentroid_2(rec12,rec5): - Cx(rec5) + Cx(rec12) + DCx(rec12,rec5)
+ >= -0
+ deltaXCentroid_2(rec12,rec6): - Cx(rec6) + Cx(rec12) + DCx(rec12,rec6)
+ >= -0
+ deltaXCentroid_2(rec12,rec7): - Cx(rec7) + Cx(rec12) + DCx(rec12,rec7)
+ >= -0
+ deltaXCentroid_2(rec12,rec8): - Cx(rec8) + Cx(rec12) + DCx(rec12,rec8)
+ >= -0
+ deltaXCentroid_2(rec12,rec9): - Cx(rec9) + Cx(rec12) + DCx(rec12,rec9)
+ >= -0
+ deltaXCentroid_2(rec12,rec10): - Cx(rec10) + Cx(rec12)
+ + DCx(rec12,rec10) >= -0
+ deltaXCentroid_2(rec12,rec11): - Cx(rec11) + Cx(rec12)
+ + DCx(rec12,rec11) >= -0
+ deltaXCentroid_2(rec12,rec13): + Cx(rec12) - Cx(rec13)
+ + DCx(rec12,rec13) >= -0
+ deltaXCentroid_2(rec12,rec14): + Cx(rec12) - Cx(rec14)
+ + DCx(rec12,rec14) >= -0
+ deltaXCentroid_2(rec12,rec15): + Cx(rec12) - Cx(rec15)
+ + DCx(rec12,rec15) >= -0
+ deltaXCentroid_2(rec13,rec1): - Cx(rec1) + Cx(rec13) + DCx(rec13,rec1)
+ >= -0
+ deltaXCentroid_2(rec13,rec2): - Cx(rec2) + Cx(rec13) + DCx(rec13,rec2)
+ >= -0
+ deltaXCentroid_2(rec13,rec3): - Cx(rec3) + Cx(rec13) + DCx(rec13,rec3)
+ >= -0
+ deltaXCentroid_2(rec13,rec4): - Cx(rec4) + Cx(rec13) + DCx(rec13,rec4)
+ >= -0
+ deltaXCentroid_2(rec13,rec5): - Cx(rec5) + Cx(rec13) + DCx(rec13,rec5)
+ >= -0
+ deltaXCentroid_2(rec13,rec6): - Cx(rec6) + Cx(rec13) + DCx(rec13,rec6)
+ >= -0
+ deltaXCentroid_2(rec13,rec7): - Cx(rec7) + Cx(rec13) + DCx(rec13,rec7)
+ >= -0
+ deltaXCentroid_2(rec13,rec8): - Cx(rec8) + Cx(rec13) + DCx(rec13,rec8)
+ >= -0
+ deltaXCentroid_2(rec13,rec9): - Cx(rec9) + Cx(rec13) + DCx(rec13,rec9)
+ >= -0
+ deltaXCentroid_2(rec13,rec10): - Cx(rec10) + Cx(rec13)
+ + DCx(rec13,rec10) >= -0
+ deltaXCentroid_2(rec13,rec11): - Cx(rec11) + Cx(rec13)
+ + DCx(rec13,rec11) >= -0
+ deltaXCentroid_2(rec13,rec12): - Cx(rec12) + Cx(rec13)
+ + DCx(rec13,rec12) >= -0
+ deltaXCentroid_2(rec13,rec14): + Cx(rec13) - Cx(rec14)
+ + DCx(rec13,rec14) >= -0
+ deltaXCentroid_2(rec13,rec15): + Cx(rec13) - Cx(rec15)
+ + DCx(rec13,rec15) >= -0
+ deltaXCentroid_2(rec14,rec1): - Cx(rec1) + Cx(rec14) + DCx(rec14,rec1)
+ >= -0
+ deltaXCentroid_2(rec14,rec2): - Cx(rec2) + Cx(rec14) + DCx(rec14,rec2)
+ >= -0
+ deltaXCentroid_2(rec14,rec3): - Cx(rec3) + Cx(rec14) + DCx(rec14,rec3)
+ >= -0
+ deltaXCentroid_2(rec14,rec4): - Cx(rec4) + Cx(rec14) + DCx(rec14,rec4)
+ >= -0
+ deltaXCentroid_2(rec14,rec5): - Cx(rec5) + Cx(rec14) + DCx(rec14,rec5)
+ >= -0
+ deltaXCentroid_2(rec14,rec6): - Cx(rec6) + Cx(rec14) + DCx(rec14,rec6)
+ >= -0
+ deltaXCentroid_2(rec14,rec7): - Cx(rec7) + Cx(rec14) + DCx(rec14,rec7)
+ >= -0
+ deltaXCentroid_2(rec14,rec8): - Cx(rec8) + Cx(rec14) + DCx(rec14,rec8)
+ >= -0
+ deltaXCentroid_2(rec14,rec9): - Cx(rec9) + Cx(rec14) + DCx(rec14,rec9)
+ >= -0
+ deltaXCentroid_2(rec14,rec10): - Cx(rec10) + Cx(rec14)
+ + DCx(rec14,rec10) >= -0
+ deltaXCentroid_2(rec14,rec11): - Cx(rec11) + Cx(rec14)
+ + DCx(rec14,rec11) >= -0
+ deltaXCentroid_2(rec14,rec12): - Cx(rec12) + Cx(rec14)
+ + DCx(rec14,rec12) >= -0
+ deltaXCentroid_2(rec14,rec13): - Cx(rec13) + Cx(rec14)
+ + DCx(rec14,rec13) >= -0
+ deltaXCentroid_2(rec14,rec15): + Cx(rec14) - Cx(rec15)
+ + DCx(rec14,rec15) >= -0
+ deltaXCentroid_2(rec15,rec1): - Cx(rec1) + Cx(rec15) + DCx(rec15,rec1)
+ >= -0
+ deltaXCentroid_2(rec15,rec2): - Cx(rec2) + Cx(rec15) + DCx(rec15,rec2)
+ >= -0
+ deltaXCentroid_2(rec15,rec3): - Cx(rec3) + Cx(rec15) + DCx(rec15,rec3)
+ >= -0
+ deltaXCentroid_2(rec15,rec4): - Cx(rec4) + Cx(rec15) + DCx(rec15,rec4)
+ >= -0
+ deltaXCentroid_2(rec15,rec5): - Cx(rec5) + Cx(rec15) + DCx(rec15,rec5)
+ >= -0
+ deltaXCentroid_2(rec15,rec6): - Cx(rec6) + Cx(rec15) + DCx(rec15,rec6)
+ >= -0
+ deltaXCentroid_2(rec15,rec7): - Cx(rec7) + Cx(rec15) + DCx(rec15,rec7)
+ >= -0
+ deltaXCentroid_2(rec15,rec8): - Cx(rec8) + Cx(rec15) + DCx(rec15,rec8)
+ >= -0
+ deltaXCentroid_2(rec15,rec9): - Cx(rec9) + Cx(rec15) + DCx(rec15,rec9)
+ >= -0
+ deltaXCentroid_2(rec15,rec10): - Cx(rec10) + Cx(rec15)
+ + DCx(rec15,rec10) >= -0
+ deltaXCentroid_2(rec15,rec11): - Cx(rec11) + Cx(rec15)
+ + DCx(rec15,rec11) >= -0
+ deltaXCentroid_2(rec15,rec12): - Cx(rec12) + Cx(rec15)
+ + DCx(rec15,rec12) >= -0
+ deltaXCentroid_2(rec15,rec13): - Cx(rec13) + Cx(rec15)
+ + DCx(rec15,rec13) >= -0
+ deltaXCentroid_2(rec15,rec14): - Cx(rec14) + Cx(rec15)
+ + DCx(rec15,rec14) >= -0
  deltaAbsXCentroid_1(rec1,rec2): - 120 absX(rec1,rec2) - Cx(rec1)
  + Cx(rec2) + DCx(rec1,rec2) <= -0
  deltaAbsXCentroid_1(rec1,rec3): - 120 absX(rec1,rec3) - Cx(rec1)
@@ -422,6 +921,16 @@ Subject To
  + Cx(rec9) + DCx(rec1,rec9) <= -0
  deltaAbsXCentroid_1(rec1,rec10): - 120 absX(rec1,rec10) - Cx(rec1)
  + Cx(rec10) + DCx(rec1,rec10) <= -0
+ deltaAbsXCentroid_1(rec1,rec11): - 120 absX(rec1,rec11) - Cx(rec1)
+ + Cx(rec11) + DCx(rec1,rec11) <= -0
+ deltaAbsXCentroid_1(rec1,rec12): - 120 absX(rec1,rec12) - Cx(rec1)
+ + Cx(rec12) + DCx(rec1,rec12) <= -0
+ deltaAbsXCentroid_1(rec1,rec13): - 120 absX(rec1,rec13) - Cx(rec1)
+ + Cx(rec13) + DCx(rec1,rec13) <= -0
+ deltaAbsXCentroid_1(rec1,rec14): - 120 absX(rec1,rec14) - Cx(rec1)
+ + Cx(rec14) + DCx(rec1,rec14) <= -0
+ deltaAbsXCentroid_1(rec1,rec15): - 120 absX(rec1,rec15) - Cx(rec1)
+ + Cx(rec15) + DCx(rec1,rec15) <= -0
  deltaAbsXCentroid_1(rec2,rec3): - 120 absX(rec2,rec3) - Cx(rec2)
  + Cx(rec3) + DCx(rec2,rec3) <= -0
  deltaAbsXCentroid_1(rec2,rec4): - 120 absX(rec2,rec4) - Cx(rec2)
@@ -494,6 +1003,116 @@ Subject To
  - Cx(rec10) + DCx(rec10,rec8) <= -0
  deltaAbsXCentroid_1(rec10,rec9): - 120 absX(rec10,rec9) + Cx(rec9)
  - Cx(rec10) + DCx(rec10,rec9) <= -0
+ deltaAbsXCentroid_1(rec10,rec11): - 120 absX(rec10,rec11) - Cx(rec10)
+ + Cx(rec11) + DCx(rec10,rec11) <= -0
+ deltaAbsXCentroid_1(rec10,rec12): - 120 absX(rec10,rec12) - Cx(rec10)
+ + Cx(rec12) + DCx(rec10,rec12) <= -0
+ deltaAbsXCentroid_1(rec10,rec13): - 120 absX(rec10,rec13) - Cx(rec10)
+ + Cx(rec13) + DCx(rec10,rec13) <= -0
+ deltaAbsXCentroid_1(rec10,rec14): - 120 absX(rec10,rec14) - Cx(rec10)
+ + Cx(rec14) + DCx(rec10,rec14) <= -0
+ deltaAbsXCentroid_1(rec10,rec15): - 120 absX(rec10,rec15) - Cx(rec10)
+ + Cx(rec15) + DCx(rec10,rec15) <= -0
+ deltaAbsXCentroid_1(rec11,rec2): - 120 absX(rec11,rec2) + Cx(rec2)
+ - Cx(rec11) + DCx(rec11,rec2) <= -0
+ deltaAbsXCentroid_1(rec11,rec3): - 120 absX(rec11,rec3) + Cx(rec3)
+ - Cx(rec11) + DCx(rec11,rec3) <= -0
+ deltaAbsXCentroid_1(rec11,rec4): - 120 absX(rec11,rec4) + Cx(rec4)
+ - Cx(rec11) + DCx(rec11,rec4) <= -0
+ deltaAbsXCentroid_1(rec11,rec5): - 120 absX(rec11,rec5) + Cx(rec5)
+ - Cx(rec11) + DCx(rec11,rec5) <= -0
+ deltaAbsXCentroid_1(rec11,rec6): - 120 absX(rec11,rec6) + Cx(rec6)
+ - Cx(rec11) + DCx(rec11,rec6) <= -0
+ deltaAbsXCentroid_1(rec11,rec7): - 120 absX(rec11,rec7) + Cx(rec7)
+ - Cx(rec11) + DCx(rec11,rec7) <= -0
+ deltaAbsXCentroid_1(rec11,rec8): - 120 absX(rec11,rec8) + Cx(rec8)
+ - Cx(rec11) + DCx(rec11,rec8) <= -0
+ deltaAbsXCentroid_1(rec11,rec9): - 120 absX(rec11,rec9) + Cx(rec9)
+ - Cx(rec11) + DCx(rec11,rec9) <= -0
+ deltaAbsXCentroid_1(rec11,rec12): - 120 absX(rec11,rec12) - Cx(rec11)
+ + Cx(rec12) + DCx(rec11,rec12) <= -0
+ deltaAbsXCentroid_1(rec11,rec13): - 120 absX(rec11,rec13) - Cx(rec11)
+ + Cx(rec13) + DCx(rec11,rec13) <= -0
+ deltaAbsXCentroid_1(rec11,rec14): - 120 absX(rec11,rec14) - Cx(rec11)
+ + Cx(rec14) + DCx(rec11,rec14) <= -0
+ deltaAbsXCentroid_1(rec11,rec15): - 120 absX(rec11,rec15) - Cx(rec11)
+ + Cx(rec15) + DCx(rec11,rec15) <= -0
+ deltaAbsXCentroid_1(rec12,rec2): - 120 absX(rec12,rec2) + Cx(rec2)
+ - Cx(rec12) + DCx(rec12,rec2) <= -0
+ deltaAbsXCentroid_1(rec12,rec3): - 120 absX(rec12,rec3) + Cx(rec3)
+ - Cx(rec12) + DCx(rec12,rec3) <= -0
+ deltaAbsXCentroid_1(rec12,rec4): - 120 absX(rec12,rec4) + Cx(rec4)
+ - Cx(rec12) + DCx(rec12,rec4) <= -0
+ deltaAbsXCentroid_1(rec12,rec5): - 120 absX(rec12,rec5) + Cx(rec5)
+ - Cx(rec12) + DCx(rec12,rec5) <= -0
+ deltaAbsXCentroid_1(rec12,rec6): - 120 absX(rec12,rec6) + Cx(rec6)
+ - Cx(rec12) + DCx(rec12,rec6) <= -0
+ deltaAbsXCentroid_1(rec12,rec7): - 120 absX(rec12,rec7) + Cx(rec7)
+ - Cx(rec12) + DCx(rec12,rec7) <= -0
+ deltaAbsXCentroid_1(rec12,rec8): - 120 absX(rec12,rec8) + Cx(rec8)
+ - Cx(rec12) + DCx(rec12,rec8) <= -0
+ deltaAbsXCentroid_1(rec12,rec9): - 120 absX(rec12,rec9) + Cx(rec9)
+ - Cx(rec12) + DCx(rec12,rec9) <= -0
+ deltaAbsXCentroid_1(rec12,rec13): - 120 absX(rec12,rec13) - Cx(rec12)
+ + Cx(rec13) + DCx(rec12,rec13) <= -0
+ deltaAbsXCentroid_1(rec12,rec14): - 120 absX(rec12,rec14) - Cx(rec12)
+ + Cx(rec14) + DCx(rec12,rec14) <= -0
+ deltaAbsXCentroid_1(rec12,rec15): - 120 absX(rec12,rec15) - Cx(rec12)
+ + Cx(rec15) + DCx(rec12,rec15) <= -0
+ deltaAbsXCentroid_1(rec13,rec2): - 120 absX(rec13,rec2) + Cx(rec2)
+ - Cx(rec13) + DCx(rec13,rec2) <= -0
+ deltaAbsXCentroid_1(rec13,rec3): - 120 absX(rec13,rec3) + Cx(rec3)
+ - Cx(rec13) + DCx(rec13,rec3) <= -0
+ deltaAbsXCentroid_1(rec13,rec4): - 120 absX(rec13,rec4) + Cx(rec4)
+ - Cx(rec13) + DCx(rec13,rec4) <= -0
+ deltaAbsXCentroid_1(rec13,rec5): - 120 absX(rec13,rec5) + Cx(rec5)
+ - Cx(rec13) + DCx(rec13,rec5) <= -0
+ deltaAbsXCentroid_1(rec13,rec6): - 120 absX(rec13,rec6) + Cx(rec6)
+ - Cx(rec13) + DCx(rec13,rec6) <= -0
+ deltaAbsXCentroid_1(rec13,rec7): - 120 absX(rec13,rec7) + Cx(rec7)
+ - Cx(rec13) + DCx(rec13,rec7) <= -0
+ deltaAbsXCentroid_1(rec13,rec8): - 120 absX(rec13,rec8) + Cx(rec8)
+ - Cx(rec13) + DCx(rec13,rec8) <= -0
+ deltaAbsXCentroid_1(rec13,rec9): - 120 absX(rec13,rec9) + Cx(rec9)
+ - Cx(rec13) + DCx(rec13,rec9) <= -0
+ deltaAbsXCentroid_1(rec13,rec14): - 120 absX(rec13,rec14) - Cx(rec13)
+ + Cx(rec14) + DCx(rec13,rec14) <= -0
+ deltaAbsXCentroid_1(rec13,rec15): - 120 absX(rec13,rec15) - Cx(rec13)
+ + Cx(rec15) + DCx(rec13,rec15) <= -0
+ deltaAbsXCentroid_1(rec14,rec2): - 120 absX(rec14,rec2) + Cx(rec2)
+ - Cx(rec14) + DCx(rec14,rec2) <= -0
+ deltaAbsXCentroid_1(rec14,rec3): - 120 absX(rec14,rec3) + Cx(rec3)
+ - Cx(rec14) + DCx(rec14,rec3) <= -0
+ deltaAbsXCentroid_1(rec14,rec4): - 120 absX(rec14,rec4) + Cx(rec4)
+ - Cx(rec14) + DCx(rec14,rec4) <= -0
+ deltaAbsXCentroid_1(rec14,rec5): - 120 absX(rec14,rec5) + Cx(rec5)
+ - Cx(rec14) + DCx(rec14,rec5) <= -0
+ deltaAbsXCentroid_1(rec14,rec6): - 120 absX(rec14,rec6) + Cx(rec6)
+ - Cx(rec14) + DCx(rec14,rec6) <= -0
+ deltaAbsXCentroid_1(rec14,rec7): - 120 absX(rec14,rec7) + Cx(rec7)
+ - Cx(rec14) + DCx(rec14,rec7) <= -0
+ deltaAbsXCentroid_1(rec14,rec8): - 120 absX(rec14,rec8) + Cx(rec8)
+ - Cx(rec14) + DCx(rec14,rec8) <= -0
+ deltaAbsXCentroid_1(rec14,rec9): - 120 absX(rec14,rec9) + Cx(rec9)
+ - Cx(rec14) + DCx(rec14,rec9) <= -0
+ deltaAbsXCentroid_1(rec14,rec15): - 120 absX(rec14,rec15) - Cx(rec14)
+ + Cx(rec15) + DCx(rec14,rec15) <= -0
+ deltaAbsXCentroid_1(rec15,rec2): - 120 absX(rec15,rec2) + Cx(rec2)
+ - Cx(rec15) + DCx(rec15,rec2) <= -0
+ deltaAbsXCentroid_1(rec15,rec3): - 120 absX(rec15,rec3) + Cx(rec3)
+ - Cx(rec15) + DCx(rec15,rec3) <= -0
+ deltaAbsXCentroid_1(rec15,rec4): - 120 absX(rec15,rec4) + Cx(rec4)
+ - Cx(rec15) + DCx(rec15,rec4) <= -0
+ deltaAbsXCentroid_1(rec15,rec5): - 120 absX(rec15,rec5) + Cx(rec5)
+ - Cx(rec15) + DCx(rec15,rec5) <= -0
+ deltaAbsXCentroid_1(rec15,rec6): - 120 absX(rec15,rec6) + Cx(rec6)
+ - Cx(rec15) + DCx(rec15,rec6) <= -0
+ deltaAbsXCentroid_1(rec15,rec7): - 120 absX(rec15,rec7) + Cx(rec7)
+ - Cx(rec15) + DCx(rec15,rec7) <= -0
+ deltaAbsXCentroid_1(rec15,rec8): - 120 absX(rec15,rec8) + Cx(rec8)
+ - Cx(rec15) + DCx(rec15,rec8) <= -0
+ deltaAbsXCentroid_1(rec15,rec9): - 120 absX(rec15,rec9) + Cx(rec9)
+ - Cx(rec15) + DCx(rec15,rec9) <= -0
  deltaAbsXCentroid_2(rec1,rec2): + 120 absX(rec1,rec2) + Cx(rec1)
  - Cx(rec2) + DCx(rec1,rec2) <= 120
  deltaAbsXCentroid_2(rec1,rec3): + 120 absX(rec1,rec3) + Cx(rec1)
@@ -512,6 +1131,16 @@ Subject To
  - Cx(rec9) + DCx(rec1,rec9) <= 120
  deltaAbsXCentroid_2(rec1,rec10): + 120 absX(rec1,rec10) + Cx(rec1)
  - Cx(rec10) + DCx(rec1,rec10) <= 120
+ deltaAbsXCentroid_2(rec1,rec11): + 120 absX(rec1,rec11) + Cx(rec1)
+ - Cx(rec11) + DCx(rec1,rec11) <= 120
+ deltaAbsXCentroid_2(rec1,rec12): + 120 absX(rec1,rec12) + Cx(rec1)
+ - Cx(rec12) + DCx(rec1,rec12) <= 120
+ deltaAbsXCentroid_2(rec1,rec13): + 120 absX(rec1,rec13) + Cx(rec1)
+ - Cx(rec13) + DCx(rec1,rec13) <= 120
+ deltaAbsXCentroid_2(rec1,rec14): + 120 absX(rec1,rec14) + Cx(rec1)
+ - Cx(rec14) + DCx(rec1,rec14) <= 120
+ deltaAbsXCentroid_2(rec1,rec15): + 120 absX(rec1,rec15) + Cx(rec1)
+ - Cx(rec15) + DCx(rec1,rec15) <= 120
  deltaAbsXCentroid_2(rec2,rec3): + 120 absX(rec2,rec3) + Cx(rec2)
  - Cx(rec3) + DCx(rec2,rec3) <= 120
  deltaAbsXCentroid_2(rec2,rec4): + 120 absX(rec2,rec4) + Cx(rec2)
@@ -584,6 +1213,116 @@ Subject To
  + Cx(rec10) + DCx(rec10,rec8) <= 120
  deltaAbsXCentroid_2(rec10,rec9): + 120 absX(rec10,rec9) - Cx(rec9)
  + Cx(rec10) + DCx(rec10,rec9) <= 120
+ deltaAbsXCentroid_2(rec10,rec11): + 120 absX(rec10,rec11) + Cx(rec10)
+ - Cx(rec11) + DCx(rec10,rec11) <= 120
+ deltaAbsXCentroid_2(rec10,rec12): + 120 absX(rec10,rec12) + Cx(rec10)
+ - Cx(rec12) + DCx(rec10,rec12) <= 120
+ deltaAbsXCentroid_2(rec10,rec13): + 120 absX(rec10,rec13) + Cx(rec10)
+ - Cx(rec13) + DCx(rec10,rec13) <= 120
+ deltaAbsXCentroid_2(rec10,rec14): + 120 absX(rec10,rec14) + Cx(rec10)
+ - Cx(rec14) + DCx(rec10,rec14) <= 120
+ deltaAbsXCentroid_2(rec10,rec15): + 120 absX(rec10,rec15) + Cx(rec10)
+ - Cx(rec15) + DCx(rec10,rec15) <= 120
+ deltaAbsXCentroid_2(rec11,rec2): + 120 absX(rec11,rec2) - Cx(rec2)
+ + Cx(rec11) + DCx(rec11,rec2) <= 120
+ deltaAbsXCentroid_2(rec11,rec3): + 120 absX(rec11,rec3) - Cx(rec3)
+ + Cx(rec11) + DCx(rec11,rec3) <= 120
+ deltaAbsXCentroid_2(rec11,rec4): + 120 absX(rec11,rec4) - Cx(rec4)
+ + Cx(rec11) + DCx(rec11,rec4) <= 120
+ deltaAbsXCentroid_2(rec11,rec5): + 120 absX(rec11,rec5) - Cx(rec5)
+ + Cx(rec11) + DCx(rec11,rec5) <= 120
+ deltaAbsXCentroid_2(rec11,rec6): + 120 absX(rec11,rec6) - Cx(rec6)
+ + Cx(rec11) + DCx(rec11,rec6) <= 120
+ deltaAbsXCentroid_2(rec11,rec7): + 120 absX(rec11,rec7) - Cx(rec7)
+ + Cx(rec11) + DCx(rec11,rec7) <= 120
+ deltaAbsXCentroid_2(rec11,rec8): + 120 absX(rec11,rec8) - Cx(rec8)
+ + Cx(rec11) + DCx(rec11,rec8) <= 120
+ deltaAbsXCentroid_2(rec11,rec9): + 120 absX(rec11,rec9) - Cx(rec9)
+ + Cx(rec11) + DCx(rec11,rec9) <= 120
+ deltaAbsXCentroid_2(rec11,rec12): + 120 absX(rec11,rec12) + Cx(rec11)
+ - Cx(rec12) + DCx(rec11,rec12) <= 120
+ deltaAbsXCentroid_2(rec11,rec13): + 120 absX(rec11,rec13) + Cx(rec11)
+ - Cx(rec13) + DCx(rec11,rec13) <= 120
+ deltaAbsXCentroid_2(rec11,rec14): + 120 absX(rec11,rec14) + Cx(rec11)
+ - Cx(rec14) + DCx(rec11,rec14) <= 120
+ deltaAbsXCentroid_2(rec11,rec15): + 120 absX(rec11,rec15) + Cx(rec11)
+ - Cx(rec15) + DCx(rec11,rec15) <= 120
+ deltaAbsXCentroid_2(rec12,rec2): + 120 absX(rec12,rec2) - Cx(rec2)
+ + Cx(rec12) + DCx(rec12,rec2) <= 120
+ deltaAbsXCentroid_2(rec12,rec3): + 120 absX(rec12,rec3) - Cx(rec3)
+ + Cx(rec12) + DCx(rec12,rec3) <= 120
+ deltaAbsXCentroid_2(rec12,rec4): + 120 absX(rec12,rec4) - Cx(rec4)
+ + Cx(rec12) + DCx(rec12,rec4) <= 120
+ deltaAbsXCentroid_2(rec12,rec5): + 120 absX(rec12,rec5) - Cx(rec5)
+ + Cx(rec12) + DCx(rec12,rec5) <= 120
+ deltaAbsXCentroid_2(rec12,rec6): + 120 absX(rec12,rec6) - Cx(rec6)
+ + Cx(rec12) + DCx(rec12,rec6) <= 120
+ deltaAbsXCentroid_2(rec12,rec7): + 120 absX(rec12,rec7) - Cx(rec7)
+ + Cx(rec12) + DCx(rec12,rec7) <= 120
+ deltaAbsXCentroid_2(rec12,rec8): + 120 absX(rec12,rec8) - Cx(rec8)
+ + Cx(rec12) + DCx(rec12,rec8) <= 120
+ deltaAbsXCentroid_2(rec12,rec9): + 120 absX(rec12,rec9) - Cx(rec9)
+ + Cx(rec12) + DCx(rec12,rec9) <= 120
+ deltaAbsXCentroid_2(rec12,rec13): + 120 absX(rec12,rec13) + Cx(rec12)
+ - Cx(rec13) + DCx(rec12,rec13) <= 120
+ deltaAbsXCentroid_2(rec12,rec14): + 120 absX(rec12,rec14) + Cx(rec12)
+ - Cx(rec14) + DCx(rec12,rec14) <= 120
+ deltaAbsXCentroid_2(rec12,rec15): + 120 absX(rec12,rec15) + Cx(rec12)
+ - Cx(rec15) + DCx(rec12,rec15) <= 120
+ deltaAbsXCentroid_2(rec13,rec2): + 120 absX(rec13,rec2) - Cx(rec2)
+ + Cx(rec13) + DCx(rec13,rec2) <= 120
+ deltaAbsXCentroid_2(rec13,rec3): + 120 absX(rec13,rec3) - Cx(rec3)
+ + Cx(rec13) + DCx(rec13,rec3) <= 120
+ deltaAbsXCentroid_2(rec13,rec4): + 120 absX(rec13,rec4) - Cx(rec4)
+ + Cx(rec13) + DCx(rec13,rec4) <= 120
+ deltaAbsXCentroid_2(rec13,rec5): + 120 absX(rec13,rec5) - Cx(rec5)
+ + Cx(rec13) + DCx(rec13,rec5) <= 120
+ deltaAbsXCentroid_2(rec13,rec6): + 120 absX(rec13,rec6) - Cx(rec6)
+ + Cx(rec13) + DCx(rec13,rec6) <= 120
+ deltaAbsXCentroid_2(rec13,rec7): + 120 absX(rec13,rec7) - Cx(rec7)
+ + Cx(rec13) + DCx(rec13,rec7) <= 120
+ deltaAbsXCentroid_2(rec13,rec8): + 120 absX(rec13,rec8) - Cx(rec8)
+ + Cx(rec13) + DCx(rec13,rec8) <= 120
+ deltaAbsXCentroid_2(rec13,rec9): + 120 absX(rec13,rec9) - Cx(rec9)
+ + Cx(rec13) + DCx(rec13,rec9) <= 120
+ deltaAbsXCentroid_2(rec13,rec14): + 120 absX(rec13,rec14) + Cx(rec13)
+ - Cx(rec14) + DCx(rec13,rec14) <= 120
+ deltaAbsXCentroid_2(rec13,rec15): + 120 absX(rec13,rec15) + Cx(rec13)
+ - Cx(rec15) + DCx(rec13,rec15) <= 120
+ deltaAbsXCentroid_2(rec14,rec2): + 120 absX(rec14,rec2) - Cx(rec2)
+ + Cx(rec14) + DCx(rec14,rec2) <= 120
+ deltaAbsXCentroid_2(rec14,rec3): + 120 absX(rec14,rec3) - Cx(rec3)
+ + Cx(rec14) + DCx(rec14,rec3) <= 120
+ deltaAbsXCentroid_2(rec14,rec4): + 120 absX(rec14,rec4) - Cx(rec4)
+ + Cx(rec14) + DCx(rec14,rec4) <= 120
+ deltaAbsXCentroid_2(rec14,rec5): + 120 absX(rec14,rec5) - Cx(rec5)
+ + Cx(rec14) + DCx(rec14,rec5) <= 120
+ deltaAbsXCentroid_2(rec14,rec6): + 120 absX(rec14,rec6) - Cx(rec6)
+ + Cx(rec14) + DCx(rec14,rec6) <= 120
+ deltaAbsXCentroid_2(rec14,rec7): + 120 absX(rec14,rec7) - Cx(rec7)
+ + Cx(rec14) + DCx(rec14,rec7) <= 120
+ deltaAbsXCentroid_2(rec14,rec8): + 120 absX(rec14,rec8) - Cx(rec8)
+ + Cx(rec14) + DCx(rec14,rec8) <= 120
+ deltaAbsXCentroid_2(rec14,rec9): + 120 absX(rec14,rec9) - Cx(rec9)
+ + Cx(rec14) + DCx(rec14,rec9) <= 120
+ deltaAbsXCentroid_2(rec14,rec15): + 120 absX(rec14,rec15) + Cx(rec14)
+ - Cx(rec15) + DCx(rec14,rec15) <= 120
+ deltaAbsXCentroid_2(rec15,rec2): + 120 absX(rec15,rec2) - Cx(rec2)
+ + Cx(rec15) + DCx(rec15,rec2) <= 120
+ deltaAbsXCentroid_2(rec15,rec3): + 120 absX(rec15,rec3) - Cx(rec3)
+ + Cx(rec15) + DCx(rec15,rec3) <= 120
+ deltaAbsXCentroid_2(rec15,rec4): + 120 absX(rec15,rec4) - Cx(rec4)
+ + Cx(rec15) + DCx(rec15,rec4) <= 120
+ deltaAbsXCentroid_2(rec15,rec5): + 120 absX(rec15,rec5) - Cx(rec5)
+ + Cx(rec15) + DCx(rec15,rec5) <= 120
+ deltaAbsXCentroid_2(rec15,rec6): + 120 absX(rec15,rec6) - Cx(rec6)
+ + Cx(rec15) + DCx(rec15,rec6) <= 120
+ deltaAbsXCentroid_2(rec15,rec7): + 120 absX(rec15,rec7) - Cx(rec7)
+ + Cx(rec15) + DCx(rec15,rec7) <= 120
+ deltaAbsXCentroid_2(rec15,rec8): + 120 absX(rec15,rec8) - Cx(rec8)
+ + Cx(rec15) + DCx(rec15,rec8) <= 120
+ deltaAbsXCentroid_2(rec15,rec9): + 120 absX(rec15,rec9) - Cx(rec9)
+ + Cx(rec15) + DCx(rec15,rec9) <= 120
  deltaYCentroid_1(rec1,rec2): - Cy(rec1) + Cy(rec2) + DCy(rec1,rec2)
  >= -0
  deltaYCentroid_1(rec1,rec3): - Cy(rec1) + Cy(rec3) + DCy(rec1,rec3)
@@ -601,6 +1340,16 @@ Subject To
  deltaYCentroid_1(rec1,rec9): - Cy(rec1) + Cy(rec9) + DCy(rec1,rec9)
  >= -0
  deltaYCentroid_1(rec1,rec10): - Cy(rec1) + Cy(rec10) + DCy(rec1,rec10)
+ >= -0
+ deltaYCentroid_1(rec1,rec11): - Cy(rec1) + Cy(rec11) + DCy(rec1,rec11)
+ >= -0
+ deltaYCentroid_1(rec1,rec12): - Cy(rec1) + Cy(rec12) + DCy(rec1,rec12)
+ >= -0
+ deltaYCentroid_1(rec1,rec13): - Cy(rec1) + Cy(rec13) + DCy(rec1,rec13)
+ >= -0
+ deltaYCentroid_1(rec1,rec14): - Cy(rec1) + Cy(rec14) + DCy(rec1,rec14)
+ >= -0
+ deltaYCentroid_1(rec1,rec15): - Cy(rec1) + Cy(rec15) + DCy(rec1,rec15)
  >= -0
  deltaYCentroid_1(rec2,rec1): + Cy(rec1) - Cy(rec2) + DCy(rec2,rec1)
  >= -0
@@ -620,6 +1369,16 @@ Subject To
  >= -0
  deltaYCentroid_1(rec2,rec10): - Cy(rec2) + Cy(rec10) + DCy(rec2,rec10)
  >= -0
+ deltaYCentroid_1(rec2,rec11): - Cy(rec2) + Cy(rec11) + DCy(rec2,rec11)
+ >= -0
+ deltaYCentroid_1(rec2,rec12): - Cy(rec2) + Cy(rec12) + DCy(rec2,rec12)
+ >= -0
+ deltaYCentroid_1(rec2,rec13): - Cy(rec2) + Cy(rec13) + DCy(rec2,rec13)
+ >= -0
+ deltaYCentroid_1(rec2,rec14): - Cy(rec2) + Cy(rec14) + DCy(rec2,rec14)
+ >= -0
+ deltaYCentroid_1(rec2,rec15): - Cy(rec2) + Cy(rec15) + DCy(rec2,rec15)
+ >= -0
  deltaYCentroid_1(rec3,rec1): + Cy(rec1) - Cy(rec3) + DCy(rec3,rec1)
  >= -0
  deltaYCentroid_1(rec3,rec2): + Cy(rec2) - Cy(rec3) + DCy(rec3,rec2)
@@ -637,6 +1396,16 @@ Subject To
  deltaYCentroid_1(rec3,rec9): - Cy(rec3) + Cy(rec9) + DCy(rec3,rec9)
  >= -0
  deltaYCentroid_1(rec3,rec10): - Cy(rec3) + Cy(rec10) + DCy(rec3,rec10)
+ >= -0
+ deltaYCentroid_1(rec3,rec11): - Cy(rec3) + Cy(rec11) + DCy(rec3,rec11)
+ >= -0
+ deltaYCentroid_1(rec3,rec12): - Cy(rec3) + Cy(rec12) + DCy(rec3,rec12)
+ >= -0
+ deltaYCentroid_1(rec3,rec13): - Cy(rec3) + Cy(rec13) + DCy(rec3,rec13)
+ >= -0
+ deltaYCentroid_1(rec3,rec14): - Cy(rec3) + Cy(rec14) + DCy(rec3,rec14)
+ >= -0
+ deltaYCentroid_1(rec3,rec15): - Cy(rec3) + Cy(rec15) + DCy(rec3,rec15)
  >= -0
  deltaYCentroid_1(rec4,rec1): + Cy(rec1) - Cy(rec4) + DCy(rec4,rec1)
  >= -0
@@ -656,6 +1425,16 @@ Subject To
  >= -0
  deltaYCentroid_1(rec4,rec10): - Cy(rec4) + Cy(rec10) + DCy(rec4,rec10)
  >= -0
+ deltaYCentroid_1(rec4,rec11): - Cy(rec4) + Cy(rec11) + DCy(rec4,rec11)
+ >= -0
+ deltaYCentroid_1(rec4,rec12): - Cy(rec4) + Cy(rec12) + DCy(rec4,rec12)
+ >= -0
+ deltaYCentroid_1(rec4,rec13): - Cy(rec4) + Cy(rec13) + DCy(rec4,rec13)
+ >= -0
+ deltaYCentroid_1(rec4,rec14): - Cy(rec4) + Cy(rec14) + DCy(rec4,rec14)
+ >= -0
+ deltaYCentroid_1(rec4,rec15): - Cy(rec4) + Cy(rec15) + DCy(rec4,rec15)
+ >= -0
  deltaYCentroid_1(rec5,rec1): + Cy(rec1) - Cy(rec5) + DCy(rec5,rec1)
  >= -0
  deltaYCentroid_1(rec5,rec2): + Cy(rec2) - Cy(rec5) + DCy(rec5,rec2)
@@ -673,6 +1452,16 @@ Subject To
  deltaYCentroid_1(rec5,rec9): - Cy(rec5) + Cy(rec9) + DCy(rec5,rec9)
  >= -0
  deltaYCentroid_1(rec5,rec10): - Cy(rec5) + Cy(rec10) + DCy(rec5,rec10)
+ >= -0
+ deltaYCentroid_1(rec5,rec11): - Cy(rec5) + Cy(rec11) + DCy(rec5,rec11)
+ >= -0
+ deltaYCentroid_1(rec5,rec12): - Cy(rec5) + Cy(rec12) + DCy(rec5,rec12)
+ >= -0
+ deltaYCentroid_1(rec5,rec13): - Cy(rec5) + Cy(rec13) + DCy(rec5,rec13)
+ >= -0
+ deltaYCentroid_1(rec5,rec14): - Cy(rec5) + Cy(rec14) + DCy(rec5,rec14)
+ >= -0
+ deltaYCentroid_1(rec5,rec15): - Cy(rec5) + Cy(rec15) + DCy(rec5,rec15)
  >= -0
  deltaYCentroid_1(rec6,rec1): + Cy(rec1) - Cy(rec6) + DCy(rec6,rec1)
  >= -0
@@ -692,6 +1481,16 @@ Subject To
  >= -0
  deltaYCentroid_1(rec6,rec10): - Cy(rec6) + Cy(rec10) + DCy(rec6,rec10)
  >= -0
+ deltaYCentroid_1(rec6,rec11): - Cy(rec6) + Cy(rec11) + DCy(rec6,rec11)
+ >= -0
+ deltaYCentroid_1(rec6,rec12): - Cy(rec6) + Cy(rec12) + DCy(rec6,rec12)
+ >= -0
+ deltaYCentroid_1(rec6,rec13): - Cy(rec6) + Cy(rec13) + DCy(rec6,rec13)
+ >= -0
+ deltaYCentroid_1(rec6,rec14): - Cy(rec6) + Cy(rec14) + DCy(rec6,rec14)
+ >= -0
+ deltaYCentroid_1(rec6,rec15): - Cy(rec6) + Cy(rec15) + DCy(rec6,rec15)
+ >= -0
  deltaYCentroid_1(rec7,rec1): + Cy(rec1) - Cy(rec7) + DCy(rec7,rec1)
  >= -0
  deltaYCentroid_1(rec7,rec2): + Cy(rec2) - Cy(rec7) + DCy(rec7,rec2)
@@ -709,6 +1508,16 @@ Subject To
  deltaYCentroid_1(rec7,rec9): - Cy(rec7) + Cy(rec9) + DCy(rec7,rec9)
  >= -0
  deltaYCentroid_1(rec7,rec10): - Cy(rec7) + Cy(rec10) + DCy(rec7,rec10)
+ >= -0
+ deltaYCentroid_1(rec7,rec11): - Cy(rec7) + Cy(rec11) + DCy(rec7,rec11)
+ >= -0
+ deltaYCentroid_1(rec7,rec12): - Cy(rec7) + Cy(rec12) + DCy(rec7,rec12)
+ >= -0
+ deltaYCentroid_1(rec7,rec13): - Cy(rec7) + Cy(rec13) + DCy(rec7,rec13)
+ >= -0
+ deltaYCentroid_1(rec7,rec14): - Cy(rec7) + Cy(rec14) + DCy(rec7,rec14)
+ >= -0
+ deltaYCentroid_1(rec7,rec15): - Cy(rec7) + Cy(rec15) + DCy(rec7,rec15)
  >= -0
  deltaYCentroid_1(rec8,rec1): + Cy(rec1) - Cy(rec8) + DCy(rec8,rec1)
  >= -0
@@ -728,6 +1537,16 @@ Subject To
  >= -0
  deltaYCentroid_1(rec8,rec10): - Cy(rec8) + Cy(rec10) + DCy(rec8,rec10)
  >= -0
+ deltaYCentroid_1(rec8,rec11): - Cy(rec8) + Cy(rec11) + DCy(rec8,rec11)
+ >= -0
+ deltaYCentroid_1(rec8,rec12): - Cy(rec8) + Cy(rec12) + DCy(rec8,rec12)
+ >= -0
+ deltaYCentroid_1(rec8,rec13): - Cy(rec8) + Cy(rec13) + DCy(rec8,rec13)
+ >= -0
+ deltaYCentroid_1(rec8,rec14): - Cy(rec8) + Cy(rec14) + DCy(rec8,rec14)
+ >= -0
+ deltaYCentroid_1(rec8,rec15): - Cy(rec8) + Cy(rec15) + DCy(rec8,rec15)
+ >= -0
  deltaYCentroid_1(rec9,rec1): + Cy(rec1) - Cy(rec9) + DCy(rec9,rec1)
  >= -0
  deltaYCentroid_1(rec9,rec2): + Cy(rec2) - Cy(rec9) + DCy(rec9,rec2)
@@ -745,6 +1564,16 @@ Subject To
  deltaYCentroid_1(rec9,rec8): + Cy(rec8) - Cy(rec9) + DCy(rec9,rec8)
  >= -0
  deltaYCentroid_1(rec9,rec10): - Cy(rec9) + Cy(rec10) + DCy(rec9,rec10)
+ >= -0
+ deltaYCentroid_1(rec9,rec11): - Cy(rec9) + Cy(rec11) + DCy(rec9,rec11)
+ >= -0
+ deltaYCentroid_1(rec9,rec12): - Cy(rec9) + Cy(rec12) + DCy(rec9,rec12)
+ >= -0
+ deltaYCentroid_1(rec9,rec13): - Cy(rec9) + Cy(rec13) + DCy(rec9,rec13)
+ >= -0
+ deltaYCentroid_1(rec9,rec14): - Cy(rec9) + Cy(rec14) + DCy(rec9,rec14)
+ >= -0
+ deltaYCentroid_1(rec9,rec15): - Cy(rec9) + Cy(rec15) + DCy(rec9,rec15)
  >= -0
  deltaYCentroid_1(rec10,rec1): + Cy(rec1) - Cy(rec10) + DCy(rec10,rec1)
  >= -0
@@ -764,6 +1593,156 @@ Subject To
  >= -0
  deltaYCentroid_1(rec10,rec9): + Cy(rec9) - Cy(rec10) + DCy(rec10,rec9)
  >= -0
+ deltaYCentroid_1(rec10,rec11): - Cy(rec10) + Cy(rec11)
+ + DCy(rec10,rec11) >= -0
+ deltaYCentroid_1(rec10,rec12): - Cy(rec10) + Cy(rec12)
+ + DCy(rec10,rec12) >= -0
+ deltaYCentroid_1(rec10,rec13): - Cy(rec10) + Cy(rec13)
+ + DCy(rec10,rec13) >= -0
+ deltaYCentroid_1(rec10,rec14): - Cy(rec10) + Cy(rec14)
+ + DCy(rec10,rec14) >= -0
+ deltaYCentroid_1(rec10,rec15): - Cy(rec10) + Cy(rec15)
+ + DCy(rec10,rec15) >= -0
+ deltaYCentroid_1(rec11,rec1): + Cy(rec1) - Cy(rec11) + DCy(rec11,rec1)
+ >= -0
+ deltaYCentroid_1(rec11,rec2): + Cy(rec2) - Cy(rec11) + DCy(rec11,rec2)
+ >= -0
+ deltaYCentroid_1(rec11,rec3): + Cy(rec3) - Cy(rec11) + DCy(rec11,rec3)
+ >= -0
+ deltaYCentroid_1(rec11,rec4): + Cy(rec4) - Cy(rec11) + DCy(rec11,rec4)
+ >= -0
+ deltaYCentroid_1(rec11,rec5): + Cy(rec5) - Cy(rec11) + DCy(rec11,rec5)
+ >= -0
+ deltaYCentroid_1(rec11,rec6): + Cy(rec6) - Cy(rec11) + DCy(rec11,rec6)
+ >= -0
+ deltaYCentroid_1(rec11,rec7): + Cy(rec7) - Cy(rec11) + DCy(rec11,rec7)
+ >= -0
+ deltaYCentroid_1(rec11,rec8): + Cy(rec8) - Cy(rec11) + DCy(rec11,rec8)
+ >= -0
+ deltaYCentroid_1(rec11,rec9): + Cy(rec9) - Cy(rec11) + DCy(rec11,rec9)
+ >= -0
+ deltaYCentroid_1(rec11,rec10): + Cy(rec10) - Cy(rec11)
+ + DCy(rec11,rec10) >= -0
+ deltaYCentroid_1(rec11,rec12): - Cy(rec11) + Cy(rec12)
+ + DCy(rec11,rec12) >= -0
+ deltaYCentroid_1(rec11,rec13): - Cy(rec11) + Cy(rec13)
+ + DCy(rec11,rec13) >= -0
+ deltaYCentroid_1(rec11,rec14): - Cy(rec11) + Cy(rec14)
+ + DCy(rec11,rec14) >= -0
+ deltaYCentroid_1(rec11,rec15): - Cy(rec11) + Cy(rec15)
+ + DCy(rec11,rec15) >= -0
+ deltaYCentroid_1(rec12,rec1): + Cy(rec1) - Cy(rec12) + DCy(rec12,rec1)
+ >= -0
+ deltaYCentroid_1(rec12,rec2): + Cy(rec2) - Cy(rec12) + DCy(rec12,rec2)
+ >= -0
+ deltaYCentroid_1(rec12,rec3): + Cy(rec3) - Cy(rec12) + DCy(rec12,rec3)
+ >= -0
+ deltaYCentroid_1(rec12,rec4): + Cy(rec4) - Cy(rec12) + DCy(rec12,rec4)
+ >= -0
+ deltaYCentroid_1(rec12,rec5): + Cy(rec5) - Cy(rec12) + DCy(rec12,rec5)
+ >= -0
+ deltaYCentroid_1(rec12,rec6): + Cy(rec6) - Cy(rec12) + DCy(rec12,rec6)
+ >= -0
+ deltaYCentroid_1(rec12,rec7): + Cy(rec7) - Cy(rec12) + DCy(rec12,rec7)
+ >= -0
+ deltaYCentroid_1(rec12,rec8): + Cy(rec8) - Cy(rec12) + DCy(rec12,rec8)
+ >= -0
+ deltaYCentroid_1(rec12,rec9): + Cy(rec9) - Cy(rec12) + DCy(rec12,rec9)
+ >= -0
+ deltaYCentroid_1(rec12,rec10): + Cy(rec10) - Cy(rec12)
+ + DCy(rec12,rec10) >= -0
+ deltaYCentroid_1(rec12,rec11): + Cy(rec11) - Cy(rec12)
+ + DCy(rec12,rec11) >= -0
+ deltaYCentroid_1(rec12,rec13): - Cy(rec12) + Cy(rec13)
+ + DCy(rec12,rec13) >= -0
+ deltaYCentroid_1(rec12,rec14): - Cy(rec12) + Cy(rec14)
+ + DCy(rec12,rec14) >= -0
+ deltaYCentroid_1(rec12,rec15): - Cy(rec12) + Cy(rec15)
+ + DCy(rec12,rec15) >= -0
+ deltaYCentroid_1(rec13,rec1): + Cy(rec1) - Cy(rec13) + DCy(rec13,rec1)
+ >= -0
+ deltaYCentroid_1(rec13,rec2): + Cy(rec2) - Cy(rec13) + DCy(rec13,rec2)
+ >= -0
+ deltaYCentroid_1(rec13,rec3): + Cy(rec3) - Cy(rec13) + DCy(rec13,rec3)
+ >= -0
+ deltaYCentroid_1(rec13,rec4): + Cy(rec4) - Cy(rec13) + DCy(rec13,rec4)
+ >= -0
+ deltaYCentroid_1(rec13,rec5): + Cy(rec5) - Cy(rec13) + DCy(rec13,rec5)
+ >= -0
+ deltaYCentroid_1(rec13,rec6): + Cy(rec6) - Cy(rec13) + DCy(rec13,rec6)
+ >= -0
+ deltaYCentroid_1(rec13,rec7): + Cy(rec7) - Cy(rec13) + DCy(rec13,rec7)
+ >= -0
+ deltaYCentroid_1(rec13,rec8): + Cy(rec8) - Cy(rec13) + DCy(rec13,rec8)
+ >= -0
+ deltaYCentroid_1(rec13,rec9): + Cy(rec9) - Cy(rec13) + DCy(rec13,rec9)
+ >= -0
+ deltaYCentroid_1(rec13,rec10): + Cy(rec10) - Cy(rec13)
+ + DCy(rec13,rec10) >= -0
+ deltaYCentroid_1(rec13,rec11): + Cy(rec11) - Cy(rec13)
+ + DCy(rec13,rec11) >= -0
+ deltaYCentroid_1(rec13,rec12): + Cy(rec12) - Cy(rec13)
+ + DCy(rec13,rec12) >= -0
+ deltaYCentroid_1(rec13,rec14): - Cy(rec13) + Cy(rec14)
+ + DCy(rec13,rec14) >= -0
+ deltaYCentroid_1(rec13,rec15): - Cy(rec13) + Cy(rec15)
+ + DCy(rec13,rec15) >= -0
+ deltaYCentroid_1(rec14,rec1): + Cy(rec1) - Cy(rec14) + DCy(rec14,rec1)
+ >= -0
+ deltaYCentroid_1(rec14,rec2): + Cy(rec2) - Cy(rec14) + DCy(rec14,rec2)
+ >= -0
+ deltaYCentroid_1(rec14,rec3): + Cy(rec3) - Cy(rec14) + DCy(rec14,rec3)
+ >= -0
+ deltaYCentroid_1(rec14,rec4): + Cy(rec4) - Cy(rec14) + DCy(rec14,rec4)
+ >= -0
+ deltaYCentroid_1(rec14,rec5): + Cy(rec5) - Cy(rec14) + DCy(rec14,rec5)
+ >= -0
+ deltaYCentroid_1(rec14,rec6): + Cy(rec6) - Cy(rec14) + DCy(rec14,rec6)
+ >= -0
+ deltaYCentroid_1(rec14,rec7): + Cy(rec7) - Cy(rec14) + DCy(rec14,rec7)
+ >= -0
+ deltaYCentroid_1(rec14,rec8): + Cy(rec8) - Cy(rec14) + DCy(rec14,rec8)
+ >= -0
+ deltaYCentroid_1(rec14,rec9): + Cy(rec9) - Cy(rec14) + DCy(rec14,rec9)
+ >= -0
+ deltaYCentroid_1(rec14,rec10): + Cy(rec10) - Cy(rec14)
+ + DCy(rec14,rec10) >= -0
+ deltaYCentroid_1(rec14,rec11): + Cy(rec11) - Cy(rec14)
+ + DCy(rec14,rec11) >= -0
+ deltaYCentroid_1(rec14,rec12): + Cy(rec12) - Cy(rec14)
+ + DCy(rec14,rec12) >= -0
+ deltaYCentroid_1(rec14,rec13): + Cy(rec13) - Cy(rec14)
+ + DCy(rec14,rec13) >= -0
+ deltaYCentroid_1(rec14,rec15): - Cy(rec14) + Cy(rec15)
+ + DCy(rec14,rec15) >= -0
+ deltaYCentroid_1(rec15,rec1): + Cy(rec1) - Cy(rec15) + DCy(rec15,rec1)
+ >= -0
+ deltaYCentroid_1(rec15,rec2): + Cy(rec2) - Cy(rec15) + DCy(rec15,rec2)
+ >= -0
+ deltaYCentroid_1(rec15,rec3): + Cy(rec3) - Cy(rec15) + DCy(rec15,rec3)
+ >= -0
+ deltaYCentroid_1(rec15,rec4): + Cy(rec4) - Cy(rec15) + DCy(rec15,rec4)
+ >= -0
+ deltaYCentroid_1(rec15,rec5): + Cy(rec5) - Cy(rec15) + DCy(rec15,rec5)
+ >= -0
+ deltaYCentroid_1(rec15,rec6): + Cy(rec6) - Cy(rec15) + DCy(rec15,rec6)
+ >= -0
+ deltaYCentroid_1(rec15,rec7): + Cy(rec7) - Cy(rec15) + DCy(rec15,rec7)
+ >= -0
+ deltaYCentroid_1(rec15,rec8): + Cy(rec8) - Cy(rec15) + DCy(rec15,rec8)
+ >= -0
+ deltaYCentroid_1(rec15,rec9): + Cy(rec9) - Cy(rec15) + DCy(rec15,rec9)
+ >= -0
+ deltaYCentroid_1(rec15,rec10): + Cy(rec10) - Cy(rec15)
+ + DCy(rec15,rec10) >= -0
+ deltaYCentroid_1(rec15,rec11): + Cy(rec11) - Cy(rec15)
+ + DCy(rec15,rec11) >= -0
+ deltaYCentroid_1(rec15,rec12): + Cy(rec12) - Cy(rec15)
+ + DCy(rec15,rec12) >= -0
+ deltaYCentroid_1(rec15,rec13): + Cy(rec13) - Cy(rec15)
+ + DCy(rec15,rec13) >= -0
+ deltaYCentroid_1(rec15,rec14): + Cy(rec14) - Cy(rec15)
+ + DCy(rec15,rec14) >= -0
  deltaYCentroid_2(rec1,rec2): + Cy(rec1) - Cy(rec2) + DCy(rec1,rec2)
  >= -0
  deltaYCentroid_2(rec1,rec3): + Cy(rec1) - Cy(rec3) + DCy(rec1,rec3)
@@ -781,6 +1760,16 @@ Subject To
  deltaYCentroid_2(rec1,rec9): + Cy(rec1) - Cy(rec9) + DCy(rec1,rec9)
  >= -0
  deltaYCentroid_2(rec1,rec10): + Cy(rec1) - Cy(rec10) + DCy(rec1,rec10)
+ >= -0
+ deltaYCentroid_2(rec1,rec11): + Cy(rec1) - Cy(rec11) + DCy(rec1,rec11)
+ >= -0
+ deltaYCentroid_2(rec1,rec12): + Cy(rec1) - Cy(rec12) + DCy(rec1,rec12)
+ >= -0
+ deltaYCentroid_2(rec1,rec13): + Cy(rec1) - Cy(rec13) + DCy(rec1,rec13)
+ >= -0
+ deltaYCentroid_2(rec1,rec14): + Cy(rec1) - Cy(rec14) + DCy(rec1,rec14)
+ >= -0
+ deltaYCentroid_2(rec1,rec15): + Cy(rec1) - Cy(rec15) + DCy(rec1,rec15)
  >= -0
  deltaYCentroid_2(rec2,rec1): - Cy(rec1) + Cy(rec2) + DCy(rec2,rec1)
  >= -0
@@ -800,6 +1789,16 @@ Subject To
  >= -0
  deltaYCentroid_2(rec2,rec10): + Cy(rec2) - Cy(rec10) + DCy(rec2,rec10)
  >= -0
+ deltaYCentroid_2(rec2,rec11): + Cy(rec2) - Cy(rec11) + DCy(rec2,rec11)
+ >= -0
+ deltaYCentroid_2(rec2,rec12): + Cy(rec2) - Cy(rec12) + DCy(rec2,rec12)
+ >= -0
+ deltaYCentroid_2(rec2,rec13): + Cy(rec2) - Cy(rec13) + DCy(rec2,rec13)
+ >= -0
+ deltaYCentroid_2(rec2,rec14): + Cy(rec2) - Cy(rec14) + DCy(rec2,rec14)
+ >= -0
+ deltaYCentroid_2(rec2,rec15): + Cy(rec2) - Cy(rec15) + DCy(rec2,rec15)
+ >= -0
  deltaYCentroid_2(rec3,rec1): - Cy(rec1) + Cy(rec3) + DCy(rec3,rec1)
  >= -0
  deltaYCentroid_2(rec3,rec2): - Cy(rec2) + Cy(rec3) + DCy(rec3,rec2)
@@ -817,6 +1816,16 @@ Subject To
  deltaYCentroid_2(rec3,rec9): + Cy(rec3) - Cy(rec9) + DCy(rec3,rec9)
  >= -0
  deltaYCentroid_2(rec3,rec10): + Cy(rec3) - Cy(rec10) + DCy(rec3,rec10)
+ >= -0
+ deltaYCentroid_2(rec3,rec11): + Cy(rec3) - Cy(rec11) + DCy(rec3,rec11)
+ >= -0
+ deltaYCentroid_2(rec3,rec12): + Cy(rec3) - Cy(rec12) + DCy(rec3,rec12)
+ >= -0
+ deltaYCentroid_2(rec3,rec13): + Cy(rec3) - Cy(rec13) + DCy(rec3,rec13)
+ >= -0
+ deltaYCentroid_2(rec3,rec14): + Cy(rec3) - Cy(rec14) + DCy(rec3,rec14)
+ >= -0
+ deltaYCentroid_2(rec3,rec15): + Cy(rec3) - Cy(rec15) + DCy(rec3,rec15)
  >= -0
  deltaYCentroid_2(rec4,rec1): - Cy(rec1) + Cy(rec4) + DCy(rec4,rec1)
  >= -0
@@ -836,6 +1845,16 @@ Subject To
  >= -0
  deltaYCentroid_2(rec4,rec10): + Cy(rec4) - Cy(rec10) + DCy(rec4,rec10)
  >= -0
+ deltaYCentroid_2(rec4,rec11): + Cy(rec4) - Cy(rec11) + DCy(rec4,rec11)
+ >= -0
+ deltaYCentroid_2(rec4,rec12): + Cy(rec4) - Cy(rec12) + DCy(rec4,rec12)
+ >= -0
+ deltaYCentroid_2(rec4,rec13): + Cy(rec4) - Cy(rec13) + DCy(rec4,rec13)
+ >= -0
+ deltaYCentroid_2(rec4,rec14): + Cy(rec4) - Cy(rec14) + DCy(rec4,rec14)
+ >= -0
+ deltaYCentroid_2(rec4,rec15): + Cy(rec4) - Cy(rec15) + DCy(rec4,rec15)
+ >= -0
  deltaYCentroid_2(rec5,rec1): - Cy(rec1) + Cy(rec5) + DCy(rec5,rec1)
  >= -0
  deltaYCentroid_2(rec5,rec2): - Cy(rec2) + Cy(rec5) + DCy(rec5,rec2)
@@ -853,6 +1872,16 @@ Subject To
  deltaYCentroid_2(rec5,rec9): + Cy(rec5) - Cy(rec9) + DCy(rec5,rec9)
  >= -0
  deltaYCentroid_2(rec5,rec10): + Cy(rec5) - Cy(rec10) + DCy(rec5,rec10)
+ >= -0
+ deltaYCentroid_2(rec5,rec11): + Cy(rec5) - Cy(rec11) + DCy(rec5,rec11)
+ >= -0
+ deltaYCentroid_2(rec5,rec12): + Cy(rec5) - Cy(rec12) + DCy(rec5,rec12)
+ >= -0
+ deltaYCentroid_2(rec5,rec13): + Cy(rec5) - Cy(rec13) + DCy(rec5,rec13)
+ >= -0
+ deltaYCentroid_2(rec5,rec14): + Cy(rec5) - Cy(rec14) + DCy(rec5,rec14)
+ >= -0
+ deltaYCentroid_2(rec5,rec15): + Cy(rec5) - Cy(rec15) + DCy(rec5,rec15)
  >= -0
  deltaYCentroid_2(rec6,rec1): - Cy(rec1) + Cy(rec6) + DCy(rec6,rec1)
  >= -0
@@ -872,6 +1901,16 @@ Subject To
  >= -0
  deltaYCentroid_2(rec6,rec10): + Cy(rec6) - Cy(rec10) + DCy(rec6,rec10)
  >= -0
+ deltaYCentroid_2(rec6,rec11): + Cy(rec6) - Cy(rec11) + DCy(rec6,rec11)
+ >= -0
+ deltaYCentroid_2(rec6,rec12): + Cy(rec6) - Cy(rec12) + DCy(rec6,rec12)
+ >= -0
+ deltaYCentroid_2(rec6,rec13): + Cy(rec6) - Cy(rec13) + DCy(rec6,rec13)
+ >= -0
+ deltaYCentroid_2(rec6,rec14): + Cy(rec6) - Cy(rec14) + DCy(rec6,rec14)
+ >= -0
+ deltaYCentroid_2(rec6,rec15): + Cy(rec6) - Cy(rec15) + DCy(rec6,rec15)
+ >= -0
  deltaYCentroid_2(rec7,rec1): - Cy(rec1) + Cy(rec7) + DCy(rec7,rec1)
  >= -0
  deltaYCentroid_2(rec7,rec2): - Cy(rec2) + Cy(rec7) + DCy(rec7,rec2)
@@ -889,6 +1928,16 @@ Subject To
  deltaYCentroid_2(rec7,rec9): + Cy(rec7) - Cy(rec9) + DCy(rec7,rec9)
  >= -0
  deltaYCentroid_2(rec7,rec10): + Cy(rec7) - Cy(rec10) + DCy(rec7,rec10)
+ >= -0
+ deltaYCentroid_2(rec7,rec11): + Cy(rec7) - Cy(rec11) + DCy(rec7,rec11)
+ >= -0
+ deltaYCentroid_2(rec7,rec12): + Cy(rec7) - Cy(rec12) + DCy(rec7,rec12)
+ >= -0
+ deltaYCentroid_2(rec7,rec13): + Cy(rec7) - Cy(rec13) + DCy(rec7,rec13)
+ >= -0
+ deltaYCentroid_2(rec7,rec14): + Cy(rec7) - Cy(rec14) + DCy(rec7,rec14)
+ >= -0
+ deltaYCentroid_2(rec7,rec15): + Cy(rec7) - Cy(rec15) + DCy(rec7,rec15)
  >= -0
  deltaYCentroid_2(rec8,rec1): - Cy(rec1) + Cy(rec8) + DCy(rec8,rec1)
  >= -0
@@ -908,6 +1957,16 @@ Subject To
  >= -0
  deltaYCentroid_2(rec8,rec10): + Cy(rec8) - Cy(rec10) + DCy(rec8,rec10)
  >= -0
+ deltaYCentroid_2(rec8,rec11): + Cy(rec8) - Cy(rec11) + DCy(rec8,rec11)
+ >= -0
+ deltaYCentroid_2(rec8,rec12): + Cy(rec8) - Cy(rec12) + DCy(rec8,rec12)
+ >= -0
+ deltaYCentroid_2(rec8,rec13): + Cy(rec8) - Cy(rec13) + DCy(rec8,rec13)
+ >= -0
+ deltaYCentroid_2(rec8,rec14): + Cy(rec8) - Cy(rec14) + DCy(rec8,rec14)
+ >= -0
+ deltaYCentroid_2(rec8,rec15): + Cy(rec8) - Cy(rec15) + DCy(rec8,rec15)
+ >= -0
  deltaYCentroid_2(rec9,rec1): - Cy(rec1) + Cy(rec9) + DCy(rec9,rec1)
  >= -0
  deltaYCentroid_2(rec9,rec2): - Cy(rec2) + Cy(rec9) + DCy(rec9,rec2)
@@ -925,6 +1984,16 @@ Subject To
  deltaYCentroid_2(rec9,rec8): - Cy(rec8) + Cy(rec9) + DCy(rec9,rec8)
  >= -0
  deltaYCentroid_2(rec9,rec10): + Cy(rec9) - Cy(rec10) + DCy(rec9,rec10)
+ >= -0
+ deltaYCentroid_2(rec9,rec11): + Cy(rec9) - Cy(rec11) + DCy(rec9,rec11)
+ >= -0
+ deltaYCentroid_2(rec9,rec12): + Cy(rec9) - Cy(rec12) + DCy(rec9,rec12)
+ >= -0
+ deltaYCentroid_2(rec9,rec13): + Cy(rec9) - Cy(rec13) + DCy(rec9,rec13)
+ >= -0
+ deltaYCentroid_2(rec9,rec14): + Cy(rec9) - Cy(rec14) + DCy(rec9,rec14)
+ >= -0
+ deltaYCentroid_2(rec9,rec15): + Cy(rec9) - Cy(rec15) + DCy(rec9,rec15)
  >= -0
  deltaYCentroid_2(rec10,rec1): - Cy(rec1) + Cy(rec10) + DCy(rec10,rec1)
  >= -0
@@ -944,6 +2013,156 @@ Subject To
  >= -0
  deltaYCentroid_2(rec10,rec9): - Cy(rec9) + Cy(rec10) + DCy(rec10,rec9)
  >= -0
+ deltaYCentroid_2(rec10,rec11): + Cy(rec10) - Cy(rec11)
+ + DCy(rec10,rec11) >= -0
+ deltaYCentroid_2(rec10,rec12): + Cy(rec10) - Cy(rec12)
+ + DCy(rec10,rec12) >= -0
+ deltaYCentroid_2(rec10,rec13): + Cy(rec10) - Cy(rec13)
+ + DCy(rec10,rec13) >= -0
+ deltaYCentroid_2(rec10,rec14): + Cy(rec10) - Cy(rec14)
+ + DCy(rec10,rec14) >= -0
+ deltaYCentroid_2(rec10,rec15): + Cy(rec10) - Cy(rec15)
+ + DCy(rec10,rec15) >= -0
+ deltaYCentroid_2(rec11,rec1): - Cy(rec1) + Cy(rec11) + DCy(rec11,rec1)
+ >= -0
+ deltaYCentroid_2(rec11,rec2): - Cy(rec2) + Cy(rec11) + DCy(rec11,rec2)
+ >= -0
+ deltaYCentroid_2(rec11,rec3): - Cy(rec3) + Cy(rec11) + DCy(rec11,rec3)
+ >= -0
+ deltaYCentroid_2(rec11,rec4): - Cy(rec4) + Cy(rec11) + DCy(rec11,rec4)
+ >= -0
+ deltaYCentroid_2(rec11,rec5): - Cy(rec5) + Cy(rec11) + DCy(rec11,rec5)
+ >= -0
+ deltaYCentroid_2(rec11,rec6): - Cy(rec6) + Cy(rec11) + DCy(rec11,rec6)
+ >= -0
+ deltaYCentroid_2(rec11,rec7): - Cy(rec7) + Cy(rec11) + DCy(rec11,rec7)
+ >= -0
+ deltaYCentroid_2(rec11,rec8): - Cy(rec8) + Cy(rec11) + DCy(rec11,rec8)
+ >= -0
+ deltaYCentroid_2(rec11,rec9): - Cy(rec9) + Cy(rec11) + DCy(rec11,rec9)
+ >= -0
+ deltaYCentroid_2(rec11,rec10): - Cy(rec10) + Cy(rec11)
+ + DCy(rec11,rec10) >= -0
+ deltaYCentroid_2(rec11,rec12): + Cy(rec11) - Cy(rec12)
+ + DCy(rec11,rec12) >= -0
+ deltaYCentroid_2(rec11,rec13): + Cy(rec11) - Cy(rec13)
+ + DCy(rec11,rec13) >= -0
+ deltaYCentroid_2(rec11,rec14): + Cy(rec11) - Cy(rec14)
+ + DCy(rec11,rec14) >= -0
+ deltaYCentroid_2(rec11,rec15): + Cy(rec11) - Cy(rec15)
+ + DCy(rec11,rec15) >= -0
+ deltaYCentroid_2(rec12,rec1): - Cy(rec1) + Cy(rec12) + DCy(rec12,rec1)
+ >= -0
+ deltaYCentroid_2(rec12,rec2): - Cy(rec2) + Cy(rec12) + DCy(rec12,rec2)
+ >= -0
+ deltaYCentroid_2(rec12,rec3): - Cy(rec3) + Cy(rec12) + DCy(rec12,rec3)
+ >= -0
+ deltaYCentroid_2(rec12,rec4): - Cy(rec4) + Cy(rec12) + DCy(rec12,rec4)
+ >= -0
+ deltaYCentroid_2(rec12,rec5): - Cy(rec5) + Cy(rec12) + DCy(rec12,rec5)
+ >= -0
+ deltaYCentroid_2(rec12,rec6): - Cy(rec6) + Cy(rec12) + DCy(rec12,rec6)
+ >= -0
+ deltaYCentroid_2(rec12,rec7): - Cy(rec7) + Cy(rec12) + DCy(rec12,rec7)
+ >= -0
+ deltaYCentroid_2(rec12,rec8): - Cy(rec8) + Cy(rec12) + DCy(rec12,rec8)
+ >= -0
+ deltaYCentroid_2(rec12,rec9): - Cy(rec9) + Cy(rec12) + DCy(rec12,rec9)
+ >= -0
+ deltaYCentroid_2(rec12,rec10): - Cy(rec10) + Cy(rec12)
+ + DCy(rec12,rec10) >= -0
+ deltaYCentroid_2(rec12,rec11): - Cy(rec11) + Cy(rec12)
+ + DCy(rec12,rec11) >= -0
+ deltaYCentroid_2(rec12,rec13): + Cy(rec12) - Cy(rec13)
+ + DCy(rec12,rec13) >= -0
+ deltaYCentroid_2(rec12,rec14): + Cy(rec12) - Cy(rec14)
+ + DCy(rec12,rec14) >= -0
+ deltaYCentroid_2(rec12,rec15): + Cy(rec12) - Cy(rec15)
+ + DCy(rec12,rec15) >= -0
+ deltaYCentroid_2(rec13,rec1): - Cy(rec1) + Cy(rec13) + DCy(rec13,rec1)
+ >= -0
+ deltaYCentroid_2(rec13,rec2): - Cy(rec2) + Cy(rec13) + DCy(rec13,rec2)
+ >= -0
+ deltaYCentroid_2(rec13,rec3): - Cy(rec3) + Cy(rec13) + DCy(rec13,rec3)
+ >= -0
+ deltaYCentroid_2(rec13,rec4): - Cy(rec4) + Cy(rec13) + DCy(rec13,rec4)
+ >= -0
+ deltaYCentroid_2(rec13,rec5): - Cy(rec5) + Cy(rec13) + DCy(rec13,rec5)
+ >= -0
+ deltaYCentroid_2(rec13,rec6): - Cy(rec6) + Cy(rec13) + DCy(rec13,rec6)
+ >= -0
+ deltaYCentroid_2(rec13,rec7): - Cy(rec7) + Cy(rec13) + DCy(rec13,rec7)
+ >= -0
+ deltaYCentroid_2(rec13,rec8): - Cy(rec8) + Cy(rec13) + DCy(rec13,rec8)
+ >= -0
+ deltaYCentroid_2(rec13,rec9): - Cy(rec9) + Cy(rec13) + DCy(rec13,rec9)
+ >= -0
+ deltaYCentroid_2(rec13,rec10): - Cy(rec10) + Cy(rec13)
+ + DCy(rec13,rec10) >= -0
+ deltaYCentroid_2(rec13,rec11): - Cy(rec11) + Cy(rec13)
+ + DCy(rec13,rec11) >= -0
+ deltaYCentroid_2(rec13,rec12): - Cy(rec12) + Cy(rec13)
+ + DCy(rec13,rec12) >= -0
+ deltaYCentroid_2(rec13,rec14): + Cy(rec13) - Cy(rec14)
+ + DCy(rec13,rec14) >= -0
+ deltaYCentroid_2(rec13,rec15): + Cy(rec13) - Cy(rec15)
+ + DCy(rec13,rec15) >= -0
+ deltaYCentroid_2(rec14,rec1): - Cy(rec1) + Cy(rec14) + DCy(rec14,rec1)
+ >= -0
+ deltaYCentroid_2(rec14,rec2): - Cy(rec2) + Cy(rec14) + DCy(rec14,rec2)
+ >= -0
+ deltaYCentroid_2(rec14,rec3): - Cy(rec3) + Cy(rec14) + DCy(rec14,rec3)
+ >= -0
+ deltaYCentroid_2(rec14,rec4): - Cy(rec4) + Cy(rec14) + DCy(rec14,rec4)
+ >= -0
+ deltaYCentroid_2(rec14,rec5): - Cy(rec5) + Cy(rec14) + DCy(rec14,rec5)
+ >= -0
+ deltaYCentroid_2(rec14,rec6): - Cy(rec6) + Cy(rec14) + DCy(rec14,rec6)
+ >= -0
+ deltaYCentroid_2(rec14,rec7): - Cy(rec7) + Cy(rec14) + DCy(rec14,rec7)
+ >= -0
+ deltaYCentroid_2(rec14,rec8): - Cy(rec8) + Cy(rec14) + DCy(rec14,rec8)
+ >= -0
+ deltaYCentroid_2(rec14,rec9): - Cy(rec9) + Cy(rec14) + DCy(rec14,rec9)
+ >= -0
+ deltaYCentroid_2(rec14,rec10): - Cy(rec10) + Cy(rec14)
+ + DCy(rec14,rec10) >= -0
+ deltaYCentroid_2(rec14,rec11): - Cy(rec11) + Cy(rec14)
+ + DCy(rec14,rec11) >= -0
+ deltaYCentroid_2(rec14,rec12): - Cy(rec12) + Cy(rec14)
+ + DCy(rec14,rec12) >= -0
+ deltaYCentroid_2(rec14,rec13): - Cy(rec13) + Cy(rec14)
+ + DCy(rec14,rec13) >= -0
+ deltaYCentroid_2(rec14,rec15): + Cy(rec14) - Cy(rec15)
+ + DCy(rec14,rec15) >= -0
+ deltaYCentroid_2(rec15,rec1): - Cy(rec1) + Cy(rec15) + DCy(rec15,rec1)
+ >= -0
+ deltaYCentroid_2(rec15,rec2): - Cy(rec2) + Cy(rec15) + DCy(rec15,rec2)
+ >= -0
+ deltaYCentroid_2(rec15,rec3): - Cy(rec3) + Cy(rec15) + DCy(rec15,rec3)
+ >= -0
+ deltaYCentroid_2(rec15,rec4): - Cy(rec4) + Cy(rec15) + DCy(rec15,rec4)
+ >= -0
+ deltaYCentroid_2(rec15,rec5): - Cy(rec5) + Cy(rec15) + DCy(rec15,rec5)
+ >= -0
+ deltaYCentroid_2(rec15,rec6): - Cy(rec6) + Cy(rec15) + DCy(rec15,rec6)
+ >= -0
+ deltaYCentroid_2(rec15,rec7): - Cy(rec7) + Cy(rec15) + DCy(rec15,rec7)
+ >= -0
+ deltaYCentroid_2(rec15,rec8): - Cy(rec8) + Cy(rec15) + DCy(rec15,rec8)
+ >= -0
+ deltaYCentroid_2(rec15,rec9): - Cy(rec9) + Cy(rec15) + DCy(rec15,rec9)
+ >= -0
+ deltaYCentroid_2(rec15,rec10): - Cy(rec10) + Cy(rec15)
+ + DCy(rec15,rec10) >= -0
+ deltaYCentroid_2(rec15,rec11): - Cy(rec11) + Cy(rec15)
+ + DCy(rec15,rec11) >= -0
+ deltaYCentroid_2(rec15,rec12): - Cy(rec12) + Cy(rec15)
+ + DCy(rec15,rec12) >= -0
+ deltaYCentroid_2(rec15,rec13): - Cy(rec13) + Cy(rec15)
+ + DCy(rec15,rec13) >= -0
+ deltaYCentroid_2(rec15,rec14): - Cy(rec14) + Cy(rec15)
+ + DCy(rec15,rec14) >= -0
  deltaAbsYCentroid_1(rec1,rec2): - 160 absY(rec1,rec2) - Cy(rec1)
  + Cy(rec2) + DCy(rec1,rec2) <= -0
  deltaAbsYCentroid_1(rec1,rec3): - 160 absY(rec1,rec3) - Cy(rec1)
@@ -962,6 +2181,16 @@ Subject To
  + Cy(rec9) + DCy(rec1,rec9) <= -0
  deltaAbsYCentroid_1(rec1,rec10): - 160 absY(rec1,rec10) - Cy(rec1)
  + Cy(rec10) + DCy(rec1,rec10) <= -0
+ deltaAbsYCentroid_1(rec1,rec11): - 160 absY(rec1,rec11) - Cy(rec1)
+ + Cy(rec11) + DCy(rec1,rec11) <= -0
+ deltaAbsYCentroid_1(rec1,rec12): - 160 absY(rec1,rec12) - Cy(rec1)
+ + Cy(rec12) + DCy(rec1,rec12) <= -0
+ deltaAbsYCentroid_1(rec1,rec13): - 160 absY(rec1,rec13) - Cy(rec1)
+ + Cy(rec13) + DCy(rec1,rec13) <= -0
+ deltaAbsYCentroid_1(rec1,rec14): - 160 absY(rec1,rec14) - Cy(rec1)
+ + Cy(rec14) + DCy(rec1,rec14) <= -0
+ deltaAbsYCentroid_1(rec1,rec15): - 160 absY(rec1,rec15) - Cy(rec1)
+ + Cy(rec15) + DCy(rec1,rec15) <= -0
  deltaAbsYCentroid_1(rec2,rec3): - 160 absY(rec2,rec3) - Cy(rec2)
  + Cy(rec3) + DCy(rec2,rec3) <= -0
  deltaAbsYCentroid_1(rec2,rec4): - 160 absY(rec2,rec4) - Cy(rec2)
@@ -1034,6 +2263,116 @@ Subject To
  - Cy(rec10) + DCy(rec10,rec8) <= -0
  deltaAbsYCentroid_1(rec10,rec9): - 160 absY(rec10,rec9) + Cy(rec9)
  - Cy(rec10) + DCy(rec10,rec9) <= -0
+ deltaAbsYCentroid_1(rec10,rec11): - 160 absY(rec10,rec11) - Cy(rec10)
+ + Cy(rec11) + DCy(rec10,rec11) <= -0
+ deltaAbsYCentroid_1(rec10,rec12): - 160 absY(rec10,rec12) - Cy(rec10)
+ + Cy(rec12) + DCy(rec10,rec12) <= -0
+ deltaAbsYCentroid_1(rec10,rec13): - 160 absY(rec10,rec13) - Cy(rec10)
+ + Cy(rec13) + DCy(rec10,rec13) <= -0
+ deltaAbsYCentroid_1(rec10,rec14): - 160 absY(rec10,rec14) - Cy(rec10)
+ + Cy(rec14) + DCy(rec10,rec14) <= -0
+ deltaAbsYCentroid_1(rec10,rec15): - 160 absY(rec10,rec15) - Cy(rec10)
+ + Cy(rec15) + DCy(rec10,rec15) <= -0
+ deltaAbsYCentroid_1(rec11,rec2): - 160 absY(rec11,rec2) + Cy(rec2)
+ - Cy(rec11) + DCy(rec11,rec2) <= -0
+ deltaAbsYCentroid_1(rec11,rec3): - 160 absY(rec11,rec3) + Cy(rec3)
+ - Cy(rec11) + DCy(rec11,rec3) <= -0
+ deltaAbsYCentroid_1(rec11,rec4): - 160 absY(rec11,rec4) + Cy(rec4)
+ - Cy(rec11) + DCy(rec11,rec4) <= -0
+ deltaAbsYCentroid_1(rec11,rec5): - 160 absY(rec11,rec5) + Cy(rec5)
+ - Cy(rec11) + DCy(rec11,rec5) <= -0
+ deltaAbsYCentroid_1(rec11,rec6): - 160 absY(rec11,rec6) + Cy(rec6)
+ - Cy(rec11) + DCy(rec11,rec6) <= -0
+ deltaAbsYCentroid_1(rec11,rec7): - 160 absY(rec11,rec7) + Cy(rec7)
+ - Cy(rec11) + DCy(rec11,rec7) <= -0
+ deltaAbsYCentroid_1(rec11,rec8): - 160 absY(rec11,rec8) + Cy(rec8)
+ - Cy(rec11) + DCy(rec11,rec8) <= -0
+ deltaAbsYCentroid_1(rec11,rec9): - 160 absY(rec11,rec9) + Cy(rec9)
+ - Cy(rec11) + DCy(rec11,rec9) <= -0
+ deltaAbsYCentroid_1(rec11,rec12): - 160 absY(rec11,rec12) - Cy(rec11)
+ + Cy(rec12) + DCy(rec11,rec12) <= -0
+ deltaAbsYCentroid_1(rec11,rec13): - 160 absY(rec11,rec13) - Cy(rec11)
+ + Cy(rec13) + DCy(rec11,rec13) <= -0
+ deltaAbsYCentroid_1(rec11,rec14): - 160 absY(rec11,rec14) - Cy(rec11)
+ + Cy(rec14) + DCy(rec11,rec14) <= -0
+ deltaAbsYCentroid_1(rec11,rec15): - 160 absY(rec11,rec15) - Cy(rec11)
+ + Cy(rec15) + DCy(rec11,rec15) <= -0
+ deltaAbsYCentroid_1(rec12,rec2): - 160 absY(rec12,rec2) + Cy(rec2)
+ - Cy(rec12) + DCy(rec12,rec2) <= -0
+ deltaAbsYCentroid_1(rec12,rec3): - 160 absY(rec12,rec3) + Cy(rec3)
+ - Cy(rec12) + DCy(rec12,rec3) <= -0
+ deltaAbsYCentroid_1(rec12,rec4): - 160 absY(rec12,rec4) + Cy(rec4)
+ - Cy(rec12) + DCy(rec12,rec4) <= -0
+ deltaAbsYCentroid_1(rec12,rec5): - 160 absY(rec12,rec5) + Cy(rec5)
+ - Cy(rec12) + DCy(rec12,rec5) <= -0
+ deltaAbsYCentroid_1(rec12,rec6): - 160 absY(rec12,rec6) + Cy(rec6)
+ - Cy(rec12) + DCy(rec12,rec6) <= -0
+ deltaAbsYCentroid_1(rec12,rec7): - 160 absY(rec12,rec7) + Cy(rec7)
+ - Cy(rec12) + DCy(rec12,rec7) <= -0
+ deltaAbsYCentroid_1(rec12,rec8): - 160 absY(rec12,rec8) + Cy(rec8)
+ - Cy(rec12) + DCy(rec12,rec8) <= -0
+ deltaAbsYCentroid_1(rec12,rec9): - 160 absY(rec12,rec9) + Cy(rec9)
+ - Cy(rec12) + DCy(rec12,rec9) <= -0
+ deltaAbsYCentroid_1(rec12,rec13): - 160 absY(rec12,rec13) - Cy(rec12)
+ + Cy(rec13) + DCy(rec12,rec13) <= -0
+ deltaAbsYCentroid_1(rec12,rec14): - 160 absY(rec12,rec14) - Cy(rec12)
+ + Cy(rec14) + DCy(rec12,rec14) <= -0
+ deltaAbsYCentroid_1(rec12,rec15): - 160 absY(rec12,rec15) - Cy(rec12)
+ + Cy(rec15) + DCy(rec12,rec15) <= -0
+ deltaAbsYCentroid_1(rec13,rec2): - 160 absY(rec13,rec2) + Cy(rec2)
+ - Cy(rec13) + DCy(rec13,rec2) <= -0
+ deltaAbsYCentroid_1(rec13,rec3): - 160 absY(rec13,rec3) + Cy(rec3)
+ - Cy(rec13) + DCy(rec13,rec3) <= -0
+ deltaAbsYCentroid_1(rec13,rec4): - 160 absY(rec13,rec4) + Cy(rec4)
+ - Cy(rec13) + DCy(rec13,rec4) <= -0
+ deltaAbsYCentroid_1(rec13,rec5): - 160 absY(rec13,rec5) + Cy(rec5)
+ - Cy(rec13) + DCy(rec13,rec5) <= -0
+ deltaAbsYCentroid_1(rec13,rec6): - 160 absY(rec13,rec6) + Cy(rec6)
+ - Cy(rec13) + DCy(rec13,rec6) <= -0
+ deltaAbsYCentroid_1(rec13,rec7): - 160 absY(rec13,rec7) + Cy(rec7)
+ - Cy(rec13) + DCy(rec13,rec7) <= -0
+ deltaAbsYCentroid_1(rec13,rec8): - 160 absY(rec13,rec8) + Cy(rec8)
+ - Cy(rec13) + DCy(rec13,rec8) <= -0
+ deltaAbsYCentroid_1(rec13,rec9): - 160 absY(rec13,rec9) + Cy(rec9)
+ - Cy(rec13) + DCy(rec13,rec9) <= -0
+ deltaAbsYCentroid_1(rec13,rec14): - 160 absY(rec13,rec14) - Cy(rec13)
+ + Cy(rec14) + DCy(rec13,rec14) <= -0
+ deltaAbsYCentroid_1(rec13,rec15): - 160 absY(rec13,rec15) - Cy(rec13)
+ + Cy(rec15) + DCy(rec13,rec15) <= -0
+ deltaAbsYCentroid_1(rec14,rec2): - 160 absY(rec14,rec2) + Cy(rec2)
+ - Cy(rec14) + DCy(rec14,rec2) <= -0
+ deltaAbsYCentroid_1(rec14,rec3): - 160 absY(rec14,rec3) + Cy(rec3)
+ - Cy(rec14) + DCy(rec14,rec3) <= -0
+ deltaAbsYCentroid_1(rec14,rec4): - 160 absY(rec14,rec4) + Cy(rec4)
+ - Cy(rec14) + DCy(rec14,rec4) <= -0
+ deltaAbsYCentroid_1(rec14,rec5): - 160 absY(rec14,rec5) + Cy(rec5)
+ - Cy(rec14) + DCy(rec14,rec5) <= -0
+ deltaAbsYCentroid_1(rec14,rec6): - 160 absY(rec14,rec6) + Cy(rec6)
+ - Cy(rec14) + DCy(rec14,rec6) <= -0
+ deltaAbsYCentroid_1(rec14,rec7): - 160 absY(rec14,rec7) + Cy(rec7)
+ - Cy(rec14) + DCy(rec14,rec7) <= -0
+ deltaAbsYCentroid_1(rec14,rec8): - 160 absY(rec14,rec8) + Cy(rec8)
+ - Cy(rec14) + DCy(rec14,rec8) <= -0
+ deltaAbsYCentroid_1(rec14,rec9): - 160 absY(rec14,rec9) + Cy(rec9)
+ - Cy(rec14) + DCy(rec14,rec9) <= -0
+ deltaAbsYCentroid_1(rec14,rec15): - 160 absY(rec14,rec15) - Cy(rec14)
+ + Cy(rec15) + DCy(rec14,rec15) <= -0
+ deltaAbsYCentroid_1(rec15,rec2): - 160 absY(rec15,rec2) + Cy(rec2)
+ - Cy(rec15) + DCy(rec15,rec2) <= -0
+ deltaAbsYCentroid_1(rec15,rec3): - 160 absY(rec15,rec3) + Cy(rec3)
+ - Cy(rec15) + DCy(rec15,rec3) <= -0
+ deltaAbsYCentroid_1(rec15,rec4): - 160 absY(rec15,rec4) + Cy(rec4)
+ - Cy(rec15) + DCy(rec15,rec4) <= -0
+ deltaAbsYCentroid_1(rec15,rec5): - 160 absY(rec15,rec5) + Cy(rec5)
+ - Cy(rec15) + DCy(rec15,rec5) <= -0
+ deltaAbsYCentroid_1(rec15,rec6): - 160 absY(rec15,rec6) + Cy(rec6)
+ - Cy(rec15) + DCy(rec15,rec6) <= -0
+ deltaAbsYCentroid_1(rec15,rec7): - 160 absY(rec15,rec7) + Cy(rec7)
+ - Cy(rec15) + DCy(rec15,rec7) <= -0
+ deltaAbsYCentroid_1(rec15,rec8): - 160 absY(rec15,rec8) + Cy(rec8)
+ - Cy(rec15) + DCy(rec15,rec8) <= -0
+ deltaAbsYCentroid_1(rec15,rec9): - 160 absY(rec15,rec9) + Cy(rec9)
+ - Cy(rec15) + DCy(rec15,rec9) <= -0
  deltaAbsYCentroid_2(rec1,rec2): + 160 absY(rec1,rec2) + Cy(rec1)
  - Cy(rec2) + DCy(rec1,rec2) <= 160
  deltaAbsYCentroid_2(rec1,rec3): + 160 absY(rec1,rec3) + Cy(rec1)
@@ -1052,6 +2391,16 @@ Subject To
  - Cy(rec9) + DCy(rec1,rec9) <= 160
  deltaAbsYCentroid_2(rec1,rec10): + 160 absY(rec1,rec10) + Cy(rec1)
  - Cy(rec10) + DCy(rec1,rec10) <= 160
+ deltaAbsYCentroid_2(rec1,rec11): + 160 absY(rec1,rec11) + Cy(rec1)
+ - Cy(rec11) + DCy(rec1,rec11) <= 160
+ deltaAbsYCentroid_2(rec1,rec12): + 160 absY(rec1,rec12) + Cy(rec1)
+ - Cy(rec12) + DCy(rec1,rec12) <= 160
+ deltaAbsYCentroid_2(rec1,rec13): + 160 absY(rec1,rec13) + Cy(rec1)
+ - Cy(rec13) + DCy(rec1,rec13) <= 160
+ deltaAbsYCentroid_2(rec1,rec14): + 160 absY(rec1,rec14) + Cy(rec1)
+ - Cy(rec14) + DCy(rec1,rec14) <= 160
+ deltaAbsYCentroid_2(rec1,rec15): + 160 absY(rec1,rec15) + Cy(rec1)
+ - Cy(rec15) + DCy(rec1,rec15) <= 160
  deltaAbsYCentroid_2(rec2,rec3): + 160 absY(rec2,rec3) + Cy(rec2)
  - Cy(rec3) + DCy(rec2,rec3) <= 160
  deltaAbsYCentroid_2(rec2,rec4): + 160 absY(rec2,rec4) + Cy(rec2)
@@ -1124,6 +2473,116 @@ Subject To
  + Cy(rec10) + DCy(rec10,rec8) <= 160
  deltaAbsYCentroid_2(rec10,rec9): + 160 absY(rec10,rec9) - Cy(rec9)
  + Cy(rec10) + DCy(rec10,rec9) <= 160
+ deltaAbsYCentroid_2(rec10,rec11): + 160 absY(rec10,rec11) + Cy(rec10)
+ - Cy(rec11) + DCy(rec10,rec11) <= 160
+ deltaAbsYCentroid_2(rec10,rec12): + 160 absY(rec10,rec12) + Cy(rec10)
+ - Cy(rec12) + DCy(rec10,rec12) <= 160
+ deltaAbsYCentroid_2(rec10,rec13): + 160 absY(rec10,rec13) + Cy(rec10)
+ - Cy(rec13) + DCy(rec10,rec13) <= 160
+ deltaAbsYCentroid_2(rec10,rec14): + 160 absY(rec10,rec14) + Cy(rec10)
+ - Cy(rec14) + DCy(rec10,rec14) <= 160
+ deltaAbsYCentroid_2(rec10,rec15): + 160 absY(rec10,rec15) + Cy(rec10)
+ - Cy(rec15) + DCy(rec10,rec15) <= 160
+ deltaAbsYCentroid_2(rec11,rec2): + 160 absY(rec11,rec2) - Cy(rec2)
+ + Cy(rec11) + DCy(rec11,rec2) <= 160
+ deltaAbsYCentroid_2(rec11,rec3): + 160 absY(rec11,rec3) - Cy(rec3)
+ + Cy(rec11) + DCy(rec11,rec3) <= 160
+ deltaAbsYCentroid_2(rec11,rec4): + 160 absY(rec11,rec4) - Cy(rec4)
+ + Cy(rec11) + DCy(rec11,rec4) <= 160
+ deltaAbsYCentroid_2(rec11,rec5): + 160 absY(rec11,rec5) - Cy(rec5)
+ + Cy(rec11) + DCy(rec11,rec5) <= 160
+ deltaAbsYCentroid_2(rec11,rec6): + 160 absY(rec11,rec6) - Cy(rec6)
+ + Cy(rec11) + DCy(rec11,rec6) <= 160
+ deltaAbsYCentroid_2(rec11,rec7): + 160 absY(rec11,rec7) - Cy(rec7)
+ + Cy(rec11) + DCy(rec11,rec7) <= 160
+ deltaAbsYCentroid_2(rec11,rec8): + 160 absY(rec11,rec8) - Cy(rec8)
+ + Cy(rec11) + DCy(rec11,rec8) <= 160
+ deltaAbsYCentroid_2(rec11,rec9): + 160 absY(rec11,rec9) - Cy(rec9)
+ + Cy(rec11) + DCy(rec11,rec9) <= 160
+ deltaAbsYCentroid_2(rec11,rec12): + 160 absY(rec11,rec12) + Cy(rec11)
+ - Cy(rec12) + DCy(rec11,rec12) <= 160
+ deltaAbsYCentroid_2(rec11,rec13): + 160 absY(rec11,rec13) + Cy(rec11)
+ - Cy(rec13) + DCy(rec11,rec13) <= 160
+ deltaAbsYCentroid_2(rec11,rec14): + 160 absY(rec11,rec14) + Cy(rec11)
+ - Cy(rec14) + DCy(rec11,rec14) <= 160
+ deltaAbsYCentroid_2(rec11,rec15): + 160 absY(rec11,rec15) + Cy(rec11)
+ - Cy(rec15) + DCy(rec11,rec15) <= 160
+ deltaAbsYCentroid_2(rec12,rec2): + 160 absY(rec12,rec2) - Cy(rec2)
+ + Cy(rec12) + DCy(rec12,rec2) <= 160
+ deltaAbsYCentroid_2(rec12,rec3): + 160 absY(rec12,rec3) - Cy(rec3)
+ + Cy(rec12) + DCy(rec12,rec3) <= 160
+ deltaAbsYCentroid_2(rec12,rec4): + 160 absY(rec12,rec4) - Cy(rec4)
+ + Cy(rec12) + DCy(rec12,rec4) <= 160
+ deltaAbsYCentroid_2(rec12,rec5): + 160 absY(rec12,rec5) - Cy(rec5)
+ + Cy(rec12) + DCy(rec12,rec5) <= 160
+ deltaAbsYCentroid_2(rec12,rec6): + 160 absY(rec12,rec6) - Cy(rec6)
+ + Cy(rec12) + DCy(rec12,rec6) <= 160
+ deltaAbsYCentroid_2(rec12,rec7): + 160 absY(rec12,rec7) - Cy(rec7)
+ + Cy(rec12) + DCy(rec12,rec7) <= 160
+ deltaAbsYCentroid_2(rec12,rec8): + 160 absY(rec12,rec8) - Cy(rec8)
+ + Cy(rec12) + DCy(rec12,rec8) <= 160
+ deltaAbsYCentroid_2(rec12,rec9): + 160 absY(rec12,rec9) - Cy(rec9)
+ + Cy(rec12) + DCy(rec12,rec9) <= 160
+ deltaAbsYCentroid_2(rec12,rec13): + 160 absY(rec12,rec13) + Cy(rec12)
+ - Cy(rec13) + DCy(rec12,rec13) <= 160
+ deltaAbsYCentroid_2(rec12,rec14): + 160 absY(rec12,rec14) + Cy(rec12)
+ - Cy(rec14) + DCy(rec12,rec14) <= 160
+ deltaAbsYCentroid_2(rec12,rec15): + 160 absY(rec12,rec15) + Cy(rec12)
+ - Cy(rec15) + DCy(rec12,rec15) <= 160
+ deltaAbsYCentroid_2(rec13,rec2): + 160 absY(rec13,rec2) - Cy(rec2)
+ + Cy(rec13) + DCy(rec13,rec2) <= 160
+ deltaAbsYCentroid_2(rec13,rec3): + 160 absY(rec13,rec3) - Cy(rec3)
+ + Cy(rec13) + DCy(rec13,rec3) <= 160
+ deltaAbsYCentroid_2(rec13,rec4): + 160 absY(rec13,rec4) - Cy(rec4)
+ + Cy(rec13) + DCy(rec13,rec4) <= 160
+ deltaAbsYCentroid_2(rec13,rec5): + 160 absY(rec13,rec5) - Cy(rec5)
+ + Cy(rec13) + DCy(rec13,rec5) <= 160
+ deltaAbsYCentroid_2(rec13,rec6): + 160 absY(rec13,rec6) - Cy(rec6)
+ + Cy(rec13) + DCy(rec13,rec6) <= 160
+ deltaAbsYCentroid_2(rec13,rec7): + 160 absY(rec13,rec7) - Cy(rec7)
+ + Cy(rec13) + DCy(rec13,rec7) <= 160
+ deltaAbsYCentroid_2(rec13,rec8): + 160 absY(rec13,rec8) - Cy(rec8)
+ + Cy(rec13) + DCy(rec13,rec8) <= 160
+ deltaAbsYCentroid_2(rec13,rec9): + 160 absY(rec13,rec9) - Cy(rec9)
+ + Cy(rec13) + DCy(rec13,rec9) <= 160
+ deltaAbsYCentroid_2(rec13,rec14): + 160 absY(rec13,rec14) + Cy(rec13)
+ - Cy(rec14) + DCy(rec13,rec14) <= 160
+ deltaAbsYCentroid_2(rec13,rec15): + 160 absY(rec13,rec15) + Cy(rec13)
+ - Cy(rec15) + DCy(rec13,rec15) <= 160
+ deltaAbsYCentroid_2(rec14,rec2): + 160 absY(rec14,rec2) - Cy(rec2)
+ + Cy(rec14) + DCy(rec14,rec2) <= 160
+ deltaAbsYCentroid_2(rec14,rec3): + 160 absY(rec14,rec3) - Cy(rec3)
+ + Cy(rec14) + DCy(rec14,rec3) <= 160
+ deltaAbsYCentroid_2(rec14,rec4): + 160 absY(rec14,rec4) - Cy(rec4)
+ + Cy(rec14) + DCy(rec14,rec4) <= 160
+ deltaAbsYCentroid_2(rec14,rec5): + 160 absY(rec14,rec5) - Cy(rec5)
+ + Cy(rec14) + DCy(rec14,rec5) <= 160
+ deltaAbsYCentroid_2(rec14,rec6): + 160 absY(rec14,rec6) - Cy(rec6)
+ + Cy(rec14) + DCy(rec14,rec6) <= 160
+ deltaAbsYCentroid_2(rec14,rec7): + 160 absY(rec14,rec7) - Cy(rec7)
+ + Cy(rec14) + DCy(rec14,rec7) <= 160
+ deltaAbsYCentroid_2(rec14,rec8): + 160 absY(rec14,rec8) - Cy(rec8)
+ + Cy(rec14) + DCy(rec14,rec8) <= 160
+ deltaAbsYCentroid_2(rec14,rec9): + 160 absY(rec14,rec9) - Cy(rec9)
+ + Cy(rec14) + DCy(rec14,rec9) <= 160
+ deltaAbsYCentroid_2(rec14,rec15): + 160 absY(rec14,rec15) + Cy(rec14)
+ - Cy(rec15) + DCy(rec14,rec15) <= 160
+ deltaAbsYCentroid_2(rec15,rec2): + 160 absY(rec15,rec2) - Cy(rec2)
+ + Cy(rec15) + DCy(rec15,rec2) <= 160
+ deltaAbsYCentroid_2(rec15,rec3): + 160 absY(rec15,rec3) - Cy(rec3)
+ + Cy(rec15) + DCy(rec15,rec3) <= 160
+ deltaAbsYCentroid_2(rec15,rec4): + 160 absY(rec15,rec4) - Cy(rec4)
+ + Cy(rec15) + DCy(rec15,rec4) <= 160
+ deltaAbsYCentroid_2(rec15,rec5): + 160 absY(rec15,rec5) - Cy(rec5)
+ + Cy(rec15) + DCy(rec15,rec5) <= 160
+ deltaAbsYCentroid_2(rec15,rec6): + 160 absY(rec15,rec6) - Cy(rec6)
+ + Cy(rec15) + DCy(rec15,rec6) <= 160
+ deltaAbsYCentroid_2(rec15,rec7): + 160 absY(rec15,rec7) - Cy(rec7)
+ + Cy(rec15) + DCy(rec15,rec7) <= 160
+ deltaAbsYCentroid_2(rec15,rec8): + 160 absY(rec15,rec8) - Cy(rec8)
+ + Cy(rec15) + DCy(rec15,rec8) <= 160
+ deltaAbsYCentroid_2(rec15,rec9): + 160 absY(rec15,rec9) - Cy(rec9)
+ + Cy(rec15) + DCy(rec15,rec9) <= 160
  deltaXBorder_1(rec1,rec2): - 2 x(rec1) + 2 x(rec2) + 2 w(rec2)
  + DBx(rec1,rec2) >= -0
  deltaXBorder_1(rec1,rec3): - 2 x(rec1) + 2 x(rec3) + 2 w(rec3)
@@ -1142,6 +2601,16 @@ Subject To
  + DBx(rec1,rec9) >= -0
  deltaXBorder_1(rec1,rec10): - 2 x(rec1) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec1,rec10) >= -0
+ deltaXBorder_1(rec1,rec11): - 2 x(rec1) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec1,rec11) >= -0
+ deltaXBorder_1(rec1,rec12): - 2 x(rec1) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec1,rec12) >= -0
+ deltaXBorder_1(rec1,rec13): - 2 x(rec1) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec1,rec13) >= -0
+ deltaXBorder_1(rec1,rec14): - 2 x(rec1) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec1,rec14) >= -0
+ deltaXBorder_1(rec1,rec15): - 2 x(rec1) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec1,rec15) >= -0
  deltaXBorder_1(rec2,rec1): + 2 x(rec1) - 2 x(rec2) + 2 w(rec1)
  + DBx(rec2,rec1) >= -0
  deltaXBorder_1(rec2,rec3): - 2 x(rec2) + 2 x(rec3) + 2 w(rec3)
@@ -1160,6 +2629,16 @@ Subject To
  + DBx(rec2,rec9) >= -0
  deltaXBorder_1(rec2,rec10): - 2 x(rec2) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec2,rec10) >= -0
+ deltaXBorder_1(rec2,rec11): - 2 x(rec2) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec2,rec11) >= -0
+ deltaXBorder_1(rec2,rec12): - 2 x(rec2) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec2,rec12) >= -0
+ deltaXBorder_1(rec2,rec13): - 2 x(rec2) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec2,rec13) >= -0
+ deltaXBorder_1(rec2,rec14): - 2 x(rec2) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec2,rec14) >= -0
+ deltaXBorder_1(rec2,rec15): - 2 x(rec2) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec2,rec15) >= -0
  deltaXBorder_1(rec3,rec1): + 2 x(rec1) - 2 x(rec3) + 2 w(rec1)
  + DBx(rec3,rec1) >= -0
  deltaXBorder_1(rec3,rec2): + 2 x(rec2) - 2 x(rec3) + 2 w(rec2)
@@ -1178,6 +2657,16 @@ Subject To
  + DBx(rec3,rec9) >= -0
  deltaXBorder_1(rec3,rec10): - 2 x(rec3) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec3,rec10) >= -0
+ deltaXBorder_1(rec3,rec11): - 2 x(rec3) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec3,rec11) >= -0
+ deltaXBorder_1(rec3,rec12): - 2 x(rec3) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec3,rec12) >= -0
+ deltaXBorder_1(rec3,rec13): - 2 x(rec3) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec3,rec13) >= -0
+ deltaXBorder_1(rec3,rec14): - 2 x(rec3) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec3,rec14) >= -0
+ deltaXBorder_1(rec3,rec15): - 2 x(rec3) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec3,rec15) >= -0
  deltaXBorder_1(rec4,rec1): + 2 x(rec1) - 2 x(rec4) + 2 w(rec1)
  + DBx(rec4,rec1) >= -0
  deltaXBorder_1(rec4,rec2): + 2 x(rec2) - 2 x(rec4) + 2 w(rec2)
@@ -1196,6 +2685,16 @@ Subject To
  + DBx(rec4,rec9) >= -0
  deltaXBorder_1(rec4,rec10): - 2 x(rec4) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec4,rec10) >= -0
+ deltaXBorder_1(rec4,rec11): - 2 x(rec4) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec4,rec11) >= -0
+ deltaXBorder_1(rec4,rec12): - 2 x(rec4) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec4,rec12) >= -0
+ deltaXBorder_1(rec4,rec13): - 2 x(rec4) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec4,rec13) >= -0
+ deltaXBorder_1(rec4,rec14): - 2 x(rec4) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec4,rec14) >= -0
+ deltaXBorder_1(rec4,rec15): - 2 x(rec4) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec4,rec15) >= -0
  deltaXBorder_1(rec5,rec1): + 2 x(rec1) - 2 x(rec5) + 2 w(rec1)
  + DBx(rec5,rec1) >= -0
  deltaXBorder_1(rec5,rec2): + 2 x(rec2) - 2 x(rec5) + 2 w(rec2)
@@ -1214,6 +2713,16 @@ Subject To
  + DBx(rec5,rec9) >= -0
  deltaXBorder_1(rec5,rec10): - 2 x(rec5) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec5,rec10) >= -0
+ deltaXBorder_1(rec5,rec11): - 2 x(rec5) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec5,rec11) >= -0
+ deltaXBorder_1(rec5,rec12): - 2 x(rec5) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec5,rec12) >= -0
+ deltaXBorder_1(rec5,rec13): - 2 x(rec5) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec5,rec13) >= -0
+ deltaXBorder_1(rec5,rec14): - 2 x(rec5) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec5,rec14) >= -0
+ deltaXBorder_1(rec5,rec15): - 2 x(rec5) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec5,rec15) >= -0
  deltaXBorder_1(rec6,rec1): + 2 x(rec1) - 2 x(rec6) + 2 w(rec1)
  + DBx(rec6,rec1) >= -0
  deltaXBorder_1(rec6,rec2): + 2 x(rec2) - 2 x(rec6) + 2 w(rec2)
@@ -1232,6 +2741,16 @@ Subject To
  + DBx(rec6,rec9) >= -0
  deltaXBorder_1(rec6,rec10): - 2 x(rec6) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec6,rec10) >= -0
+ deltaXBorder_1(rec6,rec11): - 2 x(rec6) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec6,rec11) >= -0
+ deltaXBorder_1(rec6,rec12): - 2 x(rec6) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec6,rec12) >= -0
+ deltaXBorder_1(rec6,rec13): - 2 x(rec6) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec6,rec13) >= -0
+ deltaXBorder_1(rec6,rec14): - 2 x(rec6) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec6,rec14) >= -0
+ deltaXBorder_1(rec6,rec15): - 2 x(rec6) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec6,rec15) >= -0
  deltaXBorder_1(rec7,rec1): + 2 x(rec1) - 2 x(rec7) + 2 w(rec1)
  + DBx(rec7,rec1) >= -0
  deltaXBorder_1(rec7,rec2): + 2 x(rec2) - 2 x(rec7) + 2 w(rec2)
@@ -1250,6 +2769,16 @@ Subject To
  + DBx(rec7,rec9) >= -0
  deltaXBorder_1(rec7,rec10): - 2 x(rec7) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec7,rec10) >= -0
+ deltaXBorder_1(rec7,rec11): - 2 x(rec7) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec7,rec11) >= -0
+ deltaXBorder_1(rec7,rec12): - 2 x(rec7) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec7,rec12) >= -0
+ deltaXBorder_1(rec7,rec13): - 2 x(rec7) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec7,rec13) >= -0
+ deltaXBorder_1(rec7,rec14): - 2 x(rec7) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec7,rec14) >= -0
+ deltaXBorder_1(rec7,rec15): - 2 x(rec7) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec7,rec15) >= -0
  deltaXBorder_1(rec8,rec1): + 2 x(rec1) - 2 x(rec8) + 2 w(rec1)
  + DBx(rec8,rec1) >= -0
  deltaXBorder_1(rec8,rec2): + 2 x(rec2) - 2 x(rec8) + 2 w(rec2)
@@ -1268,6 +2797,16 @@ Subject To
  + DBx(rec8,rec9) >= -0
  deltaXBorder_1(rec8,rec10): - 2 x(rec8) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec8,rec10) >= -0
+ deltaXBorder_1(rec8,rec11): - 2 x(rec8) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec8,rec11) >= -0
+ deltaXBorder_1(rec8,rec12): - 2 x(rec8) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec8,rec12) >= -0
+ deltaXBorder_1(rec8,rec13): - 2 x(rec8) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec8,rec13) >= -0
+ deltaXBorder_1(rec8,rec14): - 2 x(rec8) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec8,rec14) >= -0
+ deltaXBorder_1(rec8,rec15): - 2 x(rec8) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec8,rec15) >= -0
  deltaXBorder_1(rec9,rec1): + 2 x(rec1) - 2 x(rec9) + 2 w(rec1)
  + DBx(rec9,rec1) >= -0
  deltaXBorder_1(rec9,rec2): + 2 x(rec2) - 2 x(rec9) + 2 w(rec2)
@@ -1286,6 +2825,16 @@ Subject To
  + DBx(rec9,rec8) >= -0
  deltaXBorder_1(rec9,rec10): - 2 x(rec9) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec9,rec10) >= -0
+ deltaXBorder_1(rec9,rec11): - 2 x(rec9) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec9,rec11) >= -0
+ deltaXBorder_1(rec9,rec12): - 2 x(rec9) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec9,rec12) >= -0
+ deltaXBorder_1(rec9,rec13): - 2 x(rec9) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec9,rec13) >= -0
+ deltaXBorder_1(rec9,rec14): - 2 x(rec9) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec9,rec14) >= -0
+ deltaXBorder_1(rec9,rec15): - 2 x(rec9) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec9,rec15) >= -0
  deltaXBorder_1(rec10,rec1): + 2 x(rec1) - 2 x(rec10) + 2 w(rec1)
  + DBx(rec10,rec1) >= -0
  deltaXBorder_1(rec10,rec2): + 2 x(rec2) - 2 x(rec10) + 2 w(rec2)
@@ -1304,6 +2853,156 @@ Subject To
  + DBx(rec10,rec8) >= -0
  deltaXBorder_1(rec10,rec9): + 2 x(rec9) - 2 x(rec10) + 2 w(rec9)
  + DBx(rec10,rec9) >= -0
+ deltaXBorder_1(rec10,rec11): - 2 x(rec10) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec10,rec11) >= -0
+ deltaXBorder_1(rec10,rec12): - 2 x(rec10) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec10,rec12) >= -0
+ deltaXBorder_1(rec10,rec13): - 2 x(rec10) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec10,rec13) >= -0
+ deltaXBorder_1(rec10,rec14): - 2 x(rec10) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec10,rec14) >= -0
+ deltaXBorder_1(rec10,rec15): - 2 x(rec10) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec10,rec15) >= -0
+ deltaXBorder_1(rec11,rec1): + 2 x(rec1) - 2 x(rec11) + 2 w(rec1)
+ + DBx(rec11,rec1) >= -0
+ deltaXBorder_1(rec11,rec2): + 2 x(rec2) - 2 x(rec11) + 2 w(rec2)
+ + DBx(rec11,rec2) >= -0
+ deltaXBorder_1(rec11,rec3): + 2 x(rec3) - 2 x(rec11) + 2 w(rec3)
+ + DBx(rec11,rec3) >= -0
+ deltaXBorder_1(rec11,rec4): + 2 x(rec4) - 2 x(rec11) + 2 w(rec4)
+ + DBx(rec11,rec4) >= -0
+ deltaXBorder_1(rec11,rec5): + 2 x(rec5) - 2 x(rec11) + 2 w(rec5)
+ + DBx(rec11,rec5) >= -0
+ deltaXBorder_1(rec11,rec6): + 2 x(rec6) - 2 x(rec11) + 2 w(rec6)
+ + DBx(rec11,rec6) >= -0
+ deltaXBorder_1(rec11,rec7): + 2 x(rec7) - 2 x(rec11) + 2 w(rec7)
+ + DBx(rec11,rec7) >= -0
+ deltaXBorder_1(rec11,rec8): + 2 x(rec8) - 2 x(rec11) + 2 w(rec8)
+ + DBx(rec11,rec8) >= -0
+ deltaXBorder_1(rec11,rec9): + 2 x(rec9) - 2 x(rec11) + 2 w(rec9)
+ + DBx(rec11,rec9) >= -0
+ deltaXBorder_1(rec11,rec10): + 2 x(rec10) - 2 x(rec11) + 2 w(rec10)
+ + DBx(rec11,rec10) >= -0
+ deltaXBorder_1(rec11,rec12): - 2 x(rec11) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec11,rec12) >= -0
+ deltaXBorder_1(rec11,rec13): - 2 x(rec11) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec11,rec13) >= -0
+ deltaXBorder_1(rec11,rec14): - 2 x(rec11) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec11,rec14) >= -0
+ deltaXBorder_1(rec11,rec15): - 2 x(rec11) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec11,rec15) >= -0
+ deltaXBorder_1(rec12,rec1): + 2 x(rec1) - 2 x(rec12) + 2 w(rec1)
+ + DBx(rec12,rec1) >= -0
+ deltaXBorder_1(rec12,rec2): + 2 x(rec2) - 2 x(rec12) + 2 w(rec2)
+ + DBx(rec12,rec2) >= -0
+ deltaXBorder_1(rec12,rec3): + 2 x(rec3) - 2 x(rec12) + 2 w(rec3)
+ + DBx(rec12,rec3) >= -0
+ deltaXBorder_1(rec12,rec4): + 2 x(rec4) - 2 x(rec12) + 2 w(rec4)
+ + DBx(rec12,rec4) >= -0
+ deltaXBorder_1(rec12,rec5): + 2 x(rec5) - 2 x(rec12) + 2 w(rec5)
+ + DBx(rec12,rec5) >= -0
+ deltaXBorder_1(rec12,rec6): + 2 x(rec6) - 2 x(rec12) + 2 w(rec6)
+ + DBx(rec12,rec6) >= -0
+ deltaXBorder_1(rec12,rec7): + 2 x(rec7) - 2 x(rec12) + 2 w(rec7)
+ + DBx(rec12,rec7) >= -0
+ deltaXBorder_1(rec12,rec8): + 2 x(rec8) - 2 x(rec12) + 2 w(rec8)
+ + DBx(rec12,rec8) >= -0
+ deltaXBorder_1(rec12,rec9): + 2 x(rec9) - 2 x(rec12) + 2 w(rec9)
+ + DBx(rec12,rec9) >= -0
+ deltaXBorder_1(rec12,rec10): + 2 x(rec10) - 2 x(rec12) + 2 w(rec10)
+ + DBx(rec12,rec10) >= -0
+ deltaXBorder_1(rec12,rec11): + 2 x(rec11) - 2 x(rec12) + 2 w(rec11)
+ + DBx(rec12,rec11) >= -0
+ deltaXBorder_1(rec12,rec13): - 2 x(rec12) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec12,rec13) >= -0
+ deltaXBorder_1(rec12,rec14): - 2 x(rec12) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec12,rec14) >= -0
+ deltaXBorder_1(rec12,rec15): - 2 x(rec12) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec12,rec15) >= -0
+ deltaXBorder_1(rec13,rec1): + 2 x(rec1) - 2 x(rec13) + 2 w(rec1)
+ + DBx(rec13,rec1) >= -0
+ deltaXBorder_1(rec13,rec2): + 2 x(rec2) - 2 x(rec13) + 2 w(rec2)
+ + DBx(rec13,rec2) >= -0
+ deltaXBorder_1(rec13,rec3): + 2 x(rec3) - 2 x(rec13) + 2 w(rec3)
+ + DBx(rec13,rec3) >= -0
+ deltaXBorder_1(rec13,rec4): + 2 x(rec4) - 2 x(rec13) + 2 w(rec4)
+ + DBx(rec13,rec4) >= -0
+ deltaXBorder_1(rec13,rec5): + 2 x(rec5) - 2 x(rec13) + 2 w(rec5)
+ + DBx(rec13,rec5) >= -0
+ deltaXBorder_1(rec13,rec6): + 2 x(rec6) - 2 x(rec13) + 2 w(rec6)
+ + DBx(rec13,rec6) >= -0
+ deltaXBorder_1(rec13,rec7): + 2 x(rec7) - 2 x(rec13) + 2 w(rec7)
+ + DBx(rec13,rec7) >= -0
+ deltaXBorder_1(rec13,rec8): + 2 x(rec8) - 2 x(rec13) + 2 w(rec8)
+ + DBx(rec13,rec8) >= -0
+ deltaXBorder_1(rec13,rec9): + 2 x(rec9) - 2 x(rec13) + 2 w(rec9)
+ + DBx(rec13,rec9) >= -0
+ deltaXBorder_1(rec13,rec10): + 2 x(rec10) - 2 x(rec13) + 2 w(rec10)
+ + DBx(rec13,rec10) >= -0
+ deltaXBorder_1(rec13,rec11): + 2 x(rec11) - 2 x(rec13) + 2 w(rec11)
+ + DBx(rec13,rec11) >= -0
+ deltaXBorder_1(rec13,rec12): + 2 x(rec12) - 2 x(rec13) + 2 w(rec12)
+ + DBx(rec13,rec12) >= -0
+ deltaXBorder_1(rec13,rec14): - 2 x(rec13) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec13,rec14) >= -0
+ deltaXBorder_1(rec13,rec15): - 2 x(rec13) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec13,rec15) >= -0
+ deltaXBorder_1(rec14,rec1): + 2 x(rec1) - 2 x(rec14) + 2 w(rec1)
+ + DBx(rec14,rec1) >= -0
+ deltaXBorder_1(rec14,rec2): + 2 x(rec2) - 2 x(rec14) + 2 w(rec2)
+ + DBx(rec14,rec2) >= -0
+ deltaXBorder_1(rec14,rec3): + 2 x(rec3) - 2 x(rec14) + 2 w(rec3)
+ + DBx(rec14,rec3) >= -0
+ deltaXBorder_1(rec14,rec4): + 2 x(rec4) - 2 x(rec14) + 2 w(rec4)
+ + DBx(rec14,rec4) >= -0
+ deltaXBorder_1(rec14,rec5): + 2 x(rec5) - 2 x(rec14) + 2 w(rec5)
+ + DBx(rec14,rec5) >= -0
+ deltaXBorder_1(rec14,rec6): + 2 x(rec6) - 2 x(rec14) + 2 w(rec6)
+ + DBx(rec14,rec6) >= -0
+ deltaXBorder_1(rec14,rec7): + 2 x(rec7) - 2 x(rec14) + 2 w(rec7)
+ + DBx(rec14,rec7) >= -0
+ deltaXBorder_1(rec14,rec8): + 2 x(rec8) - 2 x(rec14) + 2 w(rec8)
+ + DBx(rec14,rec8) >= -0
+ deltaXBorder_1(rec14,rec9): + 2 x(rec9) - 2 x(rec14) + 2 w(rec9)
+ + DBx(rec14,rec9) >= -0
+ deltaXBorder_1(rec14,rec10): + 2 x(rec10) - 2 x(rec14) + 2 w(rec10)
+ + DBx(rec14,rec10) >= -0
+ deltaXBorder_1(rec14,rec11): + 2 x(rec11) - 2 x(rec14) + 2 w(rec11)
+ + DBx(rec14,rec11) >= -0
+ deltaXBorder_1(rec14,rec12): + 2 x(rec12) - 2 x(rec14) + 2 w(rec12)
+ + DBx(rec14,rec12) >= -0
+ deltaXBorder_1(rec14,rec13): + 2 x(rec13) - 2 x(rec14) + 2 w(rec13)
+ + DBx(rec14,rec13) >= -0
+ deltaXBorder_1(rec14,rec15): - 2 x(rec14) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec14,rec15) >= -0
+ deltaXBorder_1(rec15,rec1): + 2 x(rec1) - 2 x(rec15) + 2 w(rec1)
+ + DBx(rec15,rec1) >= -0
+ deltaXBorder_1(rec15,rec2): + 2 x(rec2) - 2 x(rec15) + 2 w(rec2)
+ + DBx(rec15,rec2) >= -0
+ deltaXBorder_1(rec15,rec3): + 2 x(rec3) - 2 x(rec15) + 2 w(rec3)
+ + DBx(rec15,rec3) >= -0
+ deltaXBorder_1(rec15,rec4): + 2 x(rec4) - 2 x(rec15) + 2 w(rec4)
+ + DBx(rec15,rec4) >= -0
+ deltaXBorder_1(rec15,rec5): + 2 x(rec5) - 2 x(rec15) + 2 w(rec5)
+ + DBx(rec15,rec5) >= -0
+ deltaXBorder_1(rec15,rec6): + 2 x(rec6) - 2 x(rec15) + 2 w(rec6)
+ + DBx(rec15,rec6) >= -0
+ deltaXBorder_1(rec15,rec7): + 2 x(rec7) - 2 x(rec15) + 2 w(rec7)
+ + DBx(rec15,rec7) >= -0
+ deltaXBorder_1(rec15,rec8): + 2 x(rec8) - 2 x(rec15) + 2 w(rec8)
+ + DBx(rec15,rec8) >= -0
+ deltaXBorder_1(rec15,rec9): + 2 x(rec9) - 2 x(rec15) + 2 w(rec9)
+ + DBx(rec15,rec9) >= -0
+ deltaXBorder_1(rec15,rec10): + 2 x(rec10) - 2 x(rec15) + 2 w(rec10)
+ + DBx(rec15,rec10) >= -0
+ deltaXBorder_1(rec15,rec11): + 2 x(rec11) - 2 x(rec15) + 2 w(rec11)
+ + DBx(rec15,rec11) >= -0
+ deltaXBorder_1(rec15,rec12): + 2 x(rec12) - 2 x(rec15) + 2 w(rec12)
+ + DBx(rec15,rec12) >= -0
+ deltaXBorder_1(rec15,rec13): + 2 x(rec13) - 2 x(rec15) + 2 w(rec13)
+ + DBx(rec15,rec13) >= -0
+ deltaXBorder_1(rec15,rec14): + 2 x(rec14) - 2 x(rec15) + 2 w(rec14)
+ + DBx(rec15,rec14) >= -0
  deltaXBorder_2(rec1,rec2): + 2 x(rec1) - 2 x(rec2) + 2 w(rec1)
  + DBx(rec1,rec2) >= -0
  deltaXBorder_2(rec1,rec3): + 2 x(rec1) - 2 x(rec3) + 2 w(rec1)
@@ -1322,6 +3021,16 @@ Subject To
  + DBx(rec1,rec9) >= -0
  deltaXBorder_2(rec1,rec10): + 2 x(rec1) - 2 x(rec10) + 2 w(rec1)
  + DBx(rec1,rec10) >= -0
+ deltaXBorder_2(rec1,rec11): + 2 x(rec1) - 2 x(rec11) + 2 w(rec1)
+ + DBx(rec1,rec11) >= -0
+ deltaXBorder_2(rec1,rec12): + 2 x(rec1) - 2 x(rec12) + 2 w(rec1)
+ + DBx(rec1,rec12) >= -0
+ deltaXBorder_2(rec1,rec13): + 2 x(rec1) - 2 x(rec13) + 2 w(rec1)
+ + DBx(rec1,rec13) >= -0
+ deltaXBorder_2(rec1,rec14): + 2 x(rec1) - 2 x(rec14) + 2 w(rec1)
+ + DBx(rec1,rec14) >= -0
+ deltaXBorder_2(rec1,rec15): + 2 x(rec1) - 2 x(rec15) + 2 w(rec1)
+ + DBx(rec1,rec15) >= -0
  deltaXBorder_2(rec2,rec1): - 2 x(rec1) + 2 x(rec2) + 2 w(rec2)
  + DBx(rec2,rec1) >= -0
  deltaXBorder_2(rec2,rec3): + 2 x(rec2) - 2 x(rec3) + 2 w(rec2)
@@ -1340,6 +3049,16 @@ Subject To
  + DBx(rec2,rec9) >= -0
  deltaXBorder_2(rec2,rec10): + 2 x(rec2) - 2 x(rec10) + 2 w(rec2)
  + DBx(rec2,rec10) >= -0
+ deltaXBorder_2(rec2,rec11): + 2 x(rec2) - 2 x(rec11) + 2 w(rec2)
+ + DBx(rec2,rec11) >= -0
+ deltaXBorder_2(rec2,rec12): + 2 x(rec2) - 2 x(rec12) + 2 w(rec2)
+ + DBx(rec2,rec12) >= -0
+ deltaXBorder_2(rec2,rec13): + 2 x(rec2) - 2 x(rec13) + 2 w(rec2)
+ + DBx(rec2,rec13) >= -0
+ deltaXBorder_2(rec2,rec14): + 2 x(rec2) - 2 x(rec14) + 2 w(rec2)
+ + DBx(rec2,rec14) >= -0
+ deltaXBorder_2(rec2,rec15): + 2 x(rec2) - 2 x(rec15) + 2 w(rec2)
+ + DBx(rec2,rec15) >= -0
  deltaXBorder_2(rec3,rec1): - 2 x(rec1) + 2 x(rec3) + 2 w(rec3)
  + DBx(rec3,rec1) >= -0
  deltaXBorder_2(rec3,rec2): - 2 x(rec2) + 2 x(rec3) + 2 w(rec3)
@@ -1358,6 +3077,16 @@ Subject To
  + DBx(rec3,rec9) >= -0
  deltaXBorder_2(rec3,rec10): + 2 x(rec3) - 2 x(rec10) + 2 w(rec3)
  + DBx(rec3,rec10) >= -0
+ deltaXBorder_2(rec3,rec11): + 2 x(rec3) - 2 x(rec11) + 2 w(rec3)
+ + DBx(rec3,rec11) >= -0
+ deltaXBorder_2(rec3,rec12): + 2 x(rec3) - 2 x(rec12) + 2 w(rec3)
+ + DBx(rec3,rec12) >= -0
+ deltaXBorder_2(rec3,rec13): + 2 x(rec3) - 2 x(rec13) + 2 w(rec3)
+ + DBx(rec3,rec13) >= -0
+ deltaXBorder_2(rec3,rec14): + 2 x(rec3) - 2 x(rec14) + 2 w(rec3)
+ + DBx(rec3,rec14) >= -0
+ deltaXBorder_2(rec3,rec15): + 2 x(rec3) - 2 x(rec15) + 2 w(rec3)
+ + DBx(rec3,rec15) >= -0
  deltaXBorder_2(rec4,rec1): - 2 x(rec1) + 2 x(rec4) + 2 w(rec4)
  + DBx(rec4,rec1) >= -0
  deltaXBorder_2(rec4,rec2): - 2 x(rec2) + 2 x(rec4) + 2 w(rec4)
@@ -1376,6 +3105,16 @@ Subject To
  + DBx(rec4,rec9) >= -0
  deltaXBorder_2(rec4,rec10): + 2 x(rec4) - 2 x(rec10) + 2 w(rec4)
  + DBx(rec4,rec10) >= -0
+ deltaXBorder_2(rec4,rec11): + 2 x(rec4) - 2 x(rec11) + 2 w(rec4)
+ + DBx(rec4,rec11) >= -0
+ deltaXBorder_2(rec4,rec12): + 2 x(rec4) - 2 x(rec12) + 2 w(rec4)
+ + DBx(rec4,rec12) >= -0
+ deltaXBorder_2(rec4,rec13): + 2 x(rec4) - 2 x(rec13) + 2 w(rec4)
+ + DBx(rec4,rec13) >= -0
+ deltaXBorder_2(rec4,rec14): + 2 x(rec4) - 2 x(rec14) + 2 w(rec4)
+ + DBx(rec4,rec14) >= -0
+ deltaXBorder_2(rec4,rec15): + 2 x(rec4) - 2 x(rec15) + 2 w(rec4)
+ + DBx(rec4,rec15) >= -0
  deltaXBorder_2(rec5,rec1): - 2 x(rec1) + 2 x(rec5) + 2 w(rec5)
  + DBx(rec5,rec1) >= -0
  deltaXBorder_2(rec5,rec2): - 2 x(rec2) + 2 x(rec5) + 2 w(rec5)
@@ -1394,6 +3133,16 @@ Subject To
  + DBx(rec5,rec9) >= -0
  deltaXBorder_2(rec5,rec10): + 2 x(rec5) - 2 x(rec10) + 2 w(rec5)
  + DBx(rec5,rec10) >= -0
+ deltaXBorder_2(rec5,rec11): + 2 x(rec5) - 2 x(rec11) + 2 w(rec5)
+ + DBx(rec5,rec11) >= -0
+ deltaXBorder_2(rec5,rec12): + 2 x(rec5) - 2 x(rec12) + 2 w(rec5)
+ + DBx(rec5,rec12) >= -0
+ deltaXBorder_2(rec5,rec13): + 2 x(rec5) - 2 x(rec13) + 2 w(rec5)
+ + DBx(rec5,rec13) >= -0
+ deltaXBorder_2(rec5,rec14): + 2 x(rec5) - 2 x(rec14) + 2 w(rec5)
+ + DBx(rec5,rec14) >= -0
+ deltaXBorder_2(rec5,rec15): + 2 x(rec5) - 2 x(rec15) + 2 w(rec5)
+ + DBx(rec5,rec15) >= -0
  deltaXBorder_2(rec6,rec1): - 2 x(rec1) + 2 x(rec6) + 2 w(rec6)
  + DBx(rec6,rec1) >= -0
  deltaXBorder_2(rec6,rec2): - 2 x(rec2) + 2 x(rec6) + 2 w(rec6)
@@ -1412,6 +3161,16 @@ Subject To
  + DBx(rec6,rec9) >= -0
  deltaXBorder_2(rec6,rec10): + 2 x(rec6) - 2 x(rec10) + 2 w(rec6)
  + DBx(rec6,rec10) >= -0
+ deltaXBorder_2(rec6,rec11): + 2 x(rec6) - 2 x(rec11) + 2 w(rec6)
+ + DBx(rec6,rec11) >= -0
+ deltaXBorder_2(rec6,rec12): + 2 x(rec6) - 2 x(rec12) + 2 w(rec6)
+ + DBx(rec6,rec12) >= -0
+ deltaXBorder_2(rec6,rec13): + 2 x(rec6) - 2 x(rec13) + 2 w(rec6)
+ + DBx(rec6,rec13) >= -0
+ deltaXBorder_2(rec6,rec14): + 2 x(rec6) - 2 x(rec14) + 2 w(rec6)
+ + DBx(rec6,rec14) >= -0
+ deltaXBorder_2(rec6,rec15): + 2 x(rec6) - 2 x(rec15) + 2 w(rec6)
+ + DBx(rec6,rec15) >= -0
  deltaXBorder_2(rec7,rec1): - 2 x(rec1) + 2 x(rec7) + 2 w(rec7)
  + DBx(rec7,rec1) >= -0
  deltaXBorder_2(rec7,rec2): - 2 x(rec2) + 2 x(rec7) + 2 w(rec7)
@@ -1430,6 +3189,16 @@ Subject To
  + DBx(rec7,rec9) >= -0
  deltaXBorder_2(rec7,rec10): + 2 x(rec7) - 2 x(rec10) + 2 w(rec7)
  + DBx(rec7,rec10) >= -0
+ deltaXBorder_2(rec7,rec11): + 2 x(rec7) - 2 x(rec11) + 2 w(rec7)
+ + DBx(rec7,rec11) >= -0
+ deltaXBorder_2(rec7,rec12): + 2 x(rec7) - 2 x(rec12) + 2 w(rec7)
+ + DBx(rec7,rec12) >= -0
+ deltaXBorder_2(rec7,rec13): + 2 x(rec7) - 2 x(rec13) + 2 w(rec7)
+ + DBx(rec7,rec13) >= -0
+ deltaXBorder_2(rec7,rec14): + 2 x(rec7) - 2 x(rec14) + 2 w(rec7)
+ + DBx(rec7,rec14) >= -0
+ deltaXBorder_2(rec7,rec15): + 2 x(rec7) - 2 x(rec15) + 2 w(rec7)
+ + DBx(rec7,rec15) >= -0
  deltaXBorder_2(rec8,rec1): - 2 x(rec1) + 2 x(rec8) + 2 w(rec8)
  + DBx(rec8,rec1) >= -0
  deltaXBorder_2(rec8,rec2): - 2 x(rec2) + 2 x(rec8) + 2 w(rec8)
@@ -1448,6 +3217,16 @@ Subject To
  + DBx(rec8,rec9) >= -0
  deltaXBorder_2(rec8,rec10): + 2 x(rec8) - 2 x(rec10) + 2 w(rec8)
  + DBx(rec8,rec10) >= -0
+ deltaXBorder_2(rec8,rec11): + 2 x(rec8) - 2 x(rec11) + 2 w(rec8)
+ + DBx(rec8,rec11) >= -0
+ deltaXBorder_2(rec8,rec12): + 2 x(rec8) - 2 x(rec12) + 2 w(rec8)
+ + DBx(rec8,rec12) >= -0
+ deltaXBorder_2(rec8,rec13): + 2 x(rec8) - 2 x(rec13) + 2 w(rec8)
+ + DBx(rec8,rec13) >= -0
+ deltaXBorder_2(rec8,rec14): + 2 x(rec8) - 2 x(rec14) + 2 w(rec8)
+ + DBx(rec8,rec14) >= -0
+ deltaXBorder_2(rec8,rec15): + 2 x(rec8) - 2 x(rec15) + 2 w(rec8)
+ + DBx(rec8,rec15) >= -0
  deltaXBorder_2(rec9,rec1): - 2 x(rec1) + 2 x(rec9) + 2 w(rec9)
  + DBx(rec9,rec1) >= -0
  deltaXBorder_2(rec9,rec2): - 2 x(rec2) + 2 x(rec9) + 2 w(rec9)
@@ -1466,6 +3245,16 @@ Subject To
  + DBx(rec9,rec8) >= -0
  deltaXBorder_2(rec9,rec10): + 2 x(rec9) - 2 x(rec10) + 2 w(rec9)
  + DBx(rec9,rec10) >= -0
+ deltaXBorder_2(rec9,rec11): + 2 x(rec9) - 2 x(rec11) + 2 w(rec9)
+ + DBx(rec9,rec11) >= -0
+ deltaXBorder_2(rec9,rec12): + 2 x(rec9) - 2 x(rec12) + 2 w(rec9)
+ + DBx(rec9,rec12) >= -0
+ deltaXBorder_2(rec9,rec13): + 2 x(rec9) - 2 x(rec13) + 2 w(rec9)
+ + DBx(rec9,rec13) >= -0
+ deltaXBorder_2(rec9,rec14): + 2 x(rec9) - 2 x(rec14) + 2 w(rec9)
+ + DBx(rec9,rec14) >= -0
+ deltaXBorder_2(rec9,rec15): + 2 x(rec9) - 2 x(rec15) + 2 w(rec9)
+ + DBx(rec9,rec15) >= -0
  deltaXBorder_2(rec10,rec1): - 2 x(rec1) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec10,rec1) >= -0
  deltaXBorder_2(rec10,rec2): - 2 x(rec2) + 2 x(rec10) + 2 w(rec10)
@@ -1484,6 +3273,156 @@ Subject To
  + DBx(rec10,rec8) >= -0
  deltaXBorder_2(rec10,rec9): - 2 x(rec9) + 2 x(rec10) + 2 w(rec10)
  + DBx(rec10,rec9) >= -0
+ deltaXBorder_2(rec10,rec11): + 2 x(rec10) - 2 x(rec11) + 2 w(rec10)
+ + DBx(rec10,rec11) >= -0
+ deltaXBorder_2(rec10,rec12): + 2 x(rec10) - 2 x(rec12) + 2 w(rec10)
+ + DBx(rec10,rec12) >= -0
+ deltaXBorder_2(rec10,rec13): + 2 x(rec10) - 2 x(rec13) + 2 w(rec10)
+ + DBx(rec10,rec13) >= -0
+ deltaXBorder_2(rec10,rec14): + 2 x(rec10) - 2 x(rec14) + 2 w(rec10)
+ + DBx(rec10,rec14) >= -0
+ deltaXBorder_2(rec10,rec15): + 2 x(rec10) - 2 x(rec15) + 2 w(rec10)
+ + DBx(rec10,rec15) >= -0
+ deltaXBorder_2(rec11,rec1): - 2 x(rec1) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec11,rec1) >= -0
+ deltaXBorder_2(rec11,rec2): - 2 x(rec2) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec11,rec2) >= -0
+ deltaXBorder_2(rec11,rec3): - 2 x(rec3) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec11,rec3) >= -0
+ deltaXBorder_2(rec11,rec4): - 2 x(rec4) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec11,rec4) >= -0
+ deltaXBorder_2(rec11,rec5): - 2 x(rec5) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec11,rec5) >= -0
+ deltaXBorder_2(rec11,rec6): - 2 x(rec6) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec11,rec6) >= -0
+ deltaXBorder_2(rec11,rec7): - 2 x(rec7) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec11,rec7) >= -0
+ deltaXBorder_2(rec11,rec8): - 2 x(rec8) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec11,rec8) >= -0
+ deltaXBorder_2(rec11,rec9): - 2 x(rec9) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec11,rec9) >= -0
+ deltaXBorder_2(rec11,rec10): - 2 x(rec10) + 2 x(rec11) + 2 w(rec11)
+ + DBx(rec11,rec10) >= -0
+ deltaXBorder_2(rec11,rec12): + 2 x(rec11) - 2 x(rec12) + 2 w(rec11)
+ + DBx(rec11,rec12) >= -0
+ deltaXBorder_2(rec11,rec13): + 2 x(rec11) - 2 x(rec13) + 2 w(rec11)
+ + DBx(rec11,rec13) >= -0
+ deltaXBorder_2(rec11,rec14): + 2 x(rec11) - 2 x(rec14) + 2 w(rec11)
+ + DBx(rec11,rec14) >= -0
+ deltaXBorder_2(rec11,rec15): + 2 x(rec11) - 2 x(rec15) + 2 w(rec11)
+ + DBx(rec11,rec15) >= -0
+ deltaXBorder_2(rec12,rec1): - 2 x(rec1) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec1) >= -0
+ deltaXBorder_2(rec12,rec2): - 2 x(rec2) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec2) >= -0
+ deltaXBorder_2(rec12,rec3): - 2 x(rec3) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec3) >= -0
+ deltaXBorder_2(rec12,rec4): - 2 x(rec4) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec4) >= -0
+ deltaXBorder_2(rec12,rec5): - 2 x(rec5) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec5) >= -0
+ deltaXBorder_2(rec12,rec6): - 2 x(rec6) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec6) >= -0
+ deltaXBorder_2(rec12,rec7): - 2 x(rec7) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec7) >= -0
+ deltaXBorder_2(rec12,rec8): - 2 x(rec8) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec8) >= -0
+ deltaXBorder_2(rec12,rec9): - 2 x(rec9) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec9) >= -0
+ deltaXBorder_2(rec12,rec10): - 2 x(rec10) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec10) >= -0
+ deltaXBorder_2(rec12,rec11): - 2 x(rec11) + 2 x(rec12) + 2 w(rec12)
+ + DBx(rec12,rec11) >= -0
+ deltaXBorder_2(rec12,rec13): + 2 x(rec12) - 2 x(rec13) + 2 w(rec12)
+ + DBx(rec12,rec13) >= -0
+ deltaXBorder_2(rec12,rec14): + 2 x(rec12) - 2 x(rec14) + 2 w(rec12)
+ + DBx(rec12,rec14) >= -0
+ deltaXBorder_2(rec12,rec15): + 2 x(rec12) - 2 x(rec15) + 2 w(rec12)
+ + DBx(rec12,rec15) >= -0
+ deltaXBorder_2(rec13,rec1): - 2 x(rec1) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec1) >= -0
+ deltaXBorder_2(rec13,rec2): - 2 x(rec2) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec2) >= -0
+ deltaXBorder_2(rec13,rec3): - 2 x(rec3) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec3) >= -0
+ deltaXBorder_2(rec13,rec4): - 2 x(rec4) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec4) >= -0
+ deltaXBorder_2(rec13,rec5): - 2 x(rec5) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec5) >= -0
+ deltaXBorder_2(rec13,rec6): - 2 x(rec6) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec6) >= -0
+ deltaXBorder_2(rec13,rec7): - 2 x(rec7) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec7) >= -0
+ deltaXBorder_2(rec13,rec8): - 2 x(rec8) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec8) >= -0
+ deltaXBorder_2(rec13,rec9): - 2 x(rec9) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec9) >= -0
+ deltaXBorder_2(rec13,rec10): - 2 x(rec10) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec10) >= -0
+ deltaXBorder_2(rec13,rec11): - 2 x(rec11) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec11) >= -0
+ deltaXBorder_2(rec13,rec12): - 2 x(rec12) + 2 x(rec13) + 2 w(rec13)
+ + DBx(rec13,rec12) >= -0
+ deltaXBorder_2(rec13,rec14): + 2 x(rec13) - 2 x(rec14) + 2 w(rec13)
+ + DBx(rec13,rec14) >= -0
+ deltaXBorder_2(rec13,rec15): + 2 x(rec13) - 2 x(rec15) + 2 w(rec13)
+ + DBx(rec13,rec15) >= -0
+ deltaXBorder_2(rec14,rec1): - 2 x(rec1) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec1) >= -0
+ deltaXBorder_2(rec14,rec2): - 2 x(rec2) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec2) >= -0
+ deltaXBorder_2(rec14,rec3): - 2 x(rec3) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec3) >= -0
+ deltaXBorder_2(rec14,rec4): - 2 x(rec4) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec4) >= -0
+ deltaXBorder_2(rec14,rec5): - 2 x(rec5) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec5) >= -0
+ deltaXBorder_2(rec14,rec6): - 2 x(rec6) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec6) >= -0
+ deltaXBorder_2(rec14,rec7): - 2 x(rec7) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec7) >= -0
+ deltaXBorder_2(rec14,rec8): - 2 x(rec8) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec8) >= -0
+ deltaXBorder_2(rec14,rec9): - 2 x(rec9) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec9) >= -0
+ deltaXBorder_2(rec14,rec10): - 2 x(rec10) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec10) >= -0
+ deltaXBorder_2(rec14,rec11): - 2 x(rec11) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec11) >= -0
+ deltaXBorder_2(rec14,rec12): - 2 x(rec12) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec12) >= -0
+ deltaXBorder_2(rec14,rec13): - 2 x(rec13) + 2 x(rec14) + 2 w(rec14)
+ + DBx(rec14,rec13) >= -0
+ deltaXBorder_2(rec14,rec15): + 2 x(rec14) - 2 x(rec15) + 2 w(rec14)
+ + DBx(rec14,rec15) >= -0
+ deltaXBorder_2(rec15,rec1): - 2 x(rec1) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec1) >= -0
+ deltaXBorder_2(rec15,rec2): - 2 x(rec2) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec2) >= -0
+ deltaXBorder_2(rec15,rec3): - 2 x(rec3) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec3) >= -0
+ deltaXBorder_2(rec15,rec4): - 2 x(rec4) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec4) >= -0
+ deltaXBorder_2(rec15,rec5): - 2 x(rec5) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec5) >= -0
+ deltaXBorder_2(rec15,rec6): - 2 x(rec6) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec6) >= -0
+ deltaXBorder_2(rec15,rec7): - 2 x(rec7) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec7) >= -0
+ deltaXBorder_2(rec15,rec8): - 2 x(rec8) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec8) >= -0
+ deltaXBorder_2(rec15,rec9): - 2 x(rec9) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec9) >= -0
+ deltaXBorder_2(rec15,rec10): - 2 x(rec10) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec10) >= -0
+ deltaXBorder_2(rec15,rec11): - 2 x(rec11) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec11) >= -0
+ deltaXBorder_2(rec15,rec12): - 2 x(rec12) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec12) >= -0
+ deltaXBorder_2(rec15,rec13): - 2 x(rec13) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec13) >= -0
+ deltaXBorder_2(rec15,rec14): - 2 x(rec14) + 2 x(rec15) + 2 w(rec15)
+ + DBx(rec15,rec14) >= -0
  deltaYBorder_1(rec1,rec2): - 20 y(rec1) + 20 y(rec2) + 20 a(rec2)
  + DBy(rec1,rec2) >= -0
  deltaYBorder_1(rec1,rec3): - 20 y(rec1) + 20 y(rec3) + 20 a(rec3)
@@ -1502,6 +3441,16 @@ Subject To
  + DBy(rec1,rec9) >= -0
  deltaYBorder_1(rec1,rec10): - 20 y(rec1) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec1,rec10) >= -0
+ deltaYBorder_1(rec1,rec11): - 20 y(rec1) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec1,rec11) >= -0
+ deltaYBorder_1(rec1,rec12): - 20 y(rec1) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec1,rec12) >= -0
+ deltaYBorder_1(rec1,rec13): - 20 y(rec1) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec1,rec13) >= -0
+ deltaYBorder_1(rec1,rec14): - 20 y(rec1) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec1,rec14) >= -0
+ deltaYBorder_1(rec1,rec15): - 20 y(rec1) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec1,rec15) >= -0
  deltaYBorder_1(rec2,rec1): + 20 y(rec1) - 20 y(rec2) + 20 a(rec1)
  + DBy(rec2,rec1) >= -0
  deltaYBorder_1(rec2,rec3): - 20 y(rec2) + 20 y(rec3) + 20 a(rec3)
@@ -1520,6 +3469,16 @@ Subject To
  + DBy(rec2,rec9) >= -0
  deltaYBorder_1(rec2,rec10): - 20 y(rec2) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec2,rec10) >= -0
+ deltaYBorder_1(rec2,rec11): - 20 y(rec2) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec2,rec11) >= -0
+ deltaYBorder_1(rec2,rec12): - 20 y(rec2) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec2,rec12) >= -0
+ deltaYBorder_1(rec2,rec13): - 20 y(rec2) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec2,rec13) >= -0
+ deltaYBorder_1(rec2,rec14): - 20 y(rec2) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec2,rec14) >= -0
+ deltaYBorder_1(rec2,rec15): - 20 y(rec2) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec2,rec15) >= -0
  deltaYBorder_1(rec3,rec1): + 20 y(rec1) - 20 y(rec3) + 20 a(rec1)
  + DBy(rec3,rec1) >= -0
  deltaYBorder_1(rec3,rec2): + 20 y(rec2) - 20 y(rec3) + 20 a(rec2)
@@ -1538,6 +3497,16 @@ Subject To
  + DBy(rec3,rec9) >= -0
  deltaYBorder_1(rec3,rec10): - 20 y(rec3) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec3,rec10) >= -0
+ deltaYBorder_1(rec3,rec11): - 20 y(rec3) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec3,rec11) >= -0
+ deltaYBorder_1(rec3,rec12): - 20 y(rec3) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec3,rec12) >= -0
+ deltaYBorder_1(rec3,rec13): - 20 y(rec3) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec3,rec13) >= -0
+ deltaYBorder_1(rec3,rec14): - 20 y(rec3) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec3,rec14) >= -0
+ deltaYBorder_1(rec3,rec15): - 20 y(rec3) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec3,rec15) >= -0
  deltaYBorder_1(rec4,rec1): + 20 y(rec1) - 20 y(rec4) + 20 a(rec1)
  + DBy(rec4,rec1) >= -0
  deltaYBorder_1(rec4,rec2): + 20 y(rec2) - 20 y(rec4) + 20 a(rec2)
@@ -1556,6 +3525,16 @@ Subject To
  + DBy(rec4,rec9) >= -0
  deltaYBorder_1(rec4,rec10): - 20 y(rec4) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec4,rec10) >= -0
+ deltaYBorder_1(rec4,rec11): - 20 y(rec4) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec4,rec11) >= -0
+ deltaYBorder_1(rec4,rec12): - 20 y(rec4) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec4,rec12) >= -0
+ deltaYBorder_1(rec4,rec13): - 20 y(rec4) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec4,rec13) >= -0
+ deltaYBorder_1(rec4,rec14): - 20 y(rec4) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec4,rec14) >= -0
+ deltaYBorder_1(rec4,rec15): - 20 y(rec4) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec4,rec15) >= -0
  deltaYBorder_1(rec5,rec1): + 20 y(rec1) - 20 y(rec5) + 20 a(rec1)
  + DBy(rec5,rec1) >= -0
  deltaYBorder_1(rec5,rec2): + 20 y(rec2) - 20 y(rec5) + 20 a(rec2)
@@ -1574,6 +3553,16 @@ Subject To
  + DBy(rec5,rec9) >= -0
  deltaYBorder_1(rec5,rec10): - 20 y(rec5) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec5,rec10) >= -0
+ deltaYBorder_1(rec5,rec11): - 20 y(rec5) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec5,rec11) >= -0
+ deltaYBorder_1(rec5,rec12): - 20 y(rec5) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec5,rec12) >= -0
+ deltaYBorder_1(rec5,rec13): - 20 y(rec5) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec5,rec13) >= -0
+ deltaYBorder_1(rec5,rec14): - 20 y(rec5) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec5,rec14) >= -0
+ deltaYBorder_1(rec5,rec15): - 20 y(rec5) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec5,rec15) >= -0
  deltaYBorder_1(rec6,rec1): + 20 y(rec1) - 20 y(rec6) + 20 a(rec1)
  + DBy(rec6,rec1) >= -0
  deltaYBorder_1(rec6,rec2): + 20 y(rec2) - 20 y(rec6) + 20 a(rec2)
@@ -1592,6 +3581,16 @@ Subject To
  + DBy(rec6,rec9) >= -0
  deltaYBorder_1(rec6,rec10): - 20 y(rec6) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec6,rec10) >= -0
+ deltaYBorder_1(rec6,rec11): - 20 y(rec6) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec6,rec11) >= -0
+ deltaYBorder_1(rec6,rec12): - 20 y(rec6) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec6,rec12) >= -0
+ deltaYBorder_1(rec6,rec13): - 20 y(rec6) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec6,rec13) >= -0
+ deltaYBorder_1(rec6,rec14): - 20 y(rec6) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec6,rec14) >= -0
+ deltaYBorder_1(rec6,rec15): - 20 y(rec6) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec6,rec15) >= -0
  deltaYBorder_1(rec7,rec1): + 20 y(rec1) - 20 y(rec7) + 20 a(rec1)
  + DBy(rec7,rec1) >= -0
  deltaYBorder_1(rec7,rec2): + 20 y(rec2) - 20 y(rec7) + 20 a(rec2)
@@ -1610,6 +3609,16 @@ Subject To
  + DBy(rec7,rec9) >= -0
  deltaYBorder_1(rec7,rec10): - 20 y(rec7) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec7,rec10) >= -0
+ deltaYBorder_1(rec7,rec11): - 20 y(rec7) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec7,rec11) >= -0
+ deltaYBorder_1(rec7,rec12): - 20 y(rec7) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec7,rec12) >= -0
+ deltaYBorder_1(rec7,rec13): - 20 y(rec7) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec7,rec13) >= -0
+ deltaYBorder_1(rec7,rec14): - 20 y(rec7) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec7,rec14) >= -0
+ deltaYBorder_1(rec7,rec15): - 20 y(rec7) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec7,rec15) >= -0
  deltaYBorder_1(rec8,rec1): + 20 y(rec1) - 20 y(rec8) + 20 a(rec1)
  + DBy(rec8,rec1) >= -0
  deltaYBorder_1(rec8,rec2): + 20 y(rec2) - 20 y(rec8) + 20 a(rec2)
@@ -1628,6 +3637,16 @@ Subject To
  + DBy(rec8,rec9) >= -0
  deltaYBorder_1(rec8,rec10): - 20 y(rec8) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec8,rec10) >= -0
+ deltaYBorder_1(rec8,rec11): - 20 y(rec8) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec8,rec11) >= -0
+ deltaYBorder_1(rec8,rec12): - 20 y(rec8) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec8,rec12) >= -0
+ deltaYBorder_1(rec8,rec13): - 20 y(rec8) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec8,rec13) >= -0
+ deltaYBorder_1(rec8,rec14): - 20 y(rec8) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec8,rec14) >= -0
+ deltaYBorder_1(rec8,rec15): - 20 y(rec8) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec8,rec15) >= -0
  deltaYBorder_1(rec9,rec1): + 20 y(rec1) - 20 y(rec9) + 20 a(rec1)
  + DBy(rec9,rec1) >= -0
  deltaYBorder_1(rec9,rec2): + 20 y(rec2) - 20 y(rec9) + 20 a(rec2)
@@ -1646,6 +3665,16 @@ Subject To
  + DBy(rec9,rec8) >= -0
  deltaYBorder_1(rec9,rec10): - 20 y(rec9) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec9,rec10) >= -0
+ deltaYBorder_1(rec9,rec11): - 20 y(rec9) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec9,rec11) >= -0
+ deltaYBorder_1(rec9,rec12): - 20 y(rec9) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec9,rec12) >= -0
+ deltaYBorder_1(rec9,rec13): - 20 y(rec9) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec9,rec13) >= -0
+ deltaYBorder_1(rec9,rec14): - 20 y(rec9) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec9,rec14) >= -0
+ deltaYBorder_1(rec9,rec15): - 20 y(rec9) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec9,rec15) >= -0
  deltaYBorder_1(rec10,rec1): + 20 y(rec1) - 20 y(rec10) + 20 a(rec1)
  + DBy(rec10,rec1) >= -0
  deltaYBorder_1(rec10,rec2): + 20 y(rec2) - 20 y(rec10) + 20 a(rec2)
@@ -1664,6 +3693,156 @@ Subject To
  + DBy(rec10,rec8) >= -0
  deltaYBorder_1(rec10,rec9): + 20 y(rec9) - 20 y(rec10) + 20 a(rec9)
  + DBy(rec10,rec9) >= -0
+ deltaYBorder_1(rec10,rec11): - 20 y(rec10) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec10,rec11) >= -0
+ deltaYBorder_1(rec10,rec12): - 20 y(rec10) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec10,rec12) >= -0
+ deltaYBorder_1(rec10,rec13): - 20 y(rec10) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec10,rec13) >= -0
+ deltaYBorder_1(rec10,rec14): - 20 y(rec10) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec10,rec14) >= -0
+ deltaYBorder_1(rec10,rec15): - 20 y(rec10) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec10,rec15) >= -0
+ deltaYBorder_1(rec11,rec1): + 20 y(rec1) - 20 y(rec11) + 20 a(rec1)
+ + DBy(rec11,rec1) >= -0
+ deltaYBorder_1(rec11,rec2): + 20 y(rec2) - 20 y(rec11) + 20 a(rec2)
+ + DBy(rec11,rec2) >= -0
+ deltaYBorder_1(rec11,rec3): + 20 y(rec3) - 20 y(rec11) + 20 a(rec3)
+ + DBy(rec11,rec3) >= -0
+ deltaYBorder_1(rec11,rec4): + 20 y(rec4) - 20 y(rec11) + 20 a(rec4)
+ + DBy(rec11,rec4) >= -0
+ deltaYBorder_1(rec11,rec5): + 20 y(rec5) - 20 y(rec11) + 20 a(rec5)
+ + DBy(rec11,rec5) >= -0
+ deltaYBorder_1(rec11,rec6): + 20 y(rec6) - 20 y(rec11) + 20 a(rec6)
+ + DBy(rec11,rec6) >= -0
+ deltaYBorder_1(rec11,rec7): + 20 y(rec7) - 20 y(rec11) + 20 a(rec7)
+ + DBy(rec11,rec7) >= -0
+ deltaYBorder_1(rec11,rec8): + 20 y(rec8) - 20 y(rec11) + 20 a(rec8)
+ + DBy(rec11,rec8) >= -0
+ deltaYBorder_1(rec11,rec9): + 20 y(rec9) - 20 y(rec11) + 20 a(rec9)
+ + DBy(rec11,rec9) >= -0
+ deltaYBorder_1(rec11,rec10): + 20 y(rec10) - 20 y(rec11) + 20 a(rec10)
+ + DBy(rec11,rec10) >= -0
+ deltaYBorder_1(rec11,rec12): - 20 y(rec11) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec11,rec12) >= -0
+ deltaYBorder_1(rec11,rec13): - 20 y(rec11) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec11,rec13) >= -0
+ deltaYBorder_1(rec11,rec14): - 20 y(rec11) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec11,rec14) >= -0
+ deltaYBorder_1(rec11,rec15): - 20 y(rec11) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec11,rec15) >= -0
+ deltaYBorder_1(rec12,rec1): + 20 y(rec1) - 20 y(rec12) + 20 a(rec1)
+ + DBy(rec12,rec1) >= -0
+ deltaYBorder_1(rec12,rec2): + 20 y(rec2) - 20 y(rec12) + 20 a(rec2)
+ + DBy(rec12,rec2) >= -0
+ deltaYBorder_1(rec12,rec3): + 20 y(rec3) - 20 y(rec12) + 20 a(rec3)
+ + DBy(rec12,rec3) >= -0
+ deltaYBorder_1(rec12,rec4): + 20 y(rec4) - 20 y(rec12) + 20 a(rec4)
+ + DBy(rec12,rec4) >= -0
+ deltaYBorder_1(rec12,rec5): + 20 y(rec5) - 20 y(rec12) + 20 a(rec5)
+ + DBy(rec12,rec5) >= -0
+ deltaYBorder_1(rec12,rec6): + 20 y(rec6) - 20 y(rec12) + 20 a(rec6)
+ + DBy(rec12,rec6) >= -0
+ deltaYBorder_1(rec12,rec7): + 20 y(rec7) - 20 y(rec12) + 20 a(rec7)
+ + DBy(rec12,rec7) >= -0
+ deltaYBorder_1(rec12,rec8): + 20 y(rec8) - 20 y(rec12) + 20 a(rec8)
+ + DBy(rec12,rec8) >= -0
+ deltaYBorder_1(rec12,rec9): + 20 y(rec9) - 20 y(rec12) + 20 a(rec9)
+ + DBy(rec12,rec9) >= -0
+ deltaYBorder_1(rec12,rec10): + 20 y(rec10) - 20 y(rec12) + 20 a(rec10)
+ + DBy(rec12,rec10) >= -0
+ deltaYBorder_1(rec12,rec11): + 20 y(rec11) - 20 y(rec12) + 20 a(rec11)
+ + DBy(rec12,rec11) >= -0
+ deltaYBorder_1(rec12,rec13): - 20 y(rec12) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec12,rec13) >= -0
+ deltaYBorder_1(rec12,rec14): - 20 y(rec12) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec12,rec14) >= -0
+ deltaYBorder_1(rec12,rec15): - 20 y(rec12) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec12,rec15) >= -0
+ deltaYBorder_1(rec13,rec1): + 20 y(rec1) - 20 y(rec13) + 20 a(rec1)
+ + DBy(rec13,rec1) >= -0
+ deltaYBorder_1(rec13,rec2): + 20 y(rec2) - 20 y(rec13) + 20 a(rec2)
+ + DBy(rec13,rec2) >= -0
+ deltaYBorder_1(rec13,rec3): + 20 y(rec3) - 20 y(rec13) + 20 a(rec3)
+ + DBy(rec13,rec3) >= -0
+ deltaYBorder_1(rec13,rec4): + 20 y(rec4) - 20 y(rec13) + 20 a(rec4)
+ + DBy(rec13,rec4) >= -0
+ deltaYBorder_1(rec13,rec5): + 20 y(rec5) - 20 y(rec13) + 20 a(rec5)
+ + DBy(rec13,rec5) >= -0
+ deltaYBorder_1(rec13,rec6): + 20 y(rec6) - 20 y(rec13) + 20 a(rec6)
+ + DBy(rec13,rec6) >= -0
+ deltaYBorder_1(rec13,rec7): + 20 y(rec7) - 20 y(rec13) + 20 a(rec7)
+ + DBy(rec13,rec7) >= -0
+ deltaYBorder_1(rec13,rec8): + 20 y(rec8) - 20 y(rec13) + 20 a(rec8)
+ + DBy(rec13,rec8) >= -0
+ deltaYBorder_1(rec13,rec9): + 20 y(rec9) - 20 y(rec13) + 20 a(rec9)
+ + DBy(rec13,rec9) >= -0
+ deltaYBorder_1(rec13,rec10): + 20 y(rec10) - 20 y(rec13) + 20 a(rec10)
+ + DBy(rec13,rec10) >= -0
+ deltaYBorder_1(rec13,rec11): + 20 y(rec11) - 20 y(rec13) + 20 a(rec11)
+ + DBy(rec13,rec11) >= -0
+ deltaYBorder_1(rec13,rec12): + 20 y(rec12) - 20 y(rec13) + 20 a(rec12)
+ + DBy(rec13,rec12) >= -0
+ deltaYBorder_1(rec13,rec14): - 20 y(rec13) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec13,rec14) >= -0
+ deltaYBorder_1(rec13,rec15): - 20 y(rec13) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec13,rec15) >= -0
+ deltaYBorder_1(rec14,rec1): + 20 y(rec1) - 20 y(rec14) + 20 a(rec1)
+ + DBy(rec14,rec1) >= -0
+ deltaYBorder_1(rec14,rec2): + 20 y(rec2) - 20 y(rec14) + 20 a(rec2)
+ + DBy(rec14,rec2) >= -0
+ deltaYBorder_1(rec14,rec3): + 20 y(rec3) - 20 y(rec14) + 20 a(rec3)
+ + DBy(rec14,rec3) >= -0
+ deltaYBorder_1(rec14,rec4): + 20 y(rec4) - 20 y(rec14) + 20 a(rec4)
+ + DBy(rec14,rec4) >= -0
+ deltaYBorder_1(rec14,rec5): + 20 y(rec5) - 20 y(rec14) + 20 a(rec5)
+ + DBy(rec14,rec5) >= -0
+ deltaYBorder_1(rec14,rec6): + 20 y(rec6) - 20 y(rec14) + 20 a(rec6)
+ + DBy(rec14,rec6) >= -0
+ deltaYBorder_1(rec14,rec7): + 20 y(rec7) - 20 y(rec14) + 20 a(rec7)
+ + DBy(rec14,rec7) >= -0
+ deltaYBorder_1(rec14,rec8): + 20 y(rec8) - 20 y(rec14) + 20 a(rec8)
+ + DBy(rec14,rec8) >= -0
+ deltaYBorder_1(rec14,rec9): + 20 y(rec9) - 20 y(rec14) + 20 a(rec9)
+ + DBy(rec14,rec9) >= -0
+ deltaYBorder_1(rec14,rec10): + 20 y(rec10) - 20 y(rec14) + 20 a(rec10)
+ + DBy(rec14,rec10) >= -0
+ deltaYBorder_1(rec14,rec11): + 20 y(rec11) - 20 y(rec14) + 20 a(rec11)
+ + DBy(rec14,rec11) >= -0
+ deltaYBorder_1(rec14,rec12): + 20 y(rec12) - 20 y(rec14) + 20 a(rec12)
+ + DBy(rec14,rec12) >= -0
+ deltaYBorder_1(rec14,rec13): + 20 y(rec13) - 20 y(rec14) + 20 a(rec13)
+ + DBy(rec14,rec13) >= -0
+ deltaYBorder_1(rec14,rec15): - 20 y(rec14) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec14,rec15) >= -0
+ deltaYBorder_1(rec15,rec1): + 20 y(rec1) - 20 y(rec15) + 20 a(rec1)
+ + DBy(rec15,rec1) >= -0
+ deltaYBorder_1(rec15,rec2): + 20 y(rec2) - 20 y(rec15) + 20 a(rec2)
+ + DBy(rec15,rec2) >= -0
+ deltaYBorder_1(rec15,rec3): + 20 y(rec3) - 20 y(rec15) + 20 a(rec3)
+ + DBy(rec15,rec3) >= -0
+ deltaYBorder_1(rec15,rec4): + 20 y(rec4) - 20 y(rec15) + 20 a(rec4)
+ + DBy(rec15,rec4) >= -0
+ deltaYBorder_1(rec15,rec5): + 20 y(rec5) - 20 y(rec15) + 20 a(rec5)
+ + DBy(rec15,rec5) >= -0
+ deltaYBorder_1(rec15,rec6): + 20 y(rec6) - 20 y(rec15) + 20 a(rec6)
+ + DBy(rec15,rec6) >= -0
+ deltaYBorder_1(rec15,rec7): + 20 y(rec7) - 20 y(rec15) + 20 a(rec7)
+ + DBy(rec15,rec7) >= -0
+ deltaYBorder_1(rec15,rec8): + 20 y(rec8) - 20 y(rec15) + 20 a(rec8)
+ + DBy(rec15,rec8) >= -0
+ deltaYBorder_1(rec15,rec9): + 20 y(rec9) - 20 y(rec15) + 20 a(rec9)
+ + DBy(rec15,rec9) >= -0
+ deltaYBorder_1(rec15,rec10): + 20 y(rec10) - 20 y(rec15) + 20 a(rec10)
+ + DBy(rec15,rec10) >= -0
+ deltaYBorder_1(rec15,rec11): + 20 y(rec11) - 20 y(rec15) + 20 a(rec11)
+ + DBy(rec15,rec11) >= -0
+ deltaYBorder_1(rec15,rec12): + 20 y(rec12) - 20 y(rec15) + 20 a(rec12)
+ + DBy(rec15,rec12) >= -0
+ deltaYBorder_1(rec15,rec13): + 20 y(rec13) - 20 y(rec15) + 20 a(rec13)
+ + DBy(rec15,rec13) >= -0
+ deltaYBorder_1(rec15,rec14): + 20 y(rec14) - 20 y(rec15) + 20 a(rec14)
+ + DBy(rec15,rec14) >= -0
  deltaYBorder_2(rec1,rec2): + 20 y(rec1) - 20 y(rec2) + 20 a(rec1)
  + DBy(rec1,rec2) >= -0
  deltaYBorder_2(rec1,rec3): + 20 y(rec1) - 20 y(rec3) + 20 a(rec1)
@@ -1682,6 +3861,16 @@ Subject To
  + DBy(rec1,rec9) >= -0
  deltaYBorder_2(rec1,rec10): + 20 y(rec1) - 20 y(rec10) + 20 a(rec1)
  + DBy(rec1,rec10) >= -0
+ deltaYBorder_2(rec1,rec11): + 20 y(rec1) - 20 y(rec11) + 20 a(rec1)
+ + DBy(rec1,rec11) >= -0
+ deltaYBorder_2(rec1,rec12): + 20 y(rec1) - 20 y(rec12) + 20 a(rec1)
+ + DBy(rec1,rec12) >= -0
+ deltaYBorder_2(rec1,rec13): + 20 y(rec1) - 20 y(rec13) + 20 a(rec1)
+ + DBy(rec1,rec13) >= -0
+ deltaYBorder_2(rec1,rec14): + 20 y(rec1) - 20 y(rec14) + 20 a(rec1)
+ + DBy(rec1,rec14) >= -0
+ deltaYBorder_2(rec1,rec15): + 20 y(rec1) - 20 y(rec15) + 20 a(rec1)
+ + DBy(rec1,rec15) >= -0
  deltaYBorder_2(rec2,rec1): - 20 y(rec1) + 20 y(rec2) + 20 a(rec2)
  + DBy(rec2,rec1) >= -0
  deltaYBorder_2(rec2,rec3): + 20 y(rec2) - 20 y(rec3) + 20 a(rec2)
@@ -1700,6 +3889,16 @@ Subject To
  + DBy(rec2,rec9) >= -0
  deltaYBorder_2(rec2,rec10): + 20 y(rec2) - 20 y(rec10) + 20 a(rec2)
  + DBy(rec2,rec10) >= -0
+ deltaYBorder_2(rec2,rec11): + 20 y(rec2) - 20 y(rec11) + 20 a(rec2)
+ + DBy(rec2,rec11) >= -0
+ deltaYBorder_2(rec2,rec12): + 20 y(rec2) - 20 y(rec12) + 20 a(rec2)
+ + DBy(rec2,rec12) >= -0
+ deltaYBorder_2(rec2,rec13): + 20 y(rec2) - 20 y(rec13) + 20 a(rec2)
+ + DBy(rec2,rec13) >= -0
+ deltaYBorder_2(rec2,rec14): + 20 y(rec2) - 20 y(rec14) + 20 a(rec2)
+ + DBy(rec2,rec14) >= -0
+ deltaYBorder_2(rec2,rec15): + 20 y(rec2) - 20 y(rec15) + 20 a(rec2)
+ + DBy(rec2,rec15) >= -0
  deltaYBorder_2(rec3,rec1): - 20 y(rec1) + 20 y(rec3) + 20 a(rec3)
  + DBy(rec3,rec1) >= -0
  deltaYBorder_2(rec3,rec2): - 20 y(rec2) + 20 y(rec3) + 20 a(rec3)
@@ -1718,6 +3917,16 @@ Subject To
  + DBy(rec3,rec9) >= -0
  deltaYBorder_2(rec3,rec10): + 20 y(rec3) - 20 y(rec10) + 20 a(rec3)
  + DBy(rec3,rec10) >= -0
+ deltaYBorder_2(rec3,rec11): + 20 y(rec3) - 20 y(rec11) + 20 a(rec3)
+ + DBy(rec3,rec11) >= -0
+ deltaYBorder_2(rec3,rec12): + 20 y(rec3) - 20 y(rec12) + 20 a(rec3)
+ + DBy(rec3,rec12) >= -0
+ deltaYBorder_2(rec3,rec13): + 20 y(rec3) - 20 y(rec13) + 20 a(rec3)
+ + DBy(rec3,rec13) >= -0
+ deltaYBorder_2(rec3,rec14): + 20 y(rec3) - 20 y(rec14) + 20 a(rec3)
+ + DBy(rec3,rec14) >= -0
+ deltaYBorder_2(rec3,rec15): + 20 y(rec3) - 20 y(rec15) + 20 a(rec3)
+ + DBy(rec3,rec15) >= -0
  deltaYBorder_2(rec4,rec1): - 20 y(rec1) + 20 y(rec4) + 20 a(rec4)
  + DBy(rec4,rec1) >= -0
  deltaYBorder_2(rec4,rec2): - 20 y(rec2) + 20 y(rec4) + 20 a(rec4)
@@ -1736,6 +3945,16 @@ Subject To
  + DBy(rec4,rec9) >= -0
  deltaYBorder_2(rec4,rec10): + 20 y(rec4) - 20 y(rec10) + 20 a(rec4)
  + DBy(rec4,rec10) >= -0
+ deltaYBorder_2(rec4,rec11): + 20 y(rec4) - 20 y(rec11) + 20 a(rec4)
+ + DBy(rec4,rec11) >= -0
+ deltaYBorder_2(rec4,rec12): + 20 y(rec4) - 20 y(rec12) + 20 a(rec4)
+ + DBy(rec4,rec12) >= -0
+ deltaYBorder_2(rec4,rec13): + 20 y(rec4) - 20 y(rec13) + 20 a(rec4)
+ + DBy(rec4,rec13) >= -0
+ deltaYBorder_2(rec4,rec14): + 20 y(rec4) - 20 y(rec14) + 20 a(rec4)
+ + DBy(rec4,rec14) >= -0
+ deltaYBorder_2(rec4,rec15): + 20 y(rec4) - 20 y(rec15) + 20 a(rec4)
+ + DBy(rec4,rec15) >= -0
  deltaYBorder_2(rec5,rec1): - 20 y(rec1) + 20 y(rec5) + 20 a(rec5)
  + DBy(rec5,rec1) >= -0
  deltaYBorder_2(rec5,rec2): - 20 y(rec2) + 20 y(rec5) + 20 a(rec5)
@@ -1754,6 +3973,16 @@ Subject To
  + DBy(rec5,rec9) >= -0
  deltaYBorder_2(rec5,rec10): + 20 y(rec5) - 20 y(rec10) + 20 a(rec5)
  + DBy(rec5,rec10) >= -0
+ deltaYBorder_2(rec5,rec11): + 20 y(rec5) - 20 y(rec11) + 20 a(rec5)
+ + DBy(rec5,rec11) >= -0
+ deltaYBorder_2(rec5,rec12): + 20 y(rec5) - 20 y(rec12) + 20 a(rec5)
+ + DBy(rec5,rec12) >= -0
+ deltaYBorder_2(rec5,rec13): + 20 y(rec5) - 20 y(rec13) + 20 a(rec5)
+ + DBy(rec5,rec13) >= -0
+ deltaYBorder_2(rec5,rec14): + 20 y(rec5) - 20 y(rec14) + 20 a(rec5)
+ + DBy(rec5,rec14) >= -0
+ deltaYBorder_2(rec5,rec15): + 20 y(rec5) - 20 y(rec15) + 20 a(rec5)
+ + DBy(rec5,rec15) >= -0
  deltaYBorder_2(rec6,rec1): - 20 y(rec1) + 20 y(rec6) + 20 a(rec6)
  + DBy(rec6,rec1) >= -0
  deltaYBorder_2(rec6,rec2): - 20 y(rec2) + 20 y(rec6) + 20 a(rec6)
@@ -1772,6 +4001,16 @@ Subject To
  + DBy(rec6,rec9) >= -0
  deltaYBorder_2(rec6,rec10): + 20 y(rec6) - 20 y(rec10) + 20 a(rec6)
  + DBy(rec6,rec10) >= -0
+ deltaYBorder_2(rec6,rec11): + 20 y(rec6) - 20 y(rec11) + 20 a(rec6)
+ + DBy(rec6,rec11) >= -0
+ deltaYBorder_2(rec6,rec12): + 20 y(rec6) - 20 y(rec12) + 20 a(rec6)
+ + DBy(rec6,rec12) >= -0
+ deltaYBorder_2(rec6,rec13): + 20 y(rec6) - 20 y(rec13) + 20 a(rec6)
+ + DBy(rec6,rec13) >= -0
+ deltaYBorder_2(rec6,rec14): + 20 y(rec6) - 20 y(rec14) + 20 a(rec6)
+ + DBy(rec6,rec14) >= -0
+ deltaYBorder_2(rec6,rec15): + 20 y(rec6) - 20 y(rec15) + 20 a(rec6)
+ + DBy(rec6,rec15) >= -0
  deltaYBorder_2(rec7,rec1): - 20 y(rec1) + 20 y(rec7) + 20 a(rec7)
  + DBy(rec7,rec1) >= -0
  deltaYBorder_2(rec7,rec2): - 20 y(rec2) + 20 y(rec7) + 20 a(rec7)
@@ -1790,6 +4029,16 @@ Subject To
  + DBy(rec7,rec9) >= -0
  deltaYBorder_2(rec7,rec10): + 20 y(rec7) - 20 y(rec10) + 20 a(rec7)
  + DBy(rec7,rec10) >= -0
+ deltaYBorder_2(rec7,rec11): + 20 y(rec7) - 20 y(rec11) + 20 a(rec7)
+ + DBy(rec7,rec11) >= -0
+ deltaYBorder_2(rec7,rec12): + 20 y(rec7) - 20 y(rec12) + 20 a(rec7)
+ + DBy(rec7,rec12) >= -0
+ deltaYBorder_2(rec7,rec13): + 20 y(rec7) - 20 y(rec13) + 20 a(rec7)
+ + DBy(rec7,rec13) >= -0
+ deltaYBorder_2(rec7,rec14): + 20 y(rec7) - 20 y(rec14) + 20 a(rec7)
+ + DBy(rec7,rec14) >= -0
+ deltaYBorder_2(rec7,rec15): + 20 y(rec7) - 20 y(rec15) + 20 a(rec7)
+ + DBy(rec7,rec15) >= -0
  deltaYBorder_2(rec8,rec1): - 20 y(rec1) + 20 y(rec8) + 20 a(rec8)
  + DBy(rec8,rec1) >= -0
  deltaYBorder_2(rec8,rec2): - 20 y(rec2) + 20 y(rec8) + 20 a(rec8)
@@ -1808,6 +4057,16 @@ Subject To
  + DBy(rec8,rec9) >= -0
  deltaYBorder_2(rec8,rec10): + 20 y(rec8) - 20 y(rec10) + 20 a(rec8)
  + DBy(rec8,rec10) >= -0
+ deltaYBorder_2(rec8,rec11): + 20 y(rec8) - 20 y(rec11) + 20 a(rec8)
+ + DBy(rec8,rec11) >= -0
+ deltaYBorder_2(rec8,rec12): + 20 y(rec8) - 20 y(rec12) + 20 a(rec8)
+ + DBy(rec8,rec12) >= -0
+ deltaYBorder_2(rec8,rec13): + 20 y(rec8) - 20 y(rec13) + 20 a(rec8)
+ + DBy(rec8,rec13) >= -0
+ deltaYBorder_2(rec8,rec14): + 20 y(rec8) - 20 y(rec14) + 20 a(rec8)
+ + DBy(rec8,rec14) >= -0
+ deltaYBorder_2(rec8,rec15): + 20 y(rec8) - 20 y(rec15) + 20 a(rec8)
+ + DBy(rec8,rec15) >= -0
  deltaYBorder_2(rec9,rec1): - 20 y(rec1) + 20 y(rec9) + 20 a(rec9)
  + DBy(rec9,rec1) >= -0
  deltaYBorder_2(rec9,rec2): - 20 y(rec2) + 20 y(rec9) + 20 a(rec9)
@@ -1826,6 +4085,16 @@ Subject To
  + DBy(rec9,rec8) >= -0
  deltaYBorder_2(rec9,rec10): + 20 y(rec9) - 20 y(rec10) + 20 a(rec9)
  + DBy(rec9,rec10) >= -0
+ deltaYBorder_2(rec9,rec11): + 20 y(rec9) - 20 y(rec11) + 20 a(rec9)
+ + DBy(rec9,rec11) >= -0
+ deltaYBorder_2(rec9,rec12): + 20 y(rec9) - 20 y(rec12) + 20 a(rec9)
+ + DBy(rec9,rec12) >= -0
+ deltaYBorder_2(rec9,rec13): + 20 y(rec9) - 20 y(rec13) + 20 a(rec9)
+ + DBy(rec9,rec13) >= -0
+ deltaYBorder_2(rec9,rec14): + 20 y(rec9) - 20 y(rec14) + 20 a(rec9)
+ + DBy(rec9,rec14) >= -0
+ deltaYBorder_2(rec9,rec15): + 20 y(rec9) - 20 y(rec15) + 20 a(rec9)
+ + DBy(rec9,rec15) >= -0
  deltaYBorder_2(rec10,rec1): - 20 y(rec1) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec10,rec1) >= -0
  deltaYBorder_2(rec10,rec2): - 20 y(rec2) + 20 y(rec10) + 20 a(rec10)
@@ -1844,6 +4113,156 @@ Subject To
  + DBy(rec10,rec8) >= -0
  deltaYBorder_2(rec10,rec9): - 20 y(rec9) + 20 y(rec10) + 20 a(rec10)
  + DBy(rec10,rec9) >= -0
+ deltaYBorder_2(rec10,rec11): + 20 y(rec10) - 20 y(rec11) + 20 a(rec10)
+ + DBy(rec10,rec11) >= -0
+ deltaYBorder_2(rec10,rec12): + 20 y(rec10) - 20 y(rec12) + 20 a(rec10)
+ + DBy(rec10,rec12) >= -0
+ deltaYBorder_2(rec10,rec13): + 20 y(rec10) - 20 y(rec13) + 20 a(rec10)
+ + DBy(rec10,rec13) >= -0
+ deltaYBorder_2(rec10,rec14): + 20 y(rec10) - 20 y(rec14) + 20 a(rec10)
+ + DBy(rec10,rec14) >= -0
+ deltaYBorder_2(rec10,rec15): + 20 y(rec10) - 20 y(rec15) + 20 a(rec10)
+ + DBy(rec10,rec15) >= -0
+ deltaYBorder_2(rec11,rec1): - 20 y(rec1) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec11,rec1) >= -0
+ deltaYBorder_2(rec11,rec2): - 20 y(rec2) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec11,rec2) >= -0
+ deltaYBorder_2(rec11,rec3): - 20 y(rec3) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec11,rec3) >= -0
+ deltaYBorder_2(rec11,rec4): - 20 y(rec4) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec11,rec4) >= -0
+ deltaYBorder_2(rec11,rec5): - 20 y(rec5) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec11,rec5) >= -0
+ deltaYBorder_2(rec11,rec6): - 20 y(rec6) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec11,rec6) >= -0
+ deltaYBorder_2(rec11,rec7): - 20 y(rec7) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec11,rec7) >= -0
+ deltaYBorder_2(rec11,rec8): - 20 y(rec8) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec11,rec8) >= -0
+ deltaYBorder_2(rec11,rec9): - 20 y(rec9) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec11,rec9) >= -0
+ deltaYBorder_2(rec11,rec10): - 20 y(rec10) + 20 y(rec11) + 20 a(rec11)
+ + DBy(rec11,rec10) >= -0
+ deltaYBorder_2(rec11,rec12): + 20 y(rec11) - 20 y(rec12) + 20 a(rec11)
+ + DBy(rec11,rec12) >= -0
+ deltaYBorder_2(rec11,rec13): + 20 y(rec11) - 20 y(rec13) + 20 a(rec11)
+ + DBy(rec11,rec13) >= -0
+ deltaYBorder_2(rec11,rec14): + 20 y(rec11) - 20 y(rec14) + 20 a(rec11)
+ + DBy(rec11,rec14) >= -0
+ deltaYBorder_2(rec11,rec15): + 20 y(rec11) - 20 y(rec15) + 20 a(rec11)
+ + DBy(rec11,rec15) >= -0
+ deltaYBorder_2(rec12,rec1): - 20 y(rec1) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec1) >= -0
+ deltaYBorder_2(rec12,rec2): - 20 y(rec2) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec2) >= -0
+ deltaYBorder_2(rec12,rec3): - 20 y(rec3) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec3) >= -0
+ deltaYBorder_2(rec12,rec4): - 20 y(rec4) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec4) >= -0
+ deltaYBorder_2(rec12,rec5): - 20 y(rec5) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec5) >= -0
+ deltaYBorder_2(rec12,rec6): - 20 y(rec6) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec6) >= -0
+ deltaYBorder_2(rec12,rec7): - 20 y(rec7) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec7) >= -0
+ deltaYBorder_2(rec12,rec8): - 20 y(rec8) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec8) >= -0
+ deltaYBorder_2(rec12,rec9): - 20 y(rec9) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec9) >= -0
+ deltaYBorder_2(rec12,rec10): - 20 y(rec10) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec10) >= -0
+ deltaYBorder_2(rec12,rec11): - 20 y(rec11) + 20 y(rec12) + 20 a(rec12)
+ + DBy(rec12,rec11) >= -0
+ deltaYBorder_2(rec12,rec13): + 20 y(rec12) - 20 y(rec13) + 20 a(rec12)
+ + DBy(rec12,rec13) >= -0
+ deltaYBorder_2(rec12,rec14): + 20 y(rec12) - 20 y(rec14) + 20 a(rec12)
+ + DBy(rec12,rec14) >= -0
+ deltaYBorder_2(rec12,rec15): + 20 y(rec12) - 20 y(rec15) + 20 a(rec12)
+ + DBy(rec12,rec15) >= -0
+ deltaYBorder_2(rec13,rec1): - 20 y(rec1) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec1) >= -0
+ deltaYBorder_2(rec13,rec2): - 20 y(rec2) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec2) >= -0
+ deltaYBorder_2(rec13,rec3): - 20 y(rec3) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec3) >= -0
+ deltaYBorder_2(rec13,rec4): - 20 y(rec4) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec4) >= -0
+ deltaYBorder_2(rec13,rec5): - 20 y(rec5) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec5) >= -0
+ deltaYBorder_2(rec13,rec6): - 20 y(rec6) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec6) >= -0
+ deltaYBorder_2(rec13,rec7): - 20 y(rec7) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec7) >= -0
+ deltaYBorder_2(rec13,rec8): - 20 y(rec8) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec8) >= -0
+ deltaYBorder_2(rec13,rec9): - 20 y(rec9) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec9) >= -0
+ deltaYBorder_2(rec13,rec10): - 20 y(rec10) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec10) >= -0
+ deltaYBorder_2(rec13,rec11): - 20 y(rec11) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec11) >= -0
+ deltaYBorder_2(rec13,rec12): - 20 y(rec12) + 20 y(rec13) + 20 a(rec13)
+ + DBy(rec13,rec12) >= -0
+ deltaYBorder_2(rec13,rec14): + 20 y(rec13) - 20 y(rec14) + 20 a(rec13)
+ + DBy(rec13,rec14) >= -0
+ deltaYBorder_2(rec13,rec15): + 20 y(rec13) - 20 y(rec15) + 20 a(rec13)
+ + DBy(rec13,rec15) >= -0
+ deltaYBorder_2(rec14,rec1): - 20 y(rec1) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec1) >= -0
+ deltaYBorder_2(rec14,rec2): - 20 y(rec2) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec2) >= -0
+ deltaYBorder_2(rec14,rec3): - 20 y(rec3) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec3) >= -0
+ deltaYBorder_2(rec14,rec4): - 20 y(rec4) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec4) >= -0
+ deltaYBorder_2(rec14,rec5): - 20 y(rec5) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec5) >= -0
+ deltaYBorder_2(rec14,rec6): - 20 y(rec6) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec6) >= -0
+ deltaYBorder_2(rec14,rec7): - 20 y(rec7) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec7) >= -0
+ deltaYBorder_2(rec14,rec8): - 20 y(rec8) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec8) >= -0
+ deltaYBorder_2(rec14,rec9): - 20 y(rec9) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec9) >= -0
+ deltaYBorder_2(rec14,rec10): - 20 y(rec10) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec10) >= -0
+ deltaYBorder_2(rec14,rec11): - 20 y(rec11) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec11) >= -0
+ deltaYBorder_2(rec14,rec12): - 20 y(rec12) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec12) >= -0
+ deltaYBorder_2(rec14,rec13): - 20 y(rec13) + 20 y(rec14) + 20 a(rec14)
+ + DBy(rec14,rec13) >= -0
+ deltaYBorder_2(rec14,rec15): + 20 y(rec14) - 20 y(rec15) + 20 a(rec14)
+ + DBy(rec14,rec15) >= -0
+ deltaYBorder_2(rec15,rec1): - 20 y(rec1) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec1) >= -0
+ deltaYBorder_2(rec15,rec2): - 20 y(rec2) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec2) >= -0
+ deltaYBorder_2(rec15,rec3): - 20 y(rec3) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec3) >= -0
+ deltaYBorder_2(rec15,rec4): - 20 y(rec4) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec4) >= -0
+ deltaYBorder_2(rec15,rec5): - 20 y(rec5) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec5) >= -0
+ deltaYBorder_2(rec15,rec6): - 20 y(rec6) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec6) >= -0
+ deltaYBorder_2(rec15,rec7): - 20 y(rec7) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec7) >= -0
+ deltaYBorder_2(rec15,rec8): - 20 y(rec8) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec8) >= -0
+ deltaYBorder_2(rec15,rec9): - 20 y(rec9) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec9) >= -0
+ deltaYBorder_2(rec15,rec10): - 20 y(rec10) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec10) >= -0
+ deltaYBorder_2(rec15,rec11): - 20 y(rec11) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec11) >= -0
+ deltaYBorder_2(rec15,rec12): - 20 y(rec12) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec12) >= -0
+ deltaYBorder_2(rec15,rec13): - 20 y(rec13) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec13) >= -0
+ deltaYBorder_2(rec15,rec14): - 20 y(rec14) + 20 y(rec15) + 20 a(rec15)
+ + DBy(rec15,rec14) >= -0
  yValue(rec1,1): + 7 h(rec1,1) + y(rec1) <= 8
  yValue(rec1,2): + 6 h(rec1,2) + y(rec1) <= 8
  yValue(rec1,3): + 5 h(rec1,3) + y(rec1) <= 8
@@ -1924,6 +4343,46 @@ Subject To
  yValue(rec10,6): + 2 h(rec10,6) + y(rec10) <= 8
  yValue(rec10,7): + h(rec10,7) + y(rec10) <= 8
  yValue(rec10,8): + y(rec10) <= 8
+ yValue(rec11,1): + 7 h(rec11,1) + y(rec11) <= 8
+ yValue(rec11,2): + 6 h(rec11,2) + y(rec11) <= 8
+ yValue(rec11,3): + 5 h(rec11,3) + y(rec11) <= 8
+ yValue(rec11,4): + 4 h(rec11,4) + y(rec11) <= 8
+ yValue(rec11,5): + 3 h(rec11,5) + y(rec11) <= 8
+ yValue(rec11,6): + 2 h(rec11,6) + y(rec11) <= 8
+ yValue(rec11,7): + h(rec11,7) + y(rec11) <= 8
+ yValue(rec11,8): + y(rec11) <= 8
+ yValue(rec12,1): + 7 h(rec12,1) + y(rec12) <= 8
+ yValue(rec12,2): + 6 h(rec12,2) + y(rec12) <= 8
+ yValue(rec12,3): + 5 h(rec12,3) + y(rec12) <= 8
+ yValue(rec12,4): + 4 h(rec12,4) + y(rec12) <= 8
+ yValue(rec12,5): + 3 h(rec12,5) + y(rec12) <= 8
+ yValue(rec12,6): + 2 h(rec12,6) + y(rec12) <= 8
+ yValue(rec12,7): + h(rec12,7) + y(rec12) <= 8
+ yValue(rec12,8): + y(rec12) <= 8
+ yValue(rec13,1): + 7 h(rec13,1) + y(rec13) <= 8
+ yValue(rec13,2): + 6 h(rec13,2) + y(rec13) <= 8
+ yValue(rec13,3): + 5 h(rec13,3) + y(rec13) <= 8
+ yValue(rec13,4): + 4 h(rec13,4) + y(rec13) <= 8
+ yValue(rec13,5): + 3 h(rec13,5) + y(rec13) <= 8
+ yValue(rec13,6): + 2 h(rec13,6) + y(rec13) <= 8
+ yValue(rec13,7): + h(rec13,7) + y(rec13) <= 8
+ yValue(rec13,8): + y(rec13) <= 8
+ yValue(rec14,1): + 7 h(rec14,1) + y(rec14) <= 8
+ yValue(rec14,2): + 6 h(rec14,2) + y(rec14) <= 8
+ yValue(rec14,3): + 5 h(rec14,3) + y(rec14) <= 8
+ yValue(rec14,4): + 4 h(rec14,4) + y(rec14) <= 8
+ yValue(rec14,5): + 3 h(rec14,5) + y(rec14) <= 8
+ yValue(rec14,6): + 2 h(rec14,6) + y(rec14) <= 8
+ yValue(rec14,7): + h(rec14,7) + y(rec14) <= 8
+ yValue(rec14,8): + y(rec14) <= 8
+ yValue(rec15,1): + 7 h(rec15,1) + y(rec15) <= 8
+ yValue(rec15,2): + 6 h(rec15,2) + y(rec15) <= 8
+ yValue(rec15,3): + 5 h(rec15,3) + y(rec15) <= 8
+ yValue(rec15,4): + 4 h(rec15,4) + y(rec15) <= 8
+ yValue(rec15,5): + 3 h(rec15,5) + y(rec15) <= 8
+ yValue(rec15,6): + 2 h(rec15,6) + y(rec15) <= 8
+ yValue(rec15,7): + h(rec15,7) + y(rec15) <= 8
+ yValue(rec15,8): + y(rec15) <= 8
  y2Value(rec1,1): - h(rec1,1) + y2(rec1) >= -0
  y2Value(rec1,2): - 2 h(rec1,2) + y2(rec1) >= -0
  y2Value(rec1,3): - 3 h(rec1,3) + y2(rec1) >= -0
@@ -2004,6 +4463,46 @@ Subject To
  y2Value(rec10,6): - 6 h(rec10,6) + y2(rec10) >= -0
  y2Value(rec10,7): - 7 h(rec10,7) + y2(rec10) >= -0
  y2Value(rec10,8): - 8 h(rec10,8) + y2(rec10) >= -0
+ y2Value(rec11,1): - h(rec11,1) + y2(rec11) >= -0
+ y2Value(rec11,2): - 2 h(rec11,2) + y2(rec11) >= -0
+ y2Value(rec11,3): - 3 h(rec11,3) + y2(rec11) >= -0
+ y2Value(rec11,4): - 4 h(rec11,4) + y2(rec11) >= -0
+ y2Value(rec11,5): - 5 h(rec11,5) + y2(rec11) >= -0
+ y2Value(rec11,6): - 6 h(rec11,6) + y2(rec11) >= -0
+ y2Value(rec11,7): - 7 h(rec11,7) + y2(rec11) >= -0
+ y2Value(rec11,8): - 8 h(rec11,8) + y2(rec11) >= -0
+ y2Value(rec12,1): - h(rec12,1) + y2(rec12) >= -0
+ y2Value(rec12,2): - 2 h(rec12,2) + y2(rec12) >= -0
+ y2Value(rec12,3): - 3 h(rec12,3) + y2(rec12) >= -0
+ y2Value(rec12,4): - 4 h(rec12,4) + y2(rec12) >= -0
+ y2Value(rec12,5): - 5 h(rec12,5) + y2(rec12) >= -0
+ y2Value(rec12,6): - 6 h(rec12,6) + y2(rec12) >= -0
+ y2Value(rec12,7): - 7 h(rec12,7) + y2(rec12) >= -0
+ y2Value(rec12,8): - 8 h(rec12,8) + y2(rec12) >= -0
+ y2Value(rec13,1): - h(rec13,1) + y2(rec13) >= -0
+ y2Value(rec13,2): - 2 h(rec13,2) + y2(rec13) >= -0
+ y2Value(rec13,3): - 3 h(rec13,3) + y2(rec13) >= -0
+ y2Value(rec13,4): - 4 h(rec13,4) + y2(rec13) >= -0
+ y2Value(rec13,5): - 5 h(rec13,5) + y2(rec13) >= -0
+ y2Value(rec13,6): - 6 h(rec13,6) + y2(rec13) >= -0
+ y2Value(rec13,7): - 7 h(rec13,7) + y2(rec13) >= -0
+ y2Value(rec13,8): - 8 h(rec13,8) + y2(rec13) >= -0
+ y2Value(rec14,1): - h(rec14,1) + y2(rec14) >= -0
+ y2Value(rec14,2): - 2 h(rec14,2) + y2(rec14) >= -0
+ y2Value(rec14,3): - 3 h(rec14,3) + y2(rec14) >= -0
+ y2Value(rec14,4): - 4 h(rec14,4) + y2(rec14) >= -0
+ y2Value(rec14,5): - 5 h(rec14,5) + y2(rec14) >= -0
+ y2Value(rec14,6): - 6 h(rec14,6) + y2(rec14) >= -0
+ y2Value(rec14,7): - 7 h(rec14,7) + y2(rec14) >= -0
+ y2Value(rec14,8): - 8 h(rec14,8) + y2(rec14) >= -0
+ y2Value(rec15,1): - h(rec15,1) + y2(rec15) >= -0
+ y2Value(rec15,2): - 2 h(rec15,2) + y2(rec15) >= -0
+ y2Value(rec15,3): - 3 h(rec15,3) + y2(rec15) >= -0
+ y2Value(rec15,4): - 4 h(rec15,4) + y2(rec15) >= -0
+ y2Value(rec15,5): - 5 h(rec15,5) + y2(rec15) >= -0
+ y2Value(rec15,6): - 6 h(rec15,6) + y2(rec15) >= -0
+ y2Value(rec15,7): - 7 h(rec15,7) + y2(rec15) >= -0
+ y2Value(rec15,8): - 8 h(rec15,8) + y2(rec15) >= -0
  ySpan(rec1): - y(rec1) + y2(rec1) - a(rec1) = -1
  ySpan(rec2): - y(rec2) + y2(rec2) - a(rec2) = -1
  ySpan(rec3): - y(rec3) + y2(rec3) - a(rec3) = -1
@@ -2014,6 +4513,11 @@ Subject To
  ySpan(rec8): - y(rec8) + y2(rec8) - a(rec8) = -1
  ySpan(rec9): - y(rec9) + y2(rec9) - a(rec9) = -1
  ySpan(rec10): - y(rec10) + y2(rec10) - a(rec10) = -1
+ ySpan(rec11): - y(rec11) + y2(rec11) - a(rec11) = -1
+ ySpan(rec12): - y(rec12) + y2(rec12) - a(rec12) = -1
+ ySpan(rec13): - y(rec13) + y2(rec13) - a(rec13) = -1
+ ySpan(rec14): - y(rec14) + y2(rec14) - a(rec14) = -1
+ ySpan(rec15): - y(rec15) + y2(rec15) - a(rec15) = -1
  aValue(rec1): - h(rec1,1) - h(rec1,2) - h(rec1,3) - h(rec1,4)
  - h(rec1,5) - h(rec1,6) - h(rec1,7) - h(rec1,8) + a(rec1) = -0
  aValue(rec2): - h(rec2,1) - h(rec2,2) - h(rec2,3) - h(rec2,4)
@@ -2034,6 +4538,16 @@ Subject To
  - h(rec9,5) - h(rec9,6) - h(rec9,7) - h(rec9,8) + a(rec9) = -0
  aValue(rec10): - h(rec10,1) - h(rec10,2) - h(rec10,3) - h(rec10,4)
  - h(rec10,5) - h(rec10,6) - h(rec10,7) - h(rec10,8) + a(rec10) = -0
+ aValue(rec11): - h(rec11,1) - h(rec11,2) - h(rec11,3) - h(rec11,4)
+ - h(rec11,5) - h(rec11,6) - h(rec11,7) - h(rec11,8) + a(rec11) = -0
+ aValue(rec12): - h(rec12,1) - h(rec12,2) - h(rec12,3) - h(rec12,4)
+ - h(rec12,5) - h(rec12,6) - h(rec12,7) - h(rec12,8) + a(rec12) = -0
+ aValue(rec13): - h(rec13,1) - h(rec13,2) - h(rec13,3) - h(rec13,4)
+ - h(rec13,5) - h(rec13,6) - h(rec13,7) - h(rec13,8) + a(rec13) = -0
+ aValue(rec14): - h(rec14,1) - h(rec14,2) - h(rec14,3) - h(rec14,4)
+ - h(rec14,5) - h(rec14,6) - h(rec14,7) - h(rec14,8) + a(rec14) = -0
+ aValue(rec15): - h(rec15,1) - h(rec15,2) - h(rec15,3) - h(rec15,4)
+ - h(rec15,5) - h(rec15,6) - h(rec15,7) - h(rec15,8) + a(rec15) = -0
  maxX(rec1): + x(rec1) + w(rec1) <= 60
  maxX(rec2): + x(rec2) + w(rec2) <= 60
  maxX(rec3): + x(rec3) + w(rec3) <= 60
@@ -2044,6 +4558,11 @@ Subject To
  maxX(rec8): + x(rec8) + w(rec8) <= 60
  maxX(rec9): + x(rec9) + w(rec9) <= 60
  maxX(rec10): + x(rec10) + w(rec10) <= 60
+ maxX(rec11): + x(rec11) + w(rec11) <= 60
+ maxX(rec12): + x(rec12) + w(rec12) <= 60
+ maxX(rec13): + x(rec13) + w(rec13) <= 60
+ maxX(rec14): + x(rec14) + w(rec14) <= 60
+ maxX(rec15): + x(rec15) + w(rec15) <= 60
  flagG1(rec1,rec2): + x(rec1) - x(rec2) + w(rec1) - 60 g1(rec1,rec2)
  <= -1
  flagG1(rec1,rec3): + x(rec1) - x(rec3) + w(rec1) - 60 g1(rec1,rec3)
@@ -2061,6 +4580,16 @@ Subject To
  flagG1(rec1,rec9): + x(rec1) - x(rec9) + w(rec1) - 60 g1(rec1,rec9)
  <= -1
  flagG1(rec1,rec10): + x(rec1) - x(rec10) + w(rec1) - 60 g1(rec1,rec10)
+ <= -1
+ flagG1(rec1,rec11): + x(rec1) - x(rec11) + w(rec1) - 60 g1(rec1,rec11)
+ <= -1
+ flagG1(rec1,rec12): + x(rec1) - x(rec12) + w(rec1) - 60 g1(rec1,rec12)
+ <= -1
+ flagG1(rec1,rec13): + x(rec1) - x(rec13) + w(rec1) - 60 g1(rec1,rec13)
+ <= -1
+ flagG1(rec1,rec14): + x(rec1) - x(rec14) + w(rec1) - 60 g1(rec1,rec14)
+ <= -1
+ flagG1(rec1,rec15): + x(rec1) - x(rec15) + w(rec1) - 60 g1(rec1,rec15)
  <= -1
  flagG1(rec2,rec3): + x(rec2) - x(rec3) + w(rec2) - 60 g1(rec2,rec3)
  <= -1
@@ -2134,6 +4663,116 @@ Subject To
  <= -1
  flagG1(rec10,rec9): - x(rec9) + x(rec10) + w(rec10) - 60 g1(rec10,rec9)
  <= -1
+ flagG1(rec10,rec11): + x(rec10) - x(rec11) + w(rec10)
+ - 60 g1(rec10,rec11) <= -1
+ flagG1(rec10,rec12): + x(rec10) - x(rec12) + w(rec10)
+ - 60 g1(rec10,rec12) <= -1
+ flagG1(rec10,rec13): + x(rec10) - x(rec13) + w(rec10)
+ - 60 g1(rec10,rec13) <= -1
+ flagG1(rec10,rec14): + x(rec10) - x(rec14) + w(rec10)
+ - 60 g1(rec10,rec14) <= -1
+ flagG1(rec10,rec15): + x(rec10) - x(rec15) + w(rec10)
+ - 60 g1(rec10,rec15) <= -1
+ flagG1(rec11,rec2): - x(rec2) + x(rec11) + w(rec11) - 60 g1(rec11,rec2)
+ <= -1
+ flagG1(rec11,rec3): - x(rec3) + x(rec11) + w(rec11) - 60 g1(rec11,rec3)
+ <= -1
+ flagG1(rec11,rec4): - x(rec4) + x(rec11) + w(rec11) - 60 g1(rec11,rec4)
+ <= -1
+ flagG1(rec11,rec5): - x(rec5) + x(rec11) + w(rec11) - 60 g1(rec11,rec5)
+ <= -1
+ flagG1(rec11,rec6): - x(rec6) + x(rec11) + w(rec11) - 60 g1(rec11,rec6)
+ <= -1
+ flagG1(rec11,rec7): - x(rec7) + x(rec11) + w(rec11) - 60 g1(rec11,rec7)
+ <= -1
+ flagG1(rec11,rec8): - x(rec8) + x(rec11) + w(rec11) - 60 g1(rec11,rec8)
+ <= -1
+ flagG1(rec11,rec9): - x(rec9) + x(rec11) + w(rec11) - 60 g1(rec11,rec9)
+ <= -1
+ flagG1(rec11,rec12): + x(rec11) - x(rec12) + w(rec11)
+ - 60 g1(rec11,rec12) <= -1
+ flagG1(rec11,rec13): + x(rec11) - x(rec13) + w(rec11)
+ - 60 g1(rec11,rec13) <= -1
+ flagG1(rec11,rec14): + x(rec11) - x(rec14) + w(rec11)
+ - 60 g1(rec11,rec14) <= -1
+ flagG1(rec11,rec15): + x(rec11) - x(rec15) + w(rec11)
+ - 60 g1(rec11,rec15) <= -1
+ flagG1(rec12,rec2): - x(rec2) + x(rec12) + w(rec12) - 60 g1(rec12,rec2)
+ <= -1
+ flagG1(rec12,rec3): - x(rec3) + x(rec12) + w(rec12) - 60 g1(rec12,rec3)
+ <= -1
+ flagG1(rec12,rec4): - x(rec4) + x(rec12) + w(rec12) - 60 g1(rec12,rec4)
+ <= -1
+ flagG1(rec12,rec5): - x(rec5) + x(rec12) + w(rec12) - 60 g1(rec12,rec5)
+ <= -1
+ flagG1(rec12,rec6): - x(rec6) + x(rec12) + w(rec12) - 60 g1(rec12,rec6)
+ <= -1
+ flagG1(rec12,rec7): - x(rec7) + x(rec12) + w(rec12) - 60 g1(rec12,rec7)
+ <= -1
+ flagG1(rec12,rec8): - x(rec8) + x(rec12) + w(rec12) - 60 g1(rec12,rec8)
+ <= -1
+ flagG1(rec12,rec9): - x(rec9) + x(rec12) + w(rec12) - 60 g1(rec12,rec9)
+ <= -1
+ flagG1(rec12,rec13): + x(rec12) - x(rec13) + w(rec12)
+ - 60 g1(rec12,rec13) <= -1
+ flagG1(rec12,rec14): + x(rec12) - x(rec14) + w(rec12)
+ - 60 g1(rec12,rec14) <= -1
+ flagG1(rec12,rec15): + x(rec12) - x(rec15) + w(rec12)
+ - 60 g1(rec12,rec15) <= -1
+ flagG1(rec13,rec2): - x(rec2) + x(rec13) + w(rec13) - 60 g1(rec13,rec2)
+ <= -1
+ flagG1(rec13,rec3): - x(rec3) + x(rec13) + w(rec13) - 60 g1(rec13,rec3)
+ <= -1
+ flagG1(rec13,rec4): - x(rec4) + x(rec13) + w(rec13) - 60 g1(rec13,rec4)
+ <= -1
+ flagG1(rec13,rec5): - x(rec5) + x(rec13) + w(rec13) - 60 g1(rec13,rec5)
+ <= -1
+ flagG1(rec13,rec6): - x(rec6) + x(rec13) + w(rec13) - 60 g1(rec13,rec6)
+ <= -1
+ flagG1(rec13,rec7): - x(rec7) + x(rec13) + w(rec13) - 60 g1(rec13,rec7)
+ <= -1
+ flagG1(rec13,rec8): - x(rec8) + x(rec13) + w(rec13) - 60 g1(rec13,rec8)
+ <= -1
+ flagG1(rec13,rec9): - x(rec9) + x(rec13) + w(rec13) - 60 g1(rec13,rec9)
+ <= -1
+ flagG1(rec13,rec14): + x(rec13) - x(rec14) + w(rec13)
+ - 60 g1(rec13,rec14) <= -1
+ flagG1(rec13,rec15): + x(rec13) - x(rec15) + w(rec13)
+ - 60 g1(rec13,rec15) <= -1
+ flagG1(rec14,rec2): - x(rec2) + x(rec14) + w(rec14) - 60 g1(rec14,rec2)
+ <= -1
+ flagG1(rec14,rec3): - x(rec3) + x(rec14) + w(rec14) - 60 g1(rec14,rec3)
+ <= -1
+ flagG1(rec14,rec4): - x(rec4) + x(rec14) + w(rec14) - 60 g1(rec14,rec4)
+ <= -1
+ flagG1(rec14,rec5): - x(rec5) + x(rec14) + w(rec14) - 60 g1(rec14,rec5)
+ <= -1
+ flagG1(rec14,rec6): - x(rec6) + x(rec14) + w(rec14) - 60 g1(rec14,rec6)
+ <= -1
+ flagG1(rec14,rec7): - x(rec7) + x(rec14) + w(rec14) - 60 g1(rec14,rec7)
+ <= -1
+ flagG1(rec14,rec8): - x(rec8) + x(rec14) + w(rec14) - 60 g1(rec14,rec8)
+ <= -1
+ flagG1(rec14,rec9): - x(rec9) + x(rec14) + w(rec14) - 60 g1(rec14,rec9)
+ <= -1
+ flagG1(rec14,rec15): + x(rec14) - x(rec15) + w(rec14)
+ - 60 g1(rec14,rec15) <= -1
+ flagG1(rec15,rec2): - x(rec2) + x(rec15) + w(rec15) - 60 g1(rec15,rec2)
+ <= -1
+ flagG1(rec15,rec3): - x(rec3) + x(rec15) + w(rec15) - 60 g1(rec15,rec3)
+ <= -1
+ flagG1(rec15,rec4): - x(rec4) + x(rec15) + w(rec15) - 60 g1(rec15,rec4)
+ <= -1
+ flagG1(rec15,rec5): - x(rec5) + x(rec15) + w(rec15) - 60 g1(rec15,rec5)
+ <= -1
+ flagG1(rec15,rec6): - x(rec6) + x(rec15) + w(rec15) - 60 g1(rec15,rec6)
+ <= -1
+ flagG1(rec15,rec7): - x(rec7) + x(rec15) + w(rec15) - 60 g1(rec15,rec7)
+ <= -1
+ flagG1(rec15,rec8): - x(rec8) + x(rec15) + w(rec15) - 60 g1(rec15,rec8)
+ <= -1
+ flagG1(rec15,rec9): - x(rec9) + x(rec15) + w(rec15) - 60 g1(rec15,rec9)
+ <= -1
  noOverlap(1,rec1,rec2): - 120 h(rec1,1) - 120 h(rec2,1) + x(rec1)
  - x(rec2) - w(rec2) - 120 g1(rec1,rec2) >= -359
  noOverlap(1,rec1,rec3): - 120 h(rec1,1) - 120 h(rec3,1) + x(rec1)
@@ -2152,6 +4791,16 @@ Subject To
  - x(rec9) - w(rec9) - 120 g1(rec1,rec9) >= -359
  noOverlap(1,rec1,rec10): - 120 h(rec1,1) - 120 h(rec10,1) + x(rec1)
  - x(rec10) - w(rec10) - 120 g1(rec1,rec10) >= -359
+ noOverlap(1,rec1,rec11): - 120 h(rec1,1) - 120 h(rec11,1) + x(rec1)
+ - x(rec11) - w(rec11) - 120 g1(rec1,rec11) >= -359
+ noOverlap(1,rec1,rec12): - 120 h(rec1,1) - 120 h(rec12,1) + x(rec1)
+ - x(rec12) - w(rec12) - 120 g1(rec1,rec12) >= -359
+ noOverlap(1,rec1,rec13): - 120 h(rec1,1) - 120 h(rec13,1) + x(rec1)
+ - x(rec13) - w(rec13) - 120 g1(rec1,rec13) >= -359
+ noOverlap(1,rec1,rec14): - 120 h(rec1,1) - 120 h(rec14,1) + x(rec1)
+ - x(rec14) - w(rec14) - 120 g1(rec1,rec14) >= -359
+ noOverlap(1,rec1,rec15): - 120 h(rec1,1) - 120 h(rec15,1) + x(rec1)
+ - x(rec15) - w(rec15) - 120 g1(rec1,rec15) >= -359
  noOverlap(1,rec2,rec3): - 120 h(rec2,1) - 120 h(rec3,1) + x(rec2)
  - x(rec3) - w(rec3) - 120 g1(rec2,rec3) >= -359
  noOverlap(1,rec2,rec4): - 120 h(rec2,1) - 120 h(rec4,1) + x(rec2)
@@ -2224,6 +4873,116 @@ Subject To
  + x(rec10) - w(rec8) - 120 g1(rec10,rec8) >= -359
  noOverlap(1,rec10,rec9): - 120 h(rec9,1) - 120 h(rec10,1) - x(rec9)
  + x(rec10) - w(rec9) - 120 g1(rec10,rec9) >= -359
+ noOverlap(1,rec10,rec11): - 120 h(rec10,1) - 120 h(rec11,1) + x(rec10)
+ - x(rec11) - w(rec11) - 120 g1(rec10,rec11) >= -359
+ noOverlap(1,rec10,rec12): - 120 h(rec10,1) - 120 h(rec12,1) + x(rec10)
+ - x(rec12) - w(rec12) - 120 g1(rec10,rec12) >= -359
+ noOverlap(1,rec10,rec13): - 120 h(rec10,1) - 120 h(rec13,1) + x(rec10)
+ - x(rec13) - w(rec13) - 120 g1(rec10,rec13) >= -359
+ noOverlap(1,rec10,rec14): - 120 h(rec10,1) - 120 h(rec14,1) + x(rec10)
+ - x(rec14) - w(rec14) - 120 g1(rec10,rec14) >= -359
+ noOverlap(1,rec10,rec15): - 120 h(rec10,1) - 120 h(rec15,1) + x(rec10)
+ - x(rec15) - w(rec15) - 120 g1(rec10,rec15) >= -359
+ noOverlap(1,rec11,rec2): - 120 h(rec2,1) - 120 h(rec11,1) - x(rec2)
+ + x(rec11) - w(rec2) - 120 g1(rec11,rec2) >= -359
+ noOverlap(1,rec11,rec3): - 120 h(rec3,1) - 120 h(rec11,1) - x(rec3)
+ + x(rec11) - w(rec3) - 120 g1(rec11,rec3) >= -359
+ noOverlap(1,rec11,rec4): - 120 h(rec4,1) - 120 h(rec11,1) - x(rec4)
+ + x(rec11) - w(rec4) - 120 g1(rec11,rec4) >= -359
+ noOverlap(1,rec11,rec5): - 120 h(rec5,1) - 120 h(rec11,1) - x(rec5)
+ + x(rec11) - w(rec5) - 120 g1(rec11,rec5) >= -359
+ noOverlap(1,rec11,rec6): - 120 h(rec6,1) - 120 h(rec11,1) - x(rec6)
+ + x(rec11) - w(rec6) - 120 g1(rec11,rec6) >= -359
+ noOverlap(1,rec11,rec7): - 120 h(rec7,1) - 120 h(rec11,1) - x(rec7)
+ + x(rec11) - w(rec7) - 120 g1(rec11,rec7) >= -359
+ noOverlap(1,rec11,rec8): - 120 h(rec8,1) - 120 h(rec11,1) - x(rec8)
+ + x(rec11) - w(rec8) - 120 g1(rec11,rec8) >= -359
+ noOverlap(1,rec11,rec9): - 120 h(rec9,1) - 120 h(rec11,1) - x(rec9)
+ + x(rec11) - w(rec9) - 120 g1(rec11,rec9) >= -359
+ noOverlap(1,rec11,rec12): - 120 h(rec11,1) - 120 h(rec12,1) + x(rec11)
+ - x(rec12) - w(rec12) - 120 g1(rec11,rec12) >= -359
+ noOverlap(1,rec11,rec13): - 120 h(rec11,1) - 120 h(rec13,1) + x(rec11)
+ - x(rec13) - w(rec13) - 120 g1(rec11,rec13) >= -359
+ noOverlap(1,rec11,rec14): - 120 h(rec11,1) - 120 h(rec14,1) + x(rec11)
+ - x(rec14) - w(rec14) - 120 g1(rec11,rec14) >= -359
+ noOverlap(1,rec11,rec15): - 120 h(rec11,1) - 120 h(rec15,1) + x(rec11)
+ - x(rec15) - w(rec15) - 120 g1(rec11,rec15) >= -359
+ noOverlap(1,rec12,rec2): - 120 h(rec2,1) - 120 h(rec12,1) - x(rec2)
+ + x(rec12) - w(rec2) - 120 g1(rec12,rec2) >= -359
+ noOverlap(1,rec12,rec3): - 120 h(rec3,1) - 120 h(rec12,1) - x(rec3)
+ + x(rec12) - w(rec3) - 120 g1(rec12,rec3) >= -359
+ noOverlap(1,rec12,rec4): - 120 h(rec4,1) - 120 h(rec12,1) - x(rec4)
+ + x(rec12) - w(rec4) - 120 g1(rec12,rec4) >= -359
+ noOverlap(1,rec12,rec5): - 120 h(rec5,1) - 120 h(rec12,1) - x(rec5)
+ + x(rec12) - w(rec5) - 120 g1(rec12,rec5) >= -359
+ noOverlap(1,rec12,rec6): - 120 h(rec6,1) - 120 h(rec12,1) - x(rec6)
+ + x(rec12) - w(rec6) - 120 g1(rec12,rec6) >= -359
+ noOverlap(1,rec12,rec7): - 120 h(rec7,1) - 120 h(rec12,1) - x(rec7)
+ + x(rec12) - w(rec7) - 120 g1(rec12,rec7) >= -359
+ noOverlap(1,rec12,rec8): - 120 h(rec8,1) - 120 h(rec12,1) - x(rec8)
+ + x(rec12) - w(rec8) - 120 g1(rec12,rec8) >= -359
+ noOverlap(1,rec12,rec9): - 120 h(rec9,1) - 120 h(rec12,1) - x(rec9)
+ + x(rec12) - w(rec9) - 120 g1(rec12,rec9) >= -359
+ noOverlap(1,rec12,rec13): - 120 h(rec12,1) - 120 h(rec13,1) + x(rec12)
+ - x(rec13) - w(rec13) - 120 g1(rec12,rec13) >= -359
+ noOverlap(1,rec12,rec14): - 120 h(rec12,1) - 120 h(rec14,1) + x(rec12)
+ - x(rec14) - w(rec14) - 120 g1(rec12,rec14) >= -359
+ noOverlap(1,rec12,rec15): - 120 h(rec12,1) - 120 h(rec15,1) + x(rec12)
+ - x(rec15) - w(rec15) - 120 g1(rec12,rec15) >= -359
+ noOverlap(1,rec13,rec2): - 120 h(rec2,1) - 120 h(rec13,1) - x(rec2)
+ + x(rec13) - w(rec2) - 120 g1(rec13,rec2) >= -359
+ noOverlap(1,rec13,rec3): - 120 h(rec3,1) - 120 h(rec13,1) - x(rec3)
+ + x(rec13) - w(rec3) - 120 g1(rec13,rec3) >= -359
+ noOverlap(1,rec13,rec4): - 120 h(rec4,1) - 120 h(rec13,1) - x(rec4)
+ + x(rec13) - w(rec4) - 120 g1(rec13,rec4) >= -359
+ noOverlap(1,rec13,rec5): - 120 h(rec5,1) - 120 h(rec13,1) - x(rec5)
+ + x(rec13) - w(rec5) - 120 g1(rec13,rec5) >= -359
+ noOverlap(1,rec13,rec6): - 120 h(rec6,1) - 120 h(rec13,1) - x(rec6)
+ + x(rec13) - w(rec6) - 120 g1(rec13,rec6) >= -359
+ noOverlap(1,rec13,rec7): - 120 h(rec7,1) - 120 h(rec13,1) - x(rec7)
+ + x(rec13) - w(rec7) - 120 g1(rec13,rec7) >= -359
+ noOverlap(1,rec13,rec8): - 120 h(rec8,1) - 120 h(rec13,1) - x(rec8)
+ + x(rec13) - w(rec8) - 120 g1(rec13,rec8) >= -359
+ noOverlap(1,rec13,rec9): - 120 h(rec9,1) - 120 h(rec13,1) - x(rec9)
+ + x(rec13) - w(rec9) - 120 g1(rec13,rec9) >= -359
+ noOverlap(1,rec13,rec14): - 120 h(rec13,1) - 120 h(rec14,1) + x(rec13)
+ - x(rec14) - w(rec14) - 120 g1(rec13,rec14) >= -359
+ noOverlap(1,rec13,rec15): - 120 h(rec13,1) - 120 h(rec15,1) + x(rec13)
+ - x(rec15) - w(rec15) - 120 g1(rec13,rec15) >= -359
+ noOverlap(1,rec14,rec2): - 120 h(rec2,1) - 120 h(rec14,1) - x(rec2)
+ + x(rec14) - w(rec2) - 120 g1(rec14,rec2) >= -359
+ noOverlap(1,rec14,rec3): - 120 h(rec3,1) - 120 h(rec14,1) - x(rec3)
+ + x(rec14) - w(rec3) - 120 g1(rec14,rec3) >= -359
+ noOverlap(1,rec14,rec4): - 120 h(rec4,1) - 120 h(rec14,1) - x(rec4)
+ + x(rec14) - w(rec4) - 120 g1(rec14,rec4) >= -359
+ noOverlap(1,rec14,rec5): - 120 h(rec5,1) - 120 h(rec14,1) - x(rec5)
+ + x(rec14) - w(rec5) - 120 g1(rec14,rec5) >= -359
+ noOverlap(1,rec14,rec6): - 120 h(rec6,1) - 120 h(rec14,1) - x(rec6)
+ + x(rec14) - w(rec6) - 120 g1(rec14,rec6) >= -359
+ noOverlap(1,rec14,rec7): - 120 h(rec7,1) - 120 h(rec14,1) - x(rec7)
+ + x(rec14) - w(rec7) - 120 g1(rec14,rec7) >= -359
+ noOverlap(1,rec14,rec8): - 120 h(rec8,1) - 120 h(rec14,1) - x(rec8)
+ + x(rec14) - w(rec8) - 120 g1(rec14,rec8) >= -359
+ noOverlap(1,rec14,rec9): - 120 h(rec9,1) - 120 h(rec14,1) - x(rec9)
+ + x(rec14) - w(rec9) - 120 g1(rec14,rec9) >= -359
+ noOverlap(1,rec14,rec15): - 120 h(rec14,1) - 120 h(rec15,1) + x(rec14)
+ - x(rec15) - w(rec15) - 120 g1(rec14,rec15) >= -359
+ noOverlap(1,rec15,rec2): - 120 h(rec2,1) - 120 h(rec15,1) - x(rec2)
+ + x(rec15) - w(rec2) - 120 g1(rec15,rec2) >= -359
+ noOverlap(1,rec15,rec3): - 120 h(rec3,1) - 120 h(rec15,1) - x(rec3)
+ + x(rec15) - w(rec3) - 120 g1(rec15,rec3) >= -359
+ noOverlap(1,rec15,rec4): - 120 h(rec4,1) - 120 h(rec15,1) - x(rec4)
+ + x(rec15) - w(rec4) - 120 g1(rec15,rec4) >= -359
+ noOverlap(1,rec15,rec5): - 120 h(rec5,1) - 120 h(rec15,1) - x(rec5)
+ + x(rec15) - w(rec5) - 120 g1(rec15,rec5) >= -359
+ noOverlap(1,rec15,rec6): - 120 h(rec6,1) - 120 h(rec15,1) - x(rec6)
+ + x(rec15) - w(rec6) - 120 g1(rec15,rec6) >= -359
+ noOverlap(1,rec15,rec7): - 120 h(rec7,1) - 120 h(rec15,1) - x(rec7)
+ + x(rec15) - w(rec7) - 120 g1(rec15,rec7) >= -359
+ noOverlap(1,rec15,rec8): - 120 h(rec8,1) - 120 h(rec15,1) - x(rec8)
+ + x(rec15) - w(rec8) - 120 g1(rec15,rec8) >= -359
+ noOverlap(1,rec15,rec9): - 120 h(rec9,1) - 120 h(rec15,1) - x(rec9)
+ + x(rec15) - w(rec9) - 120 g1(rec15,rec9) >= -359
  noOverlap(2,rec1,rec2): - 120 h(rec1,2) - 120 h(rec2,2) + x(rec1)
  - x(rec2) - w(rec2) - 120 g1(rec1,rec2) >= -359
  noOverlap(2,rec1,rec3): - 120 h(rec1,2) - 120 h(rec3,2) + x(rec1)
@@ -2242,6 +5001,16 @@ Subject To
  - x(rec9) - w(rec9) - 120 g1(rec1,rec9) >= -359
  noOverlap(2,rec1,rec10): - 120 h(rec1,2) - 120 h(rec10,2) + x(rec1)
  - x(rec10) - w(rec10) - 120 g1(rec1,rec10) >= -359
+ noOverlap(2,rec1,rec11): - 120 h(rec1,2) - 120 h(rec11,2) + x(rec1)
+ - x(rec11) - w(rec11) - 120 g1(rec1,rec11) >= -359
+ noOverlap(2,rec1,rec12): - 120 h(rec1,2) - 120 h(rec12,2) + x(rec1)
+ - x(rec12) - w(rec12) - 120 g1(rec1,rec12) >= -359
+ noOverlap(2,rec1,rec13): - 120 h(rec1,2) - 120 h(rec13,2) + x(rec1)
+ - x(rec13) - w(rec13) - 120 g1(rec1,rec13) >= -359
+ noOverlap(2,rec1,rec14): - 120 h(rec1,2) - 120 h(rec14,2) + x(rec1)
+ - x(rec14) - w(rec14) - 120 g1(rec1,rec14) >= -359
+ noOverlap(2,rec1,rec15): - 120 h(rec1,2) - 120 h(rec15,2) + x(rec1)
+ - x(rec15) - w(rec15) - 120 g1(rec1,rec15) >= -359
  noOverlap(2,rec2,rec3): - 120 h(rec2,2) - 120 h(rec3,2) + x(rec2)
  - x(rec3) - w(rec3) - 120 g1(rec2,rec3) >= -359
  noOverlap(2,rec2,rec4): - 120 h(rec2,2) - 120 h(rec4,2) + x(rec2)
@@ -2314,6 +5083,116 @@ Subject To
  + x(rec10) - w(rec8) - 120 g1(rec10,rec8) >= -359
  noOverlap(2,rec10,rec9): - 120 h(rec9,2) - 120 h(rec10,2) - x(rec9)
  + x(rec10) - w(rec9) - 120 g1(rec10,rec9) >= -359
+ noOverlap(2,rec10,rec11): - 120 h(rec10,2) - 120 h(rec11,2) + x(rec10)
+ - x(rec11) - w(rec11) - 120 g1(rec10,rec11) >= -359
+ noOverlap(2,rec10,rec12): - 120 h(rec10,2) - 120 h(rec12,2) + x(rec10)
+ - x(rec12) - w(rec12) - 120 g1(rec10,rec12) >= -359
+ noOverlap(2,rec10,rec13): - 120 h(rec10,2) - 120 h(rec13,2) + x(rec10)
+ - x(rec13) - w(rec13) - 120 g1(rec10,rec13) >= -359
+ noOverlap(2,rec10,rec14): - 120 h(rec10,2) - 120 h(rec14,2) + x(rec10)
+ - x(rec14) - w(rec14) - 120 g1(rec10,rec14) >= -359
+ noOverlap(2,rec10,rec15): - 120 h(rec10,2) - 120 h(rec15,2) + x(rec10)
+ - x(rec15) - w(rec15) - 120 g1(rec10,rec15) >= -359
+ noOverlap(2,rec11,rec2): - 120 h(rec2,2) - 120 h(rec11,2) - x(rec2)
+ + x(rec11) - w(rec2) - 120 g1(rec11,rec2) >= -359
+ noOverlap(2,rec11,rec3): - 120 h(rec3,2) - 120 h(rec11,2) - x(rec3)
+ + x(rec11) - w(rec3) - 120 g1(rec11,rec3) >= -359
+ noOverlap(2,rec11,rec4): - 120 h(rec4,2) - 120 h(rec11,2) - x(rec4)
+ + x(rec11) - w(rec4) - 120 g1(rec11,rec4) >= -359
+ noOverlap(2,rec11,rec5): - 120 h(rec5,2) - 120 h(rec11,2) - x(rec5)
+ + x(rec11) - w(rec5) - 120 g1(rec11,rec5) >= -359
+ noOverlap(2,rec11,rec6): - 120 h(rec6,2) - 120 h(rec11,2) - x(rec6)
+ + x(rec11) - w(rec6) - 120 g1(rec11,rec6) >= -359
+ noOverlap(2,rec11,rec7): - 120 h(rec7,2) - 120 h(rec11,2) - x(rec7)
+ + x(rec11) - w(rec7) - 120 g1(rec11,rec7) >= -359
+ noOverlap(2,rec11,rec8): - 120 h(rec8,2) - 120 h(rec11,2) - x(rec8)
+ + x(rec11) - w(rec8) - 120 g1(rec11,rec8) >= -359
+ noOverlap(2,rec11,rec9): - 120 h(rec9,2) - 120 h(rec11,2) - x(rec9)
+ + x(rec11) - w(rec9) - 120 g1(rec11,rec9) >= -359
+ noOverlap(2,rec11,rec12): - 120 h(rec11,2) - 120 h(rec12,2) + x(rec11)
+ - x(rec12) - w(rec12) - 120 g1(rec11,rec12) >= -359
+ noOverlap(2,rec11,rec13): - 120 h(rec11,2) - 120 h(rec13,2) + x(rec11)
+ - x(rec13) - w(rec13) - 120 g1(rec11,rec13) >= -359
+ noOverlap(2,rec11,rec14): - 120 h(rec11,2) - 120 h(rec14,2) + x(rec11)
+ - x(rec14) - w(rec14) - 120 g1(rec11,rec14) >= -359
+ noOverlap(2,rec11,rec15): - 120 h(rec11,2) - 120 h(rec15,2) + x(rec11)
+ - x(rec15) - w(rec15) - 120 g1(rec11,rec15) >= -359
+ noOverlap(2,rec12,rec2): - 120 h(rec2,2) - 120 h(rec12,2) - x(rec2)
+ + x(rec12) - w(rec2) - 120 g1(rec12,rec2) >= -359
+ noOverlap(2,rec12,rec3): - 120 h(rec3,2) - 120 h(rec12,2) - x(rec3)
+ + x(rec12) - w(rec3) - 120 g1(rec12,rec3) >= -359
+ noOverlap(2,rec12,rec4): - 120 h(rec4,2) - 120 h(rec12,2) - x(rec4)
+ + x(rec12) - w(rec4) - 120 g1(rec12,rec4) >= -359
+ noOverlap(2,rec12,rec5): - 120 h(rec5,2) - 120 h(rec12,2) - x(rec5)
+ + x(rec12) - w(rec5) - 120 g1(rec12,rec5) >= -359
+ noOverlap(2,rec12,rec6): - 120 h(rec6,2) - 120 h(rec12,2) - x(rec6)
+ + x(rec12) - w(rec6) - 120 g1(rec12,rec6) >= -359
+ noOverlap(2,rec12,rec7): - 120 h(rec7,2) - 120 h(rec12,2) - x(rec7)
+ + x(rec12) - w(rec7) - 120 g1(rec12,rec7) >= -359
+ noOverlap(2,rec12,rec8): - 120 h(rec8,2) - 120 h(rec12,2) - x(rec8)
+ + x(rec12) - w(rec8) - 120 g1(rec12,rec8) >= -359
+ noOverlap(2,rec12,rec9): - 120 h(rec9,2) - 120 h(rec12,2) - x(rec9)
+ + x(rec12) - w(rec9) - 120 g1(rec12,rec9) >= -359
+ noOverlap(2,rec12,rec13): - 120 h(rec12,2) - 120 h(rec13,2) + x(rec12)
+ - x(rec13) - w(rec13) - 120 g1(rec12,rec13) >= -359
+ noOverlap(2,rec12,rec14): - 120 h(rec12,2) - 120 h(rec14,2) + x(rec12)
+ - x(rec14) - w(rec14) - 120 g1(rec12,rec14) >= -359
+ noOverlap(2,rec12,rec15): - 120 h(rec12,2) - 120 h(rec15,2) + x(rec12)
+ - x(rec15) - w(rec15) - 120 g1(rec12,rec15) >= -359
+ noOverlap(2,rec13,rec2): - 120 h(rec2,2) - 120 h(rec13,2) - x(rec2)
+ + x(rec13) - w(rec2) - 120 g1(rec13,rec2) >= -359
+ noOverlap(2,rec13,rec3): - 120 h(rec3,2) - 120 h(rec13,2) - x(rec3)
+ + x(rec13) - w(rec3) - 120 g1(rec13,rec3) >= -359
+ noOverlap(2,rec13,rec4): - 120 h(rec4,2) - 120 h(rec13,2) - x(rec4)
+ + x(rec13) - w(rec4) - 120 g1(rec13,rec4) >= -359
+ noOverlap(2,rec13,rec5): - 120 h(rec5,2) - 120 h(rec13,2) - x(rec5)
+ + x(rec13) - w(rec5) - 120 g1(rec13,rec5) >= -359
+ noOverlap(2,rec13,rec6): - 120 h(rec6,2) - 120 h(rec13,2) - x(rec6)
+ + x(rec13) - w(rec6) - 120 g1(rec13,rec6) >= -359
+ noOverlap(2,rec13,rec7): - 120 h(rec7,2) - 120 h(rec13,2) - x(rec7)
+ + x(rec13) - w(rec7) - 120 g1(rec13,rec7) >= -359
+ noOverlap(2,rec13,rec8): - 120 h(rec8,2) - 120 h(rec13,2) - x(rec8)
+ + x(rec13) - w(rec8) - 120 g1(rec13,rec8) >= -359
+ noOverlap(2,rec13,rec9): - 120 h(rec9,2) - 120 h(rec13,2) - x(rec9)
+ + x(rec13) - w(rec9) - 120 g1(rec13,rec9) >= -359
+ noOverlap(2,rec13,rec14): - 120 h(rec13,2) - 120 h(rec14,2) + x(rec13)
+ - x(rec14) - w(rec14) - 120 g1(rec13,rec14) >= -359
+ noOverlap(2,rec13,rec15): - 120 h(rec13,2) - 120 h(rec15,2) + x(rec13)
+ - x(rec15) - w(rec15) - 120 g1(rec13,rec15) >= -359
+ noOverlap(2,rec14,rec2): - 120 h(rec2,2) - 120 h(rec14,2) - x(rec2)
+ + x(rec14) - w(rec2) - 120 g1(rec14,rec2) >= -359
+ noOverlap(2,rec14,rec3): - 120 h(rec3,2) - 120 h(rec14,2) - x(rec3)
+ + x(rec14) - w(rec3) - 120 g1(rec14,rec3) >= -359
+ noOverlap(2,rec14,rec4): - 120 h(rec4,2) - 120 h(rec14,2) - x(rec4)
+ + x(rec14) - w(rec4) - 120 g1(rec14,rec4) >= -359
+ noOverlap(2,rec14,rec5): - 120 h(rec5,2) - 120 h(rec14,2) - x(rec5)
+ + x(rec14) - w(rec5) - 120 g1(rec14,rec5) >= -359
+ noOverlap(2,rec14,rec6): - 120 h(rec6,2) - 120 h(rec14,2) - x(rec6)
+ + x(rec14) - w(rec6) - 120 g1(rec14,rec6) >= -359
+ noOverlap(2,rec14,rec7): - 120 h(rec7,2) - 120 h(rec14,2) - x(rec7)
+ + x(rec14) - w(rec7) - 120 g1(rec14,rec7) >= -359
+ noOverlap(2,rec14,rec8): - 120 h(rec8,2) - 120 h(rec14,2) - x(rec8)
+ + x(rec14) - w(rec8) - 120 g1(rec14,rec8) >= -359
+ noOverlap(2,rec14,rec9): - 120 h(rec9,2) - 120 h(rec14,2) - x(rec9)
+ + x(rec14) - w(rec9) - 120 g1(rec14,rec9) >= -359
+ noOverlap(2,rec14,rec15): - 120 h(rec14,2) - 120 h(rec15,2) + x(rec14)
+ - x(rec15) - w(rec15) - 120 g1(rec14,rec15) >= -359
+ noOverlap(2,rec15,rec2): - 120 h(rec2,2) - 120 h(rec15,2) - x(rec2)
+ + x(rec15) - w(rec2) - 120 g1(rec15,rec2) >= -359
+ noOverlap(2,rec15,rec3): - 120 h(rec3,2) - 120 h(rec15,2) - x(rec3)
+ + x(rec15) - w(rec3) - 120 g1(rec15,rec3) >= -359
+ noOverlap(2,rec15,rec4): - 120 h(rec4,2) - 120 h(rec15,2) - x(rec4)
+ + x(rec15) - w(rec4) - 120 g1(rec15,rec4) >= -359
+ noOverlap(2,rec15,rec5): - 120 h(rec5,2) - 120 h(rec15,2) - x(rec5)
+ + x(rec15) - w(rec5) - 120 g1(rec15,rec5) >= -359
+ noOverlap(2,rec15,rec6): - 120 h(rec6,2) - 120 h(rec15,2) - x(rec6)
+ + x(rec15) - w(rec6) - 120 g1(rec15,rec6) >= -359
+ noOverlap(2,rec15,rec7): - 120 h(rec7,2) - 120 h(rec15,2) - x(rec7)
+ + x(rec15) - w(rec7) - 120 g1(rec15,rec7) >= -359
+ noOverlap(2,rec15,rec8): - 120 h(rec8,2) - 120 h(rec15,2) - x(rec8)
+ + x(rec15) - w(rec8) - 120 g1(rec15,rec8) >= -359
+ noOverlap(2,rec15,rec9): - 120 h(rec9,2) - 120 h(rec15,2) - x(rec9)
+ + x(rec15) - w(rec9) - 120 g1(rec15,rec9) >= -359
  noOverlap(3,rec1,rec2): - 120 h(rec1,3) - 120 h(rec2,3) + x(rec1)
  - x(rec2) - w(rec2) - 120 g1(rec1,rec2) >= -359
  noOverlap(3,rec1,rec3): - 120 h(rec1,3) - 120 h(rec3,3) + x(rec1)
@@ -2332,6 +5211,16 @@ Subject To
  - x(rec9) - w(rec9) - 120 g1(rec1,rec9) >= -359
  noOverlap(3,rec1,rec10): - 120 h(rec1,3) - 120 h(rec10,3) + x(rec1)
  - x(rec10) - w(rec10) - 120 g1(rec1,rec10) >= -359
+ noOverlap(3,rec1,rec11): - 120 h(rec1,3) - 120 h(rec11,3) + x(rec1)
+ - x(rec11) - w(rec11) - 120 g1(rec1,rec11) >= -359
+ noOverlap(3,rec1,rec12): - 120 h(rec1,3) - 120 h(rec12,3) + x(rec1)
+ - x(rec12) - w(rec12) - 120 g1(rec1,rec12) >= -359
+ noOverlap(3,rec1,rec13): - 120 h(rec1,3) - 120 h(rec13,3) + x(rec1)
+ - x(rec13) - w(rec13) - 120 g1(rec1,rec13) >= -359
+ noOverlap(3,rec1,rec14): - 120 h(rec1,3) - 120 h(rec14,3) + x(rec1)
+ - x(rec14) - w(rec14) - 120 g1(rec1,rec14) >= -359
+ noOverlap(3,rec1,rec15): - 120 h(rec1,3) - 120 h(rec15,3) + x(rec1)
+ - x(rec15) - w(rec15) - 120 g1(rec1,rec15) >= -359
  noOverlap(3,rec2,rec3): - 120 h(rec2,3) - 120 h(rec3,3) + x(rec2)
  - x(rec3) - w(rec3) - 120 g1(rec2,rec3) >= -359
  noOverlap(3,rec2,rec4): - 120 h(rec2,3) - 120 h(rec4,3) + x(rec2)
@@ -2404,6 +5293,116 @@ Subject To
  + x(rec10) - w(rec8) - 120 g1(rec10,rec8) >= -359
  noOverlap(3,rec10,rec9): - 120 h(rec9,3) - 120 h(rec10,3) - x(rec9)
  + x(rec10) - w(rec9) - 120 g1(rec10,rec9) >= -359
+ noOverlap(3,rec10,rec11): - 120 h(rec10,3) - 120 h(rec11,3) + x(rec10)
+ - x(rec11) - w(rec11) - 120 g1(rec10,rec11) >= -359
+ noOverlap(3,rec10,rec12): - 120 h(rec10,3) - 120 h(rec12,3) + x(rec10)
+ - x(rec12) - w(rec12) - 120 g1(rec10,rec12) >= -359
+ noOverlap(3,rec10,rec13): - 120 h(rec10,3) - 120 h(rec13,3) + x(rec10)
+ - x(rec13) - w(rec13) - 120 g1(rec10,rec13) >= -359
+ noOverlap(3,rec10,rec14): - 120 h(rec10,3) - 120 h(rec14,3) + x(rec10)
+ - x(rec14) - w(rec14) - 120 g1(rec10,rec14) >= -359
+ noOverlap(3,rec10,rec15): - 120 h(rec10,3) - 120 h(rec15,3) + x(rec10)
+ - x(rec15) - w(rec15) - 120 g1(rec10,rec15) >= -359
+ noOverlap(3,rec11,rec2): - 120 h(rec2,3) - 120 h(rec11,3) - x(rec2)
+ + x(rec11) - w(rec2) - 120 g1(rec11,rec2) >= -359
+ noOverlap(3,rec11,rec3): - 120 h(rec3,3) - 120 h(rec11,3) - x(rec3)
+ + x(rec11) - w(rec3) - 120 g1(rec11,rec3) >= -359
+ noOverlap(3,rec11,rec4): - 120 h(rec4,3) - 120 h(rec11,3) - x(rec4)
+ + x(rec11) - w(rec4) - 120 g1(rec11,rec4) >= -359
+ noOverlap(3,rec11,rec5): - 120 h(rec5,3) - 120 h(rec11,3) - x(rec5)
+ + x(rec11) - w(rec5) - 120 g1(rec11,rec5) >= -359
+ noOverlap(3,rec11,rec6): - 120 h(rec6,3) - 120 h(rec11,3) - x(rec6)
+ + x(rec11) - w(rec6) - 120 g1(rec11,rec6) >= -359
+ noOverlap(3,rec11,rec7): - 120 h(rec7,3) - 120 h(rec11,3) - x(rec7)
+ + x(rec11) - w(rec7) - 120 g1(rec11,rec7) >= -359
+ noOverlap(3,rec11,rec8): - 120 h(rec8,3) - 120 h(rec11,3) - x(rec8)
+ + x(rec11) - w(rec8) - 120 g1(rec11,rec8) >= -359
+ noOverlap(3,rec11,rec9): - 120 h(rec9,3) - 120 h(rec11,3) - x(rec9)
+ + x(rec11) - w(rec9) - 120 g1(rec11,rec9) >= -359
+ noOverlap(3,rec11,rec12): - 120 h(rec11,3) - 120 h(rec12,3) + x(rec11)
+ - x(rec12) - w(rec12) - 120 g1(rec11,rec12) >= -359
+ noOverlap(3,rec11,rec13): - 120 h(rec11,3) - 120 h(rec13,3) + x(rec11)
+ - x(rec13) - w(rec13) - 120 g1(rec11,rec13) >= -359
+ noOverlap(3,rec11,rec14): - 120 h(rec11,3) - 120 h(rec14,3) + x(rec11)
+ - x(rec14) - w(rec14) - 120 g1(rec11,rec14) >= -359
+ noOverlap(3,rec11,rec15): - 120 h(rec11,3) - 120 h(rec15,3) + x(rec11)
+ - x(rec15) - w(rec15) - 120 g1(rec11,rec15) >= -359
+ noOverlap(3,rec12,rec2): - 120 h(rec2,3) - 120 h(rec12,3) - x(rec2)
+ + x(rec12) - w(rec2) - 120 g1(rec12,rec2) >= -359
+ noOverlap(3,rec12,rec3): - 120 h(rec3,3) - 120 h(rec12,3) - x(rec3)
+ + x(rec12) - w(rec3) - 120 g1(rec12,rec3) >= -359
+ noOverlap(3,rec12,rec4): - 120 h(rec4,3) - 120 h(rec12,3) - x(rec4)
+ + x(rec12) - w(rec4) - 120 g1(rec12,rec4) >= -359
+ noOverlap(3,rec12,rec5): - 120 h(rec5,3) - 120 h(rec12,3) - x(rec5)
+ + x(rec12) - w(rec5) - 120 g1(rec12,rec5) >= -359
+ noOverlap(3,rec12,rec6): - 120 h(rec6,3) - 120 h(rec12,3) - x(rec6)
+ + x(rec12) - w(rec6) - 120 g1(rec12,rec6) >= -359
+ noOverlap(3,rec12,rec7): - 120 h(rec7,3) - 120 h(rec12,3) - x(rec7)
+ + x(rec12) - w(rec7) - 120 g1(rec12,rec7) >= -359
+ noOverlap(3,rec12,rec8): - 120 h(rec8,3) - 120 h(rec12,3) - x(rec8)
+ + x(rec12) - w(rec8) - 120 g1(rec12,rec8) >= -359
+ noOverlap(3,rec12,rec9): - 120 h(rec9,3) - 120 h(rec12,3) - x(rec9)
+ + x(rec12) - w(rec9) - 120 g1(rec12,rec9) >= -359
+ noOverlap(3,rec12,rec13): - 120 h(rec12,3) - 120 h(rec13,3) + x(rec12)
+ - x(rec13) - w(rec13) - 120 g1(rec12,rec13) >= -359
+ noOverlap(3,rec12,rec14): - 120 h(rec12,3) - 120 h(rec14,3) + x(rec12)
+ - x(rec14) - w(rec14) - 120 g1(rec12,rec14) >= -359
+ noOverlap(3,rec12,rec15): - 120 h(rec12,3) - 120 h(rec15,3) + x(rec12)
+ - x(rec15) - w(rec15) - 120 g1(rec12,rec15) >= -359
+ noOverlap(3,rec13,rec2): - 120 h(rec2,3) - 120 h(rec13,3) - x(rec2)
+ + x(rec13) - w(rec2) - 120 g1(rec13,rec2) >= -359
+ noOverlap(3,rec13,rec3): - 120 h(rec3,3) - 120 h(rec13,3) - x(rec3)
+ + x(rec13) - w(rec3) - 120 g1(rec13,rec3) >= -359
+ noOverlap(3,rec13,rec4): - 120 h(rec4,3) - 120 h(rec13,3) - x(rec4)
+ + x(rec13) - w(rec4) - 120 g1(rec13,rec4) >= -359
+ noOverlap(3,rec13,rec5): - 120 h(rec5,3) - 120 h(rec13,3) - x(rec5)
+ + x(rec13) - w(rec5) - 120 g1(rec13,rec5) >= -359
+ noOverlap(3,rec13,rec6): - 120 h(rec6,3) - 120 h(rec13,3) - x(rec6)
+ + x(rec13) - w(rec6) - 120 g1(rec13,rec6) >= -359
+ noOverlap(3,rec13,rec7): - 120 h(rec7,3) - 120 h(rec13,3) - x(rec7)
+ + x(rec13) - w(rec7) - 120 g1(rec13,rec7) >= -359
+ noOverlap(3,rec13,rec8): - 120 h(rec8,3) - 120 h(rec13,3) - x(rec8)
+ + x(rec13) - w(rec8) - 120 g1(rec13,rec8) >= -359
+ noOverlap(3,rec13,rec9): - 120 h(rec9,3) - 120 h(rec13,3) - x(rec9)
+ + x(rec13) - w(rec9) - 120 g1(rec13,rec9) >= -359
+ noOverlap(3,rec13,rec14): - 120 h(rec13,3) - 120 h(rec14,3) + x(rec13)
+ - x(rec14) - w(rec14) - 120 g1(rec13,rec14) >= -359
+ noOverlap(3,rec13,rec15): - 120 h(rec13,3) - 120 h(rec15,3) + x(rec13)
+ - x(rec15) - w(rec15) - 120 g1(rec13,rec15) >= -359
+ noOverlap(3,rec14,rec2): - 120 h(rec2,3) - 120 h(rec14,3) - x(rec2)
+ + x(rec14) - w(rec2) - 120 g1(rec14,rec2) >= -359
+ noOverlap(3,rec14,rec3): - 120 h(rec3,3) - 120 h(rec14,3) - x(rec3)
+ + x(rec14) - w(rec3) - 120 g1(rec14,rec3) >= -359
+ noOverlap(3,rec14,rec4): - 120 h(rec4,3) - 120 h(rec14,3) - x(rec4)
+ + x(rec14) - w(rec4) - 120 g1(rec14,rec4) >= -359
+ noOverlap(3,rec14,rec5): - 120 h(rec5,3) - 120 h(rec14,3) - x(rec5)
+ + x(rec14) - w(rec5) - 120 g1(rec14,rec5) >= -359
+ noOverlap(3,rec14,rec6): - 120 h(rec6,3) - 120 h(rec14,3) - x(rec6)
+ + x(rec14) - w(rec6) - 120 g1(rec14,rec6) >= -359
+ noOverlap(3,rec14,rec7): - 120 h(rec7,3) - 120 h(rec14,3) - x(rec7)
+ + x(rec14) - w(rec7) - 120 g1(rec14,rec7) >= -359
+ noOverlap(3,rec14,rec8): - 120 h(rec8,3) - 120 h(rec14,3) - x(rec8)
+ + x(rec14) - w(rec8) - 120 g1(rec14,rec8) >= -359
+ noOverlap(3,rec14,rec9): - 120 h(rec9,3) - 120 h(rec14,3) - x(rec9)
+ + x(rec14) - w(rec9) - 120 g1(rec14,rec9) >= -359
+ noOverlap(3,rec14,rec15): - 120 h(rec14,3) - 120 h(rec15,3) + x(rec14)
+ - x(rec15) - w(rec15) - 120 g1(rec14,rec15) >= -359
+ noOverlap(3,rec15,rec2): - 120 h(rec2,3) - 120 h(rec15,3) - x(rec2)
+ + x(rec15) - w(rec2) - 120 g1(rec15,rec2) >= -359
+ noOverlap(3,rec15,rec3): - 120 h(rec3,3) - 120 h(rec15,3) - x(rec3)
+ + x(rec15) - w(rec3) - 120 g1(rec15,rec3) >= -359
+ noOverlap(3,rec15,rec4): - 120 h(rec4,3) - 120 h(rec15,3) - x(rec4)
+ + x(rec15) - w(rec4) - 120 g1(rec15,rec4) >= -359
+ noOverlap(3,rec15,rec5): - 120 h(rec5,3) - 120 h(rec15,3) - x(rec5)
+ + x(rec15) - w(rec5) - 120 g1(rec15,rec5) >= -359
+ noOverlap(3,rec15,rec6): - 120 h(rec6,3) - 120 h(rec15,3) - x(rec6)
+ + x(rec15) - w(rec6) - 120 g1(rec15,rec6) >= -359
+ noOverlap(3,rec15,rec7): - 120 h(rec7,3) - 120 h(rec15,3) - x(rec7)
+ + x(rec15) - w(rec7) - 120 g1(rec15,rec7) >= -359
+ noOverlap(3,rec15,rec8): - 120 h(rec8,3) - 120 h(rec15,3) - x(rec8)
+ + x(rec15) - w(rec8) - 120 g1(rec15,rec8) >= -359
+ noOverlap(3,rec15,rec9): - 120 h(rec9,3) - 120 h(rec15,3) - x(rec9)
+ + x(rec15) - w(rec9) - 120 g1(rec15,rec9) >= -359
  noOverlap(4,rec1,rec2): - 120 h(rec1,4) - 120 h(rec2,4) + x(rec1)
  - x(rec2) - w(rec2) - 120 g1(rec1,rec2) >= -359
  noOverlap(4,rec1,rec3): - 120 h(rec1,4) - 120 h(rec3,4) + x(rec1)
@@ -2422,6 +5421,16 @@ Subject To
  - x(rec9) - w(rec9) - 120 g1(rec1,rec9) >= -359
  noOverlap(4,rec1,rec10): - 120 h(rec1,4) - 120 h(rec10,4) + x(rec1)
  - x(rec10) - w(rec10) - 120 g1(rec1,rec10) >= -359
+ noOverlap(4,rec1,rec11): - 120 h(rec1,4) - 120 h(rec11,4) + x(rec1)
+ - x(rec11) - w(rec11) - 120 g1(rec1,rec11) >= -359
+ noOverlap(4,rec1,rec12): - 120 h(rec1,4) - 120 h(rec12,4) + x(rec1)
+ - x(rec12) - w(rec12) - 120 g1(rec1,rec12) >= -359
+ noOverlap(4,rec1,rec13): - 120 h(rec1,4) - 120 h(rec13,4) + x(rec1)
+ - x(rec13) - w(rec13) - 120 g1(rec1,rec13) >= -359
+ noOverlap(4,rec1,rec14): - 120 h(rec1,4) - 120 h(rec14,4) + x(rec1)
+ - x(rec14) - w(rec14) - 120 g1(rec1,rec14) >= -359
+ noOverlap(4,rec1,rec15): - 120 h(rec1,4) - 120 h(rec15,4) + x(rec1)
+ - x(rec15) - w(rec15) - 120 g1(rec1,rec15) >= -359
  noOverlap(4,rec2,rec3): - 120 h(rec2,4) - 120 h(rec3,4) + x(rec2)
  - x(rec3) - w(rec3) - 120 g1(rec2,rec3) >= -359
  noOverlap(4,rec2,rec4): - 120 h(rec2,4) - 120 h(rec4,4) + x(rec2)
@@ -2494,6 +5503,116 @@ Subject To
  + x(rec10) - w(rec8) - 120 g1(rec10,rec8) >= -359
  noOverlap(4,rec10,rec9): - 120 h(rec9,4) - 120 h(rec10,4) - x(rec9)
  + x(rec10) - w(rec9) - 120 g1(rec10,rec9) >= -359
+ noOverlap(4,rec10,rec11): - 120 h(rec10,4) - 120 h(rec11,4) + x(rec10)
+ - x(rec11) - w(rec11) - 120 g1(rec10,rec11) >= -359
+ noOverlap(4,rec10,rec12): - 120 h(rec10,4) - 120 h(rec12,4) + x(rec10)
+ - x(rec12) - w(rec12) - 120 g1(rec10,rec12) >= -359
+ noOverlap(4,rec10,rec13): - 120 h(rec10,4) - 120 h(rec13,4) + x(rec10)
+ - x(rec13) - w(rec13) - 120 g1(rec10,rec13) >= -359
+ noOverlap(4,rec10,rec14): - 120 h(rec10,4) - 120 h(rec14,4) + x(rec10)
+ - x(rec14) - w(rec14) - 120 g1(rec10,rec14) >= -359
+ noOverlap(4,rec10,rec15): - 120 h(rec10,4) - 120 h(rec15,4) + x(rec10)
+ - x(rec15) - w(rec15) - 120 g1(rec10,rec15) >= -359
+ noOverlap(4,rec11,rec2): - 120 h(rec2,4) - 120 h(rec11,4) - x(rec2)
+ + x(rec11) - w(rec2) - 120 g1(rec11,rec2) >= -359
+ noOverlap(4,rec11,rec3): - 120 h(rec3,4) - 120 h(rec11,4) - x(rec3)
+ + x(rec11) - w(rec3) - 120 g1(rec11,rec3) >= -359
+ noOverlap(4,rec11,rec4): - 120 h(rec4,4) - 120 h(rec11,4) - x(rec4)
+ + x(rec11) - w(rec4) - 120 g1(rec11,rec4) >= -359
+ noOverlap(4,rec11,rec5): - 120 h(rec5,4) - 120 h(rec11,4) - x(rec5)
+ + x(rec11) - w(rec5) - 120 g1(rec11,rec5) >= -359
+ noOverlap(4,rec11,rec6): - 120 h(rec6,4) - 120 h(rec11,4) - x(rec6)
+ + x(rec11) - w(rec6) - 120 g1(rec11,rec6) >= -359
+ noOverlap(4,rec11,rec7): - 120 h(rec7,4) - 120 h(rec11,4) - x(rec7)
+ + x(rec11) - w(rec7) - 120 g1(rec11,rec7) >= -359
+ noOverlap(4,rec11,rec8): - 120 h(rec8,4) - 120 h(rec11,4) - x(rec8)
+ + x(rec11) - w(rec8) - 120 g1(rec11,rec8) >= -359
+ noOverlap(4,rec11,rec9): - 120 h(rec9,4) - 120 h(rec11,4) - x(rec9)
+ + x(rec11) - w(rec9) - 120 g1(rec11,rec9) >= -359
+ noOverlap(4,rec11,rec12): - 120 h(rec11,4) - 120 h(rec12,4) + x(rec11)
+ - x(rec12) - w(rec12) - 120 g1(rec11,rec12) >= -359
+ noOverlap(4,rec11,rec13): - 120 h(rec11,4) - 120 h(rec13,4) + x(rec11)
+ - x(rec13) - w(rec13) - 120 g1(rec11,rec13) >= -359
+ noOverlap(4,rec11,rec14): - 120 h(rec11,4) - 120 h(rec14,4) + x(rec11)
+ - x(rec14) - w(rec14) - 120 g1(rec11,rec14) >= -359
+ noOverlap(4,rec11,rec15): - 120 h(rec11,4) - 120 h(rec15,4) + x(rec11)
+ - x(rec15) - w(rec15) - 120 g1(rec11,rec15) >= -359
+ noOverlap(4,rec12,rec2): - 120 h(rec2,4) - 120 h(rec12,4) - x(rec2)
+ + x(rec12) - w(rec2) - 120 g1(rec12,rec2) >= -359
+ noOverlap(4,rec12,rec3): - 120 h(rec3,4) - 120 h(rec12,4) - x(rec3)
+ + x(rec12) - w(rec3) - 120 g1(rec12,rec3) >= -359
+ noOverlap(4,rec12,rec4): - 120 h(rec4,4) - 120 h(rec12,4) - x(rec4)
+ + x(rec12) - w(rec4) - 120 g1(rec12,rec4) >= -359
+ noOverlap(4,rec12,rec5): - 120 h(rec5,4) - 120 h(rec12,4) - x(rec5)
+ + x(rec12) - w(rec5) - 120 g1(rec12,rec5) >= -359
+ noOverlap(4,rec12,rec6): - 120 h(rec6,4) - 120 h(rec12,4) - x(rec6)
+ + x(rec12) - w(rec6) - 120 g1(rec12,rec6) >= -359
+ noOverlap(4,rec12,rec7): - 120 h(rec7,4) - 120 h(rec12,4) - x(rec7)
+ + x(rec12) - w(rec7) - 120 g1(rec12,rec7) >= -359
+ noOverlap(4,rec12,rec8): - 120 h(rec8,4) - 120 h(rec12,4) - x(rec8)
+ + x(rec12) - w(rec8) - 120 g1(rec12,rec8) >= -359
+ noOverlap(4,rec12,rec9): - 120 h(rec9,4) - 120 h(rec12,4) - x(rec9)
+ + x(rec12) - w(rec9) - 120 g1(rec12,rec9) >= -359
+ noOverlap(4,rec12,rec13): - 120 h(rec12,4) - 120 h(rec13,4) + x(rec12)
+ - x(rec13) - w(rec13) - 120 g1(rec12,rec13) >= -359
+ noOverlap(4,rec12,rec14): - 120 h(rec12,4) - 120 h(rec14,4) + x(rec12)
+ - x(rec14) - w(rec14) - 120 g1(rec12,rec14) >= -359
+ noOverlap(4,rec12,rec15): - 120 h(rec12,4) - 120 h(rec15,4) + x(rec12)
+ - x(rec15) - w(rec15) - 120 g1(rec12,rec15) >= -359
+ noOverlap(4,rec13,rec2): - 120 h(rec2,4) - 120 h(rec13,4) - x(rec2)
+ + x(rec13) - w(rec2) - 120 g1(rec13,rec2) >= -359
+ noOverlap(4,rec13,rec3): - 120 h(rec3,4) - 120 h(rec13,4) - x(rec3)
+ + x(rec13) - w(rec3) - 120 g1(rec13,rec3) >= -359
+ noOverlap(4,rec13,rec4): - 120 h(rec4,4) - 120 h(rec13,4) - x(rec4)
+ + x(rec13) - w(rec4) - 120 g1(rec13,rec4) >= -359
+ noOverlap(4,rec13,rec5): - 120 h(rec5,4) - 120 h(rec13,4) - x(rec5)
+ + x(rec13) - w(rec5) - 120 g1(rec13,rec5) >= -359
+ noOverlap(4,rec13,rec6): - 120 h(rec6,4) - 120 h(rec13,4) - x(rec6)
+ + x(rec13) - w(rec6) - 120 g1(rec13,rec6) >= -359
+ noOverlap(4,rec13,rec7): - 120 h(rec7,4) - 120 h(rec13,4) - x(rec7)
+ + x(rec13) - w(rec7) - 120 g1(rec13,rec7) >= -359
+ noOverlap(4,rec13,rec8): - 120 h(rec8,4) - 120 h(rec13,4) - x(rec8)
+ + x(rec13) - w(rec8) - 120 g1(rec13,rec8) >= -359
+ noOverlap(4,rec13,rec9): - 120 h(rec9,4) - 120 h(rec13,4) - x(rec9)
+ + x(rec13) - w(rec9) - 120 g1(rec13,rec9) >= -359
+ noOverlap(4,rec13,rec14): - 120 h(rec13,4) - 120 h(rec14,4) + x(rec13)
+ - x(rec14) - w(rec14) - 120 g1(rec13,rec14) >= -359
+ noOverlap(4,rec13,rec15): - 120 h(rec13,4) - 120 h(rec15,4) + x(rec13)
+ - x(rec15) - w(rec15) - 120 g1(rec13,rec15) >= -359
+ noOverlap(4,rec14,rec2): - 120 h(rec2,4) - 120 h(rec14,4) - x(rec2)
+ + x(rec14) - w(rec2) - 120 g1(rec14,rec2) >= -359
+ noOverlap(4,rec14,rec3): - 120 h(rec3,4) - 120 h(rec14,4) - x(rec3)
+ + x(rec14) - w(rec3) - 120 g1(rec14,rec3) >= -359
+ noOverlap(4,rec14,rec4): - 120 h(rec4,4) - 120 h(rec14,4) - x(rec4)
+ + x(rec14) - w(rec4) - 120 g1(rec14,rec4) >= -359
+ noOverlap(4,rec14,rec5): - 120 h(rec5,4) - 120 h(rec14,4) - x(rec5)
+ + x(rec14) - w(rec5) - 120 g1(rec14,rec5) >= -359
+ noOverlap(4,rec14,rec6): - 120 h(rec6,4) - 120 h(rec14,4) - x(rec6)
+ + x(rec14) - w(rec6) - 120 g1(rec14,rec6) >= -359
+ noOverlap(4,rec14,rec7): - 120 h(rec7,4) - 120 h(rec14,4) - x(rec7)
+ + x(rec14) - w(rec7) - 120 g1(rec14,rec7) >= -359
+ noOverlap(4,rec14,rec8): - 120 h(rec8,4) - 120 h(rec14,4) - x(rec8)
+ + x(rec14) - w(rec8) - 120 g1(rec14,rec8) >= -359
+ noOverlap(4,rec14,rec9): - 120 h(rec9,4) - 120 h(rec14,4) - x(rec9)
+ + x(rec14) - w(rec9) - 120 g1(rec14,rec9) >= -359
+ noOverlap(4,rec14,rec15): - 120 h(rec14,4) - 120 h(rec15,4) + x(rec14)
+ - x(rec15) - w(rec15) - 120 g1(rec14,rec15) >= -359
+ noOverlap(4,rec15,rec2): - 120 h(rec2,4) - 120 h(rec15,4) - x(rec2)
+ + x(rec15) - w(rec2) - 120 g1(rec15,rec2) >= -359
+ noOverlap(4,rec15,rec3): - 120 h(rec3,4) - 120 h(rec15,4) - x(rec3)
+ + x(rec15) - w(rec3) - 120 g1(rec15,rec3) >= -359
+ noOverlap(4,rec15,rec4): - 120 h(rec4,4) - 120 h(rec15,4) - x(rec4)
+ + x(rec15) - w(rec4) - 120 g1(rec15,rec4) >= -359
+ noOverlap(4,rec15,rec5): - 120 h(rec5,4) - 120 h(rec15,4) - x(rec5)
+ + x(rec15) - w(rec5) - 120 g1(rec15,rec5) >= -359
+ noOverlap(4,rec15,rec6): - 120 h(rec6,4) - 120 h(rec15,4) - x(rec6)
+ + x(rec15) - w(rec6) - 120 g1(rec15,rec6) >= -359
+ noOverlap(4,rec15,rec7): - 120 h(rec7,4) - 120 h(rec15,4) - x(rec7)
+ + x(rec15) - w(rec7) - 120 g1(rec15,rec7) >= -359
+ noOverlap(4,rec15,rec8): - 120 h(rec8,4) - 120 h(rec15,4) - x(rec8)
+ + x(rec15) - w(rec8) - 120 g1(rec15,rec8) >= -359
+ noOverlap(4,rec15,rec9): - 120 h(rec9,4) - 120 h(rec15,4) - x(rec9)
+ + x(rec15) - w(rec9) - 120 g1(rec15,rec9) >= -359
  noOverlap(5,rec1,rec2): - 120 h(rec1,5) - 120 h(rec2,5) + x(rec1)
  - x(rec2) - w(rec2) - 120 g1(rec1,rec2) >= -359
  noOverlap(5,rec1,rec3): - 120 h(rec1,5) - 120 h(rec3,5) + x(rec1)
@@ -2512,6 +5631,16 @@ Subject To
  - x(rec9) - w(rec9) - 120 g1(rec1,rec9) >= -359
  noOverlap(5,rec1,rec10): - 120 h(rec1,5) - 120 h(rec10,5) + x(rec1)
  - x(rec10) - w(rec10) - 120 g1(rec1,rec10) >= -359
+ noOverlap(5,rec1,rec11): - 120 h(rec1,5) - 120 h(rec11,5) + x(rec1)
+ - x(rec11) - w(rec11) - 120 g1(rec1,rec11) >= -359
+ noOverlap(5,rec1,rec12): - 120 h(rec1,5) - 120 h(rec12,5) + x(rec1)
+ - x(rec12) - w(rec12) - 120 g1(rec1,rec12) >= -359
+ noOverlap(5,rec1,rec13): - 120 h(rec1,5) - 120 h(rec13,5) + x(rec1)
+ - x(rec13) - w(rec13) - 120 g1(rec1,rec13) >= -359
+ noOverlap(5,rec1,rec14): - 120 h(rec1,5) - 120 h(rec14,5) + x(rec1)
+ - x(rec14) - w(rec14) - 120 g1(rec1,rec14) >= -359
+ noOverlap(5,rec1,rec15): - 120 h(rec1,5) - 120 h(rec15,5) + x(rec1)
+ - x(rec15) - w(rec15) - 120 g1(rec1,rec15) >= -359
  noOverlap(5,rec2,rec3): - 120 h(rec2,5) - 120 h(rec3,5) + x(rec2)
  - x(rec3) - w(rec3) - 120 g1(rec2,rec3) >= -359
  noOverlap(5,rec2,rec4): - 120 h(rec2,5) - 120 h(rec4,5) + x(rec2)
@@ -2584,6 +5713,116 @@ Subject To
  + x(rec10) - w(rec8) - 120 g1(rec10,rec8) >= -359
  noOverlap(5,rec10,rec9): - 120 h(rec9,5) - 120 h(rec10,5) - x(rec9)
  + x(rec10) - w(rec9) - 120 g1(rec10,rec9) >= -359
+ noOverlap(5,rec10,rec11): - 120 h(rec10,5) - 120 h(rec11,5) + x(rec10)
+ - x(rec11) - w(rec11) - 120 g1(rec10,rec11) >= -359
+ noOverlap(5,rec10,rec12): - 120 h(rec10,5) - 120 h(rec12,5) + x(rec10)
+ - x(rec12) - w(rec12) - 120 g1(rec10,rec12) >= -359
+ noOverlap(5,rec10,rec13): - 120 h(rec10,5) - 120 h(rec13,5) + x(rec10)
+ - x(rec13) - w(rec13) - 120 g1(rec10,rec13) >= -359
+ noOverlap(5,rec10,rec14): - 120 h(rec10,5) - 120 h(rec14,5) + x(rec10)
+ - x(rec14) - w(rec14) - 120 g1(rec10,rec14) >= -359
+ noOverlap(5,rec10,rec15): - 120 h(rec10,5) - 120 h(rec15,5) + x(rec10)
+ - x(rec15) - w(rec15) - 120 g1(rec10,rec15) >= -359
+ noOverlap(5,rec11,rec2): - 120 h(rec2,5) - 120 h(rec11,5) - x(rec2)
+ + x(rec11) - w(rec2) - 120 g1(rec11,rec2) >= -359
+ noOverlap(5,rec11,rec3): - 120 h(rec3,5) - 120 h(rec11,5) - x(rec3)
+ + x(rec11) - w(rec3) - 120 g1(rec11,rec3) >= -359
+ noOverlap(5,rec11,rec4): - 120 h(rec4,5) - 120 h(rec11,5) - x(rec4)
+ + x(rec11) - w(rec4) - 120 g1(rec11,rec4) >= -359
+ noOverlap(5,rec11,rec5): - 120 h(rec5,5) - 120 h(rec11,5) - x(rec5)
+ + x(rec11) - w(rec5) - 120 g1(rec11,rec5) >= -359
+ noOverlap(5,rec11,rec6): - 120 h(rec6,5) - 120 h(rec11,5) - x(rec6)
+ + x(rec11) - w(rec6) - 120 g1(rec11,rec6) >= -359
+ noOverlap(5,rec11,rec7): - 120 h(rec7,5) - 120 h(rec11,5) - x(rec7)
+ + x(rec11) - w(rec7) - 120 g1(rec11,rec7) >= -359
+ noOverlap(5,rec11,rec8): - 120 h(rec8,5) - 120 h(rec11,5) - x(rec8)
+ + x(rec11) - w(rec8) - 120 g1(rec11,rec8) >= -359
+ noOverlap(5,rec11,rec9): - 120 h(rec9,5) - 120 h(rec11,5) - x(rec9)
+ + x(rec11) - w(rec9) - 120 g1(rec11,rec9) >= -359
+ noOverlap(5,rec11,rec12): - 120 h(rec11,5) - 120 h(rec12,5) + x(rec11)
+ - x(rec12) - w(rec12) - 120 g1(rec11,rec12) >= -359
+ noOverlap(5,rec11,rec13): - 120 h(rec11,5) - 120 h(rec13,5) + x(rec11)
+ - x(rec13) - w(rec13) - 120 g1(rec11,rec13) >= -359
+ noOverlap(5,rec11,rec14): - 120 h(rec11,5) - 120 h(rec14,5) + x(rec11)
+ - x(rec14) - w(rec14) - 120 g1(rec11,rec14) >= -359
+ noOverlap(5,rec11,rec15): - 120 h(rec11,5) - 120 h(rec15,5) + x(rec11)
+ - x(rec15) - w(rec15) - 120 g1(rec11,rec15) >= -359
+ noOverlap(5,rec12,rec2): - 120 h(rec2,5) - 120 h(rec12,5) - x(rec2)
+ + x(rec12) - w(rec2) - 120 g1(rec12,rec2) >= -359
+ noOverlap(5,rec12,rec3): - 120 h(rec3,5) - 120 h(rec12,5) - x(rec3)
+ + x(rec12) - w(rec3) - 120 g1(rec12,rec3) >= -359
+ noOverlap(5,rec12,rec4): - 120 h(rec4,5) - 120 h(rec12,5) - x(rec4)
+ + x(rec12) - w(rec4) - 120 g1(rec12,rec4) >= -359
+ noOverlap(5,rec12,rec5): - 120 h(rec5,5) - 120 h(rec12,5) - x(rec5)
+ + x(rec12) - w(rec5) - 120 g1(rec12,rec5) >= -359
+ noOverlap(5,rec12,rec6): - 120 h(rec6,5) - 120 h(rec12,5) - x(rec6)
+ + x(rec12) - w(rec6) - 120 g1(rec12,rec6) >= -359
+ noOverlap(5,rec12,rec7): - 120 h(rec7,5) - 120 h(rec12,5) - x(rec7)
+ + x(rec12) - w(rec7) - 120 g1(rec12,rec7) >= -359
+ noOverlap(5,rec12,rec8): - 120 h(rec8,5) - 120 h(rec12,5) - x(rec8)
+ + x(rec12) - w(rec8) - 120 g1(rec12,rec8) >= -359
+ noOverlap(5,rec12,rec9): - 120 h(rec9,5) - 120 h(rec12,5) - x(rec9)
+ + x(rec12) - w(rec9) - 120 g1(rec12,rec9) >= -359
+ noOverlap(5,rec12,rec13): - 120 h(rec12,5) - 120 h(rec13,5) + x(rec12)
+ - x(rec13) - w(rec13) - 120 g1(rec12,rec13) >= -359
+ noOverlap(5,rec12,rec14): - 120 h(rec12,5) - 120 h(rec14,5) + x(rec12)
+ - x(rec14) - w(rec14) - 120 g1(rec12,rec14) >= -359
+ noOverlap(5,rec12,rec15): - 120 h(rec12,5) - 120 h(rec15,5) + x(rec12)
+ - x(rec15) - w(rec15) - 120 g1(rec12,rec15) >= -359
+ noOverlap(5,rec13,rec2): - 120 h(rec2,5) - 120 h(rec13,5) - x(rec2)
+ + x(rec13) - w(rec2) - 120 g1(rec13,rec2) >= -359
+ noOverlap(5,rec13,rec3): - 120 h(rec3,5) - 120 h(rec13,5) - x(rec3)
+ + x(rec13) - w(rec3) - 120 g1(rec13,rec3) >= -359
+ noOverlap(5,rec13,rec4): - 120 h(rec4,5) - 120 h(rec13,5) - x(rec4)
+ + x(rec13) - w(rec4) - 120 g1(rec13,rec4) >= -359
+ noOverlap(5,rec13,rec5): - 120 h(rec5,5) - 120 h(rec13,5) - x(rec5)
+ + x(rec13) - w(rec5) - 120 g1(rec13,rec5) >= -359
+ noOverlap(5,rec13,rec6): - 120 h(rec6,5) - 120 h(rec13,5) - x(rec6)
+ + x(rec13) - w(rec6) - 120 g1(rec13,rec6) >= -359
+ noOverlap(5,rec13,rec7): - 120 h(rec7,5) - 120 h(rec13,5) - x(rec7)
+ + x(rec13) - w(rec7) - 120 g1(rec13,rec7) >= -359
+ noOverlap(5,rec13,rec8): - 120 h(rec8,5) - 120 h(rec13,5) - x(rec8)
+ + x(rec13) - w(rec8) - 120 g1(rec13,rec8) >= -359
+ noOverlap(5,rec13,rec9): - 120 h(rec9,5) - 120 h(rec13,5) - x(rec9)
+ + x(rec13) - w(rec9) - 120 g1(rec13,rec9) >= -359
+ noOverlap(5,rec13,rec14): - 120 h(rec13,5) - 120 h(rec14,5) + x(rec13)
+ - x(rec14) - w(rec14) - 120 g1(rec13,rec14) >= -359
+ noOverlap(5,rec13,rec15): - 120 h(rec13,5) - 120 h(rec15,5) + x(rec13)
+ - x(rec15) - w(rec15) - 120 g1(rec13,rec15) >= -359
+ noOverlap(5,rec14,rec2): - 120 h(rec2,5) - 120 h(rec14,5) - x(rec2)
+ + x(rec14) - w(rec2) - 120 g1(rec14,rec2) >= -359
+ noOverlap(5,rec14,rec3): - 120 h(rec3,5) - 120 h(rec14,5) - x(rec3)
+ + x(rec14) - w(rec3) - 120 g1(rec14,rec3) >= -359
+ noOverlap(5,rec14,rec4): - 120 h(rec4,5) - 120 h(rec14,5) - x(rec4)
+ + x(rec14) - w(rec4) - 120 g1(rec14,rec4) >= -359
+ noOverlap(5,rec14,rec5): - 120 h(rec5,5) - 120 h(rec14,5) - x(rec5)
+ + x(rec14) - w(rec5) - 120 g1(rec14,rec5) >= -359
+ noOverlap(5,rec14,rec6): - 120 h(rec6,5) - 120 h(rec14,5) - x(rec6)
+ + x(rec14) - w(rec6) - 120 g1(rec14,rec6) >= -359
+ noOverlap(5,rec14,rec7): - 120 h(rec7,5) - 120 h(rec14,5) - x(rec7)
+ + x(rec14) - w(rec7) - 120 g1(rec14,rec7) >= -359
+ noOverlap(5,rec14,rec8): - 120 h(rec8,5) - 120 h(rec14,5) - x(rec8)
+ + x(rec14) - w(rec8) - 120 g1(rec14,rec8) >= -359
+ noOverlap(5,rec14,rec9): - 120 h(rec9,5) - 120 h(rec14,5) - x(rec9)
+ + x(rec14) - w(rec9) - 120 g1(rec14,rec9) >= -359
+ noOverlap(5,rec14,rec15): - 120 h(rec14,5) - 120 h(rec15,5) + x(rec14)
+ - x(rec15) - w(rec15) - 120 g1(rec14,rec15) >= -359
+ noOverlap(5,rec15,rec2): - 120 h(rec2,5) - 120 h(rec15,5) - x(rec2)
+ + x(rec15) - w(rec2) - 120 g1(rec15,rec2) >= -359
+ noOverlap(5,rec15,rec3): - 120 h(rec3,5) - 120 h(rec15,5) - x(rec3)
+ + x(rec15) - w(rec3) - 120 g1(rec15,rec3) >= -359
+ noOverlap(5,rec15,rec4): - 120 h(rec4,5) - 120 h(rec15,5) - x(rec4)
+ + x(rec15) - w(rec4) - 120 g1(rec15,rec4) >= -359
+ noOverlap(5,rec15,rec5): - 120 h(rec5,5) - 120 h(rec15,5) - x(rec5)
+ + x(rec15) - w(rec5) - 120 g1(rec15,rec5) >= -359
+ noOverlap(5,rec15,rec6): - 120 h(rec6,5) - 120 h(rec15,5) - x(rec6)
+ + x(rec15) - w(rec6) - 120 g1(rec15,rec6) >= -359
+ noOverlap(5,rec15,rec7): - 120 h(rec7,5) - 120 h(rec15,5) - x(rec7)
+ + x(rec15) - w(rec7) - 120 g1(rec15,rec7) >= -359
+ noOverlap(5,rec15,rec8): - 120 h(rec8,5) - 120 h(rec15,5) - x(rec8)
+ + x(rec15) - w(rec8) - 120 g1(rec15,rec8) >= -359
+ noOverlap(5,rec15,rec9): - 120 h(rec9,5) - 120 h(rec15,5) - x(rec9)
+ + x(rec15) - w(rec9) - 120 g1(rec15,rec9) >= -359
  noOverlap(6,rec1,rec2): - 120 h(rec1,6) - 120 h(rec2,6) + x(rec1)
  - x(rec2) - w(rec2) - 120 g1(rec1,rec2) >= -359
  noOverlap(6,rec1,rec3): - 120 h(rec1,6) - 120 h(rec3,6) + x(rec1)
@@ -2602,6 +5841,16 @@ Subject To
  - x(rec9) - w(rec9) - 120 g1(rec1,rec9) >= -359
  noOverlap(6,rec1,rec10): - 120 h(rec1,6) - 120 h(rec10,6) + x(rec1)
  - x(rec10) - w(rec10) - 120 g1(rec1,rec10) >= -359
+ noOverlap(6,rec1,rec11): - 120 h(rec1,6) - 120 h(rec11,6) + x(rec1)
+ - x(rec11) - w(rec11) - 120 g1(rec1,rec11) >= -359
+ noOverlap(6,rec1,rec12): - 120 h(rec1,6) - 120 h(rec12,6) + x(rec1)
+ - x(rec12) - w(rec12) - 120 g1(rec1,rec12) >= -359
+ noOverlap(6,rec1,rec13): - 120 h(rec1,6) - 120 h(rec13,6) + x(rec1)
+ - x(rec13) - w(rec13) - 120 g1(rec1,rec13) >= -359
+ noOverlap(6,rec1,rec14): - 120 h(rec1,6) - 120 h(rec14,6) + x(rec1)
+ - x(rec14) - w(rec14) - 120 g1(rec1,rec14) >= -359
+ noOverlap(6,rec1,rec15): - 120 h(rec1,6) - 120 h(rec15,6) + x(rec1)
+ - x(rec15) - w(rec15) - 120 g1(rec1,rec15) >= -359
  noOverlap(6,rec2,rec3): - 120 h(rec2,6) - 120 h(rec3,6) + x(rec2)
  - x(rec3) - w(rec3) - 120 g1(rec2,rec3) >= -359
  noOverlap(6,rec2,rec4): - 120 h(rec2,6) - 120 h(rec4,6) + x(rec2)
@@ -2674,6 +5923,116 @@ Subject To
  + x(rec10) - w(rec8) - 120 g1(rec10,rec8) >= -359
  noOverlap(6,rec10,rec9): - 120 h(rec9,6) - 120 h(rec10,6) - x(rec9)
  + x(rec10) - w(rec9) - 120 g1(rec10,rec9) >= -359
+ noOverlap(6,rec10,rec11): - 120 h(rec10,6) - 120 h(rec11,6) + x(rec10)
+ - x(rec11) - w(rec11) - 120 g1(rec10,rec11) >= -359
+ noOverlap(6,rec10,rec12): - 120 h(rec10,6) - 120 h(rec12,6) + x(rec10)
+ - x(rec12) - w(rec12) - 120 g1(rec10,rec12) >= -359
+ noOverlap(6,rec10,rec13): - 120 h(rec10,6) - 120 h(rec13,6) + x(rec10)
+ - x(rec13) - w(rec13) - 120 g1(rec10,rec13) >= -359
+ noOverlap(6,rec10,rec14): - 120 h(rec10,6) - 120 h(rec14,6) + x(rec10)
+ - x(rec14) - w(rec14) - 120 g1(rec10,rec14) >= -359
+ noOverlap(6,rec10,rec15): - 120 h(rec10,6) - 120 h(rec15,6) + x(rec10)
+ - x(rec15) - w(rec15) - 120 g1(rec10,rec15) >= -359
+ noOverlap(6,rec11,rec2): - 120 h(rec2,6) - 120 h(rec11,6) - x(rec2)
+ + x(rec11) - w(rec2) - 120 g1(rec11,rec2) >= -359
+ noOverlap(6,rec11,rec3): - 120 h(rec3,6) - 120 h(rec11,6) - x(rec3)
+ + x(rec11) - w(rec3) - 120 g1(rec11,rec3) >= -359
+ noOverlap(6,rec11,rec4): - 120 h(rec4,6) - 120 h(rec11,6) - x(rec4)
+ + x(rec11) - w(rec4) - 120 g1(rec11,rec4) >= -359
+ noOverlap(6,rec11,rec5): - 120 h(rec5,6) - 120 h(rec11,6) - x(rec5)
+ + x(rec11) - w(rec5) - 120 g1(rec11,rec5) >= -359
+ noOverlap(6,rec11,rec6): - 120 h(rec6,6) - 120 h(rec11,6) - x(rec6)
+ + x(rec11) - w(rec6) - 120 g1(rec11,rec6) >= -359
+ noOverlap(6,rec11,rec7): - 120 h(rec7,6) - 120 h(rec11,6) - x(rec7)
+ + x(rec11) - w(rec7) - 120 g1(rec11,rec7) >= -359
+ noOverlap(6,rec11,rec8): - 120 h(rec8,6) - 120 h(rec11,6) - x(rec8)
+ + x(rec11) - w(rec8) - 120 g1(rec11,rec8) >= -359
+ noOverlap(6,rec11,rec9): - 120 h(rec9,6) - 120 h(rec11,6) - x(rec9)
+ + x(rec11) - w(rec9) - 120 g1(rec11,rec9) >= -359
+ noOverlap(6,rec11,rec12): - 120 h(rec11,6) - 120 h(rec12,6) + x(rec11)
+ - x(rec12) - w(rec12) - 120 g1(rec11,rec12) >= -359
+ noOverlap(6,rec11,rec13): - 120 h(rec11,6) - 120 h(rec13,6) + x(rec11)
+ - x(rec13) - w(rec13) - 120 g1(rec11,rec13) >= -359
+ noOverlap(6,rec11,rec14): - 120 h(rec11,6) - 120 h(rec14,6) + x(rec11)
+ - x(rec14) - w(rec14) - 120 g1(rec11,rec14) >= -359
+ noOverlap(6,rec11,rec15): - 120 h(rec11,6) - 120 h(rec15,6) + x(rec11)
+ - x(rec15) - w(rec15) - 120 g1(rec11,rec15) >= -359
+ noOverlap(6,rec12,rec2): - 120 h(rec2,6) - 120 h(rec12,6) - x(rec2)
+ + x(rec12) - w(rec2) - 120 g1(rec12,rec2) >= -359
+ noOverlap(6,rec12,rec3): - 120 h(rec3,6) - 120 h(rec12,6) - x(rec3)
+ + x(rec12) - w(rec3) - 120 g1(rec12,rec3) >= -359
+ noOverlap(6,rec12,rec4): - 120 h(rec4,6) - 120 h(rec12,6) - x(rec4)
+ + x(rec12) - w(rec4) - 120 g1(rec12,rec4) >= -359
+ noOverlap(6,rec12,rec5): - 120 h(rec5,6) - 120 h(rec12,6) - x(rec5)
+ + x(rec12) - w(rec5) - 120 g1(rec12,rec5) >= -359
+ noOverlap(6,rec12,rec6): - 120 h(rec6,6) - 120 h(rec12,6) - x(rec6)
+ + x(rec12) - w(rec6) - 120 g1(rec12,rec6) >= -359
+ noOverlap(6,rec12,rec7): - 120 h(rec7,6) - 120 h(rec12,6) - x(rec7)
+ + x(rec12) - w(rec7) - 120 g1(rec12,rec7) >= -359
+ noOverlap(6,rec12,rec8): - 120 h(rec8,6) - 120 h(rec12,6) - x(rec8)
+ + x(rec12) - w(rec8) - 120 g1(rec12,rec8) >= -359
+ noOverlap(6,rec12,rec9): - 120 h(rec9,6) - 120 h(rec12,6) - x(rec9)
+ + x(rec12) - w(rec9) - 120 g1(rec12,rec9) >= -359
+ noOverlap(6,rec12,rec13): - 120 h(rec12,6) - 120 h(rec13,6) + x(rec12)
+ - x(rec13) - w(rec13) - 120 g1(rec12,rec13) >= -359
+ noOverlap(6,rec12,rec14): - 120 h(rec12,6) - 120 h(rec14,6) + x(rec12)
+ - x(rec14) - w(rec14) - 120 g1(rec12,rec14) >= -359
+ noOverlap(6,rec12,rec15): - 120 h(rec12,6) - 120 h(rec15,6) + x(rec12)
+ - x(rec15) - w(rec15) - 120 g1(rec12,rec15) >= -359
+ noOverlap(6,rec13,rec2): - 120 h(rec2,6) - 120 h(rec13,6) - x(rec2)
+ + x(rec13) - w(rec2) - 120 g1(rec13,rec2) >= -359
+ noOverlap(6,rec13,rec3): - 120 h(rec3,6) - 120 h(rec13,6) - x(rec3)
+ + x(rec13) - w(rec3) - 120 g1(rec13,rec3) >= -359
+ noOverlap(6,rec13,rec4): - 120 h(rec4,6) - 120 h(rec13,6) - x(rec4)
+ + x(rec13) - w(rec4) - 120 g1(rec13,rec4) >= -359
+ noOverlap(6,rec13,rec5): - 120 h(rec5,6) - 120 h(rec13,6) - x(rec5)
+ + x(rec13) - w(rec5) - 120 g1(rec13,rec5) >= -359
+ noOverlap(6,rec13,rec6): - 120 h(rec6,6) - 120 h(rec13,6) - x(rec6)
+ + x(rec13) - w(rec6) - 120 g1(rec13,rec6) >= -359
+ noOverlap(6,rec13,rec7): - 120 h(rec7,6) - 120 h(rec13,6) - x(rec7)
+ + x(rec13) - w(rec7) - 120 g1(rec13,rec7) >= -359
+ noOverlap(6,rec13,rec8): - 120 h(rec8,6) - 120 h(rec13,6) - x(rec8)
+ + x(rec13) - w(rec8) - 120 g1(rec13,rec8) >= -359
+ noOverlap(6,rec13,rec9): - 120 h(rec9,6) - 120 h(rec13,6) - x(rec9)
+ + x(rec13) - w(rec9) - 120 g1(rec13,rec9) >= -359
+ noOverlap(6,rec13,rec14): - 120 h(rec13,6) - 120 h(rec14,6) + x(rec13)
+ - x(rec14) - w(rec14) - 120 g1(rec13,rec14) >= -359
+ noOverlap(6,rec13,rec15): - 120 h(rec13,6) - 120 h(rec15,6) + x(rec13)
+ - x(rec15) - w(rec15) - 120 g1(rec13,rec15) >= -359
+ noOverlap(6,rec14,rec2): - 120 h(rec2,6) - 120 h(rec14,6) - x(rec2)
+ + x(rec14) - w(rec2) - 120 g1(rec14,rec2) >= -359
+ noOverlap(6,rec14,rec3): - 120 h(rec3,6) - 120 h(rec14,6) - x(rec3)
+ + x(rec14) - w(rec3) - 120 g1(rec14,rec3) >= -359
+ noOverlap(6,rec14,rec4): - 120 h(rec4,6) - 120 h(rec14,6) - x(rec4)
+ + x(rec14) - w(rec4) - 120 g1(rec14,rec4) >= -359
+ noOverlap(6,rec14,rec5): - 120 h(rec5,6) - 120 h(rec14,6) - x(rec5)
+ + x(rec14) - w(rec5) - 120 g1(rec14,rec5) >= -359
+ noOverlap(6,rec14,rec6): - 120 h(rec6,6) - 120 h(rec14,6) - x(rec6)
+ + x(rec14) - w(rec6) - 120 g1(rec14,rec6) >= -359
+ noOverlap(6,rec14,rec7): - 120 h(rec7,6) - 120 h(rec14,6) - x(rec7)
+ + x(rec14) - w(rec7) - 120 g1(rec14,rec7) >= -359
+ noOverlap(6,rec14,rec8): - 120 h(rec8,6) - 120 h(rec14,6) - x(rec8)
+ + x(rec14) - w(rec8) - 120 g1(rec14,rec8) >= -359
+ noOverlap(6,rec14,rec9): - 120 h(rec9,6) - 120 h(rec14,6) - x(rec9)
+ + x(rec14) - w(rec9) - 120 g1(rec14,rec9) >= -359
+ noOverlap(6,rec14,rec15): - 120 h(rec14,6) - 120 h(rec15,6) + x(rec14)
+ - x(rec15) - w(rec15) - 120 g1(rec14,rec15) >= -359
+ noOverlap(6,rec15,rec2): - 120 h(rec2,6) - 120 h(rec15,6) - x(rec2)
+ + x(rec15) - w(rec2) - 120 g1(rec15,rec2) >= -359
+ noOverlap(6,rec15,rec3): - 120 h(rec3,6) - 120 h(rec15,6) - x(rec3)
+ + x(rec15) - w(rec3) - 120 g1(rec15,rec3) >= -359
+ noOverlap(6,rec15,rec4): - 120 h(rec4,6) - 120 h(rec15,6) - x(rec4)
+ + x(rec15) - w(rec4) - 120 g1(rec15,rec4) >= -359
+ noOverlap(6,rec15,rec5): - 120 h(rec5,6) - 120 h(rec15,6) - x(rec5)
+ + x(rec15) - w(rec5) - 120 g1(rec15,rec5) >= -359
+ noOverlap(6,rec15,rec6): - 120 h(rec6,6) - 120 h(rec15,6) - x(rec6)
+ + x(rec15) - w(rec6) - 120 g1(rec15,rec6) >= -359
+ noOverlap(6,rec15,rec7): - 120 h(rec7,6) - 120 h(rec15,6) - x(rec7)
+ + x(rec15) - w(rec7) - 120 g1(rec15,rec7) >= -359
+ noOverlap(6,rec15,rec8): - 120 h(rec8,6) - 120 h(rec15,6) - x(rec8)
+ + x(rec15) - w(rec8) - 120 g1(rec15,rec8) >= -359
+ noOverlap(6,rec15,rec9): - 120 h(rec9,6) - 120 h(rec15,6) - x(rec9)
+ + x(rec15) - w(rec9) - 120 g1(rec15,rec9) >= -359
  noOverlap(7,rec1,rec2): - 120 h(rec1,7) - 120 h(rec2,7) + x(rec1)
  - x(rec2) - w(rec2) - 120 g1(rec1,rec2) >= -359
  noOverlap(7,rec1,rec3): - 120 h(rec1,7) - 120 h(rec3,7) + x(rec1)
@@ -2692,6 +6051,16 @@ Subject To
  - x(rec9) - w(rec9) - 120 g1(rec1,rec9) >= -359
  noOverlap(7,rec1,rec10): - 120 h(rec1,7) - 120 h(rec10,7) + x(rec1)
  - x(rec10) - w(rec10) - 120 g1(rec1,rec10) >= -359
+ noOverlap(7,rec1,rec11): - 120 h(rec1,7) - 120 h(rec11,7) + x(rec1)
+ - x(rec11) - w(rec11) - 120 g1(rec1,rec11) >= -359
+ noOverlap(7,rec1,rec12): - 120 h(rec1,7) - 120 h(rec12,7) + x(rec1)
+ - x(rec12) - w(rec12) - 120 g1(rec1,rec12) >= -359
+ noOverlap(7,rec1,rec13): - 120 h(rec1,7) - 120 h(rec13,7) + x(rec1)
+ - x(rec13) - w(rec13) - 120 g1(rec1,rec13) >= -359
+ noOverlap(7,rec1,rec14): - 120 h(rec1,7) - 120 h(rec14,7) + x(rec1)
+ - x(rec14) - w(rec14) - 120 g1(rec1,rec14) >= -359
+ noOverlap(7,rec1,rec15): - 120 h(rec1,7) - 120 h(rec15,7) + x(rec1)
+ - x(rec15) - w(rec15) - 120 g1(rec1,rec15) >= -359
  noOverlap(7,rec2,rec3): - 120 h(rec2,7) - 120 h(rec3,7) + x(rec2)
  - x(rec3) - w(rec3) - 120 g1(rec2,rec3) >= -359
  noOverlap(7,rec2,rec4): - 120 h(rec2,7) - 120 h(rec4,7) + x(rec2)
@@ -2764,6 +6133,116 @@ Subject To
  + x(rec10) - w(rec8) - 120 g1(rec10,rec8) >= -359
  noOverlap(7,rec10,rec9): - 120 h(rec9,7) - 120 h(rec10,7) - x(rec9)
  + x(rec10) - w(rec9) - 120 g1(rec10,rec9) >= -359
+ noOverlap(7,rec10,rec11): - 120 h(rec10,7) - 120 h(rec11,7) + x(rec10)
+ - x(rec11) - w(rec11) - 120 g1(rec10,rec11) >= -359
+ noOverlap(7,rec10,rec12): - 120 h(rec10,7) - 120 h(rec12,7) + x(rec10)
+ - x(rec12) - w(rec12) - 120 g1(rec10,rec12) >= -359
+ noOverlap(7,rec10,rec13): - 120 h(rec10,7) - 120 h(rec13,7) + x(rec10)
+ - x(rec13) - w(rec13) - 120 g1(rec10,rec13) >= -359
+ noOverlap(7,rec10,rec14): - 120 h(rec10,7) - 120 h(rec14,7) + x(rec10)
+ - x(rec14) - w(rec14) - 120 g1(rec10,rec14) >= -359
+ noOverlap(7,rec10,rec15): - 120 h(rec10,7) - 120 h(rec15,7) + x(rec10)
+ - x(rec15) - w(rec15) - 120 g1(rec10,rec15) >= -359
+ noOverlap(7,rec11,rec2): - 120 h(rec2,7) - 120 h(rec11,7) - x(rec2)
+ + x(rec11) - w(rec2) - 120 g1(rec11,rec2) >= -359
+ noOverlap(7,rec11,rec3): - 120 h(rec3,7) - 120 h(rec11,7) - x(rec3)
+ + x(rec11) - w(rec3) - 120 g1(rec11,rec3) >= -359
+ noOverlap(7,rec11,rec4): - 120 h(rec4,7) - 120 h(rec11,7) - x(rec4)
+ + x(rec11) - w(rec4) - 120 g1(rec11,rec4) >= -359
+ noOverlap(7,rec11,rec5): - 120 h(rec5,7) - 120 h(rec11,7) - x(rec5)
+ + x(rec11) - w(rec5) - 120 g1(rec11,rec5) >= -359
+ noOverlap(7,rec11,rec6): - 120 h(rec6,7) - 120 h(rec11,7) - x(rec6)
+ + x(rec11) - w(rec6) - 120 g1(rec11,rec6) >= -359
+ noOverlap(7,rec11,rec7): - 120 h(rec7,7) - 120 h(rec11,7) - x(rec7)
+ + x(rec11) - w(rec7) - 120 g1(rec11,rec7) >= -359
+ noOverlap(7,rec11,rec8): - 120 h(rec8,7) - 120 h(rec11,7) - x(rec8)
+ + x(rec11) - w(rec8) - 120 g1(rec11,rec8) >= -359
+ noOverlap(7,rec11,rec9): - 120 h(rec9,7) - 120 h(rec11,7) - x(rec9)
+ + x(rec11) - w(rec9) - 120 g1(rec11,rec9) >= -359
+ noOverlap(7,rec11,rec12): - 120 h(rec11,7) - 120 h(rec12,7) + x(rec11)
+ - x(rec12) - w(rec12) - 120 g1(rec11,rec12) >= -359
+ noOverlap(7,rec11,rec13): - 120 h(rec11,7) - 120 h(rec13,7) + x(rec11)
+ - x(rec13) - w(rec13) - 120 g1(rec11,rec13) >= -359
+ noOverlap(7,rec11,rec14): - 120 h(rec11,7) - 120 h(rec14,7) + x(rec11)
+ - x(rec14) - w(rec14) - 120 g1(rec11,rec14) >= -359
+ noOverlap(7,rec11,rec15): - 120 h(rec11,7) - 120 h(rec15,7) + x(rec11)
+ - x(rec15) - w(rec15) - 120 g1(rec11,rec15) >= -359
+ noOverlap(7,rec12,rec2): - 120 h(rec2,7) - 120 h(rec12,7) - x(rec2)
+ + x(rec12) - w(rec2) - 120 g1(rec12,rec2) >= -359
+ noOverlap(7,rec12,rec3): - 120 h(rec3,7) - 120 h(rec12,7) - x(rec3)
+ + x(rec12) - w(rec3) - 120 g1(rec12,rec3) >= -359
+ noOverlap(7,rec12,rec4): - 120 h(rec4,7) - 120 h(rec12,7) - x(rec4)
+ + x(rec12) - w(rec4) - 120 g1(rec12,rec4) >= -359
+ noOverlap(7,rec12,rec5): - 120 h(rec5,7) - 120 h(rec12,7) - x(rec5)
+ + x(rec12) - w(rec5) - 120 g1(rec12,rec5) >= -359
+ noOverlap(7,rec12,rec6): - 120 h(rec6,7) - 120 h(rec12,7) - x(rec6)
+ + x(rec12) - w(rec6) - 120 g1(rec12,rec6) >= -359
+ noOverlap(7,rec12,rec7): - 120 h(rec7,7) - 120 h(rec12,7) - x(rec7)
+ + x(rec12) - w(rec7) - 120 g1(rec12,rec7) >= -359
+ noOverlap(7,rec12,rec8): - 120 h(rec8,7) - 120 h(rec12,7) - x(rec8)
+ + x(rec12) - w(rec8) - 120 g1(rec12,rec8) >= -359
+ noOverlap(7,rec12,rec9): - 120 h(rec9,7) - 120 h(rec12,7) - x(rec9)
+ + x(rec12) - w(rec9) - 120 g1(rec12,rec9) >= -359
+ noOverlap(7,rec12,rec13): - 120 h(rec12,7) - 120 h(rec13,7) + x(rec12)
+ - x(rec13) - w(rec13) - 120 g1(rec12,rec13) >= -359
+ noOverlap(7,rec12,rec14): - 120 h(rec12,7) - 120 h(rec14,7) + x(rec12)
+ - x(rec14) - w(rec14) - 120 g1(rec12,rec14) >= -359
+ noOverlap(7,rec12,rec15): - 120 h(rec12,7) - 120 h(rec15,7) + x(rec12)
+ - x(rec15) - w(rec15) - 120 g1(rec12,rec15) >= -359
+ noOverlap(7,rec13,rec2): - 120 h(rec2,7) - 120 h(rec13,7) - x(rec2)
+ + x(rec13) - w(rec2) - 120 g1(rec13,rec2) >= -359
+ noOverlap(7,rec13,rec3): - 120 h(rec3,7) - 120 h(rec13,7) - x(rec3)
+ + x(rec13) - w(rec3) - 120 g1(rec13,rec3) >= -359
+ noOverlap(7,rec13,rec4): - 120 h(rec4,7) - 120 h(rec13,7) - x(rec4)
+ + x(rec13) - w(rec4) - 120 g1(rec13,rec4) >= -359
+ noOverlap(7,rec13,rec5): - 120 h(rec5,7) - 120 h(rec13,7) - x(rec5)
+ + x(rec13) - w(rec5) - 120 g1(rec13,rec5) >= -359
+ noOverlap(7,rec13,rec6): - 120 h(rec6,7) - 120 h(rec13,7) - x(rec6)
+ + x(rec13) - w(rec6) - 120 g1(rec13,rec6) >= -359
+ noOverlap(7,rec13,rec7): - 120 h(rec7,7) - 120 h(rec13,7) - x(rec7)
+ + x(rec13) - w(rec7) - 120 g1(rec13,rec7) >= -359
+ noOverlap(7,rec13,rec8): - 120 h(rec8,7) - 120 h(rec13,7) - x(rec8)
+ + x(rec13) - w(rec8) - 120 g1(rec13,rec8) >= -359
+ noOverlap(7,rec13,rec9): - 120 h(rec9,7) - 120 h(rec13,7) - x(rec9)
+ + x(rec13) - w(rec9) - 120 g1(rec13,rec9) >= -359
+ noOverlap(7,rec13,rec14): - 120 h(rec13,7) - 120 h(rec14,7) + x(rec13)
+ - x(rec14) - w(rec14) - 120 g1(rec13,rec14) >= -359
+ noOverlap(7,rec13,rec15): - 120 h(rec13,7) - 120 h(rec15,7) + x(rec13)
+ - x(rec15) - w(rec15) - 120 g1(rec13,rec15) >= -359
+ noOverlap(7,rec14,rec2): - 120 h(rec2,7) - 120 h(rec14,7) - x(rec2)
+ + x(rec14) - w(rec2) - 120 g1(rec14,rec2) >= -359
+ noOverlap(7,rec14,rec3): - 120 h(rec3,7) - 120 h(rec14,7) - x(rec3)
+ + x(rec14) - w(rec3) - 120 g1(rec14,rec3) >= -359
+ noOverlap(7,rec14,rec4): - 120 h(rec4,7) - 120 h(rec14,7) - x(rec4)
+ + x(rec14) - w(rec4) - 120 g1(rec14,rec4) >= -359
+ noOverlap(7,rec14,rec5): - 120 h(rec5,7) - 120 h(rec14,7) - x(rec5)
+ + x(rec14) - w(rec5) - 120 g1(rec14,rec5) >= -359
+ noOverlap(7,rec14,rec6): - 120 h(rec6,7) - 120 h(rec14,7) - x(rec6)
+ + x(rec14) - w(rec6) - 120 g1(rec14,rec6) >= -359
+ noOverlap(7,rec14,rec7): - 120 h(rec7,7) - 120 h(rec14,7) - x(rec7)
+ + x(rec14) - w(rec7) - 120 g1(rec14,rec7) >= -359
+ noOverlap(7,rec14,rec8): - 120 h(rec8,7) - 120 h(rec14,7) - x(rec8)
+ + x(rec14) - w(rec8) - 120 g1(rec14,rec8) >= -359
+ noOverlap(7,rec14,rec9): - 120 h(rec9,7) - 120 h(rec14,7) - x(rec9)
+ + x(rec14) - w(rec9) - 120 g1(rec14,rec9) >= -359
+ noOverlap(7,rec14,rec15): - 120 h(rec14,7) - 120 h(rec15,7) + x(rec14)
+ - x(rec15) - w(rec15) - 120 g1(rec14,rec15) >= -359
+ noOverlap(7,rec15,rec2): - 120 h(rec2,7) - 120 h(rec15,7) - x(rec2)
+ + x(rec15) - w(rec2) - 120 g1(rec15,rec2) >= -359
+ noOverlap(7,rec15,rec3): - 120 h(rec3,7) - 120 h(rec15,7) - x(rec3)
+ + x(rec15) - w(rec3) - 120 g1(rec15,rec3) >= -359
+ noOverlap(7,rec15,rec4): - 120 h(rec4,7) - 120 h(rec15,7) - x(rec4)
+ + x(rec15) - w(rec4) - 120 g1(rec15,rec4) >= -359
+ noOverlap(7,rec15,rec5): - 120 h(rec5,7) - 120 h(rec15,7) - x(rec5)
+ + x(rec15) - w(rec5) - 120 g1(rec15,rec5) >= -359
+ noOverlap(7,rec15,rec6): - 120 h(rec6,7) - 120 h(rec15,7) - x(rec6)
+ + x(rec15) - w(rec6) - 120 g1(rec15,rec6) >= -359
+ noOverlap(7,rec15,rec7): - 120 h(rec7,7) - 120 h(rec15,7) - x(rec7)
+ + x(rec15) - w(rec7) - 120 g1(rec15,rec7) >= -359
+ noOverlap(7,rec15,rec8): - 120 h(rec8,7) - 120 h(rec15,7) - x(rec8)
+ + x(rec15) - w(rec8) - 120 g1(rec15,rec8) >= -359
+ noOverlap(7,rec15,rec9): - 120 h(rec9,7) - 120 h(rec15,7) - x(rec9)
+ + x(rec15) - w(rec9) - 120 g1(rec15,rec9) >= -359
  noOverlap(8,rec1,rec2): - 120 h(rec1,8) - 120 h(rec2,8) + x(rec1)
  - x(rec2) - w(rec2) - 120 g1(rec1,rec2) >= -359
  noOverlap(8,rec1,rec3): - 120 h(rec1,8) - 120 h(rec3,8) + x(rec1)
@@ -2782,6 +6261,16 @@ Subject To
  - x(rec9) - w(rec9) - 120 g1(rec1,rec9) >= -359
  noOverlap(8,rec1,rec10): - 120 h(rec1,8) - 120 h(rec10,8) + x(rec1)
  - x(rec10) - w(rec10) - 120 g1(rec1,rec10) >= -359
+ noOverlap(8,rec1,rec11): - 120 h(rec1,8) - 120 h(rec11,8) + x(rec1)
+ - x(rec11) - w(rec11) - 120 g1(rec1,rec11) >= -359
+ noOverlap(8,rec1,rec12): - 120 h(rec1,8) - 120 h(rec12,8) + x(rec1)
+ - x(rec12) - w(rec12) - 120 g1(rec1,rec12) >= -359
+ noOverlap(8,rec1,rec13): - 120 h(rec1,8) - 120 h(rec13,8) + x(rec1)
+ - x(rec13) - w(rec13) - 120 g1(rec1,rec13) >= -359
+ noOverlap(8,rec1,rec14): - 120 h(rec1,8) - 120 h(rec14,8) + x(rec1)
+ - x(rec14) - w(rec14) - 120 g1(rec1,rec14) >= -359
+ noOverlap(8,rec1,rec15): - 120 h(rec1,8) - 120 h(rec15,8) + x(rec1)
+ - x(rec15) - w(rec15) - 120 g1(rec1,rec15) >= -359
  noOverlap(8,rec2,rec3): - 120 h(rec2,8) - 120 h(rec3,8) + x(rec2)
  - x(rec3) - w(rec3) - 120 g1(rec2,rec3) >= -359
  noOverlap(8,rec2,rec4): - 120 h(rec2,8) - 120 h(rec4,8) + x(rec2)
@@ -2854,6 +6343,116 @@ Subject To
  + x(rec10) - w(rec8) - 120 g1(rec10,rec8) >= -359
  noOverlap(8,rec10,rec9): - 120 h(rec9,8) - 120 h(rec10,8) - x(rec9)
  + x(rec10) - w(rec9) - 120 g1(rec10,rec9) >= -359
+ noOverlap(8,rec10,rec11): - 120 h(rec10,8) - 120 h(rec11,8) + x(rec10)
+ - x(rec11) - w(rec11) - 120 g1(rec10,rec11) >= -359
+ noOverlap(8,rec10,rec12): - 120 h(rec10,8) - 120 h(rec12,8) + x(rec10)
+ - x(rec12) - w(rec12) - 120 g1(rec10,rec12) >= -359
+ noOverlap(8,rec10,rec13): - 120 h(rec10,8) - 120 h(rec13,8) + x(rec10)
+ - x(rec13) - w(rec13) - 120 g1(rec10,rec13) >= -359
+ noOverlap(8,rec10,rec14): - 120 h(rec10,8) - 120 h(rec14,8) + x(rec10)
+ - x(rec14) - w(rec14) - 120 g1(rec10,rec14) >= -359
+ noOverlap(8,rec10,rec15): - 120 h(rec10,8) - 120 h(rec15,8) + x(rec10)
+ - x(rec15) - w(rec15) - 120 g1(rec10,rec15) >= -359
+ noOverlap(8,rec11,rec2): - 120 h(rec2,8) - 120 h(rec11,8) - x(rec2)
+ + x(rec11) - w(rec2) - 120 g1(rec11,rec2) >= -359
+ noOverlap(8,rec11,rec3): - 120 h(rec3,8) - 120 h(rec11,8) - x(rec3)
+ + x(rec11) - w(rec3) - 120 g1(rec11,rec3) >= -359
+ noOverlap(8,rec11,rec4): - 120 h(rec4,8) - 120 h(rec11,8) - x(rec4)
+ + x(rec11) - w(rec4) - 120 g1(rec11,rec4) >= -359
+ noOverlap(8,rec11,rec5): - 120 h(rec5,8) - 120 h(rec11,8) - x(rec5)
+ + x(rec11) - w(rec5) - 120 g1(rec11,rec5) >= -359
+ noOverlap(8,rec11,rec6): - 120 h(rec6,8) - 120 h(rec11,8) - x(rec6)
+ + x(rec11) - w(rec6) - 120 g1(rec11,rec6) >= -359
+ noOverlap(8,rec11,rec7): - 120 h(rec7,8) - 120 h(rec11,8) - x(rec7)
+ + x(rec11) - w(rec7) - 120 g1(rec11,rec7) >= -359
+ noOverlap(8,rec11,rec8): - 120 h(rec8,8) - 120 h(rec11,8) - x(rec8)
+ + x(rec11) - w(rec8) - 120 g1(rec11,rec8) >= -359
+ noOverlap(8,rec11,rec9): - 120 h(rec9,8) - 120 h(rec11,8) - x(rec9)
+ + x(rec11) - w(rec9) - 120 g1(rec11,rec9) >= -359
+ noOverlap(8,rec11,rec12): - 120 h(rec11,8) - 120 h(rec12,8) + x(rec11)
+ - x(rec12) - w(rec12) - 120 g1(rec11,rec12) >= -359
+ noOverlap(8,rec11,rec13): - 120 h(rec11,8) - 120 h(rec13,8) + x(rec11)
+ - x(rec13) - w(rec13) - 120 g1(rec11,rec13) >= -359
+ noOverlap(8,rec11,rec14): - 120 h(rec11,8) - 120 h(rec14,8) + x(rec11)
+ - x(rec14) - w(rec14) - 120 g1(rec11,rec14) >= -359
+ noOverlap(8,rec11,rec15): - 120 h(rec11,8) - 120 h(rec15,8) + x(rec11)
+ - x(rec15) - w(rec15) - 120 g1(rec11,rec15) >= -359
+ noOverlap(8,rec12,rec2): - 120 h(rec2,8) - 120 h(rec12,8) - x(rec2)
+ + x(rec12) - w(rec2) - 120 g1(rec12,rec2) >= -359
+ noOverlap(8,rec12,rec3): - 120 h(rec3,8) - 120 h(rec12,8) - x(rec3)
+ + x(rec12) - w(rec3) - 120 g1(rec12,rec3) >= -359
+ noOverlap(8,rec12,rec4): - 120 h(rec4,8) - 120 h(rec12,8) - x(rec4)
+ + x(rec12) - w(rec4) - 120 g1(rec12,rec4) >= -359
+ noOverlap(8,rec12,rec5): - 120 h(rec5,8) - 120 h(rec12,8) - x(rec5)
+ + x(rec12) - w(rec5) - 120 g1(rec12,rec5) >= -359
+ noOverlap(8,rec12,rec6): - 120 h(rec6,8) - 120 h(rec12,8) - x(rec6)
+ + x(rec12) - w(rec6) - 120 g1(rec12,rec6) >= -359
+ noOverlap(8,rec12,rec7): - 120 h(rec7,8) - 120 h(rec12,8) - x(rec7)
+ + x(rec12) - w(rec7) - 120 g1(rec12,rec7) >= -359
+ noOverlap(8,rec12,rec8): - 120 h(rec8,8) - 120 h(rec12,8) - x(rec8)
+ + x(rec12) - w(rec8) - 120 g1(rec12,rec8) >= -359
+ noOverlap(8,rec12,rec9): - 120 h(rec9,8) - 120 h(rec12,8) - x(rec9)
+ + x(rec12) - w(rec9) - 120 g1(rec12,rec9) >= -359
+ noOverlap(8,rec12,rec13): - 120 h(rec12,8) - 120 h(rec13,8) + x(rec12)
+ - x(rec13) - w(rec13) - 120 g1(rec12,rec13) >= -359
+ noOverlap(8,rec12,rec14): - 120 h(rec12,8) - 120 h(rec14,8) + x(rec12)
+ - x(rec14) - w(rec14) - 120 g1(rec12,rec14) >= -359
+ noOverlap(8,rec12,rec15): - 120 h(rec12,8) - 120 h(rec15,8) + x(rec12)
+ - x(rec15) - w(rec15) - 120 g1(rec12,rec15) >= -359
+ noOverlap(8,rec13,rec2): - 120 h(rec2,8) - 120 h(rec13,8) - x(rec2)
+ + x(rec13) - w(rec2) - 120 g1(rec13,rec2) >= -359
+ noOverlap(8,rec13,rec3): - 120 h(rec3,8) - 120 h(rec13,8) - x(rec3)
+ + x(rec13) - w(rec3) - 120 g1(rec13,rec3) >= -359
+ noOverlap(8,rec13,rec4): - 120 h(rec4,8) - 120 h(rec13,8) - x(rec4)
+ + x(rec13) - w(rec4) - 120 g1(rec13,rec4) >= -359
+ noOverlap(8,rec13,rec5): - 120 h(rec5,8) - 120 h(rec13,8) - x(rec5)
+ + x(rec13) - w(rec5) - 120 g1(rec13,rec5) >= -359
+ noOverlap(8,rec13,rec6): - 120 h(rec6,8) - 120 h(rec13,8) - x(rec6)
+ + x(rec13) - w(rec6) - 120 g1(rec13,rec6) >= -359
+ noOverlap(8,rec13,rec7): - 120 h(rec7,8) - 120 h(rec13,8) - x(rec7)
+ + x(rec13) - w(rec7) - 120 g1(rec13,rec7) >= -359
+ noOverlap(8,rec13,rec8): - 120 h(rec8,8) - 120 h(rec13,8) - x(rec8)
+ + x(rec13) - w(rec8) - 120 g1(rec13,rec8) >= -359
+ noOverlap(8,rec13,rec9): - 120 h(rec9,8) - 120 h(rec13,8) - x(rec9)
+ + x(rec13) - w(rec9) - 120 g1(rec13,rec9) >= -359
+ noOverlap(8,rec13,rec14): - 120 h(rec13,8) - 120 h(rec14,8) + x(rec13)
+ - x(rec14) - w(rec14) - 120 g1(rec13,rec14) >= -359
+ noOverlap(8,rec13,rec15): - 120 h(rec13,8) - 120 h(rec15,8) + x(rec13)
+ - x(rec15) - w(rec15) - 120 g1(rec13,rec15) >= -359
+ noOverlap(8,rec14,rec2): - 120 h(rec2,8) - 120 h(rec14,8) - x(rec2)
+ + x(rec14) - w(rec2) - 120 g1(rec14,rec2) >= -359
+ noOverlap(8,rec14,rec3): - 120 h(rec3,8) - 120 h(rec14,8) - x(rec3)
+ + x(rec14) - w(rec3) - 120 g1(rec14,rec3) >= -359
+ noOverlap(8,rec14,rec4): - 120 h(rec4,8) - 120 h(rec14,8) - x(rec4)
+ + x(rec14) - w(rec4) - 120 g1(rec14,rec4) >= -359
+ noOverlap(8,rec14,rec5): - 120 h(rec5,8) - 120 h(rec14,8) - x(rec5)
+ + x(rec14) - w(rec5) - 120 g1(rec14,rec5) >= -359
+ noOverlap(8,rec14,rec6): - 120 h(rec6,8) - 120 h(rec14,8) - x(rec6)
+ + x(rec14) - w(rec6) - 120 g1(rec14,rec6) >= -359
+ noOverlap(8,rec14,rec7): - 120 h(rec7,8) - 120 h(rec14,8) - x(rec7)
+ + x(rec14) - w(rec7) - 120 g1(rec14,rec7) >= -359
+ noOverlap(8,rec14,rec8): - 120 h(rec8,8) - 120 h(rec14,8) - x(rec8)
+ + x(rec14) - w(rec8) - 120 g1(rec14,rec8) >= -359
+ noOverlap(8,rec14,rec9): - 120 h(rec9,8) - 120 h(rec14,8) - x(rec9)
+ + x(rec14) - w(rec9) - 120 g1(rec14,rec9) >= -359
+ noOverlap(8,rec14,rec15): - 120 h(rec14,8) - 120 h(rec15,8) + x(rec14)
+ - x(rec15) - w(rec15) - 120 g1(rec14,rec15) >= -359
+ noOverlap(8,rec15,rec2): - 120 h(rec2,8) - 120 h(rec15,8) - x(rec2)
+ + x(rec15) - w(rec2) - 120 g1(rec15,rec2) >= -359
+ noOverlap(8,rec15,rec3): - 120 h(rec3,8) - 120 h(rec15,8) - x(rec3)
+ + x(rec15) - w(rec3) - 120 g1(rec15,rec3) >= -359
+ noOverlap(8,rec15,rec4): - 120 h(rec4,8) - 120 h(rec15,8) - x(rec4)
+ + x(rec15) - w(rec4) - 120 g1(rec15,rec4) >= -359
+ noOverlap(8,rec15,rec5): - 120 h(rec5,8) - 120 h(rec15,8) - x(rec5)
+ + x(rec15) - w(rec5) - 120 g1(rec15,rec5) >= -359
+ noOverlap(8,rec15,rec6): - 120 h(rec6,8) - 120 h(rec15,8) - x(rec6)
+ + x(rec15) - w(rec6) - 120 g1(rec15,rec6) >= -359
+ noOverlap(8,rec15,rec7): - 120 h(rec7,8) - 120 h(rec15,8) - x(rec7)
+ + x(rec15) - w(rec7) - 120 g1(rec15,rec7) >= -359
+ noOverlap(8,rec15,rec8): - 120 h(rec8,8) - 120 h(rec15,8) - x(rec8)
+ + x(rec15) - w(rec8) - 120 g1(rec15,rec8) >= -359
+ noOverlap(8,rec15,rec9): - 120 h(rec9,8) - 120 h(rec15,8) - x(rec9)
+ + x(rec15) - w(rec9) - 120 g1(rec15,rec9) >= -359
  flagK1_1(rec1,por1): + x(rec1) + w(rec1) >= -0
  flagK1_1(rec1,por2): + x(rec1) + w(rec1) - 4 k1(rec1,por2) >= -0
  flagK1_1(rec1,por3): + x(rec1) + w(rec1) - 5 k1(rec1,por3) >= -0
@@ -3004,6 +6603,81 @@ Subject To
  flagK1_1(rec10,por13): + x(rec10) + w(rec10) - 52 k1(rec10,por13) >= -0
  flagK1_1(rec10,por14): + x(rec10) + w(rec10) - 56 k1(rec10,por14) >= -0
  flagK1_1(rec10,por15): + x(rec10) + w(rec10) - 57 k1(rec10,por15) >= -0
+ flagK1_1(rec11,por1): + x(rec11) + w(rec11) >= -0
+ flagK1_1(rec11,por2): + x(rec11) + w(rec11) - 4 k1(rec11,por2) >= -0
+ flagK1_1(rec11,por3): + x(rec11) + w(rec11) - 5 k1(rec11,por3) >= -0
+ flagK1_1(rec11,por4): + x(rec11) + w(rec11) - 15 k1(rec11,por4) >= -0
+ flagK1_1(rec11,por5): + x(rec11) + w(rec11) - 16 k1(rec11,por5) >= -0
+ flagK1_1(rec11,por6): + x(rec11) + w(rec11) - 18 k1(rec11,por6) >= -0
+ flagK1_1(rec11,por7): + x(rec11) + w(rec11) - 19 k1(rec11,por7) >= -0
+ flagK1_1(rec11,por8): + x(rec11) + w(rec11) - 27 k1(rec11,por8) >= -0
+ flagK1_1(rec11,por9): + x(rec11) + w(rec11) - 28 k1(rec11,por9) >= -0
+ flagK1_1(rec11,por10): + x(rec11) + w(rec11) - 40 k1(rec11,por10) >= -0
+ flagK1_1(rec11,por11): + x(rec11) + w(rec11) - 41 k1(rec11,por11) >= -0
+ flagK1_1(rec11,por12): + x(rec11) + w(rec11) - 51 k1(rec11,por12) >= -0
+ flagK1_1(rec11,por13): + x(rec11) + w(rec11) - 52 k1(rec11,por13) >= -0
+ flagK1_1(rec11,por14): + x(rec11) + w(rec11) - 56 k1(rec11,por14) >= -0
+ flagK1_1(rec11,por15): + x(rec11) + w(rec11) - 57 k1(rec11,por15) >= -0
+ flagK1_1(rec12,por1): + x(rec12) + w(rec12) >= -0
+ flagK1_1(rec12,por2): + x(rec12) + w(rec12) - 4 k1(rec12,por2) >= -0
+ flagK1_1(rec12,por3): + x(rec12) + w(rec12) - 5 k1(rec12,por3) >= -0
+ flagK1_1(rec12,por4): + x(rec12) + w(rec12) - 15 k1(rec12,por4) >= -0
+ flagK1_1(rec12,por5): + x(rec12) + w(rec12) - 16 k1(rec12,por5) >= -0
+ flagK1_1(rec12,por6): + x(rec12) + w(rec12) - 18 k1(rec12,por6) >= -0
+ flagK1_1(rec12,por7): + x(rec12) + w(rec12) - 19 k1(rec12,por7) >= -0
+ flagK1_1(rec12,por8): + x(rec12) + w(rec12) - 27 k1(rec12,por8) >= -0
+ flagK1_1(rec12,por9): + x(rec12) + w(rec12) - 28 k1(rec12,por9) >= -0
+ flagK1_1(rec12,por10): + x(rec12) + w(rec12) - 40 k1(rec12,por10) >= -0
+ flagK1_1(rec12,por11): + x(rec12) + w(rec12) - 41 k1(rec12,por11) >= -0
+ flagK1_1(rec12,por12): + x(rec12) + w(rec12) - 51 k1(rec12,por12) >= -0
+ flagK1_1(rec12,por13): + x(rec12) + w(rec12) - 52 k1(rec12,por13) >= -0
+ flagK1_1(rec12,por14): + x(rec12) + w(rec12) - 56 k1(rec12,por14) >= -0
+ flagK1_1(rec12,por15): + x(rec12) + w(rec12) - 57 k1(rec12,por15) >= -0
+ flagK1_1(rec13,por1): + x(rec13) + w(rec13) >= -0
+ flagK1_1(rec13,por2): + x(rec13) + w(rec13) - 4 k1(rec13,por2) >= -0
+ flagK1_1(rec13,por3): + x(rec13) + w(rec13) - 5 k1(rec13,por3) >= -0
+ flagK1_1(rec13,por4): + x(rec13) + w(rec13) - 15 k1(rec13,por4) >= -0
+ flagK1_1(rec13,por5): + x(rec13) + w(rec13) - 16 k1(rec13,por5) >= -0
+ flagK1_1(rec13,por6): + x(rec13) + w(rec13) - 18 k1(rec13,por6) >= -0
+ flagK1_1(rec13,por7): + x(rec13) + w(rec13) - 19 k1(rec13,por7) >= -0
+ flagK1_1(rec13,por8): + x(rec13) + w(rec13) - 27 k1(rec13,por8) >= -0
+ flagK1_1(rec13,por9): + x(rec13) + w(rec13) - 28 k1(rec13,por9) >= -0
+ flagK1_1(rec13,por10): + x(rec13) + w(rec13) - 40 k1(rec13,por10) >= -0
+ flagK1_1(rec13,por11): + x(rec13) + w(rec13) - 41 k1(rec13,por11) >= -0
+ flagK1_1(rec13,por12): + x(rec13) + w(rec13) - 51 k1(rec13,por12) >= -0
+ flagK1_1(rec13,por13): + x(rec13) + w(rec13) - 52 k1(rec13,por13) >= -0
+ flagK1_1(rec13,por14): + x(rec13) + w(rec13) - 56 k1(rec13,por14) >= -0
+ flagK1_1(rec13,por15): + x(rec13) + w(rec13) - 57 k1(rec13,por15) >= -0
+ flagK1_1(rec14,por1): + x(rec14) + w(rec14) >= -0
+ flagK1_1(rec14,por2): + x(rec14) + w(rec14) - 4 k1(rec14,por2) >= -0
+ flagK1_1(rec14,por3): + x(rec14) + w(rec14) - 5 k1(rec14,por3) >= -0
+ flagK1_1(rec14,por4): + x(rec14) + w(rec14) - 15 k1(rec14,por4) >= -0
+ flagK1_1(rec14,por5): + x(rec14) + w(rec14) - 16 k1(rec14,por5) >= -0
+ flagK1_1(rec14,por6): + x(rec14) + w(rec14) - 18 k1(rec14,por6) >= -0
+ flagK1_1(rec14,por7): + x(rec14) + w(rec14) - 19 k1(rec14,por7) >= -0
+ flagK1_1(rec14,por8): + x(rec14) + w(rec14) - 27 k1(rec14,por8) >= -0
+ flagK1_1(rec14,por9): + x(rec14) + w(rec14) - 28 k1(rec14,por9) >= -0
+ flagK1_1(rec14,por10): + x(rec14) + w(rec14) - 40 k1(rec14,por10) >= -0
+ flagK1_1(rec14,por11): + x(rec14) + w(rec14) - 41 k1(rec14,por11) >= -0
+ flagK1_1(rec14,por12): + x(rec14) + w(rec14) - 51 k1(rec14,por12) >= -0
+ flagK1_1(rec14,por13): + x(rec14) + w(rec14) - 52 k1(rec14,por13) >= -0
+ flagK1_1(rec14,por14): + x(rec14) + w(rec14) - 56 k1(rec14,por14) >= -0
+ flagK1_1(rec14,por15): + x(rec14) + w(rec14) - 57 k1(rec14,por15) >= -0
+ flagK1_1(rec15,por1): + x(rec15) + w(rec15) >= -0
+ flagK1_1(rec15,por2): + x(rec15) + w(rec15) - 4 k1(rec15,por2) >= -0
+ flagK1_1(rec15,por3): + x(rec15) + w(rec15) - 5 k1(rec15,por3) >= -0
+ flagK1_1(rec15,por4): + x(rec15) + w(rec15) - 15 k1(rec15,por4) >= -0
+ flagK1_1(rec15,por5): + x(rec15) + w(rec15) - 16 k1(rec15,por5) >= -0
+ flagK1_1(rec15,por6): + x(rec15) + w(rec15) - 18 k1(rec15,por6) >= -0
+ flagK1_1(rec15,por7): + x(rec15) + w(rec15) - 19 k1(rec15,por7) >= -0
+ flagK1_1(rec15,por8): + x(rec15) + w(rec15) - 27 k1(rec15,por8) >= -0
+ flagK1_1(rec15,por9): + x(rec15) + w(rec15) - 28 k1(rec15,por9) >= -0
+ flagK1_1(rec15,por10): + x(rec15) + w(rec15) - 40 k1(rec15,por10) >= -0
+ flagK1_1(rec15,por11): + x(rec15) + w(rec15) - 41 k1(rec15,por11) >= -0
+ flagK1_1(rec15,por12): + x(rec15) + w(rec15) - 51 k1(rec15,por12) >= -0
+ flagK1_1(rec15,por13): + x(rec15) + w(rec15) - 52 k1(rec15,por13) >= -0
+ flagK1_1(rec15,por14): + x(rec15) + w(rec15) - 56 k1(rec15,por14) >= -0
+ flagK1_1(rec15,por15): + x(rec15) + w(rec15) - 57 k1(rec15,por15) >= -0
  flagK1_2(rec1,por1): + x(rec1) + 57 k1(rec1,por1) <= 60
  flagK1_2(rec1,por2): + x(rec1) + 56 k1(rec1,por2) <= 60
  flagK1_2(rec1,por3): + x(rec1) + 46 k1(rec1,por3) <= 60
@@ -3154,6 +6828,81 @@ Subject To
  flagK1_2(rec10,por13): + x(rec10) + 5 k1(rec10,por13) <= 60
  flagK1_2(rec10,por14): + x(rec10) + 4 k1(rec10,por14) <= 60
  flagK1_2(rec10,por15): + x(rec10) <= 60
+ flagK1_2(rec11,por1): + x(rec11) + 57 k1(rec11,por1) <= 60
+ flagK1_2(rec11,por2): + x(rec11) + 56 k1(rec11,por2) <= 60
+ flagK1_2(rec11,por3): + x(rec11) + 46 k1(rec11,por3) <= 60
+ flagK1_2(rec11,por4): + x(rec11) + 45 k1(rec11,por4) <= 60
+ flagK1_2(rec11,por5): + x(rec11) + 43 k1(rec11,por5) <= 60
+ flagK1_2(rec11,por6): + x(rec11) + 42 k1(rec11,por6) <= 60
+ flagK1_2(rec11,por7): + x(rec11) + 34 k1(rec11,por7) <= 60
+ flagK1_2(rec11,por8): + x(rec11) + 33 k1(rec11,por8) <= 60
+ flagK1_2(rec11,por9): + x(rec11) + 21 k1(rec11,por9) <= 60
+ flagK1_2(rec11,por10): + x(rec11) + 20 k1(rec11,por10) <= 60
+ flagK1_2(rec11,por11): + x(rec11) + 10 k1(rec11,por11) <= 60
+ flagK1_2(rec11,por12): + x(rec11) + 9 k1(rec11,por12) <= 60
+ flagK1_2(rec11,por13): + x(rec11) + 5 k1(rec11,por13) <= 60
+ flagK1_2(rec11,por14): + x(rec11) + 4 k1(rec11,por14) <= 60
+ flagK1_2(rec11,por15): + x(rec11) <= 60
+ flagK1_2(rec12,por1): + x(rec12) + 57 k1(rec12,por1) <= 60
+ flagK1_2(rec12,por2): + x(rec12) + 56 k1(rec12,por2) <= 60
+ flagK1_2(rec12,por3): + x(rec12) + 46 k1(rec12,por3) <= 60
+ flagK1_2(rec12,por4): + x(rec12) + 45 k1(rec12,por4) <= 60
+ flagK1_2(rec12,por5): + x(rec12) + 43 k1(rec12,por5) <= 60
+ flagK1_2(rec12,por6): + x(rec12) + 42 k1(rec12,por6) <= 60
+ flagK1_2(rec12,por7): + x(rec12) + 34 k1(rec12,por7) <= 60
+ flagK1_2(rec12,por8): + x(rec12) + 33 k1(rec12,por8) <= 60
+ flagK1_2(rec12,por9): + x(rec12) + 21 k1(rec12,por9) <= 60
+ flagK1_2(rec12,por10): + x(rec12) + 20 k1(rec12,por10) <= 60
+ flagK1_2(rec12,por11): + x(rec12) + 10 k1(rec12,por11) <= 60
+ flagK1_2(rec12,por12): + x(rec12) + 9 k1(rec12,por12) <= 60
+ flagK1_2(rec12,por13): + x(rec12) + 5 k1(rec12,por13) <= 60
+ flagK1_2(rec12,por14): + x(rec12) + 4 k1(rec12,por14) <= 60
+ flagK1_2(rec12,por15): + x(rec12) <= 60
+ flagK1_2(rec13,por1): + x(rec13) + 57 k1(rec13,por1) <= 60
+ flagK1_2(rec13,por2): + x(rec13) + 56 k1(rec13,por2) <= 60
+ flagK1_2(rec13,por3): + x(rec13) + 46 k1(rec13,por3) <= 60
+ flagK1_2(rec13,por4): + x(rec13) + 45 k1(rec13,por4) <= 60
+ flagK1_2(rec13,por5): + x(rec13) + 43 k1(rec13,por5) <= 60
+ flagK1_2(rec13,por6): + x(rec13) + 42 k1(rec13,por6) <= 60
+ flagK1_2(rec13,por7): + x(rec13) + 34 k1(rec13,por7) <= 60
+ flagK1_2(rec13,por8): + x(rec13) + 33 k1(rec13,por8) <= 60
+ flagK1_2(rec13,por9): + x(rec13) + 21 k1(rec13,por9) <= 60
+ flagK1_2(rec13,por10): + x(rec13) + 20 k1(rec13,por10) <= 60
+ flagK1_2(rec13,por11): + x(rec13) + 10 k1(rec13,por11) <= 60
+ flagK1_2(rec13,por12): + x(rec13) + 9 k1(rec13,por12) <= 60
+ flagK1_2(rec13,por13): + x(rec13) + 5 k1(rec13,por13) <= 60
+ flagK1_2(rec13,por14): + x(rec13) + 4 k1(rec13,por14) <= 60
+ flagK1_2(rec13,por15): + x(rec13) <= 60
+ flagK1_2(rec14,por1): + x(rec14) + 57 k1(rec14,por1) <= 60
+ flagK1_2(rec14,por2): + x(rec14) + 56 k1(rec14,por2) <= 60
+ flagK1_2(rec14,por3): + x(rec14) + 46 k1(rec14,por3) <= 60
+ flagK1_2(rec14,por4): + x(rec14) + 45 k1(rec14,por4) <= 60
+ flagK1_2(rec14,por5): + x(rec14) + 43 k1(rec14,por5) <= 60
+ flagK1_2(rec14,por6): + x(rec14) + 42 k1(rec14,por6) <= 60
+ flagK1_2(rec14,por7): + x(rec14) + 34 k1(rec14,por7) <= 60
+ flagK1_2(rec14,por8): + x(rec14) + 33 k1(rec14,por8) <= 60
+ flagK1_2(rec14,por9): + x(rec14) + 21 k1(rec14,por9) <= 60
+ flagK1_2(rec14,por10): + x(rec14) + 20 k1(rec14,por10) <= 60
+ flagK1_2(rec14,por11): + x(rec14) + 10 k1(rec14,por11) <= 60
+ flagK1_2(rec14,por12): + x(rec14) + 9 k1(rec14,por12) <= 60
+ flagK1_2(rec14,por13): + x(rec14) + 5 k1(rec14,por13) <= 60
+ flagK1_2(rec14,por14): + x(rec14) + 4 k1(rec14,por14) <= 60
+ flagK1_2(rec14,por15): + x(rec14) <= 60
+ flagK1_2(rec15,por1): + x(rec15) + 57 k1(rec15,por1) <= 60
+ flagK1_2(rec15,por2): + x(rec15) + 56 k1(rec15,por2) <= 60
+ flagK1_2(rec15,por3): + x(rec15) + 46 k1(rec15,por3) <= 60
+ flagK1_2(rec15,por4): + x(rec15) + 45 k1(rec15,por4) <= 60
+ flagK1_2(rec15,por5): + x(rec15) + 43 k1(rec15,por5) <= 60
+ flagK1_2(rec15,por6): + x(rec15) + 42 k1(rec15,por6) <= 60
+ flagK1_2(rec15,por7): + x(rec15) + 34 k1(rec15,por7) <= 60
+ flagK1_2(rec15,por8): + x(rec15) + 33 k1(rec15,por8) <= 60
+ flagK1_2(rec15,por9): + x(rec15) + 21 k1(rec15,por9) <= 60
+ flagK1_2(rec15,por10): + x(rec15) + 20 k1(rec15,por10) <= 60
+ flagK1_2(rec15,por11): + x(rec15) + 10 k1(rec15,por11) <= 60
+ flagK1_2(rec15,por12): + x(rec15) + 9 k1(rec15,por12) <= 60
+ flagK1_2(rec15,por13): + x(rec15) + 5 k1(rec15,por13) <= 60
+ flagK1_2(rec15,por14): + x(rec15) + 4 k1(rec15,por14) <= 60
+ flagK1_2(rec15,por15): + x(rec15) <= 60
  noCoverageIfNoRegionRow(rec1,por1,1): - 4 h(rec1,1) + l(rec1,por1,1)
  <= -0
  noCoverageIfNoRegionRow(rec1,por1,2): - 4 h(rec1,2) + l(rec1,por1,2)
@@ -5554,6 +9303,1206 @@ Subject To
  + l(rec10,por15,7) <= -0
  noCoverageIfNoRegionRow(rec10,por15,8): - 4 h(rec10,8)
  + l(rec10,por15,8) <= -0
+ noCoverageIfNoRegionRow(rec11,por1,1): - 4 h(rec11,1) + l(rec11,por1,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por1,2): - 4 h(rec11,2) + l(rec11,por1,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por1,3): - 4 h(rec11,3) + l(rec11,por1,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por1,4): - 4 h(rec11,4) + l(rec11,por1,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por1,5): - 4 h(rec11,5) + l(rec11,por1,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por1,6): - 4 h(rec11,6) + l(rec11,por1,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por1,7): - 4 h(rec11,7) + l(rec11,por1,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por1,8): - 4 h(rec11,8) + l(rec11,por1,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por2,1): - h(rec11,1) + l(rec11,por2,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por2,2): - h(rec11,2) + l(rec11,por2,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por2,3): - h(rec11,3) + l(rec11,por2,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por2,4): - h(rec11,4) + l(rec11,por2,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por2,5): - h(rec11,5) + l(rec11,por2,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por2,6): - h(rec11,6) + l(rec11,por2,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por2,7): - h(rec11,7) + l(rec11,por2,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por2,8): - h(rec11,8) + l(rec11,por2,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por3,1): - 10 h(rec11,1)
+ + l(rec11,por3,1) <= -0
+ noCoverageIfNoRegionRow(rec11,por3,2): - 10 h(rec11,2)
+ + l(rec11,por3,2) <= -0
+ noCoverageIfNoRegionRow(rec11,por3,3): - 10 h(rec11,3)
+ + l(rec11,por3,3) <= -0
+ noCoverageIfNoRegionRow(rec11,por3,4): - 10 h(rec11,4)
+ + l(rec11,por3,4) <= -0
+ noCoverageIfNoRegionRow(rec11,por3,5): - 10 h(rec11,5)
+ + l(rec11,por3,5) <= -0
+ noCoverageIfNoRegionRow(rec11,por3,6): - 10 h(rec11,6)
+ + l(rec11,por3,6) <= -0
+ noCoverageIfNoRegionRow(rec11,por3,7): - 10 h(rec11,7)
+ + l(rec11,por3,7) <= -0
+ noCoverageIfNoRegionRow(rec11,por3,8): - 10 h(rec11,8)
+ + l(rec11,por3,8) <= -0
+ noCoverageIfNoRegionRow(rec11,por4,1): - h(rec11,1) + l(rec11,por4,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por4,2): - h(rec11,2) + l(rec11,por4,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por4,3): - h(rec11,3) + l(rec11,por4,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por4,4): - h(rec11,4) + l(rec11,por4,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por4,5): - h(rec11,5) + l(rec11,por4,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por4,6): - h(rec11,6) + l(rec11,por4,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por4,7): - h(rec11,7) + l(rec11,por4,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por4,8): - h(rec11,8) + l(rec11,por4,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por5,1): - 2 h(rec11,1) + l(rec11,por5,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por5,2): - 2 h(rec11,2) + l(rec11,por5,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por5,3): - 2 h(rec11,3) + l(rec11,por5,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por5,4): - 2 h(rec11,4) + l(rec11,por5,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por5,5): - 2 h(rec11,5) + l(rec11,por5,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por5,6): - 2 h(rec11,6) + l(rec11,por5,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por5,7): - 2 h(rec11,7) + l(rec11,por5,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por5,8): - 2 h(rec11,8) + l(rec11,por5,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por6,1): - h(rec11,1) + l(rec11,por6,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por6,2): - h(rec11,2) + l(rec11,por6,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por6,3): - h(rec11,3) + l(rec11,por6,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por6,4): - h(rec11,4) + l(rec11,por6,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por6,5): - h(rec11,5) + l(rec11,por6,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por6,6): - h(rec11,6) + l(rec11,por6,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por6,7): - h(rec11,7) + l(rec11,por6,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por6,8): - h(rec11,8) + l(rec11,por6,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por7,1): - 8 h(rec11,1) + l(rec11,por7,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por7,2): - 8 h(rec11,2) + l(rec11,por7,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por7,3): - 8 h(rec11,3) + l(rec11,por7,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por7,4): - 8 h(rec11,4) + l(rec11,por7,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por7,5): - 8 h(rec11,5) + l(rec11,por7,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por7,6): - 8 h(rec11,6) + l(rec11,por7,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por7,7): - 8 h(rec11,7) + l(rec11,por7,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por7,8): - 8 h(rec11,8) + l(rec11,por7,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por8,1): - h(rec11,1) + l(rec11,por8,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por8,2): - h(rec11,2) + l(rec11,por8,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por8,3): - h(rec11,3) + l(rec11,por8,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por8,4): - h(rec11,4) + l(rec11,por8,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por8,5): - h(rec11,5) + l(rec11,por8,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por8,6): - h(rec11,6) + l(rec11,por8,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por8,7): - h(rec11,7) + l(rec11,por8,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por8,8): - h(rec11,8) + l(rec11,por8,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por9,1): - 12 h(rec11,1)
+ + l(rec11,por9,1) <= -0
+ noCoverageIfNoRegionRow(rec11,por9,2): - 12 h(rec11,2)
+ + l(rec11,por9,2) <= -0
+ noCoverageIfNoRegionRow(rec11,por9,3): - 12 h(rec11,3)
+ + l(rec11,por9,3) <= -0
+ noCoverageIfNoRegionRow(rec11,por9,4): - 12 h(rec11,4)
+ + l(rec11,por9,4) <= -0
+ noCoverageIfNoRegionRow(rec11,por9,5): - 12 h(rec11,5)
+ + l(rec11,por9,5) <= -0
+ noCoverageIfNoRegionRow(rec11,por9,6): - 12 h(rec11,6)
+ + l(rec11,por9,6) <= -0
+ noCoverageIfNoRegionRow(rec11,por9,7): - 12 h(rec11,7)
+ + l(rec11,por9,7) <= -0
+ noCoverageIfNoRegionRow(rec11,por9,8): - 12 h(rec11,8)
+ + l(rec11,por9,8) <= -0
+ noCoverageIfNoRegionRow(rec11,por10,1): - h(rec11,1) + l(rec11,por10,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por10,2): - h(rec11,2) + l(rec11,por10,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por10,3): - h(rec11,3) + l(rec11,por10,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por10,4): - h(rec11,4) + l(rec11,por10,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por10,5): - h(rec11,5) + l(rec11,por10,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por10,6): - h(rec11,6) + l(rec11,por10,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por10,7): - h(rec11,7) + l(rec11,por10,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por10,8): - h(rec11,8) + l(rec11,por10,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por11,1): - 10 h(rec11,1)
+ + l(rec11,por11,1) <= -0
+ noCoverageIfNoRegionRow(rec11,por11,2): - 10 h(rec11,2)
+ + l(rec11,por11,2) <= -0
+ noCoverageIfNoRegionRow(rec11,por11,3): - 10 h(rec11,3)
+ + l(rec11,por11,3) <= -0
+ noCoverageIfNoRegionRow(rec11,por11,4): - 10 h(rec11,4)
+ + l(rec11,por11,4) <= -0
+ noCoverageIfNoRegionRow(rec11,por11,5): - 10 h(rec11,5)
+ + l(rec11,por11,5) <= -0
+ noCoverageIfNoRegionRow(rec11,por11,6): - 10 h(rec11,6)
+ + l(rec11,por11,6) <= -0
+ noCoverageIfNoRegionRow(rec11,por11,7): - 10 h(rec11,7)
+ + l(rec11,por11,7) <= -0
+ noCoverageIfNoRegionRow(rec11,por11,8): - 10 h(rec11,8)
+ + l(rec11,por11,8) <= -0
+ noCoverageIfNoRegionRow(rec11,por12,1): - h(rec11,1) + l(rec11,por12,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por12,2): - h(rec11,2) + l(rec11,por12,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por12,3): - h(rec11,3) + l(rec11,por12,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por12,4): - h(rec11,4) + l(rec11,por12,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por12,5): - h(rec11,5) + l(rec11,por12,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por12,6): - h(rec11,6) + l(rec11,por12,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por12,7): - h(rec11,7) + l(rec11,por12,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por12,8): - h(rec11,8) + l(rec11,por12,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por13,1): - 4 h(rec11,1)
+ + l(rec11,por13,1) <= -0
+ noCoverageIfNoRegionRow(rec11,por13,2): - 4 h(rec11,2)
+ + l(rec11,por13,2) <= -0
+ noCoverageIfNoRegionRow(rec11,por13,3): - 4 h(rec11,3)
+ + l(rec11,por13,3) <= -0
+ noCoverageIfNoRegionRow(rec11,por13,4): - 4 h(rec11,4)
+ + l(rec11,por13,4) <= -0
+ noCoverageIfNoRegionRow(rec11,por13,5): - 4 h(rec11,5)
+ + l(rec11,por13,5) <= -0
+ noCoverageIfNoRegionRow(rec11,por13,6): - 4 h(rec11,6)
+ + l(rec11,por13,6) <= -0
+ noCoverageIfNoRegionRow(rec11,por13,7): - 4 h(rec11,7)
+ + l(rec11,por13,7) <= -0
+ noCoverageIfNoRegionRow(rec11,por13,8): - 4 h(rec11,8)
+ + l(rec11,por13,8) <= -0
+ noCoverageIfNoRegionRow(rec11,por14,1): - h(rec11,1) + l(rec11,por14,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por14,2): - h(rec11,2) + l(rec11,por14,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por14,3): - h(rec11,3) + l(rec11,por14,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por14,4): - h(rec11,4) + l(rec11,por14,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por14,5): - h(rec11,5) + l(rec11,por14,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por14,6): - h(rec11,6) + l(rec11,por14,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por14,7): - h(rec11,7) + l(rec11,por14,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por14,8): - h(rec11,8) + l(rec11,por14,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec11,por15,1): - 4 h(rec11,1)
+ + l(rec11,por15,1) <= -0
+ noCoverageIfNoRegionRow(rec11,por15,2): - 4 h(rec11,2)
+ + l(rec11,por15,2) <= -0
+ noCoverageIfNoRegionRow(rec11,por15,3): - 4 h(rec11,3)
+ + l(rec11,por15,3) <= -0
+ noCoverageIfNoRegionRow(rec11,por15,4): - 4 h(rec11,4)
+ + l(rec11,por15,4) <= -0
+ noCoverageIfNoRegionRow(rec11,por15,5): - 4 h(rec11,5)
+ + l(rec11,por15,5) <= -0
+ noCoverageIfNoRegionRow(rec11,por15,6): - 4 h(rec11,6)
+ + l(rec11,por15,6) <= -0
+ noCoverageIfNoRegionRow(rec11,por15,7): - 4 h(rec11,7)
+ + l(rec11,por15,7) <= -0
+ noCoverageIfNoRegionRow(rec11,por15,8): - 4 h(rec11,8)
+ + l(rec11,por15,8) <= -0
+ noCoverageIfNoRegionRow(rec12,por1,1): - 4 h(rec12,1) + l(rec12,por1,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por1,2): - 4 h(rec12,2) + l(rec12,por1,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por1,3): - 4 h(rec12,3) + l(rec12,por1,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por1,4): - 4 h(rec12,4) + l(rec12,por1,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por1,5): - 4 h(rec12,5) + l(rec12,por1,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por1,6): - 4 h(rec12,6) + l(rec12,por1,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por1,7): - 4 h(rec12,7) + l(rec12,por1,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por1,8): - 4 h(rec12,8) + l(rec12,por1,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por2,1): - h(rec12,1) + l(rec12,por2,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por2,2): - h(rec12,2) + l(rec12,por2,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por2,3): - h(rec12,3) + l(rec12,por2,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por2,4): - h(rec12,4) + l(rec12,por2,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por2,5): - h(rec12,5) + l(rec12,por2,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por2,6): - h(rec12,6) + l(rec12,por2,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por2,7): - h(rec12,7) + l(rec12,por2,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por2,8): - h(rec12,8) + l(rec12,por2,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por3,1): - 10 h(rec12,1)
+ + l(rec12,por3,1) <= -0
+ noCoverageIfNoRegionRow(rec12,por3,2): - 10 h(rec12,2)
+ + l(rec12,por3,2) <= -0
+ noCoverageIfNoRegionRow(rec12,por3,3): - 10 h(rec12,3)
+ + l(rec12,por3,3) <= -0
+ noCoverageIfNoRegionRow(rec12,por3,4): - 10 h(rec12,4)
+ + l(rec12,por3,4) <= -0
+ noCoverageIfNoRegionRow(rec12,por3,5): - 10 h(rec12,5)
+ + l(rec12,por3,5) <= -0
+ noCoverageIfNoRegionRow(rec12,por3,6): - 10 h(rec12,6)
+ + l(rec12,por3,6) <= -0
+ noCoverageIfNoRegionRow(rec12,por3,7): - 10 h(rec12,7)
+ + l(rec12,por3,7) <= -0
+ noCoverageIfNoRegionRow(rec12,por3,8): - 10 h(rec12,8)
+ + l(rec12,por3,8) <= -0
+ noCoverageIfNoRegionRow(rec12,por4,1): - h(rec12,1) + l(rec12,por4,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por4,2): - h(rec12,2) + l(rec12,por4,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por4,3): - h(rec12,3) + l(rec12,por4,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por4,4): - h(rec12,4) + l(rec12,por4,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por4,5): - h(rec12,5) + l(rec12,por4,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por4,6): - h(rec12,6) + l(rec12,por4,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por4,7): - h(rec12,7) + l(rec12,por4,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por4,8): - h(rec12,8) + l(rec12,por4,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por5,1): - 2 h(rec12,1) + l(rec12,por5,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por5,2): - 2 h(rec12,2) + l(rec12,por5,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por5,3): - 2 h(rec12,3) + l(rec12,por5,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por5,4): - 2 h(rec12,4) + l(rec12,por5,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por5,5): - 2 h(rec12,5) + l(rec12,por5,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por5,6): - 2 h(rec12,6) + l(rec12,por5,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por5,7): - 2 h(rec12,7) + l(rec12,por5,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por5,8): - 2 h(rec12,8) + l(rec12,por5,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por6,1): - h(rec12,1) + l(rec12,por6,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por6,2): - h(rec12,2) + l(rec12,por6,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por6,3): - h(rec12,3) + l(rec12,por6,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por6,4): - h(rec12,4) + l(rec12,por6,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por6,5): - h(rec12,5) + l(rec12,por6,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por6,6): - h(rec12,6) + l(rec12,por6,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por6,7): - h(rec12,7) + l(rec12,por6,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por6,8): - h(rec12,8) + l(rec12,por6,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por7,1): - 8 h(rec12,1) + l(rec12,por7,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por7,2): - 8 h(rec12,2) + l(rec12,por7,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por7,3): - 8 h(rec12,3) + l(rec12,por7,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por7,4): - 8 h(rec12,4) + l(rec12,por7,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por7,5): - 8 h(rec12,5) + l(rec12,por7,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por7,6): - 8 h(rec12,6) + l(rec12,por7,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por7,7): - 8 h(rec12,7) + l(rec12,por7,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por7,8): - 8 h(rec12,8) + l(rec12,por7,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por8,1): - h(rec12,1) + l(rec12,por8,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por8,2): - h(rec12,2) + l(rec12,por8,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por8,3): - h(rec12,3) + l(rec12,por8,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por8,4): - h(rec12,4) + l(rec12,por8,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por8,5): - h(rec12,5) + l(rec12,por8,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por8,6): - h(rec12,6) + l(rec12,por8,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por8,7): - h(rec12,7) + l(rec12,por8,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por8,8): - h(rec12,8) + l(rec12,por8,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por9,1): - 12 h(rec12,1)
+ + l(rec12,por9,1) <= -0
+ noCoverageIfNoRegionRow(rec12,por9,2): - 12 h(rec12,2)
+ + l(rec12,por9,2) <= -0
+ noCoverageIfNoRegionRow(rec12,por9,3): - 12 h(rec12,3)
+ + l(rec12,por9,3) <= -0
+ noCoverageIfNoRegionRow(rec12,por9,4): - 12 h(rec12,4)
+ + l(rec12,por9,4) <= -0
+ noCoverageIfNoRegionRow(rec12,por9,5): - 12 h(rec12,5)
+ + l(rec12,por9,5) <= -0
+ noCoverageIfNoRegionRow(rec12,por9,6): - 12 h(rec12,6)
+ + l(rec12,por9,6) <= -0
+ noCoverageIfNoRegionRow(rec12,por9,7): - 12 h(rec12,7)
+ + l(rec12,por9,7) <= -0
+ noCoverageIfNoRegionRow(rec12,por9,8): - 12 h(rec12,8)
+ + l(rec12,por9,8) <= -0
+ noCoverageIfNoRegionRow(rec12,por10,1): - h(rec12,1) + l(rec12,por10,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por10,2): - h(rec12,2) + l(rec12,por10,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por10,3): - h(rec12,3) + l(rec12,por10,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por10,4): - h(rec12,4) + l(rec12,por10,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por10,5): - h(rec12,5) + l(rec12,por10,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por10,6): - h(rec12,6) + l(rec12,por10,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por10,7): - h(rec12,7) + l(rec12,por10,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por10,8): - h(rec12,8) + l(rec12,por10,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por11,1): - 10 h(rec12,1)
+ + l(rec12,por11,1) <= -0
+ noCoverageIfNoRegionRow(rec12,por11,2): - 10 h(rec12,2)
+ + l(rec12,por11,2) <= -0
+ noCoverageIfNoRegionRow(rec12,por11,3): - 10 h(rec12,3)
+ + l(rec12,por11,3) <= -0
+ noCoverageIfNoRegionRow(rec12,por11,4): - 10 h(rec12,4)
+ + l(rec12,por11,4) <= -0
+ noCoverageIfNoRegionRow(rec12,por11,5): - 10 h(rec12,5)
+ + l(rec12,por11,5) <= -0
+ noCoverageIfNoRegionRow(rec12,por11,6): - 10 h(rec12,6)
+ + l(rec12,por11,6) <= -0
+ noCoverageIfNoRegionRow(rec12,por11,7): - 10 h(rec12,7)
+ + l(rec12,por11,7) <= -0
+ noCoverageIfNoRegionRow(rec12,por11,8): - 10 h(rec12,8)
+ + l(rec12,por11,8) <= -0
+ noCoverageIfNoRegionRow(rec12,por12,1): - h(rec12,1) + l(rec12,por12,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por12,2): - h(rec12,2) + l(rec12,por12,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por12,3): - h(rec12,3) + l(rec12,por12,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por12,4): - h(rec12,4) + l(rec12,por12,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por12,5): - h(rec12,5) + l(rec12,por12,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por12,6): - h(rec12,6) + l(rec12,por12,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por12,7): - h(rec12,7) + l(rec12,por12,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por12,8): - h(rec12,8) + l(rec12,por12,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por13,1): - 4 h(rec12,1)
+ + l(rec12,por13,1) <= -0
+ noCoverageIfNoRegionRow(rec12,por13,2): - 4 h(rec12,2)
+ + l(rec12,por13,2) <= -0
+ noCoverageIfNoRegionRow(rec12,por13,3): - 4 h(rec12,3)
+ + l(rec12,por13,3) <= -0
+ noCoverageIfNoRegionRow(rec12,por13,4): - 4 h(rec12,4)
+ + l(rec12,por13,4) <= -0
+ noCoverageIfNoRegionRow(rec12,por13,5): - 4 h(rec12,5)
+ + l(rec12,por13,5) <= -0
+ noCoverageIfNoRegionRow(rec12,por13,6): - 4 h(rec12,6)
+ + l(rec12,por13,6) <= -0
+ noCoverageIfNoRegionRow(rec12,por13,7): - 4 h(rec12,7)
+ + l(rec12,por13,7) <= -0
+ noCoverageIfNoRegionRow(rec12,por13,8): - 4 h(rec12,8)
+ + l(rec12,por13,8) <= -0
+ noCoverageIfNoRegionRow(rec12,por14,1): - h(rec12,1) + l(rec12,por14,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por14,2): - h(rec12,2) + l(rec12,por14,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por14,3): - h(rec12,3) + l(rec12,por14,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por14,4): - h(rec12,4) + l(rec12,por14,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por14,5): - h(rec12,5) + l(rec12,por14,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por14,6): - h(rec12,6) + l(rec12,por14,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por14,7): - h(rec12,7) + l(rec12,por14,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por14,8): - h(rec12,8) + l(rec12,por14,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec12,por15,1): - 4 h(rec12,1)
+ + l(rec12,por15,1) <= -0
+ noCoverageIfNoRegionRow(rec12,por15,2): - 4 h(rec12,2)
+ + l(rec12,por15,2) <= -0
+ noCoverageIfNoRegionRow(rec12,por15,3): - 4 h(rec12,3)
+ + l(rec12,por15,3) <= -0
+ noCoverageIfNoRegionRow(rec12,por15,4): - 4 h(rec12,4)
+ + l(rec12,por15,4) <= -0
+ noCoverageIfNoRegionRow(rec12,por15,5): - 4 h(rec12,5)
+ + l(rec12,por15,5) <= -0
+ noCoverageIfNoRegionRow(rec12,por15,6): - 4 h(rec12,6)
+ + l(rec12,por15,6) <= -0
+ noCoverageIfNoRegionRow(rec12,por15,7): - 4 h(rec12,7)
+ + l(rec12,por15,7) <= -0
+ noCoverageIfNoRegionRow(rec12,por15,8): - 4 h(rec12,8)
+ + l(rec12,por15,8) <= -0
+ noCoverageIfNoRegionRow(rec13,por1,1): - 4 h(rec13,1) + l(rec13,por1,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por1,2): - 4 h(rec13,2) + l(rec13,por1,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por1,3): - 4 h(rec13,3) + l(rec13,por1,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por1,4): - 4 h(rec13,4) + l(rec13,por1,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por1,5): - 4 h(rec13,5) + l(rec13,por1,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por1,6): - 4 h(rec13,6) + l(rec13,por1,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por1,7): - 4 h(rec13,7) + l(rec13,por1,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por1,8): - 4 h(rec13,8) + l(rec13,por1,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por2,1): - h(rec13,1) + l(rec13,por2,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por2,2): - h(rec13,2) + l(rec13,por2,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por2,3): - h(rec13,3) + l(rec13,por2,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por2,4): - h(rec13,4) + l(rec13,por2,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por2,5): - h(rec13,5) + l(rec13,por2,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por2,6): - h(rec13,6) + l(rec13,por2,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por2,7): - h(rec13,7) + l(rec13,por2,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por2,8): - h(rec13,8) + l(rec13,por2,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por3,1): - 10 h(rec13,1)
+ + l(rec13,por3,1) <= -0
+ noCoverageIfNoRegionRow(rec13,por3,2): - 10 h(rec13,2)
+ + l(rec13,por3,2) <= -0
+ noCoverageIfNoRegionRow(rec13,por3,3): - 10 h(rec13,3)
+ + l(rec13,por3,3) <= -0
+ noCoverageIfNoRegionRow(rec13,por3,4): - 10 h(rec13,4)
+ + l(rec13,por3,4) <= -0
+ noCoverageIfNoRegionRow(rec13,por3,5): - 10 h(rec13,5)
+ + l(rec13,por3,5) <= -0
+ noCoverageIfNoRegionRow(rec13,por3,6): - 10 h(rec13,6)
+ + l(rec13,por3,6) <= -0
+ noCoverageIfNoRegionRow(rec13,por3,7): - 10 h(rec13,7)
+ + l(rec13,por3,7) <= -0
+ noCoverageIfNoRegionRow(rec13,por3,8): - 10 h(rec13,8)
+ + l(rec13,por3,8) <= -0
+ noCoverageIfNoRegionRow(rec13,por4,1): - h(rec13,1) + l(rec13,por4,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por4,2): - h(rec13,2) + l(rec13,por4,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por4,3): - h(rec13,3) + l(rec13,por4,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por4,4): - h(rec13,4) + l(rec13,por4,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por4,5): - h(rec13,5) + l(rec13,por4,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por4,6): - h(rec13,6) + l(rec13,por4,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por4,7): - h(rec13,7) + l(rec13,por4,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por4,8): - h(rec13,8) + l(rec13,por4,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por5,1): - 2 h(rec13,1) + l(rec13,por5,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por5,2): - 2 h(rec13,2) + l(rec13,por5,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por5,3): - 2 h(rec13,3) + l(rec13,por5,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por5,4): - 2 h(rec13,4) + l(rec13,por5,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por5,5): - 2 h(rec13,5) + l(rec13,por5,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por5,6): - 2 h(rec13,6) + l(rec13,por5,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por5,7): - 2 h(rec13,7) + l(rec13,por5,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por5,8): - 2 h(rec13,8) + l(rec13,por5,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por6,1): - h(rec13,1) + l(rec13,por6,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por6,2): - h(rec13,2) + l(rec13,por6,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por6,3): - h(rec13,3) + l(rec13,por6,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por6,4): - h(rec13,4) + l(rec13,por6,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por6,5): - h(rec13,5) + l(rec13,por6,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por6,6): - h(rec13,6) + l(rec13,por6,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por6,7): - h(rec13,7) + l(rec13,por6,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por6,8): - h(rec13,8) + l(rec13,por6,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por7,1): - 8 h(rec13,1) + l(rec13,por7,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por7,2): - 8 h(rec13,2) + l(rec13,por7,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por7,3): - 8 h(rec13,3) + l(rec13,por7,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por7,4): - 8 h(rec13,4) + l(rec13,por7,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por7,5): - 8 h(rec13,5) + l(rec13,por7,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por7,6): - 8 h(rec13,6) + l(rec13,por7,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por7,7): - 8 h(rec13,7) + l(rec13,por7,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por7,8): - 8 h(rec13,8) + l(rec13,por7,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por8,1): - h(rec13,1) + l(rec13,por8,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por8,2): - h(rec13,2) + l(rec13,por8,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por8,3): - h(rec13,3) + l(rec13,por8,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por8,4): - h(rec13,4) + l(rec13,por8,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por8,5): - h(rec13,5) + l(rec13,por8,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por8,6): - h(rec13,6) + l(rec13,por8,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por8,7): - h(rec13,7) + l(rec13,por8,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por8,8): - h(rec13,8) + l(rec13,por8,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por9,1): - 12 h(rec13,1)
+ + l(rec13,por9,1) <= -0
+ noCoverageIfNoRegionRow(rec13,por9,2): - 12 h(rec13,2)
+ + l(rec13,por9,2) <= -0
+ noCoverageIfNoRegionRow(rec13,por9,3): - 12 h(rec13,3)
+ + l(rec13,por9,3) <= -0
+ noCoverageIfNoRegionRow(rec13,por9,4): - 12 h(rec13,4)
+ + l(rec13,por9,4) <= -0
+ noCoverageIfNoRegionRow(rec13,por9,5): - 12 h(rec13,5)
+ + l(rec13,por9,5) <= -0
+ noCoverageIfNoRegionRow(rec13,por9,6): - 12 h(rec13,6)
+ + l(rec13,por9,6) <= -0
+ noCoverageIfNoRegionRow(rec13,por9,7): - 12 h(rec13,7)
+ + l(rec13,por9,7) <= -0
+ noCoverageIfNoRegionRow(rec13,por9,8): - 12 h(rec13,8)
+ + l(rec13,por9,8) <= -0
+ noCoverageIfNoRegionRow(rec13,por10,1): - h(rec13,1) + l(rec13,por10,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por10,2): - h(rec13,2) + l(rec13,por10,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por10,3): - h(rec13,3) + l(rec13,por10,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por10,4): - h(rec13,4) + l(rec13,por10,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por10,5): - h(rec13,5) + l(rec13,por10,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por10,6): - h(rec13,6) + l(rec13,por10,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por10,7): - h(rec13,7) + l(rec13,por10,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por10,8): - h(rec13,8) + l(rec13,por10,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por11,1): - 10 h(rec13,1)
+ + l(rec13,por11,1) <= -0
+ noCoverageIfNoRegionRow(rec13,por11,2): - 10 h(rec13,2)
+ + l(rec13,por11,2) <= -0
+ noCoverageIfNoRegionRow(rec13,por11,3): - 10 h(rec13,3)
+ + l(rec13,por11,3) <= -0
+ noCoverageIfNoRegionRow(rec13,por11,4): - 10 h(rec13,4)
+ + l(rec13,por11,4) <= -0
+ noCoverageIfNoRegionRow(rec13,por11,5): - 10 h(rec13,5)
+ + l(rec13,por11,5) <= -0
+ noCoverageIfNoRegionRow(rec13,por11,6): - 10 h(rec13,6)
+ + l(rec13,por11,6) <= -0
+ noCoverageIfNoRegionRow(rec13,por11,7): - 10 h(rec13,7)
+ + l(rec13,por11,7) <= -0
+ noCoverageIfNoRegionRow(rec13,por11,8): - 10 h(rec13,8)
+ + l(rec13,por11,8) <= -0
+ noCoverageIfNoRegionRow(rec13,por12,1): - h(rec13,1) + l(rec13,por12,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por12,2): - h(rec13,2) + l(rec13,por12,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por12,3): - h(rec13,3) + l(rec13,por12,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por12,4): - h(rec13,4) + l(rec13,por12,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por12,5): - h(rec13,5) + l(rec13,por12,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por12,6): - h(rec13,6) + l(rec13,por12,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por12,7): - h(rec13,7) + l(rec13,por12,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por12,8): - h(rec13,8) + l(rec13,por12,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por13,1): - 4 h(rec13,1)
+ + l(rec13,por13,1) <= -0
+ noCoverageIfNoRegionRow(rec13,por13,2): - 4 h(rec13,2)
+ + l(rec13,por13,2) <= -0
+ noCoverageIfNoRegionRow(rec13,por13,3): - 4 h(rec13,3)
+ + l(rec13,por13,3) <= -0
+ noCoverageIfNoRegionRow(rec13,por13,4): - 4 h(rec13,4)
+ + l(rec13,por13,4) <= -0
+ noCoverageIfNoRegionRow(rec13,por13,5): - 4 h(rec13,5)
+ + l(rec13,por13,5) <= -0
+ noCoverageIfNoRegionRow(rec13,por13,6): - 4 h(rec13,6)
+ + l(rec13,por13,6) <= -0
+ noCoverageIfNoRegionRow(rec13,por13,7): - 4 h(rec13,7)
+ + l(rec13,por13,7) <= -0
+ noCoverageIfNoRegionRow(rec13,por13,8): - 4 h(rec13,8)
+ + l(rec13,por13,8) <= -0
+ noCoverageIfNoRegionRow(rec13,por14,1): - h(rec13,1) + l(rec13,por14,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por14,2): - h(rec13,2) + l(rec13,por14,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por14,3): - h(rec13,3) + l(rec13,por14,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por14,4): - h(rec13,4) + l(rec13,por14,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por14,5): - h(rec13,5) + l(rec13,por14,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por14,6): - h(rec13,6) + l(rec13,por14,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por14,7): - h(rec13,7) + l(rec13,por14,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por14,8): - h(rec13,8) + l(rec13,por14,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec13,por15,1): - 4 h(rec13,1)
+ + l(rec13,por15,1) <= -0
+ noCoverageIfNoRegionRow(rec13,por15,2): - 4 h(rec13,2)
+ + l(rec13,por15,2) <= -0
+ noCoverageIfNoRegionRow(rec13,por15,3): - 4 h(rec13,3)
+ + l(rec13,por15,3) <= -0
+ noCoverageIfNoRegionRow(rec13,por15,4): - 4 h(rec13,4)
+ + l(rec13,por15,4) <= -0
+ noCoverageIfNoRegionRow(rec13,por15,5): - 4 h(rec13,5)
+ + l(rec13,por15,5) <= -0
+ noCoverageIfNoRegionRow(rec13,por15,6): - 4 h(rec13,6)
+ + l(rec13,por15,6) <= -0
+ noCoverageIfNoRegionRow(rec13,por15,7): - 4 h(rec13,7)
+ + l(rec13,por15,7) <= -0
+ noCoverageIfNoRegionRow(rec13,por15,8): - 4 h(rec13,8)
+ + l(rec13,por15,8) <= -0
+ noCoverageIfNoRegionRow(rec14,por1,1): - 4 h(rec14,1) + l(rec14,por1,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por1,2): - 4 h(rec14,2) + l(rec14,por1,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por1,3): - 4 h(rec14,3) + l(rec14,por1,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por1,4): - 4 h(rec14,4) + l(rec14,por1,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por1,5): - 4 h(rec14,5) + l(rec14,por1,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por1,6): - 4 h(rec14,6) + l(rec14,por1,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por1,7): - 4 h(rec14,7) + l(rec14,por1,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por1,8): - 4 h(rec14,8) + l(rec14,por1,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por2,1): - h(rec14,1) + l(rec14,por2,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por2,2): - h(rec14,2) + l(rec14,por2,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por2,3): - h(rec14,3) + l(rec14,por2,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por2,4): - h(rec14,4) + l(rec14,por2,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por2,5): - h(rec14,5) + l(rec14,por2,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por2,6): - h(rec14,6) + l(rec14,por2,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por2,7): - h(rec14,7) + l(rec14,por2,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por2,8): - h(rec14,8) + l(rec14,por2,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por3,1): - 10 h(rec14,1)
+ + l(rec14,por3,1) <= -0
+ noCoverageIfNoRegionRow(rec14,por3,2): - 10 h(rec14,2)
+ + l(rec14,por3,2) <= -0
+ noCoverageIfNoRegionRow(rec14,por3,3): - 10 h(rec14,3)
+ + l(rec14,por3,3) <= -0
+ noCoverageIfNoRegionRow(rec14,por3,4): - 10 h(rec14,4)
+ + l(rec14,por3,4) <= -0
+ noCoverageIfNoRegionRow(rec14,por3,5): - 10 h(rec14,5)
+ + l(rec14,por3,5) <= -0
+ noCoverageIfNoRegionRow(rec14,por3,6): - 10 h(rec14,6)
+ + l(rec14,por3,6) <= -0
+ noCoverageIfNoRegionRow(rec14,por3,7): - 10 h(rec14,7)
+ + l(rec14,por3,7) <= -0
+ noCoverageIfNoRegionRow(rec14,por3,8): - 10 h(rec14,8)
+ + l(rec14,por3,8) <= -0
+ noCoverageIfNoRegionRow(rec14,por4,1): - h(rec14,1) + l(rec14,por4,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por4,2): - h(rec14,2) + l(rec14,por4,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por4,3): - h(rec14,3) + l(rec14,por4,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por4,4): - h(rec14,4) + l(rec14,por4,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por4,5): - h(rec14,5) + l(rec14,por4,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por4,6): - h(rec14,6) + l(rec14,por4,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por4,7): - h(rec14,7) + l(rec14,por4,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por4,8): - h(rec14,8) + l(rec14,por4,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por5,1): - 2 h(rec14,1) + l(rec14,por5,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por5,2): - 2 h(rec14,2) + l(rec14,por5,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por5,3): - 2 h(rec14,3) + l(rec14,por5,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por5,4): - 2 h(rec14,4) + l(rec14,por5,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por5,5): - 2 h(rec14,5) + l(rec14,por5,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por5,6): - 2 h(rec14,6) + l(rec14,por5,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por5,7): - 2 h(rec14,7) + l(rec14,por5,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por5,8): - 2 h(rec14,8) + l(rec14,por5,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por6,1): - h(rec14,1) + l(rec14,por6,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por6,2): - h(rec14,2) + l(rec14,por6,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por6,3): - h(rec14,3) + l(rec14,por6,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por6,4): - h(rec14,4) + l(rec14,por6,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por6,5): - h(rec14,5) + l(rec14,por6,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por6,6): - h(rec14,6) + l(rec14,por6,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por6,7): - h(rec14,7) + l(rec14,por6,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por6,8): - h(rec14,8) + l(rec14,por6,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por7,1): - 8 h(rec14,1) + l(rec14,por7,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por7,2): - 8 h(rec14,2) + l(rec14,por7,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por7,3): - 8 h(rec14,3) + l(rec14,por7,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por7,4): - 8 h(rec14,4) + l(rec14,por7,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por7,5): - 8 h(rec14,5) + l(rec14,por7,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por7,6): - 8 h(rec14,6) + l(rec14,por7,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por7,7): - 8 h(rec14,7) + l(rec14,por7,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por7,8): - 8 h(rec14,8) + l(rec14,por7,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por8,1): - h(rec14,1) + l(rec14,por8,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por8,2): - h(rec14,2) + l(rec14,por8,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por8,3): - h(rec14,3) + l(rec14,por8,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por8,4): - h(rec14,4) + l(rec14,por8,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por8,5): - h(rec14,5) + l(rec14,por8,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por8,6): - h(rec14,6) + l(rec14,por8,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por8,7): - h(rec14,7) + l(rec14,por8,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por8,8): - h(rec14,8) + l(rec14,por8,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por9,1): - 12 h(rec14,1)
+ + l(rec14,por9,1) <= -0
+ noCoverageIfNoRegionRow(rec14,por9,2): - 12 h(rec14,2)
+ + l(rec14,por9,2) <= -0
+ noCoverageIfNoRegionRow(rec14,por9,3): - 12 h(rec14,3)
+ + l(rec14,por9,3) <= -0
+ noCoverageIfNoRegionRow(rec14,por9,4): - 12 h(rec14,4)
+ + l(rec14,por9,4) <= -0
+ noCoverageIfNoRegionRow(rec14,por9,5): - 12 h(rec14,5)
+ + l(rec14,por9,5) <= -0
+ noCoverageIfNoRegionRow(rec14,por9,6): - 12 h(rec14,6)
+ + l(rec14,por9,6) <= -0
+ noCoverageIfNoRegionRow(rec14,por9,7): - 12 h(rec14,7)
+ + l(rec14,por9,7) <= -0
+ noCoverageIfNoRegionRow(rec14,por9,8): - 12 h(rec14,8)
+ + l(rec14,por9,8) <= -0
+ noCoverageIfNoRegionRow(rec14,por10,1): - h(rec14,1) + l(rec14,por10,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por10,2): - h(rec14,2) + l(rec14,por10,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por10,3): - h(rec14,3) + l(rec14,por10,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por10,4): - h(rec14,4) + l(rec14,por10,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por10,5): - h(rec14,5) + l(rec14,por10,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por10,6): - h(rec14,6) + l(rec14,por10,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por10,7): - h(rec14,7) + l(rec14,por10,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por10,8): - h(rec14,8) + l(rec14,por10,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por11,1): - 10 h(rec14,1)
+ + l(rec14,por11,1) <= -0
+ noCoverageIfNoRegionRow(rec14,por11,2): - 10 h(rec14,2)
+ + l(rec14,por11,2) <= -0
+ noCoverageIfNoRegionRow(rec14,por11,3): - 10 h(rec14,3)
+ + l(rec14,por11,3) <= -0
+ noCoverageIfNoRegionRow(rec14,por11,4): - 10 h(rec14,4)
+ + l(rec14,por11,4) <= -0
+ noCoverageIfNoRegionRow(rec14,por11,5): - 10 h(rec14,5)
+ + l(rec14,por11,5) <= -0
+ noCoverageIfNoRegionRow(rec14,por11,6): - 10 h(rec14,6)
+ + l(rec14,por11,6) <= -0
+ noCoverageIfNoRegionRow(rec14,por11,7): - 10 h(rec14,7)
+ + l(rec14,por11,7) <= -0
+ noCoverageIfNoRegionRow(rec14,por11,8): - 10 h(rec14,8)
+ + l(rec14,por11,8) <= -0
+ noCoverageIfNoRegionRow(rec14,por12,1): - h(rec14,1) + l(rec14,por12,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por12,2): - h(rec14,2) + l(rec14,por12,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por12,3): - h(rec14,3) + l(rec14,por12,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por12,4): - h(rec14,4) + l(rec14,por12,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por12,5): - h(rec14,5) + l(rec14,por12,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por12,6): - h(rec14,6) + l(rec14,por12,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por12,7): - h(rec14,7) + l(rec14,por12,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por12,8): - h(rec14,8) + l(rec14,por12,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por13,1): - 4 h(rec14,1)
+ + l(rec14,por13,1) <= -0
+ noCoverageIfNoRegionRow(rec14,por13,2): - 4 h(rec14,2)
+ + l(rec14,por13,2) <= -0
+ noCoverageIfNoRegionRow(rec14,por13,3): - 4 h(rec14,3)
+ + l(rec14,por13,3) <= -0
+ noCoverageIfNoRegionRow(rec14,por13,4): - 4 h(rec14,4)
+ + l(rec14,por13,4) <= -0
+ noCoverageIfNoRegionRow(rec14,por13,5): - 4 h(rec14,5)
+ + l(rec14,por13,5) <= -0
+ noCoverageIfNoRegionRow(rec14,por13,6): - 4 h(rec14,6)
+ + l(rec14,por13,6) <= -0
+ noCoverageIfNoRegionRow(rec14,por13,7): - 4 h(rec14,7)
+ + l(rec14,por13,7) <= -0
+ noCoverageIfNoRegionRow(rec14,por13,8): - 4 h(rec14,8)
+ + l(rec14,por13,8) <= -0
+ noCoverageIfNoRegionRow(rec14,por14,1): - h(rec14,1) + l(rec14,por14,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por14,2): - h(rec14,2) + l(rec14,por14,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por14,3): - h(rec14,3) + l(rec14,por14,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por14,4): - h(rec14,4) + l(rec14,por14,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por14,5): - h(rec14,5) + l(rec14,por14,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por14,6): - h(rec14,6) + l(rec14,por14,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por14,7): - h(rec14,7) + l(rec14,por14,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por14,8): - h(rec14,8) + l(rec14,por14,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec14,por15,1): - 4 h(rec14,1)
+ + l(rec14,por15,1) <= -0
+ noCoverageIfNoRegionRow(rec14,por15,2): - 4 h(rec14,2)
+ + l(rec14,por15,2) <= -0
+ noCoverageIfNoRegionRow(rec14,por15,3): - 4 h(rec14,3)
+ + l(rec14,por15,3) <= -0
+ noCoverageIfNoRegionRow(rec14,por15,4): - 4 h(rec14,4)
+ + l(rec14,por15,4) <= -0
+ noCoverageIfNoRegionRow(rec14,por15,5): - 4 h(rec14,5)
+ + l(rec14,por15,5) <= -0
+ noCoverageIfNoRegionRow(rec14,por15,6): - 4 h(rec14,6)
+ + l(rec14,por15,6) <= -0
+ noCoverageIfNoRegionRow(rec14,por15,7): - 4 h(rec14,7)
+ + l(rec14,por15,7) <= -0
+ noCoverageIfNoRegionRow(rec14,por15,8): - 4 h(rec14,8)
+ + l(rec14,por15,8) <= -0
+ noCoverageIfNoRegionRow(rec15,por1,1): - 4 h(rec15,1) + l(rec15,por1,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por1,2): - 4 h(rec15,2) + l(rec15,por1,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por1,3): - 4 h(rec15,3) + l(rec15,por1,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por1,4): - 4 h(rec15,4) + l(rec15,por1,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por1,5): - 4 h(rec15,5) + l(rec15,por1,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por1,6): - 4 h(rec15,6) + l(rec15,por1,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por1,7): - 4 h(rec15,7) + l(rec15,por1,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por1,8): - 4 h(rec15,8) + l(rec15,por1,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por2,1): - h(rec15,1) + l(rec15,por2,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por2,2): - h(rec15,2) + l(rec15,por2,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por2,3): - h(rec15,3) + l(rec15,por2,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por2,4): - h(rec15,4) + l(rec15,por2,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por2,5): - h(rec15,5) + l(rec15,por2,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por2,6): - h(rec15,6) + l(rec15,por2,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por2,7): - h(rec15,7) + l(rec15,por2,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por2,8): - h(rec15,8) + l(rec15,por2,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por3,1): - 10 h(rec15,1)
+ + l(rec15,por3,1) <= -0
+ noCoverageIfNoRegionRow(rec15,por3,2): - 10 h(rec15,2)
+ + l(rec15,por3,2) <= -0
+ noCoverageIfNoRegionRow(rec15,por3,3): - 10 h(rec15,3)
+ + l(rec15,por3,3) <= -0
+ noCoverageIfNoRegionRow(rec15,por3,4): - 10 h(rec15,4)
+ + l(rec15,por3,4) <= -0
+ noCoverageIfNoRegionRow(rec15,por3,5): - 10 h(rec15,5)
+ + l(rec15,por3,5) <= -0
+ noCoverageIfNoRegionRow(rec15,por3,6): - 10 h(rec15,6)
+ + l(rec15,por3,6) <= -0
+ noCoverageIfNoRegionRow(rec15,por3,7): - 10 h(rec15,7)
+ + l(rec15,por3,7) <= -0
+ noCoverageIfNoRegionRow(rec15,por3,8): - 10 h(rec15,8)
+ + l(rec15,por3,8) <= -0
+ noCoverageIfNoRegionRow(rec15,por4,1): - h(rec15,1) + l(rec15,por4,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por4,2): - h(rec15,2) + l(rec15,por4,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por4,3): - h(rec15,3) + l(rec15,por4,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por4,4): - h(rec15,4) + l(rec15,por4,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por4,5): - h(rec15,5) + l(rec15,por4,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por4,6): - h(rec15,6) + l(rec15,por4,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por4,7): - h(rec15,7) + l(rec15,por4,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por4,8): - h(rec15,8) + l(rec15,por4,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por5,1): - 2 h(rec15,1) + l(rec15,por5,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por5,2): - 2 h(rec15,2) + l(rec15,por5,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por5,3): - 2 h(rec15,3) + l(rec15,por5,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por5,4): - 2 h(rec15,4) + l(rec15,por5,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por5,5): - 2 h(rec15,5) + l(rec15,por5,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por5,6): - 2 h(rec15,6) + l(rec15,por5,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por5,7): - 2 h(rec15,7) + l(rec15,por5,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por5,8): - 2 h(rec15,8) + l(rec15,por5,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por6,1): - h(rec15,1) + l(rec15,por6,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por6,2): - h(rec15,2) + l(rec15,por6,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por6,3): - h(rec15,3) + l(rec15,por6,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por6,4): - h(rec15,4) + l(rec15,por6,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por6,5): - h(rec15,5) + l(rec15,por6,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por6,6): - h(rec15,6) + l(rec15,por6,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por6,7): - h(rec15,7) + l(rec15,por6,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por6,8): - h(rec15,8) + l(rec15,por6,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por7,1): - 8 h(rec15,1) + l(rec15,por7,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por7,2): - 8 h(rec15,2) + l(rec15,por7,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por7,3): - 8 h(rec15,3) + l(rec15,por7,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por7,4): - 8 h(rec15,4) + l(rec15,por7,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por7,5): - 8 h(rec15,5) + l(rec15,por7,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por7,6): - 8 h(rec15,6) + l(rec15,por7,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por7,7): - 8 h(rec15,7) + l(rec15,por7,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por7,8): - 8 h(rec15,8) + l(rec15,por7,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por8,1): - h(rec15,1) + l(rec15,por8,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por8,2): - h(rec15,2) + l(rec15,por8,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por8,3): - h(rec15,3) + l(rec15,por8,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por8,4): - h(rec15,4) + l(rec15,por8,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por8,5): - h(rec15,5) + l(rec15,por8,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por8,6): - h(rec15,6) + l(rec15,por8,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por8,7): - h(rec15,7) + l(rec15,por8,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por8,8): - h(rec15,8) + l(rec15,por8,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por9,1): - 12 h(rec15,1)
+ + l(rec15,por9,1) <= -0
+ noCoverageIfNoRegionRow(rec15,por9,2): - 12 h(rec15,2)
+ + l(rec15,por9,2) <= -0
+ noCoverageIfNoRegionRow(rec15,por9,3): - 12 h(rec15,3)
+ + l(rec15,por9,3) <= -0
+ noCoverageIfNoRegionRow(rec15,por9,4): - 12 h(rec15,4)
+ + l(rec15,por9,4) <= -0
+ noCoverageIfNoRegionRow(rec15,por9,5): - 12 h(rec15,5)
+ + l(rec15,por9,5) <= -0
+ noCoverageIfNoRegionRow(rec15,por9,6): - 12 h(rec15,6)
+ + l(rec15,por9,6) <= -0
+ noCoverageIfNoRegionRow(rec15,por9,7): - 12 h(rec15,7)
+ + l(rec15,por9,7) <= -0
+ noCoverageIfNoRegionRow(rec15,por9,8): - 12 h(rec15,8)
+ + l(rec15,por9,8) <= -0
+ noCoverageIfNoRegionRow(rec15,por10,1): - h(rec15,1) + l(rec15,por10,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por10,2): - h(rec15,2) + l(rec15,por10,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por10,3): - h(rec15,3) + l(rec15,por10,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por10,4): - h(rec15,4) + l(rec15,por10,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por10,5): - h(rec15,5) + l(rec15,por10,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por10,6): - h(rec15,6) + l(rec15,por10,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por10,7): - h(rec15,7) + l(rec15,por10,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por10,8): - h(rec15,8) + l(rec15,por10,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por11,1): - 10 h(rec15,1)
+ + l(rec15,por11,1) <= -0
+ noCoverageIfNoRegionRow(rec15,por11,2): - 10 h(rec15,2)
+ + l(rec15,por11,2) <= -0
+ noCoverageIfNoRegionRow(rec15,por11,3): - 10 h(rec15,3)
+ + l(rec15,por11,3) <= -0
+ noCoverageIfNoRegionRow(rec15,por11,4): - 10 h(rec15,4)
+ + l(rec15,por11,4) <= -0
+ noCoverageIfNoRegionRow(rec15,por11,5): - 10 h(rec15,5)
+ + l(rec15,por11,5) <= -0
+ noCoverageIfNoRegionRow(rec15,por11,6): - 10 h(rec15,6)
+ + l(rec15,por11,6) <= -0
+ noCoverageIfNoRegionRow(rec15,por11,7): - 10 h(rec15,7)
+ + l(rec15,por11,7) <= -0
+ noCoverageIfNoRegionRow(rec15,por11,8): - 10 h(rec15,8)
+ + l(rec15,por11,8) <= -0
+ noCoverageIfNoRegionRow(rec15,por12,1): - h(rec15,1) + l(rec15,por12,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por12,2): - h(rec15,2) + l(rec15,por12,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por12,3): - h(rec15,3) + l(rec15,por12,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por12,4): - h(rec15,4) + l(rec15,por12,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por12,5): - h(rec15,5) + l(rec15,por12,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por12,6): - h(rec15,6) + l(rec15,por12,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por12,7): - h(rec15,7) + l(rec15,por12,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por12,8): - h(rec15,8) + l(rec15,por12,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por13,1): - 4 h(rec15,1)
+ + l(rec15,por13,1) <= -0
+ noCoverageIfNoRegionRow(rec15,por13,2): - 4 h(rec15,2)
+ + l(rec15,por13,2) <= -0
+ noCoverageIfNoRegionRow(rec15,por13,3): - 4 h(rec15,3)
+ + l(rec15,por13,3) <= -0
+ noCoverageIfNoRegionRow(rec15,por13,4): - 4 h(rec15,4)
+ + l(rec15,por13,4) <= -0
+ noCoverageIfNoRegionRow(rec15,por13,5): - 4 h(rec15,5)
+ + l(rec15,por13,5) <= -0
+ noCoverageIfNoRegionRow(rec15,por13,6): - 4 h(rec15,6)
+ + l(rec15,por13,6) <= -0
+ noCoverageIfNoRegionRow(rec15,por13,7): - 4 h(rec15,7)
+ + l(rec15,por13,7) <= -0
+ noCoverageIfNoRegionRow(rec15,por13,8): - 4 h(rec15,8)
+ + l(rec15,por13,8) <= -0
+ noCoverageIfNoRegionRow(rec15,por14,1): - h(rec15,1) + l(rec15,por14,1)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por14,2): - h(rec15,2) + l(rec15,por14,2)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por14,3): - h(rec15,3) + l(rec15,por14,3)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por14,4): - h(rec15,4) + l(rec15,por14,4)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por14,5): - h(rec15,5) + l(rec15,por14,5)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por14,6): - h(rec15,6) + l(rec15,por14,6)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por14,7): - h(rec15,7) + l(rec15,por14,7)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por14,8): - h(rec15,8) + l(rec15,por14,8)
+ <= -0
+ noCoverageIfNoRegionRow(rec15,por15,1): - 4 h(rec15,1)
+ + l(rec15,por15,1) <= -0
+ noCoverageIfNoRegionRow(rec15,por15,2): - 4 h(rec15,2)
+ + l(rec15,por15,2) <= -0
+ noCoverageIfNoRegionRow(rec15,por15,3): - 4 h(rec15,3)
+ + l(rec15,por15,3) <= -0
+ noCoverageIfNoRegionRow(rec15,por15,4): - 4 h(rec15,4)
+ + l(rec15,por15,4) <= -0
+ noCoverageIfNoRegionRow(rec15,por15,5): - 4 h(rec15,5)
+ + l(rec15,por15,5) <= -0
+ noCoverageIfNoRegionRow(rec15,por15,6): - 4 h(rec15,6)
+ + l(rec15,por15,6) <= -0
+ noCoverageIfNoRegionRow(rec15,por15,7): - 4 h(rec15,7)
+ + l(rec15,por15,7) <= -0
+ noCoverageIfNoRegionRow(rec15,por15,8): - 4 h(rec15,8)
+ + l(rec15,por15,8) <= -0
  noCoverageIfNoIntersection(rec1,por1,1): + l(rec1,por1,1)
  - 4 k1(rec1,por1) <= -0
  noCoverageIfNoIntersection(rec1,por1,2): + l(rec1,por1,2)
@@ -7954,6 +12903,1206 @@ Subject To
  - 4 k1(rec10,por15) <= -0
  noCoverageIfNoIntersection(rec10,por15,8): + l(rec10,por15,8)
  - 4 k1(rec10,por15) <= -0
+ noCoverageIfNoIntersection(rec11,por1,1): + l(rec11,por1,1)
+ - 4 k1(rec11,por1) <= -0
+ noCoverageIfNoIntersection(rec11,por1,2): + l(rec11,por1,2)
+ - 4 k1(rec11,por1) <= -0
+ noCoverageIfNoIntersection(rec11,por1,3): + l(rec11,por1,3)
+ - 4 k1(rec11,por1) <= -0
+ noCoverageIfNoIntersection(rec11,por1,4): + l(rec11,por1,4)
+ - 4 k1(rec11,por1) <= -0
+ noCoverageIfNoIntersection(rec11,por1,5): + l(rec11,por1,5)
+ - 4 k1(rec11,por1) <= -0
+ noCoverageIfNoIntersection(rec11,por1,6): + l(rec11,por1,6)
+ - 4 k1(rec11,por1) <= -0
+ noCoverageIfNoIntersection(rec11,por1,7): + l(rec11,por1,7)
+ - 4 k1(rec11,por1) <= -0
+ noCoverageIfNoIntersection(rec11,por1,8): + l(rec11,por1,8)
+ - 4 k1(rec11,por1) <= -0
+ noCoverageIfNoIntersection(rec11,por2,1): + l(rec11,por2,1)
+ - k1(rec11,por2) <= -0
+ noCoverageIfNoIntersection(rec11,por2,2): + l(rec11,por2,2)
+ - k1(rec11,por2) <= -0
+ noCoverageIfNoIntersection(rec11,por2,3): + l(rec11,por2,3)
+ - k1(rec11,por2) <= -0
+ noCoverageIfNoIntersection(rec11,por2,4): + l(rec11,por2,4)
+ - k1(rec11,por2) <= -0
+ noCoverageIfNoIntersection(rec11,por2,5): + l(rec11,por2,5)
+ - k1(rec11,por2) <= -0
+ noCoverageIfNoIntersection(rec11,por2,6): + l(rec11,por2,6)
+ - k1(rec11,por2) <= -0
+ noCoverageIfNoIntersection(rec11,por2,7): + l(rec11,por2,7)
+ - k1(rec11,por2) <= -0
+ noCoverageIfNoIntersection(rec11,por2,8): + l(rec11,por2,8)
+ - k1(rec11,por2) <= -0
+ noCoverageIfNoIntersection(rec11,por3,1): + l(rec11,por3,1)
+ - 10 k1(rec11,por3) <= -0
+ noCoverageIfNoIntersection(rec11,por3,2): + l(rec11,por3,2)
+ - 10 k1(rec11,por3) <= -0
+ noCoverageIfNoIntersection(rec11,por3,3): + l(rec11,por3,3)
+ - 10 k1(rec11,por3) <= -0
+ noCoverageIfNoIntersection(rec11,por3,4): + l(rec11,por3,4)
+ - 10 k1(rec11,por3) <= -0
+ noCoverageIfNoIntersection(rec11,por3,5): + l(rec11,por3,5)
+ - 10 k1(rec11,por3) <= -0
+ noCoverageIfNoIntersection(rec11,por3,6): + l(rec11,por3,6)
+ - 10 k1(rec11,por3) <= -0
+ noCoverageIfNoIntersection(rec11,por3,7): + l(rec11,por3,7)
+ - 10 k1(rec11,por3) <= -0
+ noCoverageIfNoIntersection(rec11,por3,8): + l(rec11,por3,8)
+ - 10 k1(rec11,por3) <= -0
+ noCoverageIfNoIntersection(rec11,por4,1): + l(rec11,por4,1)
+ - k1(rec11,por4) <= -0
+ noCoverageIfNoIntersection(rec11,por4,2): + l(rec11,por4,2)
+ - k1(rec11,por4) <= -0
+ noCoverageIfNoIntersection(rec11,por4,3): + l(rec11,por4,3)
+ - k1(rec11,por4) <= -0
+ noCoverageIfNoIntersection(rec11,por4,4): + l(rec11,por4,4)
+ - k1(rec11,por4) <= -0
+ noCoverageIfNoIntersection(rec11,por4,5): + l(rec11,por4,5)
+ - k1(rec11,por4) <= -0
+ noCoverageIfNoIntersection(rec11,por4,6): + l(rec11,por4,6)
+ - k1(rec11,por4) <= -0
+ noCoverageIfNoIntersection(rec11,por4,7): + l(rec11,por4,7)
+ - k1(rec11,por4) <= -0
+ noCoverageIfNoIntersection(rec11,por4,8): + l(rec11,por4,8)
+ - k1(rec11,por4) <= -0
+ noCoverageIfNoIntersection(rec11,por5,1): + l(rec11,por5,1)
+ - 2 k1(rec11,por5) <= -0
+ noCoverageIfNoIntersection(rec11,por5,2): + l(rec11,por5,2)
+ - 2 k1(rec11,por5) <= -0
+ noCoverageIfNoIntersection(rec11,por5,3): + l(rec11,por5,3)
+ - 2 k1(rec11,por5) <= -0
+ noCoverageIfNoIntersection(rec11,por5,4): + l(rec11,por5,4)
+ - 2 k1(rec11,por5) <= -0
+ noCoverageIfNoIntersection(rec11,por5,5): + l(rec11,por5,5)
+ - 2 k1(rec11,por5) <= -0
+ noCoverageIfNoIntersection(rec11,por5,6): + l(rec11,por5,6)
+ - 2 k1(rec11,por5) <= -0
+ noCoverageIfNoIntersection(rec11,por5,7): + l(rec11,por5,7)
+ - 2 k1(rec11,por5) <= -0
+ noCoverageIfNoIntersection(rec11,por5,8): + l(rec11,por5,8)
+ - 2 k1(rec11,por5) <= -0
+ noCoverageIfNoIntersection(rec11,por6,1): + l(rec11,por6,1)
+ - k1(rec11,por6) <= -0
+ noCoverageIfNoIntersection(rec11,por6,2): + l(rec11,por6,2)
+ - k1(rec11,por6) <= -0
+ noCoverageIfNoIntersection(rec11,por6,3): + l(rec11,por6,3)
+ - k1(rec11,por6) <= -0
+ noCoverageIfNoIntersection(rec11,por6,4): + l(rec11,por6,4)
+ - k1(rec11,por6) <= -0
+ noCoverageIfNoIntersection(rec11,por6,5): + l(rec11,por6,5)
+ - k1(rec11,por6) <= -0
+ noCoverageIfNoIntersection(rec11,por6,6): + l(rec11,por6,6)
+ - k1(rec11,por6) <= -0
+ noCoverageIfNoIntersection(rec11,por6,7): + l(rec11,por6,7)
+ - k1(rec11,por6) <= -0
+ noCoverageIfNoIntersection(rec11,por6,8): + l(rec11,por6,8)
+ - k1(rec11,por6) <= -0
+ noCoverageIfNoIntersection(rec11,por7,1): + l(rec11,por7,1)
+ - 8 k1(rec11,por7) <= -0
+ noCoverageIfNoIntersection(rec11,por7,2): + l(rec11,por7,2)
+ - 8 k1(rec11,por7) <= -0
+ noCoverageIfNoIntersection(rec11,por7,3): + l(rec11,por7,3)
+ - 8 k1(rec11,por7) <= -0
+ noCoverageIfNoIntersection(rec11,por7,4): + l(rec11,por7,4)
+ - 8 k1(rec11,por7) <= -0
+ noCoverageIfNoIntersection(rec11,por7,5): + l(rec11,por7,5)
+ - 8 k1(rec11,por7) <= -0
+ noCoverageIfNoIntersection(rec11,por7,6): + l(rec11,por7,6)
+ - 8 k1(rec11,por7) <= -0
+ noCoverageIfNoIntersection(rec11,por7,7): + l(rec11,por7,7)
+ - 8 k1(rec11,por7) <= -0
+ noCoverageIfNoIntersection(rec11,por7,8): + l(rec11,por7,8)
+ - 8 k1(rec11,por7) <= -0
+ noCoverageIfNoIntersection(rec11,por8,1): + l(rec11,por8,1)
+ - k1(rec11,por8) <= -0
+ noCoverageIfNoIntersection(rec11,por8,2): + l(rec11,por8,2)
+ - k1(rec11,por8) <= -0
+ noCoverageIfNoIntersection(rec11,por8,3): + l(rec11,por8,3)
+ - k1(rec11,por8) <= -0
+ noCoverageIfNoIntersection(rec11,por8,4): + l(rec11,por8,4)
+ - k1(rec11,por8) <= -0
+ noCoverageIfNoIntersection(rec11,por8,5): + l(rec11,por8,5)
+ - k1(rec11,por8) <= -0
+ noCoverageIfNoIntersection(rec11,por8,6): + l(rec11,por8,6)
+ - k1(rec11,por8) <= -0
+ noCoverageIfNoIntersection(rec11,por8,7): + l(rec11,por8,7)
+ - k1(rec11,por8) <= -0
+ noCoverageIfNoIntersection(rec11,por8,8): + l(rec11,por8,8)
+ - k1(rec11,por8) <= -0
+ noCoverageIfNoIntersection(rec11,por9,1): + l(rec11,por9,1)
+ - 12 k1(rec11,por9) <= -0
+ noCoverageIfNoIntersection(rec11,por9,2): + l(rec11,por9,2)
+ - 12 k1(rec11,por9) <= -0
+ noCoverageIfNoIntersection(rec11,por9,3): + l(rec11,por9,3)
+ - 12 k1(rec11,por9) <= -0
+ noCoverageIfNoIntersection(rec11,por9,4): + l(rec11,por9,4)
+ - 12 k1(rec11,por9) <= -0
+ noCoverageIfNoIntersection(rec11,por9,5): + l(rec11,por9,5)
+ - 12 k1(rec11,por9) <= -0
+ noCoverageIfNoIntersection(rec11,por9,6): + l(rec11,por9,6)
+ - 12 k1(rec11,por9) <= -0
+ noCoverageIfNoIntersection(rec11,por9,7): + l(rec11,por9,7)
+ - 12 k1(rec11,por9) <= -0
+ noCoverageIfNoIntersection(rec11,por9,8): + l(rec11,por9,8)
+ - 12 k1(rec11,por9) <= -0
+ noCoverageIfNoIntersection(rec11,por10,1): + l(rec11,por10,1)
+ - k1(rec11,por10) <= -0
+ noCoverageIfNoIntersection(rec11,por10,2): + l(rec11,por10,2)
+ - k1(rec11,por10) <= -0
+ noCoverageIfNoIntersection(rec11,por10,3): + l(rec11,por10,3)
+ - k1(rec11,por10) <= -0
+ noCoverageIfNoIntersection(rec11,por10,4): + l(rec11,por10,4)
+ - k1(rec11,por10) <= -0
+ noCoverageIfNoIntersection(rec11,por10,5): + l(rec11,por10,5)
+ - k1(rec11,por10) <= -0
+ noCoverageIfNoIntersection(rec11,por10,6): + l(rec11,por10,6)
+ - k1(rec11,por10) <= -0
+ noCoverageIfNoIntersection(rec11,por10,7): + l(rec11,por10,7)
+ - k1(rec11,por10) <= -0
+ noCoverageIfNoIntersection(rec11,por10,8): + l(rec11,por10,8)
+ - k1(rec11,por10) <= -0
+ noCoverageIfNoIntersection(rec11,por11,1): + l(rec11,por11,1)
+ - 10 k1(rec11,por11) <= -0
+ noCoverageIfNoIntersection(rec11,por11,2): + l(rec11,por11,2)
+ - 10 k1(rec11,por11) <= -0
+ noCoverageIfNoIntersection(rec11,por11,3): + l(rec11,por11,3)
+ - 10 k1(rec11,por11) <= -0
+ noCoverageIfNoIntersection(rec11,por11,4): + l(rec11,por11,4)
+ - 10 k1(rec11,por11) <= -0
+ noCoverageIfNoIntersection(rec11,por11,5): + l(rec11,por11,5)
+ - 10 k1(rec11,por11) <= -0
+ noCoverageIfNoIntersection(rec11,por11,6): + l(rec11,por11,6)
+ - 10 k1(rec11,por11) <= -0
+ noCoverageIfNoIntersection(rec11,por11,7): + l(rec11,por11,7)
+ - 10 k1(rec11,por11) <= -0
+ noCoverageIfNoIntersection(rec11,por11,8): + l(rec11,por11,8)
+ - 10 k1(rec11,por11) <= -0
+ noCoverageIfNoIntersection(rec11,por12,1): + l(rec11,por12,1)
+ - k1(rec11,por12) <= -0
+ noCoverageIfNoIntersection(rec11,por12,2): + l(rec11,por12,2)
+ - k1(rec11,por12) <= -0
+ noCoverageIfNoIntersection(rec11,por12,3): + l(rec11,por12,3)
+ - k1(rec11,por12) <= -0
+ noCoverageIfNoIntersection(rec11,por12,4): + l(rec11,por12,4)
+ - k1(rec11,por12) <= -0
+ noCoverageIfNoIntersection(rec11,por12,5): + l(rec11,por12,5)
+ - k1(rec11,por12) <= -0
+ noCoverageIfNoIntersection(rec11,por12,6): + l(rec11,por12,6)
+ - k1(rec11,por12) <= -0
+ noCoverageIfNoIntersection(rec11,por12,7): + l(rec11,por12,7)
+ - k1(rec11,por12) <= -0
+ noCoverageIfNoIntersection(rec11,por12,8): + l(rec11,por12,8)
+ - k1(rec11,por12) <= -0
+ noCoverageIfNoIntersection(rec11,por13,1): + l(rec11,por13,1)
+ - 4 k1(rec11,por13) <= -0
+ noCoverageIfNoIntersection(rec11,por13,2): + l(rec11,por13,2)
+ - 4 k1(rec11,por13) <= -0
+ noCoverageIfNoIntersection(rec11,por13,3): + l(rec11,por13,3)
+ - 4 k1(rec11,por13) <= -0
+ noCoverageIfNoIntersection(rec11,por13,4): + l(rec11,por13,4)
+ - 4 k1(rec11,por13) <= -0
+ noCoverageIfNoIntersection(rec11,por13,5): + l(rec11,por13,5)
+ - 4 k1(rec11,por13) <= -0
+ noCoverageIfNoIntersection(rec11,por13,6): + l(rec11,por13,6)
+ - 4 k1(rec11,por13) <= -0
+ noCoverageIfNoIntersection(rec11,por13,7): + l(rec11,por13,7)
+ - 4 k1(rec11,por13) <= -0
+ noCoverageIfNoIntersection(rec11,por13,8): + l(rec11,por13,8)
+ - 4 k1(rec11,por13) <= -0
+ noCoverageIfNoIntersection(rec11,por14,1): + l(rec11,por14,1)
+ - k1(rec11,por14) <= -0
+ noCoverageIfNoIntersection(rec11,por14,2): + l(rec11,por14,2)
+ - k1(rec11,por14) <= -0
+ noCoverageIfNoIntersection(rec11,por14,3): + l(rec11,por14,3)
+ - k1(rec11,por14) <= -0
+ noCoverageIfNoIntersection(rec11,por14,4): + l(rec11,por14,4)
+ - k1(rec11,por14) <= -0
+ noCoverageIfNoIntersection(rec11,por14,5): + l(rec11,por14,5)
+ - k1(rec11,por14) <= -0
+ noCoverageIfNoIntersection(rec11,por14,6): + l(rec11,por14,6)
+ - k1(rec11,por14) <= -0
+ noCoverageIfNoIntersection(rec11,por14,7): + l(rec11,por14,7)
+ - k1(rec11,por14) <= -0
+ noCoverageIfNoIntersection(rec11,por14,8): + l(rec11,por14,8)
+ - k1(rec11,por14) <= -0
+ noCoverageIfNoIntersection(rec11,por15,1): + l(rec11,por15,1)
+ - 4 k1(rec11,por15) <= -0
+ noCoverageIfNoIntersection(rec11,por15,2): + l(rec11,por15,2)
+ - 4 k1(rec11,por15) <= -0
+ noCoverageIfNoIntersection(rec11,por15,3): + l(rec11,por15,3)
+ - 4 k1(rec11,por15) <= -0
+ noCoverageIfNoIntersection(rec11,por15,4): + l(rec11,por15,4)
+ - 4 k1(rec11,por15) <= -0
+ noCoverageIfNoIntersection(rec11,por15,5): + l(rec11,por15,5)
+ - 4 k1(rec11,por15) <= -0
+ noCoverageIfNoIntersection(rec11,por15,6): + l(rec11,por15,6)
+ - 4 k1(rec11,por15) <= -0
+ noCoverageIfNoIntersection(rec11,por15,7): + l(rec11,por15,7)
+ - 4 k1(rec11,por15) <= -0
+ noCoverageIfNoIntersection(rec11,por15,8): + l(rec11,por15,8)
+ - 4 k1(rec11,por15) <= -0
+ noCoverageIfNoIntersection(rec12,por1,1): + l(rec12,por1,1)
+ - 4 k1(rec12,por1) <= -0
+ noCoverageIfNoIntersection(rec12,por1,2): + l(rec12,por1,2)
+ - 4 k1(rec12,por1) <= -0
+ noCoverageIfNoIntersection(rec12,por1,3): + l(rec12,por1,3)
+ - 4 k1(rec12,por1) <= -0
+ noCoverageIfNoIntersection(rec12,por1,4): + l(rec12,por1,4)
+ - 4 k1(rec12,por1) <= -0
+ noCoverageIfNoIntersection(rec12,por1,5): + l(rec12,por1,5)
+ - 4 k1(rec12,por1) <= -0
+ noCoverageIfNoIntersection(rec12,por1,6): + l(rec12,por1,6)
+ - 4 k1(rec12,por1) <= -0
+ noCoverageIfNoIntersection(rec12,por1,7): + l(rec12,por1,7)
+ - 4 k1(rec12,por1) <= -0
+ noCoverageIfNoIntersection(rec12,por1,8): + l(rec12,por1,8)
+ - 4 k1(rec12,por1) <= -0
+ noCoverageIfNoIntersection(rec12,por2,1): + l(rec12,por2,1)
+ - k1(rec12,por2) <= -0
+ noCoverageIfNoIntersection(rec12,por2,2): + l(rec12,por2,2)
+ - k1(rec12,por2) <= -0
+ noCoverageIfNoIntersection(rec12,por2,3): + l(rec12,por2,3)
+ - k1(rec12,por2) <= -0
+ noCoverageIfNoIntersection(rec12,por2,4): + l(rec12,por2,4)
+ - k1(rec12,por2) <= -0
+ noCoverageIfNoIntersection(rec12,por2,5): + l(rec12,por2,5)
+ - k1(rec12,por2) <= -0
+ noCoverageIfNoIntersection(rec12,por2,6): + l(rec12,por2,6)
+ - k1(rec12,por2) <= -0
+ noCoverageIfNoIntersection(rec12,por2,7): + l(rec12,por2,7)
+ - k1(rec12,por2) <= -0
+ noCoverageIfNoIntersection(rec12,por2,8): + l(rec12,por2,8)
+ - k1(rec12,por2) <= -0
+ noCoverageIfNoIntersection(rec12,por3,1): + l(rec12,por3,1)
+ - 10 k1(rec12,por3) <= -0
+ noCoverageIfNoIntersection(rec12,por3,2): + l(rec12,por3,2)
+ - 10 k1(rec12,por3) <= -0
+ noCoverageIfNoIntersection(rec12,por3,3): + l(rec12,por3,3)
+ - 10 k1(rec12,por3) <= -0
+ noCoverageIfNoIntersection(rec12,por3,4): + l(rec12,por3,4)
+ - 10 k1(rec12,por3) <= -0
+ noCoverageIfNoIntersection(rec12,por3,5): + l(rec12,por3,5)
+ - 10 k1(rec12,por3) <= -0
+ noCoverageIfNoIntersection(rec12,por3,6): + l(rec12,por3,6)
+ - 10 k1(rec12,por3) <= -0
+ noCoverageIfNoIntersection(rec12,por3,7): + l(rec12,por3,7)
+ - 10 k1(rec12,por3) <= -0
+ noCoverageIfNoIntersection(rec12,por3,8): + l(rec12,por3,8)
+ - 10 k1(rec12,por3) <= -0
+ noCoverageIfNoIntersection(rec12,por4,1): + l(rec12,por4,1)
+ - k1(rec12,por4) <= -0
+ noCoverageIfNoIntersection(rec12,por4,2): + l(rec12,por4,2)
+ - k1(rec12,por4) <= -0
+ noCoverageIfNoIntersection(rec12,por4,3): + l(rec12,por4,3)
+ - k1(rec12,por4) <= -0
+ noCoverageIfNoIntersection(rec12,por4,4): + l(rec12,por4,4)
+ - k1(rec12,por4) <= -0
+ noCoverageIfNoIntersection(rec12,por4,5): + l(rec12,por4,5)
+ - k1(rec12,por4) <= -0
+ noCoverageIfNoIntersection(rec12,por4,6): + l(rec12,por4,6)
+ - k1(rec12,por4) <= -0
+ noCoverageIfNoIntersection(rec12,por4,7): + l(rec12,por4,7)
+ - k1(rec12,por4) <= -0
+ noCoverageIfNoIntersection(rec12,por4,8): + l(rec12,por4,8)
+ - k1(rec12,por4) <= -0
+ noCoverageIfNoIntersection(rec12,por5,1): + l(rec12,por5,1)
+ - 2 k1(rec12,por5) <= -0
+ noCoverageIfNoIntersection(rec12,por5,2): + l(rec12,por5,2)
+ - 2 k1(rec12,por5) <= -0
+ noCoverageIfNoIntersection(rec12,por5,3): + l(rec12,por5,3)
+ - 2 k1(rec12,por5) <= -0
+ noCoverageIfNoIntersection(rec12,por5,4): + l(rec12,por5,4)
+ - 2 k1(rec12,por5) <= -0
+ noCoverageIfNoIntersection(rec12,por5,5): + l(rec12,por5,5)
+ - 2 k1(rec12,por5) <= -0
+ noCoverageIfNoIntersection(rec12,por5,6): + l(rec12,por5,6)
+ - 2 k1(rec12,por5) <= -0
+ noCoverageIfNoIntersection(rec12,por5,7): + l(rec12,por5,7)
+ - 2 k1(rec12,por5) <= -0
+ noCoverageIfNoIntersection(rec12,por5,8): + l(rec12,por5,8)
+ - 2 k1(rec12,por5) <= -0
+ noCoverageIfNoIntersection(rec12,por6,1): + l(rec12,por6,1)
+ - k1(rec12,por6) <= -0
+ noCoverageIfNoIntersection(rec12,por6,2): + l(rec12,por6,2)
+ - k1(rec12,por6) <= -0
+ noCoverageIfNoIntersection(rec12,por6,3): + l(rec12,por6,3)
+ - k1(rec12,por6) <= -0
+ noCoverageIfNoIntersection(rec12,por6,4): + l(rec12,por6,4)
+ - k1(rec12,por6) <= -0
+ noCoverageIfNoIntersection(rec12,por6,5): + l(rec12,por6,5)
+ - k1(rec12,por6) <= -0
+ noCoverageIfNoIntersection(rec12,por6,6): + l(rec12,por6,6)
+ - k1(rec12,por6) <= -0
+ noCoverageIfNoIntersection(rec12,por6,7): + l(rec12,por6,7)
+ - k1(rec12,por6) <= -0
+ noCoverageIfNoIntersection(rec12,por6,8): + l(rec12,por6,8)
+ - k1(rec12,por6) <= -0
+ noCoverageIfNoIntersection(rec12,por7,1): + l(rec12,por7,1)
+ - 8 k1(rec12,por7) <= -0
+ noCoverageIfNoIntersection(rec12,por7,2): + l(rec12,por7,2)
+ - 8 k1(rec12,por7) <= -0
+ noCoverageIfNoIntersection(rec12,por7,3): + l(rec12,por7,3)
+ - 8 k1(rec12,por7) <= -0
+ noCoverageIfNoIntersection(rec12,por7,4): + l(rec12,por7,4)
+ - 8 k1(rec12,por7) <= -0
+ noCoverageIfNoIntersection(rec12,por7,5): + l(rec12,por7,5)
+ - 8 k1(rec12,por7) <= -0
+ noCoverageIfNoIntersection(rec12,por7,6): + l(rec12,por7,6)
+ - 8 k1(rec12,por7) <= -0
+ noCoverageIfNoIntersection(rec12,por7,7): + l(rec12,por7,7)
+ - 8 k1(rec12,por7) <= -0
+ noCoverageIfNoIntersection(rec12,por7,8): + l(rec12,por7,8)
+ - 8 k1(rec12,por7) <= -0
+ noCoverageIfNoIntersection(rec12,por8,1): + l(rec12,por8,1)
+ - k1(rec12,por8) <= -0
+ noCoverageIfNoIntersection(rec12,por8,2): + l(rec12,por8,2)
+ - k1(rec12,por8) <= -0
+ noCoverageIfNoIntersection(rec12,por8,3): + l(rec12,por8,3)
+ - k1(rec12,por8) <= -0
+ noCoverageIfNoIntersection(rec12,por8,4): + l(rec12,por8,4)
+ - k1(rec12,por8) <= -0
+ noCoverageIfNoIntersection(rec12,por8,5): + l(rec12,por8,5)
+ - k1(rec12,por8) <= -0
+ noCoverageIfNoIntersection(rec12,por8,6): + l(rec12,por8,6)
+ - k1(rec12,por8) <= -0
+ noCoverageIfNoIntersection(rec12,por8,7): + l(rec12,por8,7)
+ - k1(rec12,por8) <= -0
+ noCoverageIfNoIntersection(rec12,por8,8): + l(rec12,por8,8)
+ - k1(rec12,por8) <= -0
+ noCoverageIfNoIntersection(rec12,por9,1): + l(rec12,por9,1)
+ - 12 k1(rec12,por9) <= -0
+ noCoverageIfNoIntersection(rec12,por9,2): + l(rec12,por9,2)
+ - 12 k1(rec12,por9) <= -0
+ noCoverageIfNoIntersection(rec12,por9,3): + l(rec12,por9,3)
+ - 12 k1(rec12,por9) <= -0
+ noCoverageIfNoIntersection(rec12,por9,4): + l(rec12,por9,4)
+ - 12 k1(rec12,por9) <= -0
+ noCoverageIfNoIntersection(rec12,por9,5): + l(rec12,por9,5)
+ - 12 k1(rec12,por9) <= -0
+ noCoverageIfNoIntersection(rec12,por9,6): + l(rec12,por9,6)
+ - 12 k1(rec12,por9) <= -0
+ noCoverageIfNoIntersection(rec12,por9,7): + l(rec12,por9,7)
+ - 12 k1(rec12,por9) <= -0
+ noCoverageIfNoIntersection(rec12,por9,8): + l(rec12,por9,8)
+ - 12 k1(rec12,por9) <= -0
+ noCoverageIfNoIntersection(rec12,por10,1): + l(rec12,por10,1)
+ - k1(rec12,por10) <= -0
+ noCoverageIfNoIntersection(rec12,por10,2): + l(rec12,por10,2)
+ - k1(rec12,por10) <= -0
+ noCoverageIfNoIntersection(rec12,por10,3): + l(rec12,por10,3)
+ - k1(rec12,por10) <= -0
+ noCoverageIfNoIntersection(rec12,por10,4): + l(rec12,por10,4)
+ - k1(rec12,por10) <= -0
+ noCoverageIfNoIntersection(rec12,por10,5): + l(rec12,por10,5)
+ - k1(rec12,por10) <= -0
+ noCoverageIfNoIntersection(rec12,por10,6): + l(rec12,por10,6)
+ - k1(rec12,por10) <= -0
+ noCoverageIfNoIntersection(rec12,por10,7): + l(rec12,por10,7)
+ - k1(rec12,por10) <= -0
+ noCoverageIfNoIntersection(rec12,por10,8): + l(rec12,por10,8)
+ - k1(rec12,por10) <= -0
+ noCoverageIfNoIntersection(rec12,por11,1): + l(rec12,por11,1)
+ - 10 k1(rec12,por11) <= -0
+ noCoverageIfNoIntersection(rec12,por11,2): + l(rec12,por11,2)
+ - 10 k1(rec12,por11) <= -0
+ noCoverageIfNoIntersection(rec12,por11,3): + l(rec12,por11,3)
+ - 10 k1(rec12,por11) <= -0
+ noCoverageIfNoIntersection(rec12,por11,4): + l(rec12,por11,4)
+ - 10 k1(rec12,por11) <= -0
+ noCoverageIfNoIntersection(rec12,por11,5): + l(rec12,por11,5)
+ - 10 k1(rec12,por11) <= -0
+ noCoverageIfNoIntersection(rec12,por11,6): + l(rec12,por11,6)
+ - 10 k1(rec12,por11) <= -0
+ noCoverageIfNoIntersection(rec12,por11,7): + l(rec12,por11,7)
+ - 10 k1(rec12,por11) <= -0
+ noCoverageIfNoIntersection(rec12,por11,8): + l(rec12,por11,8)
+ - 10 k1(rec12,por11) <= -0
+ noCoverageIfNoIntersection(rec12,por12,1): + l(rec12,por12,1)
+ - k1(rec12,por12) <= -0
+ noCoverageIfNoIntersection(rec12,por12,2): + l(rec12,por12,2)
+ - k1(rec12,por12) <= -0
+ noCoverageIfNoIntersection(rec12,por12,3): + l(rec12,por12,3)
+ - k1(rec12,por12) <= -0
+ noCoverageIfNoIntersection(rec12,por12,4): + l(rec12,por12,4)
+ - k1(rec12,por12) <= -0
+ noCoverageIfNoIntersection(rec12,por12,5): + l(rec12,por12,5)
+ - k1(rec12,por12) <= -0
+ noCoverageIfNoIntersection(rec12,por12,6): + l(rec12,por12,6)
+ - k1(rec12,por12) <= -0
+ noCoverageIfNoIntersection(rec12,por12,7): + l(rec12,por12,7)
+ - k1(rec12,por12) <= -0
+ noCoverageIfNoIntersection(rec12,por12,8): + l(rec12,por12,8)
+ - k1(rec12,por12) <= -0
+ noCoverageIfNoIntersection(rec12,por13,1): + l(rec12,por13,1)
+ - 4 k1(rec12,por13) <= -0
+ noCoverageIfNoIntersection(rec12,por13,2): + l(rec12,por13,2)
+ - 4 k1(rec12,por13) <= -0
+ noCoverageIfNoIntersection(rec12,por13,3): + l(rec12,por13,3)
+ - 4 k1(rec12,por13) <= -0
+ noCoverageIfNoIntersection(rec12,por13,4): + l(rec12,por13,4)
+ - 4 k1(rec12,por13) <= -0
+ noCoverageIfNoIntersection(rec12,por13,5): + l(rec12,por13,5)
+ - 4 k1(rec12,por13) <= -0
+ noCoverageIfNoIntersection(rec12,por13,6): + l(rec12,por13,6)
+ - 4 k1(rec12,por13) <= -0
+ noCoverageIfNoIntersection(rec12,por13,7): + l(rec12,por13,7)
+ - 4 k1(rec12,por13) <= -0
+ noCoverageIfNoIntersection(rec12,por13,8): + l(rec12,por13,8)
+ - 4 k1(rec12,por13) <= -0
+ noCoverageIfNoIntersection(rec12,por14,1): + l(rec12,por14,1)
+ - k1(rec12,por14) <= -0
+ noCoverageIfNoIntersection(rec12,por14,2): + l(rec12,por14,2)
+ - k1(rec12,por14) <= -0
+ noCoverageIfNoIntersection(rec12,por14,3): + l(rec12,por14,3)
+ - k1(rec12,por14) <= -0
+ noCoverageIfNoIntersection(rec12,por14,4): + l(rec12,por14,4)
+ - k1(rec12,por14) <= -0
+ noCoverageIfNoIntersection(rec12,por14,5): + l(rec12,por14,5)
+ - k1(rec12,por14) <= -0
+ noCoverageIfNoIntersection(rec12,por14,6): + l(rec12,por14,6)
+ - k1(rec12,por14) <= -0
+ noCoverageIfNoIntersection(rec12,por14,7): + l(rec12,por14,7)
+ - k1(rec12,por14) <= -0
+ noCoverageIfNoIntersection(rec12,por14,8): + l(rec12,por14,8)
+ - k1(rec12,por14) <= -0
+ noCoverageIfNoIntersection(rec12,por15,1): + l(rec12,por15,1)
+ - 4 k1(rec12,por15) <= -0
+ noCoverageIfNoIntersection(rec12,por15,2): + l(rec12,por15,2)
+ - 4 k1(rec12,por15) <= -0
+ noCoverageIfNoIntersection(rec12,por15,3): + l(rec12,por15,3)
+ - 4 k1(rec12,por15) <= -0
+ noCoverageIfNoIntersection(rec12,por15,4): + l(rec12,por15,4)
+ - 4 k1(rec12,por15) <= -0
+ noCoverageIfNoIntersection(rec12,por15,5): + l(rec12,por15,5)
+ - 4 k1(rec12,por15) <= -0
+ noCoverageIfNoIntersection(rec12,por15,6): + l(rec12,por15,6)
+ - 4 k1(rec12,por15) <= -0
+ noCoverageIfNoIntersection(rec12,por15,7): + l(rec12,por15,7)
+ - 4 k1(rec12,por15) <= -0
+ noCoverageIfNoIntersection(rec12,por15,8): + l(rec12,por15,8)
+ - 4 k1(rec12,por15) <= -0
+ noCoverageIfNoIntersection(rec13,por1,1): + l(rec13,por1,1)
+ - 4 k1(rec13,por1) <= -0
+ noCoverageIfNoIntersection(rec13,por1,2): + l(rec13,por1,2)
+ - 4 k1(rec13,por1) <= -0
+ noCoverageIfNoIntersection(rec13,por1,3): + l(rec13,por1,3)
+ - 4 k1(rec13,por1) <= -0
+ noCoverageIfNoIntersection(rec13,por1,4): + l(rec13,por1,4)
+ - 4 k1(rec13,por1) <= -0
+ noCoverageIfNoIntersection(rec13,por1,5): + l(rec13,por1,5)
+ - 4 k1(rec13,por1) <= -0
+ noCoverageIfNoIntersection(rec13,por1,6): + l(rec13,por1,6)
+ - 4 k1(rec13,por1) <= -0
+ noCoverageIfNoIntersection(rec13,por1,7): + l(rec13,por1,7)
+ - 4 k1(rec13,por1) <= -0
+ noCoverageIfNoIntersection(rec13,por1,8): + l(rec13,por1,8)
+ - 4 k1(rec13,por1) <= -0
+ noCoverageIfNoIntersection(rec13,por2,1): + l(rec13,por2,1)
+ - k1(rec13,por2) <= -0
+ noCoverageIfNoIntersection(rec13,por2,2): + l(rec13,por2,2)
+ - k1(rec13,por2) <= -0
+ noCoverageIfNoIntersection(rec13,por2,3): + l(rec13,por2,3)
+ - k1(rec13,por2) <= -0
+ noCoverageIfNoIntersection(rec13,por2,4): + l(rec13,por2,4)
+ - k1(rec13,por2) <= -0
+ noCoverageIfNoIntersection(rec13,por2,5): + l(rec13,por2,5)
+ - k1(rec13,por2) <= -0
+ noCoverageIfNoIntersection(rec13,por2,6): + l(rec13,por2,6)
+ - k1(rec13,por2) <= -0
+ noCoverageIfNoIntersection(rec13,por2,7): + l(rec13,por2,7)
+ - k1(rec13,por2) <= -0
+ noCoverageIfNoIntersection(rec13,por2,8): + l(rec13,por2,8)
+ - k1(rec13,por2) <= -0
+ noCoverageIfNoIntersection(rec13,por3,1): + l(rec13,por3,1)
+ - 10 k1(rec13,por3) <= -0
+ noCoverageIfNoIntersection(rec13,por3,2): + l(rec13,por3,2)
+ - 10 k1(rec13,por3) <= -0
+ noCoverageIfNoIntersection(rec13,por3,3): + l(rec13,por3,3)
+ - 10 k1(rec13,por3) <= -0
+ noCoverageIfNoIntersection(rec13,por3,4): + l(rec13,por3,4)
+ - 10 k1(rec13,por3) <= -0
+ noCoverageIfNoIntersection(rec13,por3,5): + l(rec13,por3,5)
+ - 10 k1(rec13,por3) <= -0
+ noCoverageIfNoIntersection(rec13,por3,6): + l(rec13,por3,6)
+ - 10 k1(rec13,por3) <= -0
+ noCoverageIfNoIntersection(rec13,por3,7): + l(rec13,por3,7)
+ - 10 k1(rec13,por3) <= -0
+ noCoverageIfNoIntersection(rec13,por3,8): + l(rec13,por3,8)
+ - 10 k1(rec13,por3) <= -0
+ noCoverageIfNoIntersection(rec13,por4,1): + l(rec13,por4,1)
+ - k1(rec13,por4) <= -0
+ noCoverageIfNoIntersection(rec13,por4,2): + l(rec13,por4,2)
+ - k1(rec13,por4) <= -0
+ noCoverageIfNoIntersection(rec13,por4,3): + l(rec13,por4,3)
+ - k1(rec13,por4) <= -0
+ noCoverageIfNoIntersection(rec13,por4,4): + l(rec13,por4,4)
+ - k1(rec13,por4) <= -0
+ noCoverageIfNoIntersection(rec13,por4,5): + l(rec13,por4,5)
+ - k1(rec13,por4) <= -0
+ noCoverageIfNoIntersection(rec13,por4,6): + l(rec13,por4,6)
+ - k1(rec13,por4) <= -0
+ noCoverageIfNoIntersection(rec13,por4,7): + l(rec13,por4,7)
+ - k1(rec13,por4) <= -0
+ noCoverageIfNoIntersection(rec13,por4,8): + l(rec13,por4,8)
+ - k1(rec13,por4) <= -0
+ noCoverageIfNoIntersection(rec13,por5,1): + l(rec13,por5,1)
+ - 2 k1(rec13,por5) <= -0
+ noCoverageIfNoIntersection(rec13,por5,2): + l(rec13,por5,2)
+ - 2 k1(rec13,por5) <= -0
+ noCoverageIfNoIntersection(rec13,por5,3): + l(rec13,por5,3)
+ - 2 k1(rec13,por5) <= -0
+ noCoverageIfNoIntersection(rec13,por5,4): + l(rec13,por5,4)
+ - 2 k1(rec13,por5) <= -0
+ noCoverageIfNoIntersection(rec13,por5,5): + l(rec13,por5,5)
+ - 2 k1(rec13,por5) <= -0
+ noCoverageIfNoIntersection(rec13,por5,6): + l(rec13,por5,6)
+ - 2 k1(rec13,por5) <= -0
+ noCoverageIfNoIntersection(rec13,por5,7): + l(rec13,por5,7)
+ - 2 k1(rec13,por5) <= -0
+ noCoverageIfNoIntersection(rec13,por5,8): + l(rec13,por5,8)
+ - 2 k1(rec13,por5) <= -0
+ noCoverageIfNoIntersection(rec13,por6,1): + l(rec13,por6,1)
+ - k1(rec13,por6) <= -0
+ noCoverageIfNoIntersection(rec13,por6,2): + l(rec13,por6,2)
+ - k1(rec13,por6) <= -0
+ noCoverageIfNoIntersection(rec13,por6,3): + l(rec13,por6,3)
+ - k1(rec13,por6) <= -0
+ noCoverageIfNoIntersection(rec13,por6,4): + l(rec13,por6,4)
+ - k1(rec13,por6) <= -0
+ noCoverageIfNoIntersection(rec13,por6,5): + l(rec13,por6,5)
+ - k1(rec13,por6) <= -0
+ noCoverageIfNoIntersection(rec13,por6,6): + l(rec13,por6,6)
+ - k1(rec13,por6) <= -0
+ noCoverageIfNoIntersection(rec13,por6,7): + l(rec13,por6,7)
+ - k1(rec13,por6) <= -0
+ noCoverageIfNoIntersection(rec13,por6,8): + l(rec13,por6,8)
+ - k1(rec13,por6) <= -0
+ noCoverageIfNoIntersection(rec13,por7,1): + l(rec13,por7,1)
+ - 8 k1(rec13,por7) <= -0
+ noCoverageIfNoIntersection(rec13,por7,2): + l(rec13,por7,2)
+ - 8 k1(rec13,por7) <= -0
+ noCoverageIfNoIntersection(rec13,por7,3): + l(rec13,por7,3)
+ - 8 k1(rec13,por7) <= -0
+ noCoverageIfNoIntersection(rec13,por7,4): + l(rec13,por7,4)
+ - 8 k1(rec13,por7) <= -0
+ noCoverageIfNoIntersection(rec13,por7,5): + l(rec13,por7,5)
+ - 8 k1(rec13,por7) <= -0
+ noCoverageIfNoIntersection(rec13,por7,6): + l(rec13,por7,6)
+ - 8 k1(rec13,por7) <= -0
+ noCoverageIfNoIntersection(rec13,por7,7): + l(rec13,por7,7)
+ - 8 k1(rec13,por7) <= -0
+ noCoverageIfNoIntersection(rec13,por7,8): + l(rec13,por7,8)
+ - 8 k1(rec13,por7) <= -0
+ noCoverageIfNoIntersection(rec13,por8,1): + l(rec13,por8,1)
+ - k1(rec13,por8) <= -0
+ noCoverageIfNoIntersection(rec13,por8,2): + l(rec13,por8,2)
+ - k1(rec13,por8) <= -0
+ noCoverageIfNoIntersection(rec13,por8,3): + l(rec13,por8,3)
+ - k1(rec13,por8) <= -0
+ noCoverageIfNoIntersection(rec13,por8,4): + l(rec13,por8,4)
+ - k1(rec13,por8) <= -0
+ noCoverageIfNoIntersection(rec13,por8,5): + l(rec13,por8,5)
+ - k1(rec13,por8) <= -0
+ noCoverageIfNoIntersection(rec13,por8,6): + l(rec13,por8,6)
+ - k1(rec13,por8) <= -0
+ noCoverageIfNoIntersection(rec13,por8,7): + l(rec13,por8,7)
+ - k1(rec13,por8) <= -0
+ noCoverageIfNoIntersection(rec13,por8,8): + l(rec13,por8,8)
+ - k1(rec13,por8) <= -0
+ noCoverageIfNoIntersection(rec13,por9,1): + l(rec13,por9,1)
+ - 12 k1(rec13,por9) <= -0
+ noCoverageIfNoIntersection(rec13,por9,2): + l(rec13,por9,2)
+ - 12 k1(rec13,por9) <= -0
+ noCoverageIfNoIntersection(rec13,por9,3): + l(rec13,por9,3)
+ - 12 k1(rec13,por9) <= -0
+ noCoverageIfNoIntersection(rec13,por9,4): + l(rec13,por9,4)
+ - 12 k1(rec13,por9) <= -0
+ noCoverageIfNoIntersection(rec13,por9,5): + l(rec13,por9,5)
+ - 12 k1(rec13,por9) <= -0
+ noCoverageIfNoIntersection(rec13,por9,6): + l(rec13,por9,6)
+ - 12 k1(rec13,por9) <= -0
+ noCoverageIfNoIntersection(rec13,por9,7): + l(rec13,por9,7)
+ - 12 k1(rec13,por9) <= -0
+ noCoverageIfNoIntersection(rec13,por9,8): + l(rec13,por9,8)
+ - 12 k1(rec13,por9) <= -0
+ noCoverageIfNoIntersection(rec13,por10,1): + l(rec13,por10,1)
+ - k1(rec13,por10) <= -0
+ noCoverageIfNoIntersection(rec13,por10,2): + l(rec13,por10,2)
+ - k1(rec13,por10) <= -0
+ noCoverageIfNoIntersection(rec13,por10,3): + l(rec13,por10,3)
+ - k1(rec13,por10) <= -0
+ noCoverageIfNoIntersection(rec13,por10,4): + l(rec13,por10,4)
+ - k1(rec13,por10) <= -0
+ noCoverageIfNoIntersection(rec13,por10,5): + l(rec13,por10,5)
+ - k1(rec13,por10) <= -0
+ noCoverageIfNoIntersection(rec13,por10,6): + l(rec13,por10,6)
+ - k1(rec13,por10) <= -0
+ noCoverageIfNoIntersection(rec13,por10,7): + l(rec13,por10,7)
+ - k1(rec13,por10) <= -0
+ noCoverageIfNoIntersection(rec13,por10,8): + l(rec13,por10,8)
+ - k1(rec13,por10) <= -0
+ noCoverageIfNoIntersection(rec13,por11,1): + l(rec13,por11,1)
+ - 10 k1(rec13,por11) <= -0
+ noCoverageIfNoIntersection(rec13,por11,2): + l(rec13,por11,2)
+ - 10 k1(rec13,por11) <= -0
+ noCoverageIfNoIntersection(rec13,por11,3): + l(rec13,por11,3)
+ - 10 k1(rec13,por11) <= -0
+ noCoverageIfNoIntersection(rec13,por11,4): + l(rec13,por11,4)
+ - 10 k1(rec13,por11) <= -0
+ noCoverageIfNoIntersection(rec13,por11,5): + l(rec13,por11,5)
+ - 10 k1(rec13,por11) <= -0
+ noCoverageIfNoIntersection(rec13,por11,6): + l(rec13,por11,6)
+ - 10 k1(rec13,por11) <= -0
+ noCoverageIfNoIntersection(rec13,por11,7): + l(rec13,por11,7)
+ - 10 k1(rec13,por11) <= -0
+ noCoverageIfNoIntersection(rec13,por11,8): + l(rec13,por11,8)
+ - 10 k1(rec13,por11) <= -0
+ noCoverageIfNoIntersection(rec13,por12,1): + l(rec13,por12,1)
+ - k1(rec13,por12) <= -0
+ noCoverageIfNoIntersection(rec13,por12,2): + l(rec13,por12,2)
+ - k1(rec13,por12) <= -0
+ noCoverageIfNoIntersection(rec13,por12,3): + l(rec13,por12,3)
+ - k1(rec13,por12) <= -0
+ noCoverageIfNoIntersection(rec13,por12,4): + l(rec13,por12,4)
+ - k1(rec13,por12) <= -0
+ noCoverageIfNoIntersection(rec13,por12,5): + l(rec13,por12,5)
+ - k1(rec13,por12) <= -0
+ noCoverageIfNoIntersection(rec13,por12,6): + l(rec13,por12,6)
+ - k1(rec13,por12) <= -0
+ noCoverageIfNoIntersection(rec13,por12,7): + l(rec13,por12,7)
+ - k1(rec13,por12) <= -0
+ noCoverageIfNoIntersection(rec13,por12,8): + l(rec13,por12,8)
+ - k1(rec13,por12) <= -0
+ noCoverageIfNoIntersection(rec13,por13,1): + l(rec13,por13,1)
+ - 4 k1(rec13,por13) <= -0
+ noCoverageIfNoIntersection(rec13,por13,2): + l(rec13,por13,2)
+ - 4 k1(rec13,por13) <= -0
+ noCoverageIfNoIntersection(rec13,por13,3): + l(rec13,por13,3)
+ - 4 k1(rec13,por13) <= -0
+ noCoverageIfNoIntersection(rec13,por13,4): + l(rec13,por13,4)
+ - 4 k1(rec13,por13) <= -0
+ noCoverageIfNoIntersection(rec13,por13,5): + l(rec13,por13,5)
+ - 4 k1(rec13,por13) <= -0
+ noCoverageIfNoIntersection(rec13,por13,6): + l(rec13,por13,6)
+ - 4 k1(rec13,por13) <= -0
+ noCoverageIfNoIntersection(rec13,por13,7): + l(rec13,por13,7)
+ - 4 k1(rec13,por13) <= -0
+ noCoverageIfNoIntersection(rec13,por13,8): + l(rec13,por13,8)
+ - 4 k1(rec13,por13) <= -0
+ noCoverageIfNoIntersection(rec13,por14,1): + l(rec13,por14,1)
+ - k1(rec13,por14) <= -0
+ noCoverageIfNoIntersection(rec13,por14,2): + l(rec13,por14,2)
+ - k1(rec13,por14) <= -0
+ noCoverageIfNoIntersection(rec13,por14,3): + l(rec13,por14,3)
+ - k1(rec13,por14) <= -0
+ noCoverageIfNoIntersection(rec13,por14,4): + l(rec13,por14,4)
+ - k1(rec13,por14) <= -0
+ noCoverageIfNoIntersection(rec13,por14,5): + l(rec13,por14,5)
+ - k1(rec13,por14) <= -0
+ noCoverageIfNoIntersection(rec13,por14,6): + l(rec13,por14,6)
+ - k1(rec13,por14) <= -0
+ noCoverageIfNoIntersection(rec13,por14,7): + l(rec13,por14,7)
+ - k1(rec13,por14) <= -0
+ noCoverageIfNoIntersection(rec13,por14,8): + l(rec13,por14,8)
+ - k1(rec13,por14) <= -0
+ noCoverageIfNoIntersection(rec13,por15,1): + l(rec13,por15,1)
+ - 4 k1(rec13,por15) <= -0
+ noCoverageIfNoIntersection(rec13,por15,2): + l(rec13,por15,2)
+ - 4 k1(rec13,por15) <= -0
+ noCoverageIfNoIntersection(rec13,por15,3): + l(rec13,por15,3)
+ - 4 k1(rec13,por15) <= -0
+ noCoverageIfNoIntersection(rec13,por15,4): + l(rec13,por15,4)
+ - 4 k1(rec13,por15) <= -0
+ noCoverageIfNoIntersection(rec13,por15,5): + l(rec13,por15,5)
+ - 4 k1(rec13,por15) <= -0
+ noCoverageIfNoIntersection(rec13,por15,6): + l(rec13,por15,6)
+ - 4 k1(rec13,por15) <= -0
+ noCoverageIfNoIntersection(rec13,por15,7): + l(rec13,por15,7)
+ - 4 k1(rec13,por15) <= -0
+ noCoverageIfNoIntersection(rec13,por15,8): + l(rec13,por15,8)
+ - 4 k1(rec13,por15) <= -0
+ noCoverageIfNoIntersection(rec14,por1,1): + l(rec14,por1,1)
+ - 4 k1(rec14,por1) <= -0
+ noCoverageIfNoIntersection(rec14,por1,2): + l(rec14,por1,2)
+ - 4 k1(rec14,por1) <= -0
+ noCoverageIfNoIntersection(rec14,por1,3): + l(rec14,por1,3)
+ - 4 k1(rec14,por1) <= -0
+ noCoverageIfNoIntersection(rec14,por1,4): + l(rec14,por1,4)
+ - 4 k1(rec14,por1) <= -0
+ noCoverageIfNoIntersection(rec14,por1,5): + l(rec14,por1,5)
+ - 4 k1(rec14,por1) <= -0
+ noCoverageIfNoIntersection(rec14,por1,6): + l(rec14,por1,6)
+ - 4 k1(rec14,por1) <= -0
+ noCoverageIfNoIntersection(rec14,por1,7): + l(rec14,por1,7)
+ - 4 k1(rec14,por1) <= -0
+ noCoverageIfNoIntersection(rec14,por1,8): + l(rec14,por1,8)
+ - 4 k1(rec14,por1) <= -0
+ noCoverageIfNoIntersection(rec14,por2,1): + l(rec14,por2,1)
+ - k1(rec14,por2) <= -0
+ noCoverageIfNoIntersection(rec14,por2,2): + l(rec14,por2,2)
+ - k1(rec14,por2) <= -0
+ noCoverageIfNoIntersection(rec14,por2,3): + l(rec14,por2,3)
+ - k1(rec14,por2) <= -0
+ noCoverageIfNoIntersection(rec14,por2,4): + l(rec14,por2,4)
+ - k1(rec14,por2) <= -0
+ noCoverageIfNoIntersection(rec14,por2,5): + l(rec14,por2,5)
+ - k1(rec14,por2) <= -0
+ noCoverageIfNoIntersection(rec14,por2,6): + l(rec14,por2,6)
+ - k1(rec14,por2) <= -0
+ noCoverageIfNoIntersection(rec14,por2,7): + l(rec14,por2,7)
+ - k1(rec14,por2) <= -0
+ noCoverageIfNoIntersection(rec14,por2,8): + l(rec14,por2,8)
+ - k1(rec14,por2) <= -0
+ noCoverageIfNoIntersection(rec14,por3,1): + l(rec14,por3,1)
+ - 10 k1(rec14,por3) <= -0
+ noCoverageIfNoIntersection(rec14,por3,2): + l(rec14,por3,2)
+ - 10 k1(rec14,por3) <= -0
+ noCoverageIfNoIntersection(rec14,por3,3): + l(rec14,por3,3)
+ - 10 k1(rec14,por3) <= -0
+ noCoverageIfNoIntersection(rec14,por3,4): + l(rec14,por3,4)
+ - 10 k1(rec14,por3) <= -0
+ noCoverageIfNoIntersection(rec14,por3,5): + l(rec14,por3,5)
+ - 10 k1(rec14,por3) <= -0
+ noCoverageIfNoIntersection(rec14,por3,6): + l(rec14,por3,6)
+ - 10 k1(rec14,por3) <= -0
+ noCoverageIfNoIntersection(rec14,por3,7): + l(rec14,por3,7)
+ - 10 k1(rec14,por3) <= -0
+ noCoverageIfNoIntersection(rec14,por3,8): + l(rec14,por3,8)
+ - 10 k1(rec14,por3) <= -0
+ noCoverageIfNoIntersection(rec14,por4,1): + l(rec14,por4,1)
+ - k1(rec14,por4) <= -0
+ noCoverageIfNoIntersection(rec14,por4,2): + l(rec14,por4,2)
+ - k1(rec14,por4) <= -0
+ noCoverageIfNoIntersection(rec14,por4,3): + l(rec14,por4,3)
+ - k1(rec14,por4) <= -0
+ noCoverageIfNoIntersection(rec14,por4,4): + l(rec14,por4,4)
+ - k1(rec14,por4) <= -0
+ noCoverageIfNoIntersection(rec14,por4,5): + l(rec14,por4,5)
+ - k1(rec14,por4) <= -0
+ noCoverageIfNoIntersection(rec14,por4,6): + l(rec14,por4,6)
+ - k1(rec14,por4) <= -0
+ noCoverageIfNoIntersection(rec14,por4,7): + l(rec14,por4,7)
+ - k1(rec14,por4) <= -0
+ noCoverageIfNoIntersection(rec14,por4,8): + l(rec14,por4,8)
+ - k1(rec14,por4) <= -0
+ noCoverageIfNoIntersection(rec14,por5,1): + l(rec14,por5,1)
+ - 2 k1(rec14,por5) <= -0
+ noCoverageIfNoIntersection(rec14,por5,2): + l(rec14,por5,2)
+ - 2 k1(rec14,por5) <= -0
+ noCoverageIfNoIntersection(rec14,por5,3): + l(rec14,por5,3)
+ - 2 k1(rec14,por5) <= -0
+ noCoverageIfNoIntersection(rec14,por5,4): + l(rec14,por5,4)
+ - 2 k1(rec14,por5) <= -0
+ noCoverageIfNoIntersection(rec14,por5,5): + l(rec14,por5,5)
+ - 2 k1(rec14,por5) <= -0
+ noCoverageIfNoIntersection(rec14,por5,6): + l(rec14,por5,6)
+ - 2 k1(rec14,por5) <= -0
+ noCoverageIfNoIntersection(rec14,por5,7): + l(rec14,por5,7)
+ - 2 k1(rec14,por5) <= -0
+ noCoverageIfNoIntersection(rec14,por5,8): + l(rec14,por5,8)
+ - 2 k1(rec14,por5) <= -0
+ noCoverageIfNoIntersection(rec14,por6,1): + l(rec14,por6,1)
+ - k1(rec14,por6) <= -0
+ noCoverageIfNoIntersection(rec14,por6,2): + l(rec14,por6,2)
+ - k1(rec14,por6) <= -0
+ noCoverageIfNoIntersection(rec14,por6,3): + l(rec14,por6,3)
+ - k1(rec14,por6) <= -0
+ noCoverageIfNoIntersection(rec14,por6,4): + l(rec14,por6,4)
+ - k1(rec14,por6) <= -0
+ noCoverageIfNoIntersection(rec14,por6,5): + l(rec14,por6,5)
+ - k1(rec14,por6) <= -0
+ noCoverageIfNoIntersection(rec14,por6,6): + l(rec14,por6,6)
+ - k1(rec14,por6) <= -0
+ noCoverageIfNoIntersection(rec14,por6,7): + l(rec14,por6,7)
+ - k1(rec14,por6) <= -0
+ noCoverageIfNoIntersection(rec14,por6,8): + l(rec14,por6,8)
+ - k1(rec14,por6) <= -0
+ noCoverageIfNoIntersection(rec14,por7,1): + l(rec14,por7,1)
+ - 8 k1(rec14,por7) <= -0
+ noCoverageIfNoIntersection(rec14,por7,2): + l(rec14,por7,2)
+ - 8 k1(rec14,por7) <= -0
+ noCoverageIfNoIntersection(rec14,por7,3): + l(rec14,por7,3)
+ - 8 k1(rec14,por7) <= -0
+ noCoverageIfNoIntersection(rec14,por7,4): + l(rec14,por7,4)
+ - 8 k1(rec14,por7) <= -0
+ noCoverageIfNoIntersection(rec14,por7,5): + l(rec14,por7,5)
+ - 8 k1(rec14,por7) <= -0
+ noCoverageIfNoIntersection(rec14,por7,6): + l(rec14,por7,6)
+ - 8 k1(rec14,por7) <= -0
+ noCoverageIfNoIntersection(rec14,por7,7): + l(rec14,por7,7)
+ - 8 k1(rec14,por7) <= -0
+ noCoverageIfNoIntersection(rec14,por7,8): + l(rec14,por7,8)
+ - 8 k1(rec14,por7) <= -0
+ noCoverageIfNoIntersection(rec14,por8,1): + l(rec14,por8,1)
+ - k1(rec14,por8) <= -0
+ noCoverageIfNoIntersection(rec14,por8,2): + l(rec14,por8,2)
+ - k1(rec14,por8) <= -0
+ noCoverageIfNoIntersection(rec14,por8,3): + l(rec14,por8,3)
+ - k1(rec14,por8) <= -0
+ noCoverageIfNoIntersection(rec14,por8,4): + l(rec14,por8,4)
+ - k1(rec14,por8) <= -0
+ noCoverageIfNoIntersection(rec14,por8,5): + l(rec14,por8,5)
+ - k1(rec14,por8) <= -0
+ noCoverageIfNoIntersection(rec14,por8,6): + l(rec14,por8,6)
+ - k1(rec14,por8) <= -0
+ noCoverageIfNoIntersection(rec14,por8,7): + l(rec14,por8,7)
+ - k1(rec14,por8) <= -0
+ noCoverageIfNoIntersection(rec14,por8,8): + l(rec14,por8,8)
+ - k1(rec14,por8) <= -0
+ noCoverageIfNoIntersection(rec14,por9,1): + l(rec14,por9,1)
+ - 12 k1(rec14,por9) <= -0
+ noCoverageIfNoIntersection(rec14,por9,2): + l(rec14,por9,2)
+ - 12 k1(rec14,por9) <= -0
+ noCoverageIfNoIntersection(rec14,por9,3): + l(rec14,por9,3)
+ - 12 k1(rec14,por9) <= -0
+ noCoverageIfNoIntersection(rec14,por9,4): + l(rec14,por9,4)
+ - 12 k1(rec14,por9) <= -0
+ noCoverageIfNoIntersection(rec14,por9,5): + l(rec14,por9,5)
+ - 12 k1(rec14,por9) <= -0
+ noCoverageIfNoIntersection(rec14,por9,6): + l(rec14,por9,6)
+ - 12 k1(rec14,por9) <= -0
+ noCoverageIfNoIntersection(rec14,por9,7): + l(rec14,por9,7)
+ - 12 k1(rec14,por9) <= -0
+ noCoverageIfNoIntersection(rec14,por9,8): + l(rec14,por9,8)
+ - 12 k1(rec14,por9) <= -0
+ noCoverageIfNoIntersection(rec14,por10,1): + l(rec14,por10,1)
+ - k1(rec14,por10) <= -0
+ noCoverageIfNoIntersection(rec14,por10,2): + l(rec14,por10,2)
+ - k1(rec14,por10) <= -0
+ noCoverageIfNoIntersection(rec14,por10,3): + l(rec14,por10,3)
+ - k1(rec14,por10) <= -0
+ noCoverageIfNoIntersection(rec14,por10,4): + l(rec14,por10,4)
+ - k1(rec14,por10) <= -0
+ noCoverageIfNoIntersection(rec14,por10,5): + l(rec14,por10,5)
+ - k1(rec14,por10) <= -0
+ noCoverageIfNoIntersection(rec14,por10,6): + l(rec14,por10,6)
+ - k1(rec14,por10) <= -0
+ noCoverageIfNoIntersection(rec14,por10,7): + l(rec14,por10,7)
+ - k1(rec14,por10) <= -0
+ noCoverageIfNoIntersection(rec14,por10,8): + l(rec14,por10,8)
+ - k1(rec14,por10) <= -0
+ noCoverageIfNoIntersection(rec14,por11,1): + l(rec14,por11,1)
+ - 10 k1(rec14,por11) <= -0
+ noCoverageIfNoIntersection(rec14,por11,2): + l(rec14,por11,2)
+ - 10 k1(rec14,por11) <= -0
+ noCoverageIfNoIntersection(rec14,por11,3): + l(rec14,por11,3)
+ - 10 k1(rec14,por11) <= -0
+ noCoverageIfNoIntersection(rec14,por11,4): + l(rec14,por11,4)
+ - 10 k1(rec14,por11) <= -0
+ noCoverageIfNoIntersection(rec14,por11,5): + l(rec14,por11,5)
+ - 10 k1(rec14,por11) <= -0
+ noCoverageIfNoIntersection(rec14,por11,6): + l(rec14,por11,6)
+ - 10 k1(rec14,por11) <= -0
+ noCoverageIfNoIntersection(rec14,por11,7): + l(rec14,por11,7)
+ - 10 k1(rec14,por11) <= -0
+ noCoverageIfNoIntersection(rec14,por11,8): + l(rec14,por11,8)
+ - 10 k1(rec14,por11) <= -0
+ noCoverageIfNoIntersection(rec14,por12,1): + l(rec14,por12,1)
+ - k1(rec14,por12) <= -0
+ noCoverageIfNoIntersection(rec14,por12,2): + l(rec14,por12,2)
+ - k1(rec14,por12) <= -0
+ noCoverageIfNoIntersection(rec14,por12,3): + l(rec14,por12,3)
+ - k1(rec14,por12) <= -0
+ noCoverageIfNoIntersection(rec14,por12,4): + l(rec14,por12,4)
+ - k1(rec14,por12) <= -0
+ noCoverageIfNoIntersection(rec14,por12,5): + l(rec14,por12,5)
+ - k1(rec14,por12) <= -0
+ noCoverageIfNoIntersection(rec14,por12,6): + l(rec14,por12,6)
+ - k1(rec14,por12) <= -0
+ noCoverageIfNoIntersection(rec14,por12,7): + l(rec14,por12,7)
+ - k1(rec14,por12) <= -0
+ noCoverageIfNoIntersection(rec14,por12,8): + l(rec14,por12,8)
+ - k1(rec14,por12) <= -0
+ noCoverageIfNoIntersection(rec14,por13,1): + l(rec14,por13,1)
+ - 4 k1(rec14,por13) <= -0
+ noCoverageIfNoIntersection(rec14,por13,2): + l(rec14,por13,2)
+ - 4 k1(rec14,por13) <= -0
+ noCoverageIfNoIntersection(rec14,por13,3): + l(rec14,por13,3)
+ - 4 k1(rec14,por13) <= -0
+ noCoverageIfNoIntersection(rec14,por13,4): + l(rec14,por13,4)
+ - 4 k1(rec14,por13) <= -0
+ noCoverageIfNoIntersection(rec14,por13,5): + l(rec14,por13,5)
+ - 4 k1(rec14,por13) <= -0
+ noCoverageIfNoIntersection(rec14,por13,6): + l(rec14,por13,6)
+ - 4 k1(rec14,por13) <= -0
+ noCoverageIfNoIntersection(rec14,por13,7): + l(rec14,por13,7)
+ - 4 k1(rec14,por13) <= -0
+ noCoverageIfNoIntersection(rec14,por13,8): + l(rec14,por13,8)
+ - 4 k1(rec14,por13) <= -0
+ noCoverageIfNoIntersection(rec14,por14,1): + l(rec14,por14,1)
+ - k1(rec14,por14) <= -0
+ noCoverageIfNoIntersection(rec14,por14,2): + l(rec14,por14,2)
+ - k1(rec14,por14) <= -0
+ noCoverageIfNoIntersection(rec14,por14,3): + l(rec14,por14,3)
+ - k1(rec14,por14) <= -0
+ noCoverageIfNoIntersection(rec14,por14,4): + l(rec14,por14,4)
+ - k1(rec14,por14) <= -0
+ noCoverageIfNoIntersection(rec14,por14,5): + l(rec14,por14,5)
+ - k1(rec14,por14) <= -0
+ noCoverageIfNoIntersection(rec14,por14,6): + l(rec14,por14,6)
+ - k1(rec14,por14) <= -0
+ noCoverageIfNoIntersection(rec14,por14,7): + l(rec14,por14,7)
+ - k1(rec14,por14) <= -0
+ noCoverageIfNoIntersection(rec14,por14,8): + l(rec14,por14,8)
+ - k1(rec14,por14) <= -0
+ noCoverageIfNoIntersection(rec14,por15,1): + l(rec14,por15,1)
+ - 4 k1(rec14,por15) <= -0
+ noCoverageIfNoIntersection(rec14,por15,2): + l(rec14,por15,2)
+ - 4 k1(rec14,por15) <= -0
+ noCoverageIfNoIntersection(rec14,por15,3): + l(rec14,por15,3)
+ - 4 k1(rec14,por15) <= -0
+ noCoverageIfNoIntersection(rec14,por15,4): + l(rec14,por15,4)
+ - 4 k1(rec14,por15) <= -0
+ noCoverageIfNoIntersection(rec14,por15,5): + l(rec14,por15,5)
+ - 4 k1(rec14,por15) <= -0
+ noCoverageIfNoIntersection(rec14,por15,6): + l(rec14,por15,6)
+ - 4 k1(rec14,por15) <= -0
+ noCoverageIfNoIntersection(rec14,por15,7): + l(rec14,por15,7)
+ - 4 k1(rec14,por15) <= -0
+ noCoverageIfNoIntersection(rec14,por15,8): + l(rec14,por15,8)
+ - 4 k1(rec14,por15) <= -0
+ noCoverageIfNoIntersection(rec15,por1,1): + l(rec15,por1,1)
+ - 4 k1(rec15,por1) <= -0
+ noCoverageIfNoIntersection(rec15,por1,2): + l(rec15,por1,2)
+ - 4 k1(rec15,por1) <= -0
+ noCoverageIfNoIntersection(rec15,por1,3): + l(rec15,por1,3)
+ - 4 k1(rec15,por1) <= -0
+ noCoverageIfNoIntersection(rec15,por1,4): + l(rec15,por1,4)
+ - 4 k1(rec15,por1) <= -0
+ noCoverageIfNoIntersection(rec15,por1,5): + l(rec15,por1,5)
+ - 4 k1(rec15,por1) <= -0
+ noCoverageIfNoIntersection(rec15,por1,6): + l(rec15,por1,6)
+ - 4 k1(rec15,por1) <= -0
+ noCoverageIfNoIntersection(rec15,por1,7): + l(rec15,por1,7)
+ - 4 k1(rec15,por1) <= -0
+ noCoverageIfNoIntersection(rec15,por1,8): + l(rec15,por1,8)
+ - 4 k1(rec15,por1) <= -0
+ noCoverageIfNoIntersection(rec15,por2,1): + l(rec15,por2,1)
+ - k1(rec15,por2) <= -0
+ noCoverageIfNoIntersection(rec15,por2,2): + l(rec15,por2,2)
+ - k1(rec15,por2) <= -0
+ noCoverageIfNoIntersection(rec15,por2,3): + l(rec15,por2,3)
+ - k1(rec15,por2) <= -0
+ noCoverageIfNoIntersection(rec15,por2,4): + l(rec15,por2,4)
+ - k1(rec15,por2) <= -0
+ noCoverageIfNoIntersection(rec15,por2,5): + l(rec15,por2,5)
+ - k1(rec15,por2) <= -0
+ noCoverageIfNoIntersection(rec15,por2,6): + l(rec15,por2,6)
+ - k1(rec15,por2) <= -0
+ noCoverageIfNoIntersection(rec15,por2,7): + l(rec15,por2,7)
+ - k1(rec15,por2) <= -0
+ noCoverageIfNoIntersection(rec15,por2,8): + l(rec15,por2,8)
+ - k1(rec15,por2) <= -0
+ noCoverageIfNoIntersection(rec15,por3,1): + l(rec15,por3,1)
+ - 10 k1(rec15,por3) <= -0
+ noCoverageIfNoIntersection(rec15,por3,2): + l(rec15,por3,2)
+ - 10 k1(rec15,por3) <= -0
+ noCoverageIfNoIntersection(rec15,por3,3): + l(rec15,por3,3)
+ - 10 k1(rec15,por3) <= -0
+ noCoverageIfNoIntersection(rec15,por3,4): + l(rec15,por3,4)
+ - 10 k1(rec15,por3) <= -0
+ noCoverageIfNoIntersection(rec15,por3,5): + l(rec15,por3,5)
+ - 10 k1(rec15,por3) <= -0
+ noCoverageIfNoIntersection(rec15,por3,6): + l(rec15,por3,6)
+ - 10 k1(rec15,por3) <= -0
+ noCoverageIfNoIntersection(rec15,por3,7): + l(rec15,por3,7)
+ - 10 k1(rec15,por3) <= -0
+ noCoverageIfNoIntersection(rec15,por3,8): + l(rec15,por3,8)
+ - 10 k1(rec15,por3) <= -0
+ noCoverageIfNoIntersection(rec15,por4,1): + l(rec15,por4,1)
+ - k1(rec15,por4) <= -0
+ noCoverageIfNoIntersection(rec15,por4,2): + l(rec15,por4,2)
+ - k1(rec15,por4) <= -0
+ noCoverageIfNoIntersection(rec15,por4,3): + l(rec15,por4,3)
+ - k1(rec15,por4) <= -0
+ noCoverageIfNoIntersection(rec15,por4,4): + l(rec15,por4,4)
+ - k1(rec15,por4) <= -0
+ noCoverageIfNoIntersection(rec15,por4,5): + l(rec15,por4,5)
+ - k1(rec15,por4) <= -0
+ noCoverageIfNoIntersection(rec15,por4,6): + l(rec15,por4,6)
+ - k1(rec15,por4) <= -0
+ noCoverageIfNoIntersection(rec15,por4,7): + l(rec15,por4,7)
+ - k1(rec15,por4) <= -0
+ noCoverageIfNoIntersection(rec15,por4,8): + l(rec15,por4,8)
+ - k1(rec15,por4) <= -0
+ noCoverageIfNoIntersection(rec15,por5,1): + l(rec15,por5,1)
+ - 2 k1(rec15,por5) <= -0
+ noCoverageIfNoIntersection(rec15,por5,2): + l(rec15,por5,2)
+ - 2 k1(rec15,por5) <= -0
+ noCoverageIfNoIntersection(rec15,por5,3): + l(rec15,por5,3)
+ - 2 k1(rec15,por5) <= -0
+ noCoverageIfNoIntersection(rec15,por5,4): + l(rec15,por5,4)
+ - 2 k1(rec15,por5) <= -0
+ noCoverageIfNoIntersection(rec15,por5,5): + l(rec15,por5,5)
+ - 2 k1(rec15,por5) <= -0
+ noCoverageIfNoIntersection(rec15,por5,6): + l(rec15,por5,6)
+ - 2 k1(rec15,por5) <= -0
+ noCoverageIfNoIntersection(rec15,por5,7): + l(rec15,por5,7)
+ - 2 k1(rec15,por5) <= -0
+ noCoverageIfNoIntersection(rec15,por5,8): + l(rec15,por5,8)
+ - 2 k1(rec15,por5) <= -0
+ noCoverageIfNoIntersection(rec15,por6,1): + l(rec15,por6,1)
+ - k1(rec15,por6) <= -0
+ noCoverageIfNoIntersection(rec15,por6,2): + l(rec15,por6,2)
+ - k1(rec15,por6) <= -0
+ noCoverageIfNoIntersection(rec15,por6,3): + l(rec15,por6,3)
+ - k1(rec15,por6) <= -0
+ noCoverageIfNoIntersection(rec15,por6,4): + l(rec15,por6,4)
+ - k1(rec15,por6) <= -0
+ noCoverageIfNoIntersection(rec15,por6,5): + l(rec15,por6,5)
+ - k1(rec15,por6) <= -0
+ noCoverageIfNoIntersection(rec15,por6,6): + l(rec15,por6,6)
+ - k1(rec15,por6) <= -0
+ noCoverageIfNoIntersection(rec15,por6,7): + l(rec15,por6,7)
+ - k1(rec15,por6) <= -0
+ noCoverageIfNoIntersection(rec15,por6,8): + l(rec15,por6,8)
+ - k1(rec15,por6) <= -0
+ noCoverageIfNoIntersection(rec15,por7,1): + l(rec15,por7,1)
+ - 8 k1(rec15,por7) <= -0
+ noCoverageIfNoIntersection(rec15,por7,2): + l(rec15,por7,2)
+ - 8 k1(rec15,por7) <= -0
+ noCoverageIfNoIntersection(rec15,por7,3): + l(rec15,por7,3)
+ - 8 k1(rec15,por7) <= -0
+ noCoverageIfNoIntersection(rec15,por7,4): + l(rec15,por7,4)
+ - 8 k1(rec15,por7) <= -0
+ noCoverageIfNoIntersection(rec15,por7,5): + l(rec15,por7,5)
+ - 8 k1(rec15,por7) <= -0
+ noCoverageIfNoIntersection(rec15,por7,6): + l(rec15,por7,6)
+ - 8 k1(rec15,por7) <= -0
+ noCoverageIfNoIntersection(rec15,por7,7): + l(rec15,por7,7)
+ - 8 k1(rec15,por7) <= -0
+ noCoverageIfNoIntersection(rec15,por7,8): + l(rec15,por7,8)
+ - 8 k1(rec15,por7) <= -0
+ noCoverageIfNoIntersection(rec15,por8,1): + l(rec15,por8,1)
+ - k1(rec15,por8) <= -0
+ noCoverageIfNoIntersection(rec15,por8,2): + l(rec15,por8,2)
+ - k1(rec15,por8) <= -0
+ noCoverageIfNoIntersection(rec15,por8,3): + l(rec15,por8,3)
+ - k1(rec15,por8) <= -0
+ noCoverageIfNoIntersection(rec15,por8,4): + l(rec15,por8,4)
+ - k1(rec15,por8) <= -0
+ noCoverageIfNoIntersection(rec15,por8,5): + l(rec15,por8,5)
+ - k1(rec15,por8) <= -0
+ noCoverageIfNoIntersection(rec15,por8,6): + l(rec15,por8,6)
+ - k1(rec15,por8) <= -0
+ noCoverageIfNoIntersection(rec15,por8,7): + l(rec15,por8,7)
+ - k1(rec15,por8) <= -0
+ noCoverageIfNoIntersection(rec15,por8,8): + l(rec15,por8,8)
+ - k1(rec15,por8) <= -0
+ noCoverageIfNoIntersection(rec15,por9,1): + l(rec15,por9,1)
+ - 12 k1(rec15,por9) <= -0
+ noCoverageIfNoIntersection(rec15,por9,2): + l(rec15,por9,2)
+ - 12 k1(rec15,por9) <= -0
+ noCoverageIfNoIntersection(rec15,por9,3): + l(rec15,por9,3)
+ - 12 k1(rec15,por9) <= -0
+ noCoverageIfNoIntersection(rec15,por9,4): + l(rec15,por9,4)
+ - 12 k1(rec15,por9) <= -0
+ noCoverageIfNoIntersection(rec15,por9,5): + l(rec15,por9,5)
+ - 12 k1(rec15,por9) <= -0
+ noCoverageIfNoIntersection(rec15,por9,6): + l(rec15,por9,6)
+ - 12 k1(rec15,por9) <= -0
+ noCoverageIfNoIntersection(rec15,por9,7): + l(rec15,por9,7)
+ - 12 k1(rec15,por9) <= -0
+ noCoverageIfNoIntersection(rec15,por9,8): + l(rec15,por9,8)
+ - 12 k1(rec15,por9) <= -0
+ noCoverageIfNoIntersection(rec15,por10,1): + l(rec15,por10,1)
+ - k1(rec15,por10) <= -0
+ noCoverageIfNoIntersection(rec15,por10,2): + l(rec15,por10,2)
+ - k1(rec15,por10) <= -0
+ noCoverageIfNoIntersection(rec15,por10,3): + l(rec15,por10,3)
+ - k1(rec15,por10) <= -0
+ noCoverageIfNoIntersection(rec15,por10,4): + l(rec15,por10,4)
+ - k1(rec15,por10) <= -0
+ noCoverageIfNoIntersection(rec15,por10,5): + l(rec15,por10,5)
+ - k1(rec15,por10) <= -0
+ noCoverageIfNoIntersection(rec15,por10,6): + l(rec15,por10,6)
+ - k1(rec15,por10) <= -0
+ noCoverageIfNoIntersection(rec15,por10,7): + l(rec15,por10,7)
+ - k1(rec15,por10) <= -0
+ noCoverageIfNoIntersection(rec15,por10,8): + l(rec15,por10,8)
+ - k1(rec15,por10) <= -0
+ noCoverageIfNoIntersection(rec15,por11,1): + l(rec15,por11,1)
+ - 10 k1(rec15,por11) <= -0
+ noCoverageIfNoIntersection(rec15,por11,2): + l(rec15,por11,2)
+ - 10 k1(rec15,por11) <= -0
+ noCoverageIfNoIntersection(rec15,por11,3): + l(rec15,por11,3)
+ - 10 k1(rec15,por11) <= -0
+ noCoverageIfNoIntersection(rec15,por11,4): + l(rec15,por11,4)
+ - 10 k1(rec15,por11) <= -0
+ noCoverageIfNoIntersection(rec15,por11,5): + l(rec15,por11,5)
+ - 10 k1(rec15,por11) <= -0
+ noCoverageIfNoIntersection(rec15,por11,6): + l(rec15,por11,6)
+ - 10 k1(rec15,por11) <= -0
+ noCoverageIfNoIntersection(rec15,por11,7): + l(rec15,por11,7)
+ - 10 k1(rec15,por11) <= -0
+ noCoverageIfNoIntersection(rec15,por11,8): + l(rec15,por11,8)
+ - 10 k1(rec15,por11) <= -0
+ noCoverageIfNoIntersection(rec15,por12,1): + l(rec15,por12,1)
+ - k1(rec15,por12) <= -0
+ noCoverageIfNoIntersection(rec15,por12,2): + l(rec15,por12,2)
+ - k1(rec15,por12) <= -0
+ noCoverageIfNoIntersection(rec15,por12,3): + l(rec15,por12,3)
+ - k1(rec15,por12) <= -0
+ noCoverageIfNoIntersection(rec15,por12,4): + l(rec15,por12,4)
+ - k1(rec15,por12) <= -0
+ noCoverageIfNoIntersection(rec15,por12,5): + l(rec15,por12,5)
+ - k1(rec15,por12) <= -0
+ noCoverageIfNoIntersection(rec15,por12,6): + l(rec15,por12,6)
+ - k1(rec15,por12) <= -0
+ noCoverageIfNoIntersection(rec15,por12,7): + l(rec15,por12,7)
+ - k1(rec15,por12) <= -0
+ noCoverageIfNoIntersection(rec15,por12,8): + l(rec15,por12,8)
+ - k1(rec15,por12) <= -0
+ noCoverageIfNoIntersection(rec15,por13,1): + l(rec15,por13,1)
+ - 4 k1(rec15,por13) <= -0
+ noCoverageIfNoIntersection(rec15,por13,2): + l(rec15,por13,2)
+ - 4 k1(rec15,por13) <= -0
+ noCoverageIfNoIntersection(rec15,por13,3): + l(rec15,por13,3)
+ - 4 k1(rec15,por13) <= -0
+ noCoverageIfNoIntersection(rec15,por13,4): + l(rec15,por13,4)
+ - 4 k1(rec15,por13) <= -0
+ noCoverageIfNoIntersection(rec15,por13,5): + l(rec15,por13,5)
+ - 4 k1(rec15,por13) <= -0
+ noCoverageIfNoIntersection(rec15,por13,6): + l(rec15,por13,6)
+ - 4 k1(rec15,por13) <= -0
+ noCoverageIfNoIntersection(rec15,por13,7): + l(rec15,por13,7)
+ - 4 k1(rec15,por13) <= -0
+ noCoverageIfNoIntersection(rec15,por13,8): + l(rec15,por13,8)
+ - 4 k1(rec15,por13) <= -0
+ noCoverageIfNoIntersection(rec15,por14,1): + l(rec15,por14,1)
+ - k1(rec15,por14) <= -0
+ noCoverageIfNoIntersection(rec15,por14,2): + l(rec15,por14,2)
+ - k1(rec15,por14) <= -0
+ noCoverageIfNoIntersection(rec15,por14,3): + l(rec15,por14,3)
+ - k1(rec15,por14) <= -0
+ noCoverageIfNoIntersection(rec15,por14,4): + l(rec15,por14,4)
+ - k1(rec15,por14) <= -0
+ noCoverageIfNoIntersection(rec15,por14,5): + l(rec15,por14,5)
+ - k1(rec15,por14) <= -0
+ noCoverageIfNoIntersection(rec15,por14,6): + l(rec15,por14,6)
+ - k1(rec15,por14) <= -0
+ noCoverageIfNoIntersection(rec15,por14,7): + l(rec15,por14,7)
+ - k1(rec15,por14) <= -0
+ noCoverageIfNoIntersection(rec15,por14,8): + l(rec15,por14,8)
+ - k1(rec15,por14) <= -0
+ noCoverageIfNoIntersection(rec15,por15,1): + l(rec15,por15,1)
+ - 4 k1(rec15,por15) <= -0
+ noCoverageIfNoIntersection(rec15,por15,2): + l(rec15,por15,2)
+ - 4 k1(rec15,por15) <= -0
+ noCoverageIfNoIntersection(rec15,por15,3): + l(rec15,por15,3)
+ - 4 k1(rec15,por15) <= -0
+ noCoverageIfNoIntersection(rec15,por15,4): + l(rec15,por15,4)
+ - 4 k1(rec15,por15) <= -0
+ noCoverageIfNoIntersection(rec15,por15,5): + l(rec15,por15,5)
+ - 4 k1(rec15,por15) <= -0
+ noCoverageIfNoIntersection(rec15,por15,6): + l(rec15,por15,6)
+ - 4 k1(rec15,por15) <= -0
+ noCoverageIfNoIntersection(rec15,por15,7): + l(rec15,por15,7)
+ - 4 k1(rec15,por15) <= -0
+ noCoverageIfNoIntersection(rec15,por15,8): + l(rec15,por15,8)
+ - 4 k1(rec15,por15) <= -0
  maxCoverageDueToRegionWidth(rec1,por1,1): - w(rec1) + l(rec1,por1,1)
  <= 1
  maxCoverageDueToRegionWidth(rec1,por1,2): - w(rec1) + l(rec1,por1,2)
@@ -10354,6 +16503,1206 @@ Subject To
  + l(rec10,por15,7) <= 1
  maxCoverageDueToRegionWidth(rec10,por15,8): - w(rec10)
  + l(rec10,por15,8) <= 1
+ maxCoverageDueToRegionWidth(rec11,por1,1): - w(rec11) + l(rec11,por1,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por1,2): - w(rec11) + l(rec11,por1,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por1,3): - w(rec11) + l(rec11,por1,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por1,4): - w(rec11) + l(rec11,por1,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por1,5): - w(rec11) + l(rec11,por1,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por1,6): - w(rec11) + l(rec11,por1,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por1,7): - w(rec11) + l(rec11,por1,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por1,8): - w(rec11) + l(rec11,por1,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por2,1): - w(rec11) + l(rec11,por2,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por2,2): - w(rec11) + l(rec11,por2,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por2,3): - w(rec11) + l(rec11,por2,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por2,4): - w(rec11) + l(rec11,por2,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por2,5): - w(rec11) + l(rec11,por2,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por2,6): - w(rec11) + l(rec11,por2,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por2,7): - w(rec11) + l(rec11,por2,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por2,8): - w(rec11) + l(rec11,por2,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por3,1): - w(rec11) + l(rec11,por3,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por3,2): - w(rec11) + l(rec11,por3,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por3,3): - w(rec11) + l(rec11,por3,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por3,4): - w(rec11) + l(rec11,por3,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por3,5): - w(rec11) + l(rec11,por3,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por3,6): - w(rec11) + l(rec11,por3,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por3,7): - w(rec11) + l(rec11,por3,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por3,8): - w(rec11) + l(rec11,por3,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por4,1): - w(rec11) + l(rec11,por4,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por4,2): - w(rec11) + l(rec11,por4,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por4,3): - w(rec11) + l(rec11,por4,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por4,4): - w(rec11) + l(rec11,por4,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por4,5): - w(rec11) + l(rec11,por4,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por4,6): - w(rec11) + l(rec11,por4,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por4,7): - w(rec11) + l(rec11,por4,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por4,8): - w(rec11) + l(rec11,por4,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por5,1): - w(rec11) + l(rec11,por5,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por5,2): - w(rec11) + l(rec11,por5,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por5,3): - w(rec11) + l(rec11,por5,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por5,4): - w(rec11) + l(rec11,por5,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por5,5): - w(rec11) + l(rec11,por5,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por5,6): - w(rec11) + l(rec11,por5,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por5,7): - w(rec11) + l(rec11,por5,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por5,8): - w(rec11) + l(rec11,por5,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por6,1): - w(rec11) + l(rec11,por6,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por6,2): - w(rec11) + l(rec11,por6,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por6,3): - w(rec11) + l(rec11,por6,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por6,4): - w(rec11) + l(rec11,por6,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por6,5): - w(rec11) + l(rec11,por6,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por6,6): - w(rec11) + l(rec11,por6,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por6,7): - w(rec11) + l(rec11,por6,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por6,8): - w(rec11) + l(rec11,por6,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por7,1): - w(rec11) + l(rec11,por7,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por7,2): - w(rec11) + l(rec11,por7,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por7,3): - w(rec11) + l(rec11,por7,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por7,4): - w(rec11) + l(rec11,por7,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por7,5): - w(rec11) + l(rec11,por7,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por7,6): - w(rec11) + l(rec11,por7,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por7,7): - w(rec11) + l(rec11,por7,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por7,8): - w(rec11) + l(rec11,por7,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por8,1): - w(rec11) + l(rec11,por8,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por8,2): - w(rec11) + l(rec11,por8,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por8,3): - w(rec11) + l(rec11,por8,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por8,4): - w(rec11) + l(rec11,por8,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por8,5): - w(rec11) + l(rec11,por8,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por8,6): - w(rec11) + l(rec11,por8,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por8,7): - w(rec11) + l(rec11,por8,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por8,8): - w(rec11) + l(rec11,por8,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por9,1): - w(rec11) + l(rec11,por9,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por9,2): - w(rec11) + l(rec11,por9,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por9,3): - w(rec11) + l(rec11,por9,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por9,4): - w(rec11) + l(rec11,por9,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por9,5): - w(rec11) + l(rec11,por9,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por9,6): - w(rec11) + l(rec11,por9,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por9,7): - w(rec11) + l(rec11,por9,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por9,8): - w(rec11) + l(rec11,por9,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec11,por10,1): - w(rec11)
+ + l(rec11,por10,1) <= 1
+ maxCoverageDueToRegionWidth(rec11,por10,2): - w(rec11)
+ + l(rec11,por10,2) <= 1
+ maxCoverageDueToRegionWidth(rec11,por10,3): - w(rec11)
+ + l(rec11,por10,3) <= 1
+ maxCoverageDueToRegionWidth(rec11,por10,4): - w(rec11)
+ + l(rec11,por10,4) <= 1
+ maxCoverageDueToRegionWidth(rec11,por10,5): - w(rec11)
+ + l(rec11,por10,5) <= 1
+ maxCoverageDueToRegionWidth(rec11,por10,6): - w(rec11)
+ + l(rec11,por10,6) <= 1
+ maxCoverageDueToRegionWidth(rec11,por10,7): - w(rec11)
+ + l(rec11,por10,7) <= 1
+ maxCoverageDueToRegionWidth(rec11,por10,8): - w(rec11)
+ + l(rec11,por10,8) <= 1
+ maxCoverageDueToRegionWidth(rec11,por11,1): - w(rec11)
+ + l(rec11,por11,1) <= 1
+ maxCoverageDueToRegionWidth(rec11,por11,2): - w(rec11)
+ + l(rec11,por11,2) <= 1
+ maxCoverageDueToRegionWidth(rec11,por11,3): - w(rec11)
+ + l(rec11,por11,3) <= 1
+ maxCoverageDueToRegionWidth(rec11,por11,4): - w(rec11)
+ + l(rec11,por11,4) <= 1
+ maxCoverageDueToRegionWidth(rec11,por11,5): - w(rec11)
+ + l(rec11,por11,5) <= 1
+ maxCoverageDueToRegionWidth(rec11,por11,6): - w(rec11)
+ + l(rec11,por11,6) <= 1
+ maxCoverageDueToRegionWidth(rec11,por11,7): - w(rec11)
+ + l(rec11,por11,7) <= 1
+ maxCoverageDueToRegionWidth(rec11,por11,8): - w(rec11)
+ + l(rec11,por11,8) <= 1
+ maxCoverageDueToRegionWidth(rec11,por12,1): - w(rec11)
+ + l(rec11,por12,1) <= 1
+ maxCoverageDueToRegionWidth(rec11,por12,2): - w(rec11)
+ + l(rec11,por12,2) <= 1
+ maxCoverageDueToRegionWidth(rec11,por12,3): - w(rec11)
+ + l(rec11,por12,3) <= 1
+ maxCoverageDueToRegionWidth(rec11,por12,4): - w(rec11)
+ + l(rec11,por12,4) <= 1
+ maxCoverageDueToRegionWidth(rec11,por12,5): - w(rec11)
+ + l(rec11,por12,5) <= 1
+ maxCoverageDueToRegionWidth(rec11,por12,6): - w(rec11)
+ + l(rec11,por12,6) <= 1
+ maxCoverageDueToRegionWidth(rec11,por12,7): - w(rec11)
+ + l(rec11,por12,7) <= 1
+ maxCoverageDueToRegionWidth(rec11,por12,8): - w(rec11)
+ + l(rec11,por12,8) <= 1
+ maxCoverageDueToRegionWidth(rec11,por13,1): - w(rec11)
+ + l(rec11,por13,1) <= 1
+ maxCoverageDueToRegionWidth(rec11,por13,2): - w(rec11)
+ + l(rec11,por13,2) <= 1
+ maxCoverageDueToRegionWidth(rec11,por13,3): - w(rec11)
+ + l(rec11,por13,3) <= 1
+ maxCoverageDueToRegionWidth(rec11,por13,4): - w(rec11)
+ + l(rec11,por13,4) <= 1
+ maxCoverageDueToRegionWidth(rec11,por13,5): - w(rec11)
+ + l(rec11,por13,5) <= 1
+ maxCoverageDueToRegionWidth(rec11,por13,6): - w(rec11)
+ + l(rec11,por13,6) <= 1
+ maxCoverageDueToRegionWidth(rec11,por13,7): - w(rec11)
+ + l(rec11,por13,7) <= 1
+ maxCoverageDueToRegionWidth(rec11,por13,8): - w(rec11)
+ + l(rec11,por13,8) <= 1
+ maxCoverageDueToRegionWidth(rec11,por14,1): - w(rec11)
+ + l(rec11,por14,1) <= 1
+ maxCoverageDueToRegionWidth(rec11,por14,2): - w(rec11)
+ + l(rec11,por14,2) <= 1
+ maxCoverageDueToRegionWidth(rec11,por14,3): - w(rec11)
+ + l(rec11,por14,3) <= 1
+ maxCoverageDueToRegionWidth(rec11,por14,4): - w(rec11)
+ + l(rec11,por14,4) <= 1
+ maxCoverageDueToRegionWidth(rec11,por14,5): - w(rec11)
+ + l(rec11,por14,5) <= 1
+ maxCoverageDueToRegionWidth(rec11,por14,6): - w(rec11)
+ + l(rec11,por14,6) <= 1
+ maxCoverageDueToRegionWidth(rec11,por14,7): - w(rec11)
+ + l(rec11,por14,7) <= 1
+ maxCoverageDueToRegionWidth(rec11,por14,8): - w(rec11)
+ + l(rec11,por14,8) <= 1
+ maxCoverageDueToRegionWidth(rec11,por15,1): - w(rec11)
+ + l(rec11,por15,1) <= 1
+ maxCoverageDueToRegionWidth(rec11,por15,2): - w(rec11)
+ + l(rec11,por15,2) <= 1
+ maxCoverageDueToRegionWidth(rec11,por15,3): - w(rec11)
+ + l(rec11,por15,3) <= 1
+ maxCoverageDueToRegionWidth(rec11,por15,4): - w(rec11)
+ + l(rec11,por15,4) <= 1
+ maxCoverageDueToRegionWidth(rec11,por15,5): - w(rec11)
+ + l(rec11,por15,5) <= 1
+ maxCoverageDueToRegionWidth(rec11,por15,6): - w(rec11)
+ + l(rec11,por15,6) <= 1
+ maxCoverageDueToRegionWidth(rec11,por15,7): - w(rec11)
+ + l(rec11,por15,7) <= 1
+ maxCoverageDueToRegionWidth(rec11,por15,8): - w(rec11)
+ + l(rec11,por15,8) <= 1
+ maxCoverageDueToRegionWidth(rec12,por1,1): - w(rec12) + l(rec12,por1,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por1,2): - w(rec12) + l(rec12,por1,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por1,3): - w(rec12) + l(rec12,por1,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por1,4): - w(rec12) + l(rec12,por1,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por1,5): - w(rec12) + l(rec12,por1,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por1,6): - w(rec12) + l(rec12,por1,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por1,7): - w(rec12) + l(rec12,por1,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por1,8): - w(rec12) + l(rec12,por1,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por2,1): - w(rec12) + l(rec12,por2,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por2,2): - w(rec12) + l(rec12,por2,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por2,3): - w(rec12) + l(rec12,por2,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por2,4): - w(rec12) + l(rec12,por2,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por2,5): - w(rec12) + l(rec12,por2,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por2,6): - w(rec12) + l(rec12,por2,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por2,7): - w(rec12) + l(rec12,por2,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por2,8): - w(rec12) + l(rec12,por2,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por3,1): - w(rec12) + l(rec12,por3,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por3,2): - w(rec12) + l(rec12,por3,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por3,3): - w(rec12) + l(rec12,por3,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por3,4): - w(rec12) + l(rec12,por3,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por3,5): - w(rec12) + l(rec12,por3,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por3,6): - w(rec12) + l(rec12,por3,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por3,7): - w(rec12) + l(rec12,por3,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por3,8): - w(rec12) + l(rec12,por3,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por4,1): - w(rec12) + l(rec12,por4,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por4,2): - w(rec12) + l(rec12,por4,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por4,3): - w(rec12) + l(rec12,por4,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por4,4): - w(rec12) + l(rec12,por4,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por4,5): - w(rec12) + l(rec12,por4,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por4,6): - w(rec12) + l(rec12,por4,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por4,7): - w(rec12) + l(rec12,por4,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por4,8): - w(rec12) + l(rec12,por4,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por5,1): - w(rec12) + l(rec12,por5,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por5,2): - w(rec12) + l(rec12,por5,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por5,3): - w(rec12) + l(rec12,por5,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por5,4): - w(rec12) + l(rec12,por5,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por5,5): - w(rec12) + l(rec12,por5,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por5,6): - w(rec12) + l(rec12,por5,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por5,7): - w(rec12) + l(rec12,por5,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por5,8): - w(rec12) + l(rec12,por5,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por6,1): - w(rec12) + l(rec12,por6,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por6,2): - w(rec12) + l(rec12,por6,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por6,3): - w(rec12) + l(rec12,por6,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por6,4): - w(rec12) + l(rec12,por6,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por6,5): - w(rec12) + l(rec12,por6,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por6,6): - w(rec12) + l(rec12,por6,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por6,7): - w(rec12) + l(rec12,por6,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por6,8): - w(rec12) + l(rec12,por6,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por7,1): - w(rec12) + l(rec12,por7,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por7,2): - w(rec12) + l(rec12,por7,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por7,3): - w(rec12) + l(rec12,por7,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por7,4): - w(rec12) + l(rec12,por7,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por7,5): - w(rec12) + l(rec12,por7,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por7,6): - w(rec12) + l(rec12,por7,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por7,7): - w(rec12) + l(rec12,por7,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por7,8): - w(rec12) + l(rec12,por7,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por8,1): - w(rec12) + l(rec12,por8,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por8,2): - w(rec12) + l(rec12,por8,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por8,3): - w(rec12) + l(rec12,por8,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por8,4): - w(rec12) + l(rec12,por8,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por8,5): - w(rec12) + l(rec12,por8,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por8,6): - w(rec12) + l(rec12,por8,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por8,7): - w(rec12) + l(rec12,por8,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por8,8): - w(rec12) + l(rec12,por8,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por9,1): - w(rec12) + l(rec12,por9,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por9,2): - w(rec12) + l(rec12,por9,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por9,3): - w(rec12) + l(rec12,por9,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por9,4): - w(rec12) + l(rec12,por9,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por9,5): - w(rec12) + l(rec12,por9,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por9,6): - w(rec12) + l(rec12,por9,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por9,7): - w(rec12) + l(rec12,por9,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por9,8): - w(rec12) + l(rec12,por9,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec12,por10,1): - w(rec12)
+ + l(rec12,por10,1) <= 1
+ maxCoverageDueToRegionWidth(rec12,por10,2): - w(rec12)
+ + l(rec12,por10,2) <= 1
+ maxCoverageDueToRegionWidth(rec12,por10,3): - w(rec12)
+ + l(rec12,por10,3) <= 1
+ maxCoverageDueToRegionWidth(rec12,por10,4): - w(rec12)
+ + l(rec12,por10,4) <= 1
+ maxCoverageDueToRegionWidth(rec12,por10,5): - w(rec12)
+ + l(rec12,por10,5) <= 1
+ maxCoverageDueToRegionWidth(rec12,por10,6): - w(rec12)
+ + l(rec12,por10,6) <= 1
+ maxCoverageDueToRegionWidth(rec12,por10,7): - w(rec12)
+ + l(rec12,por10,7) <= 1
+ maxCoverageDueToRegionWidth(rec12,por10,8): - w(rec12)
+ + l(rec12,por10,8) <= 1
+ maxCoverageDueToRegionWidth(rec12,por11,1): - w(rec12)
+ + l(rec12,por11,1) <= 1
+ maxCoverageDueToRegionWidth(rec12,por11,2): - w(rec12)
+ + l(rec12,por11,2) <= 1
+ maxCoverageDueToRegionWidth(rec12,por11,3): - w(rec12)
+ + l(rec12,por11,3) <= 1
+ maxCoverageDueToRegionWidth(rec12,por11,4): - w(rec12)
+ + l(rec12,por11,4) <= 1
+ maxCoverageDueToRegionWidth(rec12,por11,5): - w(rec12)
+ + l(rec12,por11,5) <= 1
+ maxCoverageDueToRegionWidth(rec12,por11,6): - w(rec12)
+ + l(rec12,por11,6) <= 1
+ maxCoverageDueToRegionWidth(rec12,por11,7): - w(rec12)
+ + l(rec12,por11,7) <= 1
+ maxCoverageDueToRegionWidth(rec12,por11,8): - w(rec12)
+ + l(rec12,por11,8) <= 1
+ maxCoverageDueToRegionWidth(rec12,por12,1): - w(rec12)
+ + l(rec12,por12,1) <= 1
+ maxCoverageDueToRegionWidth(rec12,por12,2): - w(rec12)
+ + l(rec12,por12,2) <= 1
+ maxCoverageDueToRegionWidth(rec12,por12,3): - w(rec12)
+ + l(rec12,por12,3) <= 1
+ maxCoverageDueToRegionWidth(rec12,por12,4): - w(rec12)
+ + l(rec12,por12,4) <= 1
+ maxCoverageDueToRegionWidth(rec12,por12,5): - w(rec12)
+ + l(rec12,por12,5) <= 1
+ maxCoverageDueToRegionWidth(rec12,por12,6): - w(rec12)
+ + l(rec12,por12,6) <= 1
+ maxCoverageDueToRegionWidth(rec12,por12,7): - w(rec12)
+ + l(rec12,por12,7) <= 1
+ maxCoverageDueToRegionWidth(rec12,por12,8): - w(rec12)
+ + l(rec12,por12,8) <= 1
+ maxCoverageDueToRegionWidth(rec12,por13,1): - w(rec12)
+ + l(rec12,por13,1) <= 1
+ maxCoverageDueToRegionWidth(rec12,por13,2): - w(rec12)
+ + l(rec12,por13,2) <= 1
+ maxCoverageDueToRegionWidth(rec12,por13,3): - w(rec12)
+ + l(rec12,por13,3) <= 1
+ maxCoverageDueToRegionWidth(rec12,por13,4): - w(rec12)
+ + l(rec12,por13,4) <= 1
+ maxCoverageDueToRegionWidth(rec12,por13,5): - w(rec12)
+ + l(rec12,por13,5) <= 1
+ maxCoverageDueToRegionWidth(rec12,por13,6): - w(rec12)
+ + l(rec12,por13,6) <= 1
+ maxCoverageDueToRegionWidth(rec12,por13,7): - w(rec12)
+ + l(rec12,por13,7) <= 1
+ maxCoverageDueToRegionWidth(rec12,por13,8): - w(rec12)
+ + l(rec12,por13,8) <= 1
+ maxCoverageDueToRegionWidth(rec12,por14,1): - w(rec12)
+ + l(rec12,por14,1) <= 1
+ maxCoverageDueToRegionWidth(rec12,por14,2): - w(rec12)
+ + l(rec12,por14,2) <= 1
+ maxCoverageDueToRegionWidth(rec12,por14,3): - w(rec12)
+ + l(rec12,por14,3) <= 1
+ maxCoverageDueToRegionWidth(rec12,por14,4): - w(rec12)
+ + l(rec12,por14,4) <= 1
+ maxCoverageDueToRegionWidth(rec12,por14,5): - w(rec12)
+ + l(rec12,por14,5) <= 1
+ maxCoverageDueToRegionWidth(rec12,por14,6): - w(rec12)
+ + l(rec12,por14,6) <= 1
+ maxCoverageDueToRegionWidth(rec12,por14,7): - w(rec12)
+ + l(rec12,por14,7) <= 1
+ maxCoverageDueToRegionWidth(rec12,por14,8): - w(rec12)
+ + l(rec12,por14,8) <= 1
+ maxCoverageDueToRegionWidth(rec12,por15,1): - w(rec12)
+ + l(rec12,por15,1) <= 1
+ maxCoverageDueToRegionWidth(rec12,por15,2): - w(rec12)
+ + l(rec12,por15,2) <= 1
+ maxCoverageDueToRegionWidth(rec12,por15,3): - w(rec12)
+ + l(rec12,por15,3) <= 1
+ maxCoverageDueToRegionWidth(rec12,por15,4): - w(rec12)
+ + l(rec12,por15,4) <= 1
+ maxCoverageDueToRegionWidth(rec12,por15,5): - w(rec12)
+ + l(rec12,por15,5) <= 1
+ maxCoverageDueToRegionWidth(rec12,por15,6): - w(rec12)
+ + l(rec12,por15,6) <= 1
+ maxCoverageDueToRegionWidth(rec12,por15,7): - w(rec12)
+ + l(rec12,por15,7) <= 1
+ maxCoverageDueToRegionWidth(rec12,por15,8): - w(rec12)
+ + l(rec12,por15,8) <= 1
+ maxCoverageDueToRegionWidth(rec13,por1,1): - w(rec13) + l(rec13,por1,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por1,2): - w(rec13) + l(rec13,por1,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por1,3): - w(rec13) + l(rec13,por1,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por1,4): - w(rec13) + l(rec13,por1,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por1,5): - w(rec13) + l(rec13,por1,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por1,6): - w(rec13) + l(rec13,por1,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por1,7): - w(rec13) + l(rec13,por1,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por1,8): - w(rec13) + l(rec13,por1,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por2,1): - w(rec13) + l(rec13,por2,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por2,2): - w(rec13) + l(rec13,por2,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por2,3): - w(rec13) + l(rec13,por2,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por2,4): - w(rec13) + l(rec13,por2,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por2,5): - w(rec13) + l(rec13,por2,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por2,6): - w(rec13) + l(rec13,por2,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por2,7): - w(rec13) + l(rec13,por2,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por2,8): - w(rec13) + l(rec13,por2,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por3,1): - w(rec13) + l(rec13,por3,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por3,2): - w(rec13) + l(rec13,por3,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por3,3): - w(rec13) + l(rec13,por3,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por3,4): - w(rec13) + l(rec13,por3,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por3,5): - w(rec13) + l(rec13,por3,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por3,6): - w(rec13) + l(rec13,por3,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por3,7): - w(rec13) + l(rec13,por3,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por3,8): - w(rec13) + l(rec13,por3,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por4,1): - w(rec13) + l(rec13,por4,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por4,2): - w(rec13) + l(rec13,por4,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por4,3): - w(rec13) + l(rec13,por4,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por4,4): - w(rec13) + l(rec13,por4,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por4,5): - w(rec13) + l(rec13,por4,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por4,6): - w(rec13) + l(rec13,por4,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por4,7): - w(rec13) + l(rec13,por4,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por4,8): - w(rec13) + l(rec13,por4,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por5,1): - w(rec13) + l(rec13,por5,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por5,2): - w(rec13) + l(rec13,por5,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por5,3): - w(rec13) + l(rec13,por5,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por5,4): - w(rec13) + l(rec13,por5,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por5,5): - w(rec13) + l(rec13,por5,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por5,6): - w(rec13) + l(rec13,por5,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por5,7): - w(rec13) + l(rec13,por5,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por5,8): - w(rec13) + l(rec13,por5,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por6,1): - w(rec13) + l(rec13,por6,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por6,2): - w(rec13) + l(rec13,por6,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por6,3): - w(rec13) + l(rec13,por6,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por6,4): - w(rec13) + l(rec13,por6,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por6,5): - w(rec13) + l(rec13,por6,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por6,6): - w(rec13) + l(rec13,por6,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por6,7): - w(rec13) + l(rec13,por6,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por6,8): - w(rec13) + l(rec13,por6,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por7,1): - w(rec13) + l(rec13,por7,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por7,2): - w(rec13) + l(rec13,por7,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por7,3): - w(rec13) + l(rec13,por7,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por7,4): - w(rec13) + l(rec13,por7,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por7,5): - w(rec13) + l(rec13,por7,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por7,6): - w(rec13) + l(rec13,por7,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por7,7): - w(rec13) + l(rec13,por7,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por7,8): - w(rec13) + l(rec13,por7,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por8,1): - w(rec13) + l(rec13,por8,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por8,2): - w(rec13) + l(rec13,por8,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por8,3): - w(rec13) + l(rec13,por8,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por8,4): - w(rec13) + l(rec13,por8,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por8,5): - w(rec13) + l(rec13,por8,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por8,6): - w(rec13) + l(rec13,por8,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por8,7): - w(rec13) + l(rec13,por8,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por8,8): - w(rec13) + l(rec13,por8,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por9,1): - w(rec13) + l(rec13,por9,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por9,2): - w(rec13) + l(rec13,por9,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por9,3): - w(rec13) + l(rec13,por9,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por9,4): - w(rec13) + l(rec13,por9,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por9,5): - w(rec13) + l(rec13,por9,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por9,6): - w(rec13) + l(rec13,por9,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por9,7): - w(rec13) + l(rec13,por9,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por9,8): - w(rec13) + l(rec13,por9,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec13,por10,1): - w(rec13)
+ + l(rec13,por10,1) <= 1
+ maxCoverageDueToRegionWidth(rec13,por10,2): - w(rec13)
+ + l(rec13,por10,2) <= 1
+ maxCoverageDueToRegionWidth(rec13,por10,3): - w(rec13)
+ + l(rec13,por10,3) <= 1
+ maxCoverageDueToRegionWidth(rec13,por10,4): - w(rec13)
+ + l(rec13,por10,4) <= 1
+ maxCoverageDueToRegionWidth(rec13,por10,5): - w(rec13)
+ + l(rec13,por10,5) <= 1
+ maxCoverageDueToRegionWidth(rec13,por10,6): - w(rec13)
+ + l(rec13,por10,6) <= 1
+ maxCoverageDueToRegionWidth(rec13,por10,7): - w(rec13)
+ + l(rec13,por10,7) <= 1
+ maxCoverageDueToRegionWidth(rec13,por10,8): - w(rec13)
+ + l(rec13,por10,8) <= 1
+ maxCoverageDueToRegionWidth(rec13,por11,1): - w(rec13)
+ + l(rec13,por11,1) <= 1
+ maxCoverageDueToRegionWidth(rec13,por11,2): - w(rec13)
+ + l(rec13,por11,2) <= 1
+ maxCoverageDueToRegionWidth(rec13,por11,3): - w(rec13)
+ + l(rec13,por11,3) <= 1
+ maxCoverageDueToRegionWidth(rec13,por11,4): - w(rec13)
+ + l(rec13,por11,4) <= 1
+ maxCoverageDueToRegionWidth(rec13,por11,5): - w(rec13)
+ + l(rec13,por11,5) <= 1
+ maxCoverageDueToRegionWidth(rec13,por11,6): - w(rec13)
+ + l(rec13,por11,6) <= 1
+ maxCoverageDueToRegionWidth(rec13,por11,7): - w(rec13)
+ + l(rec13,por11,7) <= 1
+ maxCoverageDueToRegionWidth(rec13,por11,8): - w(rec13)
+ + l(rec13,por11,8) <= 1
+ maxCoverageDueToRegionWidth(rec13,por12,1): - w(rec13)
+ + l(rec13,por12,1) <= 1
+ maxCoverageDueToRegionWidth(rec13,por12,2): - w(rec13)
+ + l(rec13,por12,2) <= 1
+ maxCoverageDueToRegionWidth(rec13,por12,3): - w(rec13)
+ + l(rec13,por12,3) <= 1
+ maxCoverageDueToRegionWidth(rec13,por12,4): - w(rec13)
+ + l(rec13,por12,4) <= 1
+ maxCoverageDueToRegionWidth(rec13,por12,5): - w(rec13)
+ + l(rec13,por12,5) <= 1
+ maxCoverageDueToRegionWidth(rec13,por12,6): - w(rec13)
+ + l(rec13,por12,6) <= 1
+ maxCoverageDueToRegionWidth(rec13,por12,7): - w(rec13)
+ + l(rec13,por12,7) <= 1
+ maxCoverageDueToRegionWidth(rec13,por12,8): - w(rec13)
+ + l(rec13,por12,8) <= 1
+ maxCoverageDueToRegionWidth(rec13,por13,1): - w(rec13)
+ + l(rec13,por13,1) <= 1
+ maxCoverageDueToRegionWidth(rec13,por13,2): - w(rec13)
+ + l(rec13,por13,2) <= 1
+ maxCoverageDueToRegionWidth(rec13,por13,3): - w(rec13)
+ + l(rec13,por13,3) <= 1
+ maxCoverageDueToRegionWidth(rec13,por13,4): - w(rec13)
+ + l(rec13,por13,4) <= 1
+ maxCoverageDueToRegionWidth(rec13,por13,5): - w(rec13)
+ + l(rec13,por13,5) <= 1
+ maxCoverageDueToRegionWidth(rec13,por13,6): - w(rec13)
+ + l(rec13,por13,6) <= 1
+ maxCoverageDueToRegionWidth(rec13,por13,7): - w(rec13)
+ + l(rec13,por13,7) <= 1
+ maxCoverageDueToRegionWidth(rec13,por13,8): - w(rec13)
+ + l(rec13,por13,8) <= 1
+ maxCoverageDueToRegionWidth(rec13,por14,1): - w(rec13)
+ + l(rec13,por14,1) <= 1
+ maxCoverageDueToRegionWidth(rec13,por14,2): - w(rec13)
+ + l(rec13,por14,2) <= 1
+ maxCoverageDueToRegionWidth(rec13,por14,3): - w(rec13)
+ + l(rec13,por14,3) <= 1
+ maxCoverageDueToRegionWidth(rec13,por14,4): - w(rec13)
+ + l(rec13,por14,4) <= 1
+ maxCoverageDueToRegionWidth(rec13,por14,5): - w(rec13)
+ + l(rec13,por14,5) <= 1
+ maxCoverageDueToRegionWidth(rec13,por14,6): - w(rec13)
+ + l(rec13,por14,6) <= 1
+ maxCoverageDueToRegionWidth(rec13,por14,7): - w(rec13)
+ + l(rec13,por14,7) <= 1
+ maxCoverageDueToRegionWidth(rec13,por14,8): - w(rec13)
+ + l(rec13,por14,8) <= 1
+ maxCoverageDueToRegionWidth(rec13,por15,1): - w(rec13)
+ + l(rec13,por15,1) <= 1
+ maxCoverageDueToRegionWidth(rec13,por15,2): - w(rec13)
+ + l(rec13,por15,2) <= 1
+ maxCoverageDueToRegionWidth(rec13,por15,3): - w(rec13)
+ + l(rec13,por15,3) <= 1
+ maxCoverageDueToRegionWidth(rec13,por15,4): - w(rec13)
+ + l(rec13,por15,4) <= 1
+ maxCoverageDueToRegionWidth(rec13,por15,5): - w(rec13)
+ + l(rec13,por15,5) <= 1
+ maxCoverageDueToRegionWidth(rec13,por15,6): - w(rec13)
+ + l(rec13,por15,6) <= 1
+ maxCoverageDueToRegionWidth(rec13,por15,7): - w(rec13)
+ + l(rec13,por15,7) <= 1
+ maxCoverageDueToRegionWidth(rec13,por15,8): - w(rec13)
+ + l(rec13,por15,8) <= 1
+ maxCoverageDueToRegionWidth(rec14,por1,1): - w(rec14) + l(rec14,por1,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por1,2): - w(rec14) + l(rec14,por1,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por1,3): - w(rec14) + l(rec14,por1,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por1,4): - w(rec14) + l(rec14,por1,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por1,5): - w(rec14) + l(rec14,por1,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por1,6): - w(rec14) + l(rec14,por1,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por1,7): - w(rec14) + l(rec14,por1,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por1,8): - w(rec14) + l(rec14,por1,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por2,1): - w(rec14) + l(rec14,por2,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por2,2): - w(rec14) + l(rec14,por2,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por2,3): - w(rec14) + l(rec14,por2,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por2,4): - w(rec14) + l(rec14,por2,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por2,5): - w(rec14) + l(rec14,por2,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por2,6): - w(rec14) + l(rec14,por2,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por2,7): - w(rec14) + l(rec14,por2,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por2,8): - w(rec14) + l(rec14,por2,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por3,1): - w(rec14) + l(rec14,por3,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por3,2): - w(rec14) + l(rec14,por3,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por3,3): - w(rec14) + l(rec14,por3,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por3,4): - w(rec14) + l(rec14,por3,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por3,5): - w(rec14) + l(rec14,por3,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por3,6): - w(rec14) + l(rec14,por3,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por3,7): - w(rec14) + l(rec14,por3,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por3,8): - w(rec14) + l(rec14,por3,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por4,1): - w(rec14) + l(rec14,por4,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por4,2): - w(rec14) + l(rec14,por4,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por4,3): - w(rec14) + l(rec14,por4,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por4,4): - w(rec14) + l(rec14,por4,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por4,5): - w(rec14) + l(rec14,por4,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por4,6): - w(rec14) + l(rec14,por4,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por4,7): - w(rec14) + l(rec14,por4,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por4,8): - w(rec14) + l(rec14,por4,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por5,1): - w(rec14) + l(rec14,por5,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por5,2): - w(rec14) + l(rec14,por5,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por5,3): - w(rec14) + l(rec14,por5,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por5,4): - w(rec14) + l(rec14,por5,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por5,5): - w(rec14) + l(rec14,por5,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por5,6): - w(rec14) + l(rec14,por5,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por5,7): - w(rec14) + l(rec14,por5,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por5,8): - w(rec14) + l(rec14,por5,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por6,1): - w(rec14) + l(rec14,por6,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por6,2): - w(rec14) + l(rec14,por6,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por6,3): - w(rec14) + l(rec14,por6,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por6,4): - w(rec14) + l(rec14,por6,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por6,5): - w(rec14) + l(rec14,por6,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por6,6): - w(rec14) + l(rec14,por6,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por6,7): - w(rec14) + l(rec14,por6,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por6,8): - w(rec14) + l(rec14,por6,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por7,1): - w(rec14) + l(rec14,por7,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por7,2): - w(rec14) + l(rec14,por7,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por7,3): - w(rec14) + l(rec14,por7,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por7,4): - w(rec14) + l(rec14,por7,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por7,5): - w(rec14) + l(rec14,por7,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por7,6): - w(rec14) + l(rec14,por7,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por7,7): - w(rec14) + l(rec14,por7,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por7,8): - w(rec14) + l(rec14,por7,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por8,1): - w(rec14) + l(rec14,por8,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por8,2): - w(rec14) + l(rec14,por8,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por8,3): - w(rec14) + l(rec14,por8,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por8,4): - w(rec14) + l(rec14,por8,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por8,5): - w(rec14) + l(rec14,por8,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por8,6): - w(rec14) + l(rec14,por8,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por8,7): - w(rec14) + l(rec14,por8,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por8,8): - w(rec14) + l(rec14,por8,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por9,1): - w(rec14) + l(rec14,por9,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por9,2): - w(rec14) + l(rec14,por9,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por9,3): - w(rec14) + l(rec14,por9,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por9,4): - w(rec14) + l(rec14,por9,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por9,5): - w(rec14) + l(rec14,por9,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por9,6): - w(rec14) + l(rec14,por9,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por9,7): - w(rec14) + l(rec14,por9,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por9,8): - w(rec14) + l(rec14,por9,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec14,por10,1): - w(rec14)
+ + l(rec14,por10,1) <= 1
+ maxCoverageDueToRegionWidth(rec14,por10,2): - w(rec14)
+ + l(rec14,por10,2) <= 1
+ maxCoverageDueToRegionWidth(rec14,por10,3): - w(rec14)
+ + l(rec14,por10,3) <= 1
+ maxCoverageDueToRegionWidth(rec14,por10,4): - w(rec14)
+ + l(rec14,por10,4) <= 1
+ maxCoverageDueToRegionWidth(rec14,por10,5): - w(rec14)
+ + l(rec14,por10,5) <= 1
+ maxCoverageDueToRegionWidth(rec14,por10,6): - w(rec14)
+ + l(rec14,por10,6) <= 1
+ maxCoverageDueToRegionWidth(rec14,por10,7): - w(rec14)
+ + l(rec14,por10,7) <= 1
+ maxCoverageDueToRegionWidth(rec14,por10,8): - w(rec14)
+ + l(rec14,por10,8) <= 1
+ maxCoverageDueToRegionWidth(rec14,por11,1): - w(rec14)
+ + l(rec14,por11,1) <= 1
+ maxCoverageDueToRegionWidth(rec14,por11,2): - w(rec14)
+ + l(rec14,por11,2) <= 1
+ maxCoverageDueToRegionWidth(rec14,por11,3): - w(rec14)
+ + l(rec14,por11,3) <= 1
+ maxCoverageDueToRegionWidth(rec14,por11,4): - w(rec14)
+ + l(rec14,por11,4) <= 1
+ maxCoverageDueToRegionWidth(rec14,por11,5): - w(rec14)
+ + l(rec14,por11,5) <= 1
+ maxCoverageDueToRegionWidth(rec14,por11,6): - w(rec14)
+ + l(rec14,por11,6) <= 1
+ maxCoverageDueToRegionWidth(rec14,por11,7): - w(rec14)
+ + l(rec14,por11,7) <= 1
+ maxCoverageDueToRegionWidth(rec14,por11,8): - w(rec14)
+ + l(rec14,por11,8) <= 1
+ maxCoverageDueToRegionWidth(rec14,por12,1): - w(rec14)
+ + l(rec14,por12,1) <= 1
+ maxCoverageDueToRegionWidth(rec14,por12,2): - w(rec14)
+ + l(rec14,por12,2) <= 1
+ maxCoverageDueToRegionWidth(rec14,por12,3): - w(rec14)
+ + l(rec14,por12,3) <= 1
+ maxCoverageDueToRegionWidth(rec14,por12,4): - w(rec14)
+ + l(rec14,por12,4) <= 1
+ maxCoverageDueToRegionWidth(rec14,por12,5): - w(rec14)
+ + l(rec14,por12,5) <= 1
+ maxCoverageDueToRegionWidth(rec14,por12,6): - w(rec14)
+ + l(rec14,por12,6) <= 1
+ maxCoverageDueToRegionWidth(rec14,por12,7): - w(rec14)
+ + l(rec14,por12,7) <= 1
+ maxCoverageDueToRegionWidth(rec14,por12,8): - w(rec14)
+ + l(rec14,por12,8) <= 1
+ maxCoverageDueToRegionWidth(rec14,por13,1): - w(rec14)
+ + l(rec14,por13,1) <= 1
+ maxCoverageDueToRegionWidth(rec14,por13,2): - w(rec14)
+ + l(rec14,por13,2) <= 1
+ maxCoverageDueToRegionWidth(rec14,por13,3): - w(rec14)
+ + l(rec14,por13,3) <= 1
+ maxCoverageDueToRegionWidth(rec14,por13,4): - w(rec14)
+ + l(rec14,por13,4) <= 1
+ maxCoverageDueToRegionWidth(rec14,por13,5): - w(rec14)
+ + l(rec14,por13,5) <= 1
+ maxCoverageDueToRegionWidth(rec14,por13,6): - w(rec14)
+ + l(rec14,por13,6) <= 1
+ maxCoverageDueToRegionWidth(rec14,por13,7): - w(rec14)
+ + l(rec14,por13,7) <= 1
+ maxCoverageDueToRegionWidth(rec14,por13,8): - w(rec14)
+ + l(rec14,por13,8) <= 1
+ maxCoverageDueToRegionWidth(rec14,por14,1): - w(rec14)
+ + l(rec14,por14,1) <= 1
+ maxCoverageDueToRegionWidth(rec14,por14,2): - w(rec14)
+ + l(rec14,por14,2) <= 1
+ maxCoverageDueToRegionWidth(rec14,por14,3): - w(rec14)
+ + l(rec14,por14,3) <= 1
+ maxCoverageDueToRegionWidth(rec14,por14,4): - w(rec14)
+ + l(rec14,por14,4) <= 1
+ maxCoverageDueToRegionWidth(rec14,por14,5): - w(rec14)
+ + l(rec14,por14,5) <= 1
+ maxCoverageDueToRegionWidth(rec14,por14,6): - w(rec14)
+ + l(rec14,por14,6) <= 1
+ maxCoverageDueToRegionWidth(rec14,por14,7): - w(rec14)
+ + l(rec14,por14,7) <= 1
+ maxCoverageDueToRegionWidth(rec14,por14,8): - w(rec14)
+ + l(rec14,por14,8) <= 1
+ maxCoverageDueToRegionWidth(rec14,por15,1): - w(rec14)
+ + l(rec14,por15,1) <= 1
+ maxCoverageDueToRegionWidth(rec14,por15,2): - w(rec14)
+ + l(rec14,por15,2) <= 1
+ maxCoverageDueToRegionWidth(rec14,por15,3): - w(rec14)
+ + l(rec14,por15,3) <= 1
+ maxCoverageDueToRegionWidth(rec14,por15,4): - w(rec14)
+ + l(rec14,por15,4) <= 1
+ maxCoverageDueToRegionWidth(rec14,por15,5): - w(rec14)
+ + l(rec14,por15,5) <= 1
+ maxCoverageDueToRegionWidth(rec14,por15,6): - w(rec14)
+ + l(rec14,por15,6) <= 1
+ maxCoverageDueToRegionWidth(rec14,por15,7): - w(rec14)
+ + l(rec14,por15,7) <= 1
+ maxCoverageDueToRegionWidth(rec14,por15,8): - w(rec14)
+ + l(rec14,por15,8) <= 1
+ maxCoverageDueToRegionWidth(rec15,por1,1): - w(rec15) + l(rec15,por1,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por1,2): - w(rec15) + l(rec15,por1,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por1,3): - w(rec15) + l(rec15,por1,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por1,4): - w(rec15) + l(rec15,por1,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por1,5): - w(rec15) + l(rec15,por1,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por1,6): - w(rec15) + l(rec15,por1,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por1,7): - w(rec15) + l(rec15,por1,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por1,8): - w(rec15) + l(rec15,por1,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por2,1): - w(rec15) + l(rec15,por2,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por2,2): - w(rec15) + l(rec15,por2,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por2,3): - w(rec15) + l(rec15,por2,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por2,4): - w(rec15) + l(rec15,por2,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por2,5): - w(rec15) + l(rec15,por2,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por2,6): - w(rec15) + l(rec15,por2,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por2,7): - w(rec15) + l(rec15,por2,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por2,8): - w(rec15) + l(rec15,por2,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por3,1): - w(rec15) + l(rec15,por3,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por3,2): - w(rec15) + l(rec15,por3,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por3,3): - w(rec15) + l(rec15,por3,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por3,4): - w(rec15) + l(rec15,por3,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por3,5): - w(rec15) + l(rec15,por3,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por3,6): - w(rec15) + l(rec15,por3,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por3,7): - w(rec15) + l(rec15,por3,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por3,8): - w(rec15) + l(rec15,por3,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por4,1): - w(rec15) + l(rec15,por4,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por4,2): - w(rec15) + l(rec15,por4,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por4,3): - w(rec15) + l(rec15,por4,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por4,4): - w(rec15) + l(rec15,por4,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por4,5): - w(rec15) + l(rec15,por4,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por4,6): - w(rec15) + l(rec15,por4,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por4,7): - w(rec15) + l(rec15,por4,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por4,8): - w(rec15) + l(rec15,por4,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por5,1): - w(rec15) + l(rec15,por5,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por5,2): - w(rec15) + l(rec15,por5,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por5,3): - w(rec15) + l(rec15,por5,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por5,4): - w(rec15) + l(rec15,por5,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por5,5): - w(rec15) + l(rec15,por5,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por5,6): - w(rec15) + l(rec15,por5,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por5,7): - w(rec15) + l(rec15,por5,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por5,8): - w(rec15) + l(rec15,por5,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por6,1): - w(rec15) + l(rec15,por6,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por6,2): - w(rec15) + l(rec15,por6,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por6,3): - w(rec15) + l(rec15,por6,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por6,4): - w(rec15) + l(rec15,por6,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por6,5): - w(rec15) + l(rec15,por6,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por6,6): - w(rec15) + l(rec15,por6,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por6,7): - w(rec15) + l(rec15,por6,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por6,8): - w(rec15) + l(rec15,por6,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por7,1): - w(rec15) + l(rec15,por7,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por7,2): - w(rec15) + l(rec15,por7,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por7,3): - w(rec15) + l(rec15,por7,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por7,4): - w(rec15) + l(rec15,por7,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por7,5): - w(rec15) + l(rec15,por7,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por7,6): - w(rec15) + l(rec15,por7,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por7,7): - w(rec15) + l(rec15,por7,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por7,8): - w(rec15) + l(rec15,por7,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por8,1): - w(rec15) + l(rec15,por8,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por8,2): - w(rec15) + l(rec15,por8,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por8,3): - w(rec15) + l(rec15,por8,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por8,4): - w(rec15) + l(rec15,por8,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por8,5): - w(rec15) + l(rec15,por8,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por8,6): - w(rec15) + l(rec15,por8,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por8,7): - w(rec15) + l(rec15,por8,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por8,8): - w(rec15) + l(rec15,por8,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por9,1): - w(rec15) + l(rec15,por9,1)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por9,2): - w(rec15) + l(rec15,por9,2)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por9,3): - w(rec15) + l(rec15,por9,3)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por9,4): - w(rec15) + l(rec15,por9,4)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por9,5): - w(rec15) + l(rec15,por9,5)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por9,6): - w(rec15) + l(rec15,por9,6)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por9,7): - w(rec15) + l(rec15,por9,7)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por9,8): - w(rec15) + l(rec15,por9,8)
+ <= 1
+ maxCoverageDueToRegionWidth(rec15,por10,1): - w(rec15)
+ + l(rec15,por10,1) <= 1
+ maxCoverageDueToRegionWidth(rec15,por10,2): - w(rec15)
+ + l(rec15,por10,2) <= 1
+ maxCoverageDueToRegionWidth(rec15,por10,3): - w(rec15)
+ + l(rec15,por10,3) <= 1
+ maxCoverageDueToRegionWidth(rec15,por10,4): - w(rec15)
+ + l(rec15,por10,4) <= 1
+ maxCoverageDueToRegionWidth(rec15,por10,5): - w(rec15)
+ + l(rec15,por10,5) <= 1
+ maxCoverageDueToRegionWidth(rec15,por10,6): - w(rec15)
+ + l(rec15,por10,6) <= 1
+ maxCoverageDueToRegionWidth(rec15,por10,7): - w(rec15)
+ + l(rec15,por10,7) <= 1
+ maxCoverageDueToRegionWidth(rec15,por10,8): - w(rec15)
+ + l(rec15,por10,8) <= 1
+ maxCoverageDueToRegionWidth(rec15,por11,1): - w(rec15)
+ + l(rec15,por11,1) <= 1
+ maxCoverageDueToRegionWidth(rec15,por11,2): - w(rec15)
+ + l(rec15,por11,2) <= 1
+ maxCoverageDueToRegionWidth(rec15,por11,3): - w(rec15)
+ + l(rec15,por11,3) <= 1
+ maxCoverageDueToRegionWidth(rec15,por11,4): - w(rec15)
+ + l(rec15,por11,4) <= 1
+ maxCoverageDueToRegionWidth(rec15,por11,5): - w(rec15)
+ + l(rec15,por11,5) <= 1
+ maxCoverageDueToRegionWidth(rec15,por11,6): - w(rec15)
+ + l(rec15,por11,6) <= 1
+ maxCoverageDueToRegionWidth(rec15,por11,7): - w(rec15)
+ + l(rec15,por11,7) <= 1
+ maxCoverageDueToRegionWidth(rec15,por11,8): - w(rec15)
+ + l(rec15,por11,8) <= 1
+ maxCoverageDueToRegionWidth(rec15,por12,1): - w(rec15)
+ + l(rec15,por12,1) <= 1
+ maxCoverageDueToRegionWidth(rec15,por12,2): - w(rec15)
+ + l(rec15,por12,2) <= 1
+ maxCoverageDueToRegionWidth(rec15,por12,3): - w(rec15)
+ + l(rec15,por12,3) <= 1
+ maxCoverageDueToRegionWidth(rec15,por12,4): - w(rec15)
+ + l(rec15,por12,4) <= 1
+ maxCoverageDueToRegionWidth(rec15,por12,5): - w(rec15)
+ + l(rec15,por12,5) <= 1
+ maxCoverageDueToRegionWidth(rec15,por12,6): - w(rec15)
+ + l(rec15,por12,6) <= 1
+ maxCoverageDueToRegionWidth(rec15,por12,7): - w(rec15)
+ + l(rec15,por12,7) <= 1
+ maxCoverageDueToRegionWidth(rec15,por12,8): - w(rec15)
+ + l(rec15,por12,8) <= 1
+ maxCoverageDueToRegionWidth(rec15,por13,1): - w(rec15)
+ + l(rec15,por13,1) <= 1
+ maxCoverageDueToRegionWidth(rec15,por13,2): - w(rec15)
+ + l(rec15,por13,2) <= 1
+ maxCoverageDueToRegionWidth(rec15,por13,3): - w(rec15)
+ + l(rec15,por13,3) <= 1
+ maxCoverageDueToRegionWidth(rec15,por13,4): - w(rec15)
+ + l(rec15,por13,4) <= 1
+ maxCoverageDueToRegionWidth(rec15,por13,5): - w(rec15)
+ + l(rec15,por13,5) <= 1
+ maxCoverageDueToRegionWidth(rec15,por13,6): - w(rec15)
+ + l(rec15,por13,6) <= 1
+ maxCoverageDueToRegionWidth(rec15,por13,7): - w(rec15)
+ + l(rec15,por13,7) <= 1
+ maxCoverageDueToRegionWidth(rec15,por13,8): - w(rec15)
+ + l(rec15,por13,8) <= 1
+ maxCoverageDueToRegionWidth(rec15,por14,1): - w(rec15)
+ + l(rec15,por14,1) <= 1
+ maxCoverageDueToRegionWidth(rec15,por14,2): - w(rec15)
+ + l(rec15,por14,2) <= 1
+ maxCoverageDueToRegionWidth(rec15,por14,3): - w(rec15)
+ + l(rec15,por14,3) <= 1
+ maxCoverageDueToRegionWidth(rec15,por14,4): - w(rec15)
+ + l(rec15,por14,4) <= 1
+ maxCoverageDueToRegionWidth(rec15,por14,5): - w(rec15)
+ + l(rec15,por14,5) <= 1
+ maxCoverageDueToRegionWidth(rec15,por14,6): - w(rec15)
+ + l(rec15,por14,6) <= 1
+ maxCoverageDueToRegionWidth(rec15,por14,7): - w(rec15)
+ + l(rec15,por14,7) <= 1
+ maxCoverageDueToRegionWidth(rec15,por14,8): - w(rec15)
+ + l(rec15,por14,8) <= 1
+ maxCoverageDueToRegionWidth(rec15,por15,1): - w(rec15)
+ + l(rec15,por15,1) <= 1
+ maxCoverageDueToRegionWidth(rec15,por15,2): - w(rec15)
+ + l(rec15,por15,2) <= 1
+ maxCoverageDueToRegionWidth(rec15,por15,3): - w(rec15)
+ + l(rec15,por15,3) <= 1
+ maxCoverageDueToRegionWidth(rec15,por15,4): - w(rec15)
+ + l(rec15,por15,4) <= 1
+ maxCoverageDueToRegionWidth(rec15,por15,5): - w(rec15)
+ + l(rec15,por15,5) <= 1
+ maxCoverageDueToRegionWidth(rec15,por15,6): - w(rec15)
+ + l(rec15,por15,6) <= 1
+ maxCoverageDueToRegionWidth(rec15,por15,7): - w(rec15)
+ + l(rec15,por15,7) <= 1
+ maxCoverageDueToRegionWidth(rec15,por15,8): - w(rec15)
+ + l(rec15,por15,8) <= 1
  maxCoverageDueToPortionWidth(rec1,por1,1): + l(rec1,por1,1) <= 4
  maxCoverageDueToPortionWidth(rec1,por1,2): + l(rec1,por1,2) <= 4
  maxCoverageDueToPortionWidth(rec1,por1,3): + l(rec1,por1,3) <= 4
@@ -11554,6 +18903,606 @@ Subject To
  maxCoverageDueToPortionWidth(rec10,por15,6): + l(rec10,por15,6) <= 4
  maxCoverageDueToPortionWidth(rec10,por15,7): + l(rec10,por15,7) <= 4
  maxCoverageDueToPortionWidth(rec10,por15,8): + l(rec10,por15,8) <= 4
+ maxCoverageDueToPortionWidth(rec11,por1,1): + l(rec11,por1,1) <= 4
+ maxCoverageDueToPortionWidth(rec11,por1,2): + l(rec11,por1,2) <= 4
+ maxCoverageDueToPortionWidth(rec11,por1,3): + l(rec11,por1,3) <= 4
+ maxCoverageDueToPortionWidth(rec11,por1,4): + l(rec11,por1,4) <= 4
+ maxCoverageDueToPortionWidth(rec11,por1,5): + l(rec11,por1,5) <= 4
+ maxCoverageDueToPortionWidth(rec11,por1,6): + l(rec11,por1,6) <= 4
+ maxCoverageDueToPortionWidth(rec11,por1,7): + l(rec11,por1,7) <= 4
+ maxCoverageDueToPortionWidth(rec11,por1,8): + l(rec11,por1,8) <= 4
+ maxCoverageDueToPortionWidth(rec11,por2,1): + l(rec11,por2,1) <= 1
+ maxCoverageDueToPortionWidth(rec11,por2,2): + l(rec11,por2,2) <= 1
+ maxCoverageDueToPortionWidth(rec11,por2,3): + l(rec11,por2,3) <= 1
+ maxCoverageDueToPortionWidth(rec11,por2,4): + l(rec11,por2,4) <= 1
+ maxCoverageDueToPortionWidth(rec11,por2,5): + l(rec11,por2,5) <= 1
+ maxCoverageDueToPortionWidth(rec11,por2,6): + l(rec11,por2,6) <= 1
+ maxCoverageDueToPortionWidth(rec11,por2,7): + l(rec11,por2,7) <= 1
+ maxCoverageDueToPortionWidth(rec11,por2,8): + l(rec11,por2,8) <= 1
+ maxCoverageDueToPortionWidth(rec11,por3,1): + l(rec11,por3,1) <= 10
+ maxCoverageDueToPortionWidth(rec11,por3,2): + l(rec11,por3,2) <= 10
+ maxCoverageDueToPortionWidth(rec11,por3,3): + l(rec11,por3,3) <= 10
+ maxCoverageDueToPortionWidth(rec11,por3,4): + l(rec11,por3,4) <= 10
+ maxCoverageDueToPortionWidth(rec11,por3,5): + l(rec11,por3,5) <= 10
+ maxCoverageDueToPortionWidth(rec11,por3,6): + l(rec11,por3,6) <= 10
+ maxCoverageDueToPortionWidth(rec11,por3,7): + l(rec11,por3,7) <= 10
+ maxCoverageDueToPortionWidth(rec11,por3,8): + l(rec11,por3,8) <= 10
+ maxCoverageDueToPortionWidth(rec11,por4,1): + l(rec11,por4,1) <= 1
+ maxCoverageDueToPortionWidth(rec11,por4,2): + l(rec11,por4,2) <= 1
+ maxCoverageDueToPortionWidth(rec11,por4,3): + l(rec11,por4,3) <= 1
+ maxCoverageDueToPortionWidth(rec11,por4,4): + l(rec11,por4,4) <= 1
+ maxCoverageDueToPortionWidth(rec11,por4,5): + l(rec11,por4,5) <= 1
+ maxCoverageDueToPortionWidth(rec11,por4,6): + l(rec11,por4,6) <= 1
+ maxCoverageDueToPortionWidth(rec11,por4,7): + l(rec11,por4,7) <= 1
+ maxCoverageDueToPortionWidth(rec11,por4,8): + l(rec11,por4,8) <= 1
+ maxCoverageDueToPortionWidth(rec11,por5,1): + l(rec11,por5,1) <= 2
+ maxCoverageDueToPortionWidth(rec11,por5,2): + l(rec11,por5,2) <= 2
+ maxCoverageDueToPortionWidth(rec11,por5,3): + l(rec11,por5,3) <= 2
+ maxCoverageDueToPortionWidth(rec11,por5,4): + l(rec11,por5,4) <= 2
+ maxCoverageDueToPortionWidth(rec11,por5,5): + l(rec11,por5,5) <= 2
+ maxCoverageDueToPortionWidth(rec11,por5,6): + l(rec11,por5,6) <= 2
+ maxCoverageDueToPortionWidth(rec11,por5,7): + l(rec11,por5,7) <= 2
+ maxCoverageDueToPortionWidth(rec11,por5,8): + l(rec11,por5,8) <= 2
+ maxCoverageDueToPortionWidth(rec11,por6,1): + l(rec11,por6,1) <= 1
+ maxCoverageDueToPortionWidth(rec11,por6,2): + l(rec11,por6,2) <= 1
+ maxCoverageDueToPortionWidth(rec11,por6,3): + l(rec11,por6,3) <= 1
+ maxCoverageDueToPortionWidth(rec11,por6,4): + l(rec11,por6,4) <= 1
+ maxCoverageDueToPortionWidth(rec11,por6,5): + l(rec11,por6,5) <= 1
+ maxCoverageDueToPortionWidth(rec11,por6,6): + l(rec11,por6,6) <= 1
+ maxCoverageDueToPortionWidth(rec11,por6,7): + l(rec11,por6,7) <= 1
+ maxCoverageDueToPortionWidth(rec11,por6,8): + l(rec11,por6,8) <= 1
+ maxCoverageDueToPortionWidth(rec11,por7,1): + l(rec11,por7,1) <= 8
+ maxCoverageDueToPortionWidth(rec11,por7,2): + l(rec11,por7,2) <= 8
+ maxCoverageDueToPortionWidth(rec11,por7,3): + l(rec11,por7,3) <= 8
+ maxCoverageDueToPortionWidth(rec11,por7,4): + l(rec11,por7,4) <= 8
+ maxCoverageDueToPortionWidth(rec11,por7,5): + l(rec11,por7,5) <= 8
+ maxCoverageDueToPortionWidth(rec11,por7,6): + l(rec11,por7,6) <= 8
+ maxCoverageDueToPortionWidth(rec11,por7,7): + l(rec11,por7,7) <= 8
+ maxCoverageDueToPortionWidth(rec11,por7,8): + l(rec11,por7,8) <= 8
+ maxCoverageDueToPortionWidth(rec11,por8,1): + l(rec11,por8,1) <= 1
+ maxCoverageDueToPortionWidth(rec11,por8,2): + l(rec11,por8,2) <= 1
+ maxCoverageDueToPortionWidth(rec11,por8,3): + l(rec11,por8,3) <= 1
+ maxCoverageDueToPortionWidth(rec11,por8,4): + l(rec11,por8,4) <= 1
+ maxCoverageDueToPortionWidth(rec11,por8,5): + l(rec11,por8,5) <= 1
+ maxCoverageDueToPortionWidth(rec11,por8,6): + l(rec11,por8,6) <= 1
+ maxCoverageDueToPortionWidth(rec11,por8,7): + l(rec11,por8,7) <= 1
+ maxCoverageDueToPortionWidth(rec11,por8,8): + l(rec11,por8,8) <= 1
+ maxCoverageDueToPortionWidth(rec11,por9,1): + l(rec11,por9,1) <= 12
+ maxCoverageDueToPortionWidth(rec11,por9,2): + l(rec11,por9,2) <= 12
+ maxCoverageDueToPortionWidth(rec11,por9,3): + l(rec11,por9,3) <= 12
+ maxCoverageDueToPortionWidth(rec11,por9,4): + l(rec11,por9,4) <= 12
+ maxCoverageDueToPortionWidth(rec11,por9,5): + l(rec11,por9,5) <= 12
+ maxCoverageDueToPortionWidth(rec11,por9,6): + l(rec11,por9,6) <= 12
+ maxCoverageDueToPortionWidth(rec11,por9,7): + l(rec11,por9,7) <= 12
+ maxCoverageDueToPortionWidth(rec11,por9,8): + l(rec11,por9,8) <= 12
+ maxCoverageDueToPortionWidth(rec11,por10,1): + l(rec11,por10,1) <= 1
+ maxCoverageDueToPortionWidth(rec11,por10,2): + l(rec11,por10,2) <= 1
+ maxCoverageDueToPortionWidth(rec11,por10,3): + l(rec11,por10,3) <= 1
+ maxCoverageDueToPortionWidth(rec11,por10,4): + l(rec11,por10,4) <= 1
+ maxCoverageDueToPortionWidth(rec11,por10,5): + l(rec11,por10,5) <= 1
+ maxCoverageDueToPortionWidth(rec11,por10,6): + l(rec11,por10,6) <= 1
+ maxCoverageDueToPortionWidth(rec11,por10,7): + l(rec11,por10,7) <= 1
+ maxCoverageDueToPortionWidth(rec11,por10,8): + l(rec11,por10,8) <= 1
+ maxCoverageDueToPortionWidth(rec11,por11,1): + l(rec11,por11,1) <= 10
+ maxCoverageDueToPortionWidth(rec11,por11,2): + l(rec11,por11,2) <= 10
+ maxCoverageDueToPortionWidth(rec11,por11,3): + l(rec11,por11,3) <= 10
+ maxCoverageDueToPortionWidth(rec11,por11,4): + l(rec11,por11,4) <= 10
+ maxCoverageDueToPortionWidth(rec11,por11,5): + l(rec11,por11,5) <= 10
+ maxCoverageDueToPortionWidth(rec11,por11,6): + l(rec11,por11,6) <= 10
+ maxCoverageDueToPortionWidth(rec11,por11,7): + l(rec11,por11,7) <= 10
+ maxCoverageDueToPortionWidth(rec11,por11,8): + l(rec11,por11,8) <= 10
+ maxCoverageDueToPortionWidth(rec11,por12,1): + l(rec11,por12,1) <= 1
+ maxCoverageDueToPortionWidth(rec11,por12,2): + l(rec11,por12,2) <= 1
+ maxCoverageDueToPortionWidth(rec11,por12,3): + l(rec11,por12,3) <= 1
+ maxCoverageDueToPortionWidth(rec11,por12,4): + l(rec11,por12,4) <= 1
+ maxCoverageDueToPortionWidth(rec11,por12,5): + l(rec11,por12,5) <= 1
+ maxCoverageDueToPortionWidth(rec11,por12,6): + l(rec11,por12,6) <= 1
+ maxCoverageDueToPortionWidth(rec11,por12,7): + l(rec11,por12,7) <= 1
+ maxCoverageDueToPortionWidth(rec11,por12,8): + l(rec11,por12,8) <= 1
+ maxCoverageDueToPortionWidth(rec11,por13,1): + l(rec11,por13,1) <= 4
+ maxCoverageDueToPortionWidth(rec11,por13,2): + l(rec11,por13,2) <= 4
+ maxCoverageDueToPortionWidth(rec11,por13,3): + l(rec11,por13,3) <= 4
+ maxCoverageDueToPortionWidth(rec11,por13,4): + l(rec11,por13,4) <= 4
+ maxCoverageDueToPortionWidth(rec11,por13,5): + l(rec11,por13,5) <= 4
+ maxCoverageDueToPortionWidth(rec11,por13,6): + l(rec11,por13,6) <= 4
+ maxCoverageDueToPortionWidth(rec11,por13,7): + l(rec11,por13,7) <= 4
+ maxCoverageDueToPortionWidth(rec11,por13,8): + l(rec11,por13,8) <= 4
+ maxCoverageDueToPortionWidth(rec11,por14,1): + l(rec11,por14,1) <= 1
+ maxCoverageDueToPortionWidth(rec11,por14,2): + l(rec11,por14,2) <= 1
+ maxCoverageDueToPortionWidth(rec11,por14,3): + l(rec11,por14,3) <= 1
+ maxCoverageDueToPortionWidth(rec11,por14,4): + l(rec11,por14,4) <= 1
+ maxCoverageDueToPortionWidth(rec11,por14,5): + l(rec11,por14,5) <= 1
+ maxCoverageDueToPortionWidth(rec11,por14,6): + l(rec11,por14,6) <= 1
+ maxCoverageDueToPortionWidth(rec11,por14,7): + l(rec11,por14,7) <= 1
+ maxCoverageDueToPortionWidth(rec11,por14,8): + l(rec11,por14,8) <= 1
+ maxCoverageDueToPortionWidth(rec11,por15,1): + l(rec11,por15,1) <= 4
+ maxCoverageDueToPortionWidth(rec11,por15,2): + l(rec11,por15,2) <= 4
+ maxCoverageDueToPortionWidth(rec11,por15,3): + l(rec11,por15,3) <= 4
+ maxCoverageDueToPortionWidth(rec11,por15,4): + l(rec11,por15,4) <= 4
+ maxCoverageDueToPortionWidth(rec11,por15,5): + l(rec11,por15,5) <= 4
+ maxCoverageDueToPortionWidth(rec11,por15,6): + l(rec11,por15,6) <= 4
+ maxCoverageDueToPortionWidth(rec11,por15,7): + l(rec11,por15,7) <= 4
+ maxCoverageDueToPortionWidth(rec11,por15,8): + l(rec11,por15,8) <= 4
+ maxCoverageDueToPortionWidth(rec12,por1,1): + l(rec12,por1,1) <= 4
+ maxCoverageDueToPortionWidth(rec12,por1,2): + l(rec12,por1,2) <= 4
+ maxCoverageDueToPortionWidth(rec12,por1,3): + l(rec12,por1,3) <= 4
+ maxCoverageDueToPortionWidth(rec12,por1,4): + l(rec12,por1,4) <= 4
+ maxCoverageDueToPortionWidth(rec12,por1,5): + l(rec12,por1,5) <= 4
+ maxCoverageDueToPortionWidth(rec12,por1,6): + l(rec12,por1,6) <= 4
+ maxCoverageDueToPortionWidth(rec12,por1,7): + l(rec12,por1,7) <= 4
+ maxCoverageDueToPortionWidth(rec12,por1,8): + l(rec12,por1,8) <= 4
+ maxCoverageDueToPortionWidth(rec12,por2,1): + l(rec12,por2,1) <= 1
+ maxCoverageDueToPortionWidth(rec12,por2,2): + l(rec12,por2,2) <= 1
+ maxCoverageDueToPortionWidth(rec12,por2,3): + l(rec12,por2,3) <= 1
+ maxCoverageDueToPortionWidth(rec12,por2,4): + l(rec12,por2,4) <= 1
+ maxCoverageDueToPortionWidth(rec12,por2,5): + l(rec12,por2,5) <= 1
+ maxCoverageDueToPortionWidth(rec12,por2,6): + l(rec12,por2,6) <= 1
+ maxCoverageDueToPortionWidth(rec12,por2,7): + l(rec12,por2,7) <= 1
+ maxCoverageDueToPortionWidth(rec12,por2,8): + l(rec12,por2,8) <= 1
+ maxCoverageDueToPortionWidth(rec12,por3,1): + l(rec12,por3,1) <= 10
+ maxCoverageDueToPortionWidth(rec12,por3,2): + l(rec12,por3,2) <= 10
+ maxCoverageDueToPortionWidth(rec12,por3,3): + l(rec12,por3,3) <= 10
+ maxCoverageDueToPortionWidth(rec12,por3,4): + l(rec12,por3,4) <= 10
+ maxCoverageDueToPortionWidth(rec12,por3,5): + l(rec12,por3,5) <= 10
+ maxCoverageDueToPortionWidth(rec12,por3,6): + l(rec12,por3,6) <= 10
+ maxCoverageDueToPortionWidth(rec12,por3,7): + l(rec12,por3,7) <= 10
+ maxCoverageDueToPortionWidth(rec12,por3,8): + l(rec12,por3,8) <= 10
+ maxCoverageDueToPortionWidth(rec12,por4,1): + l(rec12,por4,1) <= 1
+ maxCoverageDueToPortionWidth(rec12,por4,2): + l(rec12,por4,2) <= 1
+ maxCoverageDueToPortionWidth(rec12,por4,3): + l(rec12,por4,3) <= 1
+ maxCoverageDueToPortionWidth(rec12,por4,4): + l(rec12,por4,4) <= 1
+ maxCoverageDueToPortionWidth(rec12,por4,5): + l(rec12,por4,5) <= 1
+ maxCoverageDueToPortionWidth(rec12,por4,6): + l(rec12,por4,6) <= 1
+ maxCoverageDueToPortionWidth(rec12,por4,7): + l(rec12,por4,7) <= 1
+ maxCoverageDueToPortionWidth(rec12,por4,8): + l(rec12,por4,8) <= 1
+ maxCoverageDueToPortionWidth(rec12,por5,1): + l(rec12,por5,1) <= 2
+ maxCoverageDueToPortionWidth(rec12,por5,2): + l(rec12,por5,2) <= 2
+ maxCoverageDueToPortionWidth(rec12,por5,3): + l(rec12,por5,3) <= 2
+ maxCoverageDueToPortionWidth(rec12,por5,4): + l(rec12,por5,4) <= 2
+ maxCoverageDueToPortionWidth(rec12,por5,5): + l(rec12,por5,5) <= 2
+ maxCoverageDueToPortionWidth(rec12,por5,6): + l(rec12,por5,6) <= 2
+ maxCoverageDueToPortionWidth(rec12,por5,7): + l(rec12,por5,7) <= 2
+ maxCoverageDueToPortionWidth(rec12,por5,8): + l(rec12,por5,8) <= 2
+ maxCoverageDueToPortionWidth(rec12,por6,1): + l(rec12,por6,1) <= 1
+ maxCoverageDueToPortionWidth(rec12,por6,2): + l(rec12,por6,2) <= 1
+ maxCoverageDueToPortionWidth(rec12,por6,3): + l(rec12,por6,3) <= 1
+ maxCoverageDueToPortionWidth(rec12,por6,4): + l(rec12,por6,4) <= 1
+ maxCoverageDueToPortionWidth(rec12,por6,5): + l(rec12,por6,5) <= 1
+ maxCoverageDueToPortionWidth(rec12,por6,6): + l(rec12,por6,6) <= 1
+ maxCoverageDueToPortionWidth(rec12,por6,7): + l(rec12,por6,7) <= 1
+ maxCoverageDueToPortionWidth(rec12,por6,8): + l(rec12,por6,8) <= 1
+ maxCoverageDueToPortionWidth(rec12,por7,1): + l(rec12,por7,1) <= 8
+ maxCoverageDueToPortionWidth(rec12,por7,2): + l(rec12,por7,2) <= 8
+ maxCoverageDueToPortionWidth(rec12,por7,3): + l(rec12,por7,3) <= 8
+ maxCoverageDueToPortionWidth(rec12,por7,4): + l(rec12,por7,4) <= 8
+ maxCoverageDueToPortionWidth(rec12,por7,5): + l(rec12,por7,5) <= 8
+ maxCoverageDueToPortionWidth(rec12,por7,6): + l(rec12,por7,6) <= 8
+ maxCoverageDueToPortionWidth(rec12,por7,7): + l(rec12,por7,7) <= 8
+ maxCoverageDueToPortionWidth(rec12,por7,8): + l(rec12,por7,8) <= 8
+ maxCoverageDueToPortionWidth(rec12,por8,1): + l(rec12,por8,1) <= 1
+ maxCoverageDueToPortionWidth(rec12,por8,2): + l(rec12,por8,2) <= 1
+ maxCoverageDueToPortionWidth(rec12,por8,3): + l(rec12,por8,3) <= 1
+ maxCoverageDueToPortionWidth(rec12,por8,4): + l(rec12,por8,4) <= 1
+ maxCoverageDueToPortionWidth(rec12,por8,5): + l(rec12,por8,5) <= 1
+ maxCoverageDueToPortionWidth(rec12,por8,6): + l(rec12,por8,6) <= 1
+ maxCoverageDueToPortionWidth(rec12,por8,7): + l(rec12,por8,7) <= 1
+ maxCoverageDueToPortionWidth(rec12,por8,8): + l(rec12,por8,8) <= 1
+ maxCoverageDueToPortionWidth(rec12,por9,1): + l(rec12,por9,1) <= 12
+ maxCoverageDueToPortionWidth(rec12,por9,2): + l(rec12,por9,2) <= 12
+ maxCoverageDueToPortionWidth(rec12,por9,3): + l(rec12,por9,3) <= 12
+ maxCoverageDueToPortionWidth(rec12,por9,4): + l(rec12,por9,4) <= 12
+ maxCoverageDueToPortionWidth(rec12,por9,5): + l(rec12,por9,5) <= 12
+ maxCoverageDueToPortionWidth(rec12,por9,6): + l(rec12,por9,6) <= 12
+ maxCoverageDueToPortionWidth(rec12,por9,7): + l(rec12,por9,7) <= 12
+ maxCoverageDueToPortionWidth(rec12,por9,8): + l(rec12,por9,8) <= 12
+ maxCoverageDueToPortionWidth(rec12,por10,1): + l(rec12,por10,1) <= 1
+ maxCoverageDueToPortionWidth(rec12,por10,2): + l(rec12,por10,2) <= 1
+ maxCoverageDueToPortionWidth(rec12,por10,3): + l(rec12,por10,3) <= 1
+ maxCoverageDueToPortionWidth(rec12,por10,4): + l(rec12,por10,4) <= 1
+ maxCoverageDueToPortionWidth(rec12,por10,5): + l(rec12,por10,5) <= 1
+ maxCoverageDueToPortionWidth(rec12,por10,6): + l(rec12,por10,6) <= 1
+ maxCoverageDueToPortionWidth(rec12,por10,7): + l(rec12,por10,7) <= 1
+ maxCoverageDueToPortionWidth(rec12,por10,8): + l(rec12,por10,8) <= 1
+ maxCoverageDueToPortionWidth(rec12,por11,1): + l(rec12,por11,1) <= 10
+ maxCoverageDueToPortionWidth(rec12,por11,2): + l(rec12,por11,2) <= 10
+ maxCoverageDueToPortionWidth(rec12,por11,3): + l(rec12,por11,3) <= 10
+ maxCoverageDueToPortionWidth(rec12,por11,4): + l(rec12,por11,4) <= 10
+ maxCoverageDueToPortionWidth(rec12,por11,5): + l(rec12,por11,5) <= 10
+ maxCoverageDueToPortionWidth(rec12,por11,6): + l(rec12,por11,6) <= 10
+ maxCoverageDueToPortionWidth(rec12,por11,7): + l(rec12,por11,7) <= 10
+ maxCoverageDueToPortionWidth(rec12,por11,8): + l(rec12,por11,8) <= 10
+ maxCoverageDueToPortionWidth(rec12,por12,1): + l(rec12,por12,1) <= 1
+ maxCoverageDueToPortionWidth(rec12,por12,2): + l(rec12,por12,2) <= 1
+ maxCoverageDueToPortionWidth(rec12,por12,3): + l(rec12,por12,3) <= 1
+ maxCoverageDueToPortionWidth(rec12,por12,4): + l(rec12,por12,4) <= 1
+ maxCoverageDueToPortionWidth(rec12,por12,5): + l(rec12,por12,5) <= 1
+ maxCoverageDueToPortionWidth(rec12,por12,6): + l(rec12,por12,6) <= 1
+ maxCoverageDueToPortionWidth(rec12,por12,7): + l(rec12,por12,7) <= 1
+ maxCoverageDueToPortionWidth(rec12,por12,8): + l(rec12,por12,8) <= 1
+ maxCoverageDueToPortionWidth(rec12,por13,1): + l(rec12,por13,1) <= 4
+ maxCoverageDueToPortionWidth(rec12,por13,2): + l(rec12,por13,2) <= 4
+ maxCoverageDueToPortionWidth(rec12,por13,3): + l(rec12,por13,3) <= 4
+ maxCoverageDueToPortionWidth(rec12,por13,4): + l(rec12,por13,4) <= 4
+ maxCoverageDueToPortionWidth(rec12,por13,5): + l(rec12,por13,5) <= 4
+ maxCoverageDueToPortionWidth(rec12,por13,6): + l(rec12,por13,6) <= 4
+ maxCoverageDueToPortionWidth(rec12,por13,7): + l(rec12,por13,7) <= 4
+ maxCoverageDueToPortionWidth(rec12,por13,8): + l(rec12,por13,8) <= 4
+ maxCoverageDueToPortionWidth(rec12,por14,1): + l(rec12,por14,1) <= 1
+ maxCoverageDueToPortionWidth(rec12,por14,2): + l(rec12,por14,2) <= 1
+ maxCoverageDueToPortionWidth(rec12,por14,3): + l(rec12,por14,3) <= 1
+ maxCoverageDueToPortionWidth(rec12,por14,4): + l(rec12,por14,4) <= 1
+ maxCoverageDueToPortionWidth(rec12,por14,5): + l(rec12,por14,5) <= 1
+ maxCoverageDueToPortionWidth(rec12,por14,6): + l(rec12,por14,6) <= 1
+ maxCoverageDueToPortionWidth(rec12,por14,7): + l(rec12,por14,7) <= 1
+ maxCoverageDueToPortionWidth(rec12,por14,8): + l(rec12,por14,8) <= 1
+ maxCoverageDueToPortionWidth(rec12,por15,1): + l(rec12,por15,1) <= 4
+ maxCoverageDueToPortionWidth(rec12,por15,2): + l(rec12,por15,2) <= 4
+ maxCoverageDueToPortionWidth(rec12,por15,3): + l(rec12,por15,3) <= 4
+ maxCoverageDueToPortionWidth(rec12,por15,4): + l(rec12,por15,4) <= 4
+ maxCoverageDueToPortionWidth(rec12,por15,5): + l(rec12,por15,5) <= 4
+ maxCoverageDueToPortionWidth(rec12,por15,6): + l(rec12,por15,6) <= 4
+ maxCoverageDueToPortionWidth(rec12,por15,7): + l(rec12,por15,7) <= 4
+ maxCoverageDueToPortionWidth(rec12,por15,8): + l(rec12,por15,8) <= 4
+ maxCoverageDueToPortionWidth(rec13,por1,1): + l(rec13,por1,1) <= 4
+ maxCoverageDueToPortionWidth(rec13,por1,2): + l(rec13,por1,2) <= 4
+ maxCoverageDueToPortionWidth(rec13,por1,3): + l(rec13,por1,3) <= 4
+ maxCoverageDueToPortionWidth(rec13,por1,4): + l(rec13,por1,4) <= 4
+ maxCoverageDueToPortionWidth(rec13,por1,5): + l(rec13,por1,5) <= 4
+ maxCoverageDueToPortionWidth(rec13,por1,6): + l(rec13,por1,6) <= 4
+ maxCoverageDueToPortionWidth(rec13,por1,7): + l(rec13,por1,7) <= 4
+ maxCoverageDueToPortionWidth(rec13,por1,8): + l(rec13,por1,8) <= 4
+ maxCoverageDueToPortionWidth(rec13,por2,1): + l(rec13,por2,1) <= 1
+ maxCoverageDueToPortionWidth(rec13,por2,2): + l(rec13,por2,2) <= 1
+ maxCoverageDueToPortionWidth(rec13,por2,3): + l(rec13,por2,3) <= 1
+ maxCoverageDueToPortionWidth(rec13,por2,4): + l(rec13,por2,4) <= 1
+ maxCoverageDueToPortionWidth(rec13,por2,5): + l(rec13,por2,5) <= 1
+ maxCoverageDueToPortionWidth(rec13,por2,6): + l(rec13,por2,6) <= 1
+ maxCoverageDueToPortionWidth(rec13,por2,7): + l(rec13,por2,7) <= 1
+ maxCoverageDueToPortionWidth(rec13,por2,8): + l(rec13,por2,8) <= 1
+ maxCoverageDueToPortionWidth(rec13,por3,1): + l(rec13,por3,1) <= 10
+ maxCoverageDueToPortionWidth(rec13,por3,2): + l(rec13,por3,2) <= 10
+ maxCoverageDueToPortionWidth(rec13,por3,3): + l(rec13,por3,3) <= 10
+ maxCoverageDueToPortionWidth(rec13,por3,4): + l(rec13,por3,4) <= 10
+ maxCoverageDueToPortionWidth(rec13,por3,5): + l(rec13,por3,5) <= 10
+ maxCoverageDueToPortionWidth(rec13,por3,6): + l(rec13,por3,6) <= 10
+ maxCoverageDueToPortionWidth(rec13,por3,7): + l(rec13,por3,7) <= 10
+ maxCoverageDueToPortionWidth(rec13,por3,8): + l(rec13,por3,8) <= 10
+ maxCoverageDueToPortionWidth(rec13,por4,1): + l(rec13,por4,1) <= 1
+ maxCoverageDueToPortionWidth(rec13,por4,2): + l(rec13,por4,2) <= 1
+ maxCoverageDueToPortionWidth(rec13,por4,3): + l(rec13,por4,3) <= 1
+ maxCoverageDueToPortionWidth(rec13,por4,4): + l(rec13,por4,4) <= 1
+ maxCoverageDueToPortionWidth(rec13,por4,5): + l(rec13,por4,5) <= 1
+ maxCoverageDueToPortionWidth(rec13,por4,6): + l(rec13,por4,6) <= 1
+ maxCoverageDueToPortionWidth(rec13,por4,7): + l(rec13,por4,7) <= 1
+ maxCoverageDueToPortionWidth(rec13,por4,8): + l(rec13,por4,8) <= 1
+ maxCoverageDueToPortionWidth(rec13,por5,1): + l(rec13,por5,1) <= 2
+ maxCoverageDueToPortionWidth(rec13,por5,2): + l(rec13,por5,2) <= 2
+ maxCoverageDueToPortionWidth(rec13,por5,3): + l(rec13,por5,3) <= 2
+ maxCoverageDueToPortionWidth(rec13,por5,4): + l(rec13,por5,4) <= 2
+ maxCoverageDueToPortionWidth(rec13,por5,5): + l(rec13,por5,5) <= 2
+ maxCoverageDueToPortionWidth(rec13,por5,6): + l(rec13,por5,6) <= 2
+ maxCoverageDueToPortionWidth(rec13,por5,7): + l(rec13,por5,7) <= 2
+ maxCoverageDueToPortionWidth(rec13,por5,8): + l(rec13,por5,8) <= 2
+ maxCoverageDueToPortionWidth(rec13,por6,1): + l(rec13,por6,1) <= 1
+ maxCoverageDueToPortionWidth(rec13,por6,2): + l(rec13,por6,2) <= 1
+ maxCoverageDueToPortionWidth(rec13,por6,3): + l(rec13,por6,3) <= 1
+ maxCoverageDueToPortionWidth(rec13,por6,4): + l(rec13,por6,4) <= 1
+ maxCoverageDueToPortionWidth(rec13,por6,5): + l(rec13,por6,5) <= 1
+ maxCoverageDueToPortionWidth(rec13,por6,6): + l(rec13,por6,6) <= 1
+ maxCoverageDueToPortionWidth(rec13,por6,7): + l(rec13,por6,7) <= 1
+ maxCoverageDueToPortionWidth(rec13,por6,8): + l(rec13,por6,8) <= 1
+ maxCoverageDueToPortionWidth(rec13,por7,1): + l(rec13,por7,1) <= 8
+ maxCoverageDueToPortionWidth(rec13,por7,2): + l(rec13,por7,2) <= 8
+ maxCoverageDueToPortionWidth(rec13,por7,3): + l(rec13,por7,3) <= 8
+ maxCoverageDueToPortionWidth(rec13,por7,4): + l(rec13,por7,4) <= 8
+ maxCoverageDueToPortionWidth(rec13,por7,5): + l(rec13,por7,5) <= 8
+ maxCoverageDueToPortionWidth(rec13,por7,6): + l(rec13,por7,6) <= 8
+ maxCoverageDueToPortionWidth(rec13,por7,7): + l(rec13,por7,7) <= 8
+ maxCoverageDueToPortionWidth(rec13,por7,8): + l(rec13,por7,8) <= 8
+ maxCoverageDueToPortionWidth(rec13,por8,1): + l(rec13,por8,1) <= 1
+ maxCoverageDueToPortionWidth(rec13,por8,2): + l(rec13,por8,2) <= 1
+ maxCoverageDueToPortionWidth(rec13,por8,3): + l(rec13,por8,3) <= 1
+ maxCoverageDueToPortionWidth(rec13,por8,4): + l(rec13,por8,4) <= 1
+ maxCoverageDueToPortionWidth(rec13,por8,5): + l(rec13,por8,5) <= 1
+ maxCoverageDueToPortionWidth(rec13,por8,6): + l(rec13,por8,6) <= 1
+ maxCoverageDueToPortionWidth(rec13,por8,7): + l(rec13,por8,7) <= 1
+ maxCoverageDueToPortionWidth(rec13,por8,8): + l(rec13,por8,8) <= 1
+ maxCoverageDueToPortionWidth(rec13,por9,1): + l(rec13,por9,1) <= 12
+ maxCoverageDueToPortionWidth(rec13,por9,2): + l(rec13,por9,2) <= 12
+ maxCoverageDueToPortionWidth(rec13,por9,3): + l(rec13,por9,3) <= 12
+ maxCoverageDueToPortionWidth(rec13,por9,4): + l(rec13,por9,4) <= 12
+ maxCoverageDueToPortionWidth(rec13,por9,5): + l(rec13,por9,5) <= 12
+ maxCoverageDueToPortionWidth(rec13,por9,6): + l(rec13,por9,6) <= 12
+ maxCoverageDueToPortionWidth(rec13,por9,7): + l(rec13,por9,7) <= 12
+ maxCoverageDueToPortionWidth(rec13,por9,8): + l(rec13,por9,8) <= 12
+ maxCoverageDueToPortionWidth(rec13,por10,1): + l(rec13,por10,1) <= 1
+ maxCoverageDueToPortionWidth(rec13,por10,2): + l(rec13,por10,2) <= 1
+ maxCoverageDueToPortionWidth(rec13,por10,3): + l(rec13,por10,3) <= 1
+ maxCoverageDueToPortionWidth(rec13,por10,4): + l(rec13,por10,4) <= 1
+ maxCoverageDueToPortionWidth(rec13,por10,5): + l(rec13,por10,5) <= 1
+ maxCoverageDueToPortionWidth(rec13,por10,6): + l(rec13,por10,6) <= 1
+ maxCoverageDueToPortionWidth(rec13,por10,7): + l(rec13,por10,7) <= 1
+ maxCoverageDueToPortionWidth(rec13,por10,8): + l(rec13,por10,8) <= 1
+ maxCoverageDueToPortionWidth(rec13,por11,1): + l(rec13,por11,1) <= 10
+ maxCoverageDueToPortionWidth(rec13,por11,2): + l(rec13,por11,2) <= 10
+ maxCoverageDueToPortionWidth(rec13,por11,3): + l(rec13,por11,3) <= 10
+ maxCoverageDueToPortionWidth(rec13,por11,4): + l(rec13,por11,4) <= 10
+ maxCoverageDueToPortionWidth(rec13,por11,5): + l(rec13,por11,5) <= 10
+ maxCoverageDueToPortionWidth(rec13,por11,6): + l(rec13,por11,6) <= 10
+ maxCoverageDueToPortionWidth(rec13,por11,7): + l(rec13,por11,7) <= 10
+ maxCoverageDueToPortionWidth(rec13,por11,8): + l(rec13,por11,8) <= 10
+ maxCoverageDueToPortionWidth(rec13,por12,1): + l(rec13,por12,1) <= 1
+ maxCoverageDueToPortionWidth(rec13,por12,2): + l(rec13,por12,2) <= 1
+ maxCoverageDueToPortionWidth(rec13,por12,3): + l(rec13,por12,3) <= 1
+ maxCoverageDueToPortionWidth(rec13,por12,4): + l(rec13,por12,4) <= 1
+ maxCoverageDueToPortionWidth(rec13,por12,5): + l(rec13,por12,5) <= 1
+ maxCoverageDueToPortionWidth(rec13,por12,6): + l(rec13,por12,6) <= 1
+ maxCoverageDueToPortionWidth(rec13,por12,7): + l(rec13,por12,7) <= 1
+ maxCoverageDueToPortionWidth(rec13,por12,8): + l(rec13,por12,8) <= 1
+ maxCoverageDueToPortionWidth(rec13,por13,1): + l(rec13,por13,1) <= 4
+ maxCoverageDueToPortionWidth(rec13,por13,2): + l(rec13,por13,2) <= 4
+ maxCoverageDueToPortionWidth(rec13,por13,3): + l(rec13,por13,3) <= 4
+ maxCoverageDueToPortionWidth(rec13,por13,4): + l(rec13,por13,4) <= 4
+ maxCoverageDueToPortionWidth(rec13,por13,5): + l(rec13,por13,5) <= 4
+ maxCoverageDueToPortionWidth(rec13,por13,6): + l(rec13,por13,6) <= 4
+ maxCoverageDueToPortionWidth(rec13,por13,7): + l(rec13,por13,7) <= 4
+ maxCoverageDueToPortionWidth(rec13,por13,8): + l(rec13,por13,8) <= 4
+ maxCoverageDueToPortionWidth(rec13,por14,1): + l(rec13,por14,1) <= 1
+ maxCoverageDueToPortionWidth(rec13,por14,2): + l(rec13,por14,2) <= 1
+ maxCoverageDueToPortionWidth(rec13,por14,3): + l(rec13,por14,3) <= 1
+ maxCoverageDueToPortionWidth(rec13,por14,4): + l(rec13,por14,4) <= 1
+ maxCoverageDueToPortionWidth(rec13,por14,5): + l(rec13,por14,5) <= 1
+ maxCoverageDueToPortionWidth(rec13,por14,6): + l(rec13,por14,6) <= 1
+ maxCoverageDueToPortionWidth(rec13,por14,7): + l(rec13,por14,7) <= 1
+ maxCoverageDueToPortionWidth(rec13,por14,8): + l(rec13,por14,8) <= 1
+ maxCoverageDueToPortionWidth(rec13,por15,1): + l(rec13,por15,1) <= 4
+ maxCoverageDueToPortionWidth(rec13,por15,2): + l(rec13,por15,2) <= 4
+ maxCoverageDueToPortionWidth(rec13,por15,3): + l(rec13,por15,3) <= 4
+ maxCoverageDueToPortionWidth(rec13,por15,4): + l(rec13,por15,4) <= 4
+ maxCoverageDueToPortionWidth(rec13,por15,5): + l(rec13,por15,5) <= 4
+ maxCoverageDueToPortionWidth(rec13,por15,6): + l(rec13,por15,6) <= 4
+ maxCoverageDueToPortionWidth(rec13,por15,7): + l(rec13,por15,7) <= 4
+ maxCoverageDueToPortionWidth(rec13,por15,8): + l(rec13,por15,8) <= 4
+ maxCoverageDueToPortionWidth(rec14,por1,1): + l(rec14,por1,1) <= 4
+ maxCoverageDueToPortionWidth(rec14,por1,2): + l(rec14,por1,2) <= 4
+ maxCoverageDueToPortionWidth(rec14,por1,3): + l(rec14,por1,3) <= 4
+ maxCoverageDueToPortionWidth(rec14,por1,4): + l(rec14,por1,4) <= 4
+ maxCoverageDueToPortionWidth(rec14,por1,5): + l(rec14,por1,5) <= 4
+ maxCoverageDueToPortionWidth(rec14,por1,6): + l(rec14,por1,6) <= 4
+ maxCoverageDueToPortionWidth(rec14,por1,7): + l(rec14,por1,7) <= 4
+ maxCoverageDueToPortionWidth(rec14,por1,8): + l(rec14,por1,8) <= 4
+ maxCoverageDueToPortionWidth(rec14,por2,1): + l(rec14,por2,1) <= 1
+ maxCoverageDueToPortionWidth(rec14,por2,2): + l(rec14,por2,2) <= 1
+ maxCoverageDueToPortionWidth(rec14,por2,3): + l(rec14,por2,3) <= 1
+ maxCoverageDueToPortionWidth(rec14,por2,4): + l(rec14,por2,4) <= 1
+ maxCoverageDueToPortionWidth(rec14,por2,5): + l(rec14,por2,5) <= 1
+ maxCoverageDueToPortionWidth(rec14,por2,6): + l(rec14,por2,6) <= 1
+ maxCoverageDueToPortionWidth(rec14,por2,7): + l(rec14,por2,7) <= 1
+ maxCoverageDueToPortionWidth(rec14,por2,8): + l(rec14,por2,8) <= 1
+ maxCoverageDueToPortionWidth(rec14,por3,1): + l(rec14,por3,1) <= 10
+ maxCoverageDueToPortionWidth(rec14,por3,2): + l(rec14,por3,2) <= 10
+ maxCoverageDueToPortionWidth(rec14,por3,3): + l(rec14,por3,3) <= 10
+ maxCoverageDueToPortionWidth(rec14,por3,4): + l(rec14,por3,4) <= 10
+ maxCoverageDueToPortionWidth(rec14,por3,5): + l(rec14,por3,5) <= 10
+ maxCoverageDueToPortionWidth(rec14,por3,6): + l(rec14,por3,6) <= 10
+ maxCoverageDueToPortionWidth(rec14,por3,7): + l(rec14,por3,7) <= 10
+ maxCoverageDueToPortionWidth(rec14,por3,8): + l(rec14,por3,8) <= 10
+ maxCoverageDueToPortionWidth(rec14,por4,1): + l(rec14,por4,1) <= 1
+ maxCoverageDueToPortionWidth(rec14,por4,2): + l(rec14,por4,2) <= 1
+ maxCoverageDueToPortionWidth(rec14,por4,3): + l(rec14,por4,3) <= 1
+ maxCoverageDueToPortionWidth(rec14,por4,4): + l(rec14,por4,4) <= 1
+ maxCoverageDueToPortionWidth(rec14,por4,5): + l(rec14,por4,5) <= 1
+ maxCoverageDueToPortionWidth(rec14,por4,6): + l(rec14,por4,6) <= 1
+ maxCoverageDueToPortionWidth(rec14,por4,7): + l(rec14,por4,7) <= 1
+ maxCoverageDueToPortionWidth(rec14,por4,8): + l(rec14,por4,8) <= 1
+ maxCoverageDueToPortionWidth(rec14,por5,1): + l(rec14,por5,1) <= 2
+ maxCoverageDueToPortionWidth(rec14,por5,2): + l(rec14,por5,2) <= 2
+ maxCoverageDueToPortionWidth(rec14,por5,3): + l(rec14,por5,3) <= 2
+ maxCoverageDueToPortionWidth(rec14,por5,4): + l(rec14,por5,4) <= 2
+ maxCoverageDueToPortionWidth(rec14,por5,5): + l(rec14,por5,5) <= 2
+ maxCoverageDueToPortionWidth(rec14,por5,6): + l(rec14,por5,6) <= 2
+ maxCoverageDueToPortionWidth(rec14,por5,7): + l(rec14,por5,7) <= 2
+ maxCoverageDueToPortionWidth(rec14,por5,8): + l(rec14,por5,8) <= 2
+ maxCoverageDueToPortionWidth(rec14,por6,1): + l(rec14,por6,1) <= 1
+ maxCoverageDueToPortionWidth(rec14,por6,2): + l(rec14,por6,2) <= 1
+ maxCoverageDueToPortionWidth(rec14,por6,3): + l(rec14,por6,3) <= 1
+ maxCoverageDueToPortionWidth(rec14,por6,4): + l(rec14,por6,4) <= 1
+ maxCoverageDueToPortionWidth(rec14,por6,5): + l(rec14,por6,5) <= 1
+ maxCoverageDueToPortionWidth(rec14,por6,6): + l(rec14,por6,6) <= 1
+ maxCoverageDueToPortionWidth(rec14,por6,7): + l(rec14,por6,7) <= 1
+ maxCoverageDueToPortionWidth(rec14,por6,8): + l(rec14,por6,8) <= 1
+ maxCoverageDueToPortionWidth(rec14,por7,1): + l(rec14,por7,1) <= 8
+ maxCoverageDueToPortionWidth(rec14,por7,2): + l(rec14,por7,2) <= 8
+ maxCoverageDueToPortionWidth(rec14,por7,3): + l(rec14,por7,3) <= 8
+ maxCoverageDueToPortionWidth(rec14,por7,4): + l(rec14,por7,4) <= 8
+ maxCoverageDueToPortionWidth(rec14,por7,5): + l(rec14,por7,5) <= 8
+ maxCoverageDueToPortionWidth(rec14,por7,6): + l(rec14,por7,6) <= 8
+ maxCoverageDueToPortionWidth(rec14,por7,7): + l(rec14,por7,7) <= 8
+ maxCoverageDueToPortionWidth(rec14,por7,8): + l(rec14,por7,8) <= 8
+ maxCoverageDueToPortionWidth(rec14,por8,1): + l(rec14,por8,1) <= 1
+ maxCoverageDueToPortionWidth(rec14,por8,2): + l(rec14,por8,2) <= 1
+ maxCoverageDueToPortionWidth(rec14,por8,3): + l(rec14,por8,3) <= 1
+ maxCoverageDueToPortionWidth(rec14,por8,4): + l(rec14,por8,4) <= 1
+ maxCoverageDueToPortionWidth(rec14,por8,5): + l(rec14,por8,5) <= 1
+ maxCoverageDueToPortionWidth(rec14,por8,6): + l(rec14,por8,6) <= 1
+ maxCoverageDueToPortionWidth(rec14,por8,7): + l(rec14,por8,7) <= 1
+ maxCoverageDueToPortionWidth(rec14,por8,8): + l(rec14,por8,8) <= 1
+ maxCoverageDueToPortionWidth(rec14,por9,1): + l(rec14,por9,1) <= 12
+ maxCoverageDueToPortionWidth(rec14,por9,2): + l(rec14,por9,2) <= 12
+ maxCoverageDueToPortionWidth(rec14,por9,3): + l(rec14,por9,3) <= 12
+ maxCoverageDueToPortionWidth(rec14,por9,4): + l(rec14,por9,4) <= 12
+ maxCoverageDueToPortionWidth(rec14,por9,5): + l(rec14,por9,5) <= 12
+ maxCoverageDueToPortionWidth(rec14,por9,6): + l(rec14,por9,6) <= 12
+ maxCoverageDueToPortionWidth(rec14,por9,7): + l(rec14,por9,7) <= 12
+ maxCoverageDueToPortionWidth(rec14,por9,8): + l(rec14,por9,8) <= 12
+ maxCoverageDueToPortionWidth(rec14,por10,1): + l(rec14,por10,1) <= 1
+ maxCoverageDueToPortionWidth(rec14,por10,2): + l(rec14,por10,2) <= 1
+ maxCoverageDueToPortionWidth(rec14,por10,3): + l(rec14,por10,3) <= 1
+ maxCoverageDueToPortionWidth(rec14,por10,4): + l(rec14,por10,4) <= 1
+ maxCoverageDueToPortionWidth(rec14,por10,5): + l(rec14,por10,5) <= 1
+ maxCoverageDueToPortionWidth(rec14,por10,6): + l(rec14,por10,6) <= 1
+ maxCoverageDueToPortionWidth(rec14,por10,7): + l(rec14,por10,7) <= 1
+ maxCoverageDueToPortionWidth(rec14,por10,8): + l(rec14,por10,8) <= 1
+ maxCoverageDueToPortionWidth(rec14,por11,1): + l(rec14,por11,1) <= 10
+ maxCoverageDueToPortionWidth(rec14,por11,2): + l(rec14,por11,2) <= 10
+ maxCoverageDueToPortionWidth(rec14,por11,3): + l(rec14,por11,3) <= 10
+ maxCoverageDueToPortionWidth(rec14,por11,4): + l(rec14,por11,4) <= 10
+ maxCoverageDueToPortionWidth(rec14,por11,5): + l(rec14,por11,5) <= 10
+ maxCoverageDueToPortionWidth(rec14,por11,6): + l(rec14,por11,6) <= 10
+ maxCoverageDueToPortionWidth(rec14,por11,7): + l(rec14,por11,7) <= 10
+ maxCoverageDueToPortionWidth(rec14,por11,8): + l(rec14,por11,8) <= 10
+ maxCoverageDueToPortionWidth(rec14,por12,1): + l(rec14,por12,1) <= 1
+ maxCoverageDueToPortionWidth(rec14,por12,2): + l(rec14,por12,2) <= 1
+ maxCoverageDueToPortionWidth(rec14,por12,3): + l(rec14,por12,3) <= 1
+ maxCoverageDueToPortionWidth(rec14,por12,4): + l(rec14,por12,4) <= 1
+ maxCoverageDueToPortionWidth(rec14,por12,5): + l(rec14,por12,5) <= 1
+ maxCoverageDueToPortionWidth(rec14,por12,6): + l(rec14,por12,6) <= 1
+ maxCoverageDueToPortionWidth(rec14,por12,7): + l(rec14,por12,7) <= 1
+ maxCoverageDueToPortionWidth(rec14,por12,8): + l(rec14,por12,8) <= 1
+ maxCoverageDueToPortionWidth(rec14,por13,1): + l(rec14,por13,1) <= 4
+ maxCoverageDueToPortionWidth(rec14,por13,2): + l(rec14,por13,2) <= 4
+ maxCoverageDueToPortionWidth(rec14,por13,3): + l(rec14,por13,3) <= 4
+ maxCoverageDueToPortionWidth(rec14,por13,4): + l(rec14,por13,4) <= 4
+ maxCoverageDueToPortionWidth(rec14,por13,5): + l(rec14,por13,5) <= 4
+ maxCoverageDueToPortionWidth(rec14,por13,6): + l(rec14,por13,6) <= 4
+ maxCoverageDueToPortionWidth(rec14,por13,7): + l(rec14,por13,7) <= 4
+ maxCoverageDueToPortionWidth(rec14,por13,8): + l(rec14,por13,8) <= 4
+ maxCoverageDueToPortionWidth(rec14,por14,1): + l(rec14,por14,1) <= 1
+ maxCoverageDueToPortionWidth(rec14,por14,2): + l(rec14,por14,2) <= 1
+ maxCoverageDueToPortionWidth(rec14,por14,3): + l(rec14,por14,3) <= 1
+ maxCoverageDueToPortionWidth(rec14,por14,4): + l(rec14,por14,4) <= 1
+ maxCoverageDueToPortionWidth(rec14,por14,5): + l(rec14,por14,5) <= 1
+ maxCoverageDueToPortionWidth(rec14,por14,6): + l(rec14,por14,6) <= 1
+ maxCoverageDueToPortionWidth(rec14,por14,7): + l(rec14,por14,7) <= 1
+ maxCoverageDueToPortionWidth(rec14,por14,8): + l(rec14,por14,8) <= 1
+ maxCoverageDueToPortionWidth(rec14,por15,1): + l(rec14,por15,1) <= 4
+ maxCoverageDueToPortionWidth(rec14,por15,2): + l(rec14,por15,2) <= 4
+ maxCoverageDueToPortionWidth(rec14,por15,3): + l(rec14,por15,3) <= 4
+ maxCoverageDueToPortionWidth(rec14,por15,4): + l(rec14,por15,4) <= 4
+ maxCoverageDueToPortionWidth(rec14,por15,5): + l(rec14,por15,5) <= 4
+ maxCoverageDueToPortionWidth(rec14,por15,6): + l(rec14,por15,6) <= 4
+ maxCoverageDueToPortionWidth(rec14,por15,7): + l(rec14,por15,7) <= 4
+ maxCoverageDueToPortionWidth(rec14,por15,8): + l(rec14,por15,8) <= 4
+ maxCoverageDueToPortionWidth(rec15,por1,1): + l(rec15,por1,1) <= 4
+ maxCoverageDueToPortionWidth(rec15,por1,2): + l(rec15,por1,2) <= 4
+ maxCoverageDueToPortionWidth(rec15,por1,3): + l(rec15,por1,3) <= 4
+ maxCoverageDueToPortionWidth(rec15,por1,4): + l(rec15,por1,4) <= 4
+ maxCoverageDueToPortionWidth(rec15,por1,5): + l(rec15,por1,5) <= 4
+ maxCoverageDueToPortionWidth(rec15,por1,6): + l(rec15,por1,6) <= 4
+ maxCoverageDueToPortionWidth(rec15,por1,7): + l(rec15,por1,7) <= 4
+ maxCoverageDueToPortionWidth(rec15,por1,8): + l(rec15,por1,8) <= 4
+ maxCoverageDueToPortionWidth(rec15,por2,1): + l(rec15,por2,1) <= 1
+ maxCoverageDueToPortionWidth(rec15,por2,2): + l(rec15,por2,2) <= 1
+ maxCoverageDueToPortionWidth(rec15,por2,3): + l(rec15,por2,3) <= 1
+ maxCoverageDueToPortionWidth(rec15,por2,4): + l(rec15,por2,4) <= 1
+ maxCoverageDueToPortionWidth(rec15,por2,5): + l(rec15,por2,5) <= 1
+ maxCoverageDueToPortionWidth(rec15,por2,6): + l(rec15,por2,6) <= 1
+ maxCoverageDueToPortionWidth(rec15,por2,7): + l(rec15,por2,7) <= 1
+ maxCoverageDueToPortionWidth(rec15,por2,8): + l(rec15,por2,8) <= 1
+ maxCoverageDueToPortionWidth(rec15,por3,1): + l(rec15,por3,1) <= 10
+ maxCoverageDueToPortionWidth(rec15,por3,2): + l(rec15,por3,2) <= 10
+ maxCoverageDueToPortionWidth(rec15,por3,3): + l(rec15,por3,3) <= 10
+ maxCoverageDueToPortionWidth(rec15,por3,4): + l(rec15,por3,4) <= 10
+ maxCoverageDueToPortionWidth(rec15,por3,5): + l(rec15,por3,5) <= 10
+ maxCoverageDueToPortionWidth(rec15,por3,6): + l(rec15,por3,6) <= 10
+ maxCoverageDueToPortionWidth(rec15,por3,7): + l(rec15,por3,7) <= 10
+ maxCoverageDueToPortionWidth(rec15,por3,8): + l(rec15,por3,8) <= 10
+ maxCoverageDueToPortionWidth(rec15,por4,1): + l(rec15,por4,1) <= 1
+ maxCoverageDueToPortionWidth(rec15,por4,2): + l(rec15,por4,2) <= 1
+ maxCoverageDueToPortionWidth(rec15,por4,3): + l(rec15,por4,3) <= 1
+ maxCoverageDueToPortionWidth(rec15,por4,4): + l(rec15,por4,4) <= 1
+ maxCoverageDueToPortionWidth(rec15,por4,5): + l(rec15,por4,5) <= 1
+ maxCoverageDueToPortionWidth(rec15,por4,6): + l(rec15,por4,6) <= 1
+ maxCoverageDueToPortionWidth(rec15,por4,7): + l(rec15,por4,7) <= 1
+ maxCoverageDueToPortionWidth(rec15,por4,8): + l(rec15,por4,8) <= 1
+ maxCoverageDueToPortionWidth(rec15,por5,1): + l(rec15,por5,1) <= 2
+ maxCoverageDueToPortionWidth(rec15,por5,2): + l(rec15,por5,2) <= 2
+ maxCoverageDueToPortionWidth(rec15,por5,3): + l(rec15,por5,3) <= 2
+ maxCoverageDueToPortionWidth(rec15,por5,4): + l(rec15,por5,4) <= 2
+ maxCoverageDueToPortionWidth(rec15,por5,5): + l(rec15,por5,5) <= 2
+ maxCoverageDueToPortionWidth(rec15,por5,6): + l(rec15,por5,6) <= 2
+ maxCoverageDueToPortionWidth(rec15,por5,7): + l(rec15,por5,7) <= 2
+ maxCoverageDueToPortionWidth(rec15,por5,8): + l(rec15,por5,8) <= 2
+ maxCoverageDueToPortionWidth(rec15,por6,1): + l(rec15,por6,1) <= 1
+ maxCoverageDueToPortionWidth(rec15,por6,2): + l(rec15,por6,2) <= 1
+ maxCoverageDueToPortionWidth(rec15,por6,3): + l(rec15,por6,3) <= 1
+ maxCoverageDueToPortionWidth(rec15,por6,4): + l(rec15,por6,4) <= 1
+ maxCoverageDueToPortionWidth(rec15,por6,5): + l(rec15,por6,5) <= 1
+ maxCoverageDueToPortionWidth(rec15,por6,6): + l(rec15,por6,6) <= 1
+ maxCoverageDueToPortionWidth(rec15,por6,7): + l(rec15,por6,7) <= 1
+ maxCoverageDueToPortionWidth(rec15,por6,8): + l(rec15,por6,8) <= 1
+ maxCoverageDueToPortionWidth(rec15,por7,1): + l(rec15,por7,1) <= 8
+ maxCoverageDueToPortionWidth(rec15,por7,2): + l(rec15,por7,2) <= 8
+ maxCoverageDueToPortionWidth(rec15,por7,3): + l(rec15,por7,3) <= 8
+ maxCoverageDueToPortionWidth(rec15,por7,4): + l(rec15,por7,4) <= 8
+ maxCoverageDueToPortionWidth(rec15,por7,5): + l(rec15,por7,5) <= 8
+ maxCoverageDueToPortionWidth(rec15,por7,6): + l(rec15,por7,6) <= 8
+ maxCoverageDueToPortionWidth(rec15,por7,7): + l(rec15,por7,7) <= 8
+ maxCoverageDueToPortionWidth(rec15,por7,8): + l(rec15,por7,8) <= 8
+ maxCoverageDueToPortionWidth(rec15,por8,1): + l(rec15,por8,1) <= 1
+ maxCoverageDueToPortionWidth(rec15,por8,2): + l(rec15,por8,2) <= 1
+ maxCoverageDueToPortionWidth(rec15,por8,3): + l(rec15,por8,3) <= 1
+ maxCoverageDueToPortionWidth(rec15,por8,4): + l(rec15,por8,4) <= 1
+ maxCoverageDueToPortionWidth(rec15,por8,5): + l(rec15,por8,5) <= 1
+ maxCoverageDueToPortionWidth(rec15,por8,6): + l(rec15,por8,6) <= 1
+ maxCoverageDueToPortionWidth(rec15,por8,7): + l(rec15,por8,7) <= 1
+ maxCoverageDueToPortionWidth(rec15,por8,8): + l(rec15,por8,8) <= 1
+ maxCoverageDueToPortionWidth(rec15,por9,1): + l(rec15,por9,1) <= 12
+ maxCoverageDueToPortionWidth(rec15,por9,2): + l(rec15,por9,2) <= 12
+ maxCoverageDueToPortionWidth(rec15,por9,3): + l(rec15,por9,3) <= 12
+ maxCoverageDueToPortionWidth(rec15,por9,4): + l(rec15,por9,4) <= 12
+ maxCoverageDueToPortionWidth(rec15,por9,5): + l(rec15,por9,5) <= 12
+ maxCoverageDueToPortionWidth(rec15,por9,6): + l(rec15,por9,6) <= 12
+ maxCoverageDueToPortionWidth(rec15,por9,7): + l(rec15,por9,7) <= 12
+ maxCoverageDueToPortionWidth(rec15,por9,8): + l(rec15,por9,8) <= 12
+ maxCoverageDueToPortionWidth(rec15,por10,1): + l(rec15,por10,1) <= 1
+ maxCoverageDueToPortionWidth(rec15,por10,2): + l(rec15,por10,2) <= 1
+ maxCoverageDueToPortionWidth(rec15,por10,3): + l(rec15,por10,3) <= 1
+ maxCoverageDueToPortionWidth(rec15,por10,4): + l(rec15,por10,4) <= 1
+ maxCoverageDueToPortionWidth(rec15,por10,5): + l(rec15,por10,5) <= 1
+ maxCoverageDueToPortionWidth(rec15,por10,6): + l(rec15,por10,6) <= 1
+ maxCoverageDueToPortionWidth(rec15,por10,7): + l(rec15,por10,7) <= 1
+ maxCoverageDueToPortionWidth(rec15,por10,8): + l(rec15,por10,8) <= 1
+ maxCoverageDueToPortionWidth(rec15,por11,1): + l(rec15,por11,1) <= 10
+ maxCoverageDueToPortionWidth(rec15,por11,2): + l(rec15,por11,2) <= 10
+ maxCoverageDueToPortionWidth(rec15,por11,3): + l(rec15,por11,3) <= 10
+ maxCoverageDueToPortionWidth(rec15,por11,4): + l(rec15,por11,4) <= 10
+ maxCoverageDueToPortionWidth(rec15,por11,5): + l(rec15,por11,5) <= 10
+ maxCoverageDueToPortionWidth(rec15,por11,6): + l(rec15,por11,6) <= 10
+ maxCoverageDueToPortionWidth(rec15,por11,7): + l(rec15,por11,7) <= 10
+ maxCoverageDueToPortionWidth(rec15,por11,8): + l(rec15,por11,8) <= 10
+ maxCoverageDueToPortionWidth(rec15,por12,1): + l(rec15,por12,1) <= 1
+ maxCoverageDueToPortionWidth(rec15,por12,2): + l(rec15,por12,2) <= 1
+ maxCoverageDueToPortionWidth(rec15,por12,3): + l(rec15,por12,3) <= 1
+ maxCoverageDueToPortionWidth(rec15,por12,4): + l(rec15,por12,4) <= 1
+ maxCoverageDueToPortionWidth(rec15,por12,5): + l(rec15,por12,5) <= 1
+ maxCoverageDueToPortionWidth(rec15,por12,6): + l(rec15,por12,6) <= 1
+ maxCoverageDueToPortionWidth(rec15,por12,7): + l(rec15,por12,7) <= 1
+ maxCoverageDueToPortionWidth(rec15,por12,8): + l(rec15,por12,8) <= 1
+ maxCoverageDueToPortionWidth(rec15,por13,1): + l(rec15,por13,1) <= 4
+ maxCoverageDueToPortionWidth(rec15,por13,2): + l(rec15,por13,2) <= 4
+ maxCoverageDueToPortionWidth(rec15,por13,3): + l(rec15,por13,3) <= 4
+ maxCoverageDueToPortionWidth(rec15,por13,4): + l(rec15,por13,4) <= 4
+ maxCoverageDueToPortionWidth(rec15,por13,5): + l(rec15,por13,5) <= 4
+ maxCoverageDueToPortionWidth(rec15,por13,6): + l(rec15,por13,6) <= 4
+ maxCoverageDueToPortionWidth(rec15,por13,7): + l(rec15,por13,7) <= 4
+ maxCoverageDueToPortionWidth(rec15,por13,8): + l(rec15,por13,8) <= 4
+ maxCoverageDueToPortionWidth(rec15,por14,1): + l(rec15,por14,1) <= 1
+ maxCoverageDueToPortionWidth(rec15,por14,2): + l(rec15,por14,2) <= 1
+ maxCoverageDueToPortionWidth(rec15,por14,3): + l(rec15,por14,3) <= 1
+ maxCoverageDueToPortionWidth(rec15,por14,4): + l(rec15,por14,4) <= 1
+ maxCoverageDueToPortionWidth(rec15,por14,5): + l(rec15,por14,5) <= 1
+ maxCoverageDueToPortionWidth(rec15,por14,6): + l(rec15,por14,6) <= 1
+ maxCoverageDueToPortionWidth(rec15,por14,7): + l(rec15,por14,7) <= 1
+ maxCoverageDueToPortionWidth(rec15,por14,8): + l(rec15,por14,8) <= 1
+ maxCoverageDueToPortionWidth(rec15,por15,1): + l(rec15,por15,1) <= 4
+ maxCoverageDueToPortionWidth(rec15,por15,2): + l(rec15,por15,2) <= 4
+ maxCoverageDueToPortionWidth(rec15,por15,3): + l(rec15,por15,3) <= 4
+ maxCoverageDueToPortionWidth(rec15,por15,4): + l(rec15,por15,4) <= 4
+ maxCoverageDueToPortionWidth(rec15,por15,5): + l(rec15,por15,5) <= 4
+ maxCoverageDueToPortionWidth(rec15,por15,6): + l(rec15,por15,6) <= 4
+ maxCoverageDueToPortionWidth(rec15,por15,7): + l(rec15,por15,7) <= 4
+ maxCoverageDueToPortionWidth(rec15,por15,8): + l(rec15,por15,8) <= 4
  maxCoverageIntersectionLeft(rec1,por1,1): - x(rec1) - w(rec1)
  + l(rec1,por1,1) <= 1
  maxCoverageIntersectionLeft(rec1,por1,2): - x(rec1) - w(rec1)
@@ -13954,6 +21903,1206 @@ Subject To
  + l(rec10,por15,7) + 57 k1(rec10,por15) <= 1
  maxCoverageIntersectionLeft(rec10,por15,8): - x(rec10) - w(rec10)
  + l(rec10,por15,8) + 57 k1(rec10,por15) <= 1
+ maxCoverageIntersectionLeft(rec11,por1,1): - x(rec11) - w(rec11)
+ + l(rec11,por1,1) <= 1
+ maxCoverageIntersectionLeft(rec11,por1,2): - x(rec11) - w(rec11)
+ + l(rec11,por1,2) <= 1
+ maxCoverageIntersectionLeft(rec11,por1,3): - x(rec11) - w(rec11)
+ + l(rec11,por1,3) <= 1
+ maxCoverageIntersectionLeft(rec11,por1,4): - x(rec11) - w(rec11)
+ + l(rec11,por1,4) <= 1
+ maxCoverageIntersectionLeft(rec11,por1,5): - x(rec11) - w(rec11)
+ + l(rec11,por1,5) <= 1
+ maxCoverageIntersectionLeft(rec11,por1,6): - x(rec11) - w(rec11)
+ + l(rec11,por1,6) <= 1
+ maxCoverageIntersectionLeft(rec11,por1,7): - x(rec11) - w(rec11)
+ + l(rec11,por1,7) <= 1
+ maxCoverageIntersectionLeft(rec11,por1,8): - x(rec11) - w(rec11)
+ + l(rec11,por1,8) <= 1
+ maxCoverageIntersectionLeft(rec11,por2,1): - x(rec11) - w(rec11)
+ + l(rec11,por2,1) + 4 k1(rec11,por2) <= 1
+ maxCoverageIntersectionLeft(rec11,por2,2): - x(rec11) - w(rec11)
+ + l(rec11,por2,2) + 4 k1(rec11,por2) <= 1
+ maxCoverageIntersectionLeft(rec11,por2,3): - x(rec11) - w(rec11)
+ + l(rec11,por2,3) + 4 k1(rec11,por2) <= 1
+ maxCoverageIntersectionLeft(rec11,por2,4): - x(rec11) - w(rec11)
+ + l(rec11,por2,4) + 4 k1(rec11,por2) <= 1
+ maxCoverageIntersectionLeft(rec11,por2,5): - x(rec11) - w(rec11)
+ + l(rec11,por2,5) + 4 k1(rec11,por2) <= 1
+ maxCoverageIntersectionLeft(rec11,por2,6): - x(rec11) - w(rec11)
+ + l(rec11,por2,6) + 4 k1(rec11,por2) <= 1
+ maxCoverageIntersectionLeft(rec11,por2,7): - x(rec11) - w(rec11)
+ + l(rec11,por2,7) + 4 k1(rec11,por2) <= 1
+ maxCoverageIntersectionLeft(rec11,por2,8): - x(rec11) - w(rec11)
+ + l(rec11,por2,8) + 4 k1(rec11,por2) <= 1
+ maxCoverageIntersectionLeft(rec11,por3,1): - x(rec11) - w(rec11)
+ + l(rec11,por3,1) + 5 k1(rec11,por3) <= 1
+ maxCoverageIntersectionLeft(rec11,por3,2): - x(rec11) - w(rec11)
+ + l(rec11,por3,2) + 5 k1(rec11,por3) <= 1
+ maxCoverageIntersectionLeft(rec11,por3,3): - x(rec11) - w(rec11)
+ + l(rec11,por3,3) + 5 k1(rec11,por3) <= 1
+ maxCoverageIntersectionLeft(rec11,por3,4): - x(rec11) - w(rec11)
+ + l(rec11,por3,4) + 5 k1(rec11,por3) <= 1
+ maxCoverageIntersectionLeft(rec11,por3,5): - x(rec11) - w(rec11)
+ + l(rec11,por3,5) + 5 k1(rec11,por3) <= 1
+ maxCoverageIntersectionLeft(rec11,por3,6): - x(rec11) - w(rec11)
+ + l(rec11,por3,6) + 5 k1(rec11,por3) <= 1
+ maxCoverageIntersectionLeft(rec11,por3,7): - x(rec11) - w(rec11)
+ + l(rec11,por3,7) + 5 k1(rec11,por3) <= 1
+ maxCoverageIntersectionLeft(rec11,por3,8): - x(rec11) - w(rec11)
+ + l(rec11,por3,8) + 5 k1(rec11,por3) <= 1
+ maxCoverageIntersectionLeft(rec11,por4,1): - x(rec11) - w(rec11)
+ + l(rec11,por4,1) + 15 k1(rec11,por4) <= 1
+ maxCoverageIntersectionLeft(rec11,por4,2): - x(rec11) - w(rec11)
+ + l(rec11,por4,2) + 15 k1(rec11,por4) <= 1
+ maxCoverageIntersectionLeft(rec11,por4,3): - x(rec11) - w(rec11)
+ + l(rec11,por4,3) + 15 k1(rec11,por4) <= 1
+ maxCoverageIntersectionLeft(rec11,por4,4): - x(rec11) - w(rec11)
+ + l(rec11,por4,4) + 15 k1(rec11,por4) <= 1
+ maxCoverageIntersectionLeft(rec11,por4,5): - x(rec11) - w(rec11)
+ + l(rec11,por4,5) + 15 k1(rec11,por4) <= 1
+ maxCoverageIntersectionLeft(rec11,por4,6): - x(rec11) - w(rec11)
+ + l(rec11,por4,6) + 15 k1(rec11,por4) <= 1
+ maxCoverageIntersectionLeft(rec11,por4,7): - x(rec11) - w(rec11)
+ + l(rec11,por4,7) + 15 k1(rec11,por4) <= 1
+ maxCoverageIntersectionLeft(rec11,por4,8): - x(rec11) - w(rec11)
+ + l(rec11,por4,8) + 15 k1(rec11,por4) <= 1
+ maxCoverageIntersectionLeft(rec11,por5,1): - x(rec11) - w(rec11)
+ + l(rec11,por5,1) + 16 k1(rec11,por5) <= 1
+ maxCoverageIntersectionLeft(rec11,por5,2): - x(rec11) - w(rec11)
+ + l(rec11,por5,2) + 16 k1(rec11,por5) <= 1
+ maxCoverageIntersectionLeft(rec11,por5,3): - x(rec11) - w(rec11)
+ + l(rec11,por5,3) + 16 k1(rec11,por5) <= 1
+ maxCoverageIntersectionLeft(rec11,por5,4): - x(rec11) - w(rec11)
+ + l(rec11,por5,4) + 16 k1(rec11,por5) <= 1
+ maxCoverageIntersectionLeft(rec11,por5,5): - x(rec11) - w(rec11)
+ + l(rec11,por5,5) + 16 k1(rec11,por5) <= 1
+ maxCoverageIntersectionLeft(rec11,por5,6): - x(rec11) - w(rec11)
+ + l(rec11,por5,6) + 16 k1(rec11,por5) <= 1
+ maxCoverageIntersectionLeft(rec11,por5,7): - x(rec11) - w(rec11)
+ + l(rec11,por5,7) + 16 k1(rec11,por5) <= 1
+ maxCoverageIntersectionLeft(rec11,por5,8): - x(rec11) - w(rec11)
+ + l(rec11,por5,8) + 16 k1(rec11,por5) <= 1
+ maxCoverageIntersectionLeft(rec11,por6,1): - x(rec11) - w(rec11)
+ + l(rec11,por6,1) + 18 k1(rec11,por6) <= 1
+ maxCoverageIntersectionLeft(rec11,por6,2): - x(rec11) - w(rec11)
+ + l(rec11,por6,2) + 18 k1(rec11,por6) <= 1
+ maxCoverageIntersectionLeft(rec11,por6,3): - x(rec11) - w(rec11)
+ + l(rec11,por6,3) + 18 k1(rec11,por6) <= 1
+ maxCoverageIntersectionLeft(rec11,por6,4): - x(rec11) - w(rec11)
+ + l(rec11,por6,4) + 18 k1(rec11,por6) <= 1
+ maxCoverageIntersectionLeft(rec11,por6,5): - x(rec11) - w(rec11)
+ + l(rec11,por6,5) + 18 k1(rec11,por6) <= 1
+ maxCoverageIntersectionLeft(rec11,por6,6): - x(rec11) - w(rec11)
+ + l(rec11,por6,6) + 18 k1(rec11,por6) <= 1
+ maxCoverageIntersectionLeft(rec11,por6,7): - x(rec11) - w(rec11)
+ + l(rec11,por6,7) + 18 k1(rec11,por6) <= 1
+ maxCoverageIntersectionLeft(rec11,por6,8): - x(rec11) - w(rec11)
+ + l(rec11,por6,8) + 18 k1(rec11,por6) <= 1
+ maxCoverageIntersectionLeft(rec11,por7,1): - x(rec11) - w(rec11)
+ + l(rec11,por7,1) + 19 k1(rec11,por7) <= 1
+ maxCoverageIntersectionLeft(rec11,por7,2): - x(rec11) - w(rec11)
+ + l(rec11,por7,2) + 19 k1(rec11,por7) <= 1
+ maxCoverageIntersectionLeft(rec11,por7,3): - x(rec11) - w(rec11)
+ + l(rec11,por7,3) + 19 k1(rec11,por7) <= 1
+ maxCoverageIntersectionLeft(rec11,por7,4): - x(rec11) - w(rec11)
+ + l(rec11,por7,4) + 19 k1(rec11,por7) <= 1
+ maxCoverageIntersectionLeft(rec11,por7,5): - x(rec11) - w(rec11)
+ + l(rec11,por7,5) + 19 k1(rec11,por7) <= 1
+ maxCoverageIntersectionLeft(rec11,por7,6): - x(rec11) - w(rec11)
+ + l(rec11,por7,6) + 19 k1(rec11,por7) <= 1
+ maxCoverageIntersectionLeft(rec11,por7,7): - x(rec11) - w(rec11)
+ + l(rec11,por7,7) + 19 k1(rec11,por7) <= 1
+ maxCoverageIntersectionLeft(rec11,por7,8): - x(rec11) - w(rec11)
+ + l(rec11,por7,8) + 19 k1(rec11,por7) <= 1
+ maxCoverageIntersectionLeft(rec11,por8,1): - x(rec11) - w(rec11)
+ + l(rec11,por8,1) + 27 k1(rec11,por8) <= 1
+ maxCoverageIntersectionLeft(rec11,por8,2): - x(rec11) - w(rec11)
+ + l(rec11,por8,2) + 27 k1(rec11,por8) <= 1
+ maxCoverageIntersectionLeft(rec11,por8,3): - x(rec11) - w(rec11)
+ + l(rec11,por8,3) + 27 k1(rec11,por8) <= 1
+ maxCoverageIntersectionLeft(rec11,por8,4): - x(rec11) - w(rec11)
+ + l(rec11,por8,4) + 27 k1(rec11,por8) <= 1
+ maxCoverageIntersectionLeft(rec11,por8,5): - x(rec11) - w(rec11)
+ + l(rec11,por8,5) + 27 k1(rec11,por8) <= 1
+ maxCoverageIntersectionLeft(rec11,por8,6): - x(rec11) - w(rec11)
+ + l(rec11,por8,6) + 27 k1(rec11,por8) <= 1
+ maxCoverageIntersectionLeft(rec11,por8,7): - x(rec11) - w(rec11)
+ + l(rec11,por8,7) + 27 k1(rec11,por8) <= 1
+ maxCoverageIntersectionLeft(rec11,por8,8): - x(rec11) - w(rec11)
+ + l(rec11,por8,8) + 27 k1(rec11,por8) <= 1
+ maxCoverageIntersectionLeft(rec11,por9,1): - x(rec11) - w(rec11)
+ + l(rec11,por9,1) + 28 k1(rec11,por9) <= 1
+ maxCoverageIntersectionLeft(rec11,por9,2): - x(rec11) - w(rec11)
+ + l(rec11,por9,2) + 28 k1(rec11,por9) <= 1
+ maxCoverageIntersectionLeft(rec11,por9,3): - x(rec11) - w(rec11)
+ + l(rec11,por9,3) + 28 k1(rec11,por9) <= 1
+ maxCoverageIntersectionLeft(rec11,por9,4): - x(rec11) - w(rec11)
+ + l(rec11,por9,4) + 28 k1(rec11,por9) <= 1
+ maxCoverageIntersectionLeft(rec11,por9,5): - x(rec11) - w(rec11)
+ + l(rec11,por9,5) + 28 k1(rec11,por9) <= 1
+ maxCoverageIntersectionLeft(rec11,por9,6): - x(rec11) - w(rec11)
+ + l(rec11,por9,6) + 28 k1(rec11,por9) <= 1
+ maxCoverageIntersectionLeft(rec11,por9,7): - x(rec11) - w(rec11)
+ + l(rec11,por9,7) + 28 k1(rec11,por9) <= 1
+ maxCoverageIntersectionLeft(rec11,por9,8): - x(rec11) - w(rec11)
+ + l(rec11,por9,8) + 28 k1(rec11,por9) <= 1
+ maxCoverageIntersectionLeft(rec11,por10,1): - x(rec11) - w(rec11)
+ + l(rec11,por10,1) + 40 k1(rec11,por10) <= 1
+ maxCoverageIntersectionLeft(rec11,por10,2): - x(rec11) - w(rec11)
+ + l(rec11,por10,2) + 40 k1(rec11,por10) <= 1
+ maxCoverageIntersectionLeft(rec11,por10,3): - x(rec11) - w(rec11)
+ + l(rec11,por10,3) + 40 k1(rec11,por10) <= 1
+ maxCoverageIntersectionLeft(rec11,por10,4): - x(rec11) - w(rec11)
+ + l(rec11,por10,4) + 40 k1(rec11,por10) <= 1
+ maxCoverageIntersectionLeft(rec11,por10,5): - x(rec11) - w(rec11)
+ + l(rec11,por10,5) + 40 k1(rec11,por10) <= 1
+ maxCoverageIntersectionLeft(rec11,por10,6): - x(rec11) - w(rec11)
+ + l(rec11,por10,6) + 40 k1(rec11,por10) <= 1
+ maxCoverageIntersectionLeft(rec11,por10,7): - x(rec11) - w(rec11)
+ + l(rec11,por10,7) + 40 k1(rec11,por10) <= 1
+ maxCoverageIntersectionLeft(rec11,por10,8): - x(rec11) - w(rec11)
+ + l(rec11,por10,8) + 40 k1(rec11,por10) <= 1
+ maxCoverageIntersectionLeft(rec11,por11,1): - x(rec11) - w(rec11)
+ + l(rec11,por11,1) + 41 k1(rec11,por11) <= 1
+ maxCoverageIntersectionLeft(rec11,por11,2): - x(rec11) - w(rec11)
+ + l(rec11,por11,2) + 41 k1(rec11,por11) <= 1
+ maxCoverageIntersectionLeft(rec11,por11,3): - x(rec11) - w(rec11)
+ + l(rec11,por11,3) + 41 k1(rec11,por11) <= 1
+ maxCoverageIntersectionLeft(rec11,por11,4): - x(rec11) - w(rec11)
+ + l(rec11,por11,4) + 41 k1(rec11,por11) <= 1
+ maxCoverageIntersectionLeft(rec11,por11,5): - x(rec11) - w(rec11)
+ + l(rec11,por11,5) + 41 k1(rec11,por11) <= 1
+ maxCoverageIntersectionLeft(rec11,por11,6): - x(rec11) - w(rec11)
+ + l(rec11,por11,6) + 41 k1(rec11,por11) <= 1
+ maxCoverageIntersectionLeft(rec11,por11,7): - x(rec11) - w(rec11)
+ + l(rec11,por11,7) + 41 k1(rec11,por11) <= 1
+ maxCoverageIntersectionLeft(rec11,por11,8): - x(rec11) - w(rec11)
+ + l(rec11,por11,8) + 41 k1(rec11,por11) <= 1
+ maxCoverageIntersectionLeft(rec11,por12,1): - x(rec11) - w(rec11)
+ + l(rec11,por12,1) + 51 k1(rec11,por12) <= 1
+ maxCoverageIntersectionLeft(rec11,por12,2): - x(rec11) - w(rec11)
+ + l(rec11,por12,2) + 51 k1(rec11,por12) <= 1
+ maxCoverageIntersectionLeft(rec11,por12,3): - x(rec11) - w(rec11)
+ + l(rec11,por12,3) + 51 k1(rec11,por12) <= 1
+ maxCoverageIntersectionLeft(rec11,por12,4): - x(rec11) - w(rec11)
+ + l(rec11,por12,4) + 51 k1(rec11,por12) <= 1
+ maxCoverageIntersectionLeft(rec11,por12,5): - x(rec11) - w(rec11)
+ + l(rec11,por12,5) + 51 k1(rec11,por12) <= 1
+ maxCoverageIntersectionLeft(rec11,por12,6): - x(rec11) - w(rec11)
+ + l(rec11,por12,6) + 51 k1(rec11,por12) <= 1
+ maxCoverageIntersectionLeft(rec11,por12,7): - x(rec11) - w(rec11)
+ + l(rec11,por12,7) + 51 k1(rec11,por12) <= 1
+ maxCoverageIntersectionLeft(rec11,por12,8): - x(rec11) - w(rec11)
+ + l(rec11,por12,8) + 51 k1(rec11,por12) <= 1
+ maxCoverageIntersectionLeft(rec11,por13,1): - x(rec11) - w(rec11)
+ + l(rec11,por13,1) + 52 k1(rec11,por13) <= 1
+ maxCoverageIntersectionLeft(rec11,por13,2): - x(rec11) - w(rec11)
+ + l(rec11,por13,2) + 52 k1(rec11,por13) <= 1
+ maxCoverageIntersectionLeft(rec11,por13,3): - x(rec11) - w(rec11)
+ + l(rec11,por13,3) + 52 k1(rec11,por13) <= 1
+ maxCoverageIntersectionLeft(rec11,por13,4): - x(rec11) - w(rec11)
+ + l(rec11,por13,4) + 52 k1(rec11,por13) <= 1
+ maxCoverageIntersectionLeft(rec11,por13,5): - x(rec11) - w(rec11)
+ + l(rec11,por13,5) + 52 k1(rec11,por13) <= 1
+ maxCoverageIntersectionLeft(rec11,por13,6): - x(rec11) - w(rec11)
+ + l(rec11,por13,6) + 52 k1(rec11,por13) <= 1
+ maxCoverageIntersectionLeft(rec11,por13,7): - x(rec11) - w(rec11)
+ + l(rec11,por13,7) + 52 k1(rec11,por13) <= 1
+ maxCoverageIntersectionLeft(rec11,por13,8): - x(rec11) - w(rec11)
+ + l(rec11,por13,8) + 52 k1(rec11,por13) <= 1
+ maxCoverageIntersectionLeft(rec11,por14,1): - x(rec11) - w(rec11)
+ + l(rec11,por14,1) + 56 k1(rec11,por14) <= 1
+ maxCoverageIntersectionLeft(rec11,por14,2): - x(rec11) - w(rec11)
+ + l(rec11,por14,2) + 56 k1(rec11,por14) <= 1
+ maxCoverageIntersectionLeft(rec11,por14,3): - x(rec11) - w(rec11)
+ + l(rec11,por14,3) + 56 k1(rec11,por14) <= 1
+ maxCoverageIntersectionLeft(rec11,por14,4): - x(rec11) - w(rec11)
+ + l(rec11,por14,4) + 56 k1(rec11,por14) <= 1
+ maxCoverageIntersectionLeft(rec11,por14,5): - x(rec11) - w(rec11)
+ + l(rec11,por14,5) + 56 k1(rec11,por14) <= 1
+ maxCoverageIntersectionLeft(rec11,por14,6): - x(rec11) - w(rec11)
+ + l(rec11,por14,6) + 56 k1(rec11,por14) <= 1
+ maxCoverageIntersectionLeft(rec11,por14,7): - x(rec11) - w(rec11)
+ + l(rec11,por14,7) + 56 k1(rec11,por14) <= 1
+ maxCoverageIntersectionLeft(rec11,por14,8): - x(rec11) - w(rec11)
+ + l(rec11,por14,8) + 56 k1(rec11,por14) <= 1
+ maxCoverageIntersectionLeft(rec11,por15,1): - x(rec11) - w(rec11)
+ + l(rec11,por15,1) + 57 k1(rec11,por15) <= 1
+ maxCoverageIntersectionLeft(rec11,por15,2): - x(rec11) - w(rec11)
+ + l(rec11,por15,2) + 57 k1(rec11,por15) <= 1
+ maxCoverageIntersectionLeft(rec11,por15,3): - x(rec11) - w(rec11)
+ + l(rec11,por15,3) + 57 k1(rec11,por15) <= 1
+ maxCoverageIntersectionLeft(rec11,por15,4): - x(rec11) - w(rec11)
+ + l(rec11,por15,4) + 57 k1(rec11,por15) <= 1
+ maxCoverageIntersectionLeft(rec11,por15,5): - x(rec11) - w(rec11)
+ + l(rec11,por15,5) + 57 k1(rec11,por15) <= 1
+ maxCoverageIntersectionLeft(rec11,por15,6): - x(rec11) - w(rec11)
+ + l(rec11,por15,6) + 57 k1(rec11,por15) <= 1
+ maxCoverageIntersectionLeft(rec11,por15,7): - x(rec11) - w(rec11)
+ + l(rec11,por15,7) + 57 k1(rec11,por15) <= 1
+ maxCoverageIntersectionLeft(rec11,por15,8): - x(rec11) - w(rec11)
+ + l(rec11,por15,8) + 57 k1(rec11,por15) <= 1
+ maxCoverageIntersectionLeft(rec12,por1,1): - x(rec12) - w(rec12)
+ + l(rec12,por1,1) <= 1
+ maxCoverageIntersectionLeft(rec12,por1,2): - x(rec12) - w(rec12)
+ + l(rec12,por1,2) <= 1
+ maxCoverageIntersectionLeft(rec12,por1,3): - x(rec12) - w(rec12)
+ + l(rec12,por1,3) <= 1
+ maxCoverageIntersectionLeft(rec12,por1,4): - x(rec12) - w(rec12)
+ + l(rec12,por1,4) <= 1
+ maxCoverageIntersectionLeft(rec12,por1,5): - x(rec12) - w(rec12)
+ + l(rec12,por1,5) <= 1
+ maxCoverageIntersectionLeft(rec12,por1,6): - x(rec12) - w(rec12)
+ + l(rec12,por1,6) <= 1
+ maxCoverageIntersectionLeft(rec12,por1,7): - x(rec12) - w(rec12)
+ + l(rec12,por1,7) <= 1
+ maxCoverageIntersectionLeft(rec12,por1,8): - x(rec12) - w(rec12)
+ + l(rec12,por1,8) <= 1
+ maxCoverageIntersectionLeft(rec12,por2,1): - x(rec12) - w(rec12)
+ + l(rec12,por2,1) + 4 k1(rec12,por2) <= 1
+ maxCoverageIntersectionLeft(rec12,por2,2): - x(rec12) - w(rec12)
+ + l(rec12,por2,2) + 4 k1(rec12,por2) <= 1
+ maxCoverageIntersectionLeft(rec12,por2,3): - x(rec12) - w(rec12)
+ + l(rec12,por2,3) + 4 k1(rec12,por2) <= 1
+ maxCoverageIntersectionLeft(rec12,por2,4): - x(rec12) - w(rec12)
+ + l(rec12,por2,4) + 4 k1(rec12,por2) <= 1
+ maxCoverageIntersectionLeft(rec12,por2,5): - x(rec12) - w(rec12)
+ + l(rec12,por2,5) + 4 k1(rec12,por2) <= 1
+ maxCoverageIntersectionLeft(rec12,por2,6): - x(rec12) - w(rec12)
+ + l(rec12,por2,6) + 4 k1(rec12,por2) <= 1
+ maxCoverageIntersectionLeft(rec12,por2,7): - x(rec12) - w(rec12)
+ + l(rec12,por2,7) + 4 k1(rec12,por2) <= 1
+ maxCoverageIntersectionLeft(rec12,por2,8): - x(rec12) - w(rec12)
+ + l(rec12,por2,8) + 4 k1(rec12,por2) <= 1
+ maxCoverageIntersectionLeft(rec12,por3,1): - x(rec12) - w(rec12)
+ + l(rec12,por3,1) + 5 k1(rec12,por3) <= 1
+ maxCoverageIntersectionLeft(rec12,por3,2): - x(rec12) - w(rec12)
+ + l(rec12,por3,2) + 5 k1(rec12,por3) <= 1
+ maxCoverageIntersectionLeft(rec12,por3,3): - x(rec12) - w(rec12)
+ + l(rec12,por3,3) + 5 k1(rec12,por3) <= 1
+ maxCoverageIntersectionLeft(rec12,por3,4): - x(rec12) - w(rec12)
+ + l(rec12,por3,4) + 5 k1(rec12,por3) <= 1
+ maxCoverageIntersectionLeft(rec12,por3,5): - x(rec12) - w(rec12)
+ + l(rec12,por3,5) + 5 k1(rec12,por3) <= 1
+ maxCoverageIntersectionLeft(rec12,por3,6): - x(rec12) - w(rec12)
+ + l(rec12,por3,6) + 5 k1(rec12,por3) <= 1
+ maxCoverageIntersectionLeft(rec12,por3,7): - x(rec12) - w(rec12)
+ + l(rec12,por3,7) + 5 k1(rec12,por3) <= 1
+ maxCoverageIntersectionLeft(rec12,por3,8): - x(rec12) - w(rec12)
+ + l(rec12,por3,8) + 5 k1(rec12,por3) <= 1
+ maxCoverageIntersectionLeft(rec12,por4,1): - x(rec12) - w(rec12)
+ + l(rec12,por4,1) + 15 k1(rec12,por4) <= 1
+ maxCoverageIntersectionLeft(rec12,por4,2): - x(rec12) - w(rec12)
+ + l(rec12,por4,2) + 15 k1(rec12,por4) <= 1
+ maxCoverageIntersectionLeft(rec12,por4,3): - x(rec12) - w(rec12)
+ + l(rec12,por4,3) + 15 k1(rec12,por4) <= 1
+ maxCoverageIntersectionLeft(rec12,por4,4): - x(rec12) - w(rec12)
+ + l(rec12,por4,4) + 15 k1(rec12,por4) <= 1
+ maxCoverageIntersectionLeft(rec12,por4,5): - x(rec12) - w(rec12)
+ + l(rec12,por4,5) + 15 k1(rec12,por4) <= 1
+ maxCoverageIntersectionLeft(rec12,por4,6): - x(rec12) - w(rec12)
+ + l(rec12,por4,6) + 15 k1(rec12,por4) <= 1
+ maxCoverageIntersectionLeft(rec12,por4,7): - x(rec12) - w(rec12)
+ + l(rec12,por4,7) + 15 k1(rec12,por4) <= 1
+ maxCoverageIntersectionLeft(rec12,por4,8): - x(rec12) - w(rec12)
+ + l(rec12,por4,8) + 15 k1(rec12,por4) <= 1
+ maxCoverageIntersectionLeft(rec12,por5,1): - x(rec12) - w(rec12)
+ + l(rec12,por5,1) + 16 k1(rec12,por5) <= 1
+ maxCoverageIntersectionLeft(rec12,por5,2): - x(rec12) - w(rec12)
+ + l(rec12,por5,2) + 16 k1(rec12,por5) <= 1
+ maxCoverageIntersectionLeft(rec12,por5,3): - x(rec12) - w(rec12)
+ + l(rec12,por5,3) + 16 k1(rec12,por5) <= 1
+ maxCoverageIntersectionLeft(rec12,por5,4): - x(rec12) - w(rec12)
+ + l(rec12,por5,4) + 16 k1(rec12,por5) <= 1
+ maxCoverageIntersectionLeft(rec12,por5,5): - x(rec12) - w(rec12)
+ + l(rec12,por5,5) + 16 k1(rec12,por5) <= 1
+ maxCoverageIntersectionLeft(rec12,por5,6): - x(rec12) - w(rec12)
+ + l(rec12,por5,6) + 16 k1(rec12,por5) <= 1
+ maxCoverageIntersectionLeft(rec12,por5,7): - x(rec12) - w(rec12)
+ + l(rec12,por5,7) + 16 k1(rec12,por5) <= 1
+ maxCoverageIntersectionLeft(rec12,por5,8): - x(rec12) - w(rec12)
+ + l(rec12,por5,8) + 16 k1(rec12,por5) <= 1
+ maxCoverageIntersectionLeft(rec12,por6,1): - x(rec12) - w(rec12)
+ + l(rec12,por6,1) + 18 k1(rec12,por6) <= 1
+ maxCoverageIntersectionLeft(rec12,por6,2): - x(rec12) - w(rec12)
+ + l(rec12,por6,2) + 18 k1(rec12,por6) <= 1
+ maxCoverageIntersectionLeft(rec12,por6,3): - x(rec12) - w(rec12)
+ + l(rec12,por6,3) + 18 k1(rec12,por6) <= 1
+ maxCoverageIntersectionLeft(rec12,por6,4): - x(rec12) - w(rec12)
+ + l(rec12,por6,4) + 18 k1(rec12,por6) <= 1
+ maxCoverageIntersectionLeft(rec12,por6,5): - x(rec12) - w(rec12)
+ + l(rec12,por6,5) + 18 k1(rec12,por6) <= 1
+ maxCoverageIntersectionLeft(rec12,por6,6): - x(rec12) - w(rec12)
+ + l(rec12,por6,6) + 18 k1(rec12,por6) <= 1
+ maxCoverageIntersectionLeft(rec12,por6,7): - x(rec12) - w(rec12)
+ + l(rec12,por6,7) + 18 k1(rec12,por6) <= 1
+ maxCoverageIntersectionLeft(rec12,por6,8): - x(rec12) - w(rec12)
+ + l(rec12,por6,8) + 18 k1(rec12,por6) <= 1
+ maxCoverageIntersectionLeft(rec12,por7,1): - x(rec12) - w(rec12)
+ + l(rec12,por7,1) + 19 k1(rec12,por7) <= 1
+ maxCoverageIntersectionLeft(rec12,por7,2): - x(rec12) - w(rec12)
+ + l(rec12,por7,2) + 19 k1(rec12,por7) <= 1
+ maxCoverageIntersectionLeft(rec12,por7,3): - x(rec12) - w(rec12)
+ + l(rec12,por7,3) + 19 k1(rec12,por7) <= 1
+ maxCoverageIntersectionLeft(rec12,por7,4): - x(rec12) - w(rec12)
+ + l(rec12,por7,4) + 19 k1(rec12,por7) <= 1
+ maxCoverageIntersectionLeft(rec12,por7,5): - x(rec12) - w(rec12)
+ + l(rec12,por7,5) + 19 k1(rec12,por7) <= 1
+ maxCoverageIntersectionLeft(rec12,por7,6): - x(rec12) - w(rec12)
+ + l(rec12,por7,6) + 19 k1(rec12,por7) <= 1
+ maxCoverageIntersectionLeft(rec12,por7,7): - x(rec12) - w(rec12)
+ + l(rec12,por7,7) + 19 k1(rec12,por7) <= 1
+ maxCoverageIntersectionLeft(rec12,por7,8): - x(rec12) - w(rec12)
+ + l(rec12,por7,8) + 19 k1(rec12,por7) <= 1
+ maxCoverageIntersectionLeft(rec12,por8,1): - x(rec12) - w(rec12)
+ + l(rec12,por8,1) + 27 k1(rec12,por8) <= 1
+ maxCoverageIntersectionLeft(rec12,por8,2): - x(rec12) - w(rec12)
+ + l(rec12,por8,2) + 27 k1(rec12,por8) <= 1
+ maxCoverageIntersectionLeft(rec12,por8,3): - x(rec12) - w(rec12)
+ + l(rec12,por8,3) + 27 k1(rec12,por8) <= 1
+ maxCoverageIntersectionLeft(rec12,por8,4): - x(rec12) - w(rec12)
+ + l(rec12,por8,4) + 27 k1(rec12,por8) <= 1
+ maxCoverageIntersectionLeft(rec12,por8,5): - x(rec12) - w(rec12)
+ + l(rec12,por8,5) + 27 k1(rec12,por8) <= 1
+ maxCoverageIntersectionLeft(rec12,por8,6): - x(rec12) - w(rec12)
+ + l(rec12,por8,6) + 27 k1(rec12,por8) <= 1
+ maxCoverageIntersectionLeft(rec12,por8,7): - x(rec12) - w(rec12)
+ + l(rec12,por8,7) + 27 k1(rec12,por8) <= 1
+ maxCoverageIntersectionLeft(rec12,por8,8): - x(rec12) - w(rec12)
+ + l(rec12,por8,8) + 27 k1(rec12,por8) <= 1
+ maxCoverageIntersectionLeft(rec12,por9,1): - x(rec12) - w(rec12)
+ + l(rec12,por9,1) + 28 k1(rec12,por9) <= 1
+ maxCoverageIntersectionLeft(rec12,por9,2): - x(rec12) - w(rec12)
+ + l(rec12,por9,2) + 28 k1(rec12,por9) <= 1
+ maxCoverageIntersectionLeft(rec12,por9,3): - x(rec12) - w(rec12)
+ + l(rec12,por9,3) + 28 k1(rec12,por9) <= 1
+ maxCoverageIntersectionLeft(rec12,por9,4): - x(rec12) - w(rec12)
+ + l(rec12,por9,4) + 28 k1(rec12,por9) <= 1
+ maxCoverageIntersectionLeft(rec12,por9,5): - x(rec12) - w(rec12)
+ + l(rec12,por9,5) + 28 k1(rec12,por9) <= 1
+ maxCoverageIntersectionLeft(rec12,por9,6): - x(rec12) - w(rec12)
+ + l(rec12,por9,6) + 28 k1(rec12,por9) <= 1
+ maxCoverageIntersectionLeft(rec12,por9,7): - x(rec12) - w(rec12)
+ + l(rec12,por9,7) + 28 k1(rec12,por9) <= 1
+ maxCoverageIntersectionLeft(rec12,por9,8): - x(rec12) - w(rec12)
+ + l(rec12,por9,8) + 28 k1(rec12,por9) <= 1
+ maxCoverageIntersectionLeft(rec12,por10,1): - x(rec12) - w(rec12)
+ + l(rec12,por10,1) + 40 k1(rec12,por10) <= 1
+ maxCoverageIntersectionLeft(rec12,por10,2): - x(rec12) - w(rec12)
+ + l(rec12,por10,2) + 40 k1(rec12,por10) <= 1
+ maxCoverageIntersectionLeft(rec12,por10,3): - x(rec12) - w(rec12)
+ + l(rec12,por10,3) + 40 k1(rec12,por10) <= 1
+ maxCoverageIntersectionLeft(rec12,por10,4): - x(rec12) - w(rec12)
+ + l(rec12,por10,4) + 40 k1(rec12,por10) <= 1
+ maxCoverageIntersectionLeft(rec12,por10,5): - x(rec12) - w(rec12)
+ + l(rec12,por10,5) + 40 k1(rec12,por10) <= 1
+ maxCoverageIntersectionLeft(rec12,por10,6): - x(rec12) - w(rec12)
+ + l(rec12,por10,6) + 40 k1(rec12,por10) <= 1
+ maxCoverageIntersectionLeft(rec12,por10,7): - x(rec12) - w(rec12)
+ + l(rec12,por10,7) + 40 k1(rec12,por10) <= 1
+ maxCoverageIntersectionLeft(rec12,por10,8): - x(rec12) - w(rec12)
+ + l(rec12,por10,8) + 40 k1(rec12,por10) <= 1
+ maxCoverageIntersectionLeft(rec12,por11,1): - x(rec12) - w(rec12)
+ + l(rec12,por11,1) + 41 k1(rec12,por11) <= 1
+ maxCoverageIntersectionLeft(rec12,por11,2): - x(rec12) - w(rec12)
+ + l(rec12,por11,2) + 41 k1(rec12,por11) <= 1
+ maxCoverageIntersectionLeft(rec12,por11,3): - x(rec12) - w(rec12)
+ + l(rec12,por11,3) + 41 k1(rec12,por11) <= 1
+ maxCoverageIntersectionLeft(rec12,por11,4): - x(rec12) - w(rec12)
+ + l(rec12,por11,4) + 41 k1(rec12,por11) <= 1
+ maxCoverageIntersectionLeft(rec12,por11,5): - x(rec12) - w(rec12)
+ + l(rec12,por11,5) + 41 k1(rec12,por11) <= 1
+ maxCoverageIntersectionLeft(rec12,por11,6): - x(rec12) - w(rec12)
+ + l(rec12,por11,6) + 41 k1(rec12,por11) <= 1
+ maxCoverageIntersectionLeft(rec12,por11,7): - x(rec12) - w(rec12)
+ + l(rec12,por11,7) + 41 k1(rec12,por11) <= 1
+ maxCoverageIntersectionLeft(rec12,por11,8): - x(rec12) - w(rec12)
+ + l(rec12,por11,8) + 41 k1(rec12,por11) <= 1
+ maxCoverageIntersectionLeft(rec12,por12,1): - x(rec12) - w(rec12)
+ + l(rec12,por12,1) + 51 k1(rec12,por12) <= 1
+ maxCoverageIntersectionLeft(rec12,por12,2): - x(rec12) - w(rec12)
+ + l(rec12,por12,2) + 51 k1(rec12,por12) <= 1
+ maxCoverageIntersectionLeft(rec12,por12,3): - x(rec12) - w(rec12)
+ + l(rec12,por12,3) + 51 k1(rec12,por12) <= 1
+ maxCoverageIntersectionLeft(rec12,por12,4): - x(rec12) - w(rec12)
+ + l(rec12,por12,4) + 51 k1(rec12,por12) <= 1
+ maxCoverageIntersectionLeft(rec12,por12,5): - x(rec12) - w(rec12)
+ + l(rec12,por12,5) + 51 k1(rec12,por12) <= 1
+ maxCoverageIntersectionLeft(rec12,por12,6): - x(rec12) - w(rec12)
+ + l(rec12,por12,6) + 51 k1(rec12,por12) <= 1
+ maxCoverageIntersectionLeft(rec12,por12,7): - x(rec12) - w(rec12)
+ + l(rec12,por12,7) + 51 k1(rec12,por12) <= 1
+ maxCoverageIntersectionLeft(rec12,por12,8): - x(rec12) - w(rec12)
+ + l(rec12,por12,8) + 51 k1(rec12,por12) <= 1
+ maxCoverageIntersectionLeft(rec12,por13,1): - x(rec12) - w(rec12)
+ + l(rec12,por13,1) + 52 k1(rec12,por13) <= 1
+ maxCoverageIntersectionLeft(rec12,por13,2): - x(rec12) - w(rec12)
+ + l(rec12,por13,2) + 52 k1(rec12,por13) <= 1
+ maxCoverageIntersectionLeft(rec12,por13,3): - x(rec12) - w(rec12)
+ + l(rec12,por13,3) + 52 k1(rec12,por13) <= 1
+ maxCoverageIntersectionLeft(rec12,por13,4): - x(rec12) - w(rec12)
+ + l(rec12,por13,4) + 52 k1(rec12,por13) <= 1
+ maxCoverageIntersectionLeft(rec12,por13,5): - x(rec12) - w(rec12)
+ + l(rec12,por13,5) + 52 k1(rec12,por13) <= 1
+ maxCoverageIntersectionLeft(rec12,por13,6): - x(rec12) - w(rec12)
+ + l(rec12,por13,6) + 52 k1(rec12,por13) <= 1
+ maxCoverageIntersectionLeft(rec12,por13,7): - x(rec12) - w(rec12)
+ + l(rec12,por13,7) + 52 k1(rec12,por13) <= 1
+ maxCoverageIntersectionLeft(rec12,por13,8): - x(rec12) - w(rec12)
+ + l(rec12,por13,8) + 52 k1(rec12,por13) <= 1
+ maxCoverageIntersectionLeft(rec12,por14,1): - x(rec12) - w(rec12)
+ + l(rec12,por14,1) + 56 k1(rec12,por14) <= 1
+ maxCoverageIntersectionLeft(rec12,por14,2): - x(rec12) - w(rec12)
+ + l(rec12,por14,2) + 56 k1(rec12,por14) <= 1
+ maxCoverageIntersectionLeft(rec12,por14,3): - x(rec12) - w(rec12)
+ + l(rec12,por14,3) + 56 k1(rec12,por14) <= 1
+ maxCoverageIntersectionLeft(rec12,por14,4): - x(rec12) - w(rec12)
+ + l(rec12,por14,4) + 56 k1(rec12,por14) <= 1
+ maxCoverageIntersectionLeft(rec12,por14,5): - x(rec12) - w(rec12)
+ + l(rec12,por14,5) + 56 k1(rec12,por14) <= 1
+ maxCoverageIntersectionLeft(rec12,por14,6): - x(rec12) - w(rec12)
+ + l(rec12,por14,6) + 56 k1(rec12,por14) <= 1
+ maxCoverageIntersectionLeft(rec12,por14,7): - x(rec12) - w(rec12)
+ + l(rec12,por14,7) + 56 k1(rec12,por14) <= 1
+ maxCoverageIntersectionLeft(rec12,por14,8): - x(rec12) - w(rec12)
+ + l(rec12,por14,8) + 56 k1(rec12,por14) <= 1
+ maxCoverageIntersectionLeft(rec12,por15,1): - x(rec12) - w(rec12)
+ + l(rec12,por15,1) + 57 k1(rec12,por15) <= 1
+ maxCoverageIntersectionLeft(rec12,por15,2): - x(rec12) - w(rec12)
+ + l(rec12,por15,2) + 57 k1(rec12,por15) <= 1
+ maxCoverageIntersectionLeft(rec12,por15,3): - x(rec12) - w(rec12)
+ + l(rec12,por15,3) + 57 k1(rec12,por15) <= 1
+ maxCoverageIntersectionLeft(rec12,por15,4): - x(rec12) - w(rec12)
+ + l(rec12,por15,4) + 57 k1(rec12,por15) <= 1
+ maxCoverageIntersectionLeft(rec12,por15,5): - x(rec12) - w(rec12)
+ + l(rec12,por15,5) + 57 k1(rec12,por15) <= 1
+ maxCoverageIntersectionLeft(rec12,por15,6): - x(rec12) - w(rec12)
+ + l(rec12,por15,6) + 57 k1(rec12,por15) <= 1
+ maxCoverageIntersectionLeft(rec12,por15,7): - x(rec12) - w(rec12)
+ + l(rec12,por15,7) + 57 k1(rec12,por15) <= 1
+ maxCoverageIntersectionLeft(rec12,por15,8): - x(rec12) - w(rec12)
+ + l(rec12,por15,8) + 57 k1(rec12,por15) <= 1
+ maxCoverageIntersectionLeft(rec13,por1,1): - x(rec13) - w(rec13)
+ + l(rec13,por1,1) <= 1
+ maxCoverageIntersectionLeft(rec13,por1,2): - x(rec13) - w(rec13)
+ + l(rec13,por1,2) <= 1
+ maxCoverageIntersectionLeft(rec13,por1,3): - x(rec13) - w(rec13)
+ + l(rec13,por1,3) <= 1
+ maxCoverageIntersectionLeft(rec13,por1,4): - x(rec13) - w(rec13)
+ + l(rec13,por1,4) <= 1
+ maxCoverageIntersectionLeft(rec13,por1,5): - x(rec13) - w(rec13)
+ + l(rec13,por1,5) <= 1
+ maxCoverageIntersectionLeft(rec13,por1,6): - x(rec13) - w(rec13)
+ + l(rec13,por1,6) <= 1
+ maxCoverageIntersectionLeft(rec13,por1,7): - x(rec13) - w(rec13)
+ + l(rec13,por1,7) <= 1
+ maxCoverageIntersectionLeft(rec13,por1,8): - x(rec13) - w(rec13)
+ + l(rec13,por1,8) <= 1
+ maxCoverageIntersectionLeft(rec13,por2,1): - x(rec13) - w(rec13)
+ + l(rec13,por2,1) + 4 k1(rec13,por2) <= 1
+ maxCoverageIntersectionLeft(rec13,por2,2): - x(rec13) - w(rec13)
+ + l(rec13,por2,2) + 4 k1(rec13,por2) <= 1
+ maxCoverageIntersectionLeft(rec13,por2,3): - x(rec13) - w(rec13)
+ + l(rec13,por2,3) + 4 k1(rec13,por2) <= 1
+ maxCoverageIntersectionLeft(rec13,por2,4): - x(rec13) - w(rec13)
+ + l(rec13,por2,4) + 4 k1(rec13,por2) <= 1
+ maxCoverageIntersectionLeft(rec13,por2,5): - x(rec13) - w(rec13)
+ + l(rec13,por2,5) + 4 k1(rec13,por2) <= 1
+ maxCoverageIntersectionLeft(rec13,por2,6): - x(rec13) - w(rec13)
+ + l(rec13,por2,6) + 4 k1(rec13,por2) <= 1
+ maxCoverageIntersectionLeft(rec13,por2,7): - x(rec13) - w(rec13)
+ + l(rec13,por2,7) + 4 k1(rec13,por2) <= 1
+ maxCoverageIntersectionLeft(rec13,por2,8): - x(rec13) - w(rec13)
+ + l(rec13,por2,8) + 4 k1(rec13,por2) <= 1
+ maxCoverageIntersectionLeft(rec13,por3,1): - x(rec13) - w(rec13)
+ + l(rec13,por3,1) + 5 k1(rec13,por3) <= 1
+ maxCoverageIntersectionLeft(rec13,por3,2): - x(rec13) - w(rec13)
+ + l(rec13,por3,2) + 5 k1(rec13,por3) <= 1
+ maxCoverageIntersectionLeft(rec13,por3,3): - x(rec13) - w(rec13)
+ + l(rec13,por3,3) + 5 k1(rec13,por3) <= 1
+ maxCoverageIntersectionLeft(rec13,por3,4): - x(rec13) - w(rec13)
+ + l(rec13,por3,4) + 5 k1(rec13,por3) <= 1
+ maxCoverageIntersectionLeft(rec13,por3,5): - x(rec13) - w(rec13)
+ + l(rec13,por3,5) + 5 k1(rec13,por3) <= 1
+ maxCoverageIntersectionLeft(rec13,por3,6): - x(rec13) - w(rec13)
+ + l(rec13,por3,6) + 5 k1(rec13,por3) <= 1
+ maxCoverageIntersectionLeft(rec13,por3,7): - x(rec13) - w(rec13)
+ + l(rec13,por3,7) + 5 k1(rec13,por3) <= 1
+ maxCoverageIntersectionLeft(rec13,por3,8): - x(rec13) - w(rec13)
+ + l(rec13,por3,8) + 5 k1(rec13,por3) <= 1
+ maxCoverageIntersectionLeft(rec13,por4,1): - x(rec13) - w(rec13)
+ + l(rec13,por4,1) + 15 k1(rec13,por4) <= 1
+ maxCoverageIntersectionLeft(rec13,por4,2): - x(rec13) - w(rec13)
+ + l(rec13,por4,2) + 15 k1(rec13,por4) <= 1
+ maxCoverageIntersectionLeft(rec13,por4,3): - x(rec13) - w(rec13)
+ + l(rec13,por4,3) + 15 k1(rec13,por4) <= 1
+ maxCoverageIntersectionLeft(rec13,por4,4): - x(rec13) - w(rec13)
+ + l(rec13,por4,4) + 15 k1(rec13,por4) <= 1
+ maxCoverageIntersectionLeft(rec13,por4,5): - x(rec13) - w(rec13)
+ + l(rec13,por4,5) + 15 k1(rec13,por4) <= 1
+ maxCoverageIntersectionLeft(rec13,por4,6): - x(rec13) - w(rec13)
+ + l(rec13,por4,6) + 15 k1(rec13,por4) <= 1
+ maxCoverageIntersectionLeft(rec13,por4,7): - x(rec13) - w(rec13)
+ + l(rec13,por4,7) + 15 k1(rec13,por4) <= 1
+ maxCoverageIntersectionLeft(rec13,por4,8): - x(rec13) - w(rec13)
+ + l(rec13,por4,8) + 15 k1(rec13,por4) <= 1
+ maxCoverageIntersectionLeft(rec13,por5,1): - x(rec13) - w(rec13)
+ + l(rec13,por5,1) + 16 k1(rec13,por5) <= 1
+ maxCoverageIntersectionLeft(rec13,por5,2): - x(rec13) - w(rec13)
+ + l(rec13,por5,2) + 16 k1(rec13,por5) <= 1
+ maxCoverageIntersectionLeft(rec13,por5,3): - x(rec13) - w(rec13)
+ + l(rec13,por5,3) + 16 k1(rec13,por5) <= 1
+ maxCoverageIntersectionLeft(rec13,por5,4): - x(rec13) - w(rec13)
+ + l(rec13,por5,4) + 16 k1(rec13,por5) <= 1
+ maxCoverageIntersectionLeft(rec13,por5,5): - x(rec13) - w(rec13)
+ + l(rec13,por5,5) + 16 k1(rec13,por5) <= 1
+ maxCoverageIntersectionLeft(rec13,por5,6): - x(rec13) - w(rec13)
+ + l(rec13,por5,6) + 16 k1(rec13,por5) <= 1
+ maxCoverageIntersectionLeft(rec13,por5,7): - x(rec13) - w(rec13)
+ + l(rec13,por5,7) + 16 k1(rec13,por5) <= 1
+ maxCoverageIntersectionLeft(rec13,por5,8): - x(rec13) - w(rec13)
+ + l(rec13,por5,8) + 16 k1(rec13,por5) <= 1
+ maxCoverageIntersectionLeft(rec13,por6,1): - x(rec13) - w(rec13)
+ + l(rec13,por6,1) + 18 k1(rec13,por6) <= 1
+ maxCoverageIntersectionLeft(rec13,por6,2): - x(rec13) - w(rec13)
+ + l(rec13,por6,2) + 18 k1(rec13,por6) <= 1
+ maxCoverageIntersectionLeft(rec13,por6,3): - x(rec13) - w(rec13)
+ + l(rec13,por6,3) + 18 k1(rec13,por6) <= 1
+ maxCoverageIntersectionLeft(rec13,por6,4): - x(rec13) - w(rec13)
+ + l(rec13,por6,4) + 18 k1(rec13,por6) <= 1
+ maxCoverageIntersectionLeft(rec13,por6,5): - x(rec13) - w(rec13)
+ + l(rec13,por6,5) + 18 k1(rec13,por6) <= 1
+ maxCoverageIntersectionLeft(rec13,por6,6): - x(rec13) - w(rec13)
+ + l(rec13,por6,6) + 18 k1(rec13,por6) <= 1
+ maxCoverageIntersectionLeft(rec13,por6,7): - x(rec13) - w(rec13)
+ + l(rec13,por6,7) + 18 k1(rec13,por6) <= 1
+ maxCoverageIntersectionLeft(rec13,por6,8): - x(rec13) - w(rec13)
+ + l(rec13,por6,8) + 18 k1(rec13,por6) <= 1
+ maxCoverageIntersectionLeft(rec13,por7,1): - x(rec13) - w(rec13)
+ + l(rec13,por7,1) + 19 k1(rec13,por7) <= 1
+ maxCoverageIntersectionLeft(rec13,por7,2): - x(rec13) - w(rec13)
+ + l(rec13,por7,2) + 19 k1(rec13,por7) <= 1
+ maxCoverageIntersectionLeft(rec13,por7,3): - x(rec13) - w(rec13)
+ + l(rec13,por7,3) + 19 k1(rec13,por7) <= 1
+ maxCoverageIntersectionLeft(rec13,por7,4): - x(rec13) - w(rec13)
+ + l(rec13,por7,4) + 19 k1(rec13,por7) <= 1
+ maxCoverageIntersectionLeft(rec13,por7,5): - x(rec13) - w(rec13)
+ + l(rec13,por7,5) + 19 k1(rec13,por7) <= 1
+ maxCoverageIntersectionLeft(rec13,por7,6): - x(rec13) - w(rec13)
+ + l(rec13,por7,6) + 19 k1(rec13,por7) <= 1
+ maxCoverageIntersectionLeft(rec13,por7,7): - x(rec13) - w(rec13)
+ + l(rec13,por7,7) + 19 k1(rec13,por7) <= 1
+ maxCoverageIntersectionLeft(rec13,por7,8): - x(rec13) - w(rec13)
+ + l(rec13,por7,8) + 19 k1(rec13,por7) <= 1
+ maxCoverageIntersectionLeft(rec13,por8,1): - x(rec13) - w(rec13)
+ + l(rec13,por8,1) + 27 k1(rec13,por8) <= 1
+ maxCoverageIntersectionLeft(rec13,por8,2): - x(rec13) - w(rec13)
+ + l(rec13,por8,2) + 27 k1(rec13,por8) <= 1
+ maxCoverageIntersectionLeft(rec13,por8,3): - x(rec13) - w(rec13)
+ + l(rec13,por8,3) + 27 k1(rec13,por8) <= 1
+ maxCoverageIntersectionLeft(rec13,por8,4): - x(rec13) - w(rec13)
+ + l(rec13,por8,4) + 27 k1(rec13,por8) <= 1
+ maxCoverageIntersectionLeft(rec13,por8,5): - x(rec13) - w(rec13)
+ + l(rec13,por8,5) + 27 k1(rec13,por8) <= 1
+ maxCoverageIntersectionLeft(rec13,por8,6): - x(rec13) - w(rec13)
+ + l(rec13,por8,6) + 27 k1(rec13,por8) <= 1
+ maxCoverageIntersectionLeft(rec13,por8,7): - x(rec13) - w(rec13)
+ + l(rec13,por8,7) + 27 k1(rec13,por8) <= 1
+ maxCoverageIntersectionLeft(rec13,por8,8): - x(rec13) - w(rec13)
+ + l(rec13,por8,8) + 27 k1(rec13,por8) <= 1
+ maxCoverageIntersectionLeft(rec13,por9,1): - x(rec13) - w(rec13)
+ + l(rec13,por9,1) + 28 k1(rec13,por9) <= 1
+ maxCoverageIntersectionLeft(rec13,por9,2): - x(rec13) - w(rec13)
+ + l(rec13,por9,2) + 28 k1(rec13,por9) <= 1
+ maxCoverageIntersectionLeft(rec13,por9,3): - x(rec13) - w(rec13)
+ + l(rec13,por9,3) + 28 k1(rec13,por9) <= 1
+ maxCoverageIntersectionLeft(rec13,por9,4): - x(rec13) - w(rec13)
+ + l(rec13,por9,4) + 28 k1(rec13,por9) <= 1
+ maxCoverageIntersectionLeft(rec13,por9,5): - x(rec13) - w(rec13)
+ + l(rec13,por9,5) + 28 k1(rec13,por9) <= 1
+ maxCoverageIntersectionLeft(rec13,por9,6): - x(rec13) - w(rec13)
+ + l(rec13,por9,6) + 28 k1(rec13,por9) <= 1
+ maxCoverageIntersectionLeft(rec13,por9,7): - x(rec13) - w(rec13)
+ + l(rec13,por9,7) + 28 k1(rec13,por9) <= 1
+ maxCoverageIntersectionLeft(rec13,por9,8): - x(rec13) - w(rec13)
+ + l(rec13,por9,8) + 28 k1(rec13,por9) <= 1
+ maxCoverageIntersectionLeft(rec13,por10,1): - x(rec13) - w(rec13)
+ + l(rec13,por10,1) + 40 k1(rec13,por10) <= 1
+ maxCoverageIntersectionLeft(rec13,por10,2): - x(rec13) - w(rec13)
+ + l(rec13,por10,2) + 40 k1(rec13,por10) <= 1
+ maxCoverageIntersectionLeft(rec13,por10,3): - x(rec13) - w(rec13)
+ + l(rec13,por10,3) + 40 k1(rec13,por10) <= 1
+ maxCoverageIntersectionLeft(rec13,por10,4): - x(rec13) - w(rec13)
+ + l(rec13,por10,4) + 40 k1(rec13,por10) <= 1
+ maxCoverageIntersectionLeft(rec13,por10,5): - x(rec13) - w(rec13)
+ + l(rec13,por10,5) + 40 k1(rec13,por10) <= 1
+ maxCoverageIntersectionLeft(rec13,por10,6): - x(rec13) - w(rec13)
+ + l(rec13,por10,6) + 40 k1(rec13,por10) <= 1
+ maxCoverageIntersectionLeft(rec13,por10,7): - x(rec13) - w(rec13)
+ + l(rec13,por10,7) + 40 k1(rec13,por10) <= 1
+ maxCoverageIntersectionLeft(rec13,por10,8): - x(rec13) - w(rec13)
+ + l(rec13,por10,8) + 40 k1(rec13,por10) <= 1
+ maxCoverageIntersectionLeft(rec13,por11,1): - x(rec13) - w(rec13)
+ + l(rec13,por11,1) + 41 k1(rec13,por11) <= 1
+ maxCoverageIntersectionLeft(rec13,por11,2): - x(rec13) - w(rec13)
+ + l(rec13,por11,2) + 41 k1(rec13,por11) <= 1
+ maxCoverageIntersectionLeft(rec13,por11,3): - x(rec13) - w(rec13)
+ + l(rec13,por11,3) + 41 k1(rec13,por11) <= 1
+ maxCoverageIntersectionLeft(rec13,por11,4): - x(rec13) - w(rec13)
+ + l(rec13,por11,4) + 41 k1(rec13,por11) <= 1
+ maxCoverageIntersectionLeft(rec13,por11,5): - x(rec13) - w(rec13)
+ + l(rec13,por11,5) + 41 k1(rec13,por11) <= 1
+ maxCoverageIntersectionLeft(rec13,por11,6): - x(rec13) - w(rec13)
+ + l(rec13,por11,6) + 41 k1(rec13,por11) <= 1
+ maxCoverageIntersectionLeft(rec13,por11,7): - x(rec13) - w(rec13)
+ + l(rec13,por11,7) + 41 k1(rec13,por11) <= 1
+ maxCoverageIntersectionLeft(rec13,por11,8): - x(rec13) - w(rec13)
+ + l(rec13,por11,8) + 41 k1(rec13,por11) <= 1
+ maxCoverageIntersectionLeft(rec13,por12,1): - x(rec13) - w(rec13)
+ + l(rec13,por12,1) + 51 k1(rec13,por12) <= 1
+ maxCoverageIntersectionLeft(rec13,por12,2): - x(rec13) - w(rec13)
+ + l(rec13,por12,2) + 51 k1(rec13,por12) <= 1
+ maxCoverageIntersectionLeft(rec13,por12,3): - x(rec13) - w(rec13)
+ + l(rec13,por12,3) + 51 k1(rec13,por12) <= 1
+ maxCoverageIntersectionLeft(rec13,por12,4): - x(rec13) - w(rec13)
+ + l(rec13,por12,4) + 51 k1(rec13,por12) <= 1
+ maxCoverageIntersectionLeft(rec13,por12,5): - x(rec13) - w(rec13)
+ + l(rec13,por12,5) + 51 k1(rec13,por12) <= 1
+ maxCoverageIntersectionLeft(rec13,por12,6): - x(rec13) - w(rec13)
+ + l(rec13,por12,6) + 51 k1(rec13,por12) <= 1
+ maxCoverageIntersectionLeft(rec13,por12,7): - x(rec13) - w(rec13)
+ + l(rec13,por12,7) + 51 k1(rec13,por12) <= 1
+ maxCoverageIntersectionLeft(rec13,por12,8): - x(rec13) - w(rec13)
+ + l(rec13,por12,8) + 51 k1(rec13,por12) <= 1
+ maxCoverageIntersectionLeft(rec13,por13,1): - x(rec13) - w(rec13)
+ + l(rec13,por13,1) + 52 k1(rec13,por13) <= 1
+ maxCoverageIntersectionLeft(rec13,por13,2): - x(rec13) - w(rec13)
+ + l(rec13,por13,2) + 52 k1(rec13,por13) <= 1
+ maxCoverageIntersectionLeft(rec13,por13,3): - x(rec13) - w(rec13)
+ + l(rec13,por13,3) + 52 k1(rec13,por13) <= 1
+ maxCoverageIntersectionLeft(rec13,por13,4): - x(rec13) - w(rec13)
+ + l(rec13,por13,4) + 52 k1(rec13,por13) <= 1
+ maxCoverageIntersectionLeft(rec13,por13,5): - x(rec13) - w(rec13)
+ + l(rec13,por13,5) + 52 k1(rec13,por13) <= 1
+ maxCoverageIntersectionLeft(rec13,por13,6): - x(rec13) - w(rec13)
+ + l(rec13,por13,6) + 52 k1(rec13,por13) <= 1
+ maxCoverageIntersectionLeft(rec13,por13,7): - x(rec13) - w(rec13)
+ + l(rec13,por13,7) + 52 k1(rec13,por13) <= 1
+ maxCoverageIntersectionLeft(rec13,por13,8): - x(rec13) - w(rec13)
+ + l(rec13,por13,8) + 52 k1(rec13,por13) <= 1
+ maxCoverageIntersectionLeft(rec13,por14,1): - x(rec13) - w(rec13)
+ + l(rec13,por14,1) + 56 k1(rec13,por14) <= 1
+ maxCoverageIntersectionLeft(rec13,por14,2): - x(rec13) - w(rec13)
+ + l(rec13,por14,2) + 56 k1(rec13,por14) <= 1
+ maxCoverageIntersectionLeft(rec13,por14,3): - x(rec13) - w(rec13)
+ + l(rec13,por14,3) + 56 k1(rec13,por14) <= 1
+ maxCoverageIntersectionLeft(rec13,por14,4): - x(rec13) - w(rec13)
+ + l(rec13,por14,4) + 56 k1(rec13,por14) <= 1
+ maxCoverageIntersectionLeft(rec13,por14,5): - x(rec13) - w(rec13)
+ + l(rec13,por14,5) + 56 k1(rec13,por14) <= 1
+ maxCoverageIntersectionLeft(rec13,por14,6): - x(rec13) - w(rec13)
+ + l(rec13,por14,6) + 56 k1(rec13,por14) <= 1
+ maxCoverageIntersectionLeft(rec13,por14,7): - x(rec13) - w(rec13)
+ + l(rec13,por14,7) + 56 k1(rec13,por14) <= 1
+ maxCoverageIntersectionLeft(rec13,por14,8): - x(rec13) - w(rec13)
+ + l(rec13,por14,8) + 56 k1(rec13,por14) <= 1
+ maxCoverageIntersectionLeft(rec13,por15,1): - x(rec13) - w(rec13)
+ + l(rec13,por15,1) + 57 k1(rec13,por15) <= 1
+ maxCoverageIntersectionLeft(rec13,por15,2): - x(rec13) - w(rec13)
+ + l(rec13,por15,2) + 57 k1(rec13,por15) <= 1
+ maxCoverageIntersectionLeft(rec13,por15,3): - x(rec13) - w(rec13)
+ + l(rec13,por15,3) + 57 k1(rec13,por15) <= 1
+ maxCoverageIntersectionLeft(rec13,por15,4): - x(rec13) - w(rec13)
+ + l(rec13,por15,4) + 57 k1(rec13,por15) <= 1
+ maxCoverageIntersectionLeft(rec13,por15,5): - x(rec13) - w(rec13)
+ + l(rec13,por15,5) + 57 k1(rec13,por15) <= 1
+ maxCoverageIntersectionLeft(rec13,por15,6): - x(rec13) - w(rec13)
+ + l(rec13,por15,6) + 57 k1(rec13,por15) <= 1
+ maxCoverageIntersectionLeft(rec13,por15,7): - x(rec13) - w(rec13)
+ + l(rec13,por15,7) + 57 k1(rec13,por15) <= 1
+ maxCoverageIntersectionLeft(rec13,por15,8): - x(rec13) - w(rec13)
+ + l(rec13,por15,8) + 57 k1(rec13,por15) <= 1
+ maxCoverageIntersectionLeft(rec14,por1,1): - x(rec14) - w(rec14)
+ + l(rec14,por1,1) <= 1
+ maxCoverageIntersectionLeft(rec14,por1,2): - x(rec14) - w(rec14)
+ + l(rec14,por1,2) <= 1
+ maxCoverageIntersectionLeft(rec14,por1,3): - x(rec14) - w(rec14)
+ + l(rec14,por1,3) <= 1
+ maxCoverageIntersectionLeft(rec14,por1,4): - x(rec14) - w(rec14)
+ + l(rec14,por1,4) <= 1
+ maxCoverageIntersectionLeft(rec14,por1,5): - x(rec14) - w(rec14)
+ + l(rec14,por1,5) <= 1
+ maxCoverageIntersectionLeft(rec14,por1,6): - x(rec14) - w(rec14)
+ + l(rec14,por1,6) <= 1
+ maxCoverageIntersectionLeft(rec14,por1,7): - x(rec14) - w(rec14)
+ + l(rec14,por1,7) <= 1
+ maxCoverageIntersectionLeft(rec14,por1,8): - x(rec14) - w(rec14)
+ + l(rec14,por1,8) <= 1
+ maxCoverageIntersectionLeft(rec14,por2,1): - x(rec14) - w(rec14)
+ + l(rec14,por2,1) + 4 k1(rec14,por2) <= 1
+ maxCoverageIntersectionLeft(rec14,por2,2): - x(rec14) - w(rec14)
+ + l(rec14,por2,2) + 4 k1(rec14,por2) <= 1
+ maxCoverageIntersectionLeft(rec14,por2,3): - x(rec14) - w(rec14)
+ + l(rec14,por2,3) + 4 k1(rec14,por2) <= 1
+ maxCoverageIntersectionLeft(rec14,por2,4): - x(rec14) - w(rec14)
+ + l(rec14,por2,4) + 4 k1(rec14,por2) <= 1
+ maxCoverageIntersectionLeft(rec14,por2,5): - x(rec14) - w(rec14)
+ + l(rec14,por2,5) + 4 k1(rec14,por2) <= 1
+ maxCoverageIntersectionLeft(rec14,por2,6): - x(rec14) - w(rec14)
+ + l(rec14,por2,6) + 4 k1(rec14,por2) <= 1
+ maxCoverageIntersectionLeft(rec14,por2,7): - x(rec14) - w(rec14)
+ + l(rec14,por2,7) + 4 k1(rec14,por2) <= 1
+ maxCoverageIntersectionLeft(rec14,por2,8): - x(rec14) - w(rec14)
+ + l(rec14,por2,8) + 4 k1(rec14,por2) <= 1
+ maxCoverageIntersectionLeft(rec14,por3,1): - x(rec14) - w(rec14)
+ + l(rec14,por3,1) + 5 k1(rec14,por3) <= 1
+ maxCoverageIntersectionLeft(rec14,por3,2): - x(rec14) - w(rec14)
+ + l(rec14,por3,2) + 5 k1(rec14,por3) <= 1
+ maxCoverageIntersectionLeft(rec14,por3,3): - x(rec14) - w(rec14)
+ + l(rec14,por3,3) + 5 k1(rec14,por3) <= 1
+ maxCoverageIntersectionLeft(rec14,por3,4): - x(rec14) - w(rec14)
+ + l(rec14,por3,4) + 5 k1(rec14,por3) <= 1
+ maxCoverageIntersectionLeft(rec14,por3,5): - x(rec14) - w(rec14)
+ + l(rec14,por3,5) + 5 k1(rec14,por3) <= 1
+ maxCoverageIntersectionLeft(rec14,por3,6): - x(rec14) - w(rec14)
+ + l(rec14,por3,6) + 5 k1(rec14,por3) <= 1
+ maxCoverageIntersectionLeft(rec14,por3,7): - x(rec14) - w(rec14)
+ + l(rec14,por3,7) + 5 k1(rec14,por3) <= 1
+ maxCoverageIntersectionLeft(rec14,por3,8): - x(rec14) - w(rec14)
+ + l(rec14,por3,8) + 5 k1(rec14,por3) <= 1
+ maxCoverageIntersectionLeft(rec14,por4,1): - x(rec14) - w(rec14)
+ + l(rec14,por4,1) + 15 k1(rec14,por4) <= 1
+ maxCoverageIntersectionLeft(rec14,por4,2): - x(rec14) - w(rec14)
+ + l(rec14,por4,2) + 15 k1(rec14,por4) <= 1
+ maxCoverageIntersectionLeft(rec14,por4,3): - x(rec14) - w(rec14)
+ + l(rec14,por4,3) + 15 k1(rec14,por4) <= 1
+ maxCoverageIntersectionLeft(rec14,por4,4): - x(rec14) - w(rec14)
+ + l(rec14,por4,4) + 15 k1(rec14,por4) <= 1
+ maxCoverageIntersectionLeft(rec14,por4,5): - x(rec14) - w(rec14)
+ + l(rec14,por4,5) + 15 k1(rec14,por4) <= 1
+ maxCoverageIntersectionLeft(rec14,por4,6): - x(rec14) - w(rec14)
+ + l(rec14,por4,6) + 15 k1(rec14,por4) <= 1
+ maxCoverageIntersectionLeft(rec14,por4,7): - x(rec14) - w(rec14)
+ + l(rec14,por4,7) + 15 k1(rec14,por4) <= 1
+ maxCoverageIntersectionLeft(rec14,por4,8): - x(rec14) - w(rec14)
+ + l(rec14,por4,8) + 15 k1(rec14,por4) <= 1
+ maxCoverageIntersectionLeft(rec14,por5,1): - x(rec14) - w(rec14)
+ + l(rec14,por5,1) + 16 k1(rec14,por5) <= 1
+ maxCoverageIntersectionLeft(rec14,por5,2): - x(rec14) - w(rec14)
+ + l(rec14,por5,2) + 16 k1(rec14,por5) <= 1
+ maxCoverageIntersectionLeft(rec14,por5,3): - x(rec14) - w(rec14)
+ + l(rec14,por5,3) + 16 k1(rec14,por5) <= 1
+ maxCoverageIntersectionLeft(rec14,por5,4): - x(rec14) - w(rec14)
+ + l(rec14,por5,4) + 16 k1(rec14,por5) <= 1
+ maxCoverageIntersectionLeft(rec14,por5,5): - x(rec14) - w(rec14)
+ + l(rec14,por5,5) + 16 k1(rec14,por5) <= 1
+ maxCoverageIntersectionLeft(rec14,por5,6): - x(rec14) - w(rec14)
+ + l(rec14,por5,6) + 16 k1(rec14,por5) <= 1
+ maxCoverageIntersectionLeft(rec14,por5,7): - x(rec14) - w(rec14)
+ + l(rec14,por5,7) + 16 k1(rec14,por5) <= 1
+ maxCoverageIntersectionLeft(rec14,por5,8): - x(rec14) - w(rec14)
+ + l(rec14,por5,8) + 16 k1(rec14,por5) <= 1
+ maxCoverageIntersectionLeft(rec14,por6,1): - x(rec14) - w(rec14)
+ + l(rec14,por6,1) + 18 k1(rec14,por6) <= 1
+ maxCoverageIntersectionLeft(rec14,por6,2): - x(rec14) - w(rec14)
+ + l(rec14,por6,2) + 18 k1(rec14,por6) <= 1
+ maxCoverageIntersectionLeft(rec14,por6,3): - x(rec14) - w(rec14)
+ + l(rec14,por6,3) + 18 k1(rec14,por6) <= 1
+ maxCoverageIntersectionLeft(rec14,por6,4): - x(rec14) - w(rec14)
+ + l(rec14,por6,4) + 18 k1(rec14,por6) <= 1
+ maxCoverageIntersectionLeft(rec14,por6,5): - x(rec14) - w(rec14)
+ + l(rec14,por6,5) + 18 k1(rec14,por6) <= 1
+ maxCoverageIntersectionLeft(rec14,por6,6): - x(rec14) - w(rec14)
+ + l(rec14,por6,6) + 18 k1(rec14,por6) <= 1
+ maxCoverageIntersectionLeft(rec14,por6,7): - x(rec14) - w(rec14)
+ + l(rec14,por6,7) + 18 k1(rec14,por6) <= 1
+ maxCoverageIntersectionLeft(rec14,por6,8): - x(rec14) - w(rec14)
+ + l(rec14,por6,8) + 18 k1(rec14,por6) <= 1
+ maxCoverageIntersectionLeft(rec14,por7,1): - x(rec14) - w(rec14)
+ + l(rec14,por7,1) + 19 k1(rec14,por7) <= 1
+ maxCoverageIntersectionLeft(rec14,por7,2): - x(rec14) - w(rec14)
+ + l(rec14,por7,2) + 19 k1(rec14,por7) <= 1
+ maxCoverageIntersectionLeft(rec14,por7,3): - x(rec14) - w(rec14)
+ + l(rec14,por7,3) + 19 k1(rec14,por7) <= 1
+ maxCoverageIntersectionLeft(rec14,por7,4): - x(rec14) - w(rec14)
+ + l(rec14,por7,4) + 19 k1(rec14,por7) <= 1
+ maxCoverageIntersectionLeft(rec14,por7,5): - x(rec14) - w(rec14)
+ + l(rec14,por7,5) + 19 k1(rec14,por7) <= 1
+ maxCoverageIntersectionLeft(rec14,por7,6): - x(rec14) - w(rec14)
+ + l(rec14,por7,6) + 19 k1(rec14,por7) <= 1
+ maxCoverageIntersectionLeft(rec14,por7,7): - x(rec14) - w(rec14)
+ + l(rec14,por7,7) + 19 k1(rec14,por7) <= 1
+ maxCoverageIntersectionLeft(rec14,por7,8): - x(rec14) - w(rec14)
+ + l(rec14,por7,8) + 19 k1(rec14,por7) <= 1
+ maxCoverageIntersectionLeft(rec14,por8,1): - x(rec14) - w(rec14)
+ + l(rec14,por8,1) + 27 k1(rec14,por8) <= 1
+ maxCoverageIntersectionLeft(rec14,por8,2): - x(rec14) - w(rec14)
+ + l(rec14,por8,2) + 27 k1(rec14,por8) <= 1
+ maxCoverageIntersectionLeft(rec14,por8,3): - x(rec14) - w(rec14)
+ + l(rec14,por8,3) + 27 k1(rec14,por8) <= 1
+ maxCoverageIntersectionLeft(rec14,por8,4): - x(rec14) - w(rec14)
+ + l(rec14,por8,4) + 27 k1(rec14,por8) <= 1
+ maxCoverageIntersectionLeft(rec14,por8,5): - x(rec14) - w(rec14)
+ + l(rec14,por8,5) + 27 k1(rec14,por8) <= 1
+ maxCoverageIntersectionLeft(rec14,por8,6): - x(rec14) - w(rec14)
+ + l(rec14,por8,6) + 27 k1(rec14,por8) <= 1
+ maxCoverageIntersectionLeft(rec14,por8,7): - x(rec14) - w(rec14)
+ + l(rec14,por8,7) + 27 k1(rec14,por8) <= 1
+ maxCoverageIntersectionLeft(rec14,por8,8): - x(rec14) - w(rec14)
+ + l(rec14,por8,8) + 27 k1(rec14,por8) <= 1
+ maxCoverageIntersectionLeft(rec14,por9,1): - x(rec14) - w(rec14)
+ + l(rec14,por9,1) + 28 k1(rec14,por9) <= 1
+ maxCoverageIntersectionLeft(rec14,por9,2): - x(rec14) - w(rec14)
+ + l(rec14,por9,2) + 28 k1(rec14,por9) <= 1
+ maxCoverageIntersectionLeft(rec14,por9,3): - x(rec14) - w(rec14)
+ + l(rec14,por9,3) + 28 k1(rec14,por9) <= 1
+ maxCoverageIntersectionLeft(rec14,por9,4): - x(rec14) - w(rec14)
+ + l(rec14,por9,4) + 28 k1(rec14,por9) <= 1
+ maxCoverageIntersectionLeft(rec14,por9,5): - x(rec14) - w(rec14)
+ + l(rec14,por9,5) + 28 k1(rec14,por9) <= 1
+ maxCoverageIntersectionLeft(rec14,por9,6): - x(rec14) - w(rec14)
+ + l(rec14,por9,6) + 28 k1(rec14,por9) <= 1
+ maxCoverageIntersectionLeft(rec14,por9,7): - x(rec14) - w(rec14)
+ + l(rec14,por9,7) + 28 k1(rec14,por9) <= 1
+ maxCoverageIntersectionLeft(rec14,por9,8): - x(rec14) - w(rec14)
+ + l(rec14,por9,8) + 28 k1(rec14,por9) <= 1
+ maxCoverageIntersectionLeft(rec14,por10,1): - x(rec14) - w(rec14)
+ + l(rec14,por10,1) + 40 k1(rec14,por10) <= 1
+ maxCoverageIntersectionLeft(rec14,por10,2): - x(rec14) - w(rec14)
+ + l(rec14,por10,2) + 40 k1(rec14,por10) <= 1
+ maxCoverageIntersectionLeft(rec14,por10,3): - x(rec14) - w(rec14)
+ + l(rec14,por10,3) + 40 k1(rec14,por10) <= 1
+ maxCoverageIntersectionLeft(rec14,por10,4): - x(rec14) - w(rec14)
+ + l(rec14,por10,4) + 40 k1(rec14,por10) <= 1
+ maxCoverageIntersectionLeft(rec14,por10,5): - x(rec14) - w(rec14)
+ + l(rec14,por10,5) + 40 k1(rec14,por10) <= 1
+ maxCoverageIntersectionLeft(rec14,por10,6): - x(rec14) - w(rec14)
+ + l(rec14,por10,6) + 40 k1(rec14,por10) <= 1
+ maxCoverageIntersectionLeft(rec14,por10,7): - x(rec14) - w(rec14)
+ + l(rec14,por10,7) + 40 k1(rec14,por10) <= 1
+ maxCoverageIntersectionLeft(rec14,por10,8): - x(rec14) - w(rec14)
+ + l(rec14,por10,8) + 40 k1(rec14,por10) <= 1
+ maxCoverageIntersectionLeft(rec14,por11,1): - x(rec14) - w(rec14)
+ + l(rec14,por11,1) + 41 k1(rec14,por11) <= 1
+ maxCoverageIntersectionLeft(rec14,por11,2): - x(rec14) - w(rec14)
+ + l(rec14,por11,2) + 41 k1(rec14,por11) <= 1
+ maxCoverageIntersectionLeft(rec14,por11,3): - x(rec14) - w(rec14)
+ + l(rec14,por11,3) + 41 k1(rec14,por11) <= 1
+ maxCoverageIntersectionLeft(rec14,por11,4): - x(rec14) - w(rec14)
+ + l(rec14,por11,4) + 41 k1(rec14,por11) <= 1
+ maxCoverageIntersectionLeft(rec14,por11,5): - x(rec14) - w(rec14)
+ + l(rec14,por11,5) + 41 k1(rec14,por11) <= 1
+ maxCoverageIntersectionLeft(rec14,por11,6): - x(rec14) - w(rec14)
+ + l(rec14,por11,6) + 41 k1(rec14,por11) <= 1
+ maxCoverageIntersectionLeft(rec14,por11,7): - x(rec14) - w(rec14)
+ + l(rec14,por11,7) + 41 k1(rec14,por11) <= 1
+ maxCoverageIntersectionLeft(rec14,por11,8): - x(rec14) - w(rec14)
+ + l(rec14,por11,8) + 41 k1(rec14,por11) <= 1
+ maxCoverageIntersectionLeft(rec14,por12,1): - x(rec14) - w(rec14)
+ + l(rec14,por12,1) + 51 k1(rec14,por12) <= 1
+ maxCoverageIntersectionLeft(rec14,por12,2): - x(rec14) - w(rec14)
+ + l(rec14,por12,2) + 51 k1(rec14,por12) <= 1
+ maxCoverageIntersectionLeft(rec14,por12,3): - x(rec14) - w(rec14)
+ + l(rec14,por12,3) + 51 k1(rec14,por12) <= 1
+ maxCoverageIntersectionLeft(rec14,por12,4): - x(rec14) - w(rec14)
+ + l(rec14,por12,4) + 51 k1(rec14,por12) <= 1
+ maxCoverageIntersectionLeft(rec14,por12,5): - x(rec14) - w(rec14)
+ + l(rec14,por12,5) + 51 k1(rec14,por12) <= 1
+ maxCoverageIntersectionLeft(rec14,por12,6): - x(rec14) - w(rec14)
+ + l(rec14,por12,6) + 51 k1(rec14,por12) <= 1
+ maxCoverageIntersectionLeft(rec14,por12,7): - x(rec14) - w(rec14)
+ + l(rec14,por12,7) + 51 k1(rec14,por12) <= 1
+ maxCoverageIntersectionLeft(rec14,por12,8): - x(rec14) - w(rec14)
+ + l(rec14,por12,8) + 51 k1(rec14,por12) <= 1
+ maxCoverageIntersectionLeft(rec14,por13,1): - x(rec14) - w(rec14)
+ + l(rec14,por13,1) + 52 k1(rec14,por13) <= 1
+ maxCoverageIntersectionLeft(rec14,por13,2): - x(rec14) - w(rec14)
+ + l(rec14,por13,2) + 52 k1(rec14,por13) <= 1
+ maxCoverageIntersectionLeft(rec14,por13,3): - x(rec14) - w(rec14)
+ + l(rec14,por13,3) + 52 k1(rec14,por13) <= 1
+ maxCoverageIntersectionLeft(rec14,por13,4): - x(rec14) - w(rec14)
+ + l(rec14,por13,4) + 52 k1(rec14,por13) <= 1
+ maxCoverageIntersectionLeft(rec14,por13,5): - x(rec14) - w(rec14)
+ + l(rec14,por13,5) + 52 k1(rec14,por13) <= 1
+ maxCoverageIntersectionLeft(rec14,por13,6): - x(rec14) - w(rec14)
+ + l(rec14,por13,6) + 52 k1(rec14,por13) <= 1
+ maxCoverageIntersectionLeft(rec14,por13,7): - x(rec14) - w(rec14)
+ + l(rec14,por13,7) + 52 k1(rec14,por13) <= 1
+ maxCoverageIntersectionLeft(rec14,por13,8): - x(rec14) - w(rec14)
+ + l(rec14,por13,8) + 52 k1(rec14,por13) <= 1
+ maxCoverageIntersectionLeft(rec14,por14,1): - x(rec14) - w(rec14)
+ + l(rec14,por14,1) + 56 k1(rec14,por14) <= 1
+ maxCoverageIntersectionLeft(rec14,por14,2): - x(rec14) - w(rec14)
+ + l(rec14,por14,2) + 56 k1(rec14,por14) <= 1
+ maxCoverageIntersectionLeft(rec14,por14,3): - x(rec14) - w(rec14)
+ + l(rec14,por14,3) + 56 k1(rec14,por14) <= 1
+ maxCoverageIntersectionLeft(rec14,por14,4): - x(rec14) - w(rec14)
+ + l(rec14,por14,4) + 56 k1(rec14,por14) <= 1
+ maxCoverageIntersectionLeft(rec14,por14,5): - x(rec14) - w(rec14)
+ + l(rec14,por14,5) + 56 k1(rec14,por14) <= 1
+ maxCoverageIntersectionLeft(rec14,por14,6): - x(rec14) - w(rec14)
+ + l(rec14,por14,6) + 56 k1(rec14,por14) <= 1
+ maxCoverageIntersectionLeft(rec14,por14,7): - x(rec14) - w(rec14)
+ + l(rec14,por14,7) + 56 k1(rec14,por14) <= 1
+ maxCoverageIntersectionLeft(rec14,por14,8): - x(rec14) - w(rec14)
+ + l(rec14,por14,8) + 56 k1(rec14,por14) <= 1
+ maxCoverageIntersectionLeft(rec14,por15,1): - x(rec14) - w(rec14)
+ + l(rec14,por15,1) + 57 k1(rec14,por15) <= 1
+ maxCoverageIntersectionLeft(rec14,por15,2): - x(rec14) - w(rec14)
+ + l(rec14,por15,2) + 57 k1(rec14,por15) <= 1
+ maxCoverageIntersectionLeft(rec14,por15,3): - x(rec14) - w(rec14)
+ + l(rec14,por15,3) + 57 k1(rec14,por15) <= 1
+ maxCoverageIntersectionLeft(rec14,por15,4): - x(rec14) - w(rec14)
+ + l(rec14,por15,4) + 57 k1(rec14,por15) <= 1
+ maxCoverageIntersectionLeft(rec14,por15,5): - x(rec14) - w(rec14)
+ + l(rec14,por15,5) + 57 k1(rec14,por15) <= 1
+ maxCoverageIntersectionLeft(rec14,por15,6): - x(rec14) - w(rec14)
+ + l(rec14,por15,6) + 57 k1(rec14,por15) <= 1
+ maxCoverageIntersectionLeft(rec14,por15,7): - x(rec14) - w(rec14)
+ + l(rec14,por15,7) + 57 k1(rec14,por15) <= 1
+ maxCoverageIntersectionLeft(rec14,por15,8): - x(rec14) - w(rec14)
+ + l(rec14,por15,8) + 57 k1(rec14,por15) <= 1
+ maxCoverageIntersectionLeft(rec15,por1,1): - x(rec15) - w(rec15)
+ + l(rec15,por1,1) <= 1
+ maxCoverageIntersectionLeft(rec15,por1,2): - x(rec15) - w(rec15)
+ + l(rec15,por1,2) <= 1
+ maxCoverageIntersectionLeft(rec15,por1,3): - x(rec15) - w(rec15)
+ + l(rec15,por1,3) <= 1
+ maxCoverageIntersectionLeft(rec15,por1,4): - x(rec15) - w(rec15)
+ + l(rec15,por1,4) <= 1
+ maxCoverageIntersectionLeft(rec15,por1,5): - x(rec15) - w(rec15)
+ + l(rec15,por1,5) <= 1
+ maxCoverageIntersectionLeft(rec15,por1,6): - x(rec15) - w(rec15)
+ + l(rec15,por1,6) <= 1
+ maxCoverageIntersectionLeft(rec15,por1,7): - x(rec15) - w(rec15)
+ + l(rec15,por1,7) <= 1
+ maxCoverageIntersectionLeft(rec15,por1,8): - x(rec15) - w(rec15)
+ + l(rec15,por1,8) <= 1
+ maxCoverageIntersectionLeft(rec15,por2,1): - x(rec15) - w(rec15)
+ + l(rec15,por2,1) + 4 k1(rec15,por2) <= 1
+ maxCoverageIntersectionLeft(rec15,por2,2): - x(rec15) - w(rec15)
+ + l(rec15,por2,2) + 4 k1(rec15,por2) <= 1
+ maxCoverageIntersectionLeft(rec15,por2,3): - x(rec15) - w(rec15)
+ + l(rec15,por2,3) + 4 k1(rec15,por2) <= 1
+ maxCoverageIntersectionLeft(rec15,por2,4): - x(rec15) - w(rec15)
+ + l(rec15,por2,4) + 4 k1(rec15,por2) <= 1
+ maxCoverageIntersectionLeft(rec15,por2,5): - x(rec15) - w(rec15)
+ + l(rec15,por2,5) + 4 k1(rec15,por2) <= 1
+ maxCoverageIntersectionLeft(rec15,por2,6): - x(rec15) - w(rec15)
+ + l(rec15,por2,6) + 4 k1(rec15,por2) <= 1
+ maxCoverageIntersectionLeft(rec15,por2,7): - x(rec15) - w(rec15)
+ + l(rec15,por2,7) + 4 k1(rec15,por2) <= 1
+ maxCoverageIntersectionLeft(rec15,por2,8): - x(rec15) - w(rec15)
+ + l(rec15,por2,8) + 4 k1(rec15,por2) <= 1
+ maxCoverageIntersectionLeft(rec15,por3,1): - x(rec15) - w(rec15)
+ + l(rec15,por3,1) + 5 k1(rec15,por3) <= 1
+ maxCoverageIntersectionLeft(rec15,por3,2): - x(rec15) - w(rec15)
+ + l(rec15,por3,2) + 5 k1(rec15,por3) <= 1
+ maxCoverageIntersectionLeft(rec15,por3,3): - x(rec15) - w(rec15)
+ + l(rec15,por3,3) + 5 k1(rec15,por3) <= 1
+ maxCoverageIntersectionLeft(rec15,por3,4): - x(rec15) - w(rec15)
+ + l(rec15,por3,4) + 5 k1(rec15,por3) <= 1
+ maxCoverageIntersectionLeft(rec15,por3,5): - x(rec15) - w(rec15)
+ + l(rec15,por3,5) + 5 k1(rec15,por3) <= 1
+ maxCoverageIntersectionLeft(rec15,por3,6): - x(rec15) - w(rec15)
+ + l(rec15,por3,6) + 5 k1(rec15,por3) <= 1
+ maxCoverageIntersectionLeft(rec15,por3,7): - x(rec15) - w(rec15)
+ + l(rec15,por3,7) + 5 k1(rec15,por3) <= 1
+ maxCoverageIntersectionLeft(rec15,por3,8): - x(rec15) - w(rec15)
+ + l(rec15,por3,8) + 5 k1(rec15,por3) <= 1
+ maxCoverageIntersectionLeft(rec15,por4,1): - x(rec15) - w(rec15)
+ + l(rec15,por4,1) + 15 k1(rec15,por4) <= 1
+ maxCoverageIntersectionLeft(rec15,por4,2): - x(rec15) - w(rec15)
+ + l(rec15,por4,2) + 15 k1(rec15,por4) <= 1
+ maxCoverageIntersectionLeft(rec15,por4,3): - x(rec15) - w(rec15)
+ + l(rec15,por4,3) + 15 k1(rec15,por4) <= 1
+ maxCoverageIntersectionLeft(rec15,por4,4): - x(rec15) - w(rec15)
+ + l(rec15,por4,4) + 15 k1(rec15,por4) <= 1
+ maxCoverageIntersectionLeft(rec15,por4,5): - x(rec15) - w(rec15)
+ + l(rec15,por4,5) + 15 k1(rec15,por4) <= 1
+ maxCoverageIntersectionLeft(rec15,por4,6): - x(rec15) - w(rec15)
+ + l(rec15,por4,6) + 15 k1(rec15,por4) <= 1
+ maxCoverageIntersectionLeft(rec15,por4,7): - x(rec15) - w(rec15)
+ + l(rec15,por4,7) + 15 k1(rec15,por4) <= 1
+ maxCoverageIntersectionLeft(rec15,por4,8): - x(rec15) - w(rec15)
+ + l(rec15,por4,8) + 15 k1(rec15,por4) <= 1
+ maxCoverageIntersectionLeft(rec15,por5,1): - x(rec15) - w(rec15)
+ + l(rec15,por5,1) + 16 k1(rec15,por5) <= 1
+ maxCoverageIntersectionLeft(rec15,por5,2): - x(rec15) - w(rec15)
+ + l(rec15,por5,2) + 16 k1(rec15,por5) <= 1
+ maxCoverageIntersectionLeft(rec15,por5,3): - x(rec15) - w(rec15)
+ + l(rec15,por5,3) + 16 k1(rec15,por5) <= 1
+ maxCoverageIntersectionLeft(rec15,por5,4): - x(rec15) - w(rec15)
+ + l(rec15,por5,4) + 16 k1(rec15,por5) <= 1
+ maxCoverageIntersectionLeft(rec15,por5,5): - x(rec15) - w(rec15)
+ + l(rec15,por5,5) + 16 k1(rec15,por5) <= 1
+ maxCoverageIntersectionLeft(rec15,por5,6): - x(rec15) - w(rec15)
+ + l(rec15,por5,6) + 16 k1(rec15,por5) <= 1
+ maxCoverageIntersectionLeft(rec15,por5,7): - x(rec15) - w(rec15)
+ + l(rec15,por5,7) + 16 k1(rec15,por5) <= 1
+ maxCoverageIntersectionLeft(rec15,por5,8): - x(rec15) - w(rec15)
+ + l(rec15,por5,8) + 16 k1(rec15,por5) <= 1
+ maxCoverageIntersectionLeft(rec15,por6,1): - x(rec15) - w(rec15)
+ + l(rec15,por6,1) + 18 k1(rec15,por6) <= 1
+ maxCoverageIntersectionLeft(rec15,por6,2): - x(rec15) - w(rec15)
+ + l(rec15,por6,2) + 18 k1(rec15,por6) <= 1
+ maxCoverageIntersectionLeft(rec15,por6,3): - x(rec15) - w(rec15)
+ + l(rec15,por6,3) + 18 k1(rec15,por6) <= 1
+ maxCoverageIntersectionLeft(rec15,por6,4): - x(rec15) - w(rec15)
+ + l(rec15,por6,4) + 18 k1(rec15,por6) <= 1
+ maxCoverageIntersectionLeft(rec15,por6,5): - x(rec15) - w(rec15)
+ + l(rec15,por6,5) + 18 k1(rec15,por6) <= 1
+ maxCoverageIntersectionLeft(rec15,por6,6): - x(rec15) - w(rec15)
+ + l(rec15,por6,6) + 18 k1(rec15,por6) <= 1
+ maxCoverageIntersectionLeft(rec15,por6,7): - x(rec15) - w(rec15)
+ + l(rec15,por6,7) + 18 k1(rec15,por6) <= 1
+ maxCoverageIntersectionLeft(rec15,por6,8): - x(rec15) - w(rec15)
+ + l(rec15,por6,8) + 18 k1(rec15,por6) <= 1
+ maxCoverageIntersectionLeft(rec15,por7,1): - x(rec15) - w(rec15)
+ + l(rec15,por7,1) + 19 k1(rec15,por7) <= 1
+ maxCoverageIntersectionLeft(rec15,por7,2): - x(rec15) - w(rec15)
+ + l(rec15,por7,2) + 19 k1(rec15,por7) <= 1
+ maxCoverageIntersectionLeft(rec15,por7,3): - x(rec15) - w(rec15)
+ + l(rec15,por7,3) + 19 k1(rec15,por7) <= 1
+ maxCoverageIntersectionLeft(rec15,por7,4): - x(rec15) - w(rec15)
+ + l(rec15,por7,4) + 19 k1(rec15,por7) <= 1
+ maxCoverageIntersectionLeft(rec15,por7,5): - x(rec15) - w(rec15)
+ + l(rec15,por7,5) + 19 k1(rec15,por7) <= 1
+ maxCoverageIntersectionLeft(rec15,por7,6): - x(rec15) - w(rec15)
+ + l(rec15,por7,6) + 19 k1(rec15,por7) <= 1
+ maxCoverageIntersectionLeft(rec15,por7,7): - x(rec15) - w(rec15)
+ + l(rec15,por7,7) + 19 k1(rec15,por7) <= 1
+ maxCoverageIntersectionLeft(rec15,por7,8): - x(rec15) - w(rec15)
+ + l(rec15,por7,8) + 19 k1(rec15,por7) <= 1
+ maxCoverageIntersectionLeft(rec15,por8,1): - x(rec15) - w(rec15)
+ + l(rec15,por8,1) + 27 k1(rec15,por8) <= 1
+ maxCoverageIntersectionLeft(rec15,por8,2): - x(rec15) - w(rec15)
+ + l(rec15,por8,2) + 27 k1(rec15,por8) <= 1
+ maxCoverageIntersectionLeft(rec15,por8,3): - x(rec15) - w(rec15)
+ + l(rec15,por8,3) + 27 k1(rec15,por8) <= 1
+ maxCoverageIntersectionLeft(rec15,por8,4): - x(rec15) - w(rec15)
+ + l(rec15,por8,4) + 27 k1(rec15,por8) <= 1
+ maxCoverageIntersectionLeft(rec15,por8,5): - x(rec15) - w(rec15)
+ + l(rec15,por8,5) + 27 k1(rec15,por8) <= 1
+ maxCoverageIntersectionLeft(rec15,por8,6): - x(rec15) - w(rec15)
+ + l(rec15,por8,6) + 27 k1(rec15,por8) <= 1
+ maxCoverageIntersectionLeft(rec15,por8,7): - x(rec15) - w(rec15)
+ + l(rec15,por8,7) + 27 k1(rec15,por8) <= 1
+ maxCoverageIntersectionLeft(rec15,por8,8): - x(rec15) - w(rec15)
+ + l(rec15,por8,8) + 27 k1(rec15,por8) <= 1
+ maxCoverageIntersectionLeft(rec15,por9,1): - x(rec15) - w(rec15)
+ + l(rec15,por9,1) + 28 k1(rec15,por9) <= 1
+ maxCoverageIntersectionLeft(rec15,por9,2): - x(rec15) - w(rec15)
+ + l(rec15,por9,2) + 28 k1(rec15,por9) <= 1
+ maxCoverageIntersectionLeft(rec15,por9,3): - x(rec15) - w(rec15)
+ + l(rec15,por9,3) + 28 k1(rec15,por9) <= 1
+ maxCoverageIntersectionLeft(rec15,por9,4): - x(rec15) - w(rec15)
+ + l(rec15,por9,4) + 28 k1(rec15,por9) <= 1
+ maxCoverageIntersectionLeft(rec15,por9,5): - x(rec15) - w(rec15)
+ + l(rec15,por9,5) + 28 k1(rec15,por9) <= 1
+ maxCoverageIntersectionLeft(rec15,por9,6): - x(rec15) - w(rec15)
+ + l(rec15,por9,6) + 28 k1(rec15,por9) <= 1
+ maxCoverageIntersectionLeft(rec15,por9,7): - x(rec15) - w(rec15)
+ + l(rec15,por9,7) + 28 k1(rec15,por9) <= 1
+ maxCoverageIntersectionLeft(rec15,por9,8): - x(rec15) - w(rec15)
+ + l(rec15,por9,8) + 28 k1(rec15,por9) <= 1
+ maxCoverageIntersectionLeft(rec15,por10,1): - x(rec15) - w(rec15)
+ + l(rec15,por10,1) + 40 k1(rec15,por10) <= 1
+ maxCoverageIntersectionLeft(rec15,por10,2): - x(rec15) - w(rec15)
+ + l(rec15,por10,2) + 40 k1(rec15,por10) <= 1
+ maxCoverageIntersectionLeft(rec15,por10,3): - x(rec15) - w(rec15)
+ + l(rec15,por10,3) + 40 k1(rec15,por10) <= 1
+ maxCoverageIntersectionLeft(rec15,por10,4): - x(rec15) - w(rec15)
+ + l(rec15,por10,4) + 40 k1(rec15,por10) <= 1
+ maxCoverageIntersectionLeft(rec15,por10,5): - x(rec15) - w(rec15)
+ + l(rec15,por10,5) + 40 k1(rec15,por10) <= 1
+ maxCoverageIntersectionLeft(rec15,por10,6): - x(rec15) - w(rec15)
+ + l(rec15,por10,6) + 40 k1(rec15,por10) <= 1
+ maxCoverageIntersectionLeft(rec15,por10,7): - x(rec15) - w(rec15)
+ + l(rec15,por10,7) + 40 k1(rec15,por10) <= 1
+ maxCoverageIntersectionLeft(rec15,por10,8): - x(rec15) - w(rec15)
+ + l(rec15,por10,8) + 40 k1(rec15,por10) <= 1
+ maxCoverageIntersectionLeft(rec15,por11,1): - x(rec15) - w(rec15)
+ + l(rec15,por11,1) + 41 k1(rec15,por11) <= 1
+ maxCoverageIntersectionLeft(rec15,por11,2): - x(rec15) - w(rec15)
+ + l(rec15,por11,2) + 41 k1(rec15,por11) <= 1
+ maxCoverageIntersectionLeft(rec15,por11,3): - x(rec15) - w(rec15)
+ + l(rec15,por11,3) + 41 k1(rec15,por11) <= 1
+ maxCoverageIntersectionLeft(rec15,por11,4): - x(rec15) - w(rec15)
+ + l(rec15,por11,4) + 41 k1(rec15,por11) <= 1
+ maxCoverageIntersectionLeft(rec15,por11,5): - x(rec15) - w(rec15)
+ + l(rec15,por11,5) + 41 k1(rec15,por11) <= 1
+ maxCoverageIntersectionLeft(rec15,por11,6): - x(rec15) - w(rec15)
+ + l(rec15,por11,6) + 41 k1(rec15,por11) <= 1
+ maxCoverageIntersectionLeft(rec15,por11,7): - x(rec15) - w(rec15)
+ + l(rec15,por11,7) + 41 k1(rec15,por11) <= 1
+ maxCoverageIntersectionLeft(rec15,por11,8): - x(rec15) - w(rec15)
+ + l(rec15,por11,8) + 41 k1(rec15,por11) <= 1
+ maxCoverageIntersectionLeft(rec15,por12,1): - x(rec15) - w(rec15)
+ + l(rec15,por12,1) + 51 k1(rec15,por12) <= 1
+ maxCoverageIntersectionLeft(rec15,por12,2): - x(rec15) - w(rec15)
+ + l(rec15,por12,2) + 51 k1(rec15,por12) <= 1
+ maxCoverageIntersectionLeft(rec15,por12,3): - x(rec15) - w(rec15)
+ + l(rec15,por12,3) + 51 k1(rec15,por12) <= 1
+ maxCoverageIntersectionLeft(rec15,por12,4): - x(rec15) - w(rec15)
+ + l(rec15,por12,4) + 51 k1(rec15,por12) <= 1
+ maxCoverageIntersectionLeft(rec15,por12,5): - x(rec15) - w(rec15)
+ + l(rec15,por12,5) + 51 k1(rec15,por12) <= 1
+ maxCoverageIntersectionLeft(rec15,por12,6): - x(rec15) - w(rec15)
+ + l(rec15,por12,6) + 51 k1(rec15,por12) <= 1
+ maxCoverageIntersectionLeft(rec15,por12,7): - x(rec15) - w(rec15)
+ + l(rec15,por12,7) + 51 k1(rec15,por12) <= 1
+ maxCoverageIntersectionLeft(rec15,por12,8): - x(rec15) - w(rec15)
+ + l(rec15,por12,8) + 51 k1(rec15,por12) <= 1
+ maxCoverageIntersectionLeft(rec15,por13,1): - x(rec15) - w(rec15)
+ + l(rec15,por13,1) + 52 k1(rec15,por13) <= 1
+ maxCoverageIntersectionLeft(rec15,por13,2): - x(rec15) - w(rec15)
+ + l(rec15,por13,2) + 52 k1(rec15,por13) <= 1
+ maxCoverageIntersectionLeft(rec15,por13,3): - x(rec15) - w(rec15)
+ + l(rec15,por13,3) + 52 k1(rec15,por13) <= 1
+ maxCoverageIntersectionLeft(rec15,por13,4): - x(rec15) - w(rec15)
+ + l(rec15,por13,4) + 52 k1(rec15,por13) <= 1
+ maxCoverageIntersectionLeft(rec15,por13,5): - x(rec15) - w(rec15)
+ + l(rec15,por13,5) + 52 k1(rec15,por13) <= 1
+ maxCoverageIntersectionLeft(rec15,por13,6): - x(rec15) - w(rec15)
+ + l(rec15,por13,6) + 52 k1(rec15,por13) <= 1
+ maxCoverageIntersectionLeft(rec15,por13,7): - x(rec15) - w(rec15)
+ + l(rec15,por13,7) + 52 k1(rec15,por13) <= 1
+ maxCoverageIntersectionLeft(rec15,por13,8): - x(rec15) - w(rec15)
+ + l(rec15,por13,8) + 52 k1(rec15,por13) <= 1
+ maxCoverageIntersectionLeft(rec15,por14,1): - x(rec15) - w(rec15)
+ + l(rec15,por14,1) + 56 k1(rec15,por14) <= 1
+ maxCoverageIntersectionLeft(rec15,por14,2): - x(rec15) - w(rec15)
+ + l(rec15,por14,2) + 56 k1(rec15,por14) <= 1
+ maxCoverageIntersectionLeft(rec15,por14,3): - x(rec15) - w(rec15)
+ + l(rec15,por14,3) + 56 k1(rec15,por14) <= 1
+ maxCoverageIntersectionLeft(rec15,por14,4): - x(rec15) - w(rec15)
+ + l(rec15,por14,4) + 56 k1(rec15,por14) <= 1
+ maxCoverageIntersectionLeft(rec15,por14,5): - x(rec15) - w(rec15)
+ + l(rec15,por14,5) + 56 k1(rec15,por14) <= 1
+ maxCoverageIntersectionLeft(rec15,por14,6): - x(rec15) - w(rec15)
+ + l(rec15,por14,6) + 56 k1(rec15,por14) <= 1
+ maxCoverageIntersectionLeft(rec15,por14,7): - x(rec15) - w(rec15)
+ + l(rec15,por14,7) + 56 k1(rec15,por14) <= 1
+ maxCoverageIntersectionLeft(rec15,por14,8): - x(rec15) - w(rec15)
+ + l(rec15,por14,8) + 56 k1(rec15,por14) <= 1
+ maxCoverageIntersectionLeft(rec15,por15,1): - x(rec15) - w(rec15)
+ + l(rec15,por15,1) + 57 k1(rec15,por15) <= 1
+ maxCoverageIntersectionLeft(rec15,por15,2): - x(rec15) - w(rec15)
+ + l(rec15,por15,2) + 57 k1(rec15,por15) <= 1
+ maxCoverageIntersectionLeft(rec15,por15,3): - x(rec15) - w(rec15)
+ + l(rec15,por15,3) + 57 k1(rec15,por15) <= 1
+ maxCoverageIntersectionLeft(rec15,por15,4): - x(rec15) - w(rec15)
+ + l(rec15,por15,4) + 57 k1(rec15,por15) <= 1
+ maxCoverageIntersectionLeft(rec15,por15,5): - x(rec15) - w(rec15)
+ + l(rec15,por15,5) + 57 k1(rec15,por15) <= 1
+ maxCoverageIntersectionLeft(rec15,por15,6): - x(rec15) - w(rec15)
+ + l(rec15,por15,6) + 57 k1(rec15,por15) <= 1
+ maxCoverageIntersectionLeft(rec15,por15,7): - x(rec15) - w(rec15)
+ + l(rec15,por15,7) + 57 k1(rec15,por15) <= 1
+ maxCoverageIntersectionLeft(rec15,por15,8): - x(rec15) - w(rec15)
+ + l(rec15,por15,8) + 57 k1(rec15,por15) <= 1
  maxCoverageIntersectionRight(rec1,por1,1): + x(rec1) + l(rec1,por1,1)
  + 57 k1(rec1,por1) <= 61
  maxCoverageIntersectionRight(rec1,por1,2): + x(rec1) + l(rec1,por1,2)
@@ -16354,6 +25503,1206 @@ Subject To
  + l(rec10,por15,7) <= 61
  maxCoverageIntersectionRight(rec10,por15,8): + x(rec10)
  + l(rec10,por15,8) <= 61
+ maxCoverageIntersectionRight(rec11,por1,1): + x(rec11)
+ + l(rec11,por1,1) + 57 k1(rec11,por1) <= 61
+ maxCoverageIntersectionRight(rec11,por1,2): + x(rec11)
+ + l(rec11,por1,2) + 57 k1(rec11,por1) <= 61
+ maxCoverageIntersectionRight(rec11,por1,3): + x(rec11)
+ + l(rec11,por1,3) + 57 k1(rec11,por1) <= 61
+ maxCoverageIntersectionRight(rec11,por1,4): + x(rec11)
+ + l(rec11,por1,4) + 57 k1(rec11,por1) <= 61
+ maxCoverageIntersectionRight(rec11,por1,5): + x(rec11)
+ + l(rec11,por1,5) + 57 k1(rec11,por1) <= 61
+ maxCoverageIntersectionRight(rec11,por1,6): + x(rec11)
+ + l(rec11,por1,6) + 57 k1(rec11,por1) <= 61
+ maxCoverageIntersectionRight(rec11,por1,7): + x(rec11)
+ + l(rec11,por1,7) + 57 k1(rec11,por1) <= 61
+ maxCoverageIntersectionRight(rec11,por1,8): + x(rec11)
+ + l(rec11,por1,8) + 57 k1(rec11,por1) <= 61
+ maxCoverageIntersectionRight(rec11,por2,1): + x(rec11)
+ + l(rec11,por2,1) + 56 k1(rec11,por2) <= 61
+ maxCoverageIntersectionRight(rec11,por2,2): + x(rec11)
+ + l(rec11,por2,2) + 56 k1(rec11,por2) <= 61
+ maxCoverageIntersectionRight(rec11,por2,3): + x(rec11)
+ + l(rec11,por2,3) + 56 k1(rec11,por2) <= 61
+ maxCoverageIntersectionRight(rec11,por2,4): + x(rec11)
+ + l(rec11,por2,4) + 56 k1(rec11,por2) <= 61
+ maxCoverageIntersectionRight(rec11,por2,5): + x(rec11)
+ + l(rec11,por2,5) + 56 k1(rec11,por2) <= 61
+ maxCoverageIntersectionRight(rec11,por2,6): + x(rec11)
+ + l(rec11,por2,6) + 56 k1(rec11,por2) <= 61
+ maxCoverageIntersectionRight(rec11,por2,7): + x(rec11)
+ + l(rec11,por2,7) + 56 k1(rec11,por2) <= 61
+ maxCoverageIntersectionRight(rec11,por2,8): + x(rec11)
+ + l(rec11,por2,8) + 56 k1(rec11,por2) <= 61
+ maxCoverageIntersectionRight(rec11,por3,1): + x(rec11)
+ + l(rec11,por3,1) + 46 k1(rec11,por3) <= 61
+ maxCoverageIntersectionRight(rec11,por3,2): + x(rec11)
+ + l(rec11,por3,2) + 46 k1(rec11,por3) <= 61
+ maxCoverageIntersectionRight(rec11,por3,3): + x(rec11)
+ + l(rec11,por3,3) + 46 k1(rec11,por3) <= 61
+ maxCoverageIntersectionRight(rec11,por3,4): + x(rec11)
+ + l(rec11,por3,4) + 46 k1(rec11,por3) <= 61
+ maxCoverageIntersectionRight(rec11,por3,5): + x(rec11)
+ + l(rec11,por3,5) + 46 k1(rec11,por3) <= 61
+ maxCoverageIntersectionRight(rec11,por3,6): + x(rec11)
+ + l(rec11,por3,6) + 46 k1(rec11,por3) <= 61
+ maxCoverageIntersectionRight(rec11,por3,7): + x(rec11)
+ + l(rec11,por3,7) + 46 k1(rec11,por3) <= 61
+ maxCoverageIntersectionRight(rec11,por3,8): + x(rec11)
+ + l(rec11,por3,8) + 46 k1(rec11,por3) <= 61
+ maxCoverageIntersectionRight(rec11,por4,1): + x(rec11)
+ + l(rec11,por4,1) + 45 k1(rec11,por4) <= 61
+ maxCoverageIntersectionRight(rec11,por4,2): + x(rec11)
+ + l(rec11,por4,2) + 45 k1(rec11,por4) <= 61
+ maxCoverageIntersectionRight(rec11,por4,3): + x(rec11)
+ + l(rec11,por4,3) + 45 k1(rec11,por4) <= 61
+ maxCoverageIntersectionRight(rec11,por4,4): + x(rec11)
+ + l(rec11,por4,4) + 45 k1(rec11,por4) <= 61
+ maxCoverageIntersectionRight(rec11,por4,5): + x(rec11)
+ + l(rec11,por4,5) + 45 k1(rec11,por4) <= 61
+ maxCoverageIntersectionRight(rec11,por4,6): + x(rec11)
+ + l(rec11,por4,6) + 45 k1(rec11,por4) <= 61
+ maxCoverageIntersectionRight(rec11,por4,7): + x(rec11)
+ + l(rec11,por4,7) + 45 k1(rec11,por4) <= 61
+ maxCoverageIntersectionRight(rec11,por4,8): + x(rec11)
+ + l(rec11,por4,8) + 45 k1(rec11,por4) <= 61
+ maxCoverageIntersectionRight(rec11,por5,1): + x(rec11)
+ + l(rec11,por5,1) + 43 k1(rec11,por5) <= 61
+ maxCoverageIntersectionRight(rec11,por5,2): + x(rec11)
+ + l(rec11,por5,2) + 43 k1(rec11,por5) <= 61
+ maxCoverageIntersectionRight(rec11,por5,3): + x(rec11)
+ + l(rec11,por5,3) + 43 k1(rec11,por5) <= 61
+ maxCoverageIntersectionRight(rec11,por5,4): + x(rec11)
+ + l(rec11,por5,4) + 43 k1(rec11,por5) <= 61
+ maxCoverageIntersectionRight(rec11,por5,5): + x(rec11)
+ + l(rec11,por5,5) + 43 k1(rec11,por5) <= 61
+ maxCoverageIntersectionRight(rec11,por5,6): + x(rec11)
+ + l(rec11,por5,6) + 43 k1(rec11,por5) <= 61
+ maxCoverageIntersectionRight(rec11,por5,7): + x(rec11)
+ + l(rec11,por5,7) + 43 k1(rec11,por5) <= 61
+ maxCoverageIntersectionRight(rec11,por5,8): + x(rec11)
+ + l(rec11,por5,8) + 43 k1(rec11,por5) <= 61
+ maxCoverageIntersectionRight(rec11,por6,1): + x(rec11)
+ + l(rec11,por6,1) + 42 k1(rec11,por6) <= 61
+ maxCoverageIntersectionRight(rec11,por6,2): + x(rec11)
+ + l(rec11,por6,2) + 42 k1(rec11,por6) <= 61
+ maxCoverageIntersectionRight(rec11,por6,3): + x(rec11)
+ + l(rec11,por6,3) + 42 k1(rec11,por6) <= 61
+ maxCoverageIntersectionRight(rec11,por6,4): + x(rec11)
+ + l(rec11,por6,4) + 42 k1(rec11,por6) <= 61
+ maxCoverageIntersectionRight(rec11,por6,5): + x(rec11)
+ + l(rec11,por6,5) + 42 k1(rec11,por6) <= 61
+ maxCoverageIntersectionRight(rec11,por6,6): + x(rec11)
+ + l(rec11,por6,6) + 42 k1(rec11,por6) <= 61
+ maxCoverageIntersectionRight(rec11,por6,7): + x(rec11)
+ + l(rec11,por6,7) + 42 k1(rec11,por6) <= 61
+ maxCoverageIntersectionRight(rec11,por6,8): + x(rec11)
+ + l(rec11,por6,8) + 42 k1(rec11,por6) <= 61
+ maxCoverageIntersectionRight(rec11,por7,1): + x(rec11)
+ + l(rec11,por7,1) + 34 k1(rec11,por7) <= 61
+ maxCoverageIntersectionRight(rec11,por7,2): + x(rec11)
+ + l(rec11,por7,2) + 34 k1(rec11,por7) <= 61
+ maxCoverageIntersectionRight(rec11,por7,3): + x(rec11)
+ + l(rec11,por7,3) + 34 k1(rec11,por7) <= 61
+ maxCoverageIntersectionRight(rec11,por7,4): + x(rec11)
+ + l(rec11,por7,4) + 34 k1(rec11,por7) <= 61
+ maxCoverageIntersectionRight(rec11,por7,5): + x(rec11)
+ + l(rec11,por7,5) + 34 k1(rec11,por7) <= 61
+ maxCoverageIntersectionRight(rec11,por7,6): + x(rec11)
+ + l(rec11,por7,6) + 34 k1(rec11,por7) <= 61
+ maxCoverageIntersectionRight(rec11,por7,7): + x(rec11)
+ + l(rec11,por7,7) + 34 k1(rec11,por7) <= 61
+ maxCoverageIntersectionRight(rec11,por7,8): + x(rec11)
+ + l(rec11,por7,8) + 34 k1(rec11,por7) <= 61
+ maxCoverageIntersectionRight(rec11,por8,1): + x(rec11)
+ + l(rec11,por8,1) + 33 k1(rec11,por8) <= 61
+ maxCoverageIntersectionRight(rec11,por8,2): + x(rec11)
+ + l(rec11,por8,2) + 33 k1(rec11,por8) <= 61
+ maxCoverageIntersectionRight(rec11,por8,3): + x(rec11)
+ + l(rec11,por8,3) + 33 k1(rec11,por8) <= 61
+ maxCoverageIntersectionRight(rec11,por8,4): + x(rec11)
+ + l(rec11,por8,4) + 33 k1(rec11,por8) <= 61
+ maxCoverageIntersectionRight(rec11,por8,5): + x(rec11)
+ + l(rec11,por8,5) + 33 k1(rec11,por8) <= 61
+ maxCoverageIntersectionRight(rec11,por8,6): + x(rec11)
+ + l(rec11,por8,6) + 33 k1(rec11,por8) <= 61
+ maxCoverageIntersectionRight(rec11,por8,7): + x(rec11)
+ + l(rec11,por8,7) + 33 k1(rec11,por8) <= 61
+ maxCoverageIntersectionRight(rec11,por8,8): + x(rec11)
+ + l(rec11,por8,8) + 33 k1(rec11,por8) <= 61
+ maxCoverageIntersectionRight(rec11,por9,1): + x(rec11)
+ + l(rec11,por9,1) + 21 k1(rec11,por9) <= 61
+ maxCoverageIntersectionRight(rec11,por9,2): + x(rec11)
+ + l(rec11,por9,2) + 21 k1(rec11,por9) <= 61
+ maxCoverageIntersectionRight(rec11,por9,3): + x(rec11)
+ + l(rec11,por9,3) + 21 k1(rec11,por9) <= 61
+ maxCoverageIntersectionRight(rec11,por9,4): + x(rec11)
+ + l(rec11,por9,4) + 21 k1(rec11,por9) <= 61
+ maxCoverageIntersectionRight(rec11,por9,5): + x(rec11)
+ + l(rec11,por9,5) + 21 k1(rec11,por9) <= 61
+ maxCoverageIntersectionRight(rec11,por9,6): + x(rec11)
+ + l(rec11,por9,6) + 21 k1(rec11,por9) <= 61
+ maxCoverageIntersectionRight(rec11,por9,7): + x(rec11)
+ + l(rec11,por9,7) + 21 k1(rec11,por9) <= 61
+ maxCoverageIntersectionRight(rec11,por9,8): + x(rec11)
+ + l(rec11,por9,8) + 21 k1(rec11,por9) <= 61
+ maxCoverageIntersectionRight(rec11,por10,1): + x(rec11)
+ + l(rec11,por10,1) + 20 k1(rec11,por10) <= 61
+ maxCoverageIntersectionRight(rec11,por10,2): + x(rec11)
+ + l(rec11,por10,2) + 20 k1(rec11,por10) <= 61
+ maxCoverageIntersectionRight(rec11,por10,3): + x(rec11)
+ + l(rec11,por10,3) + 20 k1(rec11,por10) <= 61
+ maxCoverageIntersectionRight(rec11,por10,4): + x(rec11)
+ + l(rec11,por10,4) + 20 k1(rec11,por10) <= 61
+ maxCoverageIntersectionRight(rec11,por10,5): + x(rec11)
+ + l(rec11,por10,5) + 20 k1(rec11,por10) <= 61
+ maxCoverageIntersectionRight(rec11,por10,6): + x(rec11)
+ + l(rec11,por10,6) + 20 k1(rec11,por10) <= 61
+ maxCoverageIntersectionRight(rec11,por10,7): + x(rec11)
+ + l(rec11,por10,7) + 20 k1(rec11,por10) <= 61
+ maxCoverageIntersectionRight(rec11,por10,8): + x(rec11)
+ + l(rec11,por10,8) + 20 k1(rec11,por10) <= 61
+ maxCoverageIntersectionRight(rec11,por11,1): + x(rec11)
+ + l(rec11,por11,1) + 10 k1(rec11,por11) <= 61
+ maxCoverageIntersectionRight(rec11,por11,2): + x(rec11)
+ + l(rec11,por11,2) + 10 k1(rec11,por11) <= 61
+ maxCoverageIntersectionRight(rec11,por11,3): + x(rec11)
+ + l(rec11,por11,3) + 10 k1(rec11,por11) <= 61
+ maxCoverageIntersectionRight(rec11,por11,4): + x(rec11)
+ + l(rec11,por11,4) + 10 k1(rec11,por11) <= 61
+ maxCoverageIntersectionRight(rec11,por11,5): + x(rec11)
+ + l(rec11,por11,5) + 10 k1(rec11,por11) <= 61
+ maxCoverageIntersectionRight(rec11,por11,6): + x(rec11)
+ + l(rec11,por11,6) + 10 k1(rec11,por11) <= 61
+ maxCoverageIntersectionRight(rec11,por11,7): + x(rec11)
+ + l(rec11,por11,7) + 10 k1(rec11,por11) <= 61
+ maxCoverageIntersectionRight(rec11,por11,8): + x(rec11)
+ + l(rec11,por11,8) + 10 k1(rec11,por11) <= 61
+ maxCoverageIntersectionRight(rec11,por12,1): + x(rec11)
+ + l(rec11,por12,1) + 9 k1(rec11,por12) <= 61
+ maxCoverageIntersectionRight(rec11,por12,2): + x(rec11)
+ + l(rec11,por12,2) + 9 k1(rec11,por12) <= 61
+ maxCoverageIntersectionRight(rec11,por12,3): + x(rec11)
+ + l(rec11,por12,3) + 9 k1(rec11,por12) <= 61
+ maxCoverageIntersectionRight(rec11,por12,4): + x(rec11)
+ + l(rec11,por12,4) + 9 k1(rec11,por12) <= 61
+ maxCoverageIntersectionRight(rec11,por12,5): + x(rec11)
+ + l(rec11,por12,5) + 9 k1(rec11,por12) <= 61
+ maxCoverageIntersectionRight(rec11,por12,6): + x(rec11)
+ + l(rec11,por12,6) + 9 k1(rec11,por12) <= 61
+ maxCoverageIntersectionRight(rec11,por12,7): + x(rec11)
+ + l(rec11,por12,7) + 9 k1(rec11,por12) <= 61
+ maxCoverageIntersectionRight(rec11,por12,8): + x(rec11)
+ + l(rec11,por12,8) + 9 k1(rec11,por12) <= 61
+ maxCoverageIntersectionRight(rec11,por13,1): + x(rec11)
+ + l(rec11,por13,1) + 5 k1(rec11,por13) <= 61
+ maxCoverageIntersectionRight(rec11,por13,2): + x(rec11)
+ + l(rec11,por13,2) + 5 k1(rec11,por13) <= 61
+ maxCoverageIntersectionRight(rec11,por13,3): + x(rec11)
+ + l(rec11,por13,3) + 5 k1(rec11,por13) <= 61
+ maxCoverageIntersectionRight(rec11,por13,4): + x(rec11)
+ + l(rec11,por13,4) + 5 k1(rec11,por13) <= 61
+ maxCoverageIntersectionRight(rec11,por13,5): + x(rec11)
+ + l(rec11,por13,5) + 5 k1(rec11,por13) <= 61
+ maxCoverageIntersectionRight(rec11,por13,6): + x(rec11)
+ + l(rec11,por13,6) + 5 k1(rec11,por13) <= 61
+ maxCoverageIntersectionRight(rec11,por13,7): + x(rec11)
+ + l(rec11,por13,7) + 5 k1(rec11,por13) <= 61
+ maxCoverageIntersectionRight(rec11,por13,8): + x(rec11)
+ + l(rec11,por13,8) + 5 k1(rec11,por13) <= 61
+ maxCoverageIntersectionRight(rec11,por14,1): + x(rec11)
+ + l(rec11,por14,1) + 4 k1(rec11,por14) <= 61
+ maxCoverageIntersectionRight(rec11,por14,2): + x(rec11)
+ + l(rec11,por14,2) + 4 k1(rec11,por14) <= 61
+ maxCoverageIntersectionRight(rec11,por14,3): + x(rec11)
+ + l(rec11,por14,3) + 4 k1(rec11,por14) <= 61
+ maxCoverageIntersectionRight(rec11,por14,4): + x(rec11)
+ + l(rec11,por14,4) + 4 k1(rec11,por14) <= 61
+ maxCoverageIntersectionRight(rec11,por14,5): + x(rec11)
+ + l(rec11,por14,5) + 4 k1(rec11,por14) <= 61
+ maxCoverageIntersectionRight(rec11,por14,6): + x(rec11)
+ + l(rec11,por14,6) + 4 k1(rec11,por14) <= 61
+ maxCoverageIntersectionRight(rec11,por14,7): + x(rec11)
+ + l(rec11,por14,7) + 4 k1(rec11,por14) <= 61
+ maxCoverageIntersectionRight(rec11,por14,8): + x(rec11)
+ + l(rec11,por14,8) + 4 k1(rec11,por14) <= 61
+ maxCoverageIntersectionRight(rec11,por15,1): + x(rec11)
+ + l(rec11,por15,1) <= 61
+ maxCoverageIntersectionRight(rec11,por15,2): + x(rec11)
+ + l(rec11,por15,2) <= 61
+ maxCoverageIntersectionRight(rec11,por15,3): + x(rec11)
+ + l(rec11,por15,3) <= 61
+ maxCoverageIntersectionRight(rec11,por15,4): + x(rec11)
+ + l(rec11,por15,4) <= 61
+ maxCoverageIntersectionRight(rec11,por15,5): + x(rec11)
+ + l(rec11,por15,5) <= 61
+ maxCoverageIntersectionRight(rec11,por15,6): + x(rec11)
+ + l(rec11,por15,6) <= 61
+ maxCoverageIntersectionRight(rec11,por15,7): + x(rec11)
+ + l(rec11,por15,7) <= 61
+ maxCoverageIntersectionRight(rec11,por15,8): + x(rec11)
+ + l(rec11,por15,8) <= 61
+ maxCoverageIntersectionRight(rec12,por1,1): + x(rec12)
+ + l(rec12,por1,1) + 57 k1(rec12,por1) <= 61
+ maxCoverageIntersectionRight(rec12,por1,2): + x(rec12)
+ + l(rec12,por1,2) + 57 k1(rec12,por1) <= 61
+ maxCoverageIntersectionRight(rec12,por1,3): + x(rec12)
+ + l(rec12,por1,3) + 57 k1(rec12,por1) <= 61
+ maxCoverageIntersectionRight(rec12,por1,4): + x(rec12)
+ + l(rec12,por1,4) + 57 k1(rec12,por1) <= 61
+ maxCoverageIntersectionRight(rec12,por1,5): + x(rec12)
+ + l(rec12,por1,5) + 57 k1(rec12,por1) <= 61
+ maxCoverageIntersectionRight(rec12,por1,6): + x(rec12)
+ + l(rec12,por1,6) + 57 k1(rec12,por1) <= 61
+ maxCoverageIntersectionRight(rec12,por1,7): + x(rec12)
+ + l(rec12,por1,7) + 57 k1(rec12,por1) <= 61
+ maxCoverageIntersectionRight(rec12,por1,8): + x(rec12)
+ + l(rec12,por1,8) + 57 k1(rec12,por1) <= 61
+ maxCoverageIntersectionRight(rec12,por2,1): + x(rec12)
+ + l(rec12,por2,1) + 56 k1(rec12,por2) <= 61
+ maxCoverageIntersectionRight(rec12,por2,2): + x(rec12)
+ + l(rec12,por2,2) + 56 k1(rec12,por2) <= 61
+ maxCoverageIntersectionRight(rec12,por2,3): + x(rec12)
+ + l(rec12,por2,3) + 56 k1(rec12,por2) <= 61
+ maxCoverageIntersectionRight(rec12,por2,4): + x(rec12)
+ + l(rec12,por2,4) + 56 k1(rec12,por2) <= 61
+ maxCoverageIntersectionRight(rec12,por2,5): + x(rec12)
+ + l(rec12,por2,5) + 56 k1(rec12,por2) <= 61
+ maxCoverageIntersectionRight(rec12,por2,6): + x(rec12)
+ + l(rec12,por2,6) + 56 k1(rec12,por2) <= 61
+ maxCoverageIntersectionRight(rec12,por2,7): + x(rec12)
+ + l(rec12,por2,7) + 56 k1(rec12,por2) <= 61
+ maxCoverageIntersectionRight(rec12,por2,8): + x(rec12)
+ + l(rec12,por2,8) + 56 k1(rec12,por2) <= 61
+ maxCoverageIntersectionRight(rec12,por3,1): + x(rec12)
+ + l(rec12,por3,1) + 46 k1(rec12,por3) <= 61
+ maxCoverageIntersectionRight(rec12,por3,2): + x(rec12)
+ + l(rec12,por3,2) + 46 k1(rec12,por3) <= 61
+ maxCoverageIntersectionRight(rec12,por3,3): + x(rec12)
+ + l(rec12,por3,3) + 46 k1(rec12,por3) <= 61
+ maxCoverageIntersectionRight(rec12,por3,4): + x(rec12)
+ + l(rec12,por3,4) + 46 k1(rec12,por3) <= 61
+ maxCoverageIntersectionRight(rec12,por3,5): + x(rec12)
+ + l(rec12,por3,5) + 46 k1(rec12,por3) <= 61
+ maxCoverageIntersectionRight(rec12,por3,6): + x(rec12)
+ + l(rec12,por3,6) + 46 k1(rec12,por3) <= 61
+ maxCoverageIntersectionRight(rec12,por3,7): + x(rec12)
+ + l(rec12,por3,7) + 46 k1(rec12,por3) <= 61
+ maxCoverageIntersectionRight(rec12,por3,8): + x(rec12)
+ + l(rec12,por3,8) + 46 k1(rec12,por3) <= 61
+ maxCoverageIntersectionRight(rec12,por4,1): + x(rec12)
+ + l(rec12,por4,1) + 45 k1(rec12,por4) <= 61
+ maxCoverageIntersectionRight(rec12,por4,2): + x(rec12)
+ + l(rec12,por4,2) + 45 k1(rec12,por4) <= 61
+ maxCoverageIntersectionRight(rec12,por4,3): + x(rec12)
+ + l(rec12,por4,3) + 45 k1(rec12,por4) <= 61
+ maxCoverageIntersectionRight(rec12,por4,4): + x(rec12)
+ + l(rec12,por4,4) + 45 k1(rec12,por4) <= 61
+ maxCoverageIntersectionRight(rec12,por4,5): + x(rec12)
+ + l(rec12,por4,5) + 45 k1(rec12,por4) <= 61
+ maxCoverageIntersectionRight(rec12,por4,6): + x(rec12)
+ + l(rec12,por4,6) + 45 k1(rec12,por4) <= 61
+ maxCoverageIntersectionRight(rec12,por4,7): + x(rec12)
+ + l(rec12,por4,7) + 45 k1(rec12,por4) <= 61
+ maxCoverageIntersectionRight(rec12,por4,8): + x(rec12)
+ + l(rec12,por4,8) + 45 k1(rec12,por4) <= 61
+ maxCoverageIntersectionRight(rec12,por5,1): + x(rec12)
+ + l(rec12,por5,1) + 43 k1(rec12,por5) <= 61
+ maxCoverageIntersectionRight(rec12,por5,2): + x(rec12)
+ + l(rec12,por5,2) + 43 k1(rec12,por5) <= 61
+ maxCoverageIntersectionRight(rec12,por5,3): + x(rec12)
+ + l(rec12,por5,3) + 43 k1(rec12,por5) <= 61
+ maxCoverageIntersectionRight(rec12,por5,4): + x(rec12)
+ + l(rec12,por5,4) + 43 k1(rec12,por5) <= 61
+ maxCoverageIntersectionRight(rec12,por5,5): + x(rec12)
+ + l(rec12,por5,5) + 43 k1(rec12,por5) <= 61
+ maxCoverageIntersectionRight(rec12,por5,6): + x(rec12)
+ + l(rec12,por5,6) + 43 k1(rec12,por5) <= 61
+ maxCoverageIntersectionRight(rec12,por5,7): + x(rec12)
+ + l(rec12,por5,7) + 43 k1(rec12,por5) <= 61
+ maxCoverageIntersectionRight(rec12,por5,8): + x(rec12)
+ + l(rec12,por5,8) + 43 k1(rec12,por5) <= 61
+ maxCoverageIntersectionRight(rec12,por6,1): + x(rec12)
+ + l(rec12,por6,1) + 42 k1(rec12,por6) <= 61
+ maxCoverageIntersectionRight(rec12,por6,2): + x(rec12)
+ + l(rec12,por6,2) + 42 k1(rec12,por6) <= 61
+ maxCoverageIntersectionRight(rec12,por6,3): + x(rec12)
+ + l(rec12,por6,3) + 42 k1(rec12,por6) <= 61
+ maxCoverageIntersectionRight(rec12,por6,4): + x(rec12)
+ + l(rec12,por6,4) + 42 k1(rec12,por6) <= 61
+ maxCoverageIntersectionRight(rec12,por6,5): + x(rec12)
+ + l(rec12,por6,5) + 42 k1(rec12,por6) <= 61
+ maxCoverageIntersectionRight(rec12,por6,6): + x(rec12)
+ + l(rec12,por6,6) + 42 k1(rec12,por6) <= 61
+ maxCoverageIntersectionRight(rec12,por6,7): + x(rec12)
+ + l(rec12,por6,7) + 42 k1(rec12,por6) <= 61
+ maxCoverageIntersectionRight(rec12,por6,8): + x(rec12)
+ + l(rec12,por6,8) + 42 k1(rec12,por6) <= 61
+ maxCoverageIntersectionRight(rec12,por7,1): + x(rec12)
+ + l(rec12,por7,1) + 34 k1(rec12,por7) <= 61
+ maxCoverageIntersectionRight(rec12,por7,2): + x(rec12)
+ + l(rec12,por7,2) + 34 k1(rec12,por7) <= 61
+ maxCoverageIntersectionRight(rec12,por7,3): + x(rec12)
+ + l(rec12,por7,3) + 34 k1(rec12,por7) <= 61
+ maxCoverageIntersectionRight(rec12,por7,4): + x(rec12)
+ + l(rec12,por7,4) + 34 k1(rec12,por7) <= 61
+ maxCoverageIntersectionRight(rec12,por7,5): + x(rec12)
+ + l(rec12,por7,5) + 34 k1(rec12,por7) <= 61
+ maxCoverageIntersectionRight(rec12,por7,6): + x(rec12)
+ + l(rec12,por7,6) + 34 k1(rec12,por7) <= 61
+ maxCoverageIntersectionRight(rec12,por7,7): + x(rec12)
+ + l(rec12,por7,7) + 34 k1(rec12,por7) <= 61
+ maxCoverageIntersectionRight(rec12,por7,8): + x(rec12)
+ + l(rec12,por7,8) + 34 k1(rec12,por7) <= 61
+ maxCoverageIntersectionRight(rec12,por8,1): + x(rec12)
+ + l(rec12,por8,1) + 33 k1(rec12,por8) <= 61
+ maxCoverageIntersectionRight(rec12,por8,2): + x(rec12)
+ + l(rec12,por8,2) + 33 k1(rec12,por8) <= 61
+ maxCoverageIntersectionRight(rec12,por8,3): + x(rec12)
+ + l(rec12,por8,3) + 33 k1(rec12,por8) <= 61
+ maxCoverageIntersectionRight(rec12,por8,4): + x(rec12)
+ + l(rec12,por8,4) + 33 k1(rec12,por8) <= 61
+ maxCoverageIntersectionRight(rec12,por8,5): + x(rec12)
+ + l(rec12,por8,5) + 33 k1(rec12,por8) <= 61
+ maxCoverageIntersectionRight(rec12,por8,6): + x(rec12)
+ + l(rec12,por8,6) + 33 k1(rec12,por8) <= 61
+ maxCoverageIntersectionRight(rec12,por8,7): + x(rec12)
+ + l(rec12,por8,7) + 33 k1(rec12,por8) <= 61
+ maxCoverageIntersectionRight(rec12,por8,8): + x(rec12)
+ + l(rec12,por8,8) + 33 k1(rec12,por8) <= 61
+ maxCoverageIntersectionRight(rec12,por9,1): + x(rec12)
+ + l(rec12,por9,1) + 21 k1(rec12,por9) <= 61
+ maxCoverageIntersectionRight(rec12,por9,2): + x(rec12)
+ + l(rec12,por9,2) + 21 k1(rec12,por9) <= 61
+ maxCoverageIntersectionRight(rec12,por9,3): + x(rec12)
+ + l(rec12,por9,3) + 21 k1(rec12,por9) <= 61
+ maxCoverageIntersectionRight(rec12,por9,4): + x(rec12)
+ + l(rec12,por9,4) + 21 k1(rec12,por9) <= 61
+ maxCoverageIntersectionRight(rec12,por9,5): + x(rec12)
+ + l(rec12,por9,5) + 21 k1(rec12,por9) <= 61
+ maxCoverageIntersectionRight(rec12,por9,6): + x(rec12)
+ + l(rec12,por9,6) + 21 k1(rec12,por9) <= 61
+ maxCoverageIntersectionRight(rec12,por9,7): + x(rec12)
+ + l(rec12,por9,7) + 21 k1(rec12,por9) <= 61
+ maxCoverageIntersectionRight(rec12,por9,8): + x(rec12)
+ + l(rec12,por9,8) + 21 k1(rec12,por9) <= 61
+ maxCoverageIntersectionRight(rec12,por10,1): + x(rec12)
+ + l(rec12,por10,1) + 20 k1(rec12,por10) <= 61
+ maxCoverageIntersectionRight(rec12,por10,2): + x(rec12)
+ + l(rec12,por10,2) + 20 k1(rec12,por10) <= 61
+ maxCoverageIntersectionRight(rec12,por10,3): + x(rec12)
+ + l(rec12,por10,3) + 20 k1(rec12,por10) <= 61
+ maxCoverageIntersectionRight(rec12,por10,4): + x(rec12)
+ + l(rec12,por10,4) + 20 k1(rec12,por10) <= 61
+ maxCoverageIntersectionRight(rec12,por10,5): + x(rec12)
+ + l(rec12,por10,5) + 20 k1(rec12,por10) <= 61
+ maxCoverageIntersectionRight(rec12,por10,6): + x(rec12)
+ + l(rec12,por10,6) + 20 k1(rec12,por10) <= 61
+ maxCoverageIntersectionRight(rec12,por10,7): + x(rec12)
+ + l(rec12,por10,7) + 20 k1(rec12,por10) <= 61
+ maxCoverageIntersectionRight(rec12,por10,8): + x(rec12)
+ + l(rec12,por10,8) + 20 k1(rec12,por10) <= 61
+ maxCoverageIntersectionRight(rec12,por11,1): + x(rec12)
+ + l(rec12,por11,1) + 10 k1(rec12,por11) <= 61
+ maxCoverageIntersectionRight(rec12,por11,2): + x(rec12)
+ + l(rec12,por11,2) + 10 k1(rec12,por11) <= 61
+ maxCoverageIntersectionRight(rec12,por11,3): + x(rec12)
+ + l(rec12,por11,3) + 10 k1(rec12,por11) <= 61
+ maxCoverageIntersectionRight(rec12,por11,4): + x(rec12)
+ + l(rec12,por11,4) + 10 k1(rec12,por11) <= 61
+ maxCoverageIntersectionRight(rec12,por11,5): + x(rec12)
+ + l(rec12,por11,5) + 10 k1(rec12,por11) <= 61
+ maxCoverageIntersectionRight(rec12,por11,6): + x(rec12)
+ + l(rec12,por11,6) + 10 k1(rec12,por11) <= 61
+ maxCoverageIntersectionRight(rec12,por11,7): + x(rec12)
+ + l(rec12,por11,7) + 10 k1(rec12,por11) <= 61
+ maxCoverageIntersectionRight(rec12,por11,8): + x(rec12)
+ + l(rec12,por11,8) + 10 k1(rec12,por11) <= 61
+ maxCoverageIntersectionRight(rec12,por12,1): + x(rec12)
+ + l(rec12,por12,1) + 9 k1(rec12,por12) <= 61
+ maxCoverageIntersectionRight(rec12,por12,2): + x(rec12)
+ + l(rec12,por12,2) + 9 k1(rec12,por12) <= 61
+ maxCoverageIntersectionRight(rec12,por12,3): + x(rec12)
+ + l(rec12,por12,3) + 9 k1(rec12,por12) <= 61
+ maxCoverageIntersectionRight(rec12,por12,4): + x(rec12)
+ + l(rec12,por12,4) + 9 k1(rec12,por12) <= 61
+ maxCoverageIntersectionRight(rec12,por12,5): + x(rec12)
+ + l(rec12,por12,5) + 9 k1(rec12,por12) <= 61
+ maxCoverageIntersectionRight(rec12,por12,6): + x(rec12)
+ + l(rec12,por12,6) + 9 k1(rec12,por12) <= 61
+ maxCoverageIntersectionRight(rec12,por12,7): + x(rec12)
+ + l(rec12,por12,7) + 9 k1(rec12,por12) <= 61
+ maxCoverageIntersectionRight(rec12,por12,8): + x(rec12)
+ + l(rec12,por12,8) + 9 k1(rec12,por12) <= 61
+ maxCoverageIntersectionRight(rec12,por13,1): + x(rec12)
+ + l(rec12,por13,1) + 5 k1(rec12,por13) <= 61
+ maxCoverageIntersectionRight(rec12,por13,2): + x(rec12)
+ + l(rec12,por13,2) + 5 k1(rec12,por13) <= 61
+ maxCoverageIntersectionRight(rec12,por13,3): + x(rec12)
+ + l(rec12,por13,3) + 5 k1(rec12,por13) <= 61
+ maxCoverageIntersectionRight(rec12,por13,4): + x(rec12)
+ + l(rec12,por13,4) + 5 k1(rec12,por13) <= 61
+ maxCoverageIntersectionRight(rec12,por13,5): + x(rec12)
+ + l(rec12,por13,5) + 5 k1(rec12,por13) <= 61
+ maxCoverageIntersectionRight(rec12,por13,6): + x(rec12)
+ + l(rec12,por13,6) + 5 k1(rec12,por13) <= 61
+ maxCoverageIntersectionRight(rec12,por13,7): + x(rec12)
+ + l(rec12,por13,7) + 5 k1(rec12,por13) <= 61
+ maxCoverageIntersectionRight(rec12,por13,8): + x(rec12)
+ + l(rec12,por13,8) + 5 k1(rec12,por13) <= 61
+ maxCoverageIntersectionRight(rec12,por14,1): + x(rec12)
+ + l(rec12,por14,1) + 4 k1(rec12,por14) <= 61
+ maxCoverageIntersectionRight(rec12,por14,2): + x(rec12)
+ + l(rec12,por14,2) + 4 k1(rec12,por14) <= 61
+ maxCoverageIntersectionRight(rec12,por14,3): + x(rec12)
+ + l(rec12,por14,3) + 4 k1(rec12,por14) <= 61
+ maxCoverageIntersectionRight(rec12,por14,4): + x(rec12)
+ + l(rec12,por14,4) + 4 k1(rec12,por14) <= 61
+ maxCoverageIntersectionRight(rec12,por14,5): + x(rec12)
+ + l(rec12,por14,5) + 4 k1(rec12,por14) <= 61
+ maxCoverageIntersectionRight(rec12,por14,6): + x(rec12)
+ + l(rec12,por14,6) + 4 k1(rec12,por14) <= 61
+ maxCoverageIntersectionRight(rec12,por14,7): + x(rec12)
+ + l(rec12,por14,7) + 4 k1(rec12,por14) <= 61
+ maxCoverageIntersectionRight(rec12,por14,8): + x(rec12)
+ + l(rec12,por14,8) + 4 k1(rec12,por14) <= 61
+ maxCoverageIntersectionRight(rec12,por15,1): + x(rec12)
+ + l(rec12,por15,1) <= 61
+ maxCoverageIntersectionRight(rec12,por15,2): + x(rec12)
+ + l(rec12,por15,2) <= 61
+ maxCoverageIntersectionRight(rec12,por15,3): + x(rec12)
+ + l(rec12,por15,3) <= 61
+ maxCoverageIntersectionRight(rec12,por15,4): + x(rec12)
+ + l(rec12,por15,4) <= 61
+ maxCoverageIntersectionRight(rec12,por15,5): + x(rec12)
+ + l(rec12,por15,5) <= 61
+ maxCoverageIntersectionRight(rec12,por15,6): + x(rec12)
+ + l(rec12,por15,6) <= 61
+ maxCoverageIntersectionRight(rec12,por15,7): + x(rec12)
+ + l(rec12,por15,7) <= 61
+ maxCoverageIntersectionRight(rec12,por15,8): + x(rec12)
+ + l(rec12,por15,8) <= 61
+ maxCoverageIntersectionRight(rec13,por1,1): + x(rec13)
+ + l(rec13,por1,1) + 57 k1(rec13,por1) <= 61
+ maxCoverageIntersectionRight(rec13,por1,2): + x(rec13)
+ + l(rec13,por1,2) + 57 k1(rec13,por1) <= 61
+ maxCoverageIntersectionRight(rec13,por1,3): + x(rec13)
+ + l(rec13,por1,3) + 57 k1(rec13,por1) <= 61
+ maxCoverageIntersectionRight(rec13,por1,4): + x(rec13)
+ + l(rec13,por1,4) + 57 k1(rec13,por1) <= 61
+ maxCoverageIntersectionRight(rec13,por1,5): + x(rec13)
+ + l(rec13,por1,5) + 57 k1(rec13,por1) <= 61
+ maxCoverageIntersectionRight(rec13,por1,6): + x(rec13)
+ + l(rec13,por1,6) + 57 k1(rec13,por1) <= 61
+ maxCoverageIntersectionRight(rec13,por1,7): + x(rec13)
+ + l(rec13,por1,7) + 57 k1(rec13,por1) <= 61
+ maxCoverageIntersectionRight(rec13,por1,8): + x(rec13)
+ + l(rec13,por1,8) + 57 k1(rec13,por1) <= 61
+ maxCoverageIntersectionRight(rec13,por2,1): + x(rec13)
+ + l(rec13,por2,1) + 56 k1(rec13,por2) <= 61
+ maxCoverageIntersectionRight(rec13,por2,2): + x(rec13)
+ + l(rec13,por2,2) + 56 k1(rec13,por2) <= 61
+ maxCoverageIntersectionRight(rec13,por2,3): + x(rec13)
+ + l(rec13,por2,3) + 56 k1(rec13,por2) <= 61
+ maxCoverageIntersectionRight(rec13,por2,4): + x(rec13)
+ + l(rec13,por2,4) + 56 k1(rec13,por2) <= 61
+ maxCoverageIntersectionRight(rec13,por2,5): + x(rec13)
+ + l(rec13,por2,5) + 56 k1(rec13,por2) <= 61
+ maxCoverageIntersectionRight(rec13,por2,6): + x(rec13)
+ + l(rec13,por2,6) + 56 k1(rec13,por2) <= 61
+ maxCoverageIntersectionRight(rec13,por2,7): + x(rec13)
+ + l(rec13,por2,7) + 56 k1(rec13,por2) <= 61
+ maxCoverageIntersectionRight(rec13,por2,8): + x(rec13)
+ + l(rec13,por2,8) + 56 k1(rec13,por2) <= 61
+ maxCoverageIntersectionRight(rec13,por3,1): + x(rec13)
+ + l(rec13,por3,1) + 46 k1(rec13,por3) <= 61
+ maxCoverageIntersectionRight(rec13,por3,2): + x(rec13)
+ + l(rec13,por3,2) + 46 k1(rec13,por3) <= 61
+ maxCoverageIntersectionRight(rec13,por3,3): + x(rec13)
+ + l(rec13,por3,3) + 46 k1(rec13,por3) <= 61
+ maxCoverageIntersectionRight(rec13,por3,4): + x(rec13)
+ + l(rec13,por3,4) + 46 k1(rec13,por3) <= 61
+ maxCoverageIntersectionRight(rec13,por3,5): + x(rec13)
+ + l(rec13,por3,5) + 46 k1(rec13,por3) <= 61
+ maxCoverageIntersectionRight(rec13,por3,6): + x(rec13)
+ + l(rec13,por3,6) + 46 k1(rec13,por3) <= 61
+ maxCoverageIntersectionRight(rec13,por3,7): + x(rec13)
+ + l(rec13,por3,7) + 46 k1(rec13,por3) <= 61
+ maxCoverageIntersectionRight(rec13,por3,8): + x(rec13)
+ + l(rec13,por3,8) + 46 k1(rec13,por3) <= 61
+ maxCoverageIntersectionRight(rec13,por4,1): + x(rec13)
+ + l(rec13,por4,1) + 45 k1(rec13,por4) <= 61
+ maxCoverageIntersectionRight(rec13,por4,2): + x(rec13)
+ + l(rec13,por4,2) + 45 k1(rec13,por4) <= 61
+ maxCoverageIntersectionRight(rec13,por4,3): + x(rec13)
+ + l(rec13,por4,3) + 45 k1(rec13,por4) <= 61
+ maxCoverageIntersectionRight(rec13,por4,4): + x(rec13)
+ + l(rec13,por4,4) + 45 k1(rec13,por4) <= 61
+ maxCoverageIntersectionRight(rec13,por4,5): + x(rec13)
+ + l(rec13,por4,5) + 45 k1(rec13,por4) <= 61
+ maxCoverageIntersectionRight(rec13,por4,6): + x(rec13)
+ + l(rec13,por4,6) + 45 k1(rec13,por4) <= 61
+ maxCoverageIntersectionRight(rec13,por4,7): + x(rec13)
+ + l(rec13,por4,7) + 45 k1(rec13,por4) <= 61
+ maxCoverageIntersectionRight(rec13,por4,8): + x(rec13)
+ + l(rec13,por4,8) + 45 k1(rec13,por4) <= 61
+ maxCoverageIntersectionRight(rec13,por5,1): + x(rec13)
+ + l(rec13,por5,1) + 43 k1(rec13,por5) <= 61
+ maxCoverageIntersectionRight(rec13,por5,2): + x(rec13)
+ + l(rec13,por5,2) + 43 k1(rec13,por5) <= 61
+ maxCoverageIntersectionRight(rec13,por5,3): + x(rec13)
+ + l(rec13,por5,3) + 43 k1(rec13,por5) <= 61
+ maxCoverageIntersectionRight(rec13,por5,4): + x(rec13)
+ + l(rec13,por5,4) + 43 k1(rec13,por5) <= 61
+ maxCoverageIntersectionRight(rec13,por5,5): + x(rec13)
+ + l(rec13,por5,5) + 43 k1(rec13,por5) <= 61
+ maxCoverageIntersectionRight(rec13,por5,6): + x(rec13)
+ + l(rec13,por5,6) + 43 k1(rec13,por5) <= 61
+ maxCoverageIntersectionRight(rec13,por5,7): + x(rec13)
+ + l(rec13,por5,7) + 43 k1(rec13,por5) <= 61
+ maxCoverageIntersectionRight(rec13,por5,8): + x(rec13)
+ + l(rec13,por5,8) + 43 k1(rec13,por5) <= 61
+ maxCoverageIntersectionRight(rec13,por6,1): + x(rec13)
+ + l(rec13,por6,1) + 42 k1(rec13,por6) <= 61
+ maxCoverageIntersectionRight(rec13,por6,2): + x(rec13)
+ + l(rec13,por6,2) + 42 k1(rec13,por6) <= 61
+ maxCoverageIntersectionRight(rec13,por6,3): + x(rec13)
+ + l(rec13,por6,3) + 42 k1(rec13,por6) <= 61
+ maxCoverageIntersectionRight(rec13,por6,4): + x(rec13)
+ + l(rec13,por6,4) + 42 k1(rec13,por6) <= 61
+ maxCoverageIntersectionRight(rec13,por6,5): + x(rec13)
+ + l(rec13,por6,5) + 42 k1(rec13,por6) <= 61
+ maxCoverageIntersectionRight(rec13,por6,6): + x(rec13)
+ + l(rec13,por6,6) + 42 k1(rec13,por6) <= 61
+ maxCoverageIntersectionRight(rec13,por6,7): + x(rec13)
+ + l(rec13,por6,7) + 42 k1(rec13,por6) <= 61
+ maxCoverageIntersectionRight(rec13,por6,8): + x(rec13)
+ + l(rec13,por6,8) + 42 k1(rec13,por6) <= 61
+ maxCoverageIntersectionRight(rec13,por7,1): + x(rec13)
+ + l(rec13,por7,1) + 34 k1(rec13,por7) <= 61
+ maxCoverageIntersectionRight(rec13,por7,2): + x(rec13)
+ + l(rec13,por7,2) + 34 k1(rec13,por7) <= 61
+ maxCoverageIntersectionRight(rec13,por7,3): + x(rec13)
+ + l(rec13,por7,3) + 34 k1(rec13,por7) <= 61
+ maxCoverageIntersectionRight(rec13,por7,4): + x(rec13)
+ + l(rec13,por7,4) + 34 k1(rec13,por7) <= 61
+ maxCoverageIntersectionRight(rec13,por7,5): + x(rec13)
+ + l(rec13,por7,5) + 34 k1(rec13,por7) <= 61
+ maxCoverageIntersectionRight(rec13,por7,6): + x(rec13)
+ + l(rec13,por7,6) + 34 k1(rec13,por7) <= 61
+ maxCoverageIntersectionRight(rec13,por7,7): + x(rec13)
+ + l(rec13,por7,7) + 34 k1(rec13,por7) <= 61
+ maxCoverageIntersectionRight(rec13,por7,8): + x(rec13)
+ + l(rec13,por7,8) + 34 k1(rec13,por7) <= 61
+ maxCoverageIntersectionRight(rec13,por8,1): + x(rec13)
+ + l(rec13,por8,1) + 33 k1(rec13,por8) <= 61
+ maxCoverageIntersectionRight(rec13,por8,2): + x(rec13)
+ + l(rec13,por8,2) + 33 k1(rec13,por8) <= 61
+ maxCoverageIntersectionRight(rec13,por8,3): + x(rec13)
+ + l(rec13,por8,3) + 33 k1(rec13,por8) <= 61
+ maxCoverageIntersectionRight(rec13,por8,4): + x(rec13)
+ + l(rec13,por8,4) + 33 k1(rec13,por8) <= 61
+ maxCoverageIntersectionRight(rec13,por8,5): + x(rec13)
+ + l(rec13,por8,5) + 33 k1(rec13,por8) <= 61
+ maxCoverageIntersectionRight(rec13,por8,6): + x(rec13)
+ + l(rec13,por8,6) + 33 k1(rec13,por8) <= 61
+ maxCoverageIntersectionRight(rec13,por8,7): + x(rec13)
+ + l(rec13,por8,7) + 33 k1(rec13,por8) <= 61
+ maxCoverageIntersectionRight(rec13,por8,8): + x(rec13)
+ + l(rec13,por8,8) + 33 k1(rec13,por8) <= 61
+ maxCoverageIntersectionRight(rec13,por9,1): + x(rec13)
+ + l(rec13,por9,1) + 21 k1(rec13,por9) <= 61
+ maxCoverageIntersectionRight(rec13,por9,2): + x(rec13)
+ + l(rec13,por9,2) + 21 k1(rec13,por9) <= 61
+ maxCoverageIntersectionRight(rec13,por9,3): + x(rec13)
+ + l(rec13,por9,3) + 21 k1(rec13,por9) <= 61
+ maxCoverageIntersectionRight(rec13,por9,4): + x(rec13)
+ + l(rec13,por9,4) + 21 k1(rec13,por9) <= 61
+ maxCoverageIntersectionRight(rec13,por9,5): + x(rec13)
+ + l(rec13,por9,5) + 21 k1(rec13,por9) <= 61
+ maxCoverageIntersectionRight(rec13,por9,6): + x(rec13)
+ + l(rec13,por9,6) + 21 k1(rec13,por9) <= 61
+ maxCoverageIntersectionRight(rec13,por9,7): + x(rec13)
+ + l(rec13,por9,7) + 21 k1(rec13,por9) <= 61
+ maxCoverageIntersectionRight(rec13,por9,8): + x(rec13)
+ + l(rec13,por9,8) + 21 k1(rec13,por9) <= 61
+ maxCoverageIntersectionRight(rec13,por10,1): + x(rec13)
+ + l(rec13,por10,1) + 20 k1(rec13,por10) <= 61
+ maxCoverageIntersectionRight(rec13,por10,2): + x(rec13)
+ + l(rec13,por10,2) + 20 k1(rec13,por10) <= 61
+ maxCoverageIntersectionRight(rec13,por10,3): + x(rec13)
+ + l(rec13,por10,3) + 20 k1(rec13,por10) <= 61
+ maxCoverageIntersectionRight(rec13,por10,4): + x(rec13)
+ + l(rec13,por10,4) + 20 k1(rec13,por10) <= 61
+ maxCoverageIntersectionRight(rec13,por10,5): + x(rec13)
+ + l(rec13,por10,5) + 20 k1(rec13,por10) <= 61
+ maxCoverageIntersectionRight(rec13,por10,6): + x(rec13)
+ + l(rec13,por10,6) + 20 k1(rec13,por10) <= 61
+ maxCoverageIntersectionRight(rec13,por10,7): + x(rec13)
+ + l(rec13,por10,7) + 20 k1(rec13,por10) <= 61
+ maxCoverageIntersectionRight(rec13,por10,8): + x(rec13)
+ + l(rec13,por10,8) + 20 k1(rec13,por10) <= 61
+ maxCoverageIntersectionRight(rec13,por11,1): + x(rec13)
+ + l(rec13,por11,1) + 10 k1(rec13,por11) <= 61
+ maxCoverageIntersectionRight(rec13,por11,2): + x(rec13)
+ + l(rec13,por11,2) + 10 k1(rec13,por11) <= 61
+ maxCoverageIntersectionRight(rec13,por11,3): + x(rec13)
+ + l(rec13,por11,3) + 10 k1(rec13,por11) <= 61
+ maxCoverageIntersectionRight(rec13,por11,4): + x(rec13)
+ + l(rec13,por11,4) + 10 k1(rec13,por11) <= 61
+ maxCoverageIntersectionRight(rec13,por11,5): + x(rec13)
+ + l(rec13,por11,5) + 10 k1(rec13,por11) <= 61
+ maxCoverageIntersectionRight(rec13,por11,6): + x(rec13)
+ + l(rec13,por11,6) + 10 k1(rec13,por11) <= 61
+ maxCoverageIntersectionRight(rec13,por11,7): + x(rec13)
+ + l(rec13,por11,7) + 10 k1(rec13,por11) <= 61
+ maxCoverageIntersectionRight(rec13,por11,8): + x(rec13)
+ + l(rec13,por11,8) + 10 k1(rec13,por11) <= 61
+ maxCoverageIntersectionRight(rec13,por12,1): + x(rec13)
+ + l(rec13,por12,1) + 9 k1(rec13,por12) <= 61
+ maxCoverageIntersectionRight(rec13,por12,2): + x(rec13)
+ + l(rec13,por12,2) + 9 k1(rec13,por12) <= 61
+ maxCoverageIntersectionRight(rec13,por12,3): + x(rec13)
+ + l(rec13,por12,3) + 9 k1(rec13,por12) <= 61
+ maxCoverageIntersectionRight(rec13,por12,4): + x(rec13)
+ + l(rec13,por12,4) + 9 k1(rec13,por12) <= 61
+ maxCoverageIntersectionRight(rec13,por12,5): + x(rec13)
+ + l(rec13,por12,5) + 9 k1(rec13,por12) <= 61
+ maxCoverageIntersectionRight(rec13,por12,6): + x(rec13)
+ + l(rec13,por12,6) + 9 k1(rec13,por12) <= 61
+ maxCoverageIntersectionRight(rec13,por12,7): + x(rec13)
+ + l(rec13,por12,7) + 9 k1(rec13,por12) <= 61
+ maxCoverageIntersectionRight(rec13,por12,8): + x(rec13)
+ + l(rec13,por12,8) + 9 k1(rec13,por12) <= 61
+ maxCoverageIntersectionRight(rec13,por13,1): + x(rec13)
+ + l(rec13,por13,1) + 5 k1(rec13,por13) <= 61
+ maxCoverageIntersectionRight(rec13,por13,2): + x(rec13)
+ + l(rec13,por13,2) + 5 k1(rec13,por13) <= 61
+ maxCoverageIntersectionRight(rec13,por13,3): + x(rec13)
+ + l(rec13,por13,3) + 5 k1(rec13,por13) <= 61
+ maxCoverageIntersectionRight(rec13,por13,4): + x(rec13)
+ + l(rec13,por13,4) + 5 k1(rec13,por13) <= 61
+ maxCoverageIntersectionRight(rec13,por13,5): + x(rec13)
+ + l(rec13,por13,5) + 5 k1(rec13,por13) <= 61
+ maxCoverageIntersectionRight(rec13,por13,6): + x(rec13)
+ + l(rec13,por13,6) + 5 k1(rec13,por13) <= 61
+ maxCoverageIntersectionRight(rec13,por13,7): + x(rec13)
+ + l(rec13,por13,7) + 5 k1(rec13,por13) <= 61
+ maxCoverageIntersectionRight(rec13,por13,8): + x(rec13)
+ + l(rec13,por13,8) + 5 k1(rec13,por13) <= 61
+ maxCoverageIntersectionRight(rec13,por14,1): + x(rec13)
+ + l(rec13,por14,1) + 4 k1(rec13,por14) <= 61
+ maxCoverageIntersectionRight(rec13,por14,2): + x(rec13)
+ + l(rec13,por14,2) + 4 k1(rec13,por14) <= 61
+ maxCoverageIntersectionRight(rec13,por14,3): + x(rec13)
+ + l(rec13,por14,3) + 4 k1(rec13,por14) <= 61
+ maxCoverageIntersectionRight(rec13,por14,4): + x(rec13)
+ + l(rec13,por14,4) + 4 k1(rec13,por14) <= 61
+ maxCoverageIntersectionRight(rec13,por14,5): + x(rec13)
+ + l(rec13,por14,5) + 4 k1(rec13,por14) <= 61
+ maxCoverageIntersectionRight(rec13,por14,6): + x(rec13)
+ + l(rec13,por14,6) + 4 k1(rec13,por14) <= 61
+ maxCoverageIntersectionRight(rec13,por14,7): + x(rec13)
+ + l(rec13,por14,7) + 4 k1(rec13,por14) <= 61
+ maxCoverageIntersectionRight(rec13,por14,8): + x(rec13)
+ + l(rec13,por14,8) + 4 k1(rec13,por14) <= 61
+ maxCoverageIntersectionRight(rec13,por15,1): + x(rec13)
+ + l(rec13,por15,1) <= 61
+ maxCoverageIntersectionRight(rec13,por15,2): + x(rec13)
+ + l(rec13,por15,2) <= 61
+ maxCoverageIntersectionRight(rec13,por15,3): + x(rec13)
+ + l(rec13,por15,3) <= 61
+ maxCoverageIntersectionRight(rec13,por15,4): + x(rec13)
+ + l(rec13,por15,4) <= 61
+ maxCoverageIntersectionRight(rec13,por15,5): + x(rec13)
+ + l(rec13,por15,5) <= 61
+ maxCoverageIntersectionRight(rec13,por15,6): + x(rec13)
+ + l(rec13,por15,6) <= 61
+ maxCoverageIntersectionRight(rec13,por15,7): + x(rec13)
+ + l(rec13,por15,7) <= 61
+ maxCoverageIntersectionRight(rec13,por15,8): + x(rec13)
+ + l(rec13,por15,8) <= 61
+ maxCoverageIntersectionRight(rec14,por1,1): + x(rec14)
+ + l(rec14,por1,1) + 57 k1(rec14,por1) <= 61
+ maxCoverageIntersectionRight(rec14,por1,2): + x(rec14)
+ + l(rec14,por1,2) + 57 k1(rec14,por1) <= 61
+ maxCoverageIntersectionRight(rec14,por1,3): + x(rec14)
+ + l(rec14,por1,3) + 57 k1(rec14,por1) <= 61
+ maxCoverageIntersectionRight(rec14,por1,4): + x(rec14)
+ + l(rec14,por1,4) + 57 k1(rec14,por1) <= 61
+ maxCoverageIntersectionRight(rec14,por1,5): + x(rec14)
+ + l(rec14,por1,5) + 57 k1(rec14,por1) <= 61
+ maxCoverageIntersectionRight(rec14,por1,6): + x(rec14)
+ + l(rec14,por1,6) + 57 k1(rec14,por1) <= 61
+ maxCoverageIntersectionRight(rec14,por1,7): + x(rec14)
+ + l(rec14,por1,7) + 57 k1(rec14,por1) <= 61
+ maxCoverageIntersectionRight(rec14,por1,8): + x(rec14)
+ + l(rec14,por1,8) + 57 k1(rec14,por1) <= 61
+ maxCoverageIntersectionRight(rec14,por2,1): + x(rec14)
+ + l(rec14,por2,1) + 56 k1(rec14,por2) <= 61
+ maxCoverageIntersectionRight(rec14,por2,2): + x(rec14)
+ + l(rec14,por2,2) + 56 k1(rec14,por2) <= 61
+ maxCoverageIntersectionRight(rec14,por2,3): + x(rec14)
+ + l(rec14,por2,3) + 56 k1(rec14,por2) <= 61
+ maxCoverageIntersectionRight(rec14,por2,4): + x(rec14)
+ + l(rec14,por2,4) + 56 k1(rec14,por2) <= 61
+ maxCoverageIntersectionRight(rec14,por2,5): + x(rec14)
+ + l(rec14,por2,5) + 56 k1(rec14,por2) <= 61
+ maxCoverageIntersectionRight(rec14,por2,6): + x(rec14)
+ + l(rec14,por2,6) + 56 k1(rec14,por2) <= 61
+ maxCoverageIntersectionRight(rec14,por2,7): + x(rec14)
+ + l(rec14,por2,7) + 56 k1(rec14,por2) <= 61
+ maxCoverageIntersectionRight(rec14,por2,8): + x(rec14)
+ + l(rec14,por2,8) + 56 k1(rec14,por2) <= 61
+ maxCoverageIntersectionRight(rec14,por3,1): + x(rec14)
+ + l(rec14,por3,1) + 46 k1(rec14,por3) <= 61
+ maxCoverageIntersectionRight(rec14,por3,2): + x(rec14)
+ + l(rec14,por3,2) + 46 k1(rec14,por3) <= 61
+ maxCoverageIntersectionRight(rec14,por3,3): + x(rec14)
+ + l(rec14,por3,3) + 46 k1(rec14,por3) <= 61
+ maxCoverageIntersectionRight(rec14,por3,4): + x(rec14)
+ + l(rec14,por3,4) + 46 k1(rec14,por3) <= 61
+ maxCoverageIntersectionRight(rec14,por3,5): + x(rec14)
+ + l(rec14,por3,5) + 46 k1(rec14,por3) <= 61
+ maxCoverageIntersectionRight(rec14,por3,6): + x(rec14)
+ + l(rec14,por3,6) + 46 k1(rec14,por3) <= 61
+ maxCoverageIntersectionRight(rec14,por3,7): + x(rec14)
+ + l(rec14,por3,7) + 46 k1(rec14,por3) <= 61
+ maxCoverageIntersectionRight(rec14,por3,8): + x(rec14)
+ + l(rec14,por3,8) + 46 k1(rec14,por3) <= 61
+ maxCoverageIntersectionRight(rec14,por4,1): + x(rec14)
+ + l(rec14,por4,1) + 45 k1(rec14,por4) <= 61
+ maxCoverageIntersectionRight(rec14,por4,2): + x(rec14)
+ + l(rec14,por4,2) + 45 k1(rec14,por4) <= 61
+ maxCoverageIntersectionRight(rec14,por4,3): + x(rec14)
+ + l(rec14,por4,3) + 45 k1(rec14,por4) <= 61
+ maxCoverageIntersectionRight(rec14,por4,4): + x(rec14)
+ + l(rec14,por4,4) + 45 k1(rec14,por4) <= 61
+ maxCoverageIntersectionRight(rec14,por4,5): + x(rec14)
+ + l(rec14,por4,5) + 45 k1(rec14,por4) <= 61
+ maxCoverageIntersectionRight(rec14,por4,6): + x(rec14)
+ + l(rec14,por4,6) + 45 k1(rec14,por4) <= 61
+ maxCoverageIntersectionRight(rec14,por4,7): + x(rec14)
+ + l(rec14,por4,7) + 45 k1(rec14,por4) <= 61
+ maxCoverageIntersectionRight(rec14,por4,8): + x(rec14)
+ + l(rec14,por4,8) + 45 k1(rec14,por4) <= 61
+ maxCoverageIntersectionRight(rec14,por5,1): + x(rec14)
+ + l(rec14,por5,1) + 43 k1(rec14,por5) <= 61
+ maxCoverageIntersectionRight(rec14,por5,2): + x(rec14)
+ + l(rec14,por5,2) + 43 k1(rec14,por5) <= 61
+ maxCoverageIntersectionRight(rec14,por5,3): + x(rec14)
+ + l(rec14,por5,3) + 43 k1(rec14,por5) <= 61
+ maxCoverageIntersectionRight(rec14,por5,4): + x(rec14)
+ + l(rec14,por5,4) + 43 k1(rec14,por5) <= 61
+ maxCoverageIntersectionRight(rec14,por5,5): + x(rec14)
+ + l(rec14,por5,5) + 43 k1(rec14,por5) <= 61
+ maxCoverageIntersectionRight(rec14,por5,6): + x(rec14)
+ + l(rec14,por5,6) + 43 k1(rec14,por5) <= 61
+ maxCoverageIntersectionRight(rec14,por5,7): + x(rec14)
+ + l(rec14,por5,7) + 43 k1(rec14,por5) <= 61
+ maxCoverageIntersectionRight(rec14,por5,8): + x(rec14)
+ + l(rec14,por5,8) + 43 k1(rec14,por5) <= 61
+ maxCoverageIntersectionRight(rec14,por6,1): + x(rec14)
+ + l(rec14,por6,1) + 42 k1(rec14,por6) <= 61
+ maxCoverageIntersectionRight(rec14,por6,2): + x(rec14)
+ + l(rec14,por6,2) + 42 k1(rec14,por6) <= 61
+ maxCoverageIntersectionRight(rec14,por6,3): + x(rec14)
+ + l(rec14,por6,3) + 42 k1(rec14,por6) <= 61
+ maxCoverageIntersectionRight(rec14,por6,4): + x(rec14)
+ + l(rec14,por6,4) + 42 k1(rec14,por6) <= 61
+ maxCoverageIntersectionRight(rec14,por6,5): + x(rec14)
+ + l(rec14,por6,5) + 42 k1(rec14,por6) <= 61
+ maxCoverageIntersectionRight(rec14,por6,6): + x(rec14)
+ + l(rec14,por6,6) + 42 k1(rec14,por6) <= 61
+ maxCoverageIntersectionRight(rec14,por6,7): + x(rec14)
+ + l(rec14,por6,7) + 42 k1(rec14,por6) <= 61
+ maxCoverageIntersectionRight(rec14,por6,8): + x(rec14)
+ + l(rec14,por6,8) + 42 k1(rec14,por6) <= 61
+ maxCoverageIntersectionRight(rec14,por7,1): + x(rec14)
+ + l(rec14,por7,1) + 34 k1(rec14,por7) <= 61
+ maxCoverageIntersectionRight(rec14,por7,2): + x(rec14)
+ + l(rec14,por7,2) + 34 k1(rec14,por7) <= 61
+ maxCoverageIntersectionRight(rec14,por7,3): + x(rec14)
+ + l(rec14,por7,3) + 34 k1(rec14,por7) <= 61
+ maxCoverageIntersectionRight(rec14,por7,4): + x(rec14)
+ + l(rec14,por7,4) + 34 k1(rec14,por7) <= 61
+ maxCoverageIntersectionRight(rec14,por7,5): + x(rec14)
+ + l(rec14,por7,5) + 34 k1(rec14,por7) <= 61
+ maxCoverageIntersectionRight(rec14,por7,6): + x(rec14)
+ + l(rec14,por7,6) + 34 k1(rec14,por7) <= 61
+ maxCoverageIntersectionRight(rec14,por7,7): + x(rec14)
+ + l(rec14,por7,7) + 34 k1(rec14,por7) <= 61
+ maxCoverageIntersectionRight(rec14,por7,8): + x(rec14)
+ + l(rec14,por7,8) + 34 k1(rec14,por7) <= 61
+ maxCoverageIntersectionRight(rec14,por8,1): + x(rec14)
+ + l(rec14,por8,1) + 33 k1(rec14,por8) <= 61
+ maxCoverageIntersectionRight(rec14,por8,2): + x(rec14)
+ + l(rec14,por8,2) + 33 k1(rec14,por8) <= 61
+ maxCoverageIntersectionRight(rec14,por8,3): + x(rec14)
+ + l(rec14,por8,3) + 33 k1(rec14,por8) <= 61
+ maxCoverageIntersectionRight(rec14,por8,4): + x(rec14)
+ + l(rec14,por8,4) + 33 k1(rec14,por8) <= 61
+ maxCoverageIntersectionRight(rec14,por8,5): + x(rec14)
+ + l(rec14,por8,5) + 33 k1(rec14,por8) <= 61
+ maxCoverageIntersectionRight(rec14,por8,6): + x(rec14)
+ + l(rec14,por8,6) + 33 k1(rec14,por8) <= 61
+ maxCoverageIntersectionRight(rec14,por8,7): + x(rec14)
+ + l(rec14,por8,7) + 33 k1(rec14,por8) <= 61
+ maxCoverageIntersectionRight(rec14,por8,8): + x(rec14)
+ + l(rec14,por8,8) + 33 k1(rec14,por8) <= 61
+ maxCoverageIntersectionRight(rec14,por9,1): + x(rec14)
+ + l(rec14,por9,1) + 21 k1(rec14,por9) <= 61
+ maxCoverageIntersectionRight(rec14,por9,2): + x(rec14)
+ + l(rec14,por9,2) + 21 k1(rec14,por9) <= 61
+ maxCoverageIntersectionRight(rec14,por9,3): + x(rec14)
+ + l(rec14,por9,3) + 21 k1(rec14,por9) <= 61
+ maxCoverageIntersectionRight(rec14,por9,4): + x(rec14)
+ + l(rec14,por9,4) + 21 k1(rec14,por9) <= 61
+ maxCoverageIntersectionRight(rec14,por9,5): + x(rec14)
+ + l(rec14,por9,5) + 21 k1(rec14,por9) <= 61
+ maxCoverageIntersectionRight(rec14,por9,6): + x(rec14)
+ + l(rec14,por9,6) + 21 k1(rec14,por9) <= 61
+ maxCoverageIntersectionRight(rec14,por9,7): + x(rec14)
+ + l(rec14,por9,7) + 21 k1(rec14,por9) <= 61
+ maxCoverageIntersectionRight(rec14,por9,8): + x(rec14)
+ + l(rec14,por9,8) + 21 k1(rec14,por9) <= 61
+ maxCoverageIntersectionRight(rec14,por10,1): + x(rec14)
+ + l(rec14,por10,1) + 20 k1(rec14,por10) <= 61
+ maxCoverageIntersectionRight(rec14,por10,2): + x(rec14)
+ + l(rec14,por10,2) + 20 k1(rec14,por10) <= 61
+ maxCoverageIntersectionRight(rec14,por10,3): + x(rec14)
+ + l(rec14,por10,3) + 20 k1(rec14,por10) <= 61
+ maxCoverageIntersectionRight(rec14,por10,4): + x(rec14)
+ + l(rec14,por10,4) + 20 k1(rec14,por10) <= 61
+ maxCoverageIntersectionRight(rec14,por10,5): + x(rec14)
+ + l(rec14,por10,5) + 20 k1(rec14,por10) <= 61
+ maxCoverageIntersectionRight(rec14,por10,6): + x(rec14)
+ + l(rec14,por10,6) + 20 k1(rec14,por10) <= 61
+ maxCoverageIntersectionRight(rec14,por10,7): + x(rec14)
+ + l(rec14,por10,7) + 20 k1(rec14,por10) <= 61
+ maxCoverageIntersectionRight(rec14,por10,8): + x(rec14)
+ + l(rec14,por10,8) + 20 k1(rec14,por10) <= 61
+ maxCoverageIntersectionRight(rec14,por11,1): + x(rec14)
+ + l(rec14,por11,1) + 10 k1(rec14,por11) <= 61
+ maxCoverageIntersectionRight(rec14,por11,2): + x(rec14)
+ + l(rec14,por11,2) + 10 k1(rec14,por11) <= 61
+ maxCoverageIntersectionRight(rec14,por11,3): + x(rec14)
+ + l(rec14,por11,3) + 10 k1(rec14,por11) <= 61
+ maxCoverageIntersectionRight(rec14,por11,4): + x(rec14)
+ + l(rec14,por11,4) + 10 k1(rec14,por11) <= 61
+ maxCoverageIntersectionRight(rec14,por11,5): + x(rec14)
+ + l(rec14,por11,5) + 10 k1(rec14,por11) <= 61
+ maxCoverageIntersectionRight(rec14,por11,6): + x(rec14)
+ + l(rec14,por11,6) + 10 k1(rec14,por11) <= 61
+ maxCoverageIntersectionRight(rec14,por11,7): + x(rec14)
+ + l(rec14,por11,7) + 10 k1(rec14,por11) <= 61
+ maxCoverageIntersectionRight(rec14,por11,8): + x(rec14)
+ + l(rec14,por11,8) + 10 k1(rec14,por11) <= 61
+ maxCoverageIntersectionRight(rec14,por12,1): + x(rec14)
+ + l(rec14,por12,1) + 9 k1(rec14,por12) <= 61
+ maxCoverageIntersectionRight(rec14,por12,2): + x(rec14)
+ + l(rec14,por12,2) + 9 k1(rec14,por12) <= 61
+ maxCoverageIntersectionRight(rec14,por12,3): + x(rec14)
+ + l(rec14,por12,3) + 9 k1(rec14,por12) <= 61
+ maxCoverageIntersectionRight(rec14,por12,4): + x(rec14)
+ + l(rec14,por12,4) + 9 k1(rec14,por12) <= 61
+ maxCoverageIntersectionRight(rec14,por12,5): + x(rec14)
+ + l(rec14,por12,5) + 9 k1(rec14,por12) <= 61
+ maxCoverageIntersectionRight(rec14,por12,6): + x(rec14)
+ + l(rec14,por12,6) + 9 k1(rec14,por12) <= 61
+ maxCoverageIntersectionRight(rec14,por12,7): + x(rec14)
+ + l(rec14,por12,7) + 9 k1(rec14,por12) <= 61
+ maxCoverageIntersectionRight(rec14,por12,8): + x(rec14)
+ + l(rec14,por12,8) + 9 k1(rec14,por12) <= 61
+ maxCoverageIntersectionRight(rec14,por13,1): + x(rec14)
+ + l(rec14,por13,1) + 5 k1(rec14,por13) <= 61
+ maxCoverageIntersectionRight(rec14,por13,2): + x(rec14)
+ + l(rec14,por13,2) + 5 k1(rec14,por13) <= 61
+ maxCoverageIntersectionRight(rec14,por13,3): + x(rec14)
+ + l(rec14,por13,3) + 5 k1(rec14,por13) <= 61
+ maxCoverageIntersectionRight(rec14,por13,4): + x(rec14)
+ + l(rec14,por13,4) + 5 k1(rec14,por13) <= 61
+ maxCoverageIntersectionRight(rec14,por13,5): + x(rec14)
+ + l(rec14,por13,5) + 5 k1(rec14,por13) <= 61
+ maxCoverageIntersectionRight(rec14,por13,6): + x(rec14)
+ + l(rec14,por13,6) + 5 k1(rec14,por13) <= 61
+ maxCoverageIntersectionRight(rec14,por13,7): + x(rec14)
+ + l(rec14,por13,7) + 5 k1(rec14,por13) <= 61
+ maxCoverageIntersectionRight(rec14,por13,8): + x(rec14)
+ + l(rec14,por13,8) + 5 k1(rec14,por13) <= 61
+ maxCoverageIntersectionRight(rec14,por14,1): + x(rec14)
+ + l(rec14,por14,1) + 4 k1(rec14,por14) <= 61
+ maxCoverageIntersectionRight(rec14,por14,2): + x(rec14)
+ + l(rec14,por14,2) + 4 k1(rec14,por14) <= 61
+ maxCoverageIntersectionRight(rec14,por14,3): + x(rec14)
+ + l(rec14,por14,3) + 4 k1(rec14,por14) <= 61
+ maxCoverageIntersectionRight(rec14,por14,4): + x(rec14)
+ + l(rec14,por14,4) + 4 k1(rec14,por14) <= 61
+ maxCoverageIntersectionRight(rec14,por14,5): + x(rec14)
+ + l(rec14,por14,5) + 4 k1(rec14,por14) <= 61
+ maxCoverageIntersectionRight(rec14,por14,6): + x(rec14)
+ + l(rec14,por14,6) + 4 k1(rec14,por14) <= 61
+ maxCoverageIntersectionRight(rec14,por14,7): + x(rec14)
+ + l(rec14,por14,7) + 4 k1(rec14,por14) <= 61
+ maxCoverageIntersectionRight(rec14,por14,8): + x(rec14)
+ + l(rec14,por14,8) + 4 k1(rec14,por14) <= 61
+ maxCoverageIntersectionRight(rec14,por15,1): + x(rec14)
+ + l(rec14,por15,1) <= 61
+ maxCoverageIntersectionRight(rec14,por15,2): + x(rec14)
+ + l(rec14,por15,2) <= 61
+ maxCoverageIntersectionRight(rec14,por15,3): + x(rec14)
+ + l(rec14,por15,3) <= 61
+ maxCoverageIntersectionRight(rec14,por15,4): + x(rec14)
+ + l(rec14,por15,4) <= 61
+ maxCoverageIntersectionRight(rec14,por15,5): + x(rec14)
+ + l(rec14,por15,5) <= 61
+ maxCoverageIntersectionRight(rec14,por15,6): + x(rec14)
+ + l(rec14,por15,6) <= 61
+ maxCoverageIntersectionRight(rec14,por15,7): + x(rec14)
+ + l(rec14,por15,7) <= 61
+ maxCoverageIntersectionRight(rec14,por15,8): + x(rec14)
+ + l(rec14,por15,8) <= 61
+ maxCoverageIntersectionRight(rec15,por1,1): + x(rec15)
+ + l(rec15,por1,1) + 57 k1(rec15,por1) <= 61
+ maxCoverageIntersectionRight(rec15,por1,2): + x(rec15)
+ + l(rec15,por1,2) + 57 k1(rec15,por1) <= 61
+ maxCoverageIntersectionRight(rec15,por1,3): + x(rec15)
+ + l(rec15,por1,3) + 57 k1(rec15,por1) <= 61
+ maxCoverageIntersectionRight(rec15,por1,4): + x(rec15)
+ + l(rec15,por1,4) + 57 k1(rec15,por1) <= 61
+ maxCoverageIntersectionRight(rec15,por1,5): + x(rec15)
+ + l(rec15,por1,5) + 57 k1(rec15,por1) <= 61
+ maxCoverageIntersectionRight(rec15,por1,6): + x(rec15)
+ + l(rec15,por1,6) + 57 k1(rec15,por1) <= 61
+ maxCoverageIntersectionRight(rec15,por1,7): + x(rec15)
+ + l(rec15,por1,7) + 57 k1(rec15,por1) <= 61
+ maxCoverageIntersectionRight(rec15,por1,8): + x(rec15)
+ + l(rec15,por1,8) + 57 k1(rec15,por1) <= 61
+ maxCoverageIntersectionRight(rec15,por2,1): + x(rec15)
+ + l(rec15,por2,1) + 56 k1(rec15,por2) <= 61
+ maxCoverageIntersectionRight(rec15,por2,2): + x(rec15)
+ + l(rec15,por2,2) + 56 k1(rec15,por2) <= 61
+ maxCoverageIntersectionRight(rec15,por2,3): + x(rec15)
+ + l(rec15,por2,3) + 56 k1(rec15,por2) <= 61
+ maxCoverageIntersectionRight(rec15,por2,4): + x(rec15)
+ + l(rec15,por2,4) + 56 k1(rec15,por2) <= 61
+ maxCoverageIntersectionRight(rec15,por2,5): + x(rec15)
+ + l(rec15,por2,5) + 56 k1(rec15,por2) <= 61
+ maxCoverageIntersectionRight(rec15,por2,6): + x(rec15)
+ + l(rec15,por2,6) + 56 k1(rec15,por2) <= 61
+ maxCoverageIntersectionRight(rec15,por2,7): + x(rec15)
+ + l(rec15,por2,7) + 56 k1(rec15,por2) <= 61
+ maxCoverageIntersectionRight(rec15,por2,8): + x(rec15)
+ + l(rec15,por2,8) + 56 k1(rec15,por2) <= 61
+ maxCoverageIntersectionRight(rec15,por3,1): + x(rec15)
+ + l(rec15,por3,1) + 46 k1(rec15,por3) <= 61
+ maxCoverageIntersectionRight(rec15,por3,2): + x(rec15)
+ + l(rec15,por3,2) + 46 k1(rec15,por3) <= 61
+ maxCoverageIntersectionRight(rec15,por3,3): + x(rec15)
+ + l(rec15,por3,3) + 46 k1(rec15,por3) <= 61
+ maxCoverageIntersectionRight(rec15,por3,4): + x(rec15)
+ + l(rec15,por3,4) + 46 k1(rec15,por3) <= 61
+ maxCoverageIntersectionRight(rec15,por3,5): + x(rec15)
+ + l(rec15,por3,5) + 46 k1(rec15,por3) <= 61
+ maxCoverageIntersectionRight(rec15,por3,6): + x(rec15)
+ + l(rec15,por3,6) + 46 k1(rec15,por3) <= 61
+ maxCoverageIntersectionRight(rec15,por3,7): + x(rec15)
+ + l(rec15,por3,7) + 46 k1(rec15,por3) <= 61
+ maxCoverageIntersectionRight(rec15,por3,8): + x(rec15)
+ + l(rec15,por3,8) + 46 k1(rec15,por3) <= 61
+ maxCoverageIntersectionRight(rec15,por4,1): + x(rec15)
+ + l(rec15,por4,1) + 45 k1(rec15,por4) <= 61
+ maxCoverageIntersectionRight(rec15,por4,2): + x(rec15)
+ + l(rec15,por4,2) + 45 k1(rec15,por4) <= 61
+ maxCoverageIntersectionRight(rec15,por4,3): + x(rec15)
+ + l(rec15,por4,3) + 45 k1(rec15,por4) <= 61
+ maxCoverageIntersectionRight(rec15,por4,4): + x(rec15)
+ + l(rec15,por4,4) + 45 k1(rec15,por4) <= 61
+ maxCoverageIntersectionRight(rec15,por4,5): + x(rec15)
+ + l(rec15,por4,5) + 45 k1(rec15,por4) <= 61
+ maxCoverageIntersectionRight(rec15,por4,6): + x(rec15)
+ + l(rec15,por4,6) + 45 k1(rec15,por4) <= 61
+ maxCoverageIntersectionRight(rec15,por4,7): + x(rec15)
+ + l(rec15,por4,7) + 45 k1(rec15,por4) <= 61
+ maxCoverageIntersectionRight(rec15,por4,8): + x(rec15)
+ + l(rec15,por4,8) + 45 k1(rec15,por4) <= 61
+ maxCoverageIntersectionRight(rec15,por5,1): + x(rec15)
+ + l(rec15,por5,1) + 43 k1(rec15,por5) <= 61
+ maxCoverageIntersectionRight(rec15,por5,2): + x(rec15)
+ + l(rec15,por5,2) + 43 k1(rec15,por5) <= 61
+ maxCoverageIntersectionRight(rec15,por5,3): + x(rec15)
+ + l(rec15,por5,3) + 43 k1(rec15,por5) <= 61
+ maxCoverageIntersectionRight(rec15,por5,4): + x(rec15)
+ + l(rec15,por5,4) + 43 k1(rec15,por5) <= 61
+ maxCoverageIntersectionRight(rec15,por5,5): + x(rec15)
+ + l(rec15,por5,5) + 43 k1(rec15,por5) <= 61
+ maxCoverageIntersectionRight(rec15,por5,6): + x(rec15)
+ + l(rec15,por5,6) + 43 k1(rec15,por5) <= 61
+ maxCoverageIntersectionRight(rec15,por5,7): + x(rec15)
+ + l(rec15,por5,7) + 43 k1(rec15,por5) <= 61
+ maxCoverageIntersectionRight(rec15,por5,8): + x(rec15)
+ + l(rec15,por5,8) + 43 k1(rec15,por5) <= 61
+ maxCoverageIntersectionRight(rec15,por6,1): + x(rec15)
+ + l(rec15,por6,1) + 42 k1(rec15,por6) <= 61
+ maxCoverageIntersectionRight(rec15,por6,2): + x(rec15)
+ + l(rec15,por6,2) + 42 k1(rec15,por6) <= 61
+ maxCoverageIntersectionRight(rec15,por6,3): + x(rec15)
+ + l(rec15,por6,3) + 42 k1(rec15,por6) <= 61
+ maxCoverageIntersectionRight(rec15,por6,4): + x(rec15)
+ + l(rec15,por6,4) + 42 k1(rec15,por6) <= 61
+ maxCoverageIntersectionRight(rec15,por6,5): + x(rec15)
+ + l(rec15,por6,5) + 42 k1(rec15,por6) <= 61
+ maxCoverageIntersectionRight(rec15,por6,6): + x(rec15)
+ + l(rec15,por6,6) + 42 k1(rec15,por6) <= 61
+ maxCoverageIntersectionRight(rec15,por6,7): + x(rec15)
+ + l(rec15,por6,7) + 42 k1(rec15,por6) <= 61
+ maxCoverageIntersectionRight(rec15,por6,8): + x(rec15)
+ + l(rec15,por6,8) + 42 k1(rec15,por6) <= 61
+ maxCoverageIntersectionRight(rec15,por7,1): + x(rec15)
+ + l(rec15,por7,1) + 34 k1(rec15,por7) <= 61
+ maxCoverageIntersectionRight(rec15,por7,2): + x(rec15)
+ + l(rec15,por7,2) + 34 k1(rec15,por7) <= 61
+ maxCoverageIntersectionRight(rec15,por7,3): + x(rec15)
+ + l(rec15,por7,3) + 34 k1(rec15,por7) <= 61
+ maxCoverageIntersectionRight(rec15,por7,4): + x(rec15)
+ + l(rec15,por7,4) + 34 k1(rec15,por7) <= 61
+ maxCoverageIntersectionRight(rec15,por7,5): + x(rec15)
+ + l(rec15,por7,5) + 34 k1(rec15,por7) <= 61
+ maxCoverageIntersectionRight(rec15,por7,6): + x(rec15)
+ + l(rec15,por7,6) + 34 k1(rec15,por7) <= 61
+ maxCoverageIntersectionRight(rec15,por7,7): + x(rec15)
+ + l(rec15,por7,7) + 34 k1(rec15,por7) <= 61
+ maxCoverageIntersectionRight(rec15,por7,8): + x(rec15)
+ + l(rec15,por7,8) + 34 k1(rec15,por7) <= 61
+ maxCoverageIntersectionRight(rec15,por8,1): + x(rec15)
+ + l(rec15,por8,1) + 33 k1(rec15,por8) <= 61
+ maxCoverageIntersectionRight(rec15,por8,2): + x(rec15)
+ + l(rec15,por8,2) + 33 k1(rec15,por8) <= 61
+ maxCoverageIntersectionRight(rec15,por8,3): + x(rec15)
+ + l(rec15,por8,3) + 33 k1(rec15,por8) <= 61
+ maxCoverageIntersectionRight(rec15,por8,4): + x(rec15)
+ + l(rec15,por8,4) + 33 k1(rec15,por8) <= 61
+ maxCoverageIntersectionRight(rec15,por8,5): + x(rec15)
+ + l(rec15,por8,5) + 33 k1(rec15,por8) <= 61
+ maxCoverageIntersectionRight(rec15,por8,6): + x(rec15)
+ + l(rec15,por8,6) + 33 k1(rec15,por8) <= 61
+ maxCoverageIntersectionRight(rec15,por8,7): + x(rec15)
+ + l(rec15,por8,7) + 33 k1(rec15,por8) <= 61
+ maxCoverageIntersectionRight(rec15,por8,8): + x(rec15)
+ + l(rec15,por8,8) + 33 k1(rec15,por8) <= 61
+ maxCoverageIntersectionRight(rec15,por9,1): + x(rec15)
+ + l(rec15,por9,1) + 21 k1(rec15,por9) <= 61
+ maxCoverageIntersectionRight(rec15,por9,2): + x(rec15)
+ + l(rec15,por9,2) + 21 k1(rec15,por9) <= 61
+ maxCoverageIntersectionRight(rec15,por9,3): + x(rec15)
+ + l(rec15,por9,3) + 21 k1(rec15,por9) <= 61
+ maxCoverageIntersectionRight(rec15,por9,4): + x(rec15)
+ + l(rec15,por9,4) + 21 k1(rec15,por9) <= 61
+ maxCoverageIntersectionRight(rec15,por9,5): + x(rec15)
+ + l(rec15,por9,5) + 21 k1(rec15,por9) <= 61
+ maxCoverageIntersectionRight(rec15,por9,6): + x(rec15)
+ + l(rec15,por9,6) + 21 k1(rec15,por9) <= 61
+ maxCoverageIntersectionRight(rec15,por9,7): + x(rec15)
+ + l(rec15,por9,7) + 21 k1(rec15,por9) <= 61
+ maxCoverageIntersectionRight(rec15,por9,8): + x(rec15)
+ + l(rec15,por9,8) + 21 k1(rec15,por9) <= 61
+ maxCoverageIntersectionRight(rec15,por10,1): + x(rec15)
+ + l(rec15,por10,1) + 20 k1(rec15,por10) <= 61
+ maxCoverageIntersectionRight(rec15,por10,2): + x(rec15)
+ + l(rec15,por10,2) + 20 k1(rec15,por10) <= 61
+ maxCoverageIntersectionRight(rec15,por10,3): + x(rec15)
+ + l(rec15,por10,3) + 20 k1(rec15,por10) <= 61
+ maxCoverageIntersectionRight(rec15,por10,4): + x(rec15)
+ + l(rec15,por10,4) + 20 k1(rec15,por10) <= 61
+ maxCoverageIntersectionRight(rec15,por10,5): + x(rec15)
+ + l(rec15,por10,5) + 20 k1(rec15,por10) <= 61
+ maxCoverageIntersectionRight(rec15,por10,6): + x(rec15)
+ + l(rec15,por10,6) + 20 k1(rec15,por10) <= 61
+ maxCoverageIntersectionRight(rec15,por10,7): + x(rec15)
+ + l(rec15,por10,7) + 20 k1(rec15,por10) <= 61
+ maxCoverageIntersectionRight(rec15,por10,8): + x(rec15)
+ + l(rec15,por10,8) + 20 k1(rec15,por10) <= 61
+ maxCoverageIntersectionRight(rec15,por11,1): + x(rec15)
+ + l(rec15,por11,1) + 10 k1(rec15,por11) <= 61
+ maxCoverageIntersectionRight(rec15,por11,2): + x(rec15)
+ + l(rec15,por11,2) + 10 k1(rec15,por11) <= 61
+ maxCoverageIntersectionRight(rec15,por11,3): + x(rec15)
+ + l(rec15,por11,3) + 10 k1(rec15,por11) <= 61
+ maxCoverageIntersectionRight(rec15,por11,4): + x(rec15)
+ + l(rec15,por11,4) + 10 k1(rec15,por11) <= 61
+ maxCoverageIntersectionRight(rec15,por11,5): + x(rec15)
+ + l(rec15,por11,5) + 10 k1(rec15,por11) <= 61
+ maxCoverageIntersectionRight(rec15,por11,6): + x(rec15)
+ + l(rec15,por11,6) + 10 k1(rec15,por11) <= 61
+ maxCoverageIntersectionRight(rec15,por11,7): + x(rec15)
+ + l(rec15,por11,7) + 10 k1(rec15,por11) <= 61
+ maxCoverageIntersectionRight(rec15,por11,8): + x(rec15)
+ + l(rec15,por11,8) + 10 k1(rec15,por11) <= 61
+ maxCoverageIntersectionRight(rec15,por12,1): + x(rec15)
+ + l(rec15,por12,1) + 9 k1(rec15,por12) <= 61
+ maxCoverageIntersectionRight(rec15,por12,2): + x(rec15)
+ + l(rec15,por12,2) + 9 k1(rec15,por12) <= 61
+ maxCoverageIntersectionRight(rec15,por12,3): + x(rec15)
+ + l(rec15,por12,3) + 9 k1(rec15,por12) <= 61
+ maxCoverageIntersectionRight(rec15,por12,4): + x(rec15)
+ + l(rec15,por12,4) + 9 k1(rec15,por12) <= 61
+ maxCoverageIntersectionRight(rec15,por12,5): + x(rec15)
+ + l(rec15,por12,5) + 9 k1(rec15,por12) <= 61
+ maxCoverageIntersectionRight(rec15,por12,6): + x(rec15)
+ + l(rec15,por12,6) + 9 k1(rec15,por12) <= 61
+ maxCoverageIntersectionRight(rec15,por12,7): + x(rec15)
+ + l(rec15,por12,7) + 9 k1(rec15,por12) <= 61
+ maxCoverageIntersectionRight(rec15,por12,8): + x(rec15)
+ + l(rec15,por12,8) + 9 k1(rec15,por12) <= 61
+ maxCoverageIntersectionRight(rec15,por13,1): + x(rec15)
+ + l(rec15,por13,1) + 5 k1(rec15,por13) <= 61
+ maxCoverageIntersectionRight(rec15,por13,2): + x(rec15)
+ + l(rec15,por13,2) + 5 k1(rec15,por13) <= 61
+ maxCoverageIntersectionRight(rec15,por13,3): + x(rec15)
+ + l(rec15,por13,3) + 5 k1(rec15,por13) <= 61
+ maxCoverageIntersectionRight(rec15,por13,4): + x(rec15)
+ + l(rec15,por13,4) + 5 k1(rec15,por13) <= 61
+ maxCoverageIntersectionRight(rec15,por13,5): + x(rec15)
+ + l(rec15,por13,5) + 5 k1(rec15,por13) <= 61
+ maxCoverageIntersectionRight(rec15,por13,6): + x(rec15)
+ + l(rec15,por13,6) + 5 k1(rec15,por13) <= 61
+ maxCoverageIntersectionRight(rec15,por13,7): + x(rec15)
+ + l(rec15,por13,7) + 5 k1(rec15,por13) <= 61
+ maxCoverageIntersectionRight(rec15,por13,8): + x(rec15)
+ + l(rec15,por13,8) + 5 k1(rec15,por13) <= 61
+ maxCoverageIntersectionRight(rec15,por14,1): + x(rec15)
+ + l(rec15,por14,1) + 4 k1(rec15,por14) <= 61
+ maxCoverageIntersectionRight(rec15,por14,2): + x(rec15)
+ + l(rec15,por14,2) + 4 k1(rec15,por14) <= 61
+ maxCoverageIntersectionRight(rec15,por14,3): + x(rec15)
+ + l(rec15,por14,3) + 4 k1(rec15,por14) <= 61
+ maxCoverageIntersectionRight(rec15,por14,4): + x(rec15)
+ + l(rec15,por14,4) + 4 k1(rec15,por14) <= 61
+ maxCoverageIntersectionRight(rec15,por14,5): + x(rec15)
+ + l(rec15,por14,5) + 4 k1(rec15,por14) <= 61
+ maxCoverageIntersectionRight(rec15,por14,6): + x(rec15)
+ + l(rec15,por14,6) + 4 k1(rec15,por14) <= 61
+ maxCoverageIntersectionRight(rec15,por14,7): + x(rec15)
+ + l(rec15,por14,7) + 4 k1(rec15,por14) <= 61
+ maxCoverageIntersectionRight(rec15,por14,8): + x(rec15)
+ + l(rec15,por14,8) + 4 k1(rec15,por14) <= 61
+ maxCoverageIntersectionRight(rec15,por15,1): + x(rec15)
+ + l(rec15,por15,1) <= 61
+ maxCoverageIntersectionRight(rec15,por15,2): + x(rec15)
+ + l(rec15,por15,2) <= 61
+ maxCoverageIntersectionRight(rec15,por15,3): + x(rec15)
+ + l(rec15,por15,3) <= 61
+ maxCoverageIntersectionRight(rec15,por15,4): + x(rec15)
+ + l(rec15,por15,4) <= 61
+ maxCoverageIntersectionRight(rec15,por15,5): + x(rec15)
+ + l(rec15,por15,5) <= 61
+ maxCoverageIntersectionRight(rec15,por15,6): + x(rec15)
+ + l(rec15,por15,6) <= 61
+ maxCoverageIntersectionRight(rec15,por15,7): + x(rec15)
+ + l(rec15,por15,7) <= 61
+ maxCoverageIntersectionRight(rec15,por15,8): + x(rec15)
+ + l(rec15,por15,8) <= 61
  totalMinCoverage(rec1,1): - 60 h(rec1,1) - w(rec1) + l(rec1,por1,1)
  + l(rec1,por2,1) + l(rec1,por3,1) + l(rec1,por4,1) + l(rec1,por5,1)
  + l(rec1,por6,1) + l(rec1,por7,1) + l(rec1,por8,1) + l(rec1,por9,1)
@@ -16754,6 +27103,206 @@ Subject To
  + l(rec10,por6,8) + l(rec10,por7,8) + l(rec10,por8,8) + l(rec10,por9,8)
  + l(rec10,por10,8) + l(rec10,por11,8) + l(rec10,por12,8)
  + l(rec10,por13,8) + l(rec10,por14,8) + l(rec10,por15,8) >= -59
+ totalMinCoverage(rec11,1): - 60 h(rec11,1) - w(rec11) + l(rec11,por1,1)
+ + l(rec11,por2,1) + l(rec11,por3,1) + l(rec11,por4,1) + l(rec11,por5,1)
+ + l(rec11,por6,1) + l(rec11,por7,1) + l(rec11,por8,1) + l(rec11,por9,1)
+ + l(rec11,por10,1) + l(rec11,por11,1) + l(rec11,por12,1)
+ + l(rec11,por13,1) + l(rec11,por14,1) + l(rec11,por15,1) >= -59
+ totalMinCoverage(rec11,2): - 60 h(rec11,2) - w(rec11) + l(rec11,por1,2)
+ + l(rec11,por2,2) + l(rec11,por3,2) + l(rec11,por4,2) + l(rec11,por5,2)
+ + l(rec11,por6,2) + l(rec11,por7,2) + l(rec11,por8,2) + l(rec11,por9,2)
+ + l(rec11,por10,2) + l(rec11,por11,2) + l(rec11,por12,2)
+ + l(rec11,por13,2) + l(rec11,por14,2) + l(rec11,por15,2) >= -59
+ totalMinCoverage(rec11,3): - 60 h(rec11,3) - w(rec11) + l(rec11,por1,3)
+ + l(rec11,por2,3) + l(rec11,por3,3) + l(rec11,por4,3) + l(rec11,por5,3)
+ + l(rec11,por6,3) + l(rec11,por7,3) + l(rec11,por8,3) + l(rec11,por9,3)
+ + l(rec11,por10,3) + l(rec11,por11,3) + l(rec11,por12,3)
+ + l(rec11,por13,3) + l(rec11,por14,3) + l(rec11,por15,3) >= -59
+ totalMinCoverage(rec11,4): - 60 h(rec11,4) - w(rec11) + l(rec11,por1,4)
+ + l(rec11,por2,4) + l(rec11,por3,4) + l(rec11,por4,4) + l(rec11,por5,4)
+ + l(rec11,por6,4) + l(rec11,por7,4) + l(rec11,por8,4) + l(rec11,por9,4)
+ + l(rec11,por10,4) + l(rec11,por11,4) + l(rec11,por12,4)
+ + l(rec11,por13,4) + l(rec11,por14,4) + l(rec11,por15,4) >= -59
+ totalMinCoverage(rec11,5): - 60 h(rec11,5) - w(rec11) + l(rec11,por1,5)
+ + l(rec11,por2,5) + l(rec11,por3,5) + l(rec11,por4,5) + l(rec11,por5,5)
+ + l(rec11,por6,5) + l(rec11,por7,5) + l(rec11,por8,5) + l(rec11,por9,5)
+ + l(rec11,por10,5) + l(rec11,por11,5) + l(rec11,por12,5)
+ + l(rec11,por13,5) + l(rec11,por14,5) + l(rec11,por15,5) >= -59
+ totalMinCoverage(rec11,6): - 60 h(rec11,6) - w(rec11) + l(rec11,por1,6)
+ + l(rec11,por2,6) + l(rec11,por3,6) + l(rec11,por4,6) + l(rec11,por5,6)
+ + l(rec11,por6,6) + l(rec11,por7,6) + l(rec11,por8,6) + l(rec11,por9,6)
+ + l(rec11,por10,6) + l(rec11,por11,6) + l(rec11,por12,6)
+ + l(rec11,por13,6) + l(rec11,por14,6) + l(rec11,por15,6) >= -59
+ totalMinCoverage(rec11,7): - 60 h(rec11,7) - w(rec11) + l(rec11,por1,7)
+ + l(rec11,por2,7) + l(rec11,por3,7) + l(rec11,por4,7) + l(rec11,por5,7)
+ + l(rec11,por6,7) + l(rec11,por7,7) + l(rec11,por8,7) + l(rec11,por9,7)
+ + l(rec11,por10,7) + l(rec11,por11,7) + l(rec11,por12,7)
+ + l(rec11,por13,7) + l(rec11,por14,7) + l(rec11,por15,7) >= -59
+ totalMinCoverage(rec11,8): - 60 h(rec11,8) - w(rec11) + l(rec11,por1,8)
+ + l(rec11,por2,8) + l(rec11,por3,8) + l(rec11,por4,8) + l(rec11,por5,8)
+ + l(rec11,por6,8) + l(rec11,por7,8) + l(rec11,por8,8) + l(rec11,por9,8)
+ + l(rec11,por10,8) + l(rec11,por11,8) + l(rec11,por12,8)
+ + l(rec11,por13,8) + l(rec11,por14,8) + l(rec11,por15,8) >= -59
+ totalMinCoverage(rec12,1): - 60 h(rec12,1) - w(rec12) + l(rec12,por1,1)
+ + l(rec12,por2,1) + l(rec12,por3,1) + l(rec12,por4,1) + l(rec12,por5,1)
+ + l(rec12,por6,1) + l(rec12,por7,1) + l(rec12,por8,1) + l(rec12,por9,1)
+ + l(rec12,por10,1) + l(rec12,por11,1) + l(rec12,por12,1)
+ + l(rec12,por13,1) + l(rec12,por14,1) + l(rec12,por15,1) >= -59
+ totalMinCoverage(rec12,2): - 60 h(rec12,2) - w(rec12) + l(rec12,por1,2)
+ + l(rec12,por2,2) + l(rec12,por3,2) + l(rec12,por4,2) + l(rec12,por5,2)
+ + l(rec12,por6,2) + l(rec12,por7,2) + l(rec12,por8,2) + l(rec12,por9,2)
+ + l(rec12,por10,2) + l(rec12,por11,2) + l(rec12,por12,2)
+ + l(rec12,por13,2) + l(rec12,por14,2) + l(rec12,por15,2) >= -59
+ totalMinCoverage(rec12,3): - 60 h(rec12,3) - w(rec12) + l(rec12,por1,3)
+ + l(rec12,por2,3) + l(rec12,por3,3) + l(rec12,por4,3) + l(rec12,por5,3)
+ + l(rec12,por6,3) + l(rec12,por7,3) + l(rec12,por8,3) + l(rec12,por9,3)
+ + l(rec12,por10,3) + l(rec12,por11,3) + l(rec12,por12,3)
+ + l(rec12,por13,3) + l(rec12,por14,3) + l(rec12,por15,3) >= -59
+ totalMinCoverage(rec12,4): - 60 h(rec12,4) - w(rec12) + l(rec12,por1,4)
+ + l(rec12,por2,4) + l(rec12,por3,4) + l(rec12,por4,4) + l(rec12,por5,4)
+ + l(rec12,por6,4) + l(rec12,por7,4) + l(rec12,por8,4) + l(rec12,por9,4)
+ + l(rec12,por10,4) + l(rec12,por11,4) + l(rec12,por12,4)
+ + l(rec12,por13,4) + l(rec12,por14,4) + l(rec12,por15,4) >= -59
+ totalMinCoverage(rec12,5): - 60 h(rec12,5) - w(rec12) + l(rec12,por1,5)
+ + l(rec12,por2,5) + l(rec12,por3,5) + l(rec12,por4,5) + l(rec12,por5,5)
+ + l(rec12,por6,5) + l(rec12,por7,5) + l(rec12,por8,5) + l(rec12,por9,5)
+ + l(rec12,por10,5) + l(rec12,por11,5) + l(rec12,por12,5)
+ + l(rec12,por13,5) + l(rec12,por14,5) + l(rec12,por15,5) >= -59
+ totalMinCoverage(rec12,6): - 60 h(rec12,6) - w(rec12) + l(rec12,por1,6)
+ + l(rec12,por2,6) + l(rec12,por3,6) + l(rec12,por4,6) + l(rec12,por5,6)
+ + l(rec12,por6,6) + l(rec12,por7,6) + l(rec12,por8,6) + l(rec12,por9,6)
+ + l(rec12,por10,6) + l(rec12,por11,6) + l(rec12,por12,6)
+ + l(rec12,por13,6) + l(rec12,por14,6) + l(rec12,por15,6) >= -59
+ totalMinCoverage(rec12,7): - 60 h(rec12,7) - w(rec12) + l(rec12,por1,7)
+ + l(rec12,por2,7) + l(rec12,por3,7) + l(rec12,por4,7) + l(rec12,por5,7)
+ + l(rec12,por6,7) + l(rec12,por7,7) + l(rec12,por8,7) + l(rec12,por9,7)
+ + l(rec12,por10,7) + l(rec12,por11,7) + l(rec12,por12,7)
+ + l(rec12,por13,7) + l(rec12,por14,7) + l(rec12,por15,7) >= -59
+ totalMinCoverage(rec12,8): - 60 h(rec12,8) - w(rec12) + l(rec12,por1,8)
+ + l(rec12,por2,8) + l(rec12,por3,8) + l(rec12,por4,8) + l(rec12,por5,8)
+ + l(rec12,por6,8) + l(rec12,por7,8) + l(rec12,por8,8) + l(rec12,por9,8)
+ + l(rec12,por10,8) + l(rec12,por11,8) + l(rec12,por12,8)
+ + l(rec12,por13,8) + l(rec12,por14,8) + l(rec12,por15,8) >= -59
+ totalMinCoverage(rec13,1): - 60 h(rec13,1) - w(rec13) + l(rec13,por1,1)
+ + l(rec13,por2,1) + l(rec13,por3,1) + l(rec13,por4,1) + l(rec13,por5,1)
+ + l(rec13,por6,1) + l(rec13,por7,1) + l(rec13,por8,1) + l(rec13,por9,1)
+ + l(rec13,por10,1) + l(rec13,por11,1) + l(rec13,por12,1)
+ + l(rec13,por13,1) + l(rec13,por14,1) + l(rec13,por15,1) >= -59
+ totalMinCoverage(rec13,2): - 60 h(rec13,2) - w(rec13) + l(rec13,por1,2)
+ + l(rec13,por2,2) + l(rec13,por3,2) + l(rec13,por4,2) + l(rec13,por5,2)
+ + l(rec13,por6,2) + l(rec13,por7,2) + l(rec13,por8,2) + l(rec13,por9,2)
+ + l(rec13,por10,2) + l(rec13,por11,2) + l(rec13,por12,2)
+ + l(rec13,por13,2) + l(rec13,por14,2) + l(rec13,por15,2) >= -59
+ totalMinCoverage(rec13,3): - 60 h(rec13,3) - w(rec13) + l(rec13,por1,3)
+ + l(rec13,por2,3) + l(rec13,por3,3) + l(rec13,por4,3) + l(rec13,por5,3)
+ + l(rec13,por6,3) + l(rec13,por7,3) + l(rec13,por8,3) + l(rec13,por9,3)
+ + l(rec13,por10,3) + l(rec13,por11,3) + l(rec13,por12,3)
+ + l(rec13,por13,3) + l(rec13,por14,3) + l(rec13,por15,3) >= -59
+ totalMinCoverage(rec13,4): - 60 h(rec13,4) - w(rec13) + l(rec13,por1,4)
+ + l(rec13,por2,4) + l(rec13,por3,4) + l(rec13,por4,4) + l(rec13,por5,4)
+ + l(rec13,por6,4) + l(rec13,por7,4) + l(rec13,por8,4) + l(rec13,por9,4)
+ + l(rec13,por10,4) + l(rec13,por11,4) + l(rec13,por12,4)
+ + l(rec13,por13,4) + l(rec13,por14,4) + l(rec13,por15,4) >= -59
+ totalMinCoverage(rec13,5): - 60 h(rec13,5) - w(rec13) + l(rec13,por1,5)
+ + l(rec13,por2,5) + l(rec13,por3,5) + l(rec13,por4,5) + l(rec13,por5,5)
+ + l(rec13,por6,5) + l(rec13,por7,5) + l(rec13,por8,5) + l(rec13,por9,5)
+ + l(rec13,por10,5) + l(rec13,por11,5) + l(rec13,por12,5)
+ + l(rec13,por13,5) + l(rec13,por14,5) + l(rec13,por15,5) >= -59
+ totalMinCoverage(rec13,6): - 60 h(rec13,6) - w(rec13) + l(rec13,por1,6)
+ + l(rec13,por2,6) + l(rec13,por3,6) + l(rec13,por4,6) + l(rec13,por5,6)
+ + l(rec13,por6,6) + l(rec13,por7,6) + l(rec13,por8,6) + l(rec13,por9,6)
+ + l(rec13,por10,6) + l(rec13,por11,6) + l(rec13,por12,6)
+ + l(rec13,por13,6) + l(rec13,por14,6) + l(rec13,por15,6) >= -59
+ totalMinCoverage(rec13,7): - 60 h(rec13,7) - w(rec13) + l(rec13,por1,7)
+ + l(rec13,por2,7) + l(rec13,por3,7) + l(rec13,por4,7) + l(rec13,por5,7)
+ + l(rec13,por6,7) + l(rec13,por7,7) + l(rec13,por8,7) + l(rec13,por9,7)
+ + l(rec13,por10,7) + l(rec13,por11,7) + l(rec13,por12,7)
+ + l(rec13,por13,7) + l(rec13,por14,7) + l(rec13,por15,7) >= -59
+ totalMinCoverage(rec13,8): - 60 h(rec13,8) - w(rec13) + l(rec13,por1,8)
+ + l(rec13,por2,8) + l(rec13,por3,8) + l(rec13,por4,8) + l(rec13,por5,8)
+ + l(rec13,por6,8) + l(rec13,por7,8) + l(rec13,por8,8) + l(rec13,por9,8)
+ + l(rec13,por10,8) + l(rec13,por11,8) + l(rec13,por12,8)
+ + l(rec13,por13,8) + l(rec13,por14,8) + l(rec13,por15,8) >= -59
+ totalMinCoverage(rec14,1): - 60 h(rec14,1) - w(rec14) + l(rec14,por1,1)
+ + l(rec14,por2,1) + l(rec14,por3,1) + l(rec14,por4,1) + l(rec14,por5,1)
+ + l(rec14,por6,1) + l(rec14,por7,1) + l(rec14,por8,1) + l(rec14,por9,1)
+ + l(rec14,por10,1) + l(rec14,por11,1) + l(rec14,por12,1)
+ + l(rec14,por13,1) + l(rec14,por14,1) + l(rec14,por15,1) >= -59
+ totalMinCoverage(rec14,2): - 60 h(rec14,2) - w(rec14) + l(rec14,por1,2)
+ + l(rec14,por2,2) + l(rec14,por3,2) + l(rec14,por4,2) + l(rec14,por5,2)
+ + l(rec14,por6,2) + l(rec14,por7,2) + l(rec14,por8,2) + l(rec14,por9,2)
+ + l(rec14,por10,2) + l(rec14,por11,2) + l(rec14,por12,2)
+ + l(rec14,por13,2) + l(rec14,por14,2) + l(rec14,por15,2) >= -59
+ totalMinCoverage(rec14,3): - 60 h(rec14,3) - w(rec14) + l(rec14,por1,3)
+ + l(rec14,por2,3) + l(rec14,por3,3) + l(rec14,por4,3) + l(rec14,por5,3)
+ + l(rec14,por6,3) + l(rec14,por7,3) + l(rec14,por8,3) + l(rec14,por9,3)
+ + l(rec14,por10,3) + l(rec14,por11,3) + l(rec14,por12,3)
+ + l(rec14,por13,3) + l(rec14,por14,3) + l(rec14,por15,3) >= -59
+ totalMinCoverage(rec14,4): - 60 h(rec14,4) - w(rec14) + l(rec14,por1,4)
+ + l(rec14,por2,4) + l(rec14,por3,4) + l(rec14,por4,4) + l(rec14,por5,4)
+ + l(rec14,por6,4) + l(rec14,por7,4) + l(rec14,por8,4) + l(rec14,por9,4)
+ + l(rec14,por10,4) + l(rec14,por11,4) + l(rec14,por12,4)
+ + l(rec14,por13,4) + l(rec14,por14,4) + l(rec14,por15,4) >= -59
+ totalMinCoverage(rec14,5): - 60 h(rec14,5) - w(rec14) + l(rec14,por1,5)
+ + l(rec14,por2,5) + l(rec14,por3,5) + l(rec14,por4,5) + l(rec14,por5,5)
+ + l(rec14,por6,5) + l(rec14,por7,5) + l(rec14,por8,5) + l(rec14,por9,5)
+ + l(rec14,por10,5) + l(rec14,por11,5) + l(rec14,por12,5)
+ + l(rec14,por13,5) + l(rec14,por14,5) + l(rec14,por15,5) >= -59
+ totalMinCoverage(rec14,6): - 60 h(rec14,6) - w(rec14) + l(rec14,por1,6)
+ + l(rec14,por2,6) + l(rec14,por3,6) + l(rec14,por4,6) + l(rec14,por5,6)
+ + l(rec14,por6,6) + l(rec14,por7,6) + l(rec14,por8,6) + l(rec14,por9,6)
+ + l(rec14,por10,6) + l(rec14,por11,6) + l(rec14,por12,6)
+ + l(rec14,por13,6) + l(rec14,por14,6) + l(rec14,por15,6) >= -59
+ totalMinCoverage(rec14,7): - 60 h(rec14,7) - w(rec14) + l(rec14,por1,7)
+ + l(rec14,por2,7) + l(rec14,por3,7) + l(rec14,por4,7) + l(rec14,por5,7)
+ + l(rec14,por6,7) + l(rec14,por7,7) + l(rec14,por8,7) + l(rec14,por9,7)
+ + l(rec14,por10,7) + l(rec14,por11,7) + l(rec14,por12,7)
+ + l(rec14,por13,7) + l(rec14,por14,7) + l(rec14,por15,7) >= -59
+ totalMinCoverage(rec14,8): - 60 h(rec14,8) - w(rec14) + l(rec14,por1,8)
+ + l(rec14,por2,8) + l(rec14,por3,8) + l(rec14,por4,8) + l(rec14,por5,8)
+ + l(rec14,por6,8) + l(rec14,por7,8) + l(rec14,por8,8) + l(rec14,por9,8)
+ + l(rec14,por10,8) + l(rec14,por11,8) + l(rec14,por12,8)
+ + l(rec14,por13,8) + l(rec14,por14,8) + l(rec14,por15,8) >= -59
+ totalMinCoverage(rec15,1): - 60 h(rec15,1) - w(rec15) + l(rec15,por1,1)
+ + l(rec15,por2,1) + l(rec15,por3,1) + l(rec15,por4,1) + l(rec15,por5,1)
+ + l(rec15,por6,1) + l(rec15,por7,1) + l(rec15,por8,1) + l(rec15,por9,1)
+ + l(rec15,por10,1) + l(rec15,por11,1) + l(rec15,por12,1)
+ + l(rec15,por13,1) + l(rec15,por14,1) + l(rec15,por15,1) >= -59
+ totalMinCoverage(rec15,2): - 60 h(rec15,2) - w(rec15) + l(rec15,por1,2)
+ + l(rec15,por2,2) + l(rec15,por3,2) + l(rec15,por4,2) + l(rec15,por5,2)
+ + l(rec15,por6,2) + l(rec15,por7,2) + l(rec15,por8,2) + l(rec15,por9,2)
+ + l(rec15,por10,2) + l(rec15,por11,2) + l(rec15,por12,2)
+ + l(rec15,por13,2) + l(rec15,por14,2) + l(rec15,por15,2) >= -59
+ totalMinCoverage(rec15,3): - 60 h(rec15,3) - w(rec15) + l(rec15,por1,3)
+ + l(rec15,por2,3) + l(rec15,por3,3) + l(rec15,por4,3) + l(rec15,por5,3)
+ + l(rec15,por6,3) + l(rec15,por7,3) + l(rec15,por8,3) + l(rec15,por9,3)
+ + l(rec15,por10,3) + l(rec15,por11,3) + l(rec15,por12,3)
+ + l(rec15,por13,3) + l(rec15,por14,3) + l(rec15,por15,3) >= -59
+ totalMinCoverage(rec15,4): - 60 h(rec15,4) - w(rec15) + l(rec15,por1,4)
+ + l(rec15,por2,4) + l(rec15,por3,4) + l(rec15,por4,4) + l(rec15,por5,4)
+ + l(rec15,por6,4) + l(rec15,por7,4) + l(rec15,por8,4) + l(rec15,por9,4)
+ + l(rec15,por10,4) + l(rec15,por11,4) + l(rec15,por12,4)
+ + l(rec15,por13,4) + l(rec15,por14,4) + l(rec15,por15,4) >= -59
+ totalMinCoverage(rec15,5): - 60 h(rec15,5) - w(rec15) + l(rec15,por1,5)
+ + l(rec15,por2,5) + l(rec15,por3,5) + l(rec15,por4,5) + l(rec15,por5,5)
+ + l(rec15,por6,5) + l(rec15,por7,5) + l(rec15,por8,5) + l(rec15,por9,5)
+ + l(rec15,por10,5) + l(rec15,por11,5) + l(rec15,por12,5)
+ + l(rec15,por13,5) + l(rec15,por14,5) + l(rec15,por15,5) >= -59
+ totalMinCoverage(rec15,6): - 60 h(rec15,6) - w(rec15) + l(rec15,por1,6)
+ + l(rec15,por2,6) + l(rec15,por3,6) + l(rec15,por4,6) + l(rec15,por5,6)
+ + l(rec15,por6,6) + l(rec15,por7,6) + l(rec15,por8,6) + l(rec15,por9,6)
+ + l(rec15,por10,6) + l(rec15,por11,6) + l(rec15,por12,6)
+ + l(rec15,por13,6) + l(rec15,por14,6) + l(rec15,por15,6) >= -59
+ totalMinCoverage(rec15,7): - 60 h(rec15,7) - w(rec15) + l(rec15,por1,7)
+ + l(rec15,por2,7) + l(rec15,por3,7) + l(rec15,por4,7) + l(rec15,por5,7)
+ + l(rec15,por6,7) + l(rec15,por7,7) + l(rec15,por8,7) + l(rec15,por9,7)
+ + l(rec15,por10,7) + l(rec15,por11,7) + l(rec15,por12,7)
+ + l(rec15,por13,7) + l(rec15,por14,7) + l(rec15,por15,7) >= -59
+ totalMinCoverage(rec15,8): - 60 h(rec15,8) - w(rec15) + l(rec15,por1,8)
+ + l(rec15,por2,8) + l(rec15,por3,8) + l(rec15,por4,8) + l(rec15,por5,8)
+ + l(rec15,por6,8) + l(rec15,por7,8) + l(rec15,por8,8) + l(rec15,por9,8)
+ + l(rec15,por10,8) + l(rec15,por11,8) + l(rec15,por12,8)
+ + l(rec15,por13,8) + l(rec15,por14,8) + l(rec15,por15,8) >= -59
  requiredResources(rec1,CLB): - 20 l(rec1,por1,1) - 20 l(rec1,por1,2)
  - 20 l(rec1,por1,3) - 20 l(rec1,por1,4) - 20 l(rec1,por1,5)
  - 20 l(rec1,por1,6) - 20 l(rec1,por1,7) - 20 l(rec1,por1,8)
@@ -16775,7 +27324,7 @@ Subject To
  - 20 l(rec1,por13,6) - 20 l(rec1,por13,7) - 20 l(rec1,por13,8)
  - 20 l(rec1,por15,1) - 20 l(rec1,por15,2) - 20 l(rec1,por15,3)
  - 20 l(rec1,por15,4) - 20 l(rec1,por15,5) - 20 l(rec1,por15,6)
- - 20 l(rec1,por15,7) - 20 l(rec1,por15,8) + DRes(rec1,CLB) = -1000
+ - 20 l(rec1,por15,7) - 20 l(rec1,por15,8) + DRes(rec1,CLB) = -100
  requiredResources(rec1,DSP): - 8 l(rec1,por6,1) - 8 l(rec1,por6,2)
  - 8 l(rec1,por6,3) - 8 l(rec1,por6,4) - 8 l(rec1,por6,5)
  - 8 l(rec1,por6,6) - 8 l(rec1,por6,7) - 8 l(rec1,por6,8)
@@ -16815,7 +27364,7 @@ Subject To
  - 20 l(rec2,por13,6) - 20 l(rec2,por13,7) - 20 l(rec2,por13,8)
  - 20 l(rec2,por15,1) - 20 l(rec2,por15,2) - 20 l(rec2,por15,3)
  - 20 l(rec2,por15,4) - 20 l(rec2,por15,5) - 20 l(rec2,por15,6)
- - 20 l(rec2,por15,7) - 20 l(rec2,por15,8) + DRes(rec2,CLB) = -300
+ - 20 l(rec2,por15,7) - 20 l(rec2,por15,8) + DRes(rec2,CLB) = -100
  requiredResources(rec2,DSP): - 8 l(rec2,por6,1) - 8 l(rec2,por6,2)
  - 8 l(rec2,por6,3) - 8 l(rec2,por6,4) - 8 l(rec2,por6,5)
  - 8 l(rec2,por6,6) - 8 l(rec2,por6,7) - 8 l(rec2,por6,8)
@@ -16855,7 +27404,7 @@ Subject To
  - 20 l(rec3,por13,6) - 20 l(rec3,por13,7) - 20 l(rec3,por13,8)
  - 20 l(rec3,por15,1) - 20 l(rec3,por15,2) - 20 l(rec3,por15,3)
  - 20 l(rec3,por15,4) - 20 l(rec3,por15,5) - 20 l(rec3,por15,6)
- - 20 l(rec3,por15,7) - 20 l(rec3,por15,8) + DRes(rec3,CLB) = -200
+ - 20 l(rec3,por15,7) - 20 l(rec3,por15,8) + DRes(rec3,CLB) = -100
  requiredResources(rec3,DSP): - 8 l(rec3,por6,1) - 8 l(rec3,por6,2)
  - 8 l(rec3,por6,3) - 8 l(rec3,por6,4) - 8 l(rec3,por6,5)
  - 8 l(rec3,por6,6) - 8 l(rec3,por6,7) - 8 l(rec3,por6,8)
@@ -16895,7 +27444,7 @@ Subject To
  - 20 l(rec4,por13,6) - 20 l(rec4,por13,7) - 20 l(rec4,por13,8)
  - 20 l(rec4,por15,1) - 20 l(rec4,por15,2) - 20 l(rec4,por15,3)
  - 20 l(rec4,por15,4) - 20 l(rec4,por15,5) - 20 l(rec4,por15,6)
- - 20 l(rec4,por15,7) - 20 l(rec4,por15,8) + DRes(rec4,CLB) = -200
+ - 20 l(rec4,por15,7) - 20 l(rec4,por15,8) + DRes(rec4,CLB) = -100
  requiredResources(rec4,DSP): - 8 l(rec4,por6,1) - 8 l(rec4,por6,2)
  - 8 l(rec4,por6,3) - 8 l(rec4,por6,4) - 8 l(rec4,por6,5)
  - 8 l(rec4,por6,6) - 8 l(rec4,por6,7) - 8 l(rec4,por6,8)
@@ -16975,7 +27524,7 @@ Subject To
  - 20 l(rec6,por13,6) - 20 l(rec6,por13,7) - 20 l(rec6,por13,8)
  - 20 l(rec6,por15,1) - 20 l(rec6,por15,2) - 20 l(rec6,por15,3)
  - 20 l(rec6,por15,4) - 20 l(rec6,por15,5) - 20 l(rec6,por15,6)
- - 20 l(rec6,por15,7) - 20 l(rec6,por15,8) + DRes(rec6,CLB) = -500
+ - 20 l(rec6,por15,7) - 20 l(rec6,por15,8) + DRes(rec6,CLB) = -100
  requiredResources(rec6,DSP): - 8 l(rec6,por6,1) - 8 l(rec6,por6,2)
  - 8 l(rec6,por6,3) - 8 l(rec6,por6,4) - 8 l(rec6,por6,5)
  - 8 l(rec6,por6,6) - 8 l(rec6,por6,7) - 8 l(rec6,por6,8)
@@ -17015,7 +27564,7 @@ Subject To
  - 20 l(rec7,por13,6) - 20 l(rec7,por13,7) - 20 l(rec7,por13,8)
  - 20 l(rec7,por15,1) - 20 l(rec7,por15,2) - 20 l(rec7,por15,3)
  - 20 l(rec7,por15,4) - 20 l(rec7,por15,5) - 20 l(rec7,por15,6)
- - 20 l(rec7,por15,7) - 20 l(rec7,por15,8) + DRes(rec7,CLB) = -300
+ - 20 l(rec7,por15,7) - 20 l(rec7,por15,8) + DRes(rec7,CLB) = -100
  requiredResources(rec7,DSP): - 8 l(rec7,por6,1) - 8 l(rec7,por6,2)
  - 8 l(rec7,por6,3) - 8 l(rec7,por6,4) - 8 l(rec7,por6,5)
  - 8 l(rec7,por6,6) - 8 l(rec7,por6,7) - 8 l(rec7,por6,8)
@@ -17055,7 +27604,7 @@ Subject To
  - 20 l(rec8,por13,6) - 20 l(rec8,por13,7) - 20 l(rec8,por13,8)
  - 20 l(rec8,por15,1) - 20 l(rec8,por15,2) - 20 l(rec8,por15,3)
  - 20 l(rec8,por15,4) - 20 l(rec8,por15,5) - 20 l(rec8,por15,6)
- - 20 l(rec8,por15,7) - 20 l(rec8,por15,8) + DRes(rec8,CLB) = -100
+ - 20 l(rec8,por15,7) - 20 l(rec8,por15,8) + DRes(rec8,CLB) = -300
  requiredResources(rec8,DSP): - 8 l(rec8,por6,1) - 8 l(rec8,por6,2)
  - 8 l(rec8,por6,3) - 8 l(rec8,por6,4) - 8 l(rec8,por6,5)
  - 8 l(rec8,por6,6) - 8 l(rec8,por6,7) - 8 l(rec8,por6,8)
@@ -17095,7 +27644,7 @@ Subject To
  - 20 l(rec9,por13,6) - 20 l(rec9,por13,7) - 20 l(rec9,por13,8)
  - 20 l(rec9,por15,1) - 20 l(rec9,por15,2) - 20 l(rec9,por15,3)
  - 20 l(rec9,por15,4) - 20 l(rec9,por15,5) - 20 l(rec9,por15,6)
- - 20 l(rec9,por15,7) - 20 l(rec9,por15,8) + DRes(rec9,CLB) = -400
+ - 20 l(rec9,por15,7) - 20 l(rec9,por15,8) + DRes(rec9,CLB) = -100
  requiredResources(rec9,DSP): - 8 l(rec9,por6,1) - 8 l(rec9,por6,2)
  - 8 l(rec9,por6,3) - 8 l(rec9,por6,4) - 8 l(rec9,por6,5)
  - 8 l(rec9,por6,6) - 8 l(rec9,por6,7) - 8 l(rec9,por6,8)
@@ -17135,7 +27684,7 @@ Subject To
  - 20 l(rec10,por13,6) - 20 l(rec10,por13,7) - 20 l(rec10,por13,8)
  - 20 l(rec10,por15,1) - 20 l(rec10,por15,2) - 20 l(rec10,por15,3)
  - 20 l(rec10,por15,4) - 20 l(rec10,por15,5) - 20 l(rec10,por15,6)
- - 20 l(rec10,por15,7) - 20 l(rec10,por15,8) + DRes(rec10,CLB) = -400
+ - 20 l(rec10,por15,7) - 20 l(rec10,por15,8) + DRes(rec10,CLB) = -100
  requiredResources(rec10,DSP): - 8 l(rec10,por6,1) - 8 l(rec10,por6,2)
  - 8 l(rec10,por6,3) - 8 l(rec10,por6,4) - 8 l(rec10,por6,5)
  - 8 l(rec10,por6,6) - 8 l(rec10,por6,7) - 8 l(rec10,por6,8)
@@ -17154,6 +27703,206 @@ Subject To
  - 4 l(rec10,por14,1) - 4 l(rec10,por14,2) - 4 l(rec10,por14,3)
  - 4 l(rec10,por14,4) - 4 l(rec10,por14,5) - 4 l(rec10,por14,6)
  - 4 l(rec10,por14,7) - 4 l(rec10,por14,8) + DRes(rec10,BRAM) = -0
+ requiredResources(rec11,CLB): - 20 l(rec11,por1,1) - 20 l(rec11,por1,2)
+ - 20 l(rec11,por1,3) - 20 l(rec11,por1,4) - 20 l(rec11,por1,5)
+ - 20 l(rec11,por1,6) - 20 l(rec11,por1,7) - 20 l(rec11,por1,8)
+ - 20 l(rec11,por3,1) - 20 l(rec11,por3,2) - 20 l(rec11,por3,3)
+ - 20 l(rec11,por3,4) - 20 l(rec11,por3,5) - 20 l(rec11,por3,6)
+ - 20 l(rec11,por3,7) - 20 l(rec11,por3,8) - 20 l(rec11,por5,1)
+ - 20 l(rec11,por5,2) - 20 l(rec11,por5,3) - 20 l(rec11,por5,4)
+ - 20 l(rec11,por5,5) - 20 l(rec11,por5,6) - 20 l(rec11,por5,7)
+ - 20 l(rec11,por5,8) - 20 l(rec11,por7,1) - 20 l(rec11,por7,2)
+ - 20 l(rec11,por7,3) - 20 l(rec11,por7,4) - 20 l(rec11,por7,5)
+ - 20 l(rec11,por7,6) - 20 l(rec11,por7,7) - 20 l(rec11,por7,8)
+ - 20 l(rec11,por9,1) - 20 l(rec11,por9,2) - 20 l(rec11,por9,3)
+ - 20 l(rec11,por9,4) - 20 l(rec11,por9,5) - 20 l(rec11,por9,6)
+ - 20 l(rec11,por9,7) - 20 l(rec11,por9,8) - 20 l(rec11,por11,1)
+ - 20 l(rec11,por11,2) - 20 l(rec11,por11,3) - 20 l(rec11,por11,4)
+ - 20 l(rec11,por11,5) - 20 l(rec11,por11,6) - 20 l(rec11,por11,7)
+ - 20 l(rec11,por11,8) - 20 l(rec11,por13,1) - 20 l(rec11,por13,2)
+ - 20 l(rec11,por13,3) - 20 l(rec11,por13,4) - 20 l(rec11,por13,5)
+ - 20 l(rec11,por13,6) - 20 l(rec11,por13,7) - 20 l(rec11,por13,8)
+ - 20 l(rec11,por15,1) - 20 l(rec11,por15,2) - 20 l(rec11,por15,3)
+ - 20 l(rec11,por15,4) - 20 l(rec11,por15,5) - 20 l(rec11,por15,6)
+ - 20 l(rec11,por15,7) - 20 l(rec11,por15,8) + DRes(rec11,CLB) = -100
+ requiredResources(rec11,DSP): - 8 l(rec11,por6,1) - 8 l(rec11,por6,2)
+ - 8 l(rec11,por6,3) - 8 l(rec11,por6,4) - 8 l(rec11,por6,5)
+ - 8 l(rec11,por6,6) - 8 l(rec11,por6,7) - 8 l(rec11,por6,8)
+ + DRes(rec11,DSP) = -0
+ requiredResources(rec11,BRAM): - 4 l(rec11,por2,1) - 4 l(rec11,por2,2)
+ - 4 l(rec11,por2,3) - 4 l(rec11,por2,4) - 4 l(rec11,por2,5)
+ - 4 l(rec11,por2,6) - 4 l(rec11,por2,7) - 4 l(rec11,por2,8)
+ - 4 l(rec11,por4,1) - 4 l(rec11,por4,2) - 4 l(rec11,por4,3)
+ - 4 l(rec11,por4,4) - 4 l(rec11,por4,5) - 4 l(rec11,por4,6)
+ - 4 l(rec11,por4,7) - 4 l(rec11,por4,8) - 4 l(rec11,por10,1)
+ - 4 l(rec11,por10,2) - 4 l(rec11,por10,3) - 4 l(rec11,por10,4)
+ - 4 l(rec11,por10,5) - 4 l(rec11,por10,6) - 4 l(rec11,por10,7)
+ - 4 l(rec11,por10,8) - 4 l(rec11,por12,1) - 4 l(rec11,por12,2)
+ - 4 l(rec11,por12,3) - 4 l(rec11,por12,4) - 4 l(rec11,por12,5)
+ - 4 l(rec11,por12,6) - 4 l(rec11,por12,7) - 4 l(rec11,por12,8)
+ - 4 l(rec11,por14,1) - 4 l(rec11,por14,2) - 4 l(rec11,por14,3)
+ - 4 l(rec11,por14,4) - 4 l(rec11,por14,5) - 4 l(rec11,por14,6)
+ - 4 l(rec11,por14,7) - 4 l(rec11,por14,8) + DRes(rec11,BRAM) = -0
+ requiredResources(rec12,CLB): - 20 l(rec12,por1,1) - 20 l(rec12,por1,2)
+ - 20 l(rec12,por1,3) - 20 l(rec12,por1,4) - 20 l(rec12,por1,5)
+ - 20 l(rec12,por1,6) - 20 l(rec12,por1,7) - 20 l(rec12,por1,8)
+ - 20 l(rec12,por3,1) - 20 l(rec12,por3,2) - 20 l(rec12,por3,3)
+ - 20 l(rec12,por3,4) - 20 l(rec12,por3,5) - 20 l(rec12,por3,6)
+ - 20 l(rec12,por3,7) - 20 l(rec12,por3,8) - 20 l(rec12,por5,1)
+ - 20 l(rec12,por5,2) - 20 l(rec12,por5,3) - 20 l(rec12,por5,4)
+ - 20 l(rec12,por5,5) - 20 l(rec12,por5,6) - 20 l(rec12,por5,7)
+ - 20 l(rec12,por5,8) - 20 l(rec12,por7,1) - 20 l(rec12,por7,2)
+ - 20 l(rec12,por7,3) - 20 l(rec12,por7,4) - 20 l(rec12,por7,5)
+ - 20 l(rec12,por7,6) - 20 l(rec12,por7,7) - 20 l(rec12,por7,8)
+ - 20 l(rec12,por9,1) - 20 l(rec12,por9,2) - 20 l(rec12,por9,3)
+ - 20 l(rec12,por9,4) - 20 l(rec12,por9,5) - 20 l(rec12,por9,6)
+ - 20 l(rec12,por9,7) - 20 l(rec12,por9,8) - 20 l(rec12,por11,1)
+ - 20 l(rec12,por11,2) - 20 l(rec12,por11,3) - 20 l(rec12,por11,4)
+ - 20 l(rec12,por11,5) - 20 l(rec12,por11,6) - 20 l(rec12,por11,7)
+ - 20 l(rec12,por11,8) - 20 l(rec12,por13,1) - 20 l(rec12,por13,2)
+ - 20 l(rec12,por13,3) - 20 l(rec12,por13,4) - 20 l(rec12,por13,5)
+ - 20 l(rec12,por13,6) - 20 l(rec12,por13,7) - 20 l(rec12,por13,8)
+ - 20 l(rec12,por15,1) - 20 l(rec12,por15,2) - 20 l(rec12,por15,3)
+ - 20 l(rec12,por15,4) - 20 l(rec12,por15,5) - 20 l(rec12,por15,6)
+ - 20 l(rec12,por15,7) - 20 l(rec12,por15,8) + DRes(rec12,CLB) = -100
+ requiredResources(rec12,DSP): - 8 l(rec12,por6,1) - 8 l(rec12,por6,2)
+ - 8 l(rec12,por6,3) - 8 l(rec12,por6,4) - 8 l(rec12,por6,5)
+ - 8 l(rec12,por6,6) - 8 l(rec12,por6,7) - 8 l(rec12,por6,8)
+ + DRes(rec12,DSP) = -0
+ requiredResources(rec12,BRAM): - 4 l(rec12,por2,1) - 4 l(rec12,por2,2)
+ - 4 l(rec12,por2,3) - 4 l(rec12,por2,4) - 4 l(rec12,por2,5)
+ - 4 l(rec12,por2,6) - 4 l(rec12,por2,7) - 4 l(rec12,por2,8)
+ - 4 l(rec12,por4,1) - 4 l(rec12,por4,2) - 4 l(rec12,por4,3)
+ - 4 l(rec12,por4,4) - 4 l(rec12,por4,5) - 4 l(rec12,por4,6)
+ - 4 l(rec12,por4,7) - 4 l(rec12,por4,8) - 4 l(rec12,por10,1)
+ - 4 l(rec12,por10,2) - 4 l(rec12,por10,3) - 4 l(rec12,por10,4)
+ - 4 l(rec12,por10,5) - 4 l(rec12,por10,6) - 4 l(rec12,por10,7)
+ - 4 l(rec12,por10,8) - 4 l(rec12,por12,1) - 4 l(rec12,por12,2)
+ - 4 l(rec12,por12,3) - 4 l(rec12,por12,4) - 4 l(rec12,por12,5)
+ - 4 l(rec12,por12,6) - 4 l(rec12,por12,7) - 4 l(rec12,por12,8)
+ - 4 l(rec12,por14,1) - 4 l(rec12,por14,2) - 4 l(rec12,por14,3)
+ - 4 l(rec12,por14,4) - 4 l(rec12,por14,5) - 4 l(rec12,por14,6)
+ - 4 l(rec12,por14,7) - 4 l(rec12,por14,8) + DRes(rec12,BRAM) = -0
+ requiredResources(rec13,CLB): - 20 l(rec13,por1,1) - 20 l(rec13,por1,2)
+ - 20 l(rec13,por1,3) - 20 l(rec13,por1,4) - 20 l(rec13,por1,5)
+ - 20 l(rec13,por1,6) - 20 l(rec13,por1,7) - 20 l(rec13,por1,8)
+ - 20 l(rec13,por3,1) - 20 l(rec13,por3,2) - 20 l(rec13,por3,3)
+ - 20 l(rec13,por3,4) - 20 l(rec13,por3,5) - 20 l(rec13,por3,6)
+ - 20 l(rec13,por3,7) - 20 l(rec13,por3,8) - 20 l(rec13,por5,1)
+ - 20 l(rec13,por5,2) - 20 l(rec13,por5,3) - 20 l(rec13,por5,4)
+ - 20 l(rec13,por5,5) - 20 l(rec13,por5,6) - 20 l(rec13,por5,7)
+ - 20 l(rec13,por5,8) - 20 l(rec13,por7,1) - 20 l(rec13,por7,2)
+ - 20 l(rec13,por7,3) - 20 l(rec13,por7,4) - 20 l(rec13,por7,5)
+ - 20 l(rec13,por7,6) - 20 l(rec13,por7,7) - 20 l(rec13,por7,8)
+ - 20 l(rec13,por9,1) - 20 l(rec13,por9,2) - 20 l(rec13,por9,3)
+ - 20 l(rec13,por9,4) - 20 l(rec13,por9,5) - 20 l(rec13,por9,6)
+ - 20 l(rec13,por9,7) - 20 l(rec13,por9,8) - 20 l(rec13,por11,1)
+ - 20 l(rec13,por11,2) - 20 l(rec13,por11,3) - 20 l(rec13,por11,4)
+ - 20 l(rec13,por11,5) - 20 l(rec13,por11,6) - 20 l(rec13,por11,7)
+ - 20 l(rec13,por11,8) - 20 l(rec13,por13,1) - 20 l(rec13,por13,2)
+ - 20 l(rec13,por13,3) - 20 l(rec13,por13,4) - 20 l(rec13,por13,5)
+ - 20 l(rec13,por13,6) - 20 l(rec13,por13,7) - 20 l(rec13,por13,8)
+ - 20 l(rec13,por15,1) - 20 l(rec13,por15,2) - 20 l(rec13,por15,3)
+ - 20 l(rec13,por15,4) - 20 l(rec13,por15,5) - 20 l(rec13,por15,6)
+ - 20 l(rec13,por15,7) - 20 l(rec13,por15,8) + DRes(rec13,CLB) = -400
+ requiredResources(rec13,DSP): - 8 l(rec13,por6,1) - 8 l(rec13,por6,2)
+ - 8 l(rec13,por6,3) - 8 l(rec13,por6,4) - 8 l(rec13,por6,5)
+ - 8 l(rec13,por6,6) - 8 l(rec13,por6,7) - 8 l(rec13,por6,8)
+ + DRes(rec13,DSP) = -0
+ requiredResources(rec13,BRAM): - 4 l(rec13,por2,1) - 4 l(rec13,por2,2)
+ - 4 l(rec13,por2,3) - 4 l(rec13,por2,4) - 4 l(rec13,por2,5)
+ - 4 l(rec13,por2,6) - 4 l(rec13,por2,7) - 4 l(rec13,por2,8)
+ - 4 l(rec13,por4,1) - 4 l(rec13,por4,2) - 4 l(rec13,por4,3)
+ - 4 l(rec13,por4,4) - 4 l(rec13,por4,5) - 4 l(rec13,por4,6)
+ - 4 l(rec13,por4,7) - 4 l(rec13,por4,8) - 4 l(rec13,por10,1)
+ - 4 l(rec13,por10,2) - 4 l(rec13,por10,3) - 4 l(rec13,por10,4)
+ - 4 l(rec13,por10,5) - 4 l(rec13,por10,6) - 4 l(rec13,por10,7)
+ - 4 l(rec13,por10,8) - 4 l(rec13,por12,1) - 4 l(rec13,por12,2)
+ - 4 l(rec13,por12,3) - 4 l(rec13,por12,4) - 4 l(rec13,por12,5)
+ - 4 l(rec13,por12,6) - 4 l(rec13,por12,7) - 4 l(rec13,por12,8)
+ - 4 l(rec13,por14,1) - 4 l(rec13,por14,2) - 4 l(rec13,por14,3)
+ - 4 l(rec13,por14,4) - 4 l(rec13,por14,5) - 4 l(rec13,por14,6)
+ - 4 l(rec13,por14,7) - 4 l(rec13,por14,8) + DRes(rec13,BRAM) = -0
+ requiredResources(rec14,CLB): - 20 l(rec14,por1,1) - 20 l(rec14,por1,2)
+ - 20 l(rec14,por1,3) - 20 l(rec14,por1,4) - 20 l(rec14,por1,5)
+ - 20 l(rec14,por1,6) - 20 l(rec14,por1,7) - 20 l(rec14,por1,8)
+ - 20 l(rec14,por3,1) - 20 l(rec14,por3,2) - 20 l(rec14,por3,3)
+ - 20 l(rec14,por3,4) - 20 l(rec14,por3,5) - 20 l(rec14,por3,6)
+ - 20 l(rec14,por3,7) - 20 l(rec14,por3,8) - 20 l(rec14,por5,1)
+ - 20 l(rec14,por5,2) - 20 l(rec14,por5,3) - 20 l(rec14,por5,4)
+ - 20 l(rec14,por5,5) - 20 l(rec14,por5,6) - 20 l(rec14,por5,7)
+ - 20 l(rec14,por5,8) - 20 l(rec14,por7,1) - 20 l(rec14,por7,2)
+ - 20 l(rec14,por7,3) - 20 l(rec14,por7,4) - 20 l(rec14,por7,5)
+ - 20 l(rec14,por7,6) - 20 l(rec14,por7,7) - 20 l(rec14,por7,8)
+ - 20 l(rec14,por9,1) - 20 l(rec14,por9,2) - 20 l(rec14,por9,3)
+ - 20 l(rec14,por9,4) - 20 l(rec14,por9,5) - 20 l(rec14,por9,6)
+ - 20 l(rec14,por9,7) - 20 l(rec14,por9,8) - 20 l(rec14,por11,1)
+ - 20 l(rec14,por11,2) - 20 l(rec14,por11,3) - 20 l(rec14,por11,4)
+ - 20 l(rec14,por11,5) - 20 l(rec14,por11,6) - 20 l(rec14,por11,7)
+ - 20 l(rec14,por11,8) - 20 l(rec14,por13,1) - 20 l(rec14,por13,2)
+ - 20 l(rec14,por13,3) - 20 l(rec14,por13,4) - 20 l(rec14,por13,5)
+ - 20 l(rec14,por13,6) - 20 l(rec14,por13,7) - 20 l(rec14,por13,8)
+ - 20 l(rec14,por15,1) - 20 l(rec14,por15,2) - 20 l(rec14,por15,3)
+ - 20 l(rec14,por15,4) - 20 l(rec14,por15,5) - 20 l(rec14,por15,6)
+ - 20 l(rec14,por15,7) - 20 l(rec14,por15,8) + DRes(rec14,CLB) = -300
+ requiredResources(rec14,DSP): - 8 l(rec14,por6,1) - 8 l(rec14,por6,2)
+ - 8 l(rec14,por6,3) - 8 l(rec14,por6,4) - 8 l(rec14,por6,5)
+ - 8 l(rec14,por6,6) - 8 l(rec14,por6,7) - 8 l(rec14,por6,8)
+ + DRes(rec14,DSP) = -0
+ requiredResources(rec14,BRAM): - 4 l(rec14,por2,1) - 4 l(rec14,por2,2)
+ - 4 l(rec14,por2,3) - 4 l(rec14,por2,4) - 4 l(rec14,por2,5)
+ - 4 l(rec14,por2,6) - 4 l(rec14,por2,7) - 4 l(rec14,por2,8)
+ - 4 l(rec14,por4,1) - 4 l(rec14,por4,2) - 4 l(rec14,por4,3)
+ - 4 l(rec14,por4,4) - 4 l(rec14,por4,5) - 4 l(rec14,por4,6)
+ - 4 l(rec14,por4,7) - 4 l(rec14,por4,8) - 4 l(rec14,por10,1)
+ - 4 l(rec14,por10,2) - 4 l(rec14,por10,3) - 4 l(rec14,por10,4)
+ - 4 l(rec14,por10,5) - 4 l(rec14,por10,6) - 4 l(rec14,por10,7)
+ - 4 l(rec14,por10,8) - 4 l(rec14,por12,1) - 4 l(rec14,por12,2)
+ - 4 l(rec14,por12,3) - 4 l(rec14,por12,4) - 4 l(rec14,por12,5)
+ - 4 l(rec14,por12,6) - 4 l(rec14,por12,7) - 4 l(rec14,por12,8)
+ - 4 l(rec14,por14,1) - 4 l(rec14,por14,2) - 4 l(rec14,por14,3)
+ - 4 l(rec14,por14,4) - 4 l(rec14,por14,5) - 4 l(rec14,por14,6)
+ - 4 l(rec14,por14,7) - 4 l(rec14,por14,8) + DRes(rec14,BRAM) = -0
+ requiredResources(rec15,CLB): - 20 l(rec15,por1,1) - 20 l(rec15,por1,2)
+ - 20 l(rec15,por1,3) - 20 l(rec15,por1,4) - 20 l(rec15,por1,5)
+ - 20 l(rec15,por1,6) - 20 l(rec15,por1,7) - 20 l(rec15,por1,8)
+ - 20 l(rec15,por3,1) - 20 l(rec15,por3,2) - 20 l(rec15,por3,3)
+ - 20 l(rec15,por3,4) - 20 l(rec15,por3,5) - 20 l(rec15,por3,6)
+ - 20 l(rec15,por3,7) - 20 l(rec15,por3,8) - 20 l(rec15,por5,1)
+ - 20 l(rec15,por5,2) - 20 l(rec15,por5,3) - 20 l(rec15,por5,4)
+ - 20 l(rec15,por5,5) - 20 l(rec15,por5,6) - 20 l(rec15,por5,7)
+ - 20 l(rec15,por5,8) - 20 l(rec15,por7,1) - 20 l(rec15,por7,2)
+ - 20 l(rec15,por7,3) - 20 l(rec15,por7,4) - 20 l(rec15,por7,5)
+ - 20 l(rec15,por7,6) - 20 l(rec15,por7,7) - 20 l(rec15,por7,8)
+ - 20 l(rec15,por9,1) - 20 l(rec15,por9,2) - 20 l(rec15,por9,3)
+ - 20 l(rec15,por9,4) - 20 l(rec15,por9,5) - 20 l(rec15,por9,6)
+ - 20 l(rec15,por9,7) - 20 l(rec15,por9,8) - 20 l(rec15,por11,1)
+ - 20 l(rec15,por11,2) - 20 l(rec15,por11,3) - 20 l(rec15,por11,4)
+ - 20 l(rec15,por11,5) - 20 l(rec15,por11,6) - 20 l(rec15,por11,7)
+ - 20 l(rec15,por11,8) - 20 l(rec15,por13,1) - 20 l(rec15,por13,2)
+ - 20 l(rec15,por13,3) - 20 l(rec15,por13,4) - 20 l(rec15,por13,5)
+ - 20 l(rec15,por13,6) - 20 l(rec15,por13,7) - 20 l(rec15,por13,8)
+ - 20 l(rec15,por15,1) - 20 l(rec15,por15,2) - 20 l(rec15,por15,3)
+ - 20 l(rec15,por15,4) - 20 l(rec15,por15,5) - 20 l(rec15,por15,6)
+ - 20 l(rec15,por15,7) - 20 l(rec15,por15,8) + DRes(rec15,CLB) = -200
+ requiredResources(rec15,DSP): - 8 l(rec15,por6,1) - 8 l(rec15,por6,2)
+ - 8 l(rec15,por6,3) - 8 l(rec15,por6,4) - 8 l(rec15,por6,5)
+ - 8 l(rec15,por6,6) - 8 l(rec15,por6,7) - 8 l(rec15,por6,8)
+ + DRes(rec15,DSP) = -0
+ requiredResources(rec15,BRAM): - 4 l(rec15,por2,1) - 4 l(rec15,por2,2)
+ - 4 l(rec15,por2,3) - 4 l(rec15,por2,4) - 4 l(rec15,por2,5)
+ - 4 l(rec15,por2,6) - 4 l(rec15,por2,7) - 4 l(rec15,por2,8)
+ - 4 l(rec15,por4,1) - 4 l(rec15,por4,2) - 4 l(rec15,por4,3)
+ - 4 l(rec15,por4,4) - 4 l(rec15,por4,5) - 4 l(rec15,por4,6)
+ - 4 l(rec15,por4,7) - 4 l(rec15,por4,8) - 4 l(rec15,por10,1)
+ - 4 l(rec15,por10,2) - 4 l(rec15,por10,3) - 4 l(rec15,por10,4)
+ - 4 l(rec15,por10,5) - 4 l(rec15,por10,6) - 4 l(rec15,por10,7)
+ - 4 l(rec15,por10,8) - 4 l(rec15,por12,1) - 4 l(rec15,por12,2)
+ - 4 l(rec15,por12,3) - 4 l(rec15,por12,4) - 4 l(rec15,por12,5)
+ - 4 l(rec15,por12,6) - 4 l(rec15,por12,7) - 4 l(rec15,por12,8)
+ - 4 l(rec15,por14,1) - 4 l(rec15,por14,2) - 4 l(rec15,por14,3)
+ - 4 l(rec15,por14,4) - 4 l(rec15,por14,5) - 4 l(rec15,por14,6)
+ - 4 l(rec15,por14,7) - 4 l(rec15,por14,8) + DRes(rec15,BRAM) = -0
  minRegionDist(rec1,rec1): + DCx(rec1,rec1) + DCy(rec1,rec1) >= -0
  minRegionDist(rec1,rec2): + DCx(rec1,rec2) + DCy(rec1,rec2) >= -0
  minRegionDist(rec1,rec3): + DCx(rec1,rec3) + DCy(rec1,rec3) >= -0
@@ -17164,6 +27913,11 @@ Subject To
  minRegionDist(rec1,rec8): + DCx(rec1,rec8) + DCy(rec1,rec8) >= -0
  minRegionDist(rec1,rec9): + DCx(rec1,rec9) + DCy(rec1,rec9) >= -0
  minRegionDist(rec1,rec10): + DCx(rec1,rec10) + DCy(rec1,rec10) >= -0
+ minRegionDist(rec1,rec11): + DCx(rec1,rec11) + DCy(rec1,rec11) >= -0
+ minRegionDist(rec1,rec12): + DCx(rec1,rec12) + DCy(rec1,rec12) >= -0
+ minRegionDist(rec1,rec13): + DCx(rec1,rec13) + DCy(rec1,rec13) >= -0
+ minRegionDist(rec1,rec14): + DCx(rec1,rec14) + DCy(rec1,rec14) >= -0
+ minRegionDist(rec1,rec15): + DCx(rec1,rec15) + DCy(rec1,rec15) >= -0
  minRegionDist(rec2,rec1): + DCx(rec2,rec1) + DCy(rec2,rec1) >= -0
  minRegionDist(rec2,rec2): + DCx(rec2,rec2) + DCy(rec2,rec2) >= -0
  minRegionDist(rec2,rec3): + DCx(rec2,rec3) + DCy(rec2,rec3) >= -0
@@ -17174,6 +27928,11 @@ Subject To
  minRegionDist(rec2,rec8): + DCx(rec2,rec8) + DCy(rec2,rec8) >= -0
  minRegionDist(rec2,rec9): + DCx(rec2,rec9) + DCy(rec2,rec9) >= -0
  minRegionDist(rec2,rec10): + DCx(rec2,rec10) + DCy(rec2,rec10) >= -0
+ minRegionDist(rec2,rec11): + DCx(rec2,rec11) + DCy(rec2,rec11) >= -0
+ minRegionDist(rec2,rec12): + DCx(rec2,rec12) + DCy(rec2,rec12) >= -0
+ minRegionDist(rec2,rec13): + DCx(rec2,rec13) + DCy(rec2,rec13) >= -0
+ minRegionDist(rec2,rec14): + DCx(rec2,rec14) + DCy(rec2,rec14) >= -0
+ minRegionDist(rec2,rec15): + DCx(rec2,rec15) + DCy(rec2,rec15) >= -0
  minRegionDist(rec3,rec1): + DCx(rec3,rec1) + DCy(rec3,rec1) >= -0
  minRegionDist(rec3,rec2): + DCx(rec3,rec2) + DCy(rec3,rec2) >= -0
  minRegionDist(rec3,rec3): + DCx(rec3,rec3) + DCy(rec3,rec3) >= -0
@@ -17184,6 +27943,11 @@ Subject To
  minRegionDist(rec3,rec8): + DCx(rec3,rec8) + DCy(rec3,rec8) >= -0
  minRegionDist(rec3,rec9): + DCx(rec3,rec9) + DCy(rec3,rec9) >= -0
  minRegionDist(rec3,rec10): + DCx(rec3,rec10) + DCy(rec3,rec10) >= -0
+ minRegionDist(rec3,rec11): + DCx(rec3,rec11) + DCy(rec3,rec11) >= -0
+ minRegionDist(rec3,rec12): + DCx(rec3,rec12) + DCy(rec3,rec12) >= -0
+ minRegionDist(rec3,rec13): + DCx(rec3,rec13) + DCy(rec3,rec13) >= -0
+ minRegionDist(rec3,rec14): + DCx(rec3,rec14) + DCy(rec3,rec14) >= -0
+ minRegionDist(rec3,rec15): + DCx(rec3,rec15) + DCy(rec3,rec15) >= -0
  minRegionDist(rec4,rec1): + DCx(rec4,rec1) + DCy(rec4,rec1) >= -0
  minRegionDist(rec4,rec2): + DCx(rec4,rec2) + DCy(rec4,rec2) >= -0
  minRegionDist(rec4,rec3): + DCx(rec4,rec3) + DCy(rec4,rec3) >= -0
@@ -17194,6 +27958,11 @@ Subject To
  minRegionDist(rec4,rec8): + DCx(rec4,rec8) + DCy(rec4,rec8) >= -0
  minRegionDist(rec4,rec9): + DCx(rec4,rec9) + DCy(rec4,rec9) >= -0
  minRegionDist(rec4,rec10): + DCx(rec4,rec10) + DCy(rec4,rec10) >= -0
+ minRegionDist(rec4,rec11): + DCx(rec4,rec11) + DCy(rec4,rec11) >= -0
+ minRegionDist(rec4,rec12): + DCx(rec4,rec12) + DCy(rec4,rec12) >= -0
+ minRegionDist(rec4,rec13): + DCx(rec4,rec13) + DCy(rec4,rec13) >= -0
+ minRegionDist(rec4,rec14): + DCx(rec4,rec14) + DCy(rec4,rec14) >= -0
+ minRegionDist(rec4,rec15): + DCx(rec4,rec15) + DCy(rec4,rec15) >= -0
  minRegionDist(rec5,rec1): + DCx(rec5,rec1) + DCy(rec5,rec1) >= -0
  minRegionDist(rec5,rec2): + DCx(rec5,rec2) + DCy(rec5,rec2) >= -0
  minRegionDist(rec5,rec3): + DCx(rec5,rec3) + DCy(rec5,rec3) >= -0
@@ -17204,6 +27973,11 @@ Subject To
  minRegionDist(rec5,rec8): + DCx(rec5,rec8) + DCy(rec5,rec8) >= -0
  minRegionDist(rec5,rec9): + DCx(rec5,rec9) + DCy(rec5,rec9) >= -0
  minRegionDist(rec5,rec10): + DCx(rec5,rec10) + DCy(rec5,rec10) >= -0
+ minRegionDist(rec5,rec11): + DCx(rec5,rec11) + DCy(rec5,rec11) >= -0
+ minRegionDist(rec5,rec12): + DCx(rec5,rec12) + DCy(rec5,rec12) >= -0
+ minRegionDist(rec5,rec13): + DCx(rec5,rec13) + DCy(rec5,rec13) >= -0
+ minRegionDist(rec5,rec14): + DCx(rec5,rec14) + DCy(rec5,rec14) >= -0
+ minRegionDist(rec5,rec15): + DCx(rec5,rec15) + DCy(rec5,rec15) >= -0
  minRegionDist(rec6,rec1): + DCx(rec6,rec1) + DCy(rec6,rec1) >= -0
  minRegionDist(rec6,rec2): + DCx(rec6,rec2) + DCy(rec6,rec2) >= -0
  minRegionDist(rec6,rec3): + DCx(rec6,rec3) + DCy(rec6,rec3) >= -0
@@ -17214,6 +27988,11 @@ Subject To
  minRegionDist(rec6,rec8): + DCx(rec6,rec8) + DCy(rec6,rec8) >= -0
  minRegionDist(rec6,rec9): + DCx(rec6,rec9) + DCy(rec6,rec9) >= -0
  minRegionDist(rec6,rec10): + DCx(rec6,rec10) + DCy(rec6,rec10) >= -0
+ minRegionDist(rec6,rec11): + DCx(rec6,rec11) + DCy(rec6,rec11) >= -0
+ minRegionDist(rec6,rec12): + DCx(rec6,rec12) + DCy(rec6,rec12) >= -0
+ minRegionDist(rec6,rec13): + DCx(rec6,rec13) + DCy(rec6,rec13) >= -0
+ minRegionDist(rec6,rec14): + DCx(rec6,rec14) + DCy(rec6,rec14) >= -0
+ minRegionDist(rec6,rec15): + DCx(rec6,rec15) + DCy(rec6,rec15) >= -0
  minRegionDist(rec7,rec1): + DCx(rec7,rec1) + DCy(rec7,rec1) >= -0
  minRegionDist(rec7,rec2): + DCx(rec7,rec2) + DCy(rec7,rec2) >= -0
  minRegionDist(rec7,rec3): + DCx(rec7,rec3) + DCy(rec7,rec3) >= -0
@@ -17224,6 +28003,11 @@ Subject To
  minRegionDist(rec7,rec8): + DCx(rec7,rec8) + DCy(rec7,rec8) >= -0
  minRegionDist(rec7,rec9): + DCx(rec7,rec9) + DCy(rec7,rec9) >= -0
  minRegionDist(rec7,rec10): + DCx(rec7,rec10) + DCy(rec7,rec10) >= -0
+ minRegionDist(rec7,rec11): + DCx(rec7,rec11) + DCy(rec7,rec11) >= -0
+ minRegionDist(rec7,rec12): + DCx(rec7,rec12) + DCy(rec7,rec12) >= -0
+ minRegionDist(rec7,rec13): + DCx(rec7,rec13) + DCy(rec7,rec13) >= -0
+ minRegionDist(rec7,rec14): + DCx(rec7,rec14) + DCy(rec7,rec14) >= -0
+ minRegionDist(rec7,rec15): + DCx(rec7,rec15) + DCy(rec7,rec15) >= -0
  minRegionDist(rec8,rec1): + DCx(rec8,rec1) + DCy(rec8,rec1) >= -0
  minRegionDist(rec8,rec2): + DCx(rec8,rec2) + DCy(rec8,rec2) >= -0
  minRegionDist(rec8,rec3): + DCx(rec8,rec3) + DCy(rec8,rec3) >= -0
@@ -17234,6 +28018,11 @@ Subject To
  minRegionDist(rec8,rec8): + DCx(rec8,rec8) + DCy(rec8,rec8) >= -0
  minRegionDist(rec8,rec9): + DCx(rec8,rec9) + DCy(rec8,rec9) >= -0
  minRegionDist(rec8,rec10): + DCx(rec8,rec10) + DCy(rec8,rec10) >= -0
+ minRegionDist(rec8,rec11): + DCx(rec8,rec11) + DCy(rec8,rec11) >= -0
+ minRegionDist(rec8,rec12): + DCx(rec8,rec12) + DCy(rec8,rec12) >= -0
+ minRegionDist(rec8,rec13): + DCx(rec8,rec13) + DCy(rec8,rec13) >= -0
+ minRegionDist(rec8,rec14): + DCx(rec8,rec14) + DCy(rec8,rec14) >= -0
+ minRegionDist(rec8,rec15): + DCx(rec8,rec15) + DCy(rec8,rec15) >= -0
  minRegionDist(rec9,rec1): + DCx(rec9,rec1) + DCy(rec9,rec1) >= -0
  minRegionDist(rec9,rec2): + DCx(rec9,rec2) + DCy(rec9,rec2) >= -0
  minRegionDist(rec9,rec3): + DCx(rec9,rec3) + DCy(rec9,rec3) >= -0
@@ -17244,6 +28033,11 @@ Subject To
  minRegionDist(rec9,rec8): + DCx(rec9,rec8) + DCy(rec9,rec8) >= -0
  minRegionDist(rec9,rec9): + DCx(rec9,rec9) + DCy(rec9,rec9) >= -0
  minRegionDist(rec9,rec10): + DCx(rec9,rec10) + DCy(rec9,rec10) >= -0
+ minRegionDist(rec9,rec11): + DCx(rec9,rec11) + DCy(rec9,rec11) >= -0
+ minRegionDist(rec9,rec12): + DCx(rec9,rec12) + DCy(rec9,rec12) >= -0
+ minRegionDist(rec9,rec13): + DCx(rec9,rec13) + DCy(rec9,rec13) >= -0
+ minRegionDist(rec9,rec14): + DCx(rec9,rec14) + DCy(rec9,rec14) >= -0
+ minRegionDist(rec9,rec15): + DCx(rec9,rec15) + DCy(rec9,rec15) >= -0
  minRegionDist(rec10,rec1): + DCx(rec10,rec1) + DCy(rec10,rec1) >= -0
  minRegionDist(rec10,rec2): + DCx(rec10,rec2) + DCy(rec10,rec2) >= -0
  minRegionDist(rec10,rec3): + DCx(rec10,rec3) + DCy(rec10,rec3) >= -0
@@ -17254,16 +28048,101 @@ Subject To
  minRegionDist(rec10,rec8): + DCx(rec10,rec8) + DCy(rec10,rec8) >= -0
  minRegionDist(rec10,rec9): + DCx(rec10,rec9) + DCy(rec10,rec9) >= -0
  minRegionDist(rec10,rec10): + DCx(rec10,rec10) + DCy(rec10,rec10) >= -0
- widthLowerBound(rec1): + w(rec1) >= 6
- widthLowerBound(rec2): + w(rec2) >= 1
- widthLowerBound(rec3): + w(rec3) >= 1
- widthLowerBound(rec4): + w(rec4) >= 1
+ minRegionDist(rec10,rec11): + DCx(rec10,rec11) + DCy(rec10,rec11) >= -0
+ minRegionDist(rec10,rec12): + DCx(rec10,rec12) + DCy(rec10,rec12) >= -0
+ minRegionDist(rec10,rec13): + DCx(rec10,rec13) + DCy(rec10,rec13) >= -0
+ minRegionDist(rec10,rec14): + DCx(rec10,rec14) + DCy(rec10,rec14) >= -0
+ minRegionDist(rec10,rec15): + DCx(rec10,rec15) + DCy(rec10,rec15) >= -0
+ minRegionDist(rec11,rec1): + DCx(rec11,rec1) + DCy(rec11,rec1) >= -0
+ minRegionDist(rec11,rec2): + DCx(rec11,rec2) + DCy(rec11,rec2) >= -0
+ minRegionDist(rec11,rec3): + DCx(rec11,rec3) + DCy(rec11,rec3) >= -0
+ minRegionDist(rec11,rec4): + DCx(rec11,rec4) + DCy(rec11,rec4) >= -0
+ minRegionDist(rec11,rec5): + DCx(rec11,rec5) + DCy(rec11,rec5) >= -0
+ minRegionDist(rec11,rec6): + DCx(rec11,rec6) + DCy(rec11,rec6) >= -0
+ minRegionDist(rec11,rec7): + DCx(rec11,rec7) + DCy(rec11,rec7) >= -0
+ minRegionDist(rec11,rec8): + DCx(rec11,rec8) + DCy(rec11,rec8) >= -0
+ minRegionDist(rec11,rec9): + DCx(rec11,rec9) + DCy(rec11,rec9) >= -0
+ minRegionDist(rec11,rec10): + DCx(rec11,rec10) + DCy(rec11,rec10) >= -0
+ minRegionDist(rec11,rec11): + DCx(rec11,rec11) + DCy(rec11,rec11) >= -0
+ minRegionDist(rec11,rec12): + DCx(rec11,rec12) + DCy(rec11,rec12) >= -0
+ minRegionDist(rec11,rec13): + DCx(rec11,rec13) + DCy(rec11,rec13) >= -0
+ minRegionDist(rec11,rec14): + DCx(rec11,rec14) + DCy(rec11,rec14) >= -0
+ minRegionDist(rec11,rec15): + DCx(rec11,rec15) + DCy(rec11,rec15) >= -0
+ minRegionDist(rec12,rec1): + DCx(rec12,rec1) + DCy(rec12,rec1) >= -0
+ minRegionDist(rec12,rec2): + DCx(rec12,rec2) + DCy(rec12,rec2) >= -0
+ minRegionDist(rec12,rec3): + DCx(rec12,rec3) + DCy(rec12,rec3) >= -0
+ minRegionDist(rec12,rec4): + DCx(rec12,rec4) + DCy(rec12,rec4) >= -0
+ minRegionDist(rec12,rec5): + DCx(rec12,rec5) + DCy(rec12,rec5) >= -0
+ minRegionDist(rec12,rec6): + DCx(rec12,rec6) + DCy(rec12,rec6) >= -0
+ minRegionDist(rec12,rec7): + DCx(rec12,rec7) + DCy(rec12,rec7) >= -0
+ minRegionDist(rec12,rec8): + DCx(rec12,rec8) + DCy(rec12,rec8) >= -0
+ minRegionDist(rec12,rec9): + DCx(rec12,rec9) + DCy(rec12,rec9) >= -0
+ minRegionDist(rec12,rec10): + DCx(rec12,rec10) + DCy(rec12,rec10) >= -0
+ minRegionDist(rec12,rec11): + DCx(rec12,rec11) + DCy(rec12,rec11) >= -0
+ minRegionDist(rec12,rec12): + DCx(rec12,rec12) + DCy(rec12,rec12) >= -0
+ minRegionDist(rec12,rec13): + DCx(rec12,rec13) + DCy(rec12,rec13) >= -0
+ minRegionDist(rec12,rec14): + DCx(rec12,rec14) + DCy(rec12,rec14) >= -0
+ minRegionDist(rec12,rec15): + DCx(rec12,rec15) + DCy(rec12,rec15) >= -0
+ minRegionDist(rec13,rec1): + DCx(rec13,rec1) + DCy(rec13,rec1) >= -0
+ minRegionDist(rec13,rec2): + DCx(rec13,rec2) + DCy(rec13,rec2) >= -0
+ minRegionDist(rec13,rec3): + DCx(rec13,rec3) + DCy(rec13,rec3) >= -0
+ minRegionDist(rec13,rec4): + DCx(rec13,rec4) + DCy(rec13,rec4) >= -0
+ minRegionDist(rec13,rec5): + DCx(rec13,rec5) + DCy(rec13,rec5) >= -0
+ minRegionDist(rec13,rec6): + DCx(rec13,rec6) + DCy(rec13,rec6) >= -0
+ minRegionDist(rec13,rec7): + DCx(rec13,rec7) + DCy(rec13,rec7) >= -0
+ minRegionDist(rec13,rec8): + DCx(rec13,rec8) + DCy(rec13,rec8) >= -0
+ minRegionDist(rec13,rec9): + DCx(rec13,rec9) + DCy(rec13,rec9) >= -0
+ minRegionDist(rec13,rec10): + DCx(rec13,rec10) + DCy(rec13,rec10) >= -0
+ minRegionDist(rec13,rec11): + DCx(rec13,rec11) + DCy(rec13,rec11) >= -0
+ minRegionDist(rec13,rec12): + DCx(rec13,rec12) + DCy(rec13,rec12) >= -0
+ minRegionDist(rec13,rec13): + DCx(rec13,rec13) + DCy(rec13,rec13) >= -0
+ minRegionDist(rec13,rec14): + DCx(rec13,rec14) + DCy(rec13,rec14) >= -0
+ minRegionDist(rec13,rec15): + DCx(rec13,rec15) + DCy(rec13,rec15) >= -0
+ minRegionDist(rec14,rec1): + DCx(rec14,rec1) + DCy(rec14,rec1) >= -0
+ minRegionDist(rec14,rec2): + DCx(rec14,rec2) + DCy(rec14,rec2) >= -0
+ minRegionDist(rec14,rec3): + DCx(rec14,rec3) + DCy(rec14,rec3) >= -0
+ minRegionDist(rec14,rec4): + DCx(rec14,rec4) + DCy(rec14,rec4) >= -0
+ minRegionDist(rec14,rec5): + DCx(rec14,rec5) + DCy(rec14,rec5) >= -0
+ minRegionDist(rec14,rec6): + DCx(rec14,rec6) + DCy(rec14,rec6) >= -0
+ minRegionDist(rec14,rec7): + DCx(rec14,rec7) + DCy(rec14,rec7) >= -0
+ minRegionDist(rec14,rec8): + DCx(rec14,rec8) + DCy(rec14,rec8) >= -0
+ minRegionDist(rec14,rec9): + DCx(rec14,rec9) + DCy(rec14,rec9) >= -0
+ minRegionDist(rec14,rec10): + DCx(rec14,rec10) + DCy(rec14,rec10) >= -0
+ minRegionDist(rec14,rec11): + DCx(rec14,rec11) + DCy(rec14,rec11) >= -0
+ minRegionDist(rec14,rec12): + DCx(rec14,rec12) + DCy(rec14,rec12) >= -0
+ minRegionDist(rec14,rec13): + DCx(rec14,rec13) + DCy(rec14,rec13) >= -0
+ minRegionDist(rec14,rec14): + DCx(rec14,rec14) + DCy(rec14,rec14) >= -0
+ minRegionDist(rec14,rec15): + DCx(rec14,rec15) + DCy(rec14,rec15) >= -0
+ minRegionDist(rec15,rec1): + DCx(rec15,rec1) + DCy(rec15,rec1) >= -0
+ minRegionDist(rec15,rec2): + DCx(rec15,rec2) + DCy(rec15,rec2) >= -0
+ minRegionDist(rec15,rec3): + DCx(rec15,rec3) + DCy(rec15,rec3) >= -0
+ minRegionDist(rec15,rec4): + DCx(rec15,rec4) + DCy(rec15,rec4) >= -0
+ minRegionDist(rec15,rec5): + DCx(rec15,rec5) + DCy(rec15,rec5) >= -0
+ minRegionDist(rec15,rec6): + DCx(rec15,rec6) + DCy(rec15,rec6) >= -0
+ minRegionDist(rec15,rec7): + DCx(rec15,rec7) + DCy(rec15,rec7) >= -0
+ minRegionDist(rec15,rec8): + DCx(rec15,rec8) + DCy(rec15,rec8) >= -0
+ minRegionDist(rec15,rec9): + DCx(rec15,rec9) + DCy(rec15,rec9) >= -0
+ minRegionDist(rec15,rec10): + DCx(rec15,rec10) + DCy(rec15,rec10) >= -0
+ minRegionDist(rec15,rec11): + DCx(rec15,rec11) + DCy(rec15,rec11) >= -0
+ minRegionDist(rec15,rec12): + DCx(rec15,rec12) + DCy(rec15,rec12) >= -0
+ minRegionDist(rec15,rec13): + DCx(rec15,rec13) + DCy(rec15,rec13) >= -0
+ minRegionDist(rec15,rec14): + DCx(rec15,rec14) + DCy(rec15,rec14) >= -0
+ minRegionDist(rec15,rec15): + DCx(rec15,rec15) + DCy(rec15,rec15) >= -0
+ widthLowerBound(rec1): + w(rec1) >= -0
+ widthLowerBound(rec2): + w(rec2) >= -0
+ widthLowerBound(rec3): + w(rec3) >= -0
+ widthLowerBound(rec4): + w(rec4) >= -0
  widthLowerBound(rec5): + w(rec5) >= 1
- widthLowerBound(rec6): + w(rec6) >= 3
- widthLowerBound(rec7): + w(rec7) >= 1
- widthLowerBound(rec8): + w(rec8) >= -0
- widthLowerBound(rec9): + w(rec9) >= 2
- widthLowerBound(rec10): + w(rec10) >= 2
+ widthLowerBound(rec6): + w(rec6) >= -0
+ widthLowerBound(rec7): + w(rec7) >= -0
+ widthLowerBound(rec8): + w(rec8) >= 1
+ widthLowerBound(rec9): + w(rec9) >= -0
+ widthLowerBound(rec10): + w(rec10) >= -0
+ widthLowerBound(rec11): + w(rec11) >= -0
+ widthLowerBound(rec12): + w(rec12) >= -0
+ widthLowerBound(rec13): + w(rec13) >= 2
+ widthLowerBound(rec14): + w(rec14) >= 1
+ widthLowerBound(rec15): + w(rec15) >= 1
  heigthLowerBound(rec1): + a(rec1) >= 1
  heigthLowerBound(rec2): + a(rec2) >= 1
  heigthLowerBound(rec3): + a(rec3) >= 1
@@ -17274,9 +28153,14 @@ Subject To
  heigthLowerBound(rec8): + a(rec8) >= 1
  heigthLowerBound(rec9): + a(rec9) >= 1
  heigthLowerBound(rec10): + a(rec10) >= 1
+ heigthLowerBound(rec11): + a(rec11) >= 1
+ heigthLowerBound(rec12): + a(rec12) >= 1
+ heigthLowerBound(rec13): + a(rec13) >= 1
+ heigthLowerBound(rec14): + a(rec14) >= 1
+ heigthLowerBound(rec15): + a(rec15) >= 1
  selectedRowLowerBound(rec1,CLB): + 1080 h(rec1,1) + 1080 h(rec1,2)
  + 1080 h(rec1,3) + 1080 h(rec1,4) + 1080 h(rec1,5) + 1080 h(rec1,6)
- + 1080 h(rec1,7) + 1080 h(rec1,8) >= 1000
+ + 1080 h(rec1,7) + 1080 h(rec1,8) >= 100
  selectedRowLowerBound(rec1,DSP): + 8 h(rec1,1) + 8 h(rec1,2)
  + 8 h(rec1,3) + 8 h(rec1,4) + 8 h(rec1,5) + 8 h(rec1,6) + 8 h(rec1,7)
  + 8 h(rec1,8) >= -0
@@ -17285,7 +28169,7 @@ Subject To
  + 20 h(rec1,7) + 20 h(rec1,8) >= -0
  selectedRowLowerBound(rec2,CLB): + 1080 h(rec2,1) + 1080 h(rec2,2)
  + 1080 h(rec2,3) + 1080 h(rec2,4) + 1080 h(rec2,5) + 1080 h(rec2,6)
- + 1080 h(rec2,7) + 1080 h(rec2,8) >= 300
+ + 1080 h(rec2,7) + 1080 h(rec2,8) >= 100
  selectedRowLowerBound(rec2,DSP): + 8 h(rec2,1) + 8 h(rec2,2)
  + 8 h(rec2,3) + 8 h(rec2,4) + 8 h(rec2,5) + 8 h(rec2,6) + 8 h(rec2,7)
  + 8 h(rec2,8) >= -0
@@ -17294,7 +28178,7 @@ Subject To
  + 20 h(rec2,7) + 20 h(rec2,8) >= 4
  selectedRowLowerBound(rec3,CLB): + 1080 h(rec3,1) + 1080 h(rec3,2)
  + 1080 h(rec3,3) + 1080 h(rec3,4) + 1080 h(rec3,5) + 1080 h(rec3,6)
- + 1080 h(rec3,7) + 1080 h(rec3,8) >= 200
+ + 1080 h(rec3,7) + 1080 h(rec3,8) >= 100
  selectedRowLowerBound(rec3,DSP): + 8 h(rec3,1) + 8 h(rec3,2)
  + 8 h(rec3,3) + 8 h(rec3,4) + 8 h(rec3,5) + 8 h(rec3,6) + 8 h(rec3,7)
  + 8 h(rec3,8) >= 4
@@ -17303,7 +28187,7 @@ Subject To
  + 20 h(rec3,7) + 20 h(rec3,8) >= -0
  selectedRowLowerBound(rec4,CLB): + 1080 h(rec4,1) + 1080 h(rec4,2)
  + 1080 h(rec4,3) + 1080 h(rec4,4) + 1080 h(rec4,5) + 1080 h(rec4,6)
- + 1080 h(rec4,7) + 1080 h(rec4,8) >= 200
+ + 1080 h(rec4,7) + 1080 h(rec4,8) >= 100
  selectedRowLowerBound(rec4,DSP): + 8 h(rec4,1) + 8 h(rec4,2)
  + 8 h(rec4,3) + 8 h(rec4,4) + 8 h(rec4,5) + 8 h(rec4,6) + 8 h(rec4,7)
  + 8 h(rec4,8) >= -0
@@ -17321,7 +28205,7 @@ Subject To
  + 20 h(rec5,7) + 20 h(rec5,8) >= -0
  selectedRowLowerBound(rec6,CLB): + 1080 h(rec6,1) + 1080 h(rec6,2)
  + 1080 h(rec6,3) + 1080 h(rec6,4) + 1080 h(rec6,5) + 1080 h(rec6,6)
- + 1080 h(rec6,7) + 1080 h(rec6,8) >= 500
+ + 1080 h(rec6,7) + 1080 h(rec6,8) >= 100
  selectedRowLowerBound(rec6,DSP): + 8 h(rec6,1) + 8 h(rec6,2)
  + 8 h(rec6,3) + 8 h(rec6,4) + 8 h(rec6,5) + 8 h(rec6,6) + 8 h(rec6,7)
  + 8 h(rec6,8) >= -0
@@ -17330,7 +28214,7 @@ Subject To
  + 20 h(rec6,7) + 20 h(rec6,8) >= -0
  selectedRowLowerBound(rec7,CLB): + 1080 h(rec7,1) + 1080 h(rec7,2)
  + 1080 h(rec7,3) + 1080 h(rec7,4) + 1080 h(rec7,5) + 1080 h(rec7,6)
- + 1080 h(rec7,7) + 1080 h(rec7,8) >= 300
+ + 1080 h(rec7,7) + 1080 h(rec7,8) >= 100
  selectedRowLowerBound(rec7,DSP): + 8 h(rec7,1) + 8 h(rec7,2)
  + 8 h(rec7,3) + 8 h(rec7,4) + 8 h(rec7,5) + 8 h(rec7,6) + 8 h(rec7,7)
  + 8 h(rec7,8) >= -0
@@ -17339,7 +28223,7 @@ Subject To
  + 20 h(rec7,7) + 20 h(rec7,8) >= -0
  selectedRowLowerBound(rec8,CLB): + 1080 h(rec8,1) + 1080 h(rec8,2)
  + 1080 h(rec8,3) + 1080 h(rec8,4) + 1080 h(rec8,5) + 1080 h(rec8,6)
- + 1080 h(rec8,7) + 1080 h(rec8,8) >= 100
+ + 1080 h(rec8,7) + 1080 h(rec8,8) >= 300
  selectedRowLowerBound(rec8,DSP): + 8 h(rec8,1) + 8 h(rec8,2)
  + 8 h(rec8,3) + 8 h(rec8,4) + 8 h(rec8,5) + 8 h(rec8,6) + 8 h(rec8,7)
  + 8 h(rec8,8) >= -0
@@ -17348,7 +28232,7 @@ Subject To
  + 20 h(rec8,7) + 20 h(rec8,8) >= 4
  selectedRowLowerBound(rec9,CLB): + 1080 h(rec9,1) + 1080 h(rec9,2)
  + 1080 h(rec9,3) + 1080 h(rec9,4) + 1080 h(rec9,5) + 1080 h(rec9,6)
- + 1080 h(rec9,7) + 1080 h(rec9,8) >= 400
+ + 1080 h(rec9,7) + 1080 h(rec9,8) >= 100
  selectedRowLowerBound(rec9,DSP): + 8 h(rec9,1) + 8 h(rec9,2)
  + 8 h(rec9,3) + 8 h(rec9,4) + 8 h(rec9,5) + 8 h(rec9,6) + 8 h(rec9,7)
  + 8 h(rec9,8) >= -0
@@ -17357,50 +28241,88 @@ Subject To
  + 20 h(rec9,7) + 20 h(rec9,8) >= -0
  selectedRowLowerBound(rec10,CLB): + 1080 h(rec10,1) + 1080 h(rec10,2)
  + 1080 h(rec10,3) + 1080 h(rec10,4) + 1080 h(rec10,5) + 1080 h(rec10,6)
- + 1080 h(rec10,7) + 1080 h(rec10,8) >= 400
+ + 1080 h(rec10,7) + 1080 h(rec10,8) >= 100
  selectedRowLowerBound(rec10,DSP): + 8 h(rec10,1) + 8 h(rec10,2)
  + 8 h(rec10,3) + 8 h(rec10,4) + 8 h(rec10,5) + 8 h(rec10,6)
  + 8 h(rec10,7) + 8 h(rec10,8) >= -0
  selectedRowLowerBound(rec10,BRAM): + 20 h(rec10,1) + 20 h(rec10,2)
  + 20 h(rec10,3) + 20 h(rec10,4) + 20 h(rec10,5) + 20 h(rec10,6)
  + 20 h(rec10,7) + 20 h(rec10,8) >= -0
- whBound(rec1,1,2): + w(rec1) + 25 a(rec1) >= 74
- whBound(rec1,2,3): + w(rec1) + 8 a(rec1) >= 40
- whBound(rec1,3,4): + w(rec1) + 4 a(rec1) >= 28
- whBound(rec1,4,5): + w(rec1) + 3 a(rec1) >= 24
- whBound(rec1,5,6): + w(rec1) + a(rec1) >= 14
- whBound(rec1,5,7): + w(rec1) + a(rec1) >= 14
- whBound(rec1,5,8): + w(rec1) + a(rec1) >= 14
- whBound(rec1,6,7): + w(rec1) + a(rec1) >= 14
- whBound(rec1,6,8): + w(rec1) + a(rec1) >= 14
- whBound(rec1,7,8): + w(rec1) + a(rec1) >= 14
- whBound(rec2,1,2): + w(rec2) + 8 a(rec2) >= 23
- whBound(rec2,2,3): + w(rec2) + 2 a(rec2) >= 11
- whBound(rec2,2,4): + w(rec2) + 2 a(rec2) >= 11
- whBound(rec2,3,4): + w(rec2) + 2 a(rec2) >= 11
- whBound(rec2,4,6): + w(rec2) + 0.5 a(rec2) >= 5
- whBound(rec2,4,8): + w(rec2) + 0.5 a(rec2) >= 5
- whBound(rec2,6,8): + w(rec2) + 0.5 a(rec2) >= 5
- whBound(rec3,1,2): + w(rec3) + 5 a(rec3) >= 15
- whBound(rec3,2,3): + w(rec3) + 2 a(rec3) >= 9
- whBound(rec3,3,4): + w(rec3) + a(rec3) >= 6
- whBound(rec3,4,6): + w(rec3) + 0.5 a(rec3) >= 4
- whBound(rec3,6,7): + w(rec3) >= 1
- whBound(rec3,6,8): + w(rec3) >= 1
- whBound(rec3,7,8): + w(rec3) >= 1
- whBound(rec4,1,2): + w(rec4) + 5 a(rec4) >= 14
- whBound(rec4,2,3): + w(rec4) + a(rec4) >= 6
- whBound(rec4,2,4): + w(rec4) + a(rec4) >= 6
- whBound(rec4,2,5): + w(rec4) + a(rec4) >= 6
- whBound(rec4,3,4): + w(rec4) + a(rec4) >= 6
- whBound(rec4,3,5): + w(rec4) + a(rec4) >= 6
- whBound(rec4,4,5): + w(rec4) + a(rec4) >= 6
- whBound(rec4,5,6): + w(rec4) >= 1
- whBound(rec4,5,7): + w(rec4) >= 1
- whBound(rec4,5,8): + w(rec4) >= 1
- whBound(rec4,6,7): + w(rec4) >= 1
- whBound(rec4,6,8): + w(rec4) >= 1
- whBound(rec4,7,8): + w(rec4) >= 1
+ selectedRowLowerBound(rec11,CLB): + 1080 h(rec11,1) + 1080 h(rec11,2)
+ + 1080 h(rec11,3) + 1080 h(rec11,4) + 1080 h(rec11,5) + 1080 h(rec11,6)
+ + 1080 h(rec11,7) + 1080 h(rec11,8) >= 100
+ selectedRowLowerBound(rec11,DSP): + 8 h(rec11,1) + 8 h(rec11,2)
+ + 8 h(rec11,3) + 8 h(rec11,4) + 8 h(rec11,5) + 8 h(rec11,6)
+ + 8 h(rec11,7) + 8 h(rec11,8) >= -0
+ selectedRowLowerBound(rec11,BRAM): + 20 h(rec11,1) + 20 h(rec11,2)
+ + 20 h(rec11,3) + 20 h(rec11,4) + 20 h(rec11,5) + 20 h(rec11,6)
+ + 20 h(rec11,7) + 20 h(rec11,8) >= -0
+ selectedRowLowerBound(rec12,CLB): + 1080 h(rec12,1) + 1080 h(rec12,2)
+ + 1080 h(rec12,3) + 1080 h(rec12,4) + 1080 h(rec12,5) + 1080 h(rec12,6)
+ + 1080 h(rec12,7) + 1080 h(rec12,8) >= 100
+ selectedRowLowerBound(rec12,DSP): + 8 h(rec12,1) + 8 h(rec12,2)
+ + 8 h(rec12,3) + 8 h(rec12,4) + 8 h(rec12,5) + 8 h(rec12,6)
+ + 8 h(rec12,7) + 8 h(rec12,8) >= -0
+ selectedRowLowerBound(rec12,BRAM): + 20 h(rec12,1) + 20 h(rec12,2)
+ + 20 h(rec12,3) + 20 h(rec12,4) + 20 h(rec12,5) + 20 h(rec12,6)
+ + 20 h(rec12,7) + 20 h(rec12,8) >= -0
+ selectedRowLowerBound(rec13,CLB): + 1080 h(rec13,1) + 1080 h(rec13,2)
+ + 1080 h(rec13,3) + 1080 h(rec13,4) + 1080 h(rec13,5) + 1080 h(rec13,6)
+ + 1080 h(rec13,7) + 1080 h(rec13,8) >= 400
+ selectedRowLowerBound(rec13,DSP): + 8 h(rec13,1) + 8 h(rec13,2)
+ + 8 h(rec13,3) + 8 h(rec13,4) + 8 h(rec13,5) + 8 h(rec13,6)
+ + 8 h(rec13,7) + 8 h(rec13,8) >= -0
+ selectedRowLowerBound(rec13,BRAM): + 20 h(rec13,1) + 20 h(rec13,2)
+ + 20 h(rec13,3) + 20 h(rec13,4) + 20 h(rec13,5) + 20 h(rec13,6)
+ + 20 h(rec13,7) + 20 h(rec13,8) >= -0
+ selectedRowLowerBound(rec14,CLB): + 1080 h(rec14,1) + 1080 h(rec14,2)
+ + 1080 h(rec14,3) + 1080 h(rec14,4) + 1080 h(rec14,5) + 1080 h(rec14,6)
+ + 1080 h(rec14,7) + 1080 h(rec14,8) >= 300
+ selectedRowLowerBound(rec14,DSP): + 8 h(rec14,1) + 8 h(rec14,2)
+ + 8 h(rec14,3) + 8 h(rec14,4) + 8 h(rec14,5) + 8 h(rec14,6)
+ + 8 h(rec14,7) + 8 h(rec14,8) >= -0
+ selectedRowLowerBound(rec14,BRAM): + 20 h(rec14,1) + 20 h(rec14,2)
+ + 20 h(rec14,3) + 20 h(rec14,4) + 20 h(rec14,5) + 20 h(rec14,6)
+ + 20 h(rec14,7) + 20 h(rec14,8) >= -0
+ selectedRowLowerBound(rec15,CLB): + 1080 h(rec15,1) + 1080 h(rec15,2)
+ + 1080 h(rec15,3) + 1080 h(rec15,4) + 1080 h(rec15,5) + 1080 h(rec15,6)
+ + 1080 h(rec15,7) + 1080 h(rec15,8) >= 200
+ selectedRowLowerBound(rec15,DSP): + 8 h(rec15,1) + 8 h(rec15,2)
+ + 8 h(rec15,3) + 8 h(rec15,4) + 8 h(rec15,5) + 8 h(rec15,6)
+ + 8 h(rec15,7) + 8 h(rec15,8) >= -0
+ selectedRowLowerBound(rec15,BRAM): + 20 h(rec15,1) + 20 h(rec15,2)
+ + 20 h(rec15,3) + 20 h(rec15,4) + 20 h(rec15,5) + 20 h(rec15,6)
+ + 20 h(rec15,7) + 20 h(rec15,8) >= -0
+ whBound(rec1,1,2): + w(rec1) + 2 a(rec1) >= 6
+ whBound(rec1,2,3): + w(rec1) + a(rec1) >= 4
+ whBound(rec1,3,5): + w(rec1) + 0.5 a(rec1) >= 2.5
+ whBound(rec1,5,6): + w(rec1) >= -0
+ whBound(rec1,5,7): + w(rec1) >= -0
+ whBound(rec1,5,8): + w(rec1) >= -0
+ whBound(rec1,6,7): + w(rec1) >= -0
+ whBound(rec1,6,8): + w(rec1) >= -0
+ whBound(rec1,7,8): + w(rec1) >= -0
+ whBound(rec2,1,2): + w(rec2) + 3 a(rec2) >= 8
+ whBound(rec2,2,3): + w(rec2) + a(rec2) >= 4
+ whBound(rec2,3,6): + w(rec2) + 0.333333333333333 a(rec2) >= 2
+ whBound(rec2,6,7): + w(rec2) >= -0
+ whBound(rec2,6,8): + w(rec2) >= -0
+ whBound(rec2,7,8): + w(rec2) >= -0
+ whBound(rec3,1,2): + w(rec3) + 3 a(rec3) >= 8
+ whBound(rec3,2,3): + w(rec3) + a(rec3) >= 4
+ whBound(rec3,3,6): + w(rec3) + 0.333333333333333 a(rec3) >= 2
+ whBound(rec3,6,7): + w(rec3) >= -0
+ whBound(rec3,6,8): + w(rec3) >= -0
+ whBound(rec3,7,8): + w(rec3) >= -0
+ whBound(rec4,1,2): + w(rec4) + 2 a(rec4) >= 6
+ whBound(rec4,2,3): + w(rec4) + a(rec4) >= 4
+ whBound(rec4,3,5): + w(rec4) + 0.5 a(rec4) >= 2.5
+ whBound(rec4,5,6): + w(rec4) >= -0
+ whBound(rec4,5,7): + w(rec4) >= -0
+ whBound(rec4,5,8): + w(rec4) >= -0
+ whBound(rec4,6,7): + w(rec4) >= -0
+ whBound(rec4,6,8): + w(rec4) >= -0
+ whBound(rec4,7,8): + w(rec4) >= -0
  whBound(rec5,1,2): + w(rec5) + 5 a(rec5) >= 14
  whBound(rec5,2,3): + w(rec5) + a(rec5) >= 6
  whBound(rec5,2,4): + w(rec5) + a(rec5) >= 6
@@ -17414,406 +28336,781 @@ Subject To
  whBound(rec5,6,7): + w(rec5) >= 1
  whBound(rec5,6,8): + w(rec5) >= 1
  whBound(rec5,7,8): + w(rec5) >= 1
- whBound(rec6,1,2): + w(rec6) + 12 a(rec6) >= 36
- whBound(rec6,2,3): + w(rec6) + 4 a(rec6) >= 20
- whBound(rec6,3,4): + w(rec6) + 2 a(rec6) >= 14
- whBound(rec6,3,5): + w(rec6) + 2 a(rec6) >= 14
- whBound(rec6,4,5): + w(rec6) + 2 a(rec6) >= 14
- whBound(rec6,5,7): + w(rec6) + 0.5 a(rec6) >= 6.5
- whBound(rec6,7,8): + w(rec6) >= 3
- whBound(rec7,1,2): + w(rec7) + 7 a(rec7) >= 21
- whBound(rec7,2,3): + w(rec7) + 3 a(rec7) >= 13
- whBound(rec7,3,4): + w(rec7) + a(rec7) >= 7
- whBound(rec7,3,5): + w(rec7) + a(rec7) >= 7
- whBound(rec7,4,5): + w(rec7) + a(rec7) >= 7
- whBound(rec7,5,8): + w(rec7) + 0.333333333333333 a(rec7)
+ whBound(rec6,1,2): + w(rec6) + 2 a(rec6) >= 6
+ whBound(rec6,2,3): + w(rec6) + a(rec6) >= 4
+ whBound(rec6,3,5): + w(rec6) + 0.5 a(rec6) >= 2.5
+ whBound(rec6,5,6): + w(rec6) >= -0
+ whBound(rec6,5,7): + w(rec6) >= -0
+ whBound(rec6,5,8): + w(rec6) >= -0
+ whBound(rec6,6,7): + w(rec6) >= -0
+ whBound(rec6,6,8): + w(rec6) >= -0
+ whBound(rec6,7,8): + w(rec6) >= -0
+ whBound(rec7,1,2): + w(rec7) + 2 a(rec7) >= 6
+ whBound(rec7,2,3): + w(rec7) + a(rec7) >= 4
+ whBound(rec7,3,5): + w(rec7) + 0.5 a(rec7) >= 2.5
+ whBound(rec7,5,6): + w(rec7) >= -0
+ whBound(rec7,5,7): + w(rec7) >= -0
+ whBound(rec7,5,8): + w(rec7) >= -0
+ whBound(rec7,6,7): + w(rec7) >= -0
+ whBound(rec7,6,8): + w(rec7) >= -0
+ whBound(rec7,7,8): + w(rec7) >= -0
+ whBound(rec8,1,2): + w(rec8) + 8 a(rec8) >= 23
+ whBound(rec8,2,3): + w(rec8) + 2 a(rec8) >= 11
+ whBound(rec8,2,4): + w(rec8) + 2 a(rec8) >= 11
+ whBound(rec8,3,4): + w(rec8) + 2 a(rec8) >= 11
+ whBound(rec8,4,6): + w(rec8) + 0.5 a(rec8) >= 5
+ whBound(rec8,4,8): + w(rec8) + 0.5 a(rec8) >= 5
+ whBound(rec8,6,8): + w(rec8) + 0.5 a(rec8) >= 5
+ whBound(rec9,1,2): + w(rec9) + 2 a(rec9) >= 6
+ whBound(rec9,2,3): + w(rec9) + a(rec9) >= 4
+ whBound(rec9,3,5): + w(rec9) + 0.5 a(rec9) >= 2.5
+ whBound(rec9,5,6): + w(rec9) >= -0
+ whBound(rec9,5,7): + w(rec9) >= -0
+ whBound(rec9,5,8): + w(rec9) >= -0
+ whBound(rec9,6,7): + w(rec9) >= -0
+ whBound(rec9,6,8): + w(rec9) >= -0
+ whBound(rec9,7,8): + w(rec9) >= -0
+ whBound(rec10,1,2): + w(rec10) + 2 a(rec10) >= 6
+ whBound(rec10,2,3): + w(rec10) + a(rec10) >= 4
+ whBound(rec10,3,5): + w(rec10) + 0.5 a(rec10) >= 2.5
+ whBound(rec10,5,6): + w(rec10) >= -0
+ whBound(rec10,5,7): + w(rec10) >= -0
+ whBound(rec10,5,8): + w(rec10) >= -0
+ whBound(rec10,6,7): + w(rec10) >= -0
+ whBound(rec10,6,8): + w(rec10) >= -0
+ whBound(rec10,7,8): + w(rec10) >= -0
+ whBound(rec11,1,2): + w(rec11) + 2 a(rec11) >= 6
+ whBound(rec11,2,3): + w(rec11) + a(rec11) >= 4
+ whBound(rec11,3,5): + w(rec11) + 0.5 a(rec11) >= 2.5
+ whBound(rec11,5,6): + w(rec11) >= -0
+ whBound(rec11,5,7): + w(rec11) >= -0
+ whBound(rec11,5,8): + w(rec11) >= -0
+ whBound(rec11,6,7): + w(rec11) >= -0
+ whBound(rec11,6,8): + w(rec11) >= -0
+ whBound(rec11,7,8): + w(rec11) >= -0
+ whBound(rec12,1,2): + w(rec12) + 2 a(rec12) >= 6
+ whBound(rec12,2,3): + w(rec12) + a(rec12) >= 4
+ whBound(rec12,3,5): + w(rec12) + 0.5 a(rec12) >= 2.5
+ whBound(rec12,5,6): + w(rec12) >= -0
+ whBound(rec12,5,7): + w(rec12) >= -0
+ whBound(rec12,5,8): + w(rec12) >= -0
+ whBound(rec12,6,7): + w(rec12) >= -0
+ whBound(rec12,6,8): + w(rec12) >= -0
+ whBound(rec12,7,8): + w(rec12) >= -0
+ whBound(rec13,1,2): + w(rec13) + 10 a(rec13) >= 29
+ whBound(rec13,2,3): + w(rec13) + 3 a(rec13) >= 15
+ whBound(rec13,3,4): + w(rec13) + 2 a(rec13) >= 12
+ whBound(rec13,4,5): + w(rec13) + a(rec13) >= 8
+ whBound(rec13,5,7): + w(rec13) + 0.5 a(rec13) >= 5.5
+ whBound(rec13,7,8): + w(rec13) >= 2
+ whBound(rec14,1,2): + w(rec14) + 7 a(rec14) >= 21
+ whBound(rec14,2,3): + w(rec14) + 3 a(rec14) >= 13
+ whBound(rec14,3,4): + w(rec14) + a(rec14) >= 7
+ whBound(rec14,3,5): + w(rec14) + a(rec14) >= 7
+ whBound(rec14,4,5): + w(rec14) + a(rec14) >= 7
+ whBound(rec14,5,8): + w(rec14) + 0.333333333333333 a(rec14)
  >= 3.66666666666667
- whBound(rec8,1,2): + w(rec8) + 3 a(rec8) >= 8
- whBound(rec8,2,3): + w(rec8) + a(rec8) >= 4
- whBound(rec8,3,6): + w(rec8) + 0.333333333333333 a(rec8) >= 2
- whBound(rec8,6,7): + w(rec8) >= -0
- whBound(rec8,6,8): + w(rec8) >= -0
- whBound(rec8,7,8): + w(rec8) >= -0
- whBound(rec9,1,2): + w(rec9) + 10 a(rec9) >= 29
- whBound(rec9,2,3): + w(rec9) + 3 a(rec9) >= 15
- whBound(rec9,3,4): + w(rec9) + 2 a(rec9) >= 12
- whBound(rec9,4,5): + w(rec9) + a(rec9) >= 8
- whBound(rec9,5,7): + w(rec9) + 0.5 a(rec9) >= 5.5
- whBound(rec9,7,8): + w(rec9) >= 2
- whBound(rec10,1,2): + w(rec10) + 10 a(rec10) >= 29
- whBound(rec10,2,3): + w(rec10) + 3 a(rec10) >= 15
- whBound(rec10,3,4): + w(rec10) + 2 a(rec10) >= 12
- whBound(rec10,4,5): + w(rec10) + a(rec10) >= 8
- whBound(rec10,5,7): + w(rec10) + 0.5 a(rec10) >= 5.5
- whBound(rec10,7,8): + w(rec10) >= 2
- minCentroidDistance(rec1,rec2): + DCx(rec1,rec2) + DCy(rec1,rec2) >= 9
- minCentroidDistance(rec1,rec3): + DCx(rec1,rec3) + DCy(rec1,rec3) >= 9
- minCentroidDistance(rec1,rec4): + DCx(rec1,rec4) + DCy(rec1,rec4) >= 9
- minCentroidDistance(rec1,rec5): + DCx(rec1,rec5) + DCy(rec1,rec5) >= 9
- minCentroidDistance(rec1,rec6): + DCx(rec1,rec6) + DCy(rec1,rec6) >= 11
- minCentroidDistance(rec1,rec7): + DCx(rec1,rec7) + DCy(rec1,rec7) >= 9
- minCentroidDistance(rec1,rec8): + DCx(rec1,rec8) + DCy(rec1,rec8) >= 8
- minCentroidDistance(rec1,rec9): + DCx(rec1,rec9) + DCy(rec1,rec9) >= 10
+ whBound(rec15,1,2): + w(rec15) + 5 a(rec15) >= 14
+ whBound(rec15,2,3): + w(rec15) + a(rec15) >= 6
+ whBound(rec15,2,4): + w(rec15) + a(rec15) >= 6
+ whBound(rec15,2,5): + w(rec15) + a(rec15) >= 6
+ whBound(rec15,3,4): + w(rec15) + a(rec15) >= 6
+ whBound(rec15,3,5): + w(rec15) + a(rec15) >= 6
+ whBound(rec15,4,5): + w(rec15) + a(rec15) >= 6
+ whBound(rec15,5,6): + w(rec15) >= 1
+ whBound(rec15,5,7): + w(rec15) >= 1
+ whBound(rec15,5,8): + w(rec15) >= 1
+ whBound(rec15,6,7): + w(rec15) >= 1
+ whBound(rec15,6,8): + w(rec15) >= 1
+ whBound(rec15,7,8): + w(rec15) >= 1
+ minCentroidDistance(rec1,rec2): + DCx(rec1,rec2) + DCy(rec1,rec2) >= 2
+ minCentroidDistance(rec1,rec3): + DCx(rec1,rec3) + DCy(rec1,rec3) >= 2
+ minCentroidDistance(rec1,rec4): + DCx(rec1,rec4) + DCy(rec1,rec4) >= 2
+ minCentroidDistance(rec1,rec5): + DCx(rec1,rec5) + DCy(rec1,rec5) >= 3
+ minCentroidDistance(rec1,rec6): + DCx(rec1,rec6) + DCy(rec1,rec6) >= 2
+ minCentroidDistance(rec1,rec7): + DCx(rec1,rec7) + DCy(rec1,rec7) >= 2
+ minCentroidDistance(rec1,rec8): + DCx(rec1,rec8) + DCy(rec1,rec8) >= 3
+ minCentroidDistance(rec1,rec9): + DCx(rec1,rec9) + DCy(rec1,rec9) >= 2
  minCentroidDistance(rec1,rec10): + DCx(rec1,rec10) + DCy(rec1,rec10)
- >= 10
- minCentroidDistance(rec2,rec3): + DCx(rec2,rec3) + DCy(rec2,rec3) >= 4
- minCentroidDistance(rec2,rec4): + DCx(rec2,rec4) + DCy(rec2,rec4) >= 4
- minCentroidDistance(rec2,rec5): + DCx(rec2,rec5) + DCy(rec2,rec5) >= 4
- minCentroidDistance(rec2,rec6): + DCx(rec2,rec6) + DCy(rec2,rec6) >= 6
- minCentroidDistance(rec2,rec7): + DCx(rec2,rec7) + DCy(rec2,rec7) >= 4
+ >= 2
+ minCentroidDistance(rec1,rec11): + DCx(rec1,rec11) + DCy(rec1,rec11)
+ >= 2
+ minCentroidDistance(rec1,rec12): + DCx(rec1,rec12) + DCy(rec1,rec12)
+ >= 2
+ minCentroidDistance(rec1,rec13): + DCx(rec1,rec13) + DCy(rec1,rec13)
+ >= 4
+ minCentroidDistance(rec1,rec14): + DCx(rec1,rec14) + DCy(rec1,rec14)
+ >= 3
+ minCentroidDistance(rec1,rec15): + DCx(rec1,rec15) + DCy(rec1,rec15)
+ >= 3
+ minCentroidDistance(rec2,rec3): + DCx(rec2,rec3) + DCy(rec2,rec3) >= 2
+ minCentroidDistance(rec2,rec4): + DCx(rec2,rec4) + DCy(rec2,rec4) >= 2
+ minCentroidDistance(rec2,rec5): + DCx(rec2,rec5) + DCy(rec2,rec5) >= 3
+ minCentroidDistance(rec2,rec6): + DCx(rec2,rec6) + DCy(rec2,rec6) >= 2
+ minCentroidDistance(rec2,rec7): + DCx(rec2,rec7) + DCy(rec2,rec7) >= 2
  minCentroidDistance(rec2,rec8): + DCx(rec2,rec8) + DCy(rec2,rec8) >= 3
- minCentroidDistance(rec2,rec9): + DCx(rec2,rec9) + DCy(rec2,rec9) >= 5
- minCentroidDistance(rec3,rec4): + DCx(rec3,rec4) + DCy(rec3,rec4) >= 4
- minCentroidDistance(rec3,rec5): + DCx(rec3,rec5) + DCy(rec3,rec5) >= 4
- minCentroidDistance(rec3,rec6): + DCx(rec3,rec6) + DCy(rec3,rec6) >= 6
- minCentroidDistance(rec3,rec7): + DCx(rec3,rec7) + DCy(rec3,rec7) >= 4
+ minCentroidDistance(rec2,rec9): + DCx(rec2,rec9) + DCy(rec2,rec9) >= 2
+ minCentroidDistance(rec3,rec4): + DCx(rec3,rec4) + DCy(rec3,rec4) >= 2
+ minCentroidDistance(rec3,rec5): + DCx(rec3,rec5) + DCy(rec3,rec5) >= 3
+ minCentroidDistance(rec3,rec6): + DCx(rec3,rec6) + DCy(rec3,rec6) >= 2
+ minCentroidDistance(rec3,rec7): + DCx(rec3,rec7) + DCy(rec3,rec7) >= 2
  minCentroidDistance(rec3,rec8): + DCx(rec3,rec8) + DCy(rec3,rec8) >= 3
- minCentroidDistance(rec3,rec9): + DCx(rec3,rec9) + DCy(rec3,rec9) >= 5
- minCentroidDistance(rec4,rec5): + DCx(rec4,rec5) + DCy(rec4,rec5) >= 4
- minCentroidDistance(rec4,rec6): + DCx(rec4,rec6) + DCy(rec4,rec6) >= 6
- minCentroidDistance(rec4,rec7): + DCx(rec4,rec7) + DCy(rec4,rec7) >= 4
+ minCentroidDistance(rec3,rec9): + DCx(rec3,rec9) + DCy(rec3,rec9) >= 2
+ minCentroidDistance(rec4,rec5): + DCx(rec4,rec5) + DCy(rec4,rec5) >= 3
+ minCentroidDistance(rec4,rec6): + DCx(rec4,rec6) + DCy(rec4,rec6) >= 2
+ minCentroidDistance(rec4,rec7): + DCx(rec4,rec7) + DCy(rec4,rec7) >= 2
  minCentroidDistance(rec4,rec8): + DCx(rec4,rec8) + DCy(rec4,rec8) >= 3
- minCentroidDistance(rec4,rec9): + DCx(rec4,rec9) + DCy(rec4,rec9) >= 5
- minCentroidDistance(rec5,rec6): + DCx(rec5,rec6) + DCy(rec5,rec6) >= 6
- minCentroidDistance(rec5,rec7): + DCx(rec5,rec7) + DCy(rec5,rec7) >= 4
- minCentroidDistance(rec5,rec8): + DCx(rec5,rec8) + DCy(rec5,rec8) >= 3
- minCentroidDistance(rec5,rec9): + DCx(rec5,rec9) + DCy(rec5,rec9) >= 5
- minCentroidDistance(rec6,rec7): + DCx(rec6,rec7) + DCy(rec6,rec7) >= 6
- minCentroidDistance(rec6,rec8): + DCx(rec6,rec8) + DCy(rec6,rec8) >= 5
- minCentroidDistance(rec6,rec9): + DCx(rec6,rec9) + DCy(rec6,rec9) >= 7
+ minCentroidDistance(rec4,rec9): + DCx(rec4,rec9) + DCy(rec4,rec9) >= 2
+ minCentroidDistance(rec5,rec6): + DCx(rec5,rec6) + DCy(rec5,rec6) >= 3
+ minCentroidDistance(rec5,rec7): + DCx(rec5,rec7) + DCy(rec5,rec7) >= 3
+ minCentroidDistance(rec5,rec8): + DCx(rec5,rec8) + DCy(rec5,rec8) >= 4
+ minCentroidDistance(rec5,rec9): + DCx(rec5,rec9) + DCy(rec5,rec9) >= 3
+ minCentroidDistance(rec6,rec7): + DCx(rec6,rec7) + DCy(rec6,rec7) >= 2
+ minCentroidDistance(rec6,rec8): + DCx(rec6,rec8) + DCy(rec6,rec8) >= 3
+ minCentroidDistance(rec6,rec9): + DCx(rec6,rec9) + DCy(rec6,rec9) >= 2
  minCentroidDistance(rec7,rec8): + DCx(rec7,rec8) + DCy(rec7,rec8) >= 3
- minCentroidDistance(rec7,rec9): + DCx(rec7,rec9) + DCy(rec7,rec9) >= 5
- minCentroidDistance(rec8,rec9): + DCx(rec8,rec9) + DCy(rec8,rec9) >= 4
+ minCentroidDistance(rec7,rec9): + DCx(rec7,rec9) + DCy(rec7,rec9) >= 2
+ minCentroidDistance(rec8,rec9): + DCx(rec8,rec9) + DCy(rec8,rec9) >= 3
  minCentroidDistance(rec10,rec2): + DCx(rec10,rec2) + DCy(rec10,rec2)
- >= 5
+ >= 2
  minCentroidDistance(rec10,rec3): + DCx(rec10,rec3) + DCy(rec10,rec3)
- >= 5
+ >= 2
  minCentroidDistance(rec10,rec4): + DCx(rec10,rec4) + DCy(rec10,rec4)
- >= 5
+ >= 2
  minCentroidDistance(rec10,rec5): + DCx(rec10,rec5) + DCy(rec10,rec5)
- >= 5
+ >= 3
  minCentroidDistance(rec10,rec6): + DCx(rec10,rec6) + DCy(rec10,rec6)
- >= 7
+ >= 2
  minCentroidDistance(rec10,rec7): + DCx(rec10,rec7) + DCy(rec10,rec7)
- >= 5
+ >= 2
  minCentroidDistance(rec10,rec8): + DCx(rec10,rec8) + DCy(rec10,rec8)
- >= 4
+ >= 3
  minCentroidDistance(rec10,rec9): + DCx(rec10,rec9) + DCy(rec10,rec9)
- >= 6
+ >= 2
+ minCentroidDistance(rec10,rec11): + DCx(rec10,rec11) + DCy(rec10,rec11)
+ >= 2
+ minCentroidDistance(rec10,rec12): + DCx(rec10,rec12) + DCy(rec10,rec12)
+ >= 2
+ minCentroidDistance(rec10,rec13): + DCx(rec10,rec13) + DCy(rec10,rec13)
+ >= 4
+ minCentroidDistance(rec10,rec14): + DCx(rec10,rec14) + DCy(rec10,rec14)
+ >= 3
+ minCentroidDistance(rec10,rec15): + DCx(rec10,rec15) + DCy(rec10,rec15)
+ >= 3
+ minCentroidDistance(rec11,rec2): + DCx(rec11,rec2) + DCy(rec11,rec2)
+ >= 2
+ minCentroidDistance(rec11,rec3): + DCx(rec11,rec3) + DCy(rec11,rec3)
+ >= 2
+ minCentroidDistance(rec11,rec4): + DCx(rec11,rec4) + DCy(rec11,rec4)
+ >= 2
+ minCentroidDistance(rec11,rec5): + DCx(rec11,rec5) + DCy(rec11,rec5)
+ >= 3
+ minCentroidDistance(rec11,rec6): + DCx(rec11,rec6) + DCy(rec11,rec6)
+ >= 2
+ minCentroidDistance(rec11,rec7): + DCx(rec11,rec7) + DCy(rec11,rec7)
+ >= 2
+ minCentroidDistance(rec11,rec8): + DCx(rec11,rec8) + DCy(rec11,rec8)
+ >= 3
+ minCentroidDistance(rec11,rec9): + DCx(rec11,rec9) + DCy(rec11,rec9)
+ >= 2
+ minCentroidDistance(rec11,rec12): + DCx(rec11,rec12) + DCy(rec11,rec12)
+ >= 2
+ minCentroidDistance(rec11,rec13): + DCx(rec11,rec13) + DCy(rec11,rec13)
+ >= 4
+ minCentroidDistance(rec11,rec14): + DCx(rec11,rec14) + DCy(rec11,rec14)
+ >= 3
+ minCentroidDistance(rec11,rec15): + DCx(rec11,rec15) + DCy(rec11,rec15)
+ >= 3
+ minCentroidDistance(rec12,rec2): + DCx(rec12,rec2) + DCy(rec12,rec2)
+ >= 2
+ minCentroidDistance(rec12,rec3): + DCx(rec12,rec3) + DCy(rec12,rec3)
+ >= 2
+ minCentroidDistance(rec12,rec4): + DCx(rec12,rec4) + DCy(rec12,rec4)
+ >= 2
+ minCentroidDistance(rec12,rec5): + DCx(rec12,rec5) + DCy(rec12,rec5)
+ >= 3
+ minCentroidDistance(rec12,rec6): + DCx(rec12,rec6) + DCy(rec12,rec6)
+ >= 2
+ minCentroidDistance(rec12,rec7): + DCx(rec12,rec7) + DCy(rec12,rec7)
+ >= 2
+ minCentroidDistance(rec12,rec8): + DCx(rec12,rec8) + DCy(rec12,rec8)
+ >= 3
+ minCentroidDistance(rec12,rec9): + DCx(rec12,rec9) + DCy(rec12,rec9)
+ >= 2
+ minCentroidDistance(rec12,rec13): + DCx(rec12,rec13) + DCy(rec12,rec13)
+ >= 4
+ minCentroidDistance(rec12,rec14): + DCx(rec12,rec14) + DCy(rec12,rec14)
+ >= 3
+ minCentroidDistance(rec12,rec15): + DCx(rec12,rec15) + DCy(rec12,rec15)
+ >= 3
+ minCentroidDistance(rec13,rec2): + DCx(rec13,rec2) + DCy(rec13,rec2)
+ >= 4
+ minCentroidDistance(rec13,rec3): + DCx(rec13,rec3) + DCy(rec13,rec3)
+ >= 4
+ minCentroidDistance(rec13,rec4): + DCx(rec13,rec4) + DCy(rec13,rec4)
+ >= 4
+ minCentroidDistance(rec13,rec5): + DCx(rec13,rec5) + DCy(rec13,rec5)
+ >= 5
+ minCentroidDistance(rec13,rec6): + DCx(rec13,rec6) + DCy(rec13,rec6)
+ >= 4
+ minCentroidDistance(rec13,rec7): + DCx(rec13,rec7) + DCy(rec13,rec7)
+ >= 4
+ minCentroidDistance(rec13,rec8): + DCx(rec13,rec8) + DCy(rec13,rec8)
+ >= 5
+ minCentroidDistance(rec13,rec9): + DCx(rec13,rec9) + DCy(rec13,rec9)
+ >= 4
+ minCentroidDistance(rec13,rec14): + DCx(rec13,rec14) + DCy(rec13,rec14)
+ >= 5
+ minCentroidDistance(rec13,rec15): + DCx(rec13,rec15) + DCy(rec13,rec15)
+ >= 5
+ minCentroidDistance(rec14,rec2): + DCx(rec14,rec2) + DCy(rec14,rec2)
+ >= 3
+ minCentroidDistance(rec14,rec3): + DCx(rec14,rec3) + DCy(rec14,rec3)
+ >= 3
+ minCentroidDistance(rec14,rec4): + DCx(rec14,rec4) + DCy(rec14,rec4)
+ >= 3
+ minCentroidDistance(rec14,rec5): + DCx(rec14,rec5) + DCy(rec14,rec5)
+ >= 4
+ minCentroidDistance(rec14,rec6): + DCx(rec14,rec6) + DCy(rec14,rec6)
+ >= 3
+ minCentroidDistance(rec14,rec7): + DCx(rec14,rec7) + DCy(rec14,rec7)
+ >= 3
+ minCentroidDistance(rec14,rec8): + DCx(rec14,rec8) + DCy(rec14,rec8)
+ >= 4
+ minCentroidDistance(rec14,rec9): + DCx(rec14,rec9) + DCy(rec14,rec9)
+ >= 3
+ minCentroidDistance(rec14,rec15): + DCx(rec14,rec15) + DCy(rec14,rec15)
+ >= 4
+ minCentroidDistance(rec15,rec2): + DCx(rec15,rec2) + DCy(rec15,rec2)
+ >= 3
+ minCentroidDistance(rec15,rec3): + DCx(rec15,rec3) + DCy(rec15,rec3)
+ >= 3
+ minCentroidDistance(rec15,rec4): + DCx(rec15,rec4) + DCy(rec15,rec4)
+ >= 3
+ minCentroidDistance(rec15,rec5): + DCx(rec15,rec5) + DCy(rec15,rec5)
+ >= 4
+ minCentroidDistance(rec15,rec6): + DCx(rec15,rec6) + DCy(rec15,rec6)
+ >= 3
+ minCentroidDistance(rec15,rec7): + DCx(rec15,rec7) + DCy(rec15,rec7)
+ >= 3
+ minCentroidDistance(rec15,rec8): + DCx(rec15,rec8) + DCy(rec15,rec8)
+ >= 4
+ minCentroidDistance(rec15,rec9): + DCx(rec15,rec9) + DCy(rec15,rec9)
+ >= 3
  minXCentroidDistance(rec1,rec2): + 60 g1(rec1,rec2) + DCx(rec1,rec2)
- >= 9
+ >= 2
  minXCentroidDistance(rec1,rec3): + 60 g1(rec1,rec3) + DCx(rec1,rec3)
- >= 9
+ >= 2
  minXCentroidDistance(rec1,rec4): + 60 g1(rec1,rec4) + DCx(rec1,rec4)
- >= 9
+ >= 2
  minXCentroidDistance(rec1,rec5): + 60 g1(rec1,rec5) + DCx(rec1,rec5)
- >= 9
+ >= 3
  minXCentroidDistance(rec1,rec6): + 60 g1(rec1,rec6) + DCx(rec1,rec6)
- >= 11
+ >= 2
  minXCentroidDistance(rec1,rec7): + 60 g1(rec1,rec7) + DCx(rec1,rec7)
- >= 9
+ >= 2
  minXCentroidDistance(rec1,rec8): + 60 g1(rec1,rec8) + DCx(rec1,rec8)
- >= 8
+ >= 3
  minXCentroidDistance(rec1,rec9): + 60 g1(rec1,rec9) + DCx(rec1,rec9)
- >= 10
+ >= 2
  minXCentroidDistance(rec1,rec10): + 60 g1(rec1,rec10) + DCx(rec1,rec10)
- >= 10
+ >= 2
+ minXCentroidDistance(rec1,rec11): + 60 g1(rec1,rec11) + DCx(rec1,rec11)
+ >= 2
+ minXCentroidDistance(rec1,rec12): + 60 g1(rec1,rec12) + DCx(rec1,rec12)
+ >= 2
+ minXCentroidDistance(rec1,rec13): + 60 g1(rec1,rec13) + DCx(rec1,rec13)
+ >= 4
+ minXCentroidDistance(rec1,rec14): + 60 g1(rec1,rec14) + DCx(rec1,rec14)
+ >= 3
+ minXCentroidDistance(rec1,rec15): + 60 g1(rec1,rec15) + DCx(rec1,rec15)
+ >= 3
  minXCentroidDistance(rec2,rec3): + 60 g1(rec2,rec3) + DCx(rec2,rec3)
- >= 4
+ >= 2
  minXCentroidDistance(rec2,rec4): + 60 g1(rec2,rec4) + DCx(rec2,rec4)
- >= 4
+ >= 2
  minXCentroidDistance(rec2,rec5): + 60 g1(rec2,rec5) + DCx(rec2,rec5)
- >= 4
+ >= 3
  minXCentroidDistance(rec2,rec6): + 60 g1(rec2,rec6) + DCx(rec2,rec6)
- >= 6
+ >= 2
  minXCentroidDistance(rec2,rec7): + 60 g1(rec2,rec7) + DCx(rec2,rec7)
- >= 4
+ >= 2
  minXCentroidDistance(rec2,rec8): + 60 g1(rec2,rec8) + DCx(rec2,rec8)
  >= 3
  minXCentroidDistance(rec2,rec9): + 60 g1(rec2,rec9) + DCx(rec2,rec9)
- >= 5
+ >= 2
  minXCentroidDistance(rec3,rec4): + 60 g1(rec3,rec4) + DCx(rec3,rec4)
- >= 4
+ >= 2
  minXCentroidDistance(rec3,rec5): + 60 g1(rec3,rec5) + DCx(rec3,rec5)
- >= 4
+ >= 3
  minXCentroidDistance(rec3,rec6): + 60 g1(rec3,rec6) + DCx(rec3,rec6)
- >= 6
+ >= 2
  minXCentroidDistance(rec3,rec7): + 60 g1(rec3,rec7) + DCx(rec3,rec7)
- >= 4
+ >= 2
  minXCentroidDistance(rec3,rec8): + 60 g1(rec3,rec8) + DCx(rec3,rec8)
  >= 3
  minXCentroidDistance(rec3,rec9): + 60 g1(rec3,rec9) + DCx(rec3,rec9)
- >= 5
+ >= 2
  minXCentroidDistance(rec4,rec5): + 60 g1(rec4,rec5) + DCx(rec4,rec5)
- >= 4
+ >= 3
  minXCentroidDistance(rec4,rec6): + 60 g1(rec4,rec6) + DCx(rec4,rec6)
- >= 6
+ >= 2
  minXCentroidDistance(rec4,rec7): + 60 g1(rec4,rec7) + DCx(rec4,rec7)
- >= 4
+ >= 2
  minXCentroidDistance(rec4,rec8): + 60 g1(rec4,rec8) + DCx(rec4,rec8)
  >= 3
  minXCentroidDistance(rec4,rec9): + 60 g1(rec4,rec9) + DCx(rec4,rec9)
- >= 5
+ >= 2
  minXCentroidDistance(rec5,rec6): + 60 g1(rec5,rec6) + DCx(rec5,rec6)
- >= 6
- minXCentroidDistance(rec5,rec7): + 60 g1(rec5,rec7) + DCx(rec5,rec7)
- >= 4
- minXCentroidDistance(rec5,rec8): + 60 g1(rec5,rec8) + DCx(rec5,rec8)
  >= 3
+ minXCentroidDistance(rec5,rec7): + 60 g1(rec5,rec7) + DCx(rec5,rec7)
+ >= 3
+ minXCentroidDistance(rec5,rec8): + 60 g1(rec5,rec8) + DCx(rec5,rec8)
+ >= 4
  minXCentroidDistance(rec5,rec9): + 60 g1(rec5,rec9) + DCx(rec5,rec9)
- >= 5
+ >= 3
  minXCentroidDistance(rec6,rec7): + 60 g1(rec6,rec7) + DCx(rec6,rec7)
- >= 6
+ >= 2
  minXCentroidDistance(rec6,rec8): + 60 g1(rec6,rec8) + DCx(rec6,rec8)
- >= 5
+ >= 3
  minXCentroidDistance(rec6,rec9): + 60 g1(rec6,rec9) + DCx(rec6,rec9)
- >= 7
+ >= 2
  minXCentroidDistance(rec7,rec8): + 60 g1(rec7,rec8) + DCx(rec7,rec8)
  >= 3
  minXCentroidDistance(rec7,rec9): + 60 g1(rec7,rec9) + DCx(rec7,rec9)
- >= 5
+ >= 2
  minXCentroidDistance(rec8,rec9): + 60 g1(rec8,rec9) + DCx(rec8,rec9)
- >= 4
+ >= 3
  minXCentroidDistance(rec10,rec2): + 60 g1(rec10,rec2) + DCx(rec10,rec2)
- >= 5
+ >= 2
  minXCentroidDistance(rec10,rec3): + 60 g1(rec10,rec3) + DCx(rec10,rec3)
- >= 5
+ >= 2
  minXCentroidDistance(rec10,rec4): + 60 g1(rec10,rec4) + DCx(rec10,rec4)
- >= 5
+ >= 2
  minXCentroidDistance(rec10,rec5): + 60 g1(rec10,rec5) + DCx(rec10,rec5)
- >= 5
+ >= 3
  minXCentroidDistance(rec10,rec6): + 60 g1(rec10,rec6) + DCx(rec10,rec6)
- >= 7
+ >= 2
  minXCentroidDistance(rec10,rec7): + 60 g1(rec10,rec7) + DCx(rec10,rec7)
- >= 5
+ >= 2
  minXCentroidDistance(rec10,rec8): + 60 g1(rec10,rec8) + DCx(rec10,rec8)
- >= 4
+ >= 3
  minXCentroidDistance(rec10,rec9): + 60 g1(rec10,rec9) + DCx(rec10,rec9)
- >= 6
+ >= 2
+ minXCentroidDistance(rec10,rec11): + 60 g1(rec10,rec11)
+ + DCx(rec10,rec11) >= 2
+ minXCentroidDistance(rec10,rec12): + 60 g1(rec10,rec12)
+ + DCx(rec10,rec12) >= 2
+ minXCentroidDistance(rec10,rec13): + 60 g1(rec10,rec13)
+ + DCx(rec10,rec13) >= 4
+ minXCentroidDistance(rec10,rec14): + 60 g1(rec10,rec14)
+ + DCx(rec10,rec14) >= 3
+ minXCentroidDistance(rec10,rec15): + 60 g1(rec10,rec15)
+ + DCx(rec10,rec15) >= 3
+ minXCentroidDistance(rec11,rec2): + 60 g1(rec11,rec2) + DCx(rec11,rec2)
+ >= 2
+ minXCentroidDistance(rec11,rec3): + 60 g1(rec11,rec3) + DCx(rec11,rec3)
+ >= 2
+ minXCentroidDistance(rec11,rec4): + 60 g1(rec11,rec4) + DCx(rec11,rec4)
+ >= 2
+ minXCentroidDistance(rec11,rec5): + 60 g1(rec11,rec5) + DCx(rec11,rec5)
+ >= 3
+ minXCentroidDistance(rec11,rec6): + 60 g1(rec11,rec6) + DCx(rec11,rec6)
+ >= 2
+ minXCentroidDistance(rec11,rec7): + 60 g1(rec11,rec7) + DCx(rec11,rec7)
+ >= 2
+ minXCentroidDistance(rec11,rec8): + 60 g1(rec11,rec8) + DCx(rec11,rec8)
+ >= 3
+ minXCentroidDistance(rec11,rec9): + 60 g1(rec11,rec9) + DCx(rec11,rec9)
+ >= 2
+ minXCentroidDistance(rec11,rec12): + 60 g1(rec11,rec12)
+ + DCx(rec11,rec12) >= 2
+ minXCentroidDistance(rec11,rec13): + 60 g1(rec11,rec13)
+ + DCx(rec11,rec13) >= 4
+ minXCentroidDistance(rec11,rec14): + 60 g1(rec11,rec14)
+ + DCx(rec11,rec14) >= 3
+ minXCentroidDistance(rec11,rec15): + 60 g1(rec11,rec15)
+ + DCx(rec11,rec15) >= 3
+ minXCentroidDistance(rec12,rec2): + 60 g1(rec12,rec2) + DCx(rec12,rec2)
+ >= 2
+ minXCentroidDistance(rec12,rec3): + 60 g1(rec12,rec3) + DCx(rec12,rec3)
+ >= 2
+ minXCentroidDistance(rec12,rec4): + 60 g1(rec12,rec4) + DCx(rec12,rec4)
+ >= 2
+ minXCentroidDistance(rec12,rec5): + 60 g1(rec12,rec5) + DCx(rec12,rec5)
+ >= 3
+ minXCentroidDistance(rec12,rec6): + 60 g1(rec12,rec6) + DCx(rec12,rec6)
+ >= 2
+ minXCentroidDistance(rec12,rec7): + 60 g1(rec12,rec7) + DCx(rec12,rec7)
+ >= 2
+ minXCentroidDistance(rec12,rec8): + 60 g1(rec12,rec8) + DCx(rec12,rec8)
+ >= 3
+ minXCentroidDistance(rec12,rec9): + 60 g1(rec12,rec9) + DCx(rec12,rec9)
+ >= 2
+ minXCentroidDistance(rec12,rec13): + 60 g1(rec12,rec13)
+ + DCx(rec12,rec13) >= 4
+ minXCentroidDistance(rec12,rec14): + 60 g1(rec12,rec14)
+ + DCx(rec12,rec14) >= 3
+ minXCentroidDistance(rec12,rec15): + 60 g1(rec12,rec15)
+ + DCx(rec12,rec15) >= 3
+ minXCentroidDistance(rec13,rec2): + 60 g1(rec13,rec2) + DCx(rec13,rec2)
+ >= 4
+ minXCentroidDistance(rec13,rec3): + 60 g1(rec13,rec3) + DCx(rec13,rec3)
+ >= 4
+ minXCentroidDistance(rec13,rec4): + 60 g1(rec13,rec4) + DCx(rec13,rec4)
+ >= 4
+ minXCentroidDistance(rec13,rec5): + 60 g1(rec13,rec5) + DCx(rec13,rec5)
+ >= 5
+ minXCentroidDistance(rec13,rec6): + 60 g1(rec13,rec6) + DCx(rec13,rec6)
+ >= 4
+ minXCentroidDistance(rec13,rec7): + 60 g1(rec13,rec7) + DCx(rec13,rec7)
+ >= 4
+ minXCentroidDistance(rec13,rec8): + 60 g1(rec13,rec8) + DCx(rec13,rec8)
+ >= 5
+ minXCentroidDistance(rec13,rec9): + 60 g1(rec13,rec9) + DCx(rec13,rec9)
+ >= 4
+ minXCentroidDistance(rec13,rec14): + 60 g1(rec13,rec14)
+ + DCx(rec13,rec14) >= 5
+ minXCentroidDistance(rec13,rec15): + 60 g1(rec13,rec15)
+ + DCx(rec13,rec15) >= 5
+ minXCentroidDistance(rec14,rec2): + 60 g1(rec14,rec2) + DCx(rec14,rec2)
+ >= 3
+ minXCentroidDistance(rec14,rec3): + 60 g1(rec14,rec3) + DCx(rec14,rec3)
+ >= 3
+ minXCentroidDistance(rec14,rec4): + 60 g1(rec14,rec4) + DCx(rec14,rec4)
+ >= 3
+ minXCentroidDistance(rec14,rec5): + 60 g1(rec14,rec5) + DCx(rec14,rec5)
+ >= 4
+ minXCentroidDistance(rec14,rec6): + 60 g1(rec14,rec6) + DCx(rec14,rec6)
+ >= 3
+ minXCentroidDistance(rec14,rec7): + 60 g1(rec14,rec7) + DCx(rec14,rec7)
+ >= 3
+ minXCentroidDistance(rec14,rec8): + 60 g1(rec14,rec8) + DCx(rec14,rec8)
+ >= 4
+ minXCentroidDistance(rec14,rec9): + 60 g1(rec14,rec9) + DCx(rec14,rec9)
+ >= 3
+ minXCentroidDistance(rec14,rec15): + 60 g1(rec14,rec15)
+ + DCx(rec14,rec15) >= 4
+ minXCentroidDistance(rec15,rec2): + 60 g1(rec15,rec2) + DCx(rec15,rec2)
+ >= 3
+ minXCentroidDistance(rec15,rec3): + 60 g1(rec15,rec3) + DCx(rec15,rec3)
+ >= 3
+ minXCentroidDistance(rec15,rec4): + 60 g1(rec15,rec4) + DCx(rec15,rec4)
+ >= 3
+ minXCentroidDistance(rec15,rec5): + 60 g1(rec15,rec5) + DCx(rec15,rec5)
+ >= 4
+ minXCentroidDistance(rec15,rec6): + 60 g1(rec15,rec6) + DCx(rec15,rec6)
+ >= 3
+ minXCentroidDistance(rec15,rec7): + 60 g1(rec15,rec7) + DCx(rec15,rec7)
+ >= 3
+ minXCentroidDistance(rec15,rec8): + 60 g1(rec15,rec8) + DCx(rec15,rec8)
+ >= 4
+ minXCentroidDistance(rec15,rec9): + 60 g1(rec15,rec9) + DCx(rec15,rec9)
+ >= 3
  minXCentroidDistance2(rec1,rec2,1): - 60 h(rec1,1) - 60 h(rec2,1)
- + DCx(rec1,rec2) >= -111
+ + DCx(rec1,rec2) >= -118
  minXCentroidDistance2(rec1,rec2,2): - 60 h(rec1,2) - 60 h(rec2,2)
- + DCx(rec1,rec2) >= -111
+ + DCx(rec1,rec2) >= -118
  minXCentroidDistance2(rec1,rec2,3): - 60 h(rec1,3) - 60 h(rec2,3)
- + DCx(rec1,rec2) >= -111
+ + DCx(rec1,rec2) >= -118
  minXCentroidDistance2(rec1,rec2,4): - 60 h(rec1,4) - 60 h(rec2,4)
- + DCx(rec1,rec2) >= -111
+ + DCx(rec1,rec2) >= -118
  minXCentroidDistance2(rec1,rec2,5): - 60 h(rec1,5) - 60 h(rec2,5)
- + DCx(rec1,rec2) >= -111
+ + DCx(rec1,rec2) >= -118
  minXCentroidDistance2(rec1,rec2,6): - 60 h(rec1,6) - 60 h(rec2,6)
- + DCx(rec1,rec2) >= -111
+ + DCx(rec1,rec2) >= -118
  minXCentroidDistance2(rec1,rec2,7): - 60 h(rec1,7) - 60 h(rec2,7)
- + DCx(rec1,rec2) >= -111
+ + DCx(rec1,rec2) >= -118
  minXCentroidDistance2(rec1,rec2,8): - 60 h(rec1,8) - 60 h(rec2,8)
- + DCx(rec1,rec2) >= -111
+ + DCx(rec1,rec2) >= -118
  minXCentroidDistance2(rec1,rec3,1): - 60 h(rec1,1) - 60 h(rec3,1)
- + DCx(rec1,rec3) >= -111
+ + DCx(rec1,rec3) >= -118
  minXCentroidDistance2(rec1,rec3,2): - 60 h(rec1,2) - 60 h(rec3,2)
- + DCx(rec1,rec3) >= -111
+ + DCx(rec1,rec3) >= -118
  minXCentroidDistance2(rec1,rec3,3): - 60 h(rec1,3) - 60 h(rec3,3)
- + DCx(rec1,rec3) >= -111
+ + DCx(rec1,rec3) >= -118
  minXCentroidDistance2(rec1,rec3,4): - 60 h(rec1,4) - 60 h(rec3,4)
- + DCx(rec1,rec3) >= -111
+ + DCx(rec1,rec3) >= -118
  minXCentroidDistance2(rec1,rec3,5): - 60 h(rec1,5) - 60 h(rec3,5)
- + DCx(rec1,rec3) >= -111
+ + DCx(rec1,rec3) >= -118
  minXCentroidDistance2(rec1,rec3,6): - 60 h(rec1,6) - 60 h(rec3,6)
- + DCx(rec1,rec3) >= -111
+ + DCx(rec1,rec3) >= -118
  minXCentroidDistance2(rec1,rec3,7): - 60 h(rec1,7) - 60 h(rec3,7)
- + DCx(rec1,rec3) >= -111
+ + DCx(rec1,rec3) >= -118
  minXCentroidDistance2(rec1,rec3,8): - 60 h(rec1,8) - 60 h(rec3,8)
- + DCx(rec1,rec3) >= -111
+ + DCx(rec1,rec3) >= -118
  minXCentroidDistance2(rec1,rec4,1): - 60 h(rec1,1) - 60 h(rec4,1)
- + DCx(rec1,rec4) >= -111
+ + DCx(rec1,rec4) >= -118
  minXCentroidDistance2(rec1,rec4,2): - 60 h(rec1,2) - 60 h(rec4,2)
- + DCx(rec1,rec4) >= -111
+ + DCx(rec1,rec4) >= -118
  minXCentroidDistance2(rec1,rec4,3): - 60 h(rec1,3) - 60 h(rec4,3)
- + DCx(rec1,rec4) >= -111
+ + DCx(rec1,rec4) >= -118
  minXCentroidDistance2(rec1,rec4,4): - 60 h(rec1,4) - 60 h(rec4,4)
- + DCx(rec1,rec4) >= -111
+ + DCx(rec1,rec4) >= -118
  minXCentroidDistance2(rec1,rec4,5): - 60 h(rec1,5) - 60 h(rec4,5)
- + DCx(rec1,rec4) >= -111
+ + DCx(rec1,rec4) >= -118
  minXCentroidDistance2(rec1,rec4,6): - 60 h(rec1,6) - 60 h(rec4,6)
- + DCx(rec1,rec4) >= -111
+ + DCx(rec1,rec4) >= -118
  minXCentroidDistance2(rec1,rec4,7): - 60 h(rec1,7) - 60 h(rec4,7)
- + DCx(rec1,rec4) >= -111
+ + DCx(rec1,rec4) >= -118
  minXCentroidDistance2(rec1,rec4,8): - 60 h(rec1,8) - 60 h(rec4,8)
- + DCx(rec1,rec4) >= -111
+ + DCx(rec1,rec4) >= -118
  minXCentroidDistance2(rec1,rec5,1): - 60 h(rec1,1) - 60 h(rec5,1)
- + DCx(rec1,rec5) >= -111
+ + DCx(rec1,rec5) >= -117
  minXCentroidDistance2(rec1,rec5,2): - 60 h(rec1,2) - 60 h(rec5,2)
- + DCx(rec1,rec5) >= -111
+ + DCx(rec1,rec5) >= -117
  minXCentroidDistance2(rec1,rec5,3): - 60 h(rec1,3) - 60 h(rec5,3)
- + DCx(rec1,rec5) >= -111
+ + DCx(rec1,rec5) >= -117
  minXCentroidDistance2(rec1,rec5,4): - 60 h(rec1,4) - 60 h(rec5,4)
- + DCx(rec1,rec5) >= -111
+ + DCx(rec1,rec5) >= -117
  minXCentroidDistance2(rec1,rec5,5): - 60 h(rec1,5) - 60 h(rec5,5)
- + DCx(rec1,rec5) >= -111
+ + DCx(rec1,rec5) >= -117
  minXCentroidDistance2(rec1,rec5,6): - 60 h(rec1,6) - 60 h(rec5,6)
- + DCx(rec1,rec5) >= -111
+ + DCx(rec1,rec5) >= -117
  minXCentroidDistance2(rec1,rec5,7): - 60 h(rec1,7) - 60 h(rec5,7)
- + DCx(rec1,rec5) >= -111
+ + DCx(rec1,rec5) >= -117
  minXCentroidDistance2(rec1,rec5,8): - 60 h(rec1,8) - 60 h(rec5,8)
- + DCx(rec1,rec5) >= -111
+ + DCx(rec1,rec5) >= -117
  minXCentroidDistance2(rec1,rec6,1): - 60 h(rec1,1) - 60 h(rec6,1)
- + DCx(rec1,rec6) >= -109
+ + DCx(rec1,rec6) >= -118
  minXCentroidDistance2(rec1,rec6,2): - 60 h(rec1,2) - 60 h(rec6,2)
- + DCx(rec1,rec6) >= -109
+ + DCx(rec1,rec6) >= -118
  minXCentroidDistance2(rec1,rec6,3): - 60 h(rec1,3) - 60 h(rec6,3)
- + DCx(rec1,rec6) >= -109
+ + DCx(rec1,rec6) >= -118
  minXCentroidDistance2(rec1,rec6,4): - 60 h(rec1,4) - 60 h(rec6,4)
- + DCx(rec1,rec6) >= -109
+ + DCx(rec1,rec6) >= -118
  minXCentroidDistance2(rec1,rec6,5): - 60 h(rec1,5) - 60 h(rec6,5)
- + DCx(rec1,rec6) >= -109
+ + DCx(rec1,rec6) >= -118
  minXCentroidDistance2(rec1,rec6,6): - 60 h(rec1,6) - 60 h(rec6,6)
- + DCx(rec1,rec6) >= -109
+ + DCx(rec1,rec6) >= -118
  minXCentroidDistance2(rec1,rec6,7): - 60 h(rec1,7) - 60 h(rec6,7)
- + DCx(rec1,rec6) >= -109
+ + DCx(rec1,rec6) >= -118
  minXCentroidDistance2(rec1,rec6,8): - 60 h(rec1,8) - 60 h(rec6,8)
- + DCx(rec1,rec6) >= -109
+ + DCx(rec1,rec6) >= -118
  minXCentroidDistance2(rec1,rec7,1): - 60 h(rec1,1) - 60 h(rec7,1)
- + DCx(rec1,rec7) >= -111
+ + DCx(rec1,rec7) >= -118
  minXCentroidDistance2(rec1,rec7,2): - 60 h(rec1,2) - 60 h(rec7,2)
- + DCx(rec1,rec7) >= -111
+ + DCx(rec1,rec7) >= -118
  minXCentroidDistance2(rec1,rec7,3): - 60 h(rec1,3) - 60 h(rec7,3)
- + DCx(rec1,rec7) >= -111
+ + DCx(rec1,rec7) >= -118
  minXCentroidDistance2(rec1,rec7,4): - 60 h(rec1,4) - 60 h(rec7,4)
- + DCx(rec1,rec7) >= -111
+ + DCx(rec1,rec7) >= -118
  minXCentroidDistance2(rec1,rec7,5): - 60 h(rec1,5) - 60 h(rec7,5)
- + DCx(rec1,rec7) >= -111
+ + DCx(rec1,rec7) >= -118
  minXCentroidDistance2(rec1,rec7,6): - 60 h(rec1,6) - 60 h(rec7,6)
- + DCx(rec1,rec7) >= -111
+ + DCx(rec1,rec7) >= -118
  minXCentroidDistance2(rec1,rec7,7): - 60 h(rec1,7) - 60 h(rec7,7)
- + DCx(rec1,rec7) >= -111
+ + DCx(rec1,rec7) >= -118
  minXCentroidDistance2(rec1,rec7,8): - 60 h(rec1,8) - 60 h(rec7,8)
- + DCx(rec1,rec7) >= -111
+ + DCx(rec1,rec7) >= -118
  minXCentroidDistance2(rec1,rec8,1): - 60 h(rec1,1) - 60 h(rec8,1)
- + DCx(rec1,rec8) >= -112
+ + DCx(rec1,rec8) >= -117
  minXCentroidDistance2(rec1,rec8,2): - 60 h(rec1,2) - 60 h(rec8,2)
- + DCx(rec1,rec8) >= -112
+ + DCx(rec1,rec8) >= -117
  minXCentroidDistance2(rec1,rec8,3): - 60 h(rec1,3) - 60 h(rec8,3)
- + DCx(rec1,rec8) >= -112
+ + DCx(rec1,rec8) >= -117
  minXCentroidDistance2(rec1,rec8,4): - 60 h(rec1,4) - 60 h(rec8,4)
- + DCx(rec1,rec8) >= -112
+ + DCx(rec1,rec8) >= -117
  minXCentroidDistance2(rec1,rec8,5): - 60 h(rec1,5) - 60 h(rec8,5)
- + DCx(rec1,rec8) >= -112
+ + DCx(rec1,rec8) >= -117
  minXCentroidDistance2(rec1,rec8,6): - 60 h(rec1,6) - 60 h(rec8,6)
- + DCx(rec1,rec8) >= -112
+ + DCx(rec1,rec8) >= -117
  minXCentroidDistance2(rec1,rec8,7): - 60 h(rec1,7) - 60 h(rec8,7)
- + DCx(rec1,rec8) >= -112
+ + DCx(rec1,rec8) >= -117
  minXCentroidDistance2(rec1,rec8,8): - 60 h(rec1,8) - 60 h(rec8,8)
- + DCx(rec1,rec8) >= -112
+ + DCx(rec1,rec8) >= -117
  minXCentroidDistance2(rec1,rec9,1): - 60 h(rec1,1) - 60 h(rec9,1)
- + DCx(rec1,rec9) >= -110
+ + DCx(rec1,rec9) >= -118
  minXCentroidDistance2(rec1,rec9,2): - 60 h(rec1,2) - 60 h(rec9,2)
- + DCx(rec1,rec9) >= -110
+ + DCx(rec1,rec9) >= -118
  minXCentroidDistance2(rec1,rec9,3): - 60 h(rec1,3) - 60 h(rec9,3)
- + DCx(rec1,rec9) >= -110
+ + DCx(rec1,rec9) >= -118
  minXCentroidDistance2(rec1,rec9,4): - 60 h(rec1,4) - 60 h(rec9,4)
- + DCx(rec1,rec9) >= -110
+ + DCx(rec1,rec9) >= -118
  minXCentroidDistance2(rec1,rec9,5): - 60 h(rec1,5) - 60 h(rec9,5)
- + DCx(rec1,rec9) >= -110
+ + DCx(rec1,rec9) >= -118
  minXCentroidDistance2(rec1,rec9,6): - 60 h(rec1,6) - 60 h(rec9,6)
- + DCx(rec1,rec9) >= -110
+ + DCx(rec1,rec9) >= -118
  minXCentroidDistance2(rec1,rec9,7): - 60 h(rec1,7) - 60 h(rec9,7)
- + DCx(rec1,rec9) >= -110
+ + DCx(rec1,rec9) >= -118
  minXCentroidDistance2(rec1,rec9,8): - 60 h(rec1,8) - 60 h(rec9,8)
- + DCx(rec1,rec9) >= -110
+ + DCx(rec1,rec9) >= -118
  minXCentroidDistance2(rec1,rec10,1): - 60 h(rec1,1) - 60 h(rec10,1)
- + DCx(rec1,rec10) >= -110
+ + DCx(rec1,rec10) >= -118
  minXCentroidDistance2(rec1,rec10,2): - 60 h(rec1,2) - 60 h(rec10,2)
- + DCx(rec1,rec10) >= -110
+ + DCx(rec1,rec10) >= -118
  minXCentroidDistance2(rec1,rec10,3): - 60 h(rec1,3) - 60 h(rec10,3)
- + DCx(rec1,rec10) >= -110
+ + DCx(rec1,rec10) >= -118
  minXCentroidDistance2(rec1,rec10,4): - 60 h(rec1,4) - 60 h(rec10,4)
- + DCx(rec1,rec10) >= -110
+ + DCx(rec1,rec10) >= -118
  minXCentroidDistance2(rec1,rec10,5): - 60 h(rec1,5) - 60 h(rec10,5)
- + DCx(rec1,rec10) >= -110
+ + DCx(rec1,rec10) >= -118
  minXCentroidDistance2(rec1,rec10,6): - 60 h(rec1,6) - 60 h(rec10,6)
- + DCx(rec1,rec10) >= -110
+ + DCx(rec1,rec10) >= -118
  minXCentroidDistance2(rec1,rec10,7): - 60 h(rec1,7) - 60 h(rec10,7)
- + DCx(rec1,rec10) >= -110
+ + DCx(rec1,rec10) >= -118
  minXCentroidDistance2(rec1,rec10,8): - 60 h(rec1,8) - 60 h(rec10,8)
- + DCx(rec1,rec10) >= -110
+ + DCx(rec1,rec10) >= -118
+ minXCentroidDistance2(rec1,rec11,1): - 60 h(rec1,1) - 60 h(rec11,1)
+ + DCx(rec1,rec11) >= -118
+ minXCentroidDistance2(rec1,rec11,2): - 60 h(rec1,2) - 60 h(rec11,2)
+ + DCx(rec1,rec11) >= -118
+ minXCentroidDistance2(rec1,rec11,3): - 60 h(rec1,3) - 60 h(rec11,3)
+ + DCx(rec1,rec11) >= -118
+ minXCentroidDistance2(rec1,rec11,4): - 60 h(rec1,4) - 60 h(rec11,4)
+ + DCx(rec1,rec11) >= -118
+ minXCentroidDistance2(rec1,rec11,5): - 60 h(rec1,5) - 60 h(rec11,5)
+ + DCx(rec1,rec11) >= -118
+ minXCentroidDistance2(rec1,rec11,6): - 60 h(rec1,6) - 60 h(rec11,6)
+ + DCx(rec1,rec11) >= -118
+ minXCentroidDistance2(rec1,rec11,7): - 60 h(rec1,7) - 60 h(rec11,7)
+ + DCx(rec1,rec11) >= -118
+ minXCentroidDistance2(rec1,rec11,8): - 60 h(rec1,8) - 60 h(rec11,8)
+ + DCx(rec1,rec11) >= -118
+ minXCentroidDistance2(rec1,rec12,1): - 60 h(rec1,1) - 60 h(rec12,1)
+ + DCx(rec1,rec12) >= -118
+ minXCentroidDistance2(rec1,rec12,2): - 60 h(rec1,2) - 60 h(rec12,2)
+ + DCx(rec1,rec12) >= -118
+ minXCentroidDistance2(rec1,rec12,3): - 60 h(rec1,3) - 60 h(rec12,3)
+ + DCx(rec1,rec12) >= -118
+ minXCentroidDistance2(rec1,rec12,4): - 60 h(rec1,4) - 60 h(rec12,4)
+ + DCx(rec1,rec12) >= -118
+ minXCentroidDistance2(rec1,rec12,5): - 60 h(rec1,5) - 60 h(rec12,5)
+ + DCx(rec1,rec12) >= -118
+ minXCentroidDistance2(rec1,rec12,6): - 60 h(rec1,6) - 60 h(rec12,6)
+ + DCx(rec1,rec12) >= -118
+ minXCentroidDistance2(rec1,rec12,7): - 60 h(rec1,7) - 60 h(rec12,7)
+ + DCx(rec1,rec12) >= -118
+ minXCentroidDistance2(rec1,rec12,8): - 60 h(rec1,8) - 60 h(rec12,8)
+ + DCx(rec1,rec12) >= -118
+ minXCentroidDistance2(rec1,rec13,1): - 60 h(rec1,1) - 60 h(rec13,1)
+ + DCx(rec1,rec13) >= -116
+ minXCentroidDistance2(rec1,rec13,2): - 60 h(rec1,2) - 60 h(rec13,2)
+ + DCx(rec1,rec13) >= -116
+ minXCentroidDistance2(rec1,rec13,3): - 60 h(rec1,3) - 60 h(rec13,3)
+ + DCx(rec1,rec13) >= -116
+ minXCentroidDistance2(rec1,rec13,4): - 60 h(rec1,4) - 60 h(rec13,4)
+ + DCx(rec1,rec13) >= -116
+ minXCentroidDistance2(rec1,rec13,5): - 60 h(rec1,5) - 60 h(rec13,5)
+ + DCx(rec1,rec13) >= -116
+ minXCentroidDistance2(rec1,rec13,6): - 60 h(rec1,6) - 60 h(rec13,6)
+ + DCx(rec1,rec13) >= -116
+ minXCentroidDistance2(rec1,rec13,7): - 60 h(rec1,7) - 60 h(rec13,7)
+ + DCx(rec1,rec13) >= -116
+ minXCentroidDistance2(rec1,rec13,8): - 60 h(rec1,8) - 60 h(rec13,8)
+ + DCx(rec1,rec13) >= -116
+ minXCentroidDistance2(rec1,rec14,1): - 60 h(rec1,1) - 60 h(rec14,1)
+ + DCx(rec1,rec14) >= -117
+ minXCentroidDistance2(rec1,rec14,2): - 60 h(rec1,2) - 60 h(rec14,2)
+ + DCx(rec1,rec14) >= -117
+ minXCentroidDistance2(rec1,rec14,3): - 60 h(rec1,3) - 60 h(rec14,3)
+ + DCx(rec1,rec14) >= -117
+ minXCentroidDistance2(rec1,rec14,4): - 60 h(rec1,4) - 60 h(rec14,4)
+ + DCx(rec1,rec14) >= -117
+ minXCentroidDistance2(rec1,rec14,5): - 60 h(rec1,5) - 60 h(rec14,5)
+ + DCx(rec1,rec14) >= -117
+ minXCentroidDistance2(rec1,rec14,6): - 60 h(rec1,6) - 60 h(rec14,6)
+ + DCx(rec1,rec14) >= -117
+ minXCentroidDistance2(rec1,rec14,7): - 60 h(rec1,7) - 60 h(rec14,7)
+ + DCx(rec1,rec14) >= -117
+ minXCentroidDistance2(rec1,rec14,8): - 60 h(rec1,8) - 60 h(rec14,8)
+ + DCx(rec1,rec14) >= -117
+ minXCentroidDistance2(rec1,rec15,1): - 60 h(rec1,1) - 60 h(rec15,1)
+ + DCx(rec1,rec15) >= -117
+ minXCentroidDistance2(rec1,rec15,2): - 60 h(rec1,2) - 60 h(rec15,2)
+ + DCx(rec1,rec15) >= -117
+ minXCentroidDistance2(rec1,rec15,3): - 60 h(rec1,3) - 60 h(rec15,3)
+ + DCx(rec1,rec15) >= -117
+ minXCentroidDistance2(rec1,rec15,4): - 60 h(rec1,4) - 60 h(rec15,4)
+ + DCx(rec1,rec15) >= -117
+ minXCentroidDistance2(rec1,rec15,5): - 60 h(rec1,5) - 60 h(rec15,5)
+ + DCx(rec1,rec15) >= -117
+ minXCentroidDistance2(rec1,rec15,6): - 60 h(rec1,6) - 60 h(rec15,6)
+ + DCx(rec1,rec15) >= -117
+ minXCentroidDistance2(rec1,rec15,7): - 60 h(rec1,7) - 60 h(rec15,7)
+ + DCx(rec1,rec15) >= -117
+ minXCentroidDistance2(rec1,rec15,8): - 60 h(rec1,8) - 60 h(rec15,8)
+ + DCx(rec1,rec15) >= -117
  minXCentroidDistance2(rec2,rec3,1): - 60 h(rec2,1) - 60 h(rec3,1)
- + DCx(rec2,rec3) >= -116
+ + DCx(rec2,rec3) >= -118
  minXCentroidDistance2(rec2,rec3,2): - 60 h(rec2,2) - 60 h(rec3,2)
- + DCx(rec2,rec3) >= -116
+ + DCx(rec2,rec3) >= -118
  minXCentroidDistance2(rec2,rec3,3): - 60 h(rec2,3) - 60 h(rec3,3)
- + DCx(rec2,rec3) >= -116
+ + DCx(rec2,rec3) >= -118
  minXCentroidDistance2(rec2,rec3,4): - 60 h(rec2,4) - 60 h(rec3,4)
- + DCx(rec2,rec3) >= -116
+ + DCx(rec2,rec3) >= -118
  minXCentroidDistance2(rec2,rec3,5): - 60 h(rec2,5) - 60 h(rec3,5)
- + DCx(rec2,rec3) >= -116
+ + DCx(rec2,rec3) >= -118
  minXCentroidDistance2(rec2,rec3,6): - 60 h(rec2,6) - 60 h(rec3,6)
- + DCx(rec2,rec3) >= -116
+ + DCx(rec2,rec3) >= -118
  minXCentroidDistance2(rec2,rec3,7): - 60 h(rec2,7) - 60 h(rec3,7)
- + DCx(rec2,rec3) >= -116
+ + DCx(rec2,rec3) >= -118
  minXCentroidDistance2(rec2,rec3,8): - 60 h(rec2,8) - 60 h(rec3,8)
- + DCx(rec2,rec3) >= -116
+ + DCx(rec2,rec3) >= -118
  minXCentroidDistance2(rec2,rec4,1): - 60 h(rec2,1) - 60 h(rec4,1)
- + DCx(rec2,rec4) >= -116
+ + DCx(rec2,rec4) >= -118
  minXCentroidDistance2(rec2,rec4,2): - 60 h(rec2,2) - 60 h(rec4,2)
- + DCx(rec2,rec4) >= -116
+ + DCx(rec2,rec4) >= -118
  minXCentroidDistance2(rec2,rec4,3): - 60 h(rec2,3) - 60 h(rec4,3)
- + DCx(rec2,rec4) >= -116
+ + DCx(rec2,rec4) >= -118
  minXCentroidDistance2(rec2,rec4,4): - 60 h(rec2,4) - 60 h(rec4,4)
- + DCx(rec2,rec4) >= -116
+ + DCx(rec2,rec4) >= -118
  minXCentroidDistance2(rec2,rec4,5): - 60 h(rec2,5) - 60 h(rec4,5)
- + DCx(rec2,rec4) >= -116
+ + DCx(rec2,rec4) >= -118
  minXCentroidDistance2(rec2,rec4,6): - 60 h(rec2,6) - 60 h(rec4,6)
- + DCx(rec2,rec4) >= -116
+ + DCx(rec2,rec4) >= -118
  minXCentroidDistance2(rec2,rec4,7): - 60 h(rec2,7) - 60 h(rec4,7)
- + DCx(rec2,rec4) >= -116
+ + DCx(rec2,rec4) >= -118
  minXCentroidDistance2(rec2,rec4,8): - 60 h(rec2,8) - 60 h(rec4,8)
- + DCx(rec2,rec4) >= -116
+ + DCx(rec2,rec4) >= -118
  minXCentroidDistance2(rec2,rec5,1): - 60 h(rec2,1) - 60 h(rec5,1)
- + DCx(rec2,rec5) >= -116
+ + DCx(rec2,rec5) >= -117
  minXCentroidDistance2(rec2,rec5,2): - 60 h(rec2,2) - 60 h(rec5,2)
- + DCx(rec2,rec5) >= -116
+ + DCx(rec2,rec5) >= -117
  minXCentroidDistance2(rec2,rec5,3): - 60 h(rec2,3) - 60 h(rec5,3)
- + DCx(rec2,rec5) >= -116
+ + DCx(rec2,rec5) >= -117
  minXCentroidDistance2(rec2,rec5,4): - 60 h(rec2,4) - 60 h(rec5,4)
- + DCx(rec2,rec5) >= -116
+ + DCx(rec2,rec5) >= -117
  minXCentroidDistance2(rec2,rec5,5): - 60 h(rec2,5) - 60 h(rec5,5)
- + DCx(rec2,rec5) >= -116
+ + DCx(rec2,rec5) >= -117
  minXCentroidDistance2(rec2,rec5,6): - 60 h(rec2,6) - 60 h(rec5,6)
- + DCx(rec2,rec5) >= -116
+ + DCx(rec2,rec5) >= -117
  minXCentroidDistance2(rec2,rec5,7): - 60 h(rec2,7) - 60 h(rec5,7)
- + DCx(rec2,rec5) >= -116
+ + DCx(rec2,rec5) >= -117
  minXCentroidDistance2(rec2,rec5,8): - 60 h(rec2,8) - 60 h(rec5,8)
- + DCx(rec2,rec5) >= -116
+ + DCx(rec2,rec5) >= -117
  minXCentroidDistance2(rec2,rec6,1): - 60 h(rec2,1) - 60 h(rec6,1)
- + DCx(rec2,rec6) >= -114
+ + DCx(rec2,rec6) >= -118
  minXCentroidDistance2(rec2,rec6,2): - 60 h(rec2,2) - 60 h(rec6,2)
- + DCx(rec2,rec6) >= -114
+ + DCx(rec2,rec6) >= -118
  minXCentroidDistance2(rec2,rec6,3): - 60 h(rec2,3) - 60 h(rec6,3)
- + DCx(rec2,rec6) >= -114
+ + DCx(rec2,rec6) >= -118
  minXCentroidDistance2(rec2,rec6,4): - 60 h(rec2,4) - 60 h(rec6,4)
- + DCx(rec2,rec6) >= -114
+ + DCx(rec2,rec6) >= -118
  minXCentroidDistance2(rec2,rec6,5): - 60 h(rec2,5) - 60 h(rec6,5)
- + DCx(rec2,rec6) >= -114
+ + DCx(rec2,rec6) >= -118
  minXCentroidDistance2(rec2,rec6,6): - 60 h(rec2,6) - 60 h(rec6,6)
- + DCx(rec2,rec6) >= -114
+ + DCx(rec2,rec6) >= -118
  minXCentroidDistance2(rec2,rec6,7): - 60 h(rec2,7) - 60 h(rec6,7)
- + DCx(rec2,rec6) >= -114
+ + DCx(rec2,rec6) >= -118
  minXCentroidDistance2(rec2,rec6,8): - 60 h(rec2,8) - 60 h(rec6,8)
- + DCx(rec2,rec6) >= -114
+ + DCx(rec2,rec6) >= -118
  minXCentroidDistance2(rec2,rec7,1): - 60 h(rec2,1) - 60 h(rec7,1)
- + DCx(rec2,rec7) >= -116
+ + DCx(rec2,rec7) >= -118
  minXCentroidDistance2(rec2,rec7,2): - 60 h(rec2,2) - 60 h(rec7,2)
- + DCx(rec2,rec7) >= -116
+ + DCx(rec2,rec7) >= -118
  minXCentroidDistance2(rec2,rec7,3): - 60 h(rec2,3) - 60 h(rec7,3)
- + DCx(rec2,rec7) >= -116
+ + DCx(rec2,rec7) >= -118
  minXCentroidDistance2(rec2,rec7,4): - 60 h(rec2,4) - 60 h(rec7,4)
- + DCx(rec2,rec7) >= -116
+ + DCx(rec2,rec7) >= -118
  minXCentroidDistance2(rec2,rec7,5): - 60 h(rec2,5) - 60 h(rec7,5)
- + DCx(rec2,rec7) >= -116
+ + DCx(rec2,rec7) >= -118
  minXCentroidDistance2(rec2,rec7,6): - 60 h(rec2,6) - 60 h(rec7,6)
- + DCx(rec2,rec7) >= -116
+ + DCx(rec2,rec7) >= -118
  minXCentroidDistance2(rec2,rec7,7): - 60 h(rec2,7) - 60 h(rec7,7)
- + DCx(rec2,rec7) >= -116
+ + DCx(rec2,rec7) >= -118
  minXCentroidDistance2(rec2,rec7,8): - 60 h(rec2,8) - 60 h(rec7,8)
- + DCx(rec2,rec7) >= -116
+ + DCx(rec2,rec7) >= -118
  minXCentroidDistance2(rec2,rec8,1): - 60 h(rec2,1) - 60 h(rec8,1)
  + DCx(rec2,rec8) >= -117
  minXCentroidDistance2(rec2,rec8,2): - 60 h(rec2,2) - 60 h(rec8,2)
@@ -17831,85 +29128,85 @@ Subject To
  minXCentroidDistance2(rec2,rec8,8): - 60 h(rec2,8) - 60 h(rec8,8)
  + DCx(rec2,rec8) >= -117
  minXCentroidDistance2(rec2,rec9,1): - 60 h(rec2,1) - 60 h(rec9,1)
- + DCx(rec2,rec9) >= -115
+ + DCx(rec2,rec9) >= -118
  minXCentroidDistance2(rec2,rec9,2): - 60 h(rec2,2) - 60 h(rec9,2)
- + DCx(rec2,rec9) >= -115
+ + DCx(rec2,rec9) >= -118
  minXCentroidDistance2(rec2,rec9,3): - 60 h(rec2,3) - 60 h(rec9,3)
- + DCx(rec2,rec9) >= -115
+ + DCx(rec2,rec9) >= -118
  minXCentroidDistance2(rec2,rec9,4): - 60 h(rec2,4) - 60 h(rec9,4)
- + DCx(rec2,rec9) >= -115
+ + DCx(rec2,rec9) >= -118
  minXCentroidDistance2(rec2,rec9,5): - 60 h(rec2,5) - 60 h(rec9,5)
- + DCx(rec2,rec9) >= -115
+ + DCx(rec2,rec9) >= -118
  minXCentroidDistance2(rec2,rec9,6): - 60 h(rec2,6) - 60 h(rec9,6)
- + DCx(rec2,rec9) >= -115
+ + DCx(rec2,rec9) >= -118
  minXCentroidDistance2(rec2,rec9,7): - 60 h(rec2,7) - 60 h(rec9,7)
- + DCx(rec2,rec9) >= -115
+ + DCx(rec2,rec9) >= -118
  minXCentroidDistance2(rec2,rec9,8): - 60 h(rec2,8) - 60 h(rec9,8)
- + DCx(rec2,rec9) >= -115
+ + DCx(rec2,rec9) >= -118
  minXCentroidDistance2(rec3,rec4,1): - 60 h(rec3,1) - 60 h(rec4,1)
- + DCx(rec3,rec4) >= -116
+ + DCx(rec3,rec4) >= -118
  minXCentroidDistance2(rec3,rec4,2): - 60 h(rec3,2) - 60 h(rec4,2)
- + DCx(rec3,rec4) >= -116
+ + DCx(rec3,rec4) >= -118
  minXCentroidDistance2(rec3,rec4,3): - 60 h(rec3,3) - 60 h(rec4,3)
- + DCx(rec3,rec4) >= -116
+ + DCx(rec3,rec4) >= -118
  minXCentroidDistance2(rec3,rec4,4): - 60 h(rec3,4) - 60 h(rec4,4)
- + DCx(rec3,rec4) >= -116
+ + DCx(rec3,rec4) >= -118
  minXCentroidDistance2(rec3,rec4,5): - 60 h(rec3,5) - 60 h(rec4,5)
- + DCx(rec3,rec4) >= -116
+ + DCx(rec3,rec4) >= -118
  minXCentroidDistance2(rec3,rec4,6): - 60 h(rec3,6) - 60 h(rec4,6)
- + DCx(rec3,rec4) >= -116
+ + DCx(rec3,rec4) >= -118
  minXCentroidDistance2(rec3,rec4,7): - 60 h(rec3,7) - 60 h(rec4,7)
- + DCx(rec3,rec4) >= -116
+ + DCx(rec3,rec4) >= -118
  minXCentroidDistance2(rec3,rec4,8): - 60 h(rec3,8) - 60 h(rec4,8)
- + DCx(rec3,rec4) >= -116
+ + DCx(rec3,rec4) >= -118
  minXCentroidDistance2(rec3,rec5,1): - 60 h(rec3,1) - 60 h(rec5,1)
- + DCx(rec3,rec5) >= -116
+ + DCx(rec3,rec5) >= -117
  minXCentroidDistance2(rec3,rec5,2): - 60 h(rec3,2) - 60 h(rec5,2)
- + DCx(rec3,rec5) >= -116
+ + DCx(rec3,rec5) >= -117
  minXCentroidDistance2(rec3,rec5,3): - 60 h(rec3,3) - 60 h(rec5,3)
- + DCx(rec3,rec5) >= -116
+ + DCx(rec3,rec5) >= -117
  minXCentroidDistance2(rec3,rec5,4): - 60 h(rec3,4) - 60 h(rec5,4)
- + DCx(rec3,rec5) >= -116
+ + DCx(rec3,rec5) >= -117
  minXCentroidDistance2(rec3,rec5,5): - 60 h(rec3,5) - 60 h(rec5,5)
- + DCx(rec3,rec5) >= -116
+ + DCx(rec3,rec5) >= -117
  minXCentroidDistance2(rec3,rec5,6): - 60 h(rec3,6) - 60 h(rec5,6)
- + DCx(rec3,rec5) >= -116
+ + DCx(rec3,rec5) >= -117
  minXCentroidDistance2(rec3,rec5,7): - 60 h(rec3,7) - 60 h(rec5,7)
- + DCx(rec3,rec5) >= -116
+ + DCx(rec3,rec5) >= -117
  minXCentroidDistance2(rec3,rec5,8): - 60 h(rec3,8) - 60 h(rec5,8)
- + DCx(rec3,rec5) >= -116
+ + DCx(rec3,rec5) >= -117
  minXCentroidDistance2(rec3,rec6,1): - 60 h(rec3,1) - 60 h(rec6,1)
- + DCx(rec3,rec6) >= -114
+ + DCx(rec3,rec6) >= -118
  minXCentroidDistance2(rec3,rec6,2): - 60 h(rec3,2) - 60 h(rec6,2)
- + DCx(rec3,rec6) >= -114
+ + DCx(rec3,rec6) >= -118
  minXCentroidDistance2(rec3,rec6,3): - 60 h(rec3,3) - 60 h(rec6,3)
- + DCx(rec3,rec6) >= -114
+ + DCx(rec3,rec6) >= -118
  minXCentroidDistance2(rec3,rec6,4): - 60 h(rec3,4) - 60 h(rec6,4)
- + DCx(rec3,rec6) >= -114
+ + DCx(rec3,rec6) >= -118
  minXCentroidDistance2(rec3,rec6,5): - 60 h(rec3,5) - 60 h(rec6,5)
- + DCx(rec3,rec6) >= -114
+ + DCx(rec3,rec6) >= -118
  minXCentroidDistance2(rec3,rec6,6): - 60 h(rec3,6) - 60 h(rec6,6)
- + DCx(rec3,rec6) >= -114
+ + DCx(rec3,rec6) >= -118
  minXCentroidDistance2(rec3,rec6,7): - 60 h(rec3,7) - 60 h(rec6,7)
- + DCx(rec3,rec6) >= -114
+ + DCx(rec3,rec6) >= -118
  minXCentroidDistance2(rec3,rec6,8): - 60 h(rec3,8) - 60 h(rec6,8)
- + DCx(rec3,rec6) >= -114
+ + DCx(rec3,rec6) >= -118
  minXCentroidDistance2(rec3,rec7,1): - 60 h(rec3,1) - 60 h(rec7,1)
- + DCx(rec3,rec7) >= -116
+ + DCx(rec3,rec7) >= -118
  minXCentroidDistance2(rec3,rec7,2): - 60 h(rec3,2) - 60 h(rec7,2)
- + DCx(rec3,rec7) >= -116
+ + DCx(rec3,rec7) >= -118
  minXCentroidDistance2(rec3,rec7,3): - 60 h(rec3,3) - 60 h(rec7,3)
- + DCx(rec3,rec7) >= -116
+ + DCx(rec3,rec7) >= -118
  minXCentroidDistance2(rec3,rec7,4): - 60 h(rec3,4) - 60 h(rec7,4)
- + DCx(rec3,rec7) >= -116
+ + DCx(rec3,rec7) >= -118
  minXCentroidDistance2(rec3,rec7,5): - 60 h(rec3,5) - 60 h(rec7,5)
- + DCx(rec3,rec7) >= -116
+ + DCx(rec3,rec7) >= -118
  minXCentroidDistance2(rec3,rec7,6): - 60 h(rec3,6) - 60 h(rec7,6)
- + DCx(rec3,rec7) >= -116
+ + DCx(rec3,rec7) >= -118
  minXCentroidDistance2(rec3,rec7,7): - 60 h(rec3,7) - 60 h(rec7,7)
- + DCx(rec3,rec7) >= -116
+ + DCx(rec3,rec7) >= -118
  minXCentroidDistance2(rec3,rec7,8): - 60 h(rec3,8) - 60 h(rec7,8)
- + DCx(rec3,rec7) >= -116
+ + DCx(rec3,rec7) >= -118
  minXCentroidDistance2(rec3,rec8,1): - 60 h(rec3,1) - 60 h(rec8,1)
  + DCx(rec3,rec8) >= -117
  minXCentroidDistance2(rec3,rec8,2): - 60 h(rec3,2) - 60 h(rec8,2)
@@ -17927,69 +29224,69 @@ Subject To
  minXCentroidDistance2(rec3,rec8,8): - 60 h(rec3,8) - 60 h(rec8,8)
  + DCx(rec3,rec8) >= -117
  minXCentroidDistance2(rec3,rec9,1): - 60 h(rec3,1) - 60 h(rec9,1)
- + DCx(rec3,rec9) >= -115
+ + DCx(rec3,rec9) >= -118
  minXCentroidDistance2(rec3,rec9,2): - 60 h(rec3,2) - 60 h(rec9,2)
- + DCx(rec3,rec9) >= -115
+ + DCx(rec3,rec9) >= -118
  minXCentroidDistance2(rec3,rec9,3): - 60 h(rec3,3) - 60 h(rec9,3)
- + DCx(rec3,rec9) >= -115
+ + DCx(rec3,rec9) >= -118
  minXCentroidDistance2(rec3,rec9,4): - 60 h(rec3,4) - 60 h(rec9,4)
- + DCx(rec3,rec9) >= -115
+ + DCx(rec3,rec9) >= -118
  minXCentroidDistance2(rec3,rec9,5): - 60 h(rec3,5) - 60 h(rec9,5)
- + DCx(rec3,rec9) >= -115
+ + DCx(rec3,rec9) >= -118
  minXCentroidDistance2(rec3,rec9,6): - 60 h(rec3,6) - 60 h(rec9,6)
- + DCx(rec3,rec9) >= -115
+ + DCx(rec3,rec9) >= -118
  minXCentroidDistance2(rec3,rec9,7): - 60 h(rec3,7) - 60 h(rec9,7)
- + DCx(rec3,rec9) >= -115
+ + DCx(rec3,rec9) >= -118
  minXCentroidDistance2(rec3,rec9,8): - 60 h(rec3,8) - 60 h(rec9,8)
- + DCx(rec3,rec9) >= -115
+ + DCx(rec3,rec9) >= -118
  minXCentroidDistance2(rec4,rec5,1): - 60 h(rec4,1) - 60 h(rec5,1)
- + DCx(rec4,rec5) >= -116
+ + DCx(rec4,rec5) >= -117
  minXCentroidDistance2(rec4,rec5,2): - 60 h(rec4,2) - 60 h(rec5,2)
- + DCx(rec4,rec5) >= -116
+ + DCx(rec4,rec5) >= -117
  minXCentroidDistance2(rec4,rec5,3): - 60 h(rec4,3) - 60 h(rec5,3)
- + DCx(rec4,rec5) >= -116
+ + DCx(rec4,rec5) >= -117
  minXCentroidDistance2(rec4,rec5,4): - 60 h(rec4,4) - 60 h(rec5,4)
- + DCx(rec4,rec5) >= -116
+ + DCx(rec4,rec5) >= -117
  minXCentroidDistance2(rec4,rec5,5): - 60 h(rec4,5) - 60 h(rec5,5)
- + DCx(rec4,rec5) >= -116
+ + DCx(rec4,rec5) >= -117
  minXCentroidDistance2(rec4,rec5,6): - 60 h(rec4,6) - 60 h(rec5,6)
- + DCx(rec4,rec5) >= -116
+ + DCx(rec4,rec5) >= -117
  minXCentroidDistance2(rec4,rec5,7): - 60 h(rec4,7) - 60 h(rec5,7)
- + DCx(rec4,rec5) >= -116
+ + DCx(rec4,rec5) >= -117
  minXCentroidDistance2(rec4,rec5,8): - 60 h(rec4,8) - 60 h(rec5,8)
- + DCx(rec4,rec5) >= -116
+ + DCx(rec4,rec5) >= -117
  minXCentroidDistance2(rec4,rec6,1): - 60 h(rec4,1) - 60 h(rec6,1)
- + DCx(rec4,rec6) >= -114
+ + DCx(rec4,rec6) >= -118
  minXCentroidDistance2(rec4,rec6,2): - 60 h(rec4,2) - 60 h(rec6,2)
- + DCx(rec4,rec6) >= -114
+ + DCx(rec4,rec6) >= -118
  minXCentroidDistance2(rec4,rec6,3): - 60 h(rec4,3) - 60 h(rec6,3)
- + DCx(rec4,rec6) >= -114
+ + DCx(rec4,rec6) >= -118
  minXCentroidDistance2(rec4,rec6,4): - 60 h(rec4,4) - 60 h(rec6,4)
- + DCx(rec4,rec6) >= -114
+ + DCx(rec4,rec6) >= -118
  minXCentroidDistance2(rec4,rec6,5): - 60 h(rec4,5) - 60 h(rec6,5)
- + DCx(rec4,rec6) >= -114
+ + DCx(rec4,rec6) >= -118
  minXCentroidDistance2(rec4,rec6,6): - 60 h(rec4,6) - 60 h(rec6,6)
- + DCx(rec4,rec6) >= -114
+ + DCx(rec4,rec6) >= -118
  minXCentroidDistance2(rec4,rec6,7): - 60 h(rec4,7) - 60 h(rec6,7)
- + DCx(rec4,rec6) >= -114
+ + DCx(rec4,rec6) >= -118
  minXCentroidDistance2(rec4,rec6,8): - 60 h(rec4,8) - 60 h(rec6,8)
- + DCx(rec4,rec6) >= -114
+ + DCx(rec4,rec6) >= -118
  minXCentroidDistance2(rec4,rec7,1): - 60 h(rec4,1) - 60 h(rec7,1)
- + DCx(rec4,rec7) >= -116
+ + DCx(rec4,rec7) >= -118
  minXCentroidDistance2(rec4,rec7,2): - 60 h(rec4,2) - 60 h(rec7,2)
- + DCx(rec4,rec7) >= -116
+ + DCx(rec4,rec7) >= -118
  minXCentroidDistance2(rec4,rec7,3): - 60 h(rec4,3) - 60 h(rec7,3)
- + DCx(rec4,rec7) >= -116
+ + DCx(rec4,rec7) >= -118
  minXCentroidDistance2(rec4,rec7,4): - 60 h(rec4,4) - 60 h(rec7,4)
- + DCx(rec4,rec7) >= -116
+ + DCx(rec4,rec7) >= -118
  minXCentroidDistance2(rec4,rec7,5): - 60 h(rec4,5) - 60 h(rec7,5)
- + DCx(rec4,rec7) >= -116
+ + DCx(rec4,rec7) >= -118
  minXCentroidDistance2(rec4,rec7,6): - 60 h(rec4,6) - 60 h(rec7,6)
- + DCx(rec4,rec7) >= -116
+ + DCx(rec4,rec7) >= -118
  minXCentroidDistance2(rec4,rec7,7): - 60 h(rec4,7) - 60 h(rec7,7)
- + DCx(rec4,rec7) >= -116
+ + DCx(rec4,rec7) >= -118
  minXCentroidDistance2(rec4,rec7,8): - 60 h(rec4,8) - 60 h(rec7,8)
- + DCx(rec4,rec7) >= -116
+ + DCx(rec4,rec7) >= -118
  minXCentroidDistance2(rec4,rec8,1): - 60 h(rec4,1) - 60 h(rec8,1)
  + DCx(rec4,rec8) >= -117
  minXCentroidDistance2(rec4,rec8,2): - 60 h(rec4,2) - 60 h(rec8,2)
@@ -18007,133 +29304,133 @@ Subject To
  minXCentroidDistance2(rec4,rec8,8): - 60 h(rec4,8) - 60 h(rec8,8)
  + DCx(rec4,rec8) >= -117
  minXCentroidDistance2(rec4,rec9,1): - 60 h(rec4,1) - 60 h(rec9,1)
- + DCx(rec4,rec9) >= -115
+ + DCx(rec4,rec9) >= -118
  minXCentroidDistance2(rec4,rec9,2): - 60 h(rec4,2) - 60 h(rec9,2)
- + DCx(rec4,rec9) >= -115
+ + DCx(rec4,rec9) >= -118
  minXCentroidDistance2(rec4,rec9,3): - 60 h(rec4,3) - 60 h(rec9,3)
- + DCx(rec4,rec9) >= -115
+ + DCx(rec4,rec9) >= -118
  minXCentroidDistance2(rec4,rec9,4): - 60 h(rec4,4) - 60 h(rec9,4)
- + DCx(rec4,rec9) >= -115
+ + DCx(rec4,rec9) >= -118
  minXCentroidDistance2(rec4,rec9,5): - 60 h(rec4,5) - 60 h(rec9,5)
- + DCx(rec4,rec9) >= -115
+ + DCx(rec4,rec9) >= -118
  minXCentroidDistance2(rec4,rec9,6): - 60 h(rec4,6) - 60 h(rec9,6)
- + DCx(rec4,rec9) >= -115
+ + DCx(rec4,rec9) >= -118
  minXCentroidDistance2(rec4,rec9,7): - 60 h(rec4,7) - 60 h(rec9,7)
- + DCx(rec4,rec9) >= -115
+ + DCx(rec4,rec9) >= -118
  minXCentroidDistance2(rec4,rec9,8): - 60 h(rec4,8) - 60 h(rec9,8)
- + DCx(rec4,rec9) >= -115
+ + DCx(rec4,rec9) >= -118
  minXCentroidDistance2(rec5,rec6,1): - 60 h(rec5,1) - 60 h(rec6,1)
- + DCx(rec5,rec6) >= -114
+ + DCx(rec5,rec6) >= -117
  minXCentroidDistance2(rec5,rec6,2): - 60 h(rec5,2) - 60 h(rec6,2)
- + DCx(rec5,rec6) >= -114
+ + DCx(rec5,rec6) >= -117
  minXCentroidDistance2(rec5,rec6,3): - 60 h(rec5,3) - 60 h(rec6,3)
- + DCx(rec5,rec6) >= -114
+ + DCx(rec5,rec6) >= -117
  minXCentroidDistance2(rec5,rec6,4): - 60 h(rec5,4) - 60 h(rec6,4)
- + DCx(rec5,rec6) >= -114
+ + DCx(rec5,rec6) >= -117
  minXCentroidDistance2(rec5,rec6,5): - 60 h(rec5,5) - 60 h(rec6,5)
- + DCx(rec5,rec6) >= -114
+ + DCx(rec5,rec6) >= -117
  minXCentroidDistance2(rec5,rec6,6): - 60 h(rec5,6) - 60 h(rec6,6)
- + DCx(rec5,rec6) >= -114
+ + DCx(rec5,rec6) >= -117
  minXCentroidDistance2(rec5,rec6,7): - 60 h(rec5,7) - 60 h(rec6,7)
- + DCx(rec5,rec6) >= -114
+ + DCx(rec5,rec6) >= -117
  minXCentroidDistance2(rec5,rec6,8): - 60 h(rec5,8) - 60 h(rec6,8)
- + DCx(rec5,rec6) >= -114
+ + DCx(rec5,rec6) >= -117
  minXCentroidDistance2(rec5,rec7,1): - 60 h(rec5,1) - 60 h(rec7,1)
- + DCx(rec5,rec7) >= -116
+ + DCx(rec5,rec7) >= -117
  minXCentroidDistance2(rec5,rec7,2): - 60 h(rec5,2) - 60 h(rec7,2)
- + DCx(rec5,rec7) >= -116
+ + DCx(rec5,rec7) >= -117
  minXCentroidDistance2(rec5,rec7,3): - 60 h(rec5,3) - 60 h(rec7,3)
- + DCx(rec5,rec7) >= -116
+ + DCx(rec5,rec7) >= -117
  minXCentroidDistance2(rec5,rec7,4): - 60 h(rec5,4) - 60 h(rec7,4)
- + DCx(rec5,rec7) >= -116
+ + DCx(rec5,rec7) >= -117
  minXCentroidDistance2(rec5,rec7,5): - 60 h(rec5,5) - 60 h(rec7,5)
- + DCx(rec5,rec7) >= -116
+ + DCx(rec5,rec7) >= -117
  minXCentroidDistance2(rec5,rec7,6): - 60 h(rec5,6) - 60 h(rec7,6)
- + DCx(rec5,rec7) >= -116
+ + DCx(rec5,rec7) >= -117
  minXCentroidDistance2(rec5,rec7,7): - 60 h(rec5,7) - 60 h(rec7,7)
- + DCx(rec5,rec7) >= -116
+ + DCx(rec5,rec7) >= -117
  minXCentroidDistance2(rec5,rec7,8): - 60 h(rec5,8) - 60 h(rec7,8)
- + DCx(rec5,rec7) >= -116
+ + DCx(rec5,rec7) >= -117
  minXCentroidDistance2(rec5,rec8,1): - 60 h(rec5,1) - 60 h(rec8,1)
- + DCx(rec5,rec8) >= -117
+ + DCx(rec5,rec8) >= -116
  minXCentroidDistance2(rec5,rec8,2): - 60 h(rec5,2) - 60 h(rec8,2)
- + DCx(rec5,rec8) >= -117
+ + DCx(rec5,rec8) >= -116
  minXCentroidDistance2(rec5,rec8,3): - 60 h(rec5,3) - 60 h(rec8,3)
- + DCx(rec5,rec8) >= -117
+ + DCx(rec5,rec8) >= -116
  minXCentroidDistance2(rec5,rec8,4): - 60 h(rec5,4) - 60 h(rec8,4)
- + DCx(rec5,rec8) >= -117
+ + DCx(rec5,rec8) >= -116
  minXCentroidDistance2(rec5,rec8,5): - 60 h(rec5,5) - 60 h(rec8,5)
- + DCx(rec5,rec8) >= -117
+ + DCx(rec5,rec8) >= -116
  minXCentroidDistance2(rec5,rec8,6): - 60 h(rec5,6) - 60 h(rec8,6)
- + DCx(rec5,rec8) >= -117
+ + DCx(rec5,rec8) >= -116
  minXCentroidDistance2(rec5,rec8,7): - 60 h(rec5,7) - 60 h(rec8,7)
- + DCx(rec5,rec8) >= -117
+ + DCx(rec5,rec8) >= -116
  minXCentroidDistance2(rec5,rec8,8): - 60 h(rec5,8) - 60 h(rec8,8)
- + DCx(rec5,rec8) >= -117
+ + DCx(rec5,rec8) >= -116
  minXCentroidDistance2(rec5,rec9,1): - 60 h(rec5,1) - 60 h(rec9,1)
- + DCx(rec5,rec9) >= -115
+ + DCx(rec5,rec9) >= -117
  minXCentroidDistance2(rec5,rec9,2): - 60 h(rec5,2) - 60 h(rec9,2)
- + DCx(rec5,rec9) >= -115
+ + DCx(rec5,rec9) >= -117
  minXCentroidDistance2(rec5,rec9,3): - 60 h(rec5,3) - 60 h(rec9,3)
- + DCx(rec5,rec9) >= -115
+ + DCx(rec5,rec9) >= -117
  minXCentroidDistance2(rec5,rec9,4): - 60 h(rec5,4) - 60 h(rec9,4)
- + DCx(rec5,rec9) >= -115
+ + DCx(rec5,rec9) >= -117
  minXCentroidDistance2(rec5,rec9,5): - 60 h(rec5,5) - 60 h(rec9,5)
- + DCx(rec5,rec9) >= -115
+ + DCx(rec5,rec9) >= -117
  minXCentroidDistance2(rec5,rec9,6): - 60 h(rec5,6) - 60 h(rec9,6)
- + DCx(rec5,rec9) >= -115
+ + DCx(rec5,rec9) >= -117
  minXCentroidDistance2(rec5,rec9,7): - 60 h(rec5,7) - 60 h(rec9,7)
- + DCx(rec5,rec9) >= -115
+ + DCx(rec5,rec9) >= -117
  minXCentroidDistance2(rec5,rec9,8): - 60 h(rec5,8) - 60 h(rec9,8)
- + DCx(rec5,rec9) >= -115
+ + DCx(rec5,rec9) >= -117
  minXCentroidDistance2(rec6,rec7,1): - 60 h(rec6,1) - 60 h(rec7,1)
- + DCx(rec6,rec7) >= -114
+ + DCx(rec6,rec7) >= -118
  minXCentroidDistance2(rec6,rec7,2): - 60 h(rec6,2) - 60 h(rec7,2)
- + DCx(rec6,rec7) >= -114
+ + DCx(rec6,rec7) >= -118
  minXCentroidDistance2(rec6,rec7,3): - 60 h(rec6,3) - 60 h(rec7,3)
- + DCx(rec6,rec7) >= -114
+ + DCx(rec6,rec7) >= -118
  minXCentroidDistance2(rec6,rec7,4): - 60 h(rec6,4) - 60 h(rec7,4)
- + DCx(rec6,rec7) >= -114
+ + DCx(rec6,rec7) >= -118
  minXCentroidDistance2(rec6,rec7,5): - 60 h(rec6,5) - 60 h(rec7,5)
- + DCx(rec6,rec7) >= -114
+ + DCx(rec6,rec7) >= -118
  minXCentroidDistance2(rec6,rec7,6): - 60 h(rec6,6) - 60 h(rec7,6)
- + DCx(rec6,rec7) >= -114
+ + DCx(rec6,rec7) >= -118
  minXCentroidDistance2(rec6,rec7,7): - 60 h(rec6,7) - 60 h(rec7,7)
- + DCx(rec6,rec7) >= -114
+ + DCx(rec6,rec7) >= -118
  minXCentroidDistance2(rec6,rec7,8): - 60 h(rec6,8) - 60 h(rec7,8)
- + DCx(rec6,rec7) >= -114
+ + DCx(rec6,rec7) >= -118
  minXCentroidDistance2(rec6,rec8,1): - 60 h(rec6,1) - 60 h(rec8,1)
- + DCx(rec6,rec8) >= -115
+ + DCx(rec6,rec8) >= -117
  minXCentroidDistance2(rec6,rec8,2): - 60 h(rec6,2) - 60 h(rec8,2)
- + DCx(rec6,rec8) >= -115
+ + DCx(rec6,rec8) >= -117
  minXCentroidDistance2(rec6,rec8,3): - 60 h(rec6,3) - 60 h(rec8,3)
- + DCx(rec6,rec8) >= -115
+ + DCx(rec6,rec8) >= -117
  minXCentroidDistance2(rec6,rec8,4): - 60 h(rec6,4) - 60 h(rec8,4)
- + DCx(rec6,rec8) >= -115
+ + DCx(rec6,rec8) >= -117
  minXCentroidDistance2(rec6,rec8,5): - 60 h(rec6,5) - 60 h(rec8,5)
- + DCx(rec6,rec8) >= -115
+ + DCx(rec6,rec8) >= -117
  minXCentroidDistance2(rec6,rec8,6): - 60 h(rec6,6) - 60 h(rec8,6)
- + DCx(rec6,rec8) >= -115
+ + DCx(rec6,rec8) >= -117
  minXCentroidDistance2(rec6,rec8,7): - 60 h(rec6,7) - 60 h(rec8,7)
- + DCx(rec6,rec8) >= -115
+ + DCx(rec6,rec8) >= -117
  minXCentroidDistance2(rec6,rec8,8): - 60 h(rec6,8) - 60 h(rec8,8)
- + DCx(rec6,rec8) >= -115
+ + DCx(rec6,rec8) >= -117
  minXCentroidDistance2(rec6,rec9,1): - 60 h(rec6,1) - 60 h(rec9,1)
- + DCx(rec6,rec9) >= -113
+ + DCx(rec6,rec9) >= -118
  minXCentroidDistance2(rec6,rec9,2): - 60 h(rec6,2) - 60 h(rec9,2)
- + DCx(rec6,rec9) >= -113
+ + DCx(rec6,rec9) >= -118
  minXCentroidDistance2(rec6,rec9,3): - 60 h(rec6,3) - 60 h(rec9,3)
- + DCx(rec6,rec9) >= -113
+ + DCx(rec6,rec9) >= -118
  minXCentroidDistance2(rec6,rec9,4): - 60 h(rec6,4) - 60 h(rec9,4)
- + DCx(rec6,rec9) >= -113
+ + DCx(rec6,rec9) >= -118
  minXCentroidDistance2(rec6,rec9,5): - 60 h(rec6,5) - 60 h(rec9,5)
- + DCx(rec6,rec9) >= -113
+ + DCx(rec6,rec9) >= -118
  minXCentroidDistance2(rec6,rec9,6): - 60 h(rec6,6) - 60 h(rec9,6)
- + DCx(rec6,rec9) >= -113
+ + DCx(rec6,rec9) >= -118
  minXCentroidDistance2(rec6,rec9,7): - 60 h(rec6,7) - 60 h(rec9,7)
- + DCx(rec6,rec9) >= -113
+ + DCx(rec6,rec9) >= -118
  minXCentroidDistance2(rec6,rec9,8): - 60 h(rec6,8) - 60 h(rec9,8)
- + DCx(rec6,rec9) >= -113
+ + DCx(rec6,rec9) >= -118
  minXCentroidDistance2(rec7,rec8,1): - 60 h(rec7,1) - 60 h(rec8,1)
  + DCx(rec7,rec8) >= -117
  minXCentroidDistance2(rec7,rec8,2): - 60 h(rec7,2) - 60 h(rec8,2)
@@ -18151,165 +29448,1045 @@ Subject To
  minXCentroidDistance2(rec7,rec8,8): - 60 h(rec7,8) - 60 h(rec8,8)
  + DCx(rec7,rec8) >= -117
  minXCentroidDistance2(rec7,rec9,1): - 60 h(rec7,1) - 60 h(rec9,1)
- + DCx(rec7,rec9) >= -115
+ + DCx(rec7,rec9) >= -118
  minXCentroidDistance2(rec7,rec9,2): - 60 h(rec7,2) - 60 h(rec9,2)
- + DCx(rec7,rec9) >= -115
+ + DCx(rec7,rec9) >= -118
  minXCentroidDistance2(rec7,rec9,3): - 60 h(rec7,3) - 60 h(rec9,3)
- + DCx(rec7,rec9) >= -115
+ + DCx(rec7,rec9) >= -118
  minXCentroidDistance2(rec7,rec9,4): - 60 h(rec7,4) - 60 h(rec9,4)
- + DCx(rec7,rec9) >= -115
+ + DCx(rec7,rec9) >= -118
  minXCentroidDistance2(rec7,rec9,5): - 60 h(rec7,5) - 60 h(rec9,5)
- + DCx(rec7,rec9) >= -115
+ + DCx(rec7,rec9) >= -118
  minXCentroidDistance2(rec7,rec9,6): - 60 h(rec7,6) - 60 h(rec9,6)
- + DCx(rec7,rec9) >= -115
+ + DCx(rec7,rec9) >= -118
  minXCentroidDistance2(rec7,rec9,7): - 60 h(rec7,7) - 60 h(rec9,7)
- + DCx(rec7,rec9) >= -115
+ + DCx(rec7,rec9) >= -118
  minXCentroidDistance2(rec7,rec9,8): - 60 h(rec7,8) - 60 h(rec9,8)
- + DCx(rec7,rec9) >= -115
+ + DCx(rec7,rec9) >= -118
  minXCentroidDistance2(rec8,rec9,1): - 60 h(rec8,1) - 60 h(rec9,1)
- + DCx(rec8,rec9) >= -116
+ + DCx(rec8,rec9) >= -117
  minXCentroidDistance2(rec8,rec9,2): - 60 h(rec8,2) - 60 h(rec9,2)
- + DCx(rec8,rec9) >= -116
+ + DCx(rec8,rec9) >= -117
  minXCentroidDistance2(rec8,rec9,3): - 60 h(rec8,3) - 60 h(rec9,3)
- + DCx(rec8,rec9) >= -116
+ + DCx(rec8,rec9) >= -117
  minXCentroidDistance2(rec8,rec9,4): - 60 h(rec8,4) - 60 h(rec9,4)
- + DCx(rec8,rec9) >= -116
+ + DCx(rec8,rec9) >= -117
  minXCentroidDistance2(rec8,rec9,5): - 60 h(rec8,5) - 60 h(rec9,5)
- + DCx(rec8,rec9) >= -116
+ + DCx(rec8,rec9) >= -117
  minXCentroidDistance2(rec8,rec9,6): - 60 h(rec8,6) - 60 h(rec9,6)
- + DCx(rec8,rec9) >= -116
+ + DCx(rec8,rec9) >= -117
  minXCentroidDistance2(rec8,rec9,7): - 60 h(rec8,7) - 60 h(rec9,7)
- + DCx(rec8,rec9) >= -116
+ + DCx(rec8,rec9) >= -117
  minXCentroidDistance2(rec8,rec9,8): - 60 h(rec8,8) - 60 h(rec9,8)
- + DCx(rec8,rec9) >= -116
+ + DCx(rec8,rec9) >= -117
  minXCentroidDistance2(rec10,rec2,1): - 60 h(rec2,1) - 60 h(rec10,1)
- + DCx(rec10,rec2) >= -115
+ + DCx(rec10,rec2) >= -118
  minXCentroidDistance2(rec10,rec2,2): - 60 h(rec2,2) - 60 h(rec10,2)
- + DCx(rec10,rec2) >= -115
+ + DCx(rec10,rec2) >= -118
  minXCentroidDistance2(rec10,rec2,3): - 60 h(rec2,3) - 60 h(rec10,3)
- + DCx(rec10,rec2) >= -115
+ + DCx(rec10,rec2) >= -118
  minXCentroidDistance2(rec10,rec2,4): - 60 h(rec2,4) - 60 h(rec10,4)
- + DCx(rec10,rec2) >= -115
+ + DCx(rec10,rec2) >= -118
  minXCentroidDistance2(rec10,rec2,5): - 60 h(rec2,5) - 60 h(rec10,5)
- + DCx(rec10,rec2) >= -115
+ + DCx(rec10,rec2) >= -118
  minXCentroidDistance2(rec10,rec2,6): - 60 h(rec2,6) - 60 h(rec10,6)
- + DCx(rec10,rec2) >= -115
+ + DCx(rec10,rec2) >= -118
  minXCentroidDistance2(rec10,rec2,7): - 60 h(rec2,7) - 60 h(rec10,7)
- + DCx(rec10,rec2) >= -115
+ + DCx(rec10,rec2) >= -118
  minXCentroidDistance2(rec10,rec2,8): - 60 h(rec2,8) - 60 h(rec10,8)
- + DCx(rec10,rec2) >= -115
+ + DCx(rec10,rec2) >= -118
  minXCentroidDistance2(rec10,rec3,1): - 60 h(rec3,1) - 60 h(rec10,1)
- + DCx(rec10,rec3) >= -115
+ + DCx(rec10,rec3) >= -118
  minXCentroidDistance2(rec10,rec3,2): - 60 h(rec3,2) - 60 h(rec10,2)
- + DCx(rec10,rec3) >= -115
+ + DCx(rec10,rec3) >= -118
  minXCentroidDistance2(rec10,rec3,3): - 60 h(rec3,3) - 60 h(rec10,3)
- + DCx(rec10,rec3) >= -115
+ + DCx(rec10,rec3) >= -118
  minXCentroidDistance2(rec10,rec3,4): - 60 h(rec3,4) - 60 h(rec10,4)
- + DCx(rec10,rec3) >= -115
+ + DCx(rec10,rec3) >= -118
  minXCentroidDistance2(rec10,rec3,5): - 60 h(rec3,5) - 60 h(rec10,5)
- + DCx(rec10,rec3) >= -115
+ + DCx(rec10,rec3) >= -118
  minXCentroidDistance2(rec10,rec3,6): - 60 h(rec3,6) - 60 h(rec10,6)
- + DCx(rec10,rec3) >= -115
+ + DCx(rec10,rec3) >= -118
  minXCentroidDistance2(rec10,rec3,7): - 60 h(rec3,7) - 60 h(rec10,7)
- + DCx(rec10,rec3) >= -115
+ + DCx(rec10,rec3) >= -118
  minXCentroidDistance2(rec10,rec3,8): - 60 h(rec3,8) - 60 h(rec10,8)
- + DCx(rec10,rec3) >= -115
+ + DCx(rec10,rec3) >= -118
  minXCentroidDistance2(rec10,rec4,1): - 60 h(rec4,1) - 60 h(rec10,1)
- + DCx(rec10,rec4) >= -115
+ + DCx(rec10,rec4) >= -118
  minXCentroidDistance2(rec10,rec4,2): - 60 h(rec4,2) - 60 h(rec10,2)
- + DCx(rec10,rec4) >= -115
+ + DCx(rec10,rec4) >= -118
  minXCentroidDistance2(rec10,rec4,3): - 60 h(rec4,3) - 60 h(rec10,3)
- + DCx(rec10,rec4) >= -115
+ + DCx(rec10,rec4) >= -118
  minXCentroidDistance2(rec10,rec4,4): - 60 h(rec4,4) - 60 h(rec10,4)
- + DCx(rec10,rec4) >= -115
+ + DCx(rec10,rec4) >= -118
  minXCentroidDistance2(rec10,rec4,5): - 60 h(rec4,5) - 60 h(rec10,5)
- + DCx(rec10,rec4) >= -115
+ + DCx(rec10,rec4) >= -118
  minXCentroidDistance2(rec10,rec4,6): - 60 h(rec4,6) - 60 h(rec10,6)
- + DCx(rec10,rec4) >= -115
+ + DCx(rec10,rec4) >= -118
  minXCentroidDistance2(rec10,rec4,7): - 60 h(rec4,7) - 60 h(rec10,7)
- + DCx(rec10,rec4) >= -115
+ + DCx(rec10,rec4) >= -118
  minXCentroidDistance2(rec10,rec4,8): - 60 h(rec4,8) - 60 h(rec10,8)
- + DCx(rec10,rec4) >= -115
+ + DCx(rec10,rec4) >= -118
  minXCentroidDistance2(rec10,rec5,1): - 60 h(rec5,1) - 60 h(rec10,1)
- + DCx(rec10,rec5) >= -115
+ + DCx(rec10,rec5) >= -117
  minXCentroidDistance2(rec10,rec5,2): - 60 h(rec5,2) - 60 h(rec10,2)
- + DCx(rec10,rec5) >= -115
+ + DCx(rec10,rec5) >= -117
  minXCentroidDistance2(rec10,rec5,3): - 60 h(rec5,3) - 60 h(rec10,3)
- + DCx(rec10,rec5) >= -115
+ + DCx(rec10,rec5) >= -117
  minXCentroidDistance2(rec10,rec5,4): - 60 h(rec5,4) - 60 h(rec10,4)
- + DCx(rec10,rec5) >= -115
+ + DCx(rec10,rec5) >= -117
  minXCentroidDistance2(rec10,rec5,5): - 60 h(rec5,5) - 60 h(rec10,5)
- + DCx(rec10,rec5) >= -115
+ + DCx(rec10,rec5) >= -117
  minXCentroidDistance2(rec10,rec5,6): - 60 h(rec5,6) - 60 h(rec10,6)
- + DCx(rec10,rec5) >= -115
+ + DCx(rec10,rec5) >= -117
  minXCentroidDistance2(rec10,rec5,7): - 60 h(rec5,7) - 60 h(rec10,7)
- + DCx(rec10,rec5) >= -115
+ + DCx(rec10,rec5) >= -117
  minXCentroidDistance2(rec10,rec5,8): - 60 h(rec5,8) - 60 h(rec10,8)
- + DCx(rec10,rec5) >= -115
+ + DCx(rec10,rec5) >= -117
  minXCentroidDistance2(rec10,rec6,1): - 60 h(rec6,1) - 60 h(rec10,1)
- + DCx(rec10,rec6) >= -113
+ + DCx(rec10,rec6) >= -118
  minXCentroidDistance2(rec10,rec6,2): - 60 h(rec6,2) - 60 h(rec10,2)
- + DCx(rec10,rec6) >= -113
+ + DCx(rec10,rec6) >= -118
  minXCentroidDistance2(rec10,rec6,3): - 60 h(rec6,3) - 60 h(rec10,3)
- + DCx(rec10,rec6) >= -113
+ + DCx(rec10,rec6) >= -118
  minXCentroidDistance2(rec10,rec6,4): - 60 h(rec6,4) - 60 h(rec10,4)
- + DCx(rec10,rec6) >= -113
+ + DCx(rec10,rec6) >= -118
  minXCentroidDistance2(rec10,rec6,5): - 60 h(rec6,5) - 60 h(rec10,5)
- + DCx(rec10,rec6) >= -113
+ + DCx(rec10,rec6) >= -118
  minXCentroidDistance2(rec10,rec6,6): - 60 h(rec6,6) - 60 h(rec10,6)
- + DCx(rec10,rec6) >= -113
+ + DCx(rec10,rec6) >= -118
  minXCentroidDistance2(rec10,rec6,7): - 60 h(rec6,7) - 60 h(rec10,7)
- + DCx(rec10,rec6) >= -113
+ + DCx(rec10,rec6) >= -118
  minXCentroidDistance2(rec10,rec6,8): - 60 h(rec6,8) - 60 h(rec10,8)
- + DCx(rec10,rec6) >= -113
+ + DCx(rec10,rec6) >= -118
  minXCentroidDistance2(rec10,rec7,1): - 60 h(rec7,1) - 60 h(rec10,1)
- + DCx(rec10,rec7) >= -115
+ + DCx(rec10,rec7) >= -118
  minXCentroidDistance2(rec10,rec7,2): - 60 h(rec7,2) - 60 h(rec10,2)
- + DCx(rec10,rec7) >= -115
+ + DCx(rec10,rec7) >= -118
  minXCentroidDistance2(rec10,rec7,3): - 60 h(rec7,3) - 60 h(rec10,3)
- + DCx(rec10,rec7) >= -115
+ + DCx(rec10,rec7) >= -118
  minXCentroidDistance2(rec10,rec7,4): - 60 h(rec7,4) - 60 h(rec10,4)
- + DCx(rec10,rec7) >= -115
+ + DCx(rec10,rec7) >= -118
  minXCentroidDistance2(rec10,rec7,5): - 60 h(rec7,5) - 60 h(rec10,5)
- + DCx(rec10,rec7) >= -115
+ + DCx(rec10,rec7) >= -118
  minXCentroidDistance2(rec10,rec7,6): - 60 h(rec7,6) - 60 h(rec10,6)
- + DCx(rec10,rec7) >= -115
+ + DCx(rec10,rec7) >= -118
  minXCentroidDistance2(rec10,rec7,7): - 60 h(rec7,7) - 60 h(rec10,7)
- + DCx(rec10,rec7) >= -115
+ + DCx(rec10,rec7) >= -118
  minXCentroidDistance2(rec10,rec7,8): - 60 h(rec7,8) - 60 h(rec10,8)
- + DCx(rec10,rec7) >= -115
+ + DCx(rec10,rec7) >= -118
  minXCentroidDistance2(rec10,rec8,1): - 60 h(rec8,1) - 60 h(rec10,1)
- + DCx(rec10,rec8) >= -116
+ + DCx(rec10,rec8) >= -117
  minXCentroidDistance2(rec10,rec8,2): - 60 h(rec8,2) - 60 h(rec10,2)
- + DCx(rec10,rec8) >= -116
+ + DCx(rec10,rec8) >= -117
  minXCentroidDistance2(rec10,rec8,3): - 60 h(rec8,3) - 60 h(rec10,3)
- + DCx(rec10,rec8) >= -116
+ + DCx(rec10,rec8) >= -117
  minXCentroidDistance2(rec10,rec8,4): - 60 h(rec8,4) - 60 h(rec10,4)
- + DCx(rec10,rec8) >= -116
+ + DCx(rec10,rec8) >= -117
  minXCentroidDistance2(rec10,rec8,5): - 60 h(rec8,5) - 60 h(rec10,5)
- + DCx(rec10,rec8) >= -116
+ + DCx(rec10,rec8) >= -117
  minXCentroidDistance2(rec10,rec8,6): - 60 h(rec8,6) - 60 h(rec10,6)
- + DCx(rec10,rec8) >= -116
+ + DCx(rec10,rec8) >= -117
  minXCentroidDistance2(rec10,rec8,7): - 60 h(rec8,7) - 60 h(rec10,7)
- + DCx(rec10,rec8) >= -116
+ + DCx(rec10,rec8) >= -117
  minXCentroidDistance2(rec10,rec8,8): - 60 h(rec8,8) - 60 h(rec10,8)
- + DCx(rec10,rec8) >= -116
+ + DCx(rec10,rec8) >= -117
  minXCentroidDistance2(rec10,rec9,1): - 60 h(rec9,1) - 60 h(rec10,1)
- + DCx(rec10,rec9) >= -114
+ + DCx(rec10,rec9) >= -118
  minXCentroidDistance2(rec10,rec9,2): - 60 h(rec9,2) - 60 h(rec10,2)
- + DCx(rec10,rec9) >= -114
+ + DCx(rec10,rec9) >= -118
  minXCentroidDistance2(rec10,rec9,3): - 60 h(rec9,3) - 60 h(rec10,3)
- + DCx(rec10,rec9) >= -114
+ + DCx(rec10,rec9) >= -118
  minXCentroidDistance2(rec10,rec9,4): - 60 h(rec9,4) - 60 h(rec10,4)
- + DCx(rec10,rec9) >= -114
+ + DCx(rec10,rec9) >= -118
  minXCentroidDistance2(rec10,rec9,5): - 60 h(rec9,5) - 60 h(rec10,5)
- + DCx(rec10,rec9) >= -114
+ + DCx(rec10,rec9) >= -118
  minXCentroidDistance2(rec10,rec9,6): - 60 h(rec9,6) - 60 h(rec10,6)
- + DCx(rec10,rec9) >= -114
+ + DCx(rec10,rec9) >= -118
  minXCentroidDistance2(rec10,rec9,7): - 60 h(rec9,7) - 60 h(rec10,7)
- + DCx(rec10,rec9) >= -114
+ + DCx(rec10,rec9) >= -118
  minXCentroidDistance2(rec10,rec9,8): - 60 h(rec9,8) - 60 h(rec10,8)
- + DCx(rec10,rec9) >= -114
+ + DCx(rec10,rec9) >= -118
+ minXCentroidDistance2(rec10,rec11,1): - 60 h(rec10,1) - 60 h(rec11,1)
+ + DCx(rec10,rec11) >= -118
+ minXCentroidDistance2(rec10,rec11,2): - 60 h(rec10,2) - 60 h(rec11,2)
+ + DCx(rec10,rec11) >= -118
+ minXCentroidDistance2(rec10,rec11,3): - 60 h(rec10,3) - 60 h(rec11,3)
+ + DCx(rec10,rec11) >= -118
+ minXCentroidDistance2(rec10,rec11,4): - 60 h(rec10,4) - 60 h(rec11,4)
+ + DCx(rec10,rec11) >= -118
+ minXCentroidDistance2(rec10,rec11,5): - 60 h(rec10,5) - 60 h(rec11,5)
+ + DCx(rec10,rec11) >= -118
+ minXCentroidDistance2(rec10,rec11,6): - 60 h(rec10,6) - 60 h(rec11,6)
+ + DCx(rec10,rec11) >= -118
+ minXCentroidDistance2(rec10,rec11,7): - 60 h(rec10,7) - 60 h(rec11,7)
+ + DCx(rec10,rec11) >= -118
+ minXCentroidDistance2(rec10,rec11,8): - 60 h(rec10,8) - 60 h(rec11,8)
+ + DCx(rec10,rec11) >= -118
+ minXCentroidDistance2(rec10,rec12,1): - 60 h(rec10,1) - 60 h(rec12,1)
+ + DCx(rec10,rec12) >= -118
+ minXCentroidDistance2(rec10,rec12,2): - 60 h(rec10,2) - 60 h(rec12,2)
+ + DCx(rec10,rec12) >= -118
+ minXCentroidDistance2(rec10,rec12,3): - 60 h(rec10,3) - 60 h(rec12,3)
+ + DCx(rec10,rec12) >= -118
+ minXCentroidDistance2(rec10,rec12,4): - 60 h(rec10,4) - 60 h(rec12,4)
+ + DCx(rec10,rec12) >= -118
+ minXCentroidDistance2(rec10,rec12,5): - 60 h(rec10,5) - 60 h(rec12,5)
+ + DCx(rec10,rec12) >= -118
+ minXCentroidDistance2(rec10,rec12,6): - 60 h(rec10,6) - 60 h(rec12,6)
+ + DCx(rec10,rec12) >= -118
+ minXCentroidDistance2(rec10,rec12,7): - 60 h(rec10,7) - 60 h(rec12,7)
+ + DCx(rec10,rec12) >= -118
+ minXCentroidDistance2(rec10,rec12,8): - 60 h(rec10,8) - 60 h(rec12,8)
+ + DCx(rec10,rec12) >= -118
+ minXCentroidDistance2(rec10,rec13,1): - 60 h(rec10,1) - 60 h(rec13,1)
+ + DCx(rec10,rec13) >= -116
+ minXCentroidDistance2(rec10,rec13,2): - 60 h(rec10,2) - 60 h(rec13,2)
+ + DCx(rec10,rec13) >= -116
+ minXCentroidDistance2(rec10,rec13,3): - 60 h(rec10,3) - 60 h(rec13,3)
+ + DCx(rec10,rec13) >= -116
+ minXCentroidDistance2(rec10,rec13,4): - 60 h(rec10,4) - 60 h(rec13,4)
+ + DCx(rec10,rec13) >= -116
+ minXCentroidDistance2(rec10,rec13,5): - 60 h(rec10,5) - 60 h(rec13,5)
+ + DCx(rec10,rec13) >= -116
+ minXCentroidDistance2(rec10,rec13,6): - 60 h(rec10,6) - 60 h(rec13,6)
+ + DCx(rec10,rec13) >= -116
+ minXCentroidDistance2(rec10,rec13,7): - 60 h(rec10,7) - 60 h(rec13,7)
+ + DCx(rec10,rec13) >= -116
+ minXCentroidDistance2(rec10,rec13,8): - 60 h(rec10,8) - 60 h(rec13,8)
+ + DCx(rec10,rec13) >= -116
+ minXCentroidDistance2(rec10,rec14,1): - 60 h(rec10,1) - 60 h(rec14,1)
+ + DCx(rec10,rec14) >= -117
+ minXCentroidDistance2(rec10,rec14,2): - 60 h(rec10,2) - 60 h(rec14,2)
+ + DCx(rec10,rec14) >= -117
+ minXCentroidDistance2(rec10,rec14,3): - 60 h(rec10,3) - 60 h(rec14,3)
+ + DCx(rec10,rec14) >= -117
+ minXCentroidDistance2(rec10,rec14,4): - 60 h(rec10,4) - 60 h(rec14,4)
+ + DCx(rec10,rec14) >= -117
+ minXCentroidDistance2(rec10,rec14,5): - 60 h(rec10,5) - 60 h(rec14,5)
+ + DCx(rec10,rec14) >= -117
+ minXCentroidDistance2(rec10,rec14,6): - 60 h(rec10,6) - 60 h(rec14,6)
+ + DCx(rec10,rec14) >= -117
+ minXCentroidDistance2(rec10,rec14,7): - 60 h(rec10,7) - 60 h(rec14,7)
+ + DCx(rec10,rec14) >= -117
+ minXCentroidDistance2(rec10,rec14,8): - 60 h(rec10,8) - 60 h(rec14,8)
+ + DCx(rec10,rec14) >= -117
+ minXCentroidDistance2(rec10,rec15,1): - 60 h(rec10,1) - 60 h(rec15,1)
+ + DCx(rec10,rec15) >= -117
+ minXCentroidDistance2(rec10,rec15,2): - 60 h(rec10,2) - 60 h(rec15,2)
+ + DCx(rec10,rec15) >= -117
+ minXCentroidDistance2(rec10,rec15,3): - 60 h(rec10,3) - 60 h(rec15,3)
+ + DCx(rec10,rec15) >= -117
+ minXCentroidDistance2(rec10,rec15,4): - 60 h(rec10,4) - 60 h(rec15,4)
+ + DCx(rec10,rec15) >= -117
+ minXCentroidDistance2(rec10,rec15,5): - 60 h(rec10,5) - 60 h(rec15,5)
+ + DCx(rec10,rec15) >= -117
+ minXCentroidDistance2(rec10,rec15,6): - 60 h(rec10,6) - 60 h(rec15,6)
+ + DCx(rec10,rec15) >= -117
+ minXCentroidDistance2(rec10,rec15,7): - 60 h(rec10,7) - 60 h(rec15,7)
+ + DCx(rec10,rec15) >= -117
+ minXCentroidDistance2(rec10,rec15,8): - 60 h(rec10,8) - 60 h(rec15,8)
+ + DCx(rec10,rec15) >= -117
+ minXCentroidDistance2(rec11,rec2,1): - 60 h(rec2,1) - 60 h(rec11,1)
+ + DCx(rec11,rec2) >= -118
+ minXCentroidDistance2(rec11,rec2,2): - 60 h(rec2,2) - 60 h(rec11,2)
+ + DCx(rec11,rec2) >= -118
+ minXCentroidDistance2(rec11,rec2,3): - 60 h(rec2,3) - 60 h(rec11,3)
+ + DCx(rec11,rec2) >= -118
+ minXCentroidDistance2(rec11,rec2,4): - 60 h(rec2,4) - 60 h(rec11,4)
+ + DCx(rec11,rec2) >= -118
+ minXCentroidDistance2(rec11,rec2,5): - 60 h(rec2,5) - 60 h(rec11,5)
+ + DCx(rec11,rec2) >= -118
+ minXCentroidDistance2(rec11,rec2,6): - 60 h(rec2,6) - 60 h(rec11,6)
+ + DCx(rec11,rec2) >= -118
+ minXCentroidDistance2(rec11,rec2,7): - 60 h(rec2,7) - 60 h(rec11,7)
+ + DCx(rec11,rec2) >= -118
+ minXCentroidDistance2(rec11,rec2,8): - 60 h(rec2,8) - 60 h(rec11,8)
+ + DCx(rec11,rec2) >= -118
+ minXCentroidDistance2(rec11,rec3,1): - 60 h(rec3,1) - 60 h(rec11,1)
+ + DCx(rec11,rec3) >= -118
+ minXCentroidDistance2(rec11,rec3,2): - 60 h(rec3,2) - 60 h(rec11,2)
+ + DCx(rec11,rec3) >= -118
+ minXCentroidDistance2(rec11,rec3,3): - 60 h(rec3,3) - 60 h(rec11,3)
+ + DCx(rec11,rec3) >= -118
+ minXCentroidDistance2(rec11,rec3,4): - 60 h(rec3,4) - 60 h(rec11,4)
+ + DCx(rec11,rec3) >= -118
+ minXCentroidDistance2(rec11,rec3,5): - 60 h(rec3,5) - 60 h(rec11,5)
+ + DCx(rec11,rec3) >= -118
+ minXCentroidDistance2(rec11,rec3,6): - 60 h(rec3,6) - 60 h(rec11,6)
+ + DCx(rec11,rec3) >= -118
+ minXCentroidDistance2(rec11,rec3,7): - 60 h(rec3,7) - 60 h(rec11,7)
+ + DCx(rec11,rec3) >= -118
+ minXCentroidDistance2(rec11,rec3,8): - 60 h(rec3,8) - 60 h(rec11,8)
+ + DCx(rec11,rec3) >= -118
+ minXCentroidDistance2(rec11,rec4,1): - 60 h(rec4,1) - 60 h(rec11,1)
+ + DCx(rec11,rec4) >= -118
+ minXCentroidDistance2(rec11,rec4,2): - 60 h(rec4,2) - 60 h(rec11,2)
+ + DCx(rec11,rec4) >= -118
+ minXCentroidDistance2(rec11,rec4,3): - 60 h(rec4,3) - 60 h(rec11,3)
+ + DCx(rec11,rec4) >= -118
+ minXCentroidDistance2(rec11,rec4,4): - 60 h(rec4,4) - 60 h(rec11,4)
+ + DCx(rec11,rec4) >= -118
+ minXCentroidDistance2(rec11,rec4,5): - 60 h(rec4,5) - 60 h(rec11,5)
+ + DCx(rec11,rec4) >= -118
+ minXCentroidDistance2(rec11,rec4,6): - 60 h(rec4,6) - 60 h(rec11,6)
+ + DCx(rec11,rec4) >= -118
+ minXCentroidDistance2(rec11,rec4,7): - 60 h(rec4,7) - 60 h(rec11,7)
+ + DCx(rec11,rec4) >= -118
+ minXCentroidDistance2(rec11,rec4,8): - 60 h(rec4,8) - 60 h(rec11,8)
+ + DCx(rec11,rec4) >= -118
+ minXCentroidDistance2(rec11,rec5,1): - 60 h(rec5,1) - 60 h(rec11,1)
+ + DCx(rec11,rec5) >= -117
+ minXCentroidDistance2(rec11,rec5,2): - 60 h(rec5,2) - 60 h(rec11,2)
+ + DCx(rec11,rec5) >= -117
+ minXCentroidDistance2(rec11,rec5,3): - 60 h(rec5,3) - 60 h(rec11,3)
+ + DCx(rec11,rec5) >= -117
+ minXCentroidDistance2(rec11,rec5,4): - 60 h(rec5,4) - 60 h(rec11,4)
+ + DCx(rec11,rec5) >= -117
+ minXCentroidDistance2(rec11,rec5,5): - 60 h(rec5,5) - 60 h(rec11,5)
+ + DCx(rec11,rec5) >= -117
+ minXCentroidDistance2(rec11,rec5,6): - 60 h(rec5,6) - 60 h(rec11,6)
+ + DCx(rec11,rec5) >= -117
+ minXCentroidDistance2(rec11,rec5,7): - 60 h(rec5,7) - 60 h(rec11,7)
+ + DCx(rec11,rec5) >= -117
+ minXCentroidDistance2(rec11,rec5,8): - 60 h(rec5,8) - 60 h(rec11,8)
+ + DCx(rec11,rec5) >= -117
+ minXCentroidDistance2(rec11,rec6,1): - 60 h(rec6,1) - 60 h(rec11,1)
+ + DCx(rec11,rec6) >= -118
+ minXCentroidDistance2(rec11,rec6,2): - 60 h(rec6,2) - 60 h(rec11,2)
+ + DCx(rec11,rec6) >= -118
+ minXCentroidDistance2(rec11,rec6,3): - 60 h(rec6,3) - 60 h(rec11,3)
+ + DCx(rec11,rec6) >= -118
+ minXCentroidDistance2(rec11,rec6,4): - 60 h(rec6,4) - 60 h(rec11,4)
+ + DCx(rec11,rec6) >= -118
+ minXCentroidDistance2(rec11,rec6,5): - 60 h(rec6,5) - 60 h(rec11,5)
+ + DCx(rec11,rec6) >= -118
+ minXCentroidDistance2(rec11,rec6,6): - 60 h(rec6,6) - 60 h(rec11,6)
+ + DCx(rec11,rec6) >= -118
+ minXCentroidDistance2(rec11,rec6,7): - 60 h(rec6,7) - 60 h(rec11,7)
+ + DCx(rec11,rec6) >= -118
+ minXCentroidDistance2(rec11,rec6,8): - 60 h(rec6,8) - 60 h(rec11,8)
+ + DCx(rec11,rec6) >= -118
+ minXCentroidDistance2(rec11,rec7,1): - 60 h(rec7,1) - 60 h(rec11,1)
+ + DCx(rec11,rec7) >= -118
+ minXCentroidDistance2(rec11,rec7,2): - 60 h(rec7,2) - 60 h(rec11,2)
+ + DCx(rec11,rec7) >= -118
+ minXCentroidDistance2(rec11,rec7,3): - 60 h(rec7,3) - 60 h(rec11,3)
+ + DCx(rec11,rec7) >= -118
+ minXCentroidDistance2(rec11,rec7,4): - 60 h(rec7,4) - 60 h(rec11,4)
+ + DCx(rec11,rec7) >= -118
+ minXCentroidDistance2(rec11,rec7,5): - 60 h(rec7,5) - 60 h(rec11,5)
+ + DCx(rec11,rec7) >= -118
+ minXCentroidDistance2(rec11,rec7,6): - 60 h(rec7,6) - 60 h(rec11,6)
+ + DCx(rec11,rec7) >= -118
+ minXCentroidDistance2(rec11,rec7,7): - 60 h(rec7,7) - 60 h(rec11,7)
+ + DCx(rec11,rec7) >= -118
+ minXCentroidDistance2(rec11,rec7,8): - 60 h(rec7,8) - 60 h(rec11,8)
+ + DCx(rec11,rec7) >= -118
+ minXCentroidDistance2(rec11,rec8,1): - 60 h(rec8,1) - 60 h(rec11,1)
+ + DCx(rec11,rec8) >= -117
+ minXCentroidDistance2(rec11,rec8,2): - 60 h(rec8,2) - 60 h(rec11,2)
+ + DCx(rec11,rec8) >= -117
+ minXCentroidDistance2(rec11,rec8,3): - 60 h(rec8,3) - 60 h(rec11,3)
+ + DCx(rec11,rec8) >= -117
+ minXCentroidDistance2(rec11,rec8,4): - 60 h(rec8,4) - 60 h(rec11,4)
+ + DCx(rec11,rec8) >= -117
+ minXCentroidDistance2(rec11,rec8,5): - 60 h(rec8,5) - 60 h(rec11,5)
+ + DCx(rec11,rec8) >= -117
+ minXCentroidDistance2(rec11,rec8,6): - 60 h(rec8,6) - 60 h(rec11,6)
+ + DCx(rec11,rec8) >= -117
+ minXCentroidDistance2(rec11,rec8,7): - 60 h(rec8,7) - 60 h(rec11,7)
+ + DCx(rec11,rec8) >= -117
+ minXCentroidDistance2(rec11,rec8,8): - 60 h(rec8,8) - 60 h(rec11,8)
+ + DCx(rec11,rec8) >= -117
+ minXCentroidDistance2(rec11,rec9,1): - 60 h(rec9,1) - 60 h(rec11,1)
+ + DCx(rec11,rec9) >= -118
+ minXCentroidDistance2(rec11,rec9,2): - 60 h(rec9,2) - 60 h(rec11,2)
+ + DCx(rec11,rec9) >= -118
+ minXCentroidDistance2(rec11,rec9,3): - 60 h(rec9,3) - 60 h(rec11,3)
+ + DCx(rec11,rec9) >= -118
+ minXCentroidDistance2(rec11,rec9,4): - 60 h(rec9,4) - 60 h(rec11,4)
+ + DCx(rec11,rec9) >= -118
+ minXCentroidDistance2(rec11,rec9,5): - 60 h(rec9,5) - 60 h(rec11,5)
+ + DCx(rec11,rec9) >= -118
+ minXCentroidDistance2(rec11,rec9,6): - 60 h(rec9,6) - 60 h(rec11,6)
+ + DCx(rec11,rec9) >= -118
+ minXCentroidDistance2(rec11,rec9,7): - 60 h(rec9,7) - 60 h(rec11,7)
+ + DCx(rec11,rec9) >= -118
+ minXCentroidDistance2(rec11,rec9,8): - 60 h(rec9,8) - 60 h(rec11,8)
+ + DCx(rec11,rec9) >= -118
+ minXCentroidDistance2(rec11,rec12,1): - 60 h(rec11,1) - 60 h(rec12,1)
+ + DCx(rec11,rec12) >= -118
+ minXCentroidDistance2(rec11,rec12,2): - 60 h(rec11,2) - 60 h(rec12,2)
+ + DCx(rec11,rec12) >= -118
+ minXCentroidDistance2(rec11,rec12,3): - 60 h(rec11,3) - 60 h(rec12,3)
+ + DCx(rec11,rec12) >= -118
+ minXCentroidDistance2(rec11,rec12,4): - 60 h(rec11,4) - 60 h(rec12,4)
+ + DCx(rec11,rec12) >= -118
+ minXCentroidDistance2(rec11,rec12,5): - 60 h(rec11,5) - 60 h(rec12,5)
+ + DCx(rec11,rec12) >= -118
+ minXCentroidDistance2(rec11,rec12,6): - 60 h(rec11,6) - 60 h(rec12,6)
+ + DCx(rec11,rec12) >= -118
+ minXCentroidDistance2(rec11,rec12,7): - 60 h(rec11,7) - 60 h(rec12,7)
+ + DCx(rec11,rec12) >= -118
+ minXCentroidDistance2(rec11,rec12,8): - 60 h(rec11,8) - 60 h(rec12,8)
+ + DCx(rec11,rec12) >= -118
+ minXCentroidDistance2(rec11,rec13,1): - 60 h(rec11,1) - 60 h(rec13,1)
+ + DCx(rec11,rec13) >= -116
+ minXCentroidDistance2(rec11,rec13,2): - 60 h(rec11,2) - 60 h(rec13,2)
+ + DCx(rec11,rec13) >= -116
+ minXCentroidDistance2(rec11,rec13,3): - 60 h(rec11,3) - 60 h(rec13,3)
+ + DCx(rec11,rec13) >= -116
+ minXCentroidDistance2(rec11,rec13,4): - 60 h(rec11,4) - 60 h(rec13,4)
+ + DCx(rec11,rec13) >= -116
+ minXCentroidDistance2(rec11,rec13,5): - 60 h(rec11,5) - 60 h(rec13,5)
+ + DCx(rec11,rec13) >= -116
+ minXCentroidDistance2(rec11,rec13,6): - 60 h(rec11,6) - 60 h(rec13,6)
+ + DCx(rec11,rec13) >= -116
+ minXCentroidDistance2(rec11,rec13,7): - 60 h(rec11,7) - 60 h(rec13,7)
+ + DCx(rec11,rec13) >= -116
+ minXCentroidDistance2(rec11,rec13,8): - 60 h(rec11,8) - 60 h(rec13,8)
+ + DCx(rec11,rec13) >= -116
+ minXCentroidDistance2(rec11,rec14,1): - 60 h(rec11,1) - 60 h(rec14,1)
+ + DCx(rec11,rec14) >= -117
+ minXCentroidDistance2(rec11,rec14,2): - 60 h(rec11,2) - 60 h(rec14,2)
+ + DCx(rec11,rec14) >= -117
+ minXCentroidDistance2(rec11,rec14,3): - 60 h(rec11,3) - 60 h(rec14,3)
+ + DCx(rec11,rec14) >= -117
+ minXCentroidDistance2(rec11,rec14,4): - 60 h(rec11,4) - 60 h(rec14,4)
+ + DCx(rec11,rec14) >= -117
+ minXCentroidDistance2(rec11,rec14,5): - 60 h(rec11,5) - 60 h(rec14,5)
+ + DCx(rec11,rec14) >= -117
+ minXCentroidDistance2(rec11,rec14,6): - 60 h(rec11,6) - 60 h(rec14,6)
+ + DCx(rec11,rec14) >= -117
+ minXCentroidDistance2(rec11,rec14,7): - 60 h(rec11,7) - 60 h(rec14,7)
+ + DCx(rec11,rec14) >= -117
+ minXCentroidDistance2(rec11,rec14,8): - 60 h(rec11,8) - 60 h(rec14,8)
+ + DCx(rec11,rec14) >= -117
+ minXCentroidDistance2(rec11,rec15,1): - 60 h(rec11,1) - 60 h(rec15,1)
+ + DCx(rec11,rec15) >= -117
+ minXCentroidDistance2(rec11,rec15,2): - 60 h(rec11,2) - 60 h(rec15,2)
+ + DCx(rec11,rec15) >= -117
+ minXCentroidDistance2(rec11,rec15,3): - 60 h(rec11,3) - 60 h(rec15,3)
+ + DCx(rec11,rec15) >= -117
+ minXCentroidDistance2(rec11,rec15,4): - 60 h(rec11,4) - 60 h(rec15,4)
+ + DCx(rec11,rec15) >= -117
+ minXCentroidDistance2(rec11,rec15,5): - 60 h(rec11,5) - 60 h(rec15,5)
+ + DCx(rec11,rec15) >= -117
+ minXCentroidDistance2(rec11,rec15,6): - 60 h(rec11,6) - 60 h(rec15,6)
+ + DCx(rec11,rec15) >= -117
+ minXCentroidDistance2(rec11,rec15,7): - 60 h(rec11,7) - 60 h(rec15,7)
+ + DCx(rec11,rec15) >= -117
+ minXCentroidDistance2(rec11,rec15,8): - 60 h(rec11,8) - 60 h(rec15,8)
+ + DCx(rec11,rec15) >= -117
+ minXCentroidDistance2(rec12,rec2,1): - 60 h(rec2,1) - 60 h(rec12,1)
+ + DCx(rec12,rec2) >= -118
+ minXCentroidDistance2(rec12,rec2,2): - 60 h(rec2,2) - 60 h(rec12,2)
+ + DCx(rec12,rec2) >= -118
+ minXCentroidDistance2(rec12,rec2,3): - 60 h(rec2,3) - 60 h(rec12,3)
+ + DCx(rec12,rec2) >= -118
+ minXCentroidDistance2(rec12,rec2,4): - 60 h(rec2,4) - 60 h(rec12,4)
+ + DCx(rec12,rec2) >= -118
+ minXCentroidDistance2(rec12,rec2,5): - 60 h(rec2,5) - 60 h(rec12,5)
+ + DCx(rec12,rec2) >= -118
+ minXCentroidDistance2(rec12,rec2,6): - 60 h(rec2,6) - 60 h(rec12,6)
+ + DCx(rec12,rec2) >= -118
+ minXCentroidDistance2(rec12,rec2,7): - 60 h(rec2,7) - 60 h(rec12,7)
+ + DCx(rec12,rec2) >= -118
+ minXCentroidDistance2(rec12,rec2,8): - 60 h(rec2,8) - 60 h(rec12,8)
+ + DCx(rec12,rec2) >= -118
+ minXCentroidDistance2(rec12,rec3,1): - 60 h(rec3,1) - 60 h(rec12,1)
+ + DCx(rec12,rec3) >= -118
+ minXCentroidDistance2(rec12,rec3,2): - 60 h(rec3,2) - 60 h(rec12,2)
+ + DCx(rec12,rec3) >= -118
+ minXCentroidDistance2(rec12,rec3,3): - 60 h(rec3,3) - 60 h(rec12,3)
+ + DCx(rec12,rec3) >= -118
+ minXCentroidDistance2(rec12,rec3,4): - 60 h(rec3,4) - 60 h(rec12,4)
+ + DCx(rec12,rec3) >= -118
+ minXCentroidDistance2(rec12,rec3,5): - 60 h(rec3,5) - 60 h(rec12,5)
+ + DCx(rec12,rec3) >= -118
+ minXCentroidDistance2(rec12,rec3,6): - 60 h(rec3,6) - 60 h(rec12,6)
+ + DCx(rec12,rec3) >= -118
+ minXCentroidDistance2(rec12,rec3,7): - 60 h(rec3,7) - 60 h(rec12,7)
+ + DCx(rec12,rec3) >= -118
+ minXCentroidDistance2(rec12,rec3,8): - 60 h(rec3,8) - 60 h(rec12,8)
+ + DCx(rec12,rec3) >= -118
+ minXCentroidDistance2(rec12,rec4,1): - 60 h(rec4,1) - 60 h(rec12,1)
+ + DCx(rec12,rec4) >= -118
+ minXCentroidDistance2(rec12,rec4,2): - 60 h(rec4,2) - 60 h(rec12,2)
+ + DCx(rec12,rec4) >= -118
+ minXCentroidDistance2(rec12,rec4,3): - 60 h(rec4,3) - 60 h(rec12,3)
+ + DCx(rec12,rec4) >= -118
+ minXCentroidDistance2(rec12,rec4,4): - 60 h(rec4,4) - 60 h(rec12,4)
+ + DCx(rec12,rec4) >= -118
+ minXCentroidDistance2(rec12,rec4,5): - 60 h(rec4,5) - 60 h(rec12,5)
+ + DCx(rec12,rec4) >= -118
+ minXCentroidDistance2(rec12,rec4,6): - 60 h(rec4,6) - 60 h(rec12,6)
+ + DCx(rec12,rec4) >= -118
+ minXCentroidDistance2(rec12,rec4,7): - 60 h(rec4,7) - 60 h(rec12,7)
+ + DCx(rec12,rec4) >= -118
+ minXCentroidDistance2(rec12,rec4,8): - 60 h(rec4,8) - 60 h(rec12,8)
+ + DCx(rec12,rec4) >= -118
+ minXCentroidDistance2(rec12,rec5,1): - 60 h(rec5,1) - 60 h(rec12,1)
+ + DCx(rec12,rec5) >= -117
+ minXCentroidDistance2(rec12,rec5,2): - 60 h(rec5,2) - 60 h(rec12,2)
+ + DCx(rec12,rec5) >= -117
+ minXCentroidDistance2(rec12,rec5,3): - 60 h(rec5,3) - 60 h(rec12,3)
+ + DCx(rec12,rec5) >= -117
+ minXCentroidDistance2(rec12,rec5,4): - 60 h(rec5,4) - 60 h(rec12,4)
+ + DCx(rec12,rec5) >= -117
+ minXCentroidDistance2(rec12,rec5,5): - 60 h(rec5,5) - 60 h(rec12,5)
+ + DCx(rec12,rec5) >= -117
+ minXCentroidDistance2(rec12,rec5,6): - 60 h(rec5,6) - 60 h(rec12,6)
+ + DCx(rec12,rec5) >= -117
+ minXCentroidDistance2(rec12,rec5,7): - 60 h(rec5,7) - 60 h(rec12,7)
+ + DCx(rec12,rec5) >= -117
+ minXCentroidDistance2(rec12,rec5,8): - 60 h(rec5,8) - 60 h(rec12,8)
+ + DCx(rec12,rec5) >= -117
+ minXCentroidDistance2(rec12,rec6,1): - 60 h(rec6,1) - 60 h(rec12,1)
+ + DCx(rec12,rec6) >= -118
+ minXCentroidDistance2(rec12,rec6,2): - 60 h(rec6,2) - 60 h(rec12,2)
+ + DCx(rec12,rec6) >= -118
+ minXCentroidDistance2(rec12,rec6,3): - 60 h(rec6,3) - 60 h(rec12,3)
+ + DCx(rec12,rec6) >= -118
+ minXCentroidDistance2(rec12,rec6,4): - 60 h(rec6,4) - 60 h(rec12,4)
+ + DCx(rec12,rec6) >= -118
+ minXCentroidDistance2(rec12,rec6,5): - 60 h(rec6,5) - 60 h(rec12,5)
+ + DCx(rec12,rec6) >= -118
+ minXCentroidDistance2(rec12,rec6,6): - 60 h(rec6,6) - 60 h(rec12,6)
+ + DCx(rec12,rec6) >= -118
+ minXCentroidDistance2(rec12,rec6,7): - 60 h(rec6,7) - 60 h(rec12,7)
+ + DCx(rec12,rec6) >= -118
+ minXCentroidDistance2(rec12,rec6,8): - 60 h(rec6,8) - 60 h(rec12,8)
+ + DCx(rec12,rec6) >= -118
+ minXCentroidDistance2(rec12,rec7,1): - 60 h(rec7,1) - 60 h(rec12,1)
+ + DCx(rec12,rec7) >= -118
+ minXCentroidDistance2(rec12,rec7,2): - 60 h(rec7,2) - 60 h(rec12,2)
+ + DCx(rec12,rec7) >= -118
+ minXCentroidDistance2(rec12,rec7,3): - 60 h(rec7,3) - 60 h(rec12,3)
+ + DCx(rec12,rec7) >= -118
+ minXCentroidDistance2(rec12,rec7,4): - 60 h(rec7,4) - 60 h(rec12,4)
+ + DCx(rec12,rec7) >= -118
+ minXCentroidDistance2(rec12,rec7,5): - 60 h(rec7,5) - 60 h(rec12,5)
+ + DCx(rec12,rec7) >= -118
+ minXCentroidDistance2(rec12,rec7,6): - 60 h(rec7,6) - 60 h(rec12,6)
+ + DCx(rec12,rec7) >= -118
+ minXCentroidDistance2(rec12,rec7,7): - 60 h(rec7,7) - 60 h(rec12,7)
+ + DCx(rec12,rec7) >= -118
+ minXCentroidDistance2(rec12,rec7,8): - 60 h(rec7,8) - 60 h(rec12,8)
+ + DCx(rec12,rec7) >= -118
+ minXCentroidDistance2(rec12,rec8,1): - 60 h(rec8,1) - 60 h(rec12,1)
+ + DCx(rec12,rec8) >= -117
+ minXCentroidDistance2(rec12,rec8,2): - 60 h(rec8,2) - 60 h(rec12,2)
+ + DCx(rec12,rec8) >= -117
+ minXCentroidDistance2(rec12,rec8,3): - 60 h(rec8,3) - 60 h(rec12,3)
+ + DCx(rec12,rec8) >= -117
+ minXCentroidDistance2(rec12,rec8,4): - 60 h(rec8,4) - 60 h(rec12,4)
+ + DCx(rec12,rec8) >= -117
+ minXCentroidDistance2(rec12,rec8,5): - 60 h(rec8,5) - 60 h(rec12,5)
+ + DCx(rec12,rec8) >= -117
+ minXCentroidDistance2(rec12,rec8,6): - 60 h(rec8,6) - 60 h(rec12,6)
+ + DCx(rec12,rec8) >= -117
+ minXCentroidDistance2(rec12,rec8,7): - 60 h(rec8,7) - 60 h(rec12,7)
+ + DCx(rec12,rec8) >= -117
+ minXCentroidDistance2(rec12,rec8,8): - 60 h(rec8,8) - 60 h(rec12,8)
+ + DCx(rec12,rec8) >= -117
+ minXCentroidDistance2(rec12,rec9,1): - 60 h(rec9,1) - 60 h(rec12,1)
+ + DCx(rec12,rec9) >= -118
+ minXCentroidDistance2(rec12,rec9,2): - 60 h(rec9,2) - 60 h(rec12,2)
+ + DCx(rec12,rec9) >= -118
+ minXCentroidDistance2(rec12,rec9,3): - 60 h(rec9,3) - 60 h(rec12,3)
+ + DCx(rec12,rec9) >= -118
+ minXCentroidDistance2(rec12,rec9,4): - 60 h(rec9,4) - 60 h(rec12,4)
+ + DCx(rec12,rec9) >= -118
+ minXCentroidDistance2(rec12,rec9,5): - 60 h(rec9,5) - 60 h(rec12,5)
+ + DCx(rec12,rec9) >= -118
+ minXCentroidDistance2(rec12,rec9,6): - 60 h(rec9,6) - 60 h(rec12,6)
+ + DCx(rec12,rec9) >= -118
+ minXCentroidDistance2(rec12,rec9,7): - 60 h(rec9,7) - 60 h(rec12,7)
+ + DCx(rec12,rec9) >= -118
+ minXCentroidDistance2(rec12,rec9,8): - 60 h(rec9,8) - 60 h(rec12,8)
+ + DCx(rec12,rec9) >= -118
+ minXCentroidDistance2(rec12,rec13,1): - 60 h(rec12,1) - 60 h(rec13,1)
+ + DCx(rec12,rec13) >= -116
+ minXCentroidDistance2(rec12,rec13,2): - 60 h(rec12,2) - 60 h(rec13,2)
+ + DCx(rec12,rec13) >= -116
+ minXCentroidDistance2(rec12,rec13,3): - 60 h(rec12,3) - 60 h(rec13,3)
+ + DCx(rec12,rec13) >= -116
+ minXCentroidDistance2(rec12,rec13,4): - 60 h(rec12,4) - 60 h(rec13,4)
+ + DCx(rec12,rec13) >= -116
+ minXCentroidDistance2(rec12,rec13,5): - 60 h(rec12,5) - 60 h(rec13,5)
+ + DCx(rec12,rec13) >= -116
+ minXCentroidDistance2(rec12,rec13,6): - 60 h(rec12,6) - 60 h(rec13,6)
+ + DCx(rec12,rec13) >= -116
+ minXCentroidDistance2(rec12,rec13,7): - 60 h(rec12,7) - 60 h(rec13,7)
+ + DCx(rec12,rec13) >= -116
+ minXCentroidDistance2(rec12,rec13,8): - 60 h(rec12,8) - 60 h(rec13,8)
+ + DCx(rec12,rec13) >= -116
+ minXCentroidDistance2(rec12,rec14,1): - 60 h(rec12,1) - 60 h(rec14,1)
+ + DCx(rec12,rec14) >= -117
+ minXCentroidDistance2(rec12,rec14,2): - 60 h(rec12,2) - 60 h(rec14,2)
+ + DCx(rec12,rec14) >= -117
+ minXCentroidDistance2(rec12,rec14,3): - 60 h(rec12,3) - 60 h(rec14,3)
+ + DCx(rec12,rec14) >= -117
+ minXCentroidDistance2(rec12,rec14,4): - 60 h(rec12,4) - 60 h(rec14,4)
+ + DCx(rec12,rec14) >= -117
+ minXCentroidDistance2(rec12,rec14,5): - 60 h(rec12,5) - 60 h(rec14,5)
+ + DCx(rec12,rec14) >= -117
+ minXCentroidDistance2(rec12,rec14,6): - 60 h(rec12,6) - 60 h(rec14,6)
+ + DCx(rec12,rec14) >= -117
+ minXCentroidDistance2(rec12,rec14,7): - 60 h(rec12,7) - 60 h(rec14,7)
+ + DCx(rec12,rec14) >= -117
+ minXCentroidDistance2(rec12,rec14,8): - 60 h(rec12,8) - 60 h(rec14,8)
+ + DCx(rec12,rec14) >= -117
+ minXCentroidDistance2(rec12,rec15,1): - 60 h(rec12,1) - 60 h(rec15,1)
+ + DCx(rec12,rec15) >= -117
+ minXCentroidDistance2(rec12,rec15,2): - 60 h(rec12,2) - 60 h(rec15,2)
+ + DCx(rec12,rec15) >= -117
+ minXCentroidDistance2(rec12,rec15,3): - 60 h(rec12,3) - 60 h(rec15,3)
+ + DCx(rec12,rec15) >= -117
+ minXCentroidDistance2(rec12,rec15,4): - 60 h(rec12,4) - 60 h(rec15,4)
+ + DCx(rec12,rec15) >= -117
+ minXCentroidDistance2(rec12,rec15,5): - 60 h(rec12,5) - 60 h(rec15,5)
+ + DCx(rec12,rec15) >= -117
+ minXCentroidDistance2(rec12,rec15,6): - 60 h(rec12,6) - 60 h(rec15,6)
+ + DCx(rec12,rec15) >= -117
+ minXCentroidDistance2(rec12,rec15,7): - 60 h(rec12,7) - 60 h(rec15,7)
+ + DCx(rec12,rec15) >= -117
+ minXCentroidDistance2(rec12,rec15,8): - 60 h(rec12,8) - 60 h(rec15,8)
+ + DCx(rec12,rec15) >= -117
+ minXCentroidDistance2(rec13,rec2,1): - 60 h(rec2,1) - 60 h(rec13,1)
+ + DCx(rec13,rec2) >= -116
+ minXCentroidDistance2(rec13,rec2,2): - 60 h(rec2,2) - 60 h(rec13,2)
+ + DCx(rec13,rec2) >= -116
+ minXCentroidDistance2(rec13,rec2,3): - 60 h(rec2,3) - 60 h(rec13,3)
+ + DCx(rec13,rec2) >= -116
+ minXCentroidDistance2(rec13,rec2,4): - 60 h(rec2,4) - 60 h(rec13,4)
+ + DCx(rec13,rec2) >= -116
+ minXCentroidDistance2(rec13,rec2,5): - 60 h(rec2,5) - 60 h(rec13,5)
+ + DCx(rec13,rec2) >= -116
+ minXCentroidDistance2(rec13,rec2,6): - 60 h(rec2,6) - 60 h(rec13,6)
+ + DCx(rec13,rec2) >= -116
+ minXCentroidDistance2(rec13,rec2,7): - 60 h(rec2,7) - 60 h(rec13,7)
+ + DCx(rec13,rec2) >= -116
+ minXCentroidDistance2(rec13,rec2,8): - 60 h(rec2,8) - 60 h(rec13,8)
+ + DCx(rec13,rec2) >= -116
+ minXCentroidDistance2(rec13,rec3,1): - 60 h(rec3,1) - 60 h(rec13,1)
+ + DCx(rec13,rec3) >= -116
+ minXCentroidDistance2(rec13,rec3,2): - 60 h(rec3,2) - 60 h(rec13,2)
+ + DCx(rec13,rec3) >= -116
+ minXCentroidDistance2(rec13,rec3,3): - 60 h(rec3,3) - 60 h(rec13,3)
+ + DCx(rec13,rec3) >= -116
+ minXCentroidDistance2(rec13,rec3,4): - 60 h(rec3,4) - 60 h(rec13,4)
+ + DCx(rec13,rec3) >= -116
+ minXCentroidDistance2(rec13,rec3,5): - 60 h(rec3,5) - 60 h(rec13,5)
+ + DCx(rec13,rec3) >= -116
+ minXCentroidDistance2(rec13,rec3,6): - 60 h(rec3,6) - 60 h(rec13,6)
+ + DCx(rec13,rec3) >= -116
+ minXCentroidDistance2(rec13,rec3,7): - 60 h(rec3,7) - 60 h(rec13,7)
+ + DCx(rec13,rec3) >= -116
+ minXCentroidDistance2(rec13,rec3,8): - 60 h(rec3,8) - 60 h(rec13,8)
+ + DCx(rec13,rec3) >= -116
+ minXCentroidDistance2(rec13,rec4,1): - 60 h(rec4,1) - 60 h(rec13,1)
+ + DCx(rec13,rec4) >= -116
+ minXCentroidDistance2(rec13,rec4,2): - 60 h(rec4,2) - 60 h(rec13,2)
+ + DCx(rec13,rec4) >= -116
+ minXCentroidDistance2(rec13,rec4,3): - 60 h(rec4,3) - 60 h(rec13,3)
+ + DCx(rec13,rec4) >= -116
+ minXCentroidDistance2(rec13,rec4,4): - 60 h(rec4,4) - 60 h(rec13,4)
+ + DCx(rec13,rec4) >= -116
+ minXCentroidDistance2(rec13,rec4,5): - 60 h(rec4,5) - 60 h(rec13,5)
+ + DCx(rec13,rec4) >= -116
+ minXCentroidDistance2(rec13,rec4,6): - 60 h(rec4,6) - 60 h(rec13,6)
+ + DCx(rec13,rec4) >= -116
+ minXCentroidDistance2(rec13,rec4,7): - 60 h(rec4,7) - 60 h(rec13,7)
+ + DCx(rec13,rec4) >= -116
+ minXCentroidDistance2(rec13,rec4,8): - 60 h(rec4,8) - 60 h(rec13,8)
+ + DCx(rec13,rec4) >= -116
+ minXCentroidDistance2(rec13,rec5,1): - 60 h(rec5,1) - 60 h(rec13,1)
+ + DCx(rec13,rec5) >= -115
+ minXCentroidDistance2(rec13,rec5,2): - 60 h(rec5,2) - 60 h(rec13,2)
+ + DCx(rec13,rec5) >= -115
+ minXCentroidDistance2(rec13,rec5,3): - 60 h(rec5,3) - 60 h(rec13,3)
+ + DCx(rec13,rec5) >= -115
+ minXCentroidDistance2(rec13,rec5,4): - 60 h(rec5,4) - 60 h(rec13,4)
+ + DCx(rec13,rec5) >= -115
+ minXCentroidDistance2(rec13,rec5,5): - 60 h(rec5,5) - 60 h(rec13,5)
+ + DCx(rec13,rec5) >= -115
+ minXCentroidDistance2(rec13,rec5,6): - 60 h(rec5,6) - 60 h(rec13,6)
+ + DCx(rec13,rec5) >= -115
+ minXCentroidDistance2(rec13,rec5,7): - 60 h(rec5,7) - 60 h(rec13,7)
+ + DCx(rec13,rec5) >= -115
+ minXCentroidDistance2(rec13,rec5,8): - 60 h(rec5,8) - 60 h(rec13,8)
+ + DCx(rec13,rec5) >= -115
+ minXCentroidDistance2(rec13,rec6,1): - 60 h(rec6,1) - 60 h(rec13,1)
+ + DCx(rec13,rec6) >= -116
+ minXCentroidDistance2(rec13,rec6,2): - 60 h(rec6,2) - 60 h(rec13,2)
+ + DCx(rec13,rec6) >= -116
+ minXCentroidDistance2(rec13,rec6,3): - 60 h(rec6,3) - 60 h(rec13,3)
+ + DCx(rec13,rec6) >= -116
+ minXCentroidDistance2(rec13,rec6,4): - 60 h(rec6,4) - 60 h(rec13,4)
+ + DCx(rec13,rec6) >= -116
+ minXCentroidDistance2(rec13,rec6,5): - 60 h(rec6,5) - 60 h(rec13,5)
+ + DCx(rec13,rec6) >= -116
+ minXCentroidDistance2(rec13,rec6,6): - 60 h(rec6,6) - 60 h(rec13,6)
+ + DCx(rec13,rec6) >= -116
+ minXCentroidDistance2(rec13,rec6,7): - 60 h(rec6,7) - 60 h(rec13,7)
+ + DCx(rec13,rec6) >= -116
+ minXCentroidDistance2(rec13,rec6,8): - 60 h(rec6,8) - 60 h(rec13,8)
+ + DCx(rec13,rec6) >= -116
+ minXCentroidDistance2(rec13,rec7,1): - 60 h(rec7,1) - 60 h(rec13,1)
+ + DCx(rec13,rec7) >= -116
+ minXCentroidDistance2(rec13,rec7,2): - 60 h(rec7,2) - 60 h(rec13,2)
+ + DCx(rec13,rec7) >= -116
+ minXCentroidDistance2(rec13,rec7,3): - 60 h(rec7,3) - 60 h(rec13,3)
+ + DCx(rec13,rec7) >= -116
+ minXCentroidDistance2(rec13,rec7,4): - 60 h(rec7,4) - 60 h(rec13,4)
+ + DCx(rec13,rec7) >= -116
+ minXCentroidDistance2(rec13,rec7,5): - 60 h(rec7,5) - 60 h(rec13,5)
+ + DCx(rec13,rec7) >= -116
+ minXCentroidDistance2(rec13,rec7,6): - 60 h(rec7,6) - 60 h(rec13,6)
+ + DCx(rec13,rec7) >= -116
+ minXCentroidDistance2(rec13,rec7,7): - 60 h(rec7,7) - 60 h(rec13,7)
+ + DCx(rec13,rec7) >= -116
+ minXCentroidDistance2(rec13,rec7,8): - 60 h(rec7,8) - 60 h(rec13,8)
+ + DCx(rec13,rec7) >= -116
+ minXCentroidDistance2(rec13,rec8,1): - 60 h(rec8,1) - 60 h(rec13,1)
+ + DCx(rec13,rec8) >= -115
+ minXCentroidDistance2(rec13,rec8,2): - 60 h(rec8,2) - 60 h(rec13,2)
+ + DCx(rec13,rec8) >= -115
+ minXCentroidDistance2(rec13,rec8,3): - 60 h(rec8,3) - 60 h(rec13,3)
+ + DCx(rec13,rec8) >= -115
+ minXCentroidDistance2(rec13,rec8,4): - 60 h(rec8,4) - 60 h(rec13,4)
+ + DCx(rec13,rec8) >= -115
+ minXCentroidDistance2(rec13,rec8,5): - 60 h(rec8,5) - 60 h(rec13,5)
+ + DCx(rec13,rec8) >= -115
+ minXCentroidDistance2(rec13,rec8,6): - 60 h(rec8,6) - 60 h(rec13,6)
+ + DCx(rec13,rec8) >= -115
+ minXCentroidDistance2(rec13,rec8,7): - 60 h(rec8,7) - 60 h(rec13,7)
+ + DCx(rec13,rec8) >= -115
+ minXCentroidDistance2(rec13,rec8,8): - 60 h(rec8,8) - 60 h(rec13,8)
+ + DCx(rec13,rec8) >= -115
+ minXCentroidDistance2(rec13,rec9,1): - 60 h(rec9,1) - 60 h(rec13,1)
+ + DCx(rec13,rec9) >= -116
+ minXCentroidDistance2(rec13,rec9,2): - 60 h(rec9,2) - 60 h(rec13,2)
+ + DCx(rec13,rec9) >= -116
+ minXCentroidDistance2(rec13,rec9,3): - 60 h(rec9,3) - 60 h(rec13,3)
+ + DCx(rec13,rec9) >= -116
+ minXCentroidDistance2(rec13,rec9,4): - 60 h(rec9,4) - 60 h(rec13,4)
+ + DCx(rec13,rec9) >= -116
+ minXCentroidDistance2(rec13,rec9,5): - 60 h(rec9,5) - 60 h(rec13,5)
+ + DCx(rec13,rec9) >= -116
+ minXCentroidDistance2(rec13,rec9,6): - 60 h(rec9,6) - 60 h(rec13,6)
+ + DCx(rec13,rec9) >= -116
+ minXCentroidDistance2(rec13,rec9,7): - 60 h(rec9,7) - 60 h(rec13,7)
+ + DCx(rec13,rec9) >= -116
+ minXCentroidDistance2(rec13,rec9,8): - 60 h(rec9,8) - 60 h(rec13,8)
+ + DCx(rec13,rec9) >= -116
+ minXCentroidDistance2(rec13,rec14,1): - 60 h(rec13,1) - 60 h(rec14,1)
+ + DCx(rec13,rec14) >= -115
+ minXCentroidDistance2(rec13,rec14,2): - 60 h(rec13,2) - 60 h(rec14,2)
+ + DCx(rec13,rec14) >= -115
+ minXCentroidDistance2(rec13,rec14,3): - 60 h(rec13,3) - 60 h(rec14,3)
+ + DCx(rec13,rec14) >= -115
+ minXCentroidDistance2(rec13,rec14,4): - 60 h(rec13,4) - 60 h(rec14,4)
+ + DCx(rec13,rec14) >= -115
+ minXCentroidDistance2(rec13,rec14,5): - 60 h(rec13,5) - 60 h(rec14,5)
+ + DCx(rec13,rec14) >= -115
+ minXCentroidDistance2(rec13,rec14,6): - 60 h(rec13,6) - 60 h(rec14,6)
+ + DCx(rec13,rec14) >= -115
+ minXCentroidDistance2(rec13,rec14,7): - 60 h(rec13,7) - 60 h(rec14,7)
+ + DCx(rec13,rec14) >= -115
+ minXCentroidDistance2(rec13,rec14,8): - 60 h(rec13,8) - 60 h(rec14,8)
+ + DCx(rec13,rec14) >= -115
+ minXCentroidDistance2(rec13,rec15,1): - 60 h(rec13,1) - 60 h(rec15,1)
+ + DCx(rec13,rec15) >= -115
+ minXCentroidDistance2(rec13,rec15,2): - 60 h(rec13,2) - 60 h(rec15,2)
+ + DCx(rec13,rec15) >= -115
+ minXCentroidDistance2(rec13,rec15,3): - 60 h(rec13,3) - 60 h(rec15,3)
+ + DCx(rec13,rec15) >= -115
+ minXCentroidDistance2(rec13,rec15,4): - 60 h(rec13,4) - 60 h(rec15,4)
+ + DCx(rec13,rec15) >= -115
+ minXCentroidDistance2(rec13,rec15,5): - 60 h(rec13,5) - 60 h(rec15,5)
+ + DCx(rec13,rec15) >= -115
+ minXCentroidDistance2(rec13,rec15,6): - 60 h(rec13,6) - 60 h(rec15,6)
+ + DCx(rec13,rec15) >= -115
+ minXCentroidDistance2(rec13,rec15,7): - 60 h(rec13,7) - 60 h(rec15,7)
+ + DCx(rec13,rec15) >= -115
+ minXCentroidDistance2(rec13,rec15,8): - 60 h(rec13,8) - 60 h(rec15,8)
+ + DCx(rec13,rec15) >= -115
+ minXCentroidDistance2(rec14,rec2,1): - 60 h(rec2,1) - 60 h(rec14,1)
+ + DCx(rec14,rec2) >= -117
+ minXCentroidDistance2(rec14,rec2,2): - 60 h(rec2,2) - 60 h(rec14,2)
+ + DCx(rec14,rec2) >= -117
+ minXCentroidDistance2(rec14,rec2,3): - 60 h(rec2,3) - 60 h(rec14,3)
+ + DCx(rec14,rec2) >= -117
+ minXCentroidDistance2(rec14,rec2,4): - 60 h(rec2,4) - 60 h(rec14,4)
+ + DCx(rec14,rec2) >= -117
+ minXCentroidDistance2(rec14,rec2,5): - 60 h(rec2,5) - 60 h(rec14,5)
+ + DCx(rec14,rec2) >= -117
+ minXCentroidDistance2(rec14,rec2,6): - 60 h(rec2,6) - 60 h(rec14,6)
+ + DCx(rec14,rec2) >= -117
+ minXCentroidDistance2(rec14,rec2,7): - 60 h(rec2,7) - 60 h(rec14,7)
+ + DCx(rec14,rec2) >= -117
+ minXCentroidDistance2(rec14,rec2,8): - 60 h(rec2,8) - 60 h(rec14,8)
+ + DCx(rec14,rec2) >= -117
+ minXCentroidDistance2(rec14,rec3,1): - 60 h(rec3,1) - 60 h(rec14,1)
+ + DCx(rec14,rec3) >= -117
+ minXCentroidDistance2(rec14,rec3,2): - 60 h(rec3,2) - 60 h(rec14,2)
+ + DCx(rec14,rec3) >= -117
+ minXCentroidDistance2(rec14,rec3,3): - 60 h(rec3,3) - 60 h(rec14,3)
+ + DCx(rec14,rec3) >= -117
+ minXCentroidDistance2(rec14,rec3,4): - 60 h(rec3,4) - 60 h(rec14,4)
+ + DCx(rec14,rec3) >= -117
+ minXCentroidDistance2(rec14,rec3,5): - 60 h(rec3,5) - 60 h(rec14,5)
+ + DCx(rec14,rec3) >= -117
+ minXCentroidDistance2(rec14,rec3,6): - 60 h(rec3,6) - 60 h(rec14,6)
+ + DCx(rec14,rec3) >= -117
+ minXCentroidDistance2(rec14,rec3,7): - 60 h(rec3,7) - 60 h(rec14,7)
+ + DCx(rec14,rec3) >= -117
+ minXCentroidDistance2(rec14,rec3,8): - 60 h(rec3,8) - 60 h(rec14,8)
+ + DCx(rec14,rec3) >= -117
+ minXCentroidDistance2(rec14,rec4,1): - 60 h(rec4,1) - 60 h(rec14,1)
+ + DCx(rec14,rec4) >= -117
+ minXCentroidDistance2(rec14,rec4,2): - 60 h(rec4,2) - 60 h(rec14,2)
+ + DCx(rec14,rec4) >= -117
+ minXCentroidDistance2(rec14,rec4,3): - 60 h(rec4,3) - 60 h(rec14,3)
+ + DCx(rec14,rec4) >= -117
+ minXCentroidDistance2(rec14,rec4,4): - 60 h(rec4,4) - 60 h(rec14,4)
+ + DCx(rec14,rec4) >= -117
+ minXCentroidDistance2(rec14,rec4,5): - 60 h(rec4,5) - 60 h(rec14,5)
+ + DCx(rec14,rec4) >= -117
+ minXCentroidDistance2(rec14,rec4,6): - 60 h(rec4,6) - 60 h(rec14,6)
+ + DCx(rec14,rec4) >= -117
+ minXCentroidDistance2(rec14,rec4,7): - 60 h(rec4,7) - 60 h(rec14,7)
+ + DCx(rec14,rec4) >= -117
+ minXCentroidDistance2(rec14,rec4,8): - 60 h(rec4,8) - 60 h(rec14,8)
+ + DCx(rec14,rec4) >= -117
+ minXCentroidDistance2(rec14,rec5,1): - 60 h(rec5,1) - 60 h(rec14,1)
+ + DCx(rec14,rec5) >= -116
+ minXCentroidDistance2(rec14,rec5,2): - 60 h(rec5,2) - 60 h(rec14,2)
+ + DCx(rec14,rec5) >= -116
+ minXCentroidDistance2(rec14,rec5,3): - 60 h(rec5,3) - 60 h(rec14,3)
+ + DCx(rec14,rec5) >= -116
+ minXCentroidDistance2(rec14,rec5,4): - 60 h(rec5,4) - 60 h(rec14,4)
+ + DCx(rec14,rec5) >= -116
+ minXCentroidDistance2(rec14,rec5,5): - 60 h(rec5,5) - 60 h(rec14,5)
+ + DCx(rec14,rec5) >= -116
+ minXCentroidDistance2(rec14,rec5,6): - 60 h(rec5,6) - 60 h(rec14,6)
+ + DCx(rec14,rec5) >= -116
+ minXCentroidDistance2(rec14,rec5,7): - 60 h(rec5,7) - 60 h(rec14,7)
+ + DCx(rec14,rec5) >= -116
+ minXCentroidDistance2(rec14,rec5,8): - 60 h(rec5,8) - 60 h(rec14,8)
+ + DCx(rec14,rec5) >= -116
+ minXCentroidDistance2(rec14,rec6,1): - 60 h(rec6,1) - 60 h(rec14,1)
+ + DCx(rec14,rec6) >= -117
+ minXCentroidDistance2(rec14,rec6,2): - 60 h(rec6,2) - 60 h(rec14,2)
+ + DCx(rec14,rec6) >= -117
+ minXCentroidDistance2(rec14,rec6,3): - 60 h(rec6,3) - 60 h(rec14,3)
+ + DCx(rec14,rec6) >= -117
+ minXCentroidDistance2(rec14,rec6,4): - 60 h(rec6,4) - 60 h(rec14,4)
+ + DCx(rec14,rec6) >= -117
+ minXCentroidDistance2(rec14,rec6,5): - 60 h(rec6,5) - 60 h(rec14,5)
+ + DCx(rec14,rec6) >= -117
+ minXCentroidDistance2(rec14,rec6,6): - 60 h(rec6,6) - 60 h(rec14,6)
+ + DCx(rec14,rec6) >= -117
+ minXCentroidDistance2(rec14,rec6,7): - 60 h(rec6,7) - 60 h(rec14,7)
+ + DCx(rec14,rec6) >= -117
+ minXCentroidDistance2(rec14,rec6,8): - 60 h(rec6,8) - 60 h(rec14,8)
+ + DCx(rec14,rec6) >= -117
+ minXCentroidDistance2(rec14,rec7,1): - 60 h(rec7,1) - 60 h(rec14,1)
+ + DCx(rec14,rec7) >= -117
+ minXCentroidDistance2(rec14,rec7,2): - 60 h(rec7,2) - 60 h(rec14,2)
+ + DCx(rec14,rec7) >= -117
+ minXCentroidDistance2(rec14,rec7,3): - 60 h(rec7,3) - 60 h(rec14,3)
+ + DCx(rec14,rec7) >= -117
+ minXCentroidDistance2(rec14,rec7,4): - 60 h(rec7,4) - 60 h(rec14,4)
+ + DCx(rec14,rec7) >= -117
+ minXCentroidDistance2(rec14,rec7,5): - 60 h(rec7,5) - 60 h(rec14,5)
+ + DCx(rec14,rec7) >= -117
+ minXCentroidDistance2(rec14,rec7,6): - 60 h(rec7,6) - 60 h(rec14,6)
+ + DCx(rec14,rec7) >= -117
+ minXCentroidDistance2(rec14,rec7,7): - 60 h(rec7,7) - 60 h(rec14,7)
+ + DCx(rec14,rec7) >= -117
+ minXCentroidDistance2(rec14,rec7,8): - 60 h(rec7,8) - 60 h(rec14,8)
+ + DCx(rec14,rec7) >= -117
+ minXCentroidDistance2(rec14,rec8,1): - 60 h(rec8,1) - 60 h(rec14,1)
+ + DCx(rec14,rec8) >= -116
+ minXCentroidDistance2(rec14,rec8,2): - 60 h(rec8,2) - 60 h(rec14,2)
+ + DCx(rec14,rec8) >= -116
+ minXCentroidDistance2(rec14,rec8,3): - 60 h(rec8,3) - 60 h(rec14,3)
+ + DCx(rec14,rec8) >= -116
+ minXCentroidDistance2(rec14,rec8,4): - 60 h(rec8,4) - 60 h(rec14,4)
+ + DCx(rec14,rec8) >= -116
+ minXCentroidDistance2(rec14,rec8,5): - 60 h(rec8,5) - 60 h(rec14,5)
+ + DCx(rec14,rec8) >= -116
+ minXCentroidDistance2(rec14,rec8,6): - 60 h(rec8,6) - 60 h(rec14,6)
+ + DCx(rec14,rec8) >= -116
+ minXCentroidDistance2(rec14,rec8,7): - 60 h(rec8,7) - 60 h(rec14,7)
+ + DCx(rec14,rec8) >= -116
+ minXCentroidDistance2(rec14,rec8,8): - 60 h(rec8,8) - 60 h(rec14,8)
+ + DCx(rec14,rec8) >= -116
+ minXCentroidDistance2(rec14,rec9,1): - 60 h(rec9,1) - 60 h(rec14,1)
+ + DCx(rec14,rec9) >= -117
+ minXCentroidDistance2(rec14,rec9,2): - 60 h(rec9,2) - 60 h(rec14,2)
+ + DCx(rec14,rec9) >= -117
+ minXCentroidDistance2(rec14,rec9,3): - 60 h(rec9,3) - 60 h(rec14,3)
+ + DCx(rec14,rec9) >= -117
+ minXCentroidDistance2(rec14,rec9,4): - 60 h(rec9,4) - 60 h(rec14,4)
+ + DCx(rec14,rec9) >= -117
+ minXCentroidDistance2(rec14,rec9,5): - 60 h(rec9,5) - 60 h(rec14,5)
+ + DCx(rec14,rec9) >= -117
+ minXCentroidDistance2(rec14,rec9,6): - 60 h(rec9,6) - 60 h(rec14,6)
+ + DCx(rec14,rec9) >= -117
+ minXCentroidDistance2(rec14,rec9,7): - 60 h(rec9,7) - 60 h(rec14,7)
+ + DCx(rec14,rec9) >= -117
+ minXCentroidDistance2(rec14,rec9,8): - 60 h(rec9,8) - 60 h(rec14,8)
+ + DCx(rec14,rec9) >= -117
+ minXCentroidDistance2(rec14,rec15,1): - 60 h(rec14,1) - 60 h(rec15,1)
+ + DCx(rec14,rec15) >= -116
+ minXCentroidDistance2(rec14,rec15,2): - 60 h(rec14,2) - 60 h(rec15,2)
+ + DCx(rec14,rec15) >= -116
+ minXCentroidDistance2(rec14,rec15,3): - 60 h(rec14,3) - 60 h(rec15,3)
+ + DCx(rec14,rec15) >= -116
+ minXCentroidDistance2(rec14,rec15,4): - 60 h(rec14,4) - 60 h(rec15,4)
+ + DCx(rec14,rec15) >= -116
+ minXCentroidDistance2(rec14,rec15,5): - 60 h(rec14,5) - 60 h(rec15,5)
+ + DCx(rec14,rec15) >= -116
+ minXCentroidDistance2(rec14,rec15,6): - 60 h(rec14,6) - 60 h(rec15,6)
+ + DCx(rec14,rec15) >= -116
+ minXCentroidDistance2(rec14,rec15,7): - 60 h(rec14,7) - 60 h(rec15,7)
+ + DCx(rec14,rec15) >= -116
+ minXCentroidDistance2(rec14,rec15,8): - 60 h(rec14,8) - 60 h(rec15,8)
+ + DCx(rec14,rec15) >= -116
+ minXCentroidDistance2(rec15,rec2,1): - 60 h(rec2,1) - 60 h(rec15,1)
+ + DCx(rec15,rec2) >= -117
+ minXCentroidDistance2(rec15,rec2,2): - 60 h(rec2,2) - 60 h(rec15,2)
+ + DCx(rec15,rec2) >= -117
+ minXCentroidDistance2(rec15,rec2,3): - 60 h(rec2,3) - 60 h(rec15,3)
+ + DCx(rec15,rec2) >= -117
+ minXCentroidDistance2(rec15,rec2,4): - 60 h(rec2,4) - 60 h(rec15,4)
+ + DCx(rec15,rec2) >= -117
+ minXCentroidDistance2(rec15,rec2,5): - 60 h(rec2,5) - 60 h(rec15,5)
+ + DCx(rec15,rec2) >= -117
+ minXCentroidDistance2(rec15,rec2,6): - 60 h(rec2,6) - 60 h(rec15,6)
+ + DCx(rec15,rec2) >= -117
+ minXCentroidDistance2(rec15,rec2,7): - 60 h(rec2,7) - 60 h(rec15,7)
+ + DCx(rec15,rec2) >= -117
+ minXCentroidDistance2(rec15,rec2,8): - 60 h(rec2,8) - 60 h(rec15,8)
+ + DCx(rec15,rec2) >= -117
+ minXCentroidDistance2(rec15,rec3,1): - 60 h(rec3,1) - 60 h(rec15,1)
+ + DCx(rec15,rec3) >= -117
+ minXCentroidDistance2(rec15,rec3,2): - 60 h(rec3,2) - 60 h(rec15,2)
+ + DCx(rec15,rec3) >= -117
+ minXCentroidDistance2(rec15,rec3,3): - 60 h(rec3,3) - 60 h(rec15,3)
+ + DCx(rec15,rec3) >= -117
+ minXCentroidDistance2(rec15,rec3,4): - 60 h(rec3,4) - 60 h(rec15,4)
+ + DCx(rec15,rec3) >= -117
+ minXCentroidDistance2(rec15,rec3,5): - 60 h(rec3,5) - 60 h(rec15,5)
+ + DCx(rec15,rec3) >= -117
+ minXCentroidDistance2(rec15,rec3,6): - 60 h(rec3,6) - 60 h(rec15,6)
+ + DCx(rec15,rec3) >= -117
+ minXCentroidDistance2(rec15,rec3,7): - 60 h(rec3,7) - 60 h(rec15,7)
+ + DCx(rec15,rec3) >= -117
+ minXCentroidDistance2(rec15,rec3,8): - 60 h(rec3,8) - 60 h(rec15,8)
+ + DCx(rec15,rec3) >= -117
+ minXCentroidDistance2(rec15,rec4,1): - 60 h(rec4,1) - 60 h(rec15,1)
+ + DCx(rec15,rec4) >= -117
+ minXCentroidDistance2(rec15,rec4,2): - 60 h(rec4,2) - 60 h(rec15,2)
+ + DCx(rec15,rec4) >= -117
+ minXCentroidDistance2(rec15,rec4,3): - 60 h(rec4,3) - 60 h(rec15,3)
+ + DCx(rec15,rec4) >= -117
+ minXCentroidDistance2(rec15,rec4,4): - 60 h(rec4,4) - 60 h(rec15,4)
+ + DCx(rec15,rec4) >= -117
+ minXCentroidDistance2(rec15,rec4,5): - 60 h(rec4,5) - 60 h(rec15,5)
+ + DCx(rec15,rec4) >= -117
+ minXCentroidDistance2(rec15,rec4,6): - 60 h(rec4,6) - 60 h(rec15,6)
+ + DCx(rec15,rec4) >= -117
+ minXCentroidDistance2(rec15,rec4,7): - 60 h(rec4,7) - 60 h(rec15,7)
+ + DCx(rec15,rec4) >= -117
+ minXCentroidDistance2(rec15,rec4,8): - 60 h(rec4,8) - 60 h(rec15,8)
+ + DCx(rec15,rec4) >= -117
+ minXCentroidDistance2(rec15,rec5,1): - 60 h(rec5,1) - 60 h(rec15,1)
+ + DCx(rec15,rec5) >= -116
+ minXCentroidDistance2(rec15,rec5,2): - 60 h(rec5,2) - 60 h(rec15,2)
+ + DCx(rec15,rec5) >= -116
+ minXCentroidDistance2(rec15,rec5,3): - 60 h(rec5,3) - 60 h(rec15,3)
+ + DCx(rec15,rec5) >= -116
+ minXCentroidDistance2(rec15,rec5,4): - 60 h(rec5,4) - 60 h(rec15,4)
+ + DCx(rec15,rec5) >= -116
+ minXCentroidDistance2(rec15,rec5,5): - 60 h(rec5,5) - 60 h(rec15,5)
+ + DCx(rec15,rec5) >= -116
+ minXCentroidDistance2(rec15,rec5,6): - 60 h(rec5,6) - 60 h(rec15,6)
+ + DCx(rec15,rec5) >= -116
+ minXCentroidDistance2(rec15,rec5,7): - 60 h(rec5,7) - 60 h(rec15,7)
+ + DCx(rec15,rec5) >= -116
+ minXCentroidDistance2(rec15,rec5,8): - 60 h(rec5,8) - 60 h(rec15,8)
+ + DCx(rec15,rec5) >= -116
+ minXCentroidDistance2(rec15,rec6,1): - 60 h(rec6,1) - 60 h(rec15,1)
+ + DCx(rec15,rec6) >= -117
+ minXCentroidDistance2(rec15,rec6,2): - 60 h(rec6,2) - 60 h(rec15,2)
+ + DCx(rec15,rec6) >= -117
+ minXCentroidDistance2(rec15,rec6,3): - 60 h(rec6,3) - 60 h(rec15,3)
+ + DCx(rec15,rec6) >= -117
+ minXCentroidDistance2(rec15,rec6,4): - 60 h(rec6,4) - 60 h(rec15,4)
+ + DCx(rec15,rec6) >= -117
+ minXCentroidDistance2(rec15,rec6,5): - 60 h(rec6,5) - 60 h(rec15,5)
+ + DCx(rec15,rec6) >= -117
+ minXCentroidDistance2(rec15,rec6,6): - 60 h(rec6,6) - 60 h(rec15,6)
+ + DCx(rec15,rec6) >= -117
+ minXCentroidDistance2(rec15,rec6,7): - 60 h(rec6,7) - 60 h(rec15,7)
+ + DCx(rec15,rec6) >= -117
+ minXCentroidDistance2(rec15,rec6,8): - 60 h(rec6,8) - 60 h(rec15,8)
+ + DCx(rec15,rec6) >= -117
+ minXCentroidDistance2(rec15,rec7,1): - 60 h(rec7,1) - 60 h(rec15,1)
+ + DCx(rec15,rec7) >= -117
+ minXCentroidDistance2(rec15,rec7,2): - 60 h(rec7,2) - 60 h(rec15,2)
+ + DCx(rec15,rec7) >= -117
+ minXCentroidDistance2(rec15,rec7,3): - 60 h(rec7,3) - 60 h(rec15,3)
+ + DCx(rec15,rec7) >= -117
+ minXCentroidDistance2(rec15,rec7,4): - 60 h(rec7,4) - 60 h(rec15,4)
+ + DCx(rec15,rec7) >= -117
+ minXCentroidDistance2(rec15,rec7,5): - 60 h(rec7,5) - 60 h(rec15,5)
+ + DCx(rec15,rec7) >= -117
+ minXCentroidDistance2(rec15,rec7,6): - 60 h(rec7,6) - 60 h(rec15,6)
+ + DCx(rec15,rec7) >= -117
+ minXCentroidDistance2(rec15,rec7,7): - 60 h(rec7,7) - 60 h(rec15,7)
+ + DCx(rec15,rec7) >= -117
+ minXCentroidDistance2(rec15,rec7,8): - 60 h(rec7,8) - 60 h(rec15,8)
+ + DCx(rec15,rec7) >= -117
+ minXCentroidDistance2(rec15,rec8,1): - 60 h(rec8,1) - 60 h(rec15,1)
+ + DCx(rec15,rec8) >= -116
+ minXCentroidDistance2(rec15,rec8,2): - 60 h(rec8,2) - 60 h(rec15,2)
+ + DCx(rec15,rec8) >= -116
+ minXCentroidDistance2(rec15,rec8,3): - 60 h(rec8,3) - 60 h(rec15,3)
+ + DCx(rec15,rec8) >= -116
+ minXCentroidDistance2(rec15,rec8,4): - 60 h(rec8,4) - 60 h(rec15,4)
+ + DCx(rec15,rec8) >= -116
+ minXCentroidDistance2(rec15,rec8,5): - 60 h(rec8,5) - 60 h(rec15,5)
+ + DCx(rec15,rec8) >= -116
+ minXCentroidDistance2(rec15,rec8,6): - 60 h(rec8,6) - 60 h(rec15,6)
+ + DCx(rec15,rec8) >= -116
+ minXCentroidDistance2(rec15,rec8,7): - 60 h(rec8,7) - 60 h(rec15,7)
+ + DCx(rec15,rec8) >= -116
+ minXCentroidDistance2(rec15,rec8,8): - 60 h(rec8,8) - 60 h(rec15,8)
+ + DCx(rec15,rec8) >= -116
+ minXCentroidDistance2(rec15,rec9,1): - 60 h(rec9,1) - 60 h(rec15,1)
+ + DCx(rec15,rec9) >= -117
+ minXCentroidDistance2(rec15,rec9,2): - 60 h(rec9,2) - 60 h(rec15,2)
+ + DCx(rec15,rec9) >= -117
+ minXCentroidDistance2(rec15,rec9,3): - 60 h(rec9,3) - 60 h(rec15,3)
+ + DCx(rec15,rec9) >= -117
+ minXCentroidDistance2(rec15,rec9,4): - 60 h(rec9,4) - 60 h(rec15,4)
+ + DCx(rec15,rec9) >= -117
+ minXCentroidDistance2(rec15,rec9,5): - 60 h(rec9,5) - 60 h(rec15,5)
+ + DCx(rec15,rec9) >= -117
+ minXCentroidDistance2(rec15,rec9,6): - 60 h(rec9,6) - 60 h(rec15,6)
+ + DCx(rec15,rec9) >= -117
+ minXCentroidDistance2(rec15,rec9,7): - 60 h(rec9,7) - 60 h(rec15,7)
+ + DCx(rec15,rec9) >= -117
+ minXCentroidDistance2(rec15,rec9,8): - 60 h(rec9,8) - 60 h(rec15,8)
+ + DCx(rec15,rec9) >= -117
  centroidXDistanceSimmetry(rec1,rec2): + DCx(rec1,rec2) - DCx(rec2,rec1)
  = -0
  centroidXDistanceSimmetry(rec1,rec3): + DCx(rec1,rec3) - DCx(rec3,rec1)
@@ -18328,6 +30505,16 @@ Subject To
  = -0
  centroidXDistanceSimmetry(rec1,rec10): + DCx(rec1,rec10)
  - DCx(rec10,rec1) = -0
+ centroidXDistanceSimmetry(rec1,rec11): + DCx(rec1,rec11)
+ - DCx(rec11,rec1) = -0
+ centroidXDistanceSimmetry(rec1,rec12): + DCx(rec1,rec12)
+ - DCx(rec12,rec1) = -0
+ centroidXDistanceSimmetry(rec1,rec13): + DCx(rec1,rec13)
+ - DCx(rec13,rec1) = -0
+ centroidXDistanceSimmetry(rec1,rec14): + DCx(rec1,rec14)
+ - DCx(rec14,rec1) = -0
+ centroidXDistanceSimmetry(rec1,rec15): + DCx(rec1,rec15)
+ - DCx(rec15,rec1) = -0
  centroidXDistanceSimmetry(rec2,rec1): - DCx(rec1,rec2) + DCx(rec2,rec1)
  = -0
  centroidXDistanceSimmetry(rec2,rec3): + DCx(rec2,rec3) - DCx(rec3,rec2)
@@ -18346,6 +30533,16 @@ Subject To
  = -0
  centroidXDistanceSimmetry(rec2,rec10): + DCx(rec2,rec10)
  - DCx(rec10,rec2) = -0
+ centroidXDistanceSimmetry(rec2,rec11): + DCx(rec2,rec11)
+ - DCx(rec11,rec2) = -0
+ centroidXDistanceSimmetry(rec2,rec12): + DCx(rec2,rec12)
+ - DCx(rec12,rec2) = -0
+ centroidXDistanceSimmetry(rec2,rec13): + DCx(rec2,rec13)
+ - DCx(rec13,rec2) = -0
+ centroidXDistanceSimmetry(rec2,rec14): + DCx(rec2,rec14)
+ - DCx(rec14,rec2) = -0
+ centroidXDistanceSimmetry(rec2,rec15): + DCx(rec2,rec15)
+ - DCx(rec15,rec2) = -0
  centroidXDistanceSimmetry(rec3,rec1): - DCx(rec1,rec3) + DCx(rec3,rec1)
  = -0
  centroidXDistanceSimmetry(rec3,rec2): - DCx(rec2,rec3) + DCx(rec3,rec2)
@@ -18364,6 +30561,16 @@ Subject To
  = -0
  centroidXDistanceSimmetry(rec3,rec10): + DCx(rec3,rec10)
  - DCx(rec10,rec3) = -0
+ centroidXDistanceSimmetry(rec3,rec11): + DCx(rec3,rec11)
+ - DCx(rec11,rec3) = -0
+ centroidXDistanceSimmetry(rec3,rec12): + DCx(rec3,rec12)
+ - DCx(rec12,rec3) = -0
+ centroidXDistanceSimmetry(rec3,rec13): + DCx(rec3,rec13)
+ - DCx(rec13,rec3) = -0
+ centroidXDistanceSimmetry(rec3,rec14): + DCx(rec3,rec14)
+ - DCx(rec14,rec3) = -0
+ centroidXDistanceSimmetry(rec3,rec15): + DCx(rec3,rec15)
+ - DCx(rec15,rec3) = -0
  centroidXDistanceSimmetry(rec4,rec1): - DCx(rec1,rec4) + DCx(rec4,rec1)
  = -0
  centroidXDistanceSimmetry(rec4,rec2): - DCx(rec2,rec4) + DCx(rec4,rec2)
@@ -18382,6 +30589,16 @@ Subject To
  = -0
  centroidXDistanceSimmetry(rec4,rec10): + DCx(rec4,rec10)
  - DCx(rec10,rec4) = -0
+ centroidXDistanceSimmetry(rec4,rec11): + DCx(rec4,rec11)
+ - DCx(rec11,rec4) = -0
+ centroidXDistanceSimmetry(rec4,rec12): + DCx(rec4,rec12)
+ - DCx(rec12,rec4) = -0
+ centroidXDistanceSimmetry(rec4,rec13): + DCx(rec4,rec13)
+ - DCx(rec13,rec4) = -0
+ centroidXDistanceSimmetry(rec4,rec14): + DCx(rec4,rec14)
+ - DCx(rec14,rec4) = -0
+ centroidXDistanceSimmetry(rec4,rec15): + DCx(rec4,rec15)
+ - DCx(rec15,rec4) = -0
  centroidXDistanceSimmetry(rec5,rec1): - DCx(rec1,rec5) + DCx(rec5,rec1)
  = -0
  centroidXDistanceSimmetry(rec5,rec2): - DCx(rec2,rec5) + DCx(rec5,rec2)
@@ -18400,6 +30617,16 @@ Subject To
  = -0
  centroidXDistanceSimmetry(rec5,rec10): + DCx(rec5,rec10)
  - DCx(rec10,rec5) = -0
+ centroidXDistanceSimmetry(rec5,rec11): + DCx(rec5,rec11)
+ - DCx(rec11,rec5) = -0
+ centroidXDistanceSimmetry(rec5,rec12): + DCx(rec5,rec12)
+ - DCx(rec12,rec5) = -0
+ centroidXDistanceSimmetry(rec5,rec13): + DCx(rec5,rec13)
+ - DCx(rec13,rec5) = -0
+ centroidXDistanceSimmetry(rec5,rec14): + DCx(rec5,rec14)
+ - DCx(rec14,rec5) = -0
+ centroidXDistanceSimmetry(rec5,rec15): + DCx(rec5,rec15)
+ - DCx(rec15,rec5) = -0
  centroidXDistanceSimmetry(rec6,rec1): - DCx(rec1,rec6) + DCx(rec6,rec1)
  = -0
  centroidXDistanceSimmetry(rec6,rec2): - DCx(rec2,rec6) + DCx(rec6,rec2)
@@ -18418,6 +30645,16 @@ Subject To
  = -0
  centroidXDistanceSimmetry(rec6,rec10): + DCx(rec6,rec10)
  - DCx(rec10,rec6) = -0
+ centroidXDistanceSimmetry(rec6,rec11): + DCx(rec6,rec11)
+ - DCx(rec11,rec6) = -0
+ centroidXDistanceSimmetry(rec6,rec12): + DCx(rec6,rec12)
+ - DCx(rec12,rec6) = -0
+ centroidXDistanceSimmetry(rec6,rec13): + DCx(rec6,rec13)
+ - DCx(rec13,rec6) = -0
+ centroidXDistanceSimmetry(rec6,rec14): + DCx(rec6,rec14)
+ - DCx(rec14,rec6) = -0
+ centroidXDistanceSimmetry(rec6,rec15): + DCx(rec6,rec15)
+ - DCx(rec15,rec6) = -0
  centroidXDistanceSimmetry(rec7,rec1): - DCx(rec1,rec7) + DCx(rec7,rec1)
  = -0
  centroidXDistanceSimmetry(rec7,rec2): - DCx(rec2,rec7) + DCx(rec7,rec2)
@@ -18436,6 +30673,16 @@ Subject To
  = -0
  centroidXDistanceSimmetry(rec7,rec10): + DCx(rec7,rec10)
  - DCx(rec10,rec7) = -0
+ centroidXDistanceSimmetry(rec7,rec11): + DCx(rec7,rec11)
+ - DCx(rec11,rec7) = -0
+ centroidXDistanceSimmetry(rec7,rec12): + DCx(rec7,rec12)
+ - DCx(rec12,rec7) = -0
+ centroidXDistanceSimmetry(rec7,rec13): + DCx(rec7,rec13)
+ - DCx(rec13,rec7) = -0
+ centroidXDistanceSimmetry(rec7,rec14): + DCx(rec7,rec14)
+ - DCx(rec14,rec7) = -0
+ centroidXDistanceSimmetry(rec7,rec15): + DCx(rec7,rec15)
+ - DCx(rec15,rec7) = -0
  centroidXDistanceSimmetry(rec8,rec1): - DCx(rec1,rec8) + DCx(rec8,rec1)
  = -0
  centroidXDistanceSimmetry(rec8,rec2): - DCx(rec2,rec8) + DCx(rec8,rec2)
@@ -18454,6 +30701,16 @@ Subject To
  = -0
  centroidXDistanceSimmetry(rec8,rec10): + DCx(rec8,rec10)
  - DCx(rec10,rec8) = -0
+ centroidXDistanceSimmetry(rec8,rec11): + DCx(rec8,rec11)
+ - DCx(rec11,rec8) = -0
+ centroidXDistanceSimmetry(rec8,rec12): + DCx(rec8,rec12)
+ - DCx(rec12,rec8) = -0
+ centroidXDistanceSimmetry(rec8,rec13): + DCx(rec8,rec13)
+ - DCx(rec13,rec8) = -0
+ centroidXDistanceSimmetry(rec8,rec14): + DCx(rec8,rec14)
+ - DCx(rec14,rec8) = -0
+ centroidXDistanceSimmetry(rec8,rec15): + DCx(rec8,rec15)
+ - DCx(rec15,rec8) = -0
  centroidXDistanceSimmetry(rec9,rec1): - DCx(rec1,rec9) + DCx(rec9,rec1)
  = -0
  centroidXDistanceSimmetry(rec9,rec2): - DCx(rec2,rec9) + DCx(rec9,rec2)
@@ -18472,6 +30729,16 @@ Subject To
  = -0
  centroidXDistanceSimmetry(rec9,rec10): + DCx(rec9,rec10)
  - DCx(rec10,rec9) = -0
+ centroidXDistanceSimmetry(rec9,rec11): + DCx(rec9,rec11)
+ - DCx(rec11,rec9) = -0
+ centroidXDistanceSimmetry(rec9,rec12): + DCx(rec9,rec12)
+ - DCx(rec12,rec9) = -0
+ centroidXDistanceSimmetry(rec9,rec13): + DCx(rec9,rec13)
+ - DCx(rec13,rec9) = -0
+ centroidXDistanceSimmetry(rec9,rec14): + DCx(rec9,rec14)
+ - DCx(rec14,rec9) = -0
+ centroidXDistanceSimmetry(rec9,rec15): + DCx(rec9,rec15)
+ - DCx(rec15,rec9) = -0
  centroidXDistanceSimmetry(rec10,rec1): - DCx(rec1,rec10)
  + DCx(rec10,rec1) = -0
  centroidXDistanceSimmetry(rec10,rec2): - DCx(rec2,rec10)
@@ -18490,6 +30757,156 @@ Subject To
  + DCx(rec10,rec8) = -0
  centroidXDistanceSimmetry(rec10,rec9): - DCx(rec9,rec10)
  + DCx(rec10,rec9) = -0
+ centroidXDistanceSimmetry(rec10,rec11): + DCx(rec10,rec11)
+ - DCx(rec11,rec10) = -0
+ centroidXDistanceSimmetry(rec10,rec12): + DCx(rec10,rec12)
+ - DCx(rec12,rec10) = -0
+ centroidXDistanceSimmetry(rec10,rec13): + DCx(rec10,rec13)
+ - DCx(rec13,rec10) = -0
+ centroidXDistanceSimmetry(rec10,rec14): + DCx(rec10,rec14)
+ - DCx(rec14,rec10) = -0
+ centroidXDistanceSimmetry(rec10,rec15): + DCx(rec10,rec15)
+ - DCx(rec15,rec10) = -0
+ centroidXDistanceSimmetry(rec11,rec1): - DCx(rec1,rec11)
+ + DCx(rec11,rec1) = -0
+ centroidXDistanceSimmetry(rec11,rec2): - DCx(rec2,rec11)
+ + DCx(rec11,rec2) = -0
+ centroidXDistanceSimmetry(rec11,rec3): - DCx(rec3,rec11)
+ + DCx(rec11,rec3) = -0
+ centroidXDistanceSimmetry(rec11,rec4): - DCx(rec4,rec11)
+ + DCx(rec11,rec4) = -0
+ centroidXDistanceSimmetry(rec11,rec5): - DCx(rec5,rec11)
+ + DCx(rec11,rec5) = -0
+ centroidXDistanceSimmetry(rec11,rec6): - DCx(rec6,rec11)
+ + DCx(rec11,rec6) = -0
+ centroidXDistanceSimmetry(rec11,rec7): - DCx(rec7,rec11)
+ + DCx(rec11,rec7) = -0
+ centroidXDistanceSimmetry(rec11,rec8): - DCx(rec8,rec11)
+ + DCx(rec11,rec8) = -0
+ centroidXDistanceSimmetry(rec11,rec9): - DCx(rec9,rec11)
+ + DCx(rec11,rec9) = -0
+ centroidXDistanceSimmetry(rec11,rec10): - DCx(rec10,rec11)
+ + DCx(rec11,rec10) = -0
+ centroidXDistanceSimmetry(rec11,rec12): + DCx(rec11,rec12)
+ - DCx(rec12,rec11) = -0
+ centroidXDistanceSimmetry(rec11,rec13): + DCx(rec11,rec13)
+ - DCx(rec13,rec11) = -0
+ centroidXDistanceSimmetry(rec11,rec14): + DCx(rec11,rec14)
+ - DCx(rec14,rec11) = -0
+ centroidXDistanceSimmetry(rec11,rec15): + DCx(rec11,rec15)
+ - DCx(rec15,rec11) = -0
+ centroidXDistanceSimmetry(rec12,rec1): - DCx(rec1,rec12)
+ + DCx(rec12,rec1) = -0
+ centroidXDistanceSimmetry(rec12,rec2): - DCx(rec2,rec12)
+ + DCx(rec12,rec2) = -0
+ centroidXDistanceSimmetry(rec12,rec3): - DCx(rec3,rec12)
+ + DCx(rec12,rec3) = -0
+ centroidXDistanceSimmetry(rec12,rec4): - DCx(rec4,rec12)
+ + DCx(rec12,rec4) = -0
+ centroidXDistanceSimmetry(rec12,rec5): - DCx(rec5,rec12)
+ + DCx(rec12,rec5) = -0
+ centroidXDistanceSimmetry(rec12,rec6): - DCx(rec6,rec12)
+ + DCx(rec12,rec6) = -0
+ centroidXDistanceSimmetry(rec12,rec7): - DCx(rec7,rec12)
+ + DCx(rec12,rec7) = -0
+ centroidXDistanceSimmetry(rec12,rec8): - DCx(rec8,rec12)
+ + DCx(rec12,rec8) = -0
+ centroidXDistanceSimmetry(rec12,rec9): - DCx(rec9,rec12)
+ + DCx(rec12,rec9) = -0
+ centroidXDistanceSimmetry(rec12,rec10): - DCx(rec10,rec12)
+ + DCx(rec12,rec10) = -0
+ centroidXDistanceSimmetry(rec12,rec11): - DCx(rec11,rec12)
+ + DCx(rec12,rec11) = -0
+ centroidXDistanceSimmetry(rec12,rec13): + DCx(rec12,rec13)
+ - DCx(rec13,rec12) = -0
+ centroidXDistanceSimmetry(rec12,rec14): + DCx(rec12,rec14)
+ - DCx(rec14,rec12) = -0
+ centroidXDistanceSimmetry(rec12,rec15): + DCx(rec12,rec15)
+ - DCx(rec15,rec12) = -0
+ centroidXDistanceSimmetry(rec13,rec1): - DCx(rec1,rec13)
+ + DCx(rec13,rec1) = -0
+ centroidXDistanceSimmetry(rec13,rec2): - DCx(rec2,rec13)
+ + DCx(rec13,rec2) = -0
+ centroidXDistanceSimmetry(rec13,rec3): - DCx(rec3,rec13)
+ + DCx(rec13,rec3) = -0
+ centroidXDistanceSimmetry(rec13,rec4): - DCx(rec4,rec13)
+ + DCx(rec13,rec4) = -0
+ centroidXDistanceSimmetry(rec13,rec5): - DCx(rec5,rec13)
+ + DCx(rec13,rec5) = -0
+ centroidXDistanceSimmetry(rec13,rec6): - DCx(rec6,rec13)
+ + DCx(rec13,rec6) = -0
+ centroidXDistanceSimmetry(rec13,rec7): - DCx(rec7,rec13)
+ + DCx(rec13,rec7) = -0
+ centroidXDistanceSimmetry(rec13,rec8): - DCx(rec8,rec13)
+ + DCx(rec13,rec8) = -0
+ centroidXDistanceSimmetry(rec13,rec9): - DCx(rec9,rec13)
+ + DCx(rec13,rec9) = -0
+ centroidXDistanceSimmetry(rec13,rec10): - DCx(rec10,rec13)
+ + DCx(rec13,rec10) = -0
+ centroidXDistanceSimmetry(rec13,rec11): - DCx(rec11,rec13)
+ + DCx(rec13,rec11) = -0
+ centroidXDistanceSimmetry(rec13,rec12): - DCx(rec12,rec13)
+ + DCx(rec13,rec12) = -0
+ centroidXDistanceSimmetry(rec13,rec14): + DCx(rec13,rec14)
+ - DCx(rec14,rec13) = -0
+ centroidXDistanceSimmetry(rec13,rec15): + DCx(rec13,rec15)
+ - DCx(rec15,rec13) = -0
+ centroidXDistanceSimmetry(rec14,rec1): - DCx(rec1,rec14)
+ + DCx(rec14,rec1) = -0
+ centroidXDistanceSimmetry(rec14,rec2): - DCx(rec2,rec14)
+ + DCx(rec14,rec2) = -0
+ centroidXDistanceSimmetry(rec14,rec3): - DCx(rec3,rec14)
+ + DCx(rec14,rec3) = -0
+ centroidXDistanceSimmetry(rec14,rec4): - DCx(rec4,rec14)
+ + DCx(rec14,rec4) = -0
+ centroidXDistanceSimmetry(rec14,rec5): - DCx(rec5,rec14)
+ + DCx(rec14,rec5) = -0
+ centroidXDistanceSimmetry(rec14,rec6): - DCx(rec6,rec14)
+ + DCx(rec14,rec6) = -0
+ centroidXDistanceSimmetry(rec14,rec7): - DCx(rec7,rec14)
+ + DCx(rec14,rec7) = -0
+ centroidXDistanceSimmetry(rec14,rec8): - DCx(rec8,rec14)
+ + DCx(rec14,rec8) = -0
+ centroidXDistanceSimmetry(rec14,rec9): - DCx(rec9,rec14)
+ + DCx(rec14,rec9) = -0
+ centroidXDistanceSimmetry(rec14,rec10): - DCx(rec10,rec14)
+ + DCx(rec14,rec10) = -0
+ centroidXDistanceSimmetry(rec14,rec11): - DCx(rec11,rec14)
+ + DCx(rec14,rec11) = -0
+ centroidXDistanceSimmetry(rec14,rec12): - DCx(rec12,rec14)
+ + DCx(rec14,rec12) = -0
+ centroidXDistanceSimmetry(rec14,rec13): - DCx(rec13,rec14)
+ + DCx(rec14,rec13) = -0
+ centroidXDistanceSimmetry(rec14,rec15): + DCx(rec14,rec15)
+ - DCx(rec15,rec14) = -0
+ centroidXDistanceSimmetry(rec15,rec1): - DCx(rec1,rec15)
+ + DCx(rec15,rec1) = -0
+ centroidXDistanceSimmetry(rec15,rec2): - DCx(rec2,rec15)
+ + DCx(rec15,rec2) = -0
+ centroidXDistanceSimmetry(rec15,rec3): - DCx(rec3,rec15)
+ + DCx(rec15,rec3) = -0
+ centroidXDistanceSimmetry(rec15,rec4): - DCx(rec4,rec15)
+ + DCx(rec15,rec4) = -0
+ centroidXDistanceSimmetry(rec15,rec5): - DCx(rec5,rec15)
+ + DCx(rec15,rec5) = -0
+ centroidXDistanceSimmetry(rec15,rec6): - DCx(rec6,rec15)
+ + DCx(rec15,rec6) = -0
+ centroidXDistanceSimmetry(rec15,rec7): - DCx(rec7,rec15)
+ + DCx(rec15,rec7) = -0
+ centroidXDistanceSimmetry(rec15,rec8): - DCx(rec8,rec15)
+ + DCx(rec15,rec8) = -0
+ centroidXDistanceSimmetry(rec15,rec9): - DCx(rec9,rec15)
+ + DCx(rec15,rec9) = -0
+ centroidXDistanceSimmetry(rec15,rec10): - DCx(rec10,rec15)
+ + DCx(rec15,rec10) = -0
+ centroidXDistanceSimmetry(rec15,rec11): - DCx(rec11,rec15)
+ + DCx(rec15,rec11) = -0
+ centroidXDistanceSimmetry(rec15,rec12): - DCx(rec12,rec15)
+ + DCx(rec15,rec12) = -0
+ centroidXDistanceSimmetry(rec15,rec13): - DCx(rec13,rec15)
+ + DCx(rec15,rec13) = -0
+ centroidXDistanceSimmetry(rec15,rec14): - DCx(rec14,rec15)
+ + DCx(rec15,rec14) = -0
  centroidYDistanceSimmetry(rec1,rec2): + DCy(rec1,rec2) - DCy(rec2,rec1)
  = -0
  centroidYDistanceSimmetry(rec1,rec3): + DCy(rec1,rec3) - DCy(rec3,rec1)
@@ -18508,6 +30925,16 @@ Subject To
  = -0
  centroidYDistanceSimmetry(rec1,rec10): + DCy(rec1,rec10)
  - DCy(rec10,rec1) = -0
+ centroidYDistanceSimmetry(rec1,rec11): + DCy(rec1,rec11)
+ - DCy(rec11,rec1) = -0
+ centroidYDistanceSimmetry(rec1,rec12): + DCy(rec1,rec12)
+ - DCy(rec12,rec1) = -0
+ centroidYDistanceSimmetry(rec1,rec13): + DCy(rec1,rec13)
+ - DCy(rec13,rec1) = -0
+ centroidYDistanceSimmetry(rec1,rec14): + DCy(rec1,rec14)
+ - DCy(rec14,rec1) = -0
+ centroidYDistanceSimmetry(rec1,rec15): + DCy(rec1,rec15)
+ - DCy(rec15,rec1) = -0
  centroidYDistanceSimmetry(rec2,rec1): - DCy(rec1,rec2) + DCy(rec2,rec1)
  = -0
  centroidYDistanceSimmetry(rec2,rec3): + DCy(rec2,rec3) - DCy(rec3,rec2)
@@ -18526,6 +30953,16 @@ Subject To
  = -0
  centroidYDistanceSimmetry(rec2,rec10): + DCy(rec2,rec10)
  - DCy(rec10,rec2) = -0
+ centroidYDistanceSimmetry(rec2,rec11): + DCy(rec2,rec11)
+ - DCy(rec11,rec2) = -0
+ centroidYDistanceSimmetry(rec2,rec12): + DCy(rec2,rec12)
+ - DCy(rec12,rec2) = -0
+ centroidYDistanceSimmetry(rec2,rec13): + DCy(rec2,rec13)
+ - DCy(rec13,rec2) = -0
+ centroidYDistanceSimmetry(rec2,rec14): + DCy(rec2,rec14)
+ - DCy(rec14,rec2) = -0
+ centroidYDistanceSimmetry(rec2,rec15): + DCy(rec2,rec15)
+ - DCy(rec15,rec2) = -0
  centroidYDistanceSimmetry(rec3,rec1): - DCy(rec1,rec3) + DCy(rec3,rec1)
  = -0
  centroidYDistanceSimmetry(rec3,rec2): - DCy(rec2,rec3) + DCy(rec3,rec2)
@@ -18544,6 +30981,16 @@ Subject To
  = -0
  centroidYDistanceSimmetry(rec3,rec10): + DCy(rec3,rec10)
  - DCy(rec10,rec3) = -0
+ centroidYDistanceSimmetry(rec3,rec11): + DCy(rec3,rec11)
+ - DCy(rec11,rec3) = -0
+ centroidYDistanceSimmetry(rec3,rec12): + DCy(rec3,rec12)
+ - DCy(rec12,rec3) = -0
+ centroidYDistanceSimmetry(rec3,rec13): + DCy(rec3,rec13)
+ - DCy(rec13,rec3) = -0
+ centroidYDistanceSimmetry(rec3,rec14): + DCy(rec3,rec14)
+ - DCy(rec14,rec3) = -0
+ centroidYDistanceSimmetry(rec3,rec15): + DCy(rec3,rec15)
+ - DCy(rec15,rec3) = -0
  centroidYDistanceSimmetry(rec4,rec1): - DCy(rec1,rec4) + DCy(rec4,rec1)
  = -0
  centroidYDistanceSimmetry(rec4,rec2): - DCy(rec2,rec4) + DCy(rec4,rec2)
@@ -18562,6 +31009,16 @@ Subject To
  = -0
  centroidYDistanceSimmetry(rec4,rec10): + DCy(rec4,rec10)
  - DCy(rec10,rec4) = -0
+ centroidYDistanceSimmetry(rec4,rec11): + DCy(rec4,rec11)
+ - DCy(rec11,rec4) = -0
+ centroidYDistanceSimmetry(rec4,rec12): + DCy(rec4,rec12)
+ - DCy(rec12,rec4) = -0
+ centroidYDistanceSimmetry(rec4,rec13): + DCy(rec4,rec13)
+ - DCy(rec13,rec4) = -0
+ centroidYDistanceSimmetry(rec4,rec14): + DCy(rec4,rec14)
+ - DCy(rec14,rec4) = -0
+ centroidYDistanceSimmetry(rec4,rec15): + DCy(rec4,rec15)
+ - DCy(rec15,rec4) = -0
  centroidYDistanceSimmetry(rec5,rec1): - DCy(rec1,rec5) + DCy(rec5,rec1)
  = -0
  centroidYDistanceSimmetry(rec5,rec2): - DCy(rec2,rec5) + DCy(rec5,rec2)
@@ -18580,6 +31037,16 @@ Subject To
  = -0
  centroidYDistanceSimmetry(rec5,rec10): + DCy(rec5,rec10)
  - DCy(rec10,rec5) = -0
+ centroidYDistanceSimmetry(rec5,rec11): + DCy(rec5,rec11)
+ - DCy(rec11,rec5) = -0
+ centroidYDistanceSimmetry(rec5,rec12): + DCy(rec5,rec12)
+ - DCy(rec12,rec5) = -0
+ centroidYDistanceSimmetry(rec5,rec13): + DCy(rec5,rec13)
+ - DCy(rec13,rec5) = -0
+ centroidYDistanceSimmetry(rec5,rec14): + DCy(rec5,rec14)
+ - DCy(rec14,rec5) = -0
+ centroidYDistanceSimmetry(rec5,rec15): + DCy(rec5,rec15)
+ - DCy(rec15,rec5) = -0
  centroidYDistanceSimmetry(rec6,rec1): - DCy(rec1,rec6) + DCy(rec6,rec1)
  = -0
  centroidYDistanceSimmetry(rec6,rec2): - DCy(rec2,rec6) + DCy(rec6,rec2)
@@ -18598,6 +31065,16 @@ Subject To
  = -0
  centroidYDistanceSimmetry(rec6,rec10): + DCy(rec6,rec10)
  - DCy(rec10,rec6) = -0
+ centroidYDistanceSimmetry(rec6,rec11): + DCy(rec6,rec11)
+ - DCy(rec11,rec6) = -0
+ centroidYDistanceSimmetry(rec6,rec12): + DCy(rec6,rec12)
+ - DCy(rec12,rec6) = -0
+ centroidYDistanceSimmetry(rec6,rec13): + DCy(rec6,rec13)
+ - DCy(rec13,rec6) = -0
+ centroidYDistanceSimmetry(rec6,rec14): + DCy(rec6,rec14)
+ - DCy(rec14,rec6) = -0
+ centroidYDistanceSimmetry(rec6,rec15): + DCy(rec6,rec15)
+ - DCy(rec15,rec6) = -0
  centroidYDistanceSimmetry(rec7,rec1): - DCy(rec1,rec7) + DCy(rec7,rec1)
  = -0
  centroidYDistanceSimmetry(rec7,rec2): - DCy(rec2,rec7) + DCy(rec7,rec2)
@@ -18616,6 +31093,16 @@ Subject To
  = -0
  centroidYDistanceSimmetry(rec7,rec10): + DCy(rec7,rec10)
  - DCy(rec10,rec7) = -0
+ centroidYDistanceSimmetry(rec7,rec11): + DCy(rec7,rec11)
+ - DCy(rec11,rec7) = -0
+ centroidYDistanceSimmetry(rec7,rec12): + DCy(rec7,rec12)
+ - DCy(rec12,rec7) = -0
+ centroidYDistanceSimmetry(rec7,rec13): + DCy(rec7,rec13)
+ - DCy(rec13,rec7) = -0
+ centroidYDistanceSimmetry(rec7,rec14): + DCy(rec7,rec14)
+ - DCy(rec14,rec7) = -0
+ centroidYDistanceSimmetry(rec7,rec15): + DCy(rec7,rec15)
+ - DCy(rec15,rec7) = -0
  centroidYDistanceSimmetry(rec8,rec1): - DCy(rec1,rec8) + DCy(rec8,rec1)
  = -0
  centroidYDistanceSimmetry(rec8,rec2): - DCy(rec2,rec8) + DCy(rec8,rec2)
@@ -18634,6 +31121,16 @@ Subject To
  = -0
  centroidYDistanceSimmetry(rec8,rec10): + DCy(rec8,rec10)
  - DCy(rec10,rec8) = -0
+ centroidYDistanceSimmetry(rec8,rec11): + DCy(rec8,rec11)
+ - DCy(rec11,rec8) = -0
+ centroidYDistanceSimmetry(rec8,rec12): + DCy(rec8,rec12)
+ - DCy(rec12,rec8) = -0
+ centroidYDistanceSimmetry(rec8,rec13): + DCy(rec8,rec13)
+ - DCy(rec13,rec8) = -0
+ centroidYDistanceSimmetry(rec8,rec14): + DCy(rec8,rec14)
+ - DCy(rec14,rec8) = -0
+ centroidYDistanceSimmetry(rec8,rec15): + DCy(rec8,rec15)
+ - DCy(rec15,rec8) = -0
  centroidYDistanceSimmetry(rec9,rec1): - DCy(rec1,rec9) + DCy(rec9,rec1)
  = -0
  centroidYDistanceSimmetry(rec9,rec2): - DCy(rec2,rec9) + DCy(rec9,rec2)
@@ -18652,6 +31149,16 @@ Subject To
  = -0
  centroidYDistanceSimmetry(rec9,rec10): + DCy(rec9,rec10)
  - DCy(rec10,rec9) = -0
+ centroidYDistanceSimmetry(rec9,rec11): + DCy(rec9,rec11)
+ - DCy(rec11,rec9) = -0
+ centroidYDistanceSimmetry(rec9,rec12): + DCy(rec9,rec12)
+ - DCy(rec12,rec9) = -0
+ centroidYDistanceSimmetry(rec9,rec13): + DCy(rec9,rec13)
+ - DCy(rec13,rec9) = -0
+ centroidYDistanceSimmetry(rec9,rec14): + DCy(rec9,rec14)
+ - DCy(rec14,rec9) = -0
+ centroidYDistanceSimmetry(rec9,rec15): + DCy(rec9,rec15)
+ - DCy(rec15,rec9) = -0
  centroidYDistanceSimmetry(rec10,rec1): - DCy(rec1,rec10)
  + DCy(rec10,rec1) = -0
  centroidYDistanceSimmetry(rec10,rec2): - DCy(rec2,rec10)
@@ -18670,6 +31177,156 @@ Subject To
  + DCy(rec10,rec8) = -0
  centroidYDistanceSimmetry(rec10,rec9): - DCy(rec9,rec10)
  + DCy(rec10,rec9) = -0
+ centroidYDistanceSimmetry(rec10,rec11): + DCy(rec10,rec11)
+ - DCy(rec11,rec10) = -0
+ centroidYDistanceSimmetry(rec10,rec12): + DCy(rec10,rec12)
+ - DCy(rec12,rec10) = -0
+ centroidYDistanceSimmetry(rec10,rec13): + DCy(rec10,rec13)
+ - DCy(rec13,rec10) = -0
+ centroidYDistanceSimmetry(rec10,rec14): + DCy(rec10,rec14)
+ - DCy(rec14,rec10) = -0
+ centroidYDistanceSimmetry(rec10,rec15): + DCy(rec10,rec15)
+ - DCy(rec15,rec10) = -0
+ centroidYDistanceSimmetry(rec11,rec1): - DCy(rec1,rec11)
+ + DCy(rec11,rec1) = -0
+ centroidYDistanceSimmetry(rec11,rec2): - DCy(rec2,rec11)
+ + DCy(rec11,rec2) = -0
+ centroidYDistanceSimmetry(rec11,rec3): - DCy(rec3,rec11)
+ + DCy(rec11,rec3) = -0
+ centroidYDistanceSimmetry(rec11,rec4): - DCy(rec4,rec11)
+ + DCy(rec11,rec4) = -0
+ centroidYDistanceSimmetry(rec11,rec5): - DCy(rec5,rec11)
+ + DCy(rec11,rec5) = -0
+ centroidYDistanceSimmetry(rec11,rec6): - DCy(rec6,rec11)
+ + DCy(rec11,rec6) = -0
+ centroidYDistanceSimmetry(rec11,rec7): - DCy(rec7,rec11)
+ + DCy(rec11,rec7) = -0
+ centroidYDistanceSimmetry(rec11,rec8): - DCy(rec8,rec11)
+ + DCy(rec11,rec8) = -0
+ centroidYDistanceSimmetry(rec11,rec9): - DCy(rec9,rec11)
+ + DCy(rec11,rec9) = -0
+ centroidYDistanceSimmetry(rec11,rec10): - DCy(rec10,rec11)
+ + DCy(rec11,rec10) = -0
+ centroidYDistanceSimmetry(rec11,rec12): + DCy(rec11,rec12)
+ - DCy(rec12,rec11) = -0
+ centroidYDistanceSimmetry(rec11,rec13): + DCy(rec11,rec13)
+ - DCy(rec13,rec11) = -0
+ centroidYDistanceSimmetry(rec11,rec14): + DCy(rec11,rec14)
+ - DCy(rec14,rec11) = -0
+ centroidYDistanceSimmetry(rec11,rec15): + DCy(rec11,rec15)
+ - DCy(rec15,rec11) = -0
+ centroidYDistanceSimmetry(rec12,rec1): - DCy(rec1,rec12)
+ + DCy(rec12,rec1) = -0
+ centroidYDistanceSimmetry(rec12,rec2): - DCy(rec2,rec12)
+ + DCy(rec12,rec2) = -0
+ centroidYDistanceSimmetry(rec12,rec3): - DCy(rec3,rec12)
+ + DCy(rec12,rec3) = -0
+ centroidYDistanceSimmetry(rec12,rec4): - DCy(rec4,rec12)
+ + DCy(rec12,rec4) = -0
+ centroidYDistanceSimmetry(rec12,rec5): - DCy(rec5,rec12)
+ + DCy(rec12,rec5) = -0
+ centroidYDistanceSimmetry(rec12,rec6): - DCy(rec6,rec12)
+ + DCy(rec12,rec6) = -0
+ centroidYDistanceSimmetry(rec12,rec7): - DCy(rec7,rec12)
+ + DCy(rec12,rec7) = -0
+ centroidYDistanceSimmetry(rec12,rec8): - DCy(rec8,rec12)
+ + DCy(rec12,rec8) = -0
+ centroidYDistanceSimmetry(rec12,rec9): - DCy(rec9,rec12)
+ + DCy(rec12,rec9) = -0
+ centroidYDistanceSimmetry(rec12,rec10): - DCy(rec10,rec12)
+ + DCy(rec12,rec10) = -0
+ centroidYDistanceSimmetry(rec12,rec11): - DCy(rec11,rec12)
+ + DCy(rec12,rec11) = -0
+ centroidYDistanceSimmetry(rec12,rec13): + DCy(rec12,rec13)
+ - DCy(rec13,rec12) = -0
+ centroidYDistanceSimmetry(rec12,rec14): + DCy(rec12,rec14)
+ - DCy(rec14,rec12) = -0
+ centroidYDistanceSimmetry(rec12,rec15): + DCy(rec12,rec15)
+ - DCy(rec15,rec12) = -0
+ centroidYDistanceSimmetry(rec13,rec1): - DCy(rec1,rec13)
+ + DCy(rec13,rec1) = -0
+ centroidYDistanceSimmetry(rec13,rec2): - DCy(rec2,rec13)
+ + DCy(rec13,rec2) = -0
+ centroidYDistanceSimmetry(rec13,rec3): - DCy(rec3,rec13)
+ + DCy(rec13,rec3) = -0
+ centroidYDistanceSimmetry(rec13,rec4): - DCy(rec4,rec13)
+ + DCy(rec13,rec4) = -0
+ centroidYDistanceSimmetry(rec13,rec5): - DCy(rec5,rec13)
+ + DCy(rec13,rec5) = -0
+ centroidYDistanceSimmetry(rec13,rec6): - DCy(rec6,rec13)
+ + DCy(rec13,rec6) = -0
+ centroidYDistanceSimmetry(rec13,rec7): - DCy(rec7,rec13)
+ + DCy(rec13,rec7) = -0
+ centroidYDistanceSimmetry(rec13,rec8): - DCy(rec8,rec13)
+ + DCy(rec13,rec8) = -0
+ centroidYDistanceSimmetry(rec13,rec9): - DCy(rec9,rec13)
+ + DCy(rec13,rec9) = -0
+ centroidYDistanceSimmetry(rec13,rec10): - DCy(rec10,rec13)
+ + DCy(rec13,rec10) = -0
+ centroidYDistanceSimmetry(rec13,rec11): - DCy(rec11,rec13)
+ + DCy(rec13,rec11) = -0
+ centroidYDistanceSimmetry(rec13,rec12): - DCy(rec12,rec13)
+ + DCy(rec13,rec12) = -0
+ centroidYDistanceSimmetry(rec13,rec14): + DCy(rec13,rec14)
+ - DCy(rec14,rec13) = -0
+ centroidYDistanceSimmetry(rec13,rec15): + DCy(rec13,rec15)
+ - DCy(rec15,rec13) = -0
+ centroidYDistanceSimmetry(rec14,rec1): - DCy(rec1,rec14)
+ + DCy(rec14,rec1) = -0
+ centroidYDistanceSimmetry(rec14,rec2): - DCy(rec2,rec14)
+ + DCy(rec14,rec2) = -0
+ centroidYDistanceSimmetry(rec14,rec3): - DCy(rec3,rec14)
+ + DCy(rec14,rec3) = -0
+ centroidYDistanceSimmetry(rec14,rec4): - DCy(rec4,rec14)
+ + DCy(rec14,rec4) = -0
+ centroidYDistanceSimmetry(rec14,rec5): - DCy(rec5,rec14)
+ + DCy(rec14,rec5) = -0
+ centroidYDistanceSimmetry(rec14,rec6): - DCy(rec6,rec14)
+ + DCy(rec14,rec6) = -0
+ centroidYDistanceSimmetry(rec14,rec7): - DCy(rec7,rec14)
+ + DCy(rec14,rec7) = -0
+ centroidYDistanceSimmetry(rec14,rec8): - DCy(rec8,rec14)
+ + DCy(rec14,rec8) = -0
+ centroidYDistanceSimmetry(rec14,rec9): - DCy(rec9,rec14)
+ + DCy(rec14,rec9) = -0
+ centroidYDistanceSimmetry(rec14,rec10): - DCy(rec10,rec14)
+ + DCy(rec14,rec10) = -0
+ centroidYDistanceSimmetry(rec14,rec11): - DCy(rec11,rec14)
+ + DCy(rec14,rec11) = -0
+ centroidYDistanceSimmetry(rec14,rec12): - DCy(rec12,rec14)
+ + DCy(rec14,rec12) = -0
+ centroidYDistanceSimmetry(rec14,rec13): - DCy(rec13,rec14)
+ + DCy(rec14,rec13) = -0
+ centroidYDistanceSimmetry(rec14,rec15): + DCy(rec14,rec15)
+ - DCy(rec15,rec14) = -0
+ centroidYDistanceSimmetry(rec15,rec1): - DCy(rec1,rec15)
+ + DCy(rec15,rec1) = -0
+ centroidYDistanceSimmetry(rec15,rec2): - DCy(rec2,rec15)
+ + DCy(rec15,rec2) = -0
+ centroidYDistanceSimmetry(rec15,rec3): - DCy(rec3,rec15)
+ + DCy(rec15,rec3) = -0
+ centroidYDistanceSimmetry(rec15,rec4): - DCy(rec4,rec15)
+ + DCy(rec15,rec4) = -0
+ centroidYDistanceSimmetry(rec15,rec5): - DCy(rec5,rec15)
+ + DCy(rec15,rec5) = -0
+ centroidYDistanceSimmetry(rec15,rec6): - DCy(rec6,rec15)
+ + DCy(rec15,rec6) = -0
+ centroidYDistanceSimmetry(rec15,rec7): - DCy(rec7,rec15)
+ + DCy(rec15,rec7) = -0
+ centroidYDistanceSimmetry(rec15,rec8): - DCy(rec8,rec15)
+ + DCy(rec15,rec8) = -0
+ centroidYDistanceSimmetry(rec15,rec9): - DCy(rec9,rec15)
+ + DCy(rec15,rec9) = -0
+ centroidYDistanceSimmetry(rec15,rec10): - DCy(rec10,rec15)
+ + DCy(rec15,rec10) = -0
+ centroidYDistanceSimmetry(rec15,rec11): - DCy(rec11,rec15)
+ + DCy(rec15,rec11) = -0
+ centroidYDistanceSimmetry(rec15,rec12): - DCy(rec12,rec15)
+ + DCy(rec15,rec12) = -0
+ centroidYDistanceSimmetry(rec15,rec13): - DCy(rec13,rec15)
+ + DCy(rec15,rec13) = -0
+ centroidYDistanceSimmetry(rec15,rec14): - DCy(rec14,rec15)
+ + DCy(rec15,rec14) = -0
  borderXDistanceSimmetry(rec1,rec2): + DBx(rec1,rec2) - DBx(rec2,rec1)
  = -0
  borderXDistanceSimmetry(rec1,rec3): + DBx(rec1,rec3) - DBx(rec3,rec1)
@@ -18688,6 +31345,16 @@ Subject To
  = -0
  borderXDistanceSimmetry(rec1,rec10): + DBx(rec1,rec10)
  - DBx(rec10,rec1) = -0
+ borderXDistanceSimmetry(rec1,rec11): + DBx(rec1,rec11)
+ - DBx(rec11,rec1) = -0
+ borderXDistanceSimmetry(rec1,rec12): + DBx(rec1,rec12)
+ - DBx(rec12,rec1) = -0
+ borderXDistanceSimmetry(rec1,rec13): + DBx(rec1,rec13)
+ - DBx(rec13,rec1) = -0
+ borderXDistanceSimmetry(rec1,rec14): + DBx(rec1,rec14)
+ - DBx(rec14,rec1) = -0
+ borderXDistanceSimmetry(rec1,rec15): + DBx(rec1,rec15)
+ - DBx(rec15,rec1) = -0
  borderXDistanceSimmetry(rec2,rec1): - DBx(rec1,rec2) + DBx(rec2,rec1)
  = -0
  borderXDistanceSimmetry(rec2,rec3): + DBx(rec2,rec3) - DBx(rec3,rec2)
@@ -18706,6 +31373,16 @@ Subject To
  = -0
  borderXDistanceSimmetry(rec2,rec10): + DBx(rec2,rec10)
  - DBx(rec10,rec2) = -0
+ borderXDistanceSimmetry(rec2,rec11): + DBx(rec2,rec11)
+ - DBx(rec11,rec2) = -0
+ borderXDistanceSimmetry(rec2,rec12): + DBx(rec2,rec12)
+ - DBx(rec12,rec2) = -0
+ borderXDistanceSimmetry(rec2,rec13): + DBx(rec2,rec13)
+ - DBx(rec13,rec2) = -0
+ borderXDistanceSimmetry(rec2,rec14): + DBx(rec2,rec14)
+ - DBx(rec14,rec2) = -0
+ borderXDistanceSimmetry(rec2,rec15): + DBx(rec2,rec15)
+ - DBx(rec15,rec2) = -0
  borderXDistanceSimmetry(rec3,rec1): - DBx(rec1,rec3) + DBx(rec3,rec1)
  = -0
  borderXDistanceSimmetry(rec3,rec2): - DBx(rec2,rec3) + DBx(rec3,rec2)
@@ -18724,6 +31401,16 @@ Subject To
  = -0
  borderXDistanceSimmetry(rec3,rec10): + DBx(rec3,rec10)
  - DBx(rec10,rec3) = -0
+ borderXDistanceSimmetry(rec3,rec11): + DBx(rec3,rec11)
+ - DBx(rec11,rec3) = -0
+ borderXDistanceSimmetry(rec3,rec12): + DBx(rec3,rec12)
+ - DBx(rec12,rec3) = -0
+ borderXDistanceSimmetry(rec3,rec13): + DBx(rec3,rec13)
+ - DBx(rec13,rec3) = -0
+ borderXDistanceSimmetry(rec3,rec14): + DBx(rec3,rec14)
+ - DBx(rec14,rec3) = -0
+ borderXDistanceSimmetry(rec3,rec15): + DBx(rec3,rec15)
+ - DBx(rec15,rec3) = -0
  borderXDistanceSimmetry(rec4,rec1): - DBx(rec1,rec4) + DBx(rec4,rec1)
  = -0
  borderXDistanceSimmetry(rec4,rec2): - DBx(rec2,rec4) + DBx(rec4,rec2)
@@ -18742,6 +31429,16 @@ Subject To
  = -0
  borderXDistanceSimmetry(rec4,rec10): + DBx(rec4,rec10)
  - DBx(rec10,rec4) = -0
+ borderXDistanceSimmetry(rec4,rec11): + DBx(rec4,rec11)
+ - DBx(rec11,rec4) = -0
+ borderXDistanceSimmetry(rec4,rec12): + DBx(rec4,rec12)
+ - DBx(rec12,rec4) = -0
+ borderXDistanceSimmetry(rec4,rec13): + DBx(rec4,rec13)
+ - DBx(rec13,rec4) = -0
+ borderXDistanceSimmetry(rec4,rec14): + DBx(rec4,rec14)
+ - DBx(rec14,rec4) = -0
+ borderXDistanceSimmetry(rec4,rec15): + DBx(rec4,rec15)
+ - DBx(rec15,rec4) = -0
  borderXDistanceSimmetry(rec5,rec1): - DBx(rec1,rec5) + DBx(rec5,rec1)
  = -0
  borderXDistanceSimmetry(rec5,rec2): - DBx(rec2,rec5) + DBx(rec5,rec2)
@@ -18760,6 +31457,16 @@ Subject To
  = -0
  borderXDistanceSimmetry(rec5,rec10): + DBx(rec5,rec10)
  - DBx(rec10,rec5) = -0
+ borderXDistanceSimmetry(rec5,rec11): + DBx(rec5,rec11)
+ - DBx(rec11,rec5) = -0
+ borderXDistanceSimmetry(rec5,rec12): + DBx(rec5,rec12)
+ - DBx(rec12,rec5) = -0
+ borderXDistanceSimmetry(rec5,rec13): + DBx(rec5,rec13)
+ - DBx(rec13,rec5) = -0
+ borderXDistanceSimmetry(rec5,rec14): + DBx(rec5,rec14)
+ - DBx(rec14,rec5) = -0
+ borderXDistanceSimmetry(rec5,rec15): + DBx(rec5,rec15)
+ - DBx(rec15,rec5) = -0
  borderXDistanceSimmetry(rec6,rec1): - DBx(rec1,rec6) + DBx(rec6,rec1)
  = -0
  borderXDistanceSimmetry(rec6,rec2): - DBx(rec2,rec6) + DBx(rec6,rec2)
@@ -18778,6 +31485,16 @@ Subject To
  = -0
  borderXDistanceSimmetry(rec6,rec10): + DBx(rec6,rec10)
  - DBx(rec10,rec6) = -0
+ borderXDistanceSimmetry(rec6,rec11): + DBx(rec6,rec11)
+ - DBx(rec11,rec6) = -0
+ borderXDistanceSimmetry(rec6,rec12): + DBx(rec6,rec12)
+ - DBx(rec12,rec6) = -0
+ borderXDistanceSimmetry(rec6,rec13): + DBx(rec6,rec13)
+ - DBx(rec13,rec6) = -0
+ borderXDistanceSimmetry(rec6,rec14): + DBx(rec6,rec14)
+ - DBx(rec14,rec6) = -0
+ borderXDistanceSimmetry(rec6,rec15): + DBx(rec6,rec15)
+ - DBx(rec15,rec6) = -0
  borderXDistanceSimmetry(rec7,rec1): - DBx(rec1,rec7) + DBx(rec7,rec1)
  = -0
  borderXDistanceSimmetry(rec7,rec2): - DBx(rec2,rec7) + DBx(rec7,rec2)
@@ -18796,6 +31513,16 @@ Subject To
  = -0
  borderXDistanceSimmetry(rec7,rec10): + DBx(rec7,rec10)
  - DBx(rec10,rec7) = -0
+ borderXDistanceSimmetry(rec7,rec11): + DBx(rec7,rec11)
+ - DBx(rec11,rec7) = -0
+ borderXDistanceSimmetry(rec7,rec12): + DBx(rec7,rec12)
+ - DBx(rec12,rec7) = -0
+ borderXDistanceSimmetry(rec7,rec13): + DBx(rec7,rec13)
+ - DBx(rec13,rec7) = -0
+ borderXDistanceSimmetry(rec7,rec14): + DBx(rec7,rec14)
+ - DBx(rec14,rec7) = -0
+ borderXDistanceSimmetry(rec7,rec15): + DBx(rec7,rec15)
+ - DBx(rec15,rec7) = -0
  borderXDistanceSimmetry(rec8,rec1): - DBx(rec1,rec8) + DBx(rec8,rec1)
  = -0
  borderXDistanceSimmetry(rec8,rec2): - DBx(rec2,rec8) + DBx(rec8,rec2)
@@ -18814,6 +31541,16 @@ Subject To
  = -0
  borderXDistanceSimmetry(rec8,rec10): + DBx(rec8,rec10)
  - DBx(rec10,rec8) = -0
+ borderXDistanceSimmetry(rec8,rec11): + DBx(rec8,rec11)
+ - DBx(rec11,rec8) = -0
+ borderXDistanceSimmetry(rec8,rec12): + DBx(rec8,rec12)
+ - DBx(rec12,rec8) = -0
+ borderXDistanceSimmetry(rec8,rec13): + DBx(rec8,rec13)
+ - DBx(rec13,rec8) = -0
+ borderXDistanceSimmetry(rec8,rec14): + DBx(rec8,rec14)
+ - DBx(rec14,rec8) = -0
+ borderXDistanceSimmetry(rec8,rec15): + DBx(rec8,rec15)
+ - DBx(rec15,rec8) = -0
  borderXDistanceSimmetry(rec9,rec1): - DBx(rec1,rec9) + DBx(rec9,rec1)
  = -0
  borderXDistanceSimmetry(rec9,rec2): - DBx(rec2,rec9) + DBx(rec9,rec2)
@@ -18832,6 +31569,16 @@ Subject To
  = -0
  borderXDistanceSimmetry(rec9,rec10): + DBx(rec9,rec10)
  - DBx(rec10,rec9) = -0
+ borderXDistanceSimmetry(rec9,rec11): + DBx(rec9,rec11)
+ - DBx(rec11,rec9) = -0
+ borderXDistanceSimmetry(rec9,rec12): + DBx(rec9,rec12)
+ - DBx(rec12,rec9) = -0
+ borderXDistanceSimmetry(rec9,rec13): + DBx(rec9,rec13)
+ - DBx(rec13,rec9) = -0
+ borderXDistanceSimmetry(rec9,rec14): + DBx(rec9,rec14)
+ - DBx(rec14,rec9) = -0
+ borderXDistanceSimmetry(rec9,rec15): + DBx(rec9,rec15)
+ - DBx(rec15,rec9) = -0
  borderXDistanceSimmetry(rec10,rec1): - DBx(rec1,rec10)
  + DBx(rec10,rec1) = -0
  borderXDistanceSimmetry(rec10,rec2): - DBx(rec2,rec10)
@@ -18850,6 +31597,156 @@ Subject To
  + DBx(rec10,rec8) = -0
  borderXDistanceSimmetry(rec10,rec9): - DBx(rec9,rec10)
  + DBx(rec10,rec9) = -0
+ borderXDistanceSimmetry(rec10,rec11): + DBx(rec10,rec11)
+ - DBx(rec11,rec10) = -0
+ borderXDistanceSimmetry(rec10,rec12): + DBx(rec10,rec12)
+ - DBx(rec12,rec10) = -0
+ borderXDistanceSimmetry(rec10,rec13): + DBx(rec10,rec13)
+ - DBx(rec13,rec10) = -0
+ borderXDistanceSimmetry(rec10,rec14): + DBx(rec10,rec14)
+ - DBx(rec14,rec10) = -0
+ borderXDistanceSimmetry(rec10,rec15): + DBx(rec10,rec15)
+ - DBx(rec15,rec10) = -0
+ borderXDistanceSimmetry(rec11,rec1): - DBx(rec1,rec11)
+ + DBx(rec11,rec1) = -0
+ borderXDistanceSimmetry(rec11,rec2): - DBx(rec2,rec11)
+ + DBx(rec11,rec2) = -0
+ borderXDistanceSimmetry(rec11,rec3): - DBx(rec3,rec11)
+ + DBx(rec11,rec3) = -0
+ borderXDistanceSimmetry(rec11,rec4): - DBx(rec4,rec11)
+ + DBx(rec11,rec4) = -0
+ borderXDistanceSimmetry(rec11,rec5): - DBx(rec5,rec11)
+ + DBx(rec11,rec5) = -0
+ borderXDistanceSimmetry(rec11,rec6): - DBx(rec6,rec11)
+ + DBx(rec11,rec6) = -0
+ borderXDistanceSimmetry(rec11,rec7): - DBx(rec7,rec11)
+ + DBx(rec11,rec7) = -0
+ borderXDistanceSimmetry(rec11,rec8): - DBx(rec8,rec11)
+ + DBx(rec11,rec8) = -0
+ borderXDistanceSimmetry(rec11,rec9): - DBx(rec9,rec11)
+ + DBx(rec11,rec9) = -0
+ borderXDistanceSimmetry(rec11,rec10): - DBx(rec10,rec11)
+ + DBx(rec11,rec10) = -0
+ borderXDistanceSimmetry(rec11,rec12): + DBx(rec11,rec12)
+ - DBx(rec12,rec11) = -0
+ borderXDistanceSimmetry(rec11,rec13): + DBx(rec11,rec13)
+ - DBx(rec13,rec11) = -0
+ borderXDistanceSimmetry(rec11,rec14): + DBx(rec11,rec14)
+ - DBx(rec14,rec11) = -0
+ borderXDistanceSimmetry(rec11,rec15): + DBx(rec11,rec15)
+ - DBx(rec15,rec11) = -0
+ borderXDistanceSimmetry(rec12,rec1): - DBx(rec1,rec12)
+ + DBx(rec12,rec1) = -0
+ borderXDistanceSimmetry(rec12,rec2): - DBx(rec2,rec12)
+ + DBx(rec12,rec2) = -0
+ borderXDistanceSimmetry(rec12,rec3): - DBx(rec3,rec12)
+ + DBx(rec12,rec3) = -0
+ borderXDistanceSimmetry(rec12,rec4): - DBx(rec4,rec12)
+ + DBx(rec12,rec4) = -0
+ borderXDistanceSimmetry(rec12,rec5): - DBx(rec5,rec12)
+ + DBx(rec12,rec5) = -0
+ borderXDistanceSimmetry(rec12,rec6): - DBx(rec6,rec12)
+ + DBx(rec12,rec6) = -0
+ borderXDistanceSimmetry(rec12,rec7): - DBx(rec7,rec12)
+ + DBx(rec12,rec7) = -0
+ borderXDistanceSimmetry(rec12,rec8): - DBx(rec8,rec12)
+ + DBx(rec12,rec8) = -0
+ borderXDistanceSimmetry(rec12,rec9): - DBx(rec9,rec12)
+ + DBx(rec12,rec9) = -0
+ borderXDistanceSimmetry(rec12,rec10): - DBx(rec10,rec12)
+ + DBx(rec12,rec10) = -0
+ borderXDistanceSimmetry(rec12,rec11): - DBx(rec11,rec12)
+ + DBx(rec12,rec11) = -0
+ borderXDistanceSimmetry(rec12,rec13): + DBx(rec12,rec13)
+ - DBx(rec13,rec12) = -0
+ borderXDistanceSimmetry(rec12,rec14): + DBx(rec12,rec14)
+ - DBx(rec14,rec12) = -0
+ borderXDistanceSimmetry(rec12,rec15): + DBx(rec12,rec15)
+ - DBx(rec15,rec12) = -0
+ borderXDistanceSimmetry(rec13,rec1): - DBx(rec1,rec13)
+ + DBx(rec13,rec1) = -0
+ borderXDistanceSimmetry(rec13,rec2): - DBx(rec2,rec13)
+ + DBx(rec13,rec2) = -0
+ borderXDistanceSimmetry(rec13,rec3): - DBx(rec3,rec13)
+ + DBx(rec13,rec3) = -0
+ borderXDistanceSimmetry(rec13,rec4): - DBx(rec4,rec13)
+ + DBx(rec13,rec4) = -0
+ borderXDistanceSimmetry(rec13,rec5): - DBx(rec5,rec13)
+ + DBx(rec13,rec5) = -0
+ borderXDistanceSimmetry(rec13,rec6): - DBx(rec6,rec13)
+ + DBx(rec13,rec6) = -0
+ borderXDistanceSimmetry(rec13,rec7): - DBx(rec7,rec13)
+ + DBx(rec13,rec7) = -0
+ borderXDistanceSimmetry(rec13,rec8): - DBx(rec8,rec13)
+ + DBx(rec13,rec8) = -0
+ borderXDistanceSimmetry(rec13,rec9): - DBx(rec9,rec13)
+ + DBx(rec13,rec9) = -0
+ borderXDistanceSimmetry(rec13,rec10): - DBx(rec10,rec13)
+ + DBx(rec13,rec10) = -0
+ borderXDistanceSimmetry(rec13,rec11): - DBx(rec11,rec13)
+ + DBx(rec13,rec11) = -0
+ borderXDistanceSimmetry(rec13,rec12): - DBx(rec12,rec13)
+ + DBx(rec13,rec12) = -0
+ borderXDistanceSimmetry(rec13,rec14): + DBx(rec13,rec14)
+ - DBx(rec14,rec13) = -0
+ borderXDistanceSimmetry(rec13,rec15): + DBx(rec13,rec15)
+ - DBx(rec15,rec13) = -0
+ borderXDistanceSimmetry(rec14,rec1): - DBx(rec1,rec14)
+ + DBx(rec14,rec1) = -0
+ borderXDistanceSimmetry(rec14,rec2): - DBx(rec2,rec14)
+ + DBx(rec14,rec2) = -0
+ borderXDistanceSimmetry(rec14,rec3): - DBx(rec3,rec14)
+ + DBx(rec14,rec3) = -0
+ borderXDistanceSimmetry(rec14,rec4): - DBx(rec4,rec14)
+ + DBx(rec14,rec4) = -0
+ borderXDistanceSimmetry(rec14,rec5): - DBx(rec5,rec14)
+ + DBx(rec14,rec5) = -0
+ borderXDistanceSimmetry(rec14,rec6): - DBx(rec6,rec14)
+ + DBx(rec14,rec6) = -0
+ borderXDistanceSimmetry(rec14,rec7): - DBx(rec7,rec14)
+ + DBx(rec14,rec7) = -0
+ borderXDistanceSimmetry(rec14,rec8): - DBx(rec8,rec14)
+ + DBx(rec14,rec8) = -0
+ borderXDistanceSimmetry(rec14,rec9): - DBx(rec9,rec14)
+ + DBx(rec14,rec9) = -0
+ borderXDistanceSimmetry(rec14,rec10): - DBx(rec10,rec14)
+ + DBx(rec14,rec10) = -0
+ borderXDistanceSimmetry(rec14,rec11): - DBx(rec11,rec14)
+ + DBx(rec14,rec11) = -0
+ borderXDistanceSimmetry(rec14,rec12): - DBx(rec12,rec14)
+ + DBx(rec14,rec12) = -0
+ borderXDistanceSimmetry(rec14,rec13): - DBx(rec13,rec14)
+ + DBx(rec14,rec13) = -0
+ borderXDistanceSimmetry(rec14,rec15): + DBx(rec14,rec15)
+ - DBx(rec15,rec14) = -0
+ borderXDistanceSimmetry(rec15,rec1): - DBx(rec1,rec15)
+ + DBx(rec15,rec1) = -0
+ borderXDistanceSimmetry(rec15,rec2): - DBx(rec2,rec15)
+ + DBx(rec15,rec2) = -0
+ borderXDistanceSimmetry(rec15,rec3): - DBx(rec3,rec15)
+ + DBx(rec15,rec3) = -0
+ borderXDistanceSimmetry(rec15,rec4): - DBx(rec4,rec15)
+ + DBx(rec15,rec4) = -0
+ borderXDistanceSimmetry(rec15,rec5): - DBx(rec5,rec15)
+ + DBx(rec15,rec5) = -0
+ borderXDistanceSimmetry(rec15,rec6): - DBx(rec6,rec15)
+ + DBx(rec15,rec6) = -0
+ borderXDistanceSimmetry(rec15,rec7): - DBx(rec7,rec15)
+ + DBx(rec15,rec7) = -0
+ borderXDistanceSimmetry(rec15,rec8): - DBx(rec8,rec15)
+ + DBx(rec15,rec8) = -0
+ borderXDistanceSimmetry(rec15,rec9): - DBx(rec9,rec15)
+ + DBx(rec15,rec9) = -0
+ borderXDistanceSimmetry(rec15,rec10): - DBx(rec10,rec15)
+ + DBx(rec15,rec10) = -0
+ borderXDistanceSimmetry(rec15,rec11): - DBx(rec11,rec15)
+ + DBx(rec15,rec11) = -0
+ borderXDistanceSimmetry(rec15,rec12): - DBx(rec12,rec15)
+ + DBx(rec15,rec12) = -0
+ borderXDistanceSimmetry(rec15,rec13): - DBx(rec13,rec15)
+ + DBx(rec15,rec13) = -0
+ borderXDistanceSimmetry(rec15,rec14): - DBx(rec14,rec15)
+ + DBx(rec15,rec14) = -0
  borderYDistanceSimmetry(rec1,rec2): + DBy(rec1,rec2) - DBy(rec2,rec1)
  = -0
  borderYDistanceSimmetry(rec1,rec3): + DBy(rec1,rec3) - DBy(rec3,rec1)
@@ -18868,6 +31765,16 @@ Subject To
  = -0
  borderYDistanceSimmetry(rec1,rec10): + DBy(rec1,rec10)
  - DBy(rec10,rec1) = -0
+ borderYDistanceSimmetry(rec1,rec11): + DBy(rec1,rec11)
+ - DBy(rec11,rec1) = -0
+ borderYDistanceSimmetry(rec1,rec12): + DBy(rec1,rec12)
+ - DBy(rec12,rec1) = -0
+ borderYDistanceSimmetry(rec1,rec13): + DBy(rec1,rec13)
+ - DBy(rec13,rec1) = -0
+ borderYDistanceSimmetry(rec1,rec14): + DBy(rec1,rec14)
+ - DBy(rec14,rec1) = -0
+ borderYDistanceSimmetry(rec1,rec15): + DBy(rec1,rec15)
+ - DBy(rec15,rec1) = -0
  borderYDistanceSimmetry(rec2,rec1): - DBy(rec1,rec2) + DBy(rec2,rec1)
  = -0
  borderYDistanceSimmetry(rec2,rec3): + DBy(rec2,rec3) - DBy(rec3,rec2)
@@ -18886,6 +31793,16 @@ Subject To
  = -0
  borderYDistanceSimmetry(rec2,rec10): + DBy(rec2,rec10)
  - DBy(rec10,rec2) = -0
+ borderYDistanceSimmetry(rec2,rec11): + DBy(rec2,rec11)
+ - DBy(rec11,rec2) = -0
+ borderYDistanceSimmetry(rec2,rec12): + DBy(rec2,rec12)
+ - DBy(rec12,rec2) = -0
+ borderYDistanceSimmetry(rec2,rec13): + DBy(rec2,rec13)
+ - DBy(rec13,rec2) = -0
+ borderYDistanceSimmetry(rec2,rec14): + DBy(rec2,rec14)
+ - DBy(rec14,rec2) = -0
+ borderYDistanceSimmetry(rec2,rec15): + DBy(rec2,rec15)
+ - DBy(rec15,rec2) = -0
  borderYDistanceSimmetry(rec3,rec1): - DBy(rec1,rec3) + DBy(rec3,rec1)
  = -0
  borderYDistanceSimmetry(rec3,rec2): - DBy(rec2,rec3) + DBy(rec3,rec2)
@@ -18904,6 +31821,16 @@ Subject To
  = -0
  borderYDistanceSimmetry(rec3,rec10): + DBy(rec3,rec10)
  - DBy(rec10,rec3) = -0
+ borderYDistanceSimmetry(rec3,rec11): + DBy(rec3,rec11)
+ - DBy(rec11,rec3) = -0
+ borderYDistanceSimmetry(rec3,rec12): + DBy(rec3,rec12)
+ - DBy(rec12,rec3) = -0
+ borderYDistanceSimmetry(rec3,rec13): + DBy(rec3,rec13)
+ - DBy(rec13,rec3) = -0
+ borderYDistanceSimmetry(rec3,rec14): + DBy(rec3,rec14)
+ - DBy(rec14,rec3) = -0
+ borderYDistanceSimmetry(rec3,rec15): + DBy(rec3,rec15)
+ - DBy(rec15,rec3) = -0
  borderYDistanceSimmetry(rec4,rec1): - DBy(rec1,rec4) + DBy(rec4,rec1)
  = -0
  borderYDistanceSimmetry(rec4,rec2): - DBy(rec2,rec4) + DBy(rec4,rec2)
@@ -18922,6 +31849,16 @@ Subject To
  = -0
  borderYDistanceSimmetry(rec4,rec10): + DBy(rec4,rec10)
  - DBy(rec10,rec4) = -0
+ borderYDistanceSimmetry(rec4,rec11): + DBy(rec4,rec11)
+ - DBy(rec11,rec4) = -0
+ borderYDistanceSimmetry(rec4,rec12): + DBy(rec4,rec12)
+ - DBy(rec12,rec4) = -0
+ borderYDistanceSimmetry(rec4,rec13): + DBy(rec4,rec13)
+ - DBy(rec13,rec4) = -0
+ borderYDistanceSimmetry(rec4,rec14): + DBy(rec4,rec14)
+ - DBy(rec14,rec4) = -0
+ borderYDistanceSimmetry(rec4,rec15): + DBy(rec4,rec15)
+ - DBy(rec15,rec4) = -0
  borderYDistanceSimmetry(rec5,rec1): - DBy(rec1,rec5) + DBy(rec5,rec1)
  = -0
  borderYDistanceSimmetry(rec5,rec2): - DBy(rec2,rec5) + DBy(rec5,rec2)
@@ -18940,6 +31877,16 @@ Subject To
  = -0
  borderYDistanceSimmetry(rec5,rec10): + DBy(rec5,rec10)
  - DBy(rec10,rec5) = -0
+ borderYDistanceSimmetry(rec5,rec11): + DBy(rec5,rec11)
+ - DBy(rec11,rec5) = -0
+ borderYDistanceSimmetry(rec5,rec12): + DBy(rec5,rec12)
+ - DBy(rec12,rec5) = -0
+ borderYDistanceSimmetry(rec5,rec13): + DBy(rec5,rec13)
+ - DBy(rec13,rec5) = -0
+ borderYDistanceSimmetry(rec5,rec14): + DBy(rec5,rec14)
+ - DBy(rec14,rec5) = -0
+ borderYDistanceSimmetry(rec5,rec15): + DBy(rec5,rec15)
+ - DBy(rec15,rec5) = -0
  borderYDistanceSimmetry(rec6,rec1): - DBy(rec1,rec6) + DBy(rec6,rec1)
  = -0
  borderYDistanceSimmetry(rec6,rec2): - DBy(rec2,rec6) + DBy(rec6,rec2)
@@ -18958,6 +31905,16 @@ Subject To
  = -0
  borderYDistanceSimmetry(rec6,rec10): + DBy(rec6,rec10)
  - DBy(rec10,rec6) = -0
+ borderYDistanceSimmetry(rec6,rec11): + DBy(rec6,rec11)
+ - DBy(rec11,rec6) = -0
+ borderYDistanceSimmetry(rec6,rec12): + DBy(rec6,rec12)
+ - DBy(rec12,rec6) = -0
+ borderYDistanceSimmetry(rec6,rec13): + DBy(rec6,rec13)
+ - DBy(rec13,rec6) = -0
+ borderYDistanceSimmetry(rec6,rec14): + DBy(rec6,rec14)
+ - DBy(rec14,rec6) = -0
+ borderYDistanceSimmetry(rec6,rec15): + DBy(rec6,rec15)
+ - DBy(rec15,rec6) = -0
  borderYDistanceSimmetry(rec7,rec1): - DBy(rec1,rec7) + DBy(rec7,rec1)
  = -0
  borderYDistanceSimmetry(rec7,rec2): - DBy(rec2,rec7) + DBy(rec7,rec2)
@@ -18976,6 +31933,16 @@ Subject To
  = -0
  borderYDistanceSimmetry(rec7,rec10): + DBy(rec7,rec10)
  - DBy(rec10,rec7) = -0
+ borderYDistanceSimmetry(rec7,rec11): + DBy(rec7,rec11)
+ - DBy(rec11,rec7) = -0
+ borderYDistanceSimmetry(rec7,rec12): + DBy(rec7,rec12)
+ - DBy(rec12,rec7) = -0
+ borderYDistanceSimmetry(rec7,rec13): + DBy(rec7,rec13)
+ - DBy(rec13,rec7) = -0
+ borderYDistanceSimmetry(rec7,rec14): + DBy(rec7,rec14)
+ - DBy(rec14,rec7) = -0
+ borderYDistanceSimmetry(rec7,rec15): + DBy(rec7,rec15)
+ - DBy(rec15,rec7) = -0
  borderYDistanceSimmetry(rec8,rec1): - DBy(rec1,rec8) + DBy(rec8,rec1)
  = -0
  borderYDistanceSimmetry(rec8,rec2): - DBy(rec2,rec8) + DBy(rec8,rec2)
@@ -18994,6 +31961,16 @@ Subject To
  = -0
  borderYDistanceSimmetry(rec8,rec10): + DBy(rec8,rec10)
  - DBy(rec10,rec8) = -0
+ borderYDistanceSimmetry(rec8,rec11): + DBy(rec8,rec11)
+ - DBy(rec11,rec8) = -0
+ borderYDistanceSimmetry(rec8,rec12): + DBy(rec8,rec12)
+ - DBy(rec12,rec8) = -0
+ borderYDistanceSimmetry(rec8,rec13): + DBy(rec8,rec13)
+ - DBy(rec13,rec8) = -0
+ borderYDistanceSimmetry(rec8,rec14): + DBy(rec8,rec14)
+ - DBy(rec14,rec8) = -0
+ borderYDistanceSimmetry(rec8,rec15): + DBy(rec8,rec15)
+ - DBy(rec15,rec8) = -0
  borderYDistanceSimmetry(rec9,rec1): - DBy(rec1,rec9) + DBy(rec9,rec1)
  = -0
  borderYDistanceSimmetry(rec9,rec2): - DBy(rec2,rec9) + DBy(rec9,rec2)
@@ -19012,6 +31989,16 @@ Subject To
  = -0
  borderYDistanceSimmetry(rec9,rec10): + DBy(rec9,rec10)
  - DBy(rec10,rec9) = -0
+ borderYDistanceSimmetry(rec9,rec11): + DBy(rec9,rec11)
+ - DBy(rec11,rec9) = -0
+ borderYDistanceSimmetry(rec9,rec12): + DBy(rec9,rec12)
+ - DBy(rec12,rec9) = -0
+ borderYDistanceSimmetry(rec9,rec13): + DBy(rec9,rec13)
+ - DBy(rec13,rec9) = -0
+ borderYDistanceSimmetry(rec9,rec14): + DBy(rec9,rec14)
+ - DBy(rec14,rec9) = -0
+ borderYDistanceSimmetry(rec9,rec15): + DBy(rec9,rec15)
+ - DBy(rec15,rec9) = -0
  borderYDistanceSimmetry(rec10,rec1): - DBy(rec1,rec10)
  + DBy(rec10,rec1) = -0
  borderYDistanceSimmetry(rec10,rec2): - DBy(rec2,rec10)
@@ -19030,20 +32017,191 @@ Subject To
  + DBy(rec10,rec8) = -0
  borderYDistanceSimmetry(rec10,rec9): - DBy(rec9,rec10)
  + DBy(rec10,rec9) = -0
- atRightCut(rec7,rec5): + absX(rec5,rec7) = -0
+ borderYDistanceSimmetry(rec10,rec11): + DBy(rec10,rec11)
+ - DBy(rec11,rec10) = -0
+ borderYDistanceSimmetry(rec10,rec12): + DBy(rec10,rec12)
+ - DBy(rec12,rec10) = -0
+ borderYDistanceSimmetry(rec10,rec13): + DBy(rec10,rec13)
+ - DBy(rec13,rec10) = -0
+ borderYDistanceSimmetry(rec10,rec14): + DBy(rec10,rec14)
+ - DBy(rec14,rec10) = -0
+ borderYDistanceSimmetry(rec10,rec15): + DBy(rec10,rec15)
+ - DBy(rec15,rec10) = -0
+ borderYDistanceSimmetry(rec11,rec1): - DBy(rec1,rec11)
+ + DBy(rec11,rec1) = -0
+ borderYDistanceSimmetry(rec11,rec2): - DBy(rec2,rec11)
+ + DBy(rec11,rec2) = -0
+ borderYDistanceSimmetry(rec11,rec3): - DBy(rec3,rec11)
+ + DBy(rec11,rec3) = -0
+ borderYDistanceSimmetry(rec11,rec4): - DBy(rec4,rec11)
+ + DBy(rec11,rec4) = -0
+ borderYDistanceSimmetry(rec11,rec5): - DBy(rec5,rec11)
+ + DBy(rec11,rec5) = -0
+ borderYDistanceSimmetry(rec11,rec6): - DBy(rec6,rec11)
+ + DBy(rec11,rec6) = -0
+ borderYDistanceSimmetry(rec11,rec7): - DBy(rec7,rec11)
+ + DBy(rec11,rec7) = -0
+ borderYDistanceSimmetry(rec11,rec8): - DBy(rec8,rec11)
+ + DBy(rec11,rec8) = -0
+ borderYDistanceSimmetry(rec11,rec9): - DBy(rec9,rec11)
+ + DBy(rec11,rec9) = -0
+ borderYDistanceSimmetry(rec11,rec10): - DBy(rec10,rec11)
+ + DBy(rec11,rec10) = -0
+ borderYDistanceSimmetry(rec11,rec12): + DBy(rec11,rec12)
+ - DBy(rec12,rec11) = -0
+ borderYDistanceSimmetry(rec11,rec13): + DBy(rec11,rec13)
+ - DBy(rec13,rec11) = -0
+ borderYDistanceSimmetry(rec11,rec14): + DBy(rec11,rec14)
+ - DBy(rec14,rec11) = -0
+ borderYDistanceSimmetry(rec11,rec15): + DBy(rec11,rec15)
+ - DBy(rec15,rec11) = -0
+ borderYDistanceSimmetry(rec12,rec1): - DBy(rec1,rec12)
+ + DBy(rec12,rec1) = -0
+ borderYDistanceSimmetry(rec12,rec2): - DBy(rec2,rec12)
+ + DBy(rec12,rec2) = -0
+ borderYDistanceSimmetry(rec12,rec3): - DBy(rec3,rec12)
+ + DBy(rec12,rec3) = -0
+ borderYDistanceSimmetry(rec12,rec4): - DBy(rec4,rec12)
+ + DBy(rec12,rec4) = -0
+ borderYDistanceSimmetry(rec12,rec5): - DBy(rec5,rec12)
+ + DBy(rec12,rec5) = -0
+ borderYDistanceSimmetry(rec12,rec6): - DBy(rec6,rec12)
+ + DBy(rec12,rec6) = -0
+ borderYDistanceSimmetry(rec12,rec7): - DBy(rec7,rec12)
+ + DBy(rec12,rec7) = -0
+ borderYDistanceSimmetry(rec12,rec8): - DBy(rec8,rec12)
+ + DBy(rec12,rec8) = -0
+ borderYDistanceSimmetry(rec12,rec9): - DBy(rec9,rec12)
+ + DBy(rec12,rec9) = -0
+ borderYDistanceSimmetry(rec12,rec10): - DBy(rec10,rec12)
+ + DBy(rec12,rec10) = -0
+ borderYDistanceSimmetry(rec12,rec11): - DBy(rec11,rec12)
+ + DBy(rec12,rec11) = -0
+ borderYDistanceSimmetry(rec12,rec13): + DBy(rec12,rec13)
+ - DBy(rec13,rec12) = -0
+ borderYDistanceSimmetry(rec12,rec14): + DBy(rec12,rec14)
+ - DBy(rec14,rec12) = -0
+ borderYDistanceSimmetry(rec12,rec15): + DBy(rec12,rec15)
+ - DBy(rec15,rec12) = -0
+ borderYDistanceSimmetry(rec13,rec1): - DBy(rec1,rec13)
+ + DBy(rec13,rec1) = -0
+ borderYDistanceSimmetry(rec13,rec2): - DBy(rec2,rec13)
+ + DBy(rec13,rec2) = -0
+ borderYDistanceSimmetry(rec13,rec3): - DBy(rec3,rec13)
+ + DBy(rec13,rec3) = -0
+ borderYDistanceSimmetry(rec13,rec4): - DBy(rec4,rec13)
+ + DBy(rec13,rec4) = -0
+ borderYDistanceSimmetry(rec13,rec5): - DBy(rec5,rec13)
+ + DBy(rec13,rec5) = -0
+ borderYDistanceSimmetry(rec13,rec6): - DBy(rec6,rec13)
+ + DBy(rec13,rec6) = -0
+ borderYDistanceSimmetry(rec13,rec7): - DBy(rec7,rec13)
+ + DBy(rec13,rec7) = -0
+ borderYDistanceSimmetry(rec13,rec8): - DBy(rec8,rec13)
+ + DBy(rec13,rec8) = -0
+ borderYDistanceSimmetry(rec13,rec9): - DBy(rec9,rec13)
+ + DBy(rec13,rec9) = -0
+ borderYDistanceSimmetry(rec13,rec10): - DBy(rec10,rec13)
+ + DBy(rec13,rec10) = -0
+ borderYDistanceSimmetry(rec13,rec11): - DBy(rec11,rec13)
+ + DBy(rec13,rec11) = -0
+ borderYDistanceSimmetry(rec13,rec12): - DBy(rec12,rec13)
+ + DBy(rec13,rec12) = -0
+ borderYDistanceSimmetry(rec13,rec14): + DBy(rec13,rec14)
+ - DBy(rec14,rec13) = -0
+ borderYDistanceSimmetry(rec13,rec15): + DBy(rec13,rec15)
+ - DBy(rec15,rec13) = -0
+ borderYDistanceSimmetry(rec14,rec1): - DBy(rec1,rec14)
+ + DBy(rec14,rec1) = -0
+ borderYDistanceSimmetry(rec14,rec2): - DBy(rec2,rec14)
+ + DBy(rec14,rec2) = -0
+ borderYDistanceSimmetry(rec14,rec3): - DBy(rec3,rec14)
+ + DBy(rec14,rec3) = -0
+ borderYDistanceSimmetry(rec14,rec4): - DBy(rec4,rec14)
+ + DBy(rec14,rec4) = -0
+ borderYDistanceSimmetry(rec14,rec5): - DBy(rec5,rec14)
+ + DBy(rec14,rec5) = -0
+ borderYDistanceSimmetry(rec14,rec6): - DBy(rec6,rec14)
+ + DBy(rec14,rec6) = -0
+ borderYDistanceSimmetry(rec14,rec7): - DBy(rec7,rec14)
+ + DBy(rec14,rec7) = -0
+ borderYDistanceSimmetry(rec14,rec8): - DBy(rec8,rec14)
+ + DBy(rec14,rec8) = -0
+ borderYDistanceSimmetry(rec14,rec9): - DBy(rec9,rec14)
+ + DBy(rec14,rec9) = -0
+ borderYDistanceSimmetry(rec14,rec10): - DBy(rec10,rec14)
+ + DBy(rec14,rec10) = -0
+ borderYDistanceSimmetry(rec14,rec11): - DBy(rec11,rec14)
+ + DBy(rec14,rec11) = -0
+ borderYDistanceSimmetry(rec14,rec12): - DBy(rec12,rec14)
+ + DBy(rec14,rec12) = -0
+ borderYDistanceSimmetry(rec14,rec13): - DBy(rec13,rec14)
+ + DBy(rec14,rec13) = -0
+ borderYDistanceSimmetry(rec14,rec15): + DBy(rec14,rec15)
+ - DBy(rec15,rec14) = -0
+ borderYDistanceSimmetry(rec15,rec1): - DBy(rec1,rec15)
+ + DBy(rec15,rec1) = -0
+ borderYDistanceSimmetry(rec15,rec2): - DBy(rec2,rec15)
+ + DBy(rec15,rec2) = -0
+ borderYDistanceSimmetry(rec15,rec3): - DBy(rec3,rec15)
+ + DBy(rec15,rec3) = -0
+ borderYDistanceSimmetry(rec15,rec4): - DBy(rec4,rec15)
+ + DBy(rec15,rec4) = -0
+ borderYDistanceSimmetry(rec15,rec5): - DBy(rec5,rec15)
+ + DBy(rec15,rec5) = -0
+ borderYDistanceSimmetry(rec15,rec6): - DBy(rec6,rec15)
+ + DBy(rec15,rec6) = -0
+ borderYDistanceSimmetry(rec15,rec7): - DBy(rec7,rec15)
+ + DBy(rec15,rec7) = -0
+ borderYDistanceSimmetry(rec15,rec8): - DBy(rec8,rec15)
+ + DBy(rec15,rec8) = -0
+ borderYDistanceSimmetry(rec15,rec9): - DBy(rec9,rec15)
+ + DBy(rec15,rec9) = -0
+ borderYDistanceSimmetry(rec15,rec10): - DBy(rec10,rec15)
+ + DBy(rec15,rec10) = -0
+ borderYDistanceSimmetry(rec15,rec11): - DBy(rec11,rec15)
+ + DBy(rec15,rec11) = -0
+ borderYDistanceSimmetry(rec15,rec12): - DBy(rec12,rec15)
+ + DBy(rec15,rec12) = -0
+ borderYDistanceSimmetry(rec15,rec13): - DBy(rec13,rec15)
+ + DBy(rec15,rec13) = -0
+ borderYDistanceSimmetry(rec15,rec14): - DBy(rec14,rec15)
+ + DBy(rec15,rec14) = -0
+ atRightCut(rec2,rec11): + absX(rec11,rec2) = -0
+ atRightCut(rec2,rec15): + absX(rec15,rec2) = -0
+ atRightCut(rec3,rec11): + absX(rec11,rec3) = -0
+ atRightCut(rec3,rec15): + absX(rec15,rec3) = -0
+ atRightCut(rec4,rec11): + absX(rec11,rec4) = -0
+ atRightCut(rec4,rec15): + absX(rec15,rec4) = -0
  atRightCut(rec7,rec6): + absX(rec6,rec7) = -0
- belowCut(rec2,rec10): + absY(rec10,rec2) = 1
- belowCut(rec7,rec4): + absY(rec4,rec7) = 1
- belowCut(rec8,rec4): + absY(rec4,rec8) = 1
- belowCut(rec8,rec5): + absY(rec5,rec8) = 1
- belowCut(rec8,rec6): + absY(rec6,rec8) = 1
- belowCut(rec9,rec3): + absY(rec3,rec9) = 1
- belowCut(rec9,rec4): + absY(rec4,rec9) = 1
- belowCut(rec9,rec5): + absY(rec5,rec9) = 1
- belowCut(rec9,rec6): + absY(rec6,rec9) = 1
- belowCut(rec9,rec7): + absY(rec7,rec9) = 1
- belowCut(rec9,rec8): + absY(rec8,rec9) = 1
- belowCut(rec9,rec10): + absY(rec10,rec9) = 1
+ atRightCut(rec7,rec15): + absX(rec15,rec7) = -0
+ atRightCut(rec9,rec1): + absX(rec1,rec9) = -0
+ atRightCut(rec9,rec2): + absX(rec2,rec9) = -0
+ atRightCut(rec9,rec3): + absX(rec3,rec9) = -0
+ atRightCut(rec9,rec4): + absX(rec4,rec9) = -0
+ atRightCut(rec9,rec5): + absX(rec5,rec9) = -0
+ atRightCut(rec9,rec6): + absX(rec6,rec9) = -0
+ atRightCut(rec9,rec7): + absX(rec7,rec9) = -0
+ atRightCut(rec9,rec8): + absX(rec8,rec9) = -0
+ atRightCut(rec9,rec10): + absX(rec10,rec9) = -0
+ atRightCut(rec9,rec11): + absX(rec11,rec9) = -0
+ atRightCut(rec9,rec12): + absX(rec12,rec9) = -0
+ atRightCut(rec9,rec15): + absX(rec15,rec9) = -0
+ atRightCut(rec12,rec11): + absX(rec11,rec12) = -0
+ atRightCut(rec13,rec11): + absX(rec11,rec13) = -0
+ atRightCut(rec14,rec10): + absX(rec10,rec14) = -0
+ atRightCut(rec14,rec11): + absX(rec11,rec14) = -0
+ belowCut(rec3,rec2): + absY(rec2,rec3) = 1
+ belowCut(rec3,rec12): + absY(rec12,rec3) = 1
+ belowCut(rec3,rec13): + absY(rec13,rec3) = 1
+ belowCut(rec6,rec5): + absY(rec5,rec6) = 1
+ belowCut(rec6,rec15): + absY(rec15,rec6) = 1
+ belowCut(rec7,rec5): + absY(rec5,rec7) = 1
+ belowCut(rec9,rec13): + absY(rec13,rec9) = 1
+ belowCut(rec10,rec1): + absY(rec1,rec10) = 1
+ belowCut(rec14,rec1): + absY(rec1,rec14) = 1
+ belowCut(rec14,rec12): + absY(rec12,rec14) = 1
+ belowCut(rec14,rec13): + absY(rec13,rec14) = 1
  atLeftCut(rec1,rec2): + absX(rec1,rec2) = 1
  atLeftCut(rec1,rec3): + absX(rec1,rec3) = 1
  atLeftCut(rec1,rec4): + absX(rec1,rec4) = 1
@@ -19051,30 +32209,69 @@ Subject To
  atLeftCut(rec1,rec6): + absX(rec1,rec6) = 1
  atLeftCut(rec1,rec7): + absX(rec1,rec7) = 1
  atLeftCut(rec1,rec8): + absX(rec1,rec8) = 1
- atLeftCut(rec1,rec9): + absX(rec1,rec9) = 1
+ atLeftCut(rec1,rec11): + absX(rec1,rec11) = 1
+ atLeftCut(rec1,rec15): + absX(rec1,rec15) = 1
  atLeftCut(rec2,rec5): + absX(rec2,rec5) = 1
  atLeftCut(rec2,rec6): + absX(rec2,rec6) = 1
- atLeftCut(rec2,rec8): + absX(rec2,rec8) = 1
- atLeftCut(rec2,rec9): + absX(rec2,rec9) = 1
- atLeftCut(rec3,rec5): + absX(rec3,rec5) = 1
+ atLeftCut(rec2,rec7): + absX(rec2,rec7) = 1
  atLeftCut(rec3,rec6): + absX(rec3,rec6) = 1
- atLeftCut(rec3,rec8): + absX(rec3,rec8) = 1
+ atLeftCut(rec3,rec7): + absX(rec3,rec7) = 1
  atLeftCut(rec4,rec5): + absX(rec4,rec5) = 1
  atLeftCut(rec4,rec6): + absX(rec4,rec6) = 1
- atLeftCut(rec7,rec8): + absX(rec7,rec8) = 1
- atLeftCut(rec10,rec3): + absX(rec10,rec3) = 1
- atLeftCut(rec10,rec4): + absX(rec10,rec4) = 1
- atLeftCut(rec10,rec5): + absX(rec10,rec5) = 1
+ atLeftCut(rec4,rec7): + absX(rec4,rec7) = 1
+ atLeftCut(rec4,rec8): + absX(rec4,rec8) = 1
  atLeftCut(rec10,rec6): + absX(rec10,rec6) = 1
  atLeftCut(rec10,rec7): + absX(rec10,rec7) = 1
- atLeftCut(rec10,rec8): + absX(rec10,rec8) = 1
- aboveCut(rec1,rec10): + absY(rec1,rec10) = -0
- aboveCut(rec2,rec3): + absY(rec2,rec3) = -0
+ atLeftCut(rec10,rec11): + absX(rec10,rec11) = 1
+ atLeftCut(rec10,rec15): + absX(rec10,rec15) = 1
+ atLeftCut(rec11,rec6): + absX(rec11,rec6) = 1
+ atLeftCut(rec12,rec2): + absX(rec12,rec2) = 1
+ atLeftCut(rec12,rec4): + absX(rec12,rec4) = 1
+ atLeftCut(rec12,rec5): + absX(rec12,rec5) = 1
+ atLeftCut(rec12,rec6): + absX(rec12,rec6) = 1
+ atLeftCut(rec12,rec7): + absX(rec12,rec7) = 1
+ atLeftCut(rec12,rec8): + absX(rec12,rec8) = 1
+ atLeftCut(rec12,rec15): + absX(rec12,rec15) = 1
+ atLeftCut(rec13,rec2): + absX(rec13,rec2) = 1
+ atLeftCut(rec13,rec4): + absX(rec13,rec4) = 1
+ atLeftCut(rec13,rec5): + absX(rec13,rec5) = 1
+ atLeftCut(rec13,rec6): + absX(rec13,rec6) = 1
+ atLeftCut(rec13,rec7): + absX(rec13,rec7) = 1
+ atLeftCut(rec13,rec8): + absX(rec13,rec8) = 1
+ atLeftCut(rec13,rec15): + absX(rec13,rec15) = 1
+ atLeftCut(rec14,rec2): + absX(rec14,rec2) = 1
+ atLeftCut(rec14,rec3): + absX(rec14,rec3) = 1
+ atLeftCut(rec14,rec4): + absX(rec14,rec4) = 1
+ atLeftCut(rec14,rec5): + absX(rec14,rec5) = 1
+ atLeftCut(rec14,rec6): + absX(rec14,rec6) = 1
+ atLeftCut(rec14,rec7): + absX(rec14,rec7) = 1
+ atLeftCut(rec14,rec8): + absX(rec14,rec8) = 1
+ atLeftCut(rec14,rec15): + absX(rec14,rec15) = 1
+ aboveCut(rec1,rec12): + absY(rec1,rec12) = -0
+ aboveCut(rec1,rec13): + absY(rec1,rec13) = -0
  aboveCut(rec2,rec4): + absY(rec2,rec4) = -0
- aboveCut(rec2,rec7): + absY(rec2,rec7) = -0
+ aboveCut(rec2,rec8): + absY(rec2,rec8) = -0
  aboveCut(rec3,rec4): + absY(rec3,rec4) = -0
- aboveCut(rec3,rec7): + absY(rec3,rec7) = -0
- aboveCut(rec5,rec6): + absY(rec5,rec6) = -0
+ aboveCut(rec3,rec5): + absY(rec3,rec5) = -0
+ aboveCut(rec3,rec8): + absY(rec3,rec8) = -0
+ aboveCut(rec5,rec8): + absY(rec5,rec8) = -0
+ aboveCut(rec6,rec8): + absY(rec6,rec8) = -0
+ aboveCut(rec7,rec8): + absY(rec7,rec8) = -0
+ aboveCut(rec10,rec2): + absY(rec10,rec2) = -0
+ aboveCut(rec10,rec3): + absY(rec10,rec3) = -0
+ aboveCut(rec10,rec4): + absY(rec10,rec4) = -0
+ aboveCut(rec10,rec5): + absY(rec10,rec5) = -0
+ aboveCut(rec10,rec8): + absY(rec10,rec8) = -0
+ aboveCut(rec10,rec12): + absY(rec10,rec12) = -0
+ aboveCut(rec10,rec13): + absY(rec10,rec13) = -0
+ aboveCut(rec11,rec5): + absY(rec11,rec5) = -0
+ aboveCut(rec11,rec7): + absY(rec11,rec7) = -0
+ aboveCut(rec11,rec8): + absY(rec11,rec8) = -0
+ aboveCut(rec11,rec15): + absY(rec11,rec15) = -0
+ aboveCut(rec12,rec13): + absY(rec12,rec13) = -0
+ aboveCut(rec14,rec9): + absY(rec14,rec9) = -0
+ aboveCut(rec15,rec5): + absY(rec15,rec5) = -0
+ aboveCut(rec15,rec8): + absY(rec15,rec8) = -0
  atLeft(rec1,rec2): + x(rec1) - x(rec2) + w(rec1) <= -1
  atLeft(rec1,rec3): + x(rec1) - x(rec3) + w(rec1) <= -1
  atLeft(rec1,rec4): + x(rec1) - x(rec4) + w(rec1) <= -1
@@ -19082,44 +32279,104 @@ Subject To
  atLeft(rec1,rec6): + x(rec1) - x(rec6) + w(rec1) <= -1
  atLeft(rec1,rec7): + x(rec1) - x(rec7) + w(rec1) <= -1
  atLeft(rec1,rec8): + x(rec1) - x(rec8) + w(rec1) <= -1
- atLeft(rec1,rec9): + x(rec1) - x(rec9) + w(rec1) <= -1
+ atLeft(rec1,rec11): + x(rec1) - x(rec11) + w(rec1) <= -1
+ atLeft(rec1,rec15): + x(rec1) - x(rec15) + w(rec1) <= -1
  atLeft(rec2,rec5): + x(rec2) - x(rec5) + w(rec2) <= -1
  atLeft(rec2,rec6): + x(rec2) - x(rec6) + w(rec2) <= -1
- atLeft(rec2,rec8): + x(rec2) - x(rec8) + w(rec2) <= -1
- atLeft(rec2,rec9): + x(rec2) - x(rec9) + w(rec2) <= -1
- atLeft(rec3,rec5): + x(rec3) - x(rec5) + w(rec3) <= -1
+ atLeft(rec2,rec7): + x(rec2) - x(rec7) + w(rec2) <= -1
+ atLeft(rec2,rec11): + x(rec2) - x(rec11) + w(rec2) <= -1
+ atLeft(rec2,rec15): + x(rec2) - x(rec15) + w(rec2) <= -1
  atLeft(rec3,rec6): + x(rec3) - x(rec6) + w(rec3) <= -1
- atLeft(rec3,rec8): + x(rec3) - x(rec8) + w(rec3) <= -1
+ atLeft(rec3,rec7): + x(rec3) - x(rec7) + w(rec3) <= -1
+ atLeft(rec3,rec11): + x(rec3) - x(rec11) + w(rec3) <= -1
+ atLeft(rec3,rec15): + x(rec3) - x(rec15) + w(rec3) <= -1
  atLeft(rec4,rec5): + x(rec4) - x(rec5) + w(rec4) <= -1
  atLeft(rec4,rec6): + x(rec4) - x(rec6) + w(rec4) <= -1
- atLeft(rec7,rec5): - x(rec5) + x(rec7) + w(rec7) <= -1
+ atLeft(rec4,rec7): + x(rec4) - x(rec7) + w(rec4) <= -1
+ atLeft(rec4,rec8): + x(rec4) - x(rec8) + w(rec4) <= -1
+ atLeft(rec4,rec11): + x(rec4) - x(rec11) + w(rec4) <= -1
+ atLeft(rec4,rec15): + x(rec4) - x(rec15) + w(rec4) <= -1
  atLeft(rec7,rec6): - x(rec6) + x(rec7) + w(rec7) <= -1
- atLeft(rec7,rec8): + x(rec7) - x(rec8) + w(rec7) <= -1
- atLeft(rec10,rec3): - x(rec3) + x(rec10) + w(rec10) <= -1
- atLeft(rec10,rec4): - x(rec4) + x(rec10) + w(rec10) <= -1
- atLeft(rec10,rec5): - x(rec5) + x(rec10) + w(rec10) <= -1
+ atLeft(rec7,rec15): + x(rec7) - x(rec15) + w(rec7) <= -1
+ atLeft(rec9,rec1): - x(rec1) + x(rec9) + w(rec9) <= -1
+ atLeft(rec9,rec2): - x(rec2) + x(rec9) + w(rec9) <= -1
+ atLeft(rec9,rec3): - x(rec3) + x(rec9) + w(rec9) <= -1
+ atLeft(rec9,rec4): - x(rec4) + x(rec9) + w(rec9) <= -1
+ atLeft(rec9,rec5): - x(rec5) + x(rec9) + w(rec9) <= -1
+ atLeft(rec9,rec6): - x(rec6) + x(rec9) + w(rec9) <= -1
+ atLeft(rec9,rec7): - x(rec7) + x(rec9) + w(rec9) <= -1
+ atLeft(rec9,rec8): - x(rec8) + x(rec9) + w(rec9) <= -1
+ atLeft(rec9,rec10): + x(rec9) - x(rec10) + w(rec9) <= -1
+ atLeft(rec9,rec11): + x(rec9) - x(rec11) + w(rec9) <= -1
+ atLeft(rec9,rec12): + x(rec9) - x(rec12) + w(rec9) <= -1
+ atLeft(rec9,rec15): + x(rec9) - x(rec15) + w(rec9) <= -1
  atLeft(rec10,rec6): - x(rec6) + x(rec10) + w(rec10) <= -1
  atLeft(rec10,rec7): - x(rec7) + x(rec10) + w(rec10) <= -1
- atLeft(rec10,rec8): - x(rec8) + x(rec10) + w(rec10) <= -1
- above(rec1,rec10): + y(rec1) - y(rec10) - a(rec10) >= -0
- above(rec2,rec3): + y(rec2) - y(rec3) - a(rec3) >= -0
+ atLeft(rec10,rec11): + x(rec10) - x(rec11) + w(rec10) <= -1
+ atLeft(rec10,rec15): + x(rec10) - x(rec15) + w(rec10) <= -1
+ atLeft(rec11,rec6): - x(rec6) + x(rec11) + w(rec11) <= -1
+ atLeft(rec12,rec2): - x(rec2) + x(rec12) + w(rec12) <= -1
+ atLeft(rec12,rec4): - x(rec4) + x(rec12) + w(rec12) <= -1
+ atLeft(rec12,rec5): - x(rec5) + x(rec12) + w(rec12) <= -1
+ atLeft(rec12,rec6): - x(rec6) + x(rec12) + w(rec12) <= -1
+ atLeft(rec12,rec7): - x(rec7) + x(rec12) + w(rec12) <= -1
+ atLeft(rec12,rec8): - x(rec8) + x(rec12) + w(rec12) <= -1
+ atLeft(rec12,rec11): - x(rec11) + x(rec12) + w(rec12) <= -1
+ atLeft(rec12,rec15): + x(rec12) - x(rec15) + w(rec12) <= -1
+ atLeft(rec13,rec2): - x(rec2) + x(rec13) + w(rec13) <= -1
+ atLeft(rec13,rec4): - x(rec4) + x(rec13) + w(rec13) <= -1
+ atLeft(rec13,rec5): - x(rec5) + x(rec13) + w(rec13) <= -1
+ atLeft(rec13,rec6): - x(rec6) + x(rec13) + w(rec13) <= -1
+ atLeft(rec13,rec7): - x(rec7) + x(rec13) + w(rec13) <= -1
+ atLeft(rec13,rec8): - x(rec8) + x(rec13) + w(rec13) <= -1
+ atLeft(rec13,rec11): - x(rec11) + x(rec13) + w(rec13) <= -1
+ atLeft(rec13,rec15): + x(rec13) - x(rec15) + w(rec13) <= -1
+ atLeft(rec14,rec2): - x(rec2) + x(rec14) + w(rec14) <= -1
+ atLeft(rec14,rec3): - x(rec3) + x(rec14) + w(rec14) <= -1
+ atLeft(rec14,rec4): - x(rec4) + x(rec14) + w(rec14) <= -1
+ atLeft(rec14,rec5): - x(rec5) + x(rec14) + w(rec14) <= -1
+ atLeft(rec14,rec6): - x(rec6) + x(rec14) + w(rec14) <= -1
+ atLeft(rec14,rec7): - x(rec7) + x(rec14) + w(rec14) <= -1
+ atLeft(rec14,rec8): - x(rec8) + x(rec14) + w(rec14) <= -1
+ atLeft(rec14,rec10): - x(rec10) + x(rec14) + w(rec14) <= -1
+ atLeft(rec14,rec11): - x(rec11) + x(rec14) + w(rec14) <= -1
+ atLeft(rec14,rec15): + x(rec14) - x(rec15) + w(rec14) <= -1
+ above(rec1,rec12): + y(rec1) - y(rec12) - a(rec12) >= -0
+ above(rec1,rec13): + y(rec1) - y(rec13) - a(rec13) >= -0
  above(rec2,rec4): + y(rec2) - y(rec4) - a(rec4) >= -0
- above(rec2,rec7): + y(rec2) - y(rec7) - a(rec7) >= -0
- above(rec2,rec10): + y(rec2) - y(rec10) - a(rec10) >= -0
+ above(rec2,rec8): + y(rec2) - y(rec8) - a(rec8) >= -0
+ above(rec3,rec2): - y(rec2) + y(rec3) - a(rec2) >= -0
  above(rec3,rec4): + y(rec3) - y(rec4) - a(rec4) >= -0
- above(rec3,rec7): + y(rec3) - y(rec7) - a(rec7) >= -0
- above(rec5,rec6): + y(rec5) - y(rec6) - a(rec6) >= -0
- above(rec7,rec4): - y(rec4) + y(rec7) - a(rec4) >= -0
- above(rec8,rec4): - y(rec4) + y(rec8) - a(rec4) >= -0
- above(rec8,rec5): - y(rec5) + y(rec8) - a(rec5) >= -0
- above(rec8,rec6): - y(rec6) + y(rec8) - a(rec6) >= -0
- above(rec9,rec3): - y(rec3) + y(rec9) - a(rec3) >= -0
- above(rec9,rec4): - y(rec4) + y(rec9) - a(rec4) >= -0
- above(rec9,rec5): - y(rec5) + y(rec9) - a(rec5) >= -0
- above(rec9,rec6): - y(rec6) + y(rec9) - a(rec6) >= -0
- above(rec9,rec7): - y(rec7) + y(rec9) - a(rec7) >= -0
- above(rec9,rec8): - y(rec8) + y(rec9) - a(rec8) >= -0
- above(rec9,rec10): + y(rec9) - y(rec10) - a(rec10) >= -0
+ above(rec3,rec5): + y(rec3) - y(rec5) - a(rec5) >= -0
+ above(rec3,rec8): + y(rec3) - y(rec8) - a(rec8) >= -0
+ above(rec3,rec12): + y(rec3) - y(rec12) - a(rec12) >= -0
+ above(rec3,rec13): + y(rec3) - y(rec13) - a(rec13) >= -0
+ above(rec5,rec8): + y(rec5) - y(rec8) - a(rec8) >= -0
+ above(rec6,rec5): - y(rec5) + y(rec6) - a(rec5) >= -0
+ above(rec6,rec8): + y(rec6) - y(rec8) - a(rec8) >= -0
+ above(rec6,rec15): + y(rec6) - y(rec15) - a(rec15) >= -0
+ above(rec7,rec5): - y(rec5) + y(rec7) - a(rec5) >= -0
+ above(rec7,rec8): + y(rec7) - y(rec8) - a(rec8) >= -0
+ above(rec9,rec13): + y(rec9) - y(rec13) - a(rec13) >= -0
+ above(rec10,rec1): - y(rec1) + y(rec10) - a(rec1) >= -0
+ above(rec10,rec2): - y(rec2) + y(rec10) - a(rec2) >= -0
+ above(rec10,rec3): - y(rec3) + y(rec10) - a(rec3) >= -0
+ above(rec10,rec4): - y(rec4) + y(rec10) - a(rec4) >= -0
+ above(rec10,rec5): - y(rec5) + y(rec10) - a(rec5) >= -0
+ above(rec10,rec8): - y(rec8) + y(rec10) - a(rec8) >= -0
+ above(rec10,rec12): + y(rec10) - y(rec12) - a(rec12) >= -0
+ above(rec10,rec13): + y(rec10) - y(rec13) - a(rec13) >= -0
+ above(rec11,rec5): - y(rec5) + y(rec11) - a(rec5) >= -0
+ above(rec11,rec7): - y(rec7) + y(rec11) - a(rec7) >= -0
+ above(rec11,rec8): - y(rec8) + y(rec11) - a(rec8) >= -0
+ above(rec11,rec15): + y(rec11) - y(rec15) - a(rec15) >= -0
+ above(rec12,rec13): + y(rec12) - y(rec13) - a(rec13) >= -0
+ above(rec14,rec1): - y(rec1) + y(rec14) - a(rec1) >= -0
+ above(rec14,rec9): - y(rec9) + y(rec14) - a(rec9) >= -0
+ above(rec14,rec12): - y(rec12) + y(rec14) - a(rec12) >= -0
+ above(rec14,rec13): - y(rec13) + y(rec14) - a(rec13) >= -0
+ above(rec15,rec5): - y(rec5) + y(rec15) - a(rec5) >= -0
+ above(rec15,rec8): - y(rec8) + y(rec15) - a(rec8) >= -0
 
 Bounds
  0 <= h(rec1,1) <= 1
@@ -19202,6 +32459,46 @@ Bounds
  0 <= h(rec10,6) <= 1
  0 <= h(rec10,7) <= 1
  0 <= h(rec10,8) <= 1
+ 0 <= h(rec11,1) <= 1
+ 0 <= h(rec11,2) <= 1
+ 0 <= h(rec11,3) <= 1
+ 0 <= h(rec11,4) <= 1
+ 0 <= h(rec11,5) <= 1
+ 0 <= h(rec11,6) <= 1
+ 0 <= h(rec11,7) <= 1
+ 0 <= h(rec11,8) <= 1
+ 0 <= h(rec12,1) <= 1
+ 0 <= h(rec12,2) <= 1
+ 0 <= h(rec12,3) <= 1
+ 0 <= h(rec12,4) <= 1
+ 0 <= h(rec12,5) <= 1
+ 0 <= h(rec12,6) <= 1
+ 0 <= h(rec12,7) <= 1
+ 0 <= h(rec12,8) <= 1
+ 0 <= h(rec13,1) <= 1
+ 0 <= h(rec13,2) <= 1
+ 0 <= h(rec13,3) <= 1
+ 0 <= h(rec13,4) <= 1
+ 0 <= h(rec13,5) <= 1
+ 0 <= h(rec13,6) <= 1
+ 0 <= h(rec13,7) <= 1
+ 0 <= h(rec13,8) <= 1
+ 0 <= h(rec14,1) <= 1
+ 0 <= h(rec14,2) <= 1
+ 0 <= h(rec14,3) <= 1
+ 0 <= h(rec14,4) <= 1
+ 0 <= h(rec14,5) <= 1
+ 0 <= h(rec14,6) <= 1
+ 0 <= h(rec14,7) <= 1
+ 0 <= h(rec14,8) <= 1
+ 0 <= h(rec15,1) <= 1
+ 0 <= h(rec15,2) <= 1
+ 0 <= h(rec15,3) <= 1
+ 0 <= h(rec15,4) <= 1
+ 0 <= h(rec15,5) <= 1
+ 0 <= h(rec15,6) <= 1
+ 0 <= h(rec15,7) <= 1
+ 0 <= h(rec15,8) <= 1
  a(rec1) >= 1
  a(rec2) >= 1
  a(rec3) >= 1
@@ -19212,6 +32509,11 @@ Bounds
  a(rec8) >= 1
  a(rec9) >= 1
  a(rec10) >= 1
+ a(rec11) >= 1
+ a(rec12) >= 1
+ a(rec13) >= 1
+ a(rec14) >= 1
+ a(rec15) >= 1
  0 <= g1(rec1,rec2) <= 1
  0 <= g1(rec1,rec3) <= 1
  0 <= g1(rec1,rec4) <= 1
@@ -19221,6 +32523,11 @@ Bounds
  0 <= g1(rec1,rec8) <= 1
  0 <= g1(rec1,rec9) <= 1
  0 <= g1(rec1,rec10) <= 1
+ 0 <= g1(rec1,rec11) <= 1
+ 0 <= g1(rec1,rec12) <= 1
+ 0 <= g1(rec1,rec13) <= 1
+ 0 <= g1(rec1,rec14) <= 1
+ 0 <= g1(rec1,rec15) <= 1
  0 <= g1(rec2,rec3) <= 1
  0 <= g1(rec2,rec4) <= 1
  0 <= g1(rec2,rec5) <= 1
@@ -19257,6 +32564,61 @@ Bounds
  0 <= g1(rec10,rec7) <= 1
  0 <= g1(rec10,rec8) <= 1
  0 <= g1(rec10,rec9) <= 1
+ 0 <= g1(rec10,rec11) <= 1
+ 0 <= g1(rec10,rec12) <= 1
+ 0 <= g1(rec10,rec13) <= 1
+ 0 <= g1(rec10,rec14) <= 1
+ 0 <= g1(rec10,rec15) <= 1
+ 0 <= g1(rec11,rec2) <= 1
+ 0 <= g1(rec11,rec3) <= 1
+ 0 <= g1(rec11,rec4) <= 1
+ 0 <= g1(rec11,rec5) <= 1
+ 0 <= g1(rec11,rec6) <= 1
+ 0 <= g1(rec11,rec7) <= 1
+ 0 <= g1(rec11,rec8) <= 1
+ 0 <= g1(rec11,rec9) <= 1
+ 0 <= g1(rec11,rec12) <= 1
+ 0 <= g1(rec11,rec13) <= 1
+ 0 <= g1(rec11,rec14) <= 1
+ 0 <= g1(rec11,rec15) <= 1
+ 0 <= g1(rec12,rec2) <= 1
+ 0 <= g1(rec12,rec3) <= 1
+ 0 <= g1(rec12,rec4) <= 1
+ 0 <= g1(rec12,rec5) <= 1
+ 0 <= g1(rec12,rec6) <= 1
+ 0 <= g1(rec12,rec7) <= 1
+ 0 <= g1(rec12,rec8) <= 1
+ 0 <= g1(rec12,rec9) <= 1
+ 0 <= g1(rec12,rec13) <= 1
+ 0 <= g1(rec12,rec14) <= 1
+ 0 <= g1(rec12,rec15) <= 1
+ 0 <= g1(rec13,rec2) <= 1
+ 0 <= g1(rec13,rec3) <= 1
+ 0 <= g1(rec13,rec4) <= 1
+ 0 <= g1(rec13,rec5) <= 1
+ 0 <= g1(rec13,rec6) <= 1
+ 0 <= g1(rec13,rec7) <= 1
+ 0 <= g1(rec13,rec8) <= 1
+ 0 <= g1(rec13,rec9) <= 1
+ 0 <= g1(rec13,rec14) <= 1
+ 0 <= g1(rec13,rec15) <= 1
+ 0 <= g1(rec14,rec2) <= 1
+ 0 <= g1(rec14,rec3) <= 1
+ 0 <= g1(rec14,rec4) <= 1
+ 0 <= g1(rec14,rec5) <= 1
+ 0 <= g1(rec14,rec6) <= 1
+ 0 <= g1(rec14,rec7) <= 1
+ 0 <= g1(rec14,rec8) <= 1
+ 0 <= g1(rec14,rec9) <= 1
+ 0 <= g1(rec14,rec15) <= 1
+ 0 <= g1(rec15,rec2) <= 1
+ 0 <= g1(rec15,rec3) <= 1
+ 0 <= g1(rec15,rec4) <= 1
+ 0 <= g1(rec15,rec5) <= 1
+ 0 <= g1(rec15,rec6) <= 1
+ 0 <= g1(rec15,rec7) <= 1
+ 0 <= g1(rec15,rec8) <= 1
+ 0 <= g1(rec15,rec9) <= 1
  0 <= k1(rec1,por1) <= 1
  0 <= k1(rec1,por2) <= 1
  0 <= k1(rec1,por3) <= 1
@@ -19407,6 +32769,81 @@ Bounds
  0 <= k1(rec10,por13) <= 1
  0 <= k1(rec10,por14) <= 1
  0 <= k1(rec10,por15) <= 1
+ 0 <= k1(rec11,por1) <= 1
+ 0 <= k1(rec11,por2) <= 1
+ 0 <= k1(rec11,por3) <= 1
+ 0 <= k1(rec11,por4) <= 1
+ 0 <= k1(rec11,por5) <= 1
+ 0 <= k1(rec11,por6) <= 1
+ 0 <= k1(rec11,por7) <= 1
+ 0 <= k1(rec11,por8) <= 1
+ 0 <= k1(rec11,por9) <= 1
+ 0 <= k1(rec11,por10) <= 1
+ 0 <= k1(rec11,por11) <= 1
+ 0 <= k1(rec11,por12) <= 1
+ 0 <= k1(rec11,por13) <= 1
+ 0 <= k1(rec11,por14) <= 1
+ 0 <= k1(rec11,por15) <= 1
+ 0 <= k1(rec12,por1) <= 1
+ 0 <= k1(rec12,por2) <= 1
+ 0 <= k1(rec12,por3) <= 1
+ 0 <= k1(rec12,por4) <= 1
+ 0 <= k1(rec12,por5) <= 1
+ 0 <= k1(rec12,por6) <= 1
+ 0 <= k1(rec12,por7) <= 1
+ 0 <= k1(rec12,por8) <= 1
+ 0 <= k1(rec12,por9) <= 1
+ 0 <= k1(rec12,por10) <= 1
+ 0 <= k1(rec12,por11) <= 1
+ 0 <= k1(rec12,por12) <= 1
+ 0 <= k1(rec12,por13) <= 1
+ 0 <= k1(rec12,por14) <= 1
+ 0 <= k1(rec12,por15) <= 1
+ 0 <= k1(rec13,por1) <= 1
+ 0 <= k1(rec13,por2) <= 1
+ 0 <= k1(rec13,por3) <= 1
+ 0 <= k1(rec13,por4) <= 1
+ 0 <= k1(rec13,por5) <= 1
+ 0 <= k1(rec13,por6) <= 1
+ 0 <= k1(rec13,por7) <= 1
+ 0 <= k1(rec13,por8) <= 1
+ 0 <= k1(rec13,por9) <= 1
+ 0 <= k1(rec13,por10) <= 1
+ 0 <= k1(rec13,por11) <= 1
+ 0 <= k1(rec13,por12) <= 1
+ 0 <= k1(rec13,por13) <= 1
+ 0 <= k1(rec13,por14) <= 1
+ 0 <= k1(rec13,por15) <= 1
+ 0 <= k1(rec14,por1) <= 1
+ 0 <= k1(rec14,por2) <= 1
+ 0 <= k1(rec14,por3) <= 1
+ 0 <= k1(rec14,por4) <= 1
+ 0 <= k1(rec14,por5) <= 1
+ 0 <= k1(rec14,por6) <= 1
+ 0 <= k1(rec14,por7) <= 1
+ 0 <= k1(rec14,por8) <= 1
+ 0 <= k1(rec14,por9) <= 1
+ 0 <= k1(rec14,por10) <= 1
+ 0 <= k1(rec14,por11) <= 1
+ 0 <= k1(rec14,por12) <= 1
+ 0 <= k1(rec14,por13) <= 1
+ 0 <= k1(rec14,por14) <= 1
+ 0 <= k1(rec14,por15) <= 1
+ 0 <= k1(rec15,por1) <= 1
+ 0 <= k1(rec15,por2) <= 1
+ 0 <= k1(rec15,por3) <= 1
+ 0 <= k1(rec15,por4) <= 1
+ 0 <= k1(rec15,por5) <= 1
+ 0 <= k1(rec15,por6) <= 1
+ 0 <= k1(rec15,por7) <= 1
+ 0 <= k1(rec15,por8) <= 1
+ 0 <= k1(rec15,por9) <= 1
+ 0 <= k1(rec15,por10) <= 1
+ 0 <= k1(rec15,por11) <= 1
+ 0 <= k1(rec15,por12) <= 1
+ 0 <= k1(rec15,por13) <= 1
+ 0 <= k1(rec15,por14) <= 1
+ 0 <= k1(rec15,por15) <= 1
  0 <= absX(rec1,rec2) <= 1
  0 <= absX(rec1,rec3) <= 1
  0 <= absX(rec1,rec4) <= 1
@@ -19416,6 +32853,11 @@ Bounds
  0 <= absX(rec1,rec8) <= 1
  0 <= absX(rec1,rec9) <= 1
  0 <= absX(rec1,rec10) <= 1
+ 0 <= absX(rec1,rec11) <= 1
+ 0 <= absX(rec1,rec12) <= 1
+ 0 <= absX(rec1,rec13) <= 1
+ 0 <= absX(rec1,rec14) <= 1
+ 0 <= absX(rec1,rec15) <= 1
  0 <= absX(rec2,rec3) <= 1
  0 <= absX(rec2,rec4) <= 1
  0 <= absX(rec2,rec5) <= 1
@@ -19452,6 +32894,61 @@ Bounds
  0 <= absX(rec10,rec7) <= 1
  0 <= absX(rec10,rec8) <= 1
  0 <= absX(rec10,rec9) <= 1
+ 0 <= absX(rec10,rec11) <= 1
+ 0 <= absX(rec10,rec12) <= 1
+ 0 <= absX(rec10,rec13) <= 1
+ 0 <= absX(rec10,rec14) <= 1
+ 0 <= absX(rec10,rec15) <= 1
+ 0 <= absX(rec11,rec2) <= 1
+ 0 <= absX(rec11,rec3) <= 1
+ 0 <= absX(rec11,rec4) <= 1
+ 0 <= absX(rec11,rec5) <= 1
+ 0 <= absX(rec11,rec6) <= 1
+ 0 <= absX(rec11,rec7) <= 1
+ 0 <= absX(rec11,rec8) <= 1
+ 0 <= absX(rec11,rec9) <= 1
+ 0 <= absX(rec11,rec12) <= 1
+ 0 <= absX(rec11,rec13) <= 1
+ 0 <= absX(rec11,rec14) <= 1
+ 0 <= absX(rec11,rec15) <= 1
+ 0 <= absX(rec12,rec2) <= 1
+ 0 <= absX(rec12,rec3) <= 1
+ 0 <= absX(rec12,rec4) <= 1
+ 0 <= absX(rec12,rec5) <= 1
+ 0 <= absX(rec12,rec6) <= 1
+ 0 <= absX(rec12,rec7) <= 1
+ 0 <= absX(rec12,rec8) <= 1
+ 0 <= absX(rec12,rec9) <= 1
+ 0 <= absX(rec12,rec13) <= 1
+ 0 <= absX(rec12,rec14) <= 1
+ 0 <= absX(rec12,rec15) <= 1
+ 0 <= absX(rec13,rec2) <= 1
+ 0 <= absX(rec13,rec3) <= 1
+ 0 <= absX(rec13,rec4) <= 1
+ 0 <= absX(rec13,rec5) <= 1
+ 0 <= absX(rec13,rec6) <= 1
+ 0 <= absX(rec13,rec7) <= 1
+ 0 <= absX(rec13,rec8) <= 1
+ 0 <= absX(rec13,rec9) <= 1
+ 0 <= absX(rec13,rec14) <= 1
+ 0 <= absX(rec13,rec15) <= 1
+ 0 <= absX(rec14,rec2) <= 1
+ 0 <= absX(rec14,rec3) <= 1
+ 0 <= absX(rec14,rec4) <= 1
+ 0 <= absX(rec14,rec5) <= 1
+ 0 <= absX(rec14,rec6) <= 1
+ 0 <= absX(rec14,rec7) <= 1
+ 0 <= absX(rec14,rec8) <= 1
+ 0 <= absX(rec14,rec9) <= 1
+ 0 <= absX(rec14,rec15) <= 1
+ 0 <= absX(rec15,rec2) <= 1
+ 0 <= absX(rec15,rec3) <= 1
+ 0 <= absX(rec15,rec4) <= 1
+ 0 <= absX(rec15,rec5) <= 1
+ 0 <= absX(rec15,rec6) <= 1
+ 0 <= absX(rec15,rec7) <= 1
+ 0 <= absX(rec15,rec8) <= 1
+ 0 <= absX(rec15,rec9) <= 1
  0 <= absY(rec1,rec2) <= 1
  0 <= absY(rec1,rec3) <= 1
  0 <= absY(rec1,rec4) <= 1
@@ -19461,6 +32958,11 @@ Bounds
  0 <= absY(rec1,rec8) <= 1
  0 <= absY(rec1,rec9) <= 1
  0 <= absY(rec1,rec10) <= 1
+ 0 <= absY(rec1,rec11) <= 1
+ 0 <= absY(rec1,rec12) <= 1
+ 0 <= absY(rec1,rec13) <= 1
+ 0 <= absY(rec1,rec14) <= 1
+ 0 <= absY(rec1,rec15) <= 1
  0 <= absY(rec2,rec3) <= 1
  0 <= absY(rec2,rec4) <= 1
  0 <= absY(rec2,rec5) <= 1
@@ -19497,6 +32999,61 @@ Bounds
  0 <= absY(rec10,rec7) <= 1
  0 <= absY(rec10,rec8) <= 1
  0 <= absY(rec10,rec9) <= 1
+ 0 <= absY(rec10,rec11) <= 1
+ 0 <= absY(rec10,rec12) <= 1
+ 0 <= absY(rec10,rec13) <= 1
+ 0 <= absY(rec10,rec14) <= 1
+ 0 <= absY(rec10,rec15) <= 1
+ 0 <= absY(rec11,rec2) <= 1
+ 0 <= absY(rec11,rec3) <= 1
+ 0 <= absY(rec11,rec4) <= 1
+ 0 <= absY(rec11,rec5) <= 1
+ 0 <= absY(rec11,rec6) <= 1
+ 0 <= absY(rec11,rec7) <= 1
+ 0 <= absY(rec11,rec8) <= 1
+ 0 <= absY(rec11,rec9) <= 1
+ 0 <= absY(rec11,rec12) <= 1
+ 0 <= absY(rec11,rec13) <= 1
+ 0 <= absY(rec11,rec14) <= 1
+ 0 <= absY(rec11,rec15) <= 1
+ 0 <= absY(rec12,rec2) <= 1
+ 0 <= absY(rec12,rec3) <= 1
+ 0 <= absY(rec12,rec4) <= 1
+ 0 <= absY(rec12,rec5) <= 1
+ 0 <= absY(rec12,rec6) <= 1
+ 0 <= absY(rec12,rec7) <= 1
+ 0 <= absY(rec12,rec8) <= 1
+ 0 <= absY(rec12,rec9) <= 1
+ 0 <= absY(rec12,rec13) <= 1
+ 0 <= absY(rec12,rec14) <= 1
+ 0 <= absY(rec12,rec15) <= 1
+ 0 <= absY(rec13,rec2) <= 1
+ 0 <= absY(rec13,rec3) <= 1
+ 0 <= absY(rec13,rec4) <= 1
+ 0 <= absY(rec13,rec5) <= 1
+ 0 <= absY(rec13,rec6) <= 1
+ 0 <= absY(rec13,rec7) <= 1
+ 0 <= absY(rec13,rec8) <= 1
+ 0 <= absY(rec13,rec9) <= 1
+ 0 <= absY(rec13,rec14) <= 1
+ 0 <= absY(rec13,rec15) <= 1
+ 0 <= absY(rec14,rec2) <= 1
+ 0 <= absY(rec14,rec3) <= 1
+ 0 <= absY(rec14,rec4) <= 1
+ 0 <= absY(rec14,rec5) <= 1
+ 0 <= absY(rec14,rec6) <= 1
+ 0 <= absY(rec14,rec7) <= 1
+ 0 <= absY(rec14,rec8) <= 1
+ 0 <= absY(rec14,rec9) <= 1
+ 0 <= absY(rec14,rec15) <= 1
+ 0 <= absY(rec15,rec2) <= 1
+ 0 <= absY(rec15,rec3) <= 1
+ 0 <= absY(rec15,rec4) <= 1
+ 0 <= absY(rec15,rec5) <= 1
+ 0 <= absY(rec15,rec6) <= 1
+ 0 <= absY(rec15,rec7) <= 1
+ 0 <= absY(rec15,rec8) <= 1
+ 0 <= absY(rec15,rec9) <= 1
 
 Generals
  h(rec1,1)
@@ -19579,6 +33136,46 @@ Generals
  h(rec10,6)
  h(rec10,7)
  h(rec10,8)
+ h(rec11,1)
+ h(rec11,2)
+ h(rec11,3)
+ h(rec11,4)
+ h(rec11,5)
+ h(rec11,6)
+ h(rec11,7)
+ h(rec11,8)
+ h(rec12,1)
+ h(rec12,2)
+ h(rec12,3)
+ h(rec12,4)
+ h(rec12,5)
+ h(rec12,6)
+ h(rec12,7)
+ h(rec12,8)
+ h(rec13,1)
+ h(rec13,2)
+ h(rec13,3)
+ h(rec13,4)
+ h(rec13,5)
+ h(rec13,6)
+ h(rec13,7)
+ h(rec13,8)
+ h(rec14,1)
+ h(rec14,2)
+ h(rec14,3)
+ h(rec14,4)
+ h(rec14,5)
+ h(rec14,6)
+ h(rec14,7)
+ h(rec14,8)
+ h(rec15,1)
+ h(rec15,2)
+ h(rec15,3)
+ h(rec15,4)
+ h(rec15,5)
+ h(rec15,6)
+ h(rec15,7)
+ h(rec15,8)
  x(rec1)
  x(rec2)
  x(rec3)
@@ -19589,6 +33186,11 @@ Generals
  x(rec8)
  x(rec9)
  x(rec10)
+ x(rec11)
+ x(rec12)
+ x(rec13)
+ x(rec14)
+ x(rec15)
  w(rec1)
  w(rec2)
  w(rec3)
@@ -19599,6 +33201,11 @@ Generals
  w(rec8)
  w(rec9)
  w(rec10)
+ w(rec11)
+ w(rec12)
+ w(rec13)
+ w(rec14)
+ w(rec15)
  g1(rec1,rec2)
  g1(rec1,rec3)
  g1(rec1,rec4)
@@ -19608,6 +33215,11 @@ Generals
  g1(rec1,rec8)
  g1(rec1,rec9)
  g1(rec1,rec10)
+ g1(rec1,rec11)
+ g1(rec1,rec12)
+ g1(rec1,rec13)
+ g1(rec1,rec14)
+ g1(rec1,rec15)
  g1(rec2,rec3)
  g1(rec2,rec4)
  g1(rec2,rec5)
@@ -19644,6 +33256,61 @@ Generals
  g1(rec10,rec7)
  g1(rec10,rec8)
  g1(rec10,rec9)
+ g1(rec10,rec11)
+ g1(rec10,rec12)
+ g1(rec10,rec13)
+ g1(rec10,rec14)
+ g1(rec10,rec15)
+ g1(rec11,rec2)
+ g1(rec11,rec3)
+ g1(rec11,rec4)
+ g1(rec11,rec5)
+ g1(rec11,rec6)
+ g1(rec11,rec7)
+ g1(rec11,rec8)
+ g1(rec11,rec9)
+ g1(rec11,rec12)
+ g1(rec11,rec13)
+ g1(rec11,rec14)
+ g1(rec11,rec15)
+ g1(rec12,rec2)
+ g1(rec12,rec3)
+ g1(rec12,rec4)
+ g1(rec12,rec5)
+ g1(rec12,rec6)
+ g1(rec12,rec7)
+ g1(rec12,rec8)
+ g1(rec12,rec9)
+ g1(rec12,rec13)
+ g1(rec12,rec14)
+ g1(rec12,rec15)
+ g1(rec13,rec2)
+ g1(rec13,rec3)
+ g1(rec13,rec4)
+ g1(rec13,rec5)
+ g1(rec13,rec6)
+ g1(rec13,rec7)
+ g1(rec13,rec8)
+ g1(rec13,rec9)
+ g1(rec13,rec14)
+ g1(rec13,rec15)
+ g1(rec14,rec2)
+ g1(rec14,rec3)
+ g1(rec14,rec4)
+ g1(rec14,rec5)
+ g1(rec14,rec6)
+ g1(rec14,rec7)
+ g1(rec14,rec8)
+ g1(rec14,rec9)
+ g1(rec14,rec15)
+ g1(rec15,rec2)
+ g1(rec15,rec3)
+ g1(rec15,rec4)
+ g1(rec15,rec5)
+ g1(rec15,rec6)
+ g1(rec15,rec7)
+ g1(rec15,rec8)
+ g1(rec15,rec9)
  k1(rec1,por1)
  k1(rec1,por2)
  k1(rec1,por3)
@@ -19794,6 +33461,81 @@ Generals
  k1(rec10,por13)
  k1(rec10,por14)
  k1(rec10,por15)
+ k1(rec11,por1)
+ k1(rec11,por2)
+ k1(rec11,por3)
+ k1(rec11,por4)
+ k1(rec11,por5)
+ k1(rec11,por6)
+ k1(rec11,por7)
+ k1(rec11,por8)
+ k1(rec11,por9)
+ k1(rec11,por10)
+ k1(rec11,por11)
+ k1(rec11,por12)
+ k1(rec11,por13)
+ k1(rec11,por14)
+ k1(rec11,por15)
+ k1(rec12,por1)
+ k1(rec12,por2)
+ k1(rec12,por3)
+ k1(rec12,por4)
+ k1(rec12,por5)
+ k1(rec12,por6)
+ k1(rec12,por7)
+ k1(rec12,por8)
+ k1(rec12,por9)
+ k1(rec12,por10)
+ k1(rec12,por11)
+ k1(rec12,por12)
+ k1(rec12,por13)
+ k1(rec12,por14)
+ k1(rec12,por15)
+ k1(rec13,por1)
+ k1(rec13,por2)
+ k1(rec13,por3)
+ k1(rec13,por4)
+ k1(rec13,por5)
+ k1(rec13,por6)
+ k1(rec13,por7)
+ k1(rec13,por8)
+ k1(rec13,por9)
+ k1(rec13,por10)
+ k1(rec13,por11)
+ k1(rec13,por12)
+ k1(rec13,por13)
+ k1(rec13,por14)
+ k1(rec13,por15)
+ k1(rec14,por1)
+ k1(rec14,por2)
+ k1(rec14,por3)
+ k1(rec14,por4)
+ k1(rec14,por5)
+ k1(rec14,por6)
+ k1(rec14,por7)
+ k1(rec14,por8)
+ k1(rec14,por9)
+ k1(rec14,por10)
+ k1(rec14,por11)
+ k1(rec14,por12)
+ k1(rec14,por13)
+ k1(rec14,por14)
+ k1(rec14,por15)
+ k1(rec15,por1)
+ k1(rec15,por2)
+ k1(rec15,por3)
+ k1(rec15,por4)
+ k1(rec15,por5)
+ k1(rec15,por6)
+ k1(rec15,por7)
+ k1(rec15,por8)
+ k1(rec15,por9)
+ k1(rec15,por10)
+ k1(rec15,por11)
+ k1(rec15,por12)
+ k1(rec15,por13)
+ k1(rec15,por14)
+ k1(rec15,por15)
  absX(rec1,rec2)
  absX(rec1,rec3)
  absX(rec1,rec4)
@@ -19803,6 +33545,11 @@ Generals
  absX(rec1,rec8)
  absX(rec1,rec9)
  absX(rec1,rec10)
+ absX(rec1,rec11)
+ absX(rec1,rec12)
+ absX(rec1,rec13)
+ absX(rec1,rec14)
+ absX(rec1,rec15)
  absX(rec2,rec3)
  absX(rec2,rec4)
  absX(rec2,rec5)
@@ -19839,6 +33586,61 @@ Generals
  absX(rec10,rec7)
  absX(rec10,rec8)
  absX(rec10,rec9)
+ absX(rec10,rec11)
+ absX(rec10,rec12)
+ absX(rec10,rec13)
+ absX(rec10,rec14)
+ absX(rec10,rec15)
+ absX(rec11,rec2)
+ absX(rec11,rec3)
+ absX(rec11,rec4)
+ absX(rec11,rec5)
+ absX(rec11,rec6)
+ absX(rec11,rec7)
+ absX(rec11,rec8)
+ absX(rec11,rec9)
+ absX(rec11,rec12)
+ absX(rec11,rec13)
+ absX(rec11,rec14)
+ absX(rec11,rec15)
+ absX(rec12,rec2)
+ absX(rec12,rec3)
+ absX(rec12,rec4)
+ absX(rec12,rec5)
+ absX(rec12,rec6)
+ absX(rec12,rec7)
+ absX(rec12,rec8)
+ absX(rec12,rec9)
+ absX(rec12,rec13)
+ absX(rec12,rec14)
+ absX(rec12,rec15)
+ absX(rec13,rec2)
+ absX(rec13,rec3)
+ absX(rec13,rec4)
+ absX(rec13,rec5)
+ absX(rec13,rec6)
+ absX(rec13,rec7)
+ absX(rec13,rec8)
+ absX(rec13,rec9)
+ absX(rec13,rec14)
+ absX(rec13,rec15)
+ absX(rec14,rec2)
+ absX(rec14,rec3)
+ absX(rec14,rec4)
+ absX(rec14,rec5)
+ absX(rec14,rec6)
+ absX(rec14,rec7)
+ absX(rec14,rec8)
+ absX(rec14,rec9)
+ absX(rec14,rec15)
+ absX(rec15,rec2)
+ absX(rec15,rec3)
+ absX(rec15,rec4)
+ absX(rec15,rec5)
+ absX(rec15,rec6)
+ absX(rec15,rec7)
+ absX(rec15,rec8)
+ absX(rec15,rec9)
  absY(rec1,rec2)
  absY(rec1,rec3)
  absY(rec1,rec4)
@@ -19848,6 +33650,11 @@ Generals
  absY(rec1,rec8)
  absY(rec1,rec9)
  absY(rec1,rec10)
+ absY(rec1,rec11)
+ absY(rec1,rec12)
+ absY(rec1,rec13)
+ absY(rec1,rec14)
+ absY(rec1,rec15)
  absY(rec2,rec3)
  absY(rec2,rec4)
  absY(rec2,rec5)
@@ -19884,5 +33691,60 @@ Generals
  absY(rec10,rec7)
  absY(rec10,rec8)
  absY(rec10,rec9)
+ absY(rec10,rec11)
+ absY(rec10,rec12)
+ absY(rec10,rec13)
+ absY(rec10,rec14)
+ absY(rec10,rec15)
+ absY(rec11,rec2)
+ absY(rec11,rec3)
+ absY(rec11,rec4)
+ absY(rec11,rec5)
+ absY(rec11,rec6)
+ absY(rec11,rec7)
+ absY(rec11,rec8)
+ absY(rec11,rec9)
+ absY(rec11,rec12)
+ absY(rec11,rec13)
+ absY(rec11,rec14)
+ absY(rec11,rec15)
+ absY(rec12,rec2)
+ absY(rec12,rec3)
+ absY(rec12,rec4)
+ absY(rec12,rec5)
+ absY(rec12,rec6)
+ absY(rec12,rec7)
+ absY(rec12,rec8)
+ absY(rec12,rec9)
+ absY(rec12,rec13)
+ absY(rec12,rec14)
+ absY(rec12,rec15)
+ absY(rec13,rec2)
+ absY(rec13,rec3)
+ absY(rec13,rec4)
+ absY(rec13,rec5)
+ absY(rec13,rec6)
+ absY(rec13,rec7)
+ absY(rec13,rec8)
+ absY(rec13,rec9)
+ absY(rec13,rec14)
+ absY(rec13,rec15)
+ absY(rec14,rec2)
+ absY(rec14,rec3)
+ absY(rec14,rec4)
+ absY(rec14,rec5)
+ absY(rec14,rec6)
+ absY(rec14,rec7)
+ absY(rec14,rec8)
+ absY(rec14,rec9)
+ absY(rec14,rec15)
+ absY(rec15,rec2)
+ absY(rec15,rec3)
+ absY(rec15,rec4)
+ absY(rec15,rec5)
+ absY(rec15,rec6)
+ absY(rec15,rec7)
+ absY(rec15,rec8)
+ absY(rec15,rec9)
 
 End

@@ -1,6 +1,6 @@
 data;
 # set delle regioni da piazzare
-set N := rec1 rec2 rec3 rec4 rec5 rec6 rec7 rec8 rec9 rec10;
+set N := rec1 rec2 rec3 rec4 rec5 rec6 rec7 rec8 rec9 rec10 rec11 rec12 rec13 rec14 rec15;
 
 # connessioni tra una regione ed un punto fisso sull'FPGA che rappresenta un IO (lasciare vuoto)
 param:	IO:		ioX		ioY		ioWires :=
@@ -8,16 +8,21 @@ param:	IO:		ioX		ioY		ioWires :=
 
 # requisiti di risorse per le regioni
 param	c:	CLB	BRAM	DSP :=
-	rec1	1000	0	0
-	rec2	300	4	0
-	rec3	200	0	4
-	rec4	200	0	0
-	rec5	200	0	0
-	rec6	500	0	0
-	rec7	300	0	0
+	rec1	100	0	0
+	rec2	100	4	0
+	rec3	100	0	4
+	rec4	100	0	0
+	rec5	100	0	0
+	rec6	100	0	0
+	rec7	100	0	0
 	rec8	100	4	0
-	rec9	400	0	0
-	rec10	400	0	0
+	rec9	100	0	0
+	rec10 	100 	0	0
+	rec11	100	0	0
+	rec12	100	0	0
+	rec13	100	0	0
+	rec14	100	0	0
+	rec15	100	0	0
 ;
 
 # interconnessioni (wires) tra le regioni, (esempi qui sotto: 4 fili da rec2 a rec1, 10 fili da rec3 a rec1)
@@ -28,6 +33,9 @@ param comm default 0:=
 		rec3    rec7	40
 		rec5    rec6	40
 		rec2    rec8	40
+		rec9	rec3	40
+		rec10	rec11	40
+		rec12	rec13	40
 ;
 
 # pesi assegnati alle metriche della funzione obiettivo, le metriche assumono tutte valori da 0 a 1 (sono normalizzate)

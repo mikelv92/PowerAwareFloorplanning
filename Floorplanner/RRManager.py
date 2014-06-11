@@ -309,7 +309,7 @@ class RRManager:
         self.fh.updateDat(sequencePair, distanceVector)
         os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan.mod --wlp model.lp --check > /dev/null")
         #os.system("gurobi_cl ResultFile=problem.sol TimeLimit=10 model.lp > /dev/null")
-        os.system("gurobi_cl ResultFile=problem.sol MIPGap=0.2 model.lp > /dev/null")
+        os.system("gurobi_cl ResultFile=problem.sol MIPGap=0.2 model.lp TimeLimit=100 > /dev/null")
         #os.system("gurobi_cl ResultFile=problem.sol model.lp")
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()
