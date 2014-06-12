@@ -83,6 +83,7 @@ def main():
     matFH.write("y = reshape(y, 9, 62)\n")
     matFH.write("z = reshape(z, 9, 62)\n")
     matFH.write("mesh(x, y, z)\n")
+    matFH.close()
 
 if __name__ == '__main__':
     main()
