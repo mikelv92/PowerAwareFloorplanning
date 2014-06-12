@@ -480,3 +480,41 @@ class RRManager:
 
         self.filescritti += 1
         return
+
+    def writeMatlabRegionsFile(self):
+        fh = open("/home/mikel/PycharmProjects/PowerAwareFloorplanning/ThermalMapGen/regions.txt", 'w')
+        with open("problem.sol", 'r') as f_in:
+            outputAsString = f_in.read()
+
+        for rrname in self.fh.rrList:
+            startIndex = outputAsString.index("w(" + rrname + ")")
+            endIndex = outputAsString.index("\n", startIndex)
+            w = outputAsString[startIndex + 8:endIndex]
+
+            startIndex = outputAsString.index("a(" + rrname + ")")
+            endIndex = outputAsString.index("\n", startIndex)
+            a = outputAsString[startIndex + 8:endIndex]
+
+            startIndex = outputAsString.index("x(" + rrname + ")")
+            endIndex = outputAsString.index("\n", startIndex)
+            x = outputAsString[startIndex + 8:endIndex]
+
+            startIndex = outputAsString.index("y(" + rrname + ")")
+            endIndex = outputAsString.index("\n", startIndex)
+            y = outputAsString[startIndex + 8:endIndex]
+
+            x1 = round(float(x))
+            y1 = round(float(y) - 1)
+            w1 = round(float(w) + 1)
+            a1 = round(float(a))
+
+            fh.write(str(x1) + "\n")
+            fh.write(str(y1) + "\n")
+            fh.write(str(w1) + "\n")
+            fh.write(str(a1) + "\n")
+            for rr in self.collection:
+                if rr.name == rrname:
+                    fh.write(str(rr.temp) + "\n")
+
+
+        fh.close()

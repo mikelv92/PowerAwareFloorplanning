@@ -82,6 +82,8 @@ def main():
             #rrManager.updateDistanceVector(distanceVector)
             currentSolutionCost = newSolutionCost
             #rrManager.drawOnBrowser("soluzione accettata")
+            rrManager.writeMatlabRegionsFile()
+
         else:
             if(newSolutionCost == 817609):
                 print("soluzione scartata due to infeasibility")
@@ -103,6 +105,7 @@ def main():
         bestSequencePair = bestSolution.sequencePair
         rrManager.applyMILP(bestSequencePair, distanceVector)
         rrManager.calculateTemperatures()
+        rrManager.writeMatlabRegionsFile()
         print " Tmax: "+str(rrManager.getTmax())+" MILP: "+str(rrManager.getMILPObj())
 
 if __name__ == '__main__':

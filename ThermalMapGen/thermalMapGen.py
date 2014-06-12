@@ -25,11 +25,11 @@ def main():
     rrFH = open("regions.txt")
     regions = []
     for i in xrange(rrNo):
-        rrX = int(rrFH.readline())
-        rrY = int(rrFH.readline())
-        rrW = int(rrFH.readline())
-        rrH = int(rrFH.readline())
-        temp = float(rrFH.readline())
+        rrX = round(float(rrFH.readline().rstrip("\n")))
+        rrY = round(float(rrFH.readline().rstrip("\n")))
+        rrW = round(float(rrFH.readline().rstrip("\n")))
+        rrH = round(float(rrFH.readline().rstrip("\n")))
+        temp = float(rrFH.readline().rstrip("\n"))
         regions.append(RR(i + 1, rrX, rrY, rrW, rrH, temp))
 
     occupancy = [[0 for i in xrange(9)] for i in xrange(62)]
@@ -40,9 +40,6 @@ def main():
                     if j >= rr.y and j <= (rr.y + rr.h - 1):
                         occupancy[i][j] = rr.no
 
-    for j in xrange(9):
-        print occupancy[j]
-
     z = [[0 for i in xrange(9)] for i in xrange(62)]
 
     for i in xrange(62):
@@ -51,34 +48,26 @@ def main():
                 if rr.no == occupancy[i][j]:
                     z[i][j] = rr.temp
 
-    flag = 0
-    for l in xrange(100):
-        for i in xrange(1, 61):
-            for j in xrange(1, 8):
+    for i in xrange(1, 61):
+        for j in xrange(1, 8):
+            if occupancy[i][j] != 0:
                 for rr in regions:
-                    if i == rr.cx and j == rr.cy:
-                        flag = 1
-                if z[i][j] == 0:
-                    flag = 1
-                else:
-                    if flag == 0:
-                        z[i][j] = (z[i - 1][j] + z[i + 1][j] + z[i][j - 1] + z[i][j + 1]) / 4
-                    flag = 0
-    for j in xrange(62):
-        print z[j]
+                    if rr.no == occupancy[i][j]:
+                        z[i][j] = rr.temp
+            else:
+                z[i][j] = 0
 
     matFH = open("matlabCmd.txt", "w")
-    matFH.write("x = " + str(x) + "\n")
-    matFH.write("y = " + str(y) + "\n")
+    matFH.write("[x, y] = meshgrid(0:1:61, 0:1:8)\n")
     matFH.write("z = [")
     for i in xrange(62):
         for j in xrange(9):
             matFH.write(str(z[i][j]) + " ")
     matFH.write("]\n")
-    matFH.write("x = reshape(x, 9, 62)\n")
-    matFH.write("y = reshape(y, 9, 62)\n")
     matFH.write("z = reshape(z, 9, 62)\n")
-    matFH.write("mesh(x, y, z)\n")
+    matFH.write("[xi, yi] = meshgrid(0:0.25:61, 0:0.25:8)\n")
+    matFH.write("zi = interp2(x, y, z, xi, yi, 'nearest')\n")
+    matFH.write("mesh(xi, yi, zi)")
     matFH.close()
 
 if __name__ == '__main__':

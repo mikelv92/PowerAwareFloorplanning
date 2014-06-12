@@ -72837,3 +72837,1258 @@ Best objective 7.733872993400e-02, best bound 7.066306428009e-02, gap 8.6317%
 
 Wrote result file 'problem.sol'
 
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:28:13 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13359 rows and 2151 columns
+Presolve time: 0.15s
+Presolved: 3949 rows, 1333 columns, 11752 nonzeros
+Variable types: 894 continuous, 439 integer (394 binary)
+
+Root relaxation: infeasible, 498 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (498 simplex iterations) in 0.27 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:11 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 12659 rows and 1948 columns
+Presolve time: 0.11s
+Presolved: 4649 rows, 1536 columns, 13898 nonzeros
+Variable types: 1076 continuous, 460 integer (415 binary)
+
+Root relaxation: infeasible, 793 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (793 simplex iterations) in 0.23 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:14 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13858 rows and 2310 columns
+Presolve time: 0.15s
+Presolved: 3450 rows, 1174 columns, 10481 nonzeros
+Variable types: 759 continuous, 415 integer (370 binary)
+
+Root relaxation: infeasible, 697 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (697 simplex iterations) in 0.28 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:15 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13635 rows and 2203 columns
+Presolve time: 0.06s
+
+Explored 0 nodes (0 simplex iterations) in 0.07 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:16 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 11239 rows and 1620 columns
+Presolve time: 0.04s
+
+Explored 0 nodes (0 simplex iterations) in 0.05 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:17 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13598 rows and 2357 columns
+Presolve time: 0.12s
+
+Explored 0 nodes (0 simplex iterations) in 0.13 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:18 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 14494 rows and 2560 columns
+Presolve time: 0.19s
+Presolved: 2814 rows, 924 columns, 8735 nonzeros
+Variable types: 586 continuous, 338 integer (293 binary)
+
+Root relaxation: infeasible, 674 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (674 simplex iterations) in 0.24 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:19 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13436 rows and 2188 columns
+Presolve time: 0.16s
+Presolved: 3872 rows, 1296 columns, 11658 nonzeros
+Variable types: 885 continuous, 411 integer (366 binary)
+
+Root relaxation: objective 1.055162e-01, 716 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10552    0   52          -    0.10552     -      -    0s
+     0     0    0.10563    0  158          -    0.10563     -      -    0s
+     0     0    0.10563    0  138          -    0.10563     -      -    0s
+     0     0    0.10563    0  139          -    0.10563     -      -    0s
+     0     0    0.10563    0  108          -    0.10563     -      -    0s
+     0     0    0.10563    0  124          -    0.10563     -      -    0s
+     0     0    0.10563    0  118          -    0.10563     -      -    0s
+     0     0    0.10563    0  131          -    0.10563     -      -    0s
+     0     0    0.10563    0  129          -    0.10563     -      -    0s
+     0     0    0.10563    0  149          -    0.10563     -      -    1s
+     0     0    0.10563    0  149          -    0.10563     -      -    1s
+     0     2    0.10563    0  149          -    0.10563     -      -    1s
+*  541   313              75       0.1185531    0.10563  10.9%  20.5    1s
+
+Cutting planes:
+  Gomory: 6
+  Cover: 84
+  Implied bound: 371
+  Clique: 5
+  MIR: 87
+  Flow cover: 112
+  GUB cover: 5
+  Zero half: 7
+
+Explored 651 nodes (24566 simplex iterations) in 1.90 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 2.00e-01)
+Best objective 1.185530865221e-01, best bound 1.056324815190e-01, gap 10.8986%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:22 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13347 rows and 2155 columns
+Presolve time: 0.15s
+Presolved: 3961 rows, 1329 columns, 11830 nonzeros
+Variable types: 886 continuous, 443 integer (398 binary)
+
+Root relaxation: infeasible, 663 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (663 simplex iterations) in 0.27 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:52 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 14468 rows and 2504 columns
+Presolve time: 0.22s
+Presolved: 2840 rows, 980 columns, 8561 nonzeros
+Variable types: 636 continuous, 344 integer (299 binary)
+
+Root relaxation: infeasible, 643 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (643 simplex iterations) in 0.26 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:53 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13008 rows and 2193 columns
+Presolve time: 0.05s
+
+Explored 0 nodes (0 simplex iterations) in 0.06 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:55 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13621 rows and 2228 columns
+Presolve time: 0.16s
+Presolved: 3687 rows, 1256 columns, 11169 nonzeros
+Variable types: 849 continuous, 407 integer (362 binary)
+
+Root relaxation: infeasible, 840 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (840 simplex iterations) in 0.29 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:56 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13331 rows and 2182 columns
+Presolve time: 0.16s
+Presolved: 3977 rows, 1302 columns, 12052 nonzeros
+Variable types: 883 continuous, 419 integer (374 binary)
+
+Root relaxation: objective 1.130812e-01, 771 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.11308    0   63          -    0.11308     -      -    0s
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Cutting planes:
+  Gomory: 31
+  Cover: 5
+  Implied bound: 27
+  Clique: 1
+  MIR: 38
+  Flow cover: 39
+  Zero half: 2
+
+Explored 0 nodes (2143 simplex iterations) in 0.41 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:57 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 11715 rows and 2528 columns
+Presolve time: 0.11s
+
+Explored 0 nodes (0 simplex iterations) in 0.12 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:58 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 11690 rows and 1758 columns
+Presolve time: 0.08s
+
+Explored 0 nodes (0 simplex iterations) in 0.09 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:29:59 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 12225 rows and 2046 columns
+Presolve time: 0.04s
+
+Explored 0 nodes (0 simplex iterations) in 0.05 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:00 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 11262 rows and 1566 columns
+Presolve time: 0.04s
+
+Explored 0 nodes (0 simplex iterations) in 0.05 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:02 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 6337 rows and 689 columns
+Presolve time: 0.01s
+
+Explored 0 nodes (0 simplex iterations) in 0.02 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:04 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13218 rows and 2151 columns
+Presolve time: 0.16s
+Presolved: 4090 rows, 1333 columns, 12322 nonzeros
+Variable types: 904 continuous, 429 integer (384 binary)
+
+Root relaxation: infeasible, 678 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (678 simplex iterations) in 0.30 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:05 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 11973 rows and 1975 columns
+Presolve time: 0.04s
+
+Explored 0 nodes (0 simplex iterations) in 0.05 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:06 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 14202 rows and 2451 columns
+Presolve time: 0.17s
+Presolved: 3106 rows, 1033 columns, 9555 nonzeros
+Variable types: 667 continuous, 366 integer (321 binary)
+
+Root relaxation: objective 1.095795e-01, 753 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10958    0  120          -    0.10958     -      -    0s
+     0     0    0.10975    0   52          -    0.10975     -      -    0s
+     0     0    0.10980    0  154          -    0.10980     -      -    0s
+     0     0    0.10980    0  162          -    0.10980     -      -    0s
+     0     0    0.10980    0  129          -    0.10980     -      -    0s
+     0     0    0.10980    0  137          -    0.10980     -      -    0s
+     0     0    0.10980    0  150          -    0.10980     -      -    0s
+     0     0    0.10980    0  138          -    0.10980     -      -    0s
+     0     0    0.10981    0  146          -    0.10981     -      -    0s
+     0     0    0.10981    0  161          -    0.10981     -      -    0s
+     0     0    0.10981    0  142          -    0.10981     -      -    0s
+     0     0    0.10981    0  156          -    0.10981     -      -    0s
+     0     0    0.10981    0  139          -    0.10981     -      -    0s
+     0     3    0.10981    0  130          -    0.10981     -      -    1s
+*  695   211              37       0.1295058    0.11121  14.1%  21.3    1s
+
+Cutting planes:
+  Gomory: 3
+  Cover: 136
+  Implied bound: 417
+  Clique: 11
+  MIR: 143
+  Flow cover: 138
+  GUB cover: 3
+  Zero half: 5
+  Mod-K: 2
+
+Explored 823 nodes (25256 simplex iterations) in 1.78 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 2.00e-01)
+Best objective 1.295057836325e-01, best bound 1.112124282337e-01, gap 14.1255%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:08 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 11744 rows and 1723 columns
+Presolve time: 0.11s
+Presolved: 5564 rows, 1761 columns, 16777 nonzeros
+Variable types: 1270 continuous, 491 integer (446 binary)
+
+Root relaxation: objective 1.170100e-01, 866 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.11701    0   56          -    0.11701     -      -    0s
+     0     0    0.11710    0   53          -    0.11710     -      -    0s
+     0     0    0.11710    0   59          -    0.11710     -      -    0s
+     0     0    0.11710    0   49          -    0.11710     -      -    0s
+     0     0    0.11710    0   40          -    0.11710     -      -    0s
+     0     0    0.11710    0   17          -    0.11710     -      -    0s
+     0     0    0.11710    0   36          -    0.11710     -      -    0s
+     0     0    0.11710    0   25          -    0.11710     -      -    1s
+     0     0    0.11710    0   21          -    0.11710     -      -    1s
+     0     0    0.11710    0   41          -    0.11710     -      -    1s
+     0     0    0.11710    0   51          -    0.11710     -      -    1s
+     0     0    0.11710    0   47          -    0.11710     -      -    1s
+     0     2    0.11710    0   38          -    0.11710     -      -    1s
+  1584   624    0.12131   41   69          -    0.11739     -   25.1    5s
+  1917   650    0.12082   38   54          -    0.11989     -   10.0   10s
+* 2796   658              79       0.1404947    0.12040  14.3%  13.2   11s
+
+Explored 2855 nodes (93950 simplex iterations) in 11.10 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 2.00e-01)
+Best objective 1.404946679221e-01, best bound 1.203985140155e-01, gap 14.3039%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:19 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.06 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 11693 rows and 1709 columns
+Presolve time: 0.17s
+Presolved: 5615 rows, 1775 columns, 16938 nonzeros
+Variable types: 1280 continuous, 495 integer (450 binary)
+
+Root relaxation: objective 1.190570e-01, 915 iterations, 0.05 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.11906    0  146          -    0.11906     -      -    0s
+     0     0    0.11999    0  117          -    0.11999     -      -    0s
+     0     0    0.11999    0  147          -    0.11999     -      -    0s
+     0     0    0.11999    0   72          -    0.11999     -      -    0s
+     0     0    0.11999    0   65          -    0.11999     -      -    1s
+     0     0    0.11999    0   72          -    0.11999     -      -    1s
+     0     0    0.11999    0   72          -    0.11999     -      -    1s
+     0     0    0.11999    0   64          -    0.11999     -      -    1s
+     0     0    0.11999    0   71          -    0.11999     -      -    1s
+     0     0    0.11999    0   61          -    0.11999     -      -    1s
+     0     0    0.11999    0   70          -    0.11999     -      -    1s
+     0     0    0.11999    0   70          -    0.11999     -      -    1s
+     0     2    0.11999    0   70          -    0.11999     -      -    2s
+  1648   567    0.13921   24  140          -    0.12192     -   20.4    6s
+  1739   592    0.14209   25   55          -    0.12192     -    5.6   10s
+* 3190   448              71       0.1388125    0.12400  10.7%  13.1   12s
+
+Explored 3474 nodes (95495 simplex iterations) in 12.56 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 2.00e-01)
+Best objective 1.388124840394e-01, best bound 1.240009005966e-01, gap 10.6702%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:32 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.06 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 12142 rows and 1836 columns
+Presolve time: 0.11s
+Presolved: 5166 rows, 1648 columns, 15644 nonzeros
+Variable types: 1171 continuous, 477 integer (432 binary)
+
+Root relaxation: objective 1.075812e-01, 958 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10758    0  123          -    0.10758     -      -    0s
+     0     0    0.10944    0  125          -    0.10944     -      -    0s
+     0     0    0.10944    0  142          -    0.10944     -      -    0s
+     0     0    0.10944    0  111          -    0.10944     -      -    0s
+     0     0    0.10944    0   94          -    0.10944     -      -    0s
+     0     0    0.10944    0   99          -    0.10944     -      -    0s
+     0     0    0.10944    0  102          -    0.10944     -      -    1s
+     0     0    0.10944    0  109          -    0.10944     -      -    1s
+     0     0    0.10944    0  103          -    0.10944     -      -    1s
+     0     2    0.10944    0   94          -    0.10944     -      -    1s
+  1672   536    0.13212   12   48          -    0.11735     -   14.1    5s
+  2031   613    0.12572   21   16          -    0.12378     -   11.9   10s
+* 2101   561              35       0.1334185    0.12378  7.22%  12.4   10s
+* 2102   535              35       0.1332609    0.12378  7.11%  12.4   10s
+
+Cutting planes:
+  Gomory: 16
+  Cover: 21
+  Implied bound: 9
+  MIR: 17
+  Flow cover: 42
+  Zero half: 5
+
+Explored 2147 nodes (62976 simplex iterations) in 10.09 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 2.00e-01)
+Best objective 1.332609450165e-01, best bound 1.237813696956e-01, gap 7.1135%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:43 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.06 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 12259 rows and 1869 columns
+Presolve time: 0.15s
+Presolved: 5049 rows, 1615 columns, 15298 nonzeros
+Variable types: 1140 continuous, 475 integer (430 binary)
+
+Root relaxation: objective 9.891207e-02, 928 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.09891    0  108          -    0.09891     -      -    0s
+     0     0    0.10160    0   65          -    0.10160     -      -    0s
+     0     0    0.10160    0   64          -    0.10160     -      -    0s
+     0     0    0.10160    0   59          -    0.10160     -      -    0s
+     0     0    0.10160    0   57          -    0.10160     -      -    0s
+     0     0    0.10160    0   69          -    0.10160     -      -    0s
+     0     0    0.10160    0   37          -    0.10160     -      -    0s
+     0     0    0.10160    0   42          -    0.10160     -      -    1s
+     0     0    0.10160    0   54          -    0.10160     -      -    1s
+     0     0    0.10160    0   36          -    0.10160     -      -    1s
+     0     0    0.10160    0   28          -    0.10160     -      -    1s
+     0     0    0.10160    0   26          -    0.10160     -      -    1s
+     0     0    0.10160    0   26          -    0.10160     -      -    1s
+     0     2    0.10160    0   26          -    0.10160     -      -    2s
+  1642   514    0.11534   38   49          -    0.10756     -   15.1    5s
+* 2057   462              43       0.1293570    0.11826  8.58%   7.8    8s
+* 2059   436              44       0.1291584    0.11826  8.44%   7.8    8s
+
+Cutting planes:
+  Gomory: 1
+  Cover: 2
+  Implied bound: 4
+  MIR: 3
+  Flow cover: 19
+
+Explored 2156 nodes (52776 simplex iterations) in 8.44 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 2.00e-01)
+Best objective 1.291584006705e-01, best bound 1.182603856332e-01, gap 8.4377%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:52 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.06 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13787 rows and 2270 columns
+Presolve time: 0.20s
+Presolved: 3521 rows, 1214 columns, 10435 nonzeros
+Variable types: 802 continuous, 412 integer (367 binary)
+
+Root relaxation: infeasible, 758 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (758 simplex iterations) in 0.35 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:52 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.06 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 12463 rows and 1934 columns
+Presolve time: 0.16s
+Presolved: 4845 rows, 1550 columns, 14672 nonzeros
+Variable types: 1086 continuous, 464 integer (419 binary)
+
+Root relaxation: infeasible, 900 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (900 simplex iterations) in 0.35 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:30:53 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.06 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 12322 rows and 1930 columns
+Presolve time: 0.22s
+Presolved: 4986 rows, 1554 columns, 15159 nonzeros
+Variable types: 1091 continuous, 463 integer (418 binary)
+
+Root relaxation: objective 1.006304e-01, 840 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10063    0   97          -    0.10063     -      -    0s
+     0     0    0.10128    0   62          -    0.10128     -      -    0s
+     0     0    0.10128    0   67          -    0.10128     -      -    0s
+     0     0    0.10128    0   25          -    0.10128     -      -    0s
+     0     0    0.10128    0   33          -    0.10128     -      -    1s
+     0     0    0.10128    0   25          -    0.10128     -      -    1s
+     0     0    0.10128    0   25          -    0.10128     -      -    1s
+     0     0    0.10128    0   31          -    0.10128     -      -    1s
+     0     0    0.10128    0   31          -    0.10128     -      -    1s
+     0     0    0.10128    0   21          -    0.10128     -      -    1s
+     0     0    0.10128    0   41          -    0.10128     -      -    1s
+     0     0    0.10128    0   24          -    0.10128     -      -    1s
+     0     2    0.10128    0   17          -    0.10128     -      -    2s
+  1469   496    0.15703   40  127          -    0.11020     -   13.6    5s
+  1488   512    0.11579   17   24          -    0.11579     -    4.1   10s
+* 1776   485              30       0.1275381    0.11579  9.21%   7.0   10s
+
+Cutting planes:
+  Gomory: 1
+  Cover: 1
+  Implied bound: 4
+  Flow cover: 9
+  Zero half: 2
+
+Explored 1844 nodes (45919 simplex iterations) in 10.58 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 2.00e-01)
+Best objective 1.275381362968e-01, best bound 1.169974522733e-01, gap 8.2647%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:31:04 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.06 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 12406 rows and 1945 columns
+Presolve time: 0.22s
+Presolved: 4902 rows, 1539 columns, 14833 nonzeros
+Variable types: 1074 continuous, 465 integer (420 binary)
+
+Root relaxation: infeasible, 859 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 infeasible    0               - infeasible     -      -    0s
+
+Explored 0 nodes (859 simplex iterations) in 0.41 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:31:05 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.06 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 12288 rows and 1918 columns
+Presolve time: 0.22s
+Presolved: 5020 rows, 1566 columns, 15259 nonzeros
+Variable types: 1101 continuous, 465 integer (420 binary)
+
+Root relaxation: objective 1.006304e-01, 917 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10063    0  106          -    0.10063     -      -    0s
+     0     0    0.10128    0   44          -    0.10128     -      -    0s
+     0     0    0.10128    0   36          -    0.10128     -      -    0s
+     0     0    0.10128    0   49          -    0.10128     -      -    0s
+     0     0    0.10128    0   35          -    0.10128     -      -    0s
+     0     0    0.10128    0   20          -    0.10128     -      -    1s
+     0     0    0.10128    0   20          -    0.10128     -      -    1s
+     0     0    0.10128    0   20          -    0.10128     -      -    1s
+     0     0    0.10128    0   26          -    0.10128     -      -    1s
+     0     0    0.10128    0   20          -    0.10128     -      -    1s
+     0     0    0.10128    0   21          -    0.10128     -      -    1s
+     0     0    0.10128    0   21          -    0.10128     -      -    1s
+     0     2    0.10128    0   21          -    0.10128     -      -    2s
+  1541   568    0.13861   44   75          -    0.10224     -   12.3    5s
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:32:37 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.05 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13352 rows and 2100 columns
+Presolve time: 0.06s
+
+Explored 0 nodes (0 simplex iterations) in 0.07 seconds
+Thread count was 1 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:32:38 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 13840 rows and 2324 columns
+Presolve time: 0.17s
+Presolved: 3468 rows, 1160 columns, 10712 nonzeros
+Variable types: 765 continuous, 395 integer (350 binary)
+
+Root relaxation: objective 9.047619e-02, 885 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.09048    0   69          -    0.09048     -      -    0s
+     0     0    0.09159    0  120          -    0.09159     -      -    0s
+     0     0    0.09159    0  135          -    0.09159     -      -    0s
+     0     0    0.09180    0   75          -    0.09180     -      -    0s
+     0     0    0.09180    0  119          -    0.09180     -      -    0s
+     0     0    0.09199    0   37          -    0.09199     -      -    0s
+     0     0    0.09199    0   90          -    0.09199     -      -    0s
+     0     0    0.09199    0   82          -    0.09199     -      -    0s
+     0     0    0.09199    0   86          -    0.09199     -      -    0s
+     0     0    0.09199    0   40          -    0.09199     -      -    1s
+     0     0    0.09199    0   34          -    0.09199     -      -    1s
+     0     0    0.09199    0   41          -    0.09199     -      -    1s
+     0     0    0.09199    0   41          -    0.09199     -      -    1s
+     0     2    0.09199    0   38          -    0.09199     -      -    1s
+
+Cutting planes:
+  Gomory: 1
+  Cover: 42
+  Implied bound: 82
+  Clique: 3
+  MIR: 58
+  Flow cover: 49
+  GUB cover: 1
+  Zero half: 5
+
+Explored 75 nodes (12116 simplex iterations) in 1.68 seconds
+Thread count was 8 (of 8 available processors)
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+Unable to retrieve attribute 'X'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:32:41 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.04 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 12006 rows and 1836 columns
+Presolve time: 0.11s
+Presolved: 5302 rows, 1648 columns, 16127 nonzeros
+Variable types: 1180 continuous, 468 integer (423 binary)
+
+Root relaxation: objective 1.005854e-01, 831 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.10059    0   39          -    0.10059     -      -    0s
+     0     0    0.10062    0   69          -    0.10062     -      -    0s
+     0     0    0.10062    0   73          -    0.10062     -      -    0s
+     0     0    0.10062    0   45          -    0.10062     -      -    0s
+     0     0    0.10062    0   49          -    0.10062     -      -    0s
+     0     0    0.10062    0   56          -    0.10062     -      -    0s
+     0     0    0.10062    0   66          -    0.10062     -      -    0s
+     0     0    0.10062    0   90          -    0.10062     -      -    0s
+     0     0    0.10062    0  100          -    0.10062     -      -    1s
+     0     2    0.10062    0  100          -    0.10062     -      -    1s
+  1620   638    0.10070    6   29          -    0.10070     -   16.9    5s
+  1631   646    0.10783   34   93          -    0.10100     -   16.8   10s
+  1646   657    0.10253   20  118          -    0.10114     -   19.2   15s
+  1737   692    0.10248   39   39          -    0.10135     -   29.3   20s
+* 2052   741              68       0.1234581    0.10190  17.5%  29.8   21s
+
+Cutting planes:
+  Gomory: 52
+  Cover: 89
+  Implied bound: 165
+  MIR: 119
+  Flow cover: 131
+  GUB cover: 7
+  Zero half: 27
+
+Explored 2088 nodes (101111 simplex iterations) in 21.27 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 2.00e-01)
+Best objective 1.234581138461e-01, best bound 1.019006330069e-01, gap 17.4614%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:33:03 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.06 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 11900 rows and 1792 columns
+Presolve time: 0.15s
+Presolved: 5408 rows, 1692 columns, 16331 nonzeros
+Variable types: 1221 continuous, 471 integer (426 binary)
+
+Root relaxation: objective 9.934707e-02, 789 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.09935    0  103          -    0.09935     -      -    0s
+     0     0    0.09935    0  102          -    0.09935     -      -    0s
+     0     0    0.09935    0   63          -    0.09935     -      -    0s
+     0     0    0.09935    0   88          -    0.09935     -      -    0s
+     0     0    0.09935    0   81          -    0.09935     -      -    0s
+     0     0    0.09935    0   21          -    0.09935     -      -    0s
+     0     0    0.09935    0   23          -    0.09935     -      -    1s
+     0     0    0.09935    0   26          -    0.09935     -      -    1s
+     0     0    0.09935    0   17          -    0.09935     -      -    1s
+     0     0    0.09935    0   18          -    0.09935     -      -    1s
+     0     0    0.09935    0   22          -    0.09935     -      -    1s
+     0     0    0.09935    0   16          -    0.09935     -      -    1s
+     0     2    0.09935    0   16          -    0.09935     -      -    1s
+  1719   682    0.10616   20   36          -    0.09935     -   19.2    5s
+  1722   684    0.10457   30   36          -    0.09935     -   19.2   10s
+  1735   693    0.10253   37   53          -    0.09970     -   19.0   15s
+  1749   703    0.10253   37   54          -    0.09970     -   18.4   20s
+  1822   734    0.10054   31   33          -    0.09990     -   30.6   25s
+H 2018   726                       0.1176420    0.09990  15.1%  31.1   25s
+
+Cutting planes:
+  Gomory: 74
+  Cover: 62
+  Implied bound: 224
+  Clique: 5
+  MIR: 128
+  Flow cover: 129
+  GUB cover: 8
+  Zero half: 21
+  Mod-K: 1
+
+Explored 2056 nodes (107529 simplex iterations) in 25.57 seconds
+Thread count was 8 (of 8 available processors)
+
+Optimal solution found (tolerance 2.00e-01)
+Best objective 1.176420210690e-01, best bound 9.990069288852e-02, gap 15.0808%
+
+Wrote result file 'problem.sol'
+
+
+Gurobi 5.6.3 (linux64) logging started Thu Jun 12 11:33:29 2014
+
+Set parameter MIPGap to value 0.2
+
+Gurobi Optimizer version 5.6.3 build v5.6.3rc2 (linux64)
+Copyright (c) 2013, Gurobi Optimization, Inc.
+
+Read LP format model from file model.lp
+Reading time = 0.06 seconds
+(null): 17308 rows, 3484 columns, 49773 nonzeros
+Optimize a model with 17308 rows, 3484 columns and 49773 nonzeros
+Presolve removed 11932 rows and 1811 columns
+Presolve time: 0.15s
+Presolved: 5376 rows, 1673 columns, 16254 nonzeros
+Variable types: 1207 continuous, 466 integer (421 binary)
+
+Root relaxation: objective 9.845773e-02, 929 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.09846    0  103          -    0.09846     -      -    0s
+     0     0    0.09912    0   96          -    0.09912     -      -    0s
+     0     0    0.09912    0  102          -    0.09912     -      -    0s
+     0     0    0.09912    0   34          -    0.09912     -      -    0s
+     0     0    0.09912    0   50          -    0.09912     -      -    0s
+     0     0    0.09912    0   59          -    0.09912     -      -    1s
+     0     0    0.09912    0   19          -    0.09912     -      -    1s
+     0     0    0.09912    0   43          -    0.09912     -      -    1s
+     0     0    0.09912    0   49          -    0.09912     -      -    1s
+     0     0    0.09912    0   49          -    0.09912     -      -    1s
+     0     2    0.09912    0   23          -    0.09912     -      -    2s
+  1604   714    0.10079   11   72          -    0.09912     -   21.3    5s
