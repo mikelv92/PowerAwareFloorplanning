@@ -51,16 +51,12 @@ def main():
                 if rr.no == occupancy[i][j]:
                     z[i][j] = rr.temp
 
-    centers = []
-    for rr in regions:
-        centers.append(Center(floor((rr.x + rr.w) / 2), floor((rr.y + rr.h) / 2)))
-
     flag = 0
     for l in xrange(100):
         for i in xrange(1, 61):
             for j in xrange(1, 8):
-                for c in centers:
-                    if i == c.x and j == c.y:
+                for rr in regions:
+                    if i == rr.cx and j == rr.cy:
                         flag = 1
                 if z[i][j] == 0:
                     flag = 1
