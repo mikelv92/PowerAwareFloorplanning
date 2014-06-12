@@ -9,8 +9,7 @@ from Solution import Solution
 from FileHandler import FileHandler
 
 
-
-
+#		this method returns 1 if the SA decides to accept the new solution (remember is probabilistic, not deterministic).
 def acceptanceProbability(current, new, temp):
     if new == 817609:
         return 0
