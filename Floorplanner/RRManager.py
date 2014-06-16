@@ -25,8 +25,6 @@ class RRManager:
     #Decide se normalizzare nella funzione obiettivo, 1 = NON normalizzare, 0 = normalizza
     normalizeMILP = 1
     normalizeSA = 0
-
-    tmax = 0
     def __init__(self, thermCond, aSect, sliceHeight, sliceWidth, airTemp, airResistance, fh):
         self.collection = []
         self.thermCond = thermCond
@@ -34,6 +32,7 @@ class RRManager:
         self.sliceHeight = sliceHeight
         self.sliceWidth = sliceWidth
         self.airTemp = airTemp
+        self.normalizeSA = 1 / (self.airTemp + 15)
         self.airResistance = airResistance
         self.tempArray = []
         self.sequencePair = SequencePair(list(), list())
@@ -218,14 +217,10 @@ class RRManager:
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
 
-        if self.normalizeSA == 0 :
-            self.normalizeSA = 1/maxTemp
-        if self.normalizeMILP == 0 :
-            self.normalizetMILP = 1/self.milpObjVal
-
-        self.tmax=maxTemp
-
         return (self.weightSA *self.normalizeSA* maxTemp + self.normalizeMILP*self.weightMILP * self.milpObjVal)*500
+
+
+
 #used in case the move is accepted
     def updateSequencePair(self, pair):
         self.sequencePair = pair
