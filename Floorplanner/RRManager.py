@@ -96,7 +96,7 @@ class RRManager:
 
     def getSequence2(self):
         return self.sequencePair.sequence2
-
+#finds all the RR temperatures after the MILP provided a direct distance.
     def calculateTemperatures(self):
         #declare the coefficient and known term matrices, +1 for Tair
         a = [[0 for x in xrange(len(self.collection))] for x in xrange(len(self.collection))]
@@ -138,7 +138,7 @@ class RRManager:
             self.collection[i].temp = self.tempArray[i]
             #print("Temperatura regione " + str(i) + " = " + str(self.collection[i].temp))
 
-
+#randomly choose between a random swap or an intelligent swap
     def makeSwapMove(self):
         choice = randint(0, 1)
         if choice == 0:
@@ -147,7 +147,7 @@ class RRManager:
         else:
             print "IntelligentSwapping"
             return self.intelligentSwapInSequencePair()
-
+#makes a random swap move
     def randomSwapInSequencePair(self):
         index1 = 0
         index2 = 0
@@ -165,7 +165,7 @@ class RRManager:
             b[index1], b[index2] = b[index2], b[index1]
         self.notMuchRelax() #decreases the number of relax iterations of each swap move in relaxDict
         return SequencePair(a, b)
-
+#swaps the hottest and the coldest RR
     def intelligentSwapInSequencePair(self):
         a = deepcopy(self.getSequence1())
         b = deepcopy(self.getSequence2())
@@ -192,7 +192,7 @@ class RRManager:
             return self.randomSwapInSequencePair()
         self.notMuchRelax() #decreases the number of relax iterations of each swap move in relaxDict
         return SequencePair(a, b)
-
+#puts a constraint on the number of iteration needed before a specific swap can be executed again
     def swapRelaxing(self, swapMove):
         if swapMove.index1 == swapMove.index2: return 1
         for sm in self.relaxDict.keys():
@@ -207,52 +207,7 @@ class RRManager:
             if self.relaxDict[sm] == 0:
                 del self.relaxDict[sm]
 
-    def makeDistanceVectorMove(self):
-        choice = randint(0, 1)
-        if choice == 0:
-            print "RandomVectoring"
-            return self.randomIncDistanceVector()
-        else:
-            print "IntelligentVectoring"
-            return self.intelligentIncDistanceVector()
-
-    def intelligentIncDistanceVector(self):
-        maxTempIndex1 = 0
-        maxTempIndex2 = 0
-        a = self.distanceVector[:]
-        print(a)
-        for i in xrange(len(a)):
-            if self.collection[i].temp > self.collection[maxTempIndex1].temp:
-                maxTempIndex1 = i
-            for j in xrange(len(a)):
-                if i == j:
-                    continue
-                else:
-                    if self.collection[j].temp > self.collection[maxTempIndex2].temp:
-                        if self.collection[j].temp <= self.collection[maxTempIndex1].temp:
-                            maxTempIndex2 = j
-        if maxTempIndex1 == maxTempIndex2:
-            return self.randomIncDistanceVector()
-        else:
-            a[maxTempIndex1][maxTempIndex2] += self.incConst
-            a[maxTempIndex2][maxTempIndex1] = a[maxTempIndex1][maxTempIndex2]
-            return a
-
-    def randomIncDistanceVector(self):
-        #print("Making sure doesn't change: "+str(self.distanceVector))
-        index1 = 0
-        index2 = 0
-        a = deepcopy(self.distanceVector)
-        print(a)
-        while index1 == index2:
-            index1 = randint(0, len(a) - 1)
-            index2 = randint(0, len(a) - 1)
-        a[index1][index2] += self.incConst
-        a[index2][index1] = a[index1][index2]
-        #print("Making sure doesn't change: "+str(self.distanceVector))
-        return a
-
-
+#returns the temperature solution cost combined with the MILP one
     def getSolutionCost(self):
         if self.milpObjVal == 817609:
             return 817609
@@ -271,13 +226,11 @@ class RRManager:
         self.tmax=maxTemp
 
         return (self.weightSA *self.normalizeSA* maxTemp + self.normalizeMILP*self.weightMILP * self.milpObjVal)*500
-
+#used in case the move is accepted
     def updateSequencePair(self, pair):
         self.sequencePair = pair
 
-    def updateDistanceVector(self, vector):
-        self.distanceVector = vector
-
+#returns true in case the difference between the max and the min temperature is less than epsilon
     def isUniformityReached(self):
         epsilon = self.epsilon
         maxTemp = self.collection[0].temp
@@ -290,6 +243,7 @@ class RRManager:
         print("Max Temp: " + str(maxTemp)+" Min Temp: " + str(minTemp))
         return maxTemp - minTemp < epsilon
 
+#system call to gurobi, the MILP solver. After execution parse the result file in order to get the MILP objective value and the actual distances between RRs
     def applyMILP(self, sequencePair, distanceVector):
         self.fh.updateDat(sequencePair, distanceVector)
         os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan.mod --wlp model.lp --check > /dev/null")
@@ -334,7 +288,7 @@ class RRManager:
 
         return self.milpObjVal
 
-
+#creates a file index.html to visualize the current floorplan, temperature  and objective value; opens this file on the browser; prints a screenshot and finally closes the open tab. To execute this method you need the program “imagemagick” and “xdotool”
     def drawOnBrowser(self, accettata):
 
 
@@ -465,7 +419,7 @@ class RRManager:
 
         self.filescritti += 1
         return
-
+#creates the input file for matlab
     def writeMatlabRegionsFile(self):
         #fh = open("/home/mikel/PycharmProjects/PowerAwareFloorplanning/ThermalMapGen/regions.txt", 'w')
         with open("problem.sol", 'r') as f_in:
@@ -507,4 +461,52 @@ class RRManager:
                     print "Temp = " + str(rr.temp)
 
 
-        #fh.close()
+    '''def makeDistanceVectorMove(self):
+        choice = randint(0, 1)
+        if choice == 0:
+            print "RandomVectoring"
+            return self.randomIncDistanceVector()
+        else:
+            print "IntelligentVectoring"
+            return self.intelligentIncDistanceVector()
+
+    def intelligentIncDistanceVector(self):
+        maxTempIndex1 = 0
+        maxTempIndex2 = 0
+        a = self.distanceVector[:]
+        print(a)
+        for i in xrange(len(a)):
+            if self.collection[i].temp > self.collection[maxTempIndex1].temp:
+                maxTempIndex1 = i
+            for j in xrange(len(a)):
+                if i == j:
+                    continue
+                else:
+                    if self.collection[j].temp > self.collection[maxTempIndex2].temp:
+                        if self.collection[j].temp <= self.collection[maxTempIndex1].temp:
+                            maxTempIndex2 = j
+        if maxTempIndex1 == maxTempIndex2:
+            return self.randomIncDistanceVector()
+        else:
+            a[maxTempIndex1][maxTempIndex2] += self.incConst
+            a[maxTempIndex2][maxTempIndex1] = a[maxTempIndex1][maxTempIndex2]
+            return a
+
+    def randomIncDistanceVector(self):
+        #print("Making sure doesn't change: "+str(self.distanceVector))
+        index1 = 0
+        index2 = 0
+        a = deepcopy(self.distanceVector)
+        print(a)
+        while index1 == index2:
+            index1 = randint(0, len(a) - 1)
+            index2 = randint(0, len(a) - 1)
+        a[index1][index2] += self.incConst
+        a[index2][index1] = a[index1][index2]
+        #print("Making sure doesn't change: "+str(self.distanceVector))
+        return a
+
+    def updateDistanceVector(self, vector):
+        self.distanceVector = vector
+
+    '''

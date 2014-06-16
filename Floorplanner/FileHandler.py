@@ -1,4 +1,5 @@
 class FileHandler:
+#	this method initialize all the physical constants, the power and the resources required by each RR
     def __init__(self, confu, power, const):
         self.confu = confu
         self.power = power
@@ -58,6 +59,7 @@ class FileHandler:
     def getPowerDict(self):
         return self.powerDict
 
+#	this method is used to update the /tmp/temp.dat file translated by glpsol in the model.lp file used by gurobi
     def updateDat(self, sequencePair, distanceVector):
         with open (self.confu, "r") as myfile:
             text=myfile.read()
