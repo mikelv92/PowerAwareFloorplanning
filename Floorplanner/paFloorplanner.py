@@ -56,7 +56,6 @@ def main():
     goodSolutions = []
 
     while not rrManager.isUniformityReached() and saTemperature > 50:
-        print "annealing"
         '''
         choice = randint(1, 2)
         sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
@@ -67,7 +66,12 @@ def main():
         '''
 
         sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
-        rrManager.applyMILP(sequencePair, distanceVector)
+        objVal = rrManager.applyMILP(sequencePair, distanceVector)
+
+        if objVal == 817609:
+            print "soluzione scartata due to infeasibility"
+            continue
+
         rrManager.calculateTemperatures()
         
         newSolutionCost = rrManager.getSolutionCost()
@@ -85,10 +89,7 @@ def main():
             rrManager.writeMatlabRegionsFile()
 
         else:
-            if(newSolutionCost == 817609):
-                print("soluzione scartata due to infeasibility")
-            else:
-                print("soluzione scartata con "+"Current: "+str(currentSolutionCost)+" New: "+str(newSolutionCost) + " Tmax: "+str(rrManager.getTmax())+" MILP: "+str(rrManager.getMILPObj()))
+            print("soluzione scartata con "+"Current: "+str(currentSolutionCost)+" New: "+str(newSolutionCost) + " Tmax: "+str(rrManager.getTmax())+" MILP: "+str(rrManager.getMILPObj()))
         saTemperature *= 1 - saCoolingRate
         print("saTemperature: " +str(saTemperature))
 

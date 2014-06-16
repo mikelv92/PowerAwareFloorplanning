@@ -195,32 +195,17 @@ class RRManager:
 
     def swapRelaxing(self, swapMove):
         if swapMove.index1 == swapMove.index2: return 1
-        print "Trying to swap seqNo: " + str(swapMove.seqNo) + " index1: " + str(swapMove.index1) + " index2: " + str(swapMove.index2)
-        print "RelaxDict: "
-        for sm in self.relaxDict.keys():
-            print "SeqNo: " + str(sm.seqNo) + " Index1: " + str(sm.index1) + " Index2: " + str(sm.index2) + " relaxing for: " + str(self.relaxDict[sm])
         for sm in self.relaxDict.keys():
             if sm.seqNo == swapMove.seqNo and sm.index1 == swapMove.index1 and sm.index2 == swapMove.index2:
-                print "Can't swap, still relaxing"
                 return 1
-        print "Can swap, put in the dict doe"
         self.relaxDict[swapMove] = len(self.collection) - 3
-        for sm in self.relaxDict.keys():
-            print "SeqNo: " + str(sm.seqNo) + " Index1: " + str(sm.index1) + " Index2: " + str(sm.index2) + " relaxing for: " + str(self.relaxDict[sm])
         return 0
 
     def notMuchRelax(self): #decreases the number of relax iterations of each swap move in relaxDict
-        print "not Much relax \n"
-        print "relaxDict before\n"
-        for sm in self.relaxDict.keys():
-            print "SeqNo: " + str(sm.seqNo) + " Index1: " + str(sm.index1) + " Index2: " + str(sm.index2) + " relaxing for: " + str(self.relaxDict[sm])
         for sm in self.relaxDict.keys():
             self.relaxDict[sm] -= 1
             if self.relaxDict[sm] == 0:
                 del self.relaxDict[sm]
-        print "relaxDict after \n"
-        for sm in self.relaxDict.keys():
-            print "SeqNo: " + str(sm.seqNo) + " Index1: " + str(sm.index1) + " Index2: " + str(sm.index2) + " relaxing for: " + str(self.relaxDict[sm])
 
     def makeDistanceVectorMove(self):
         choice = randint(0, 1)
@@ -347,7 +332,7 @@ class RRManager:
         except:
             self.milpObjVal = 817609  #wow such big number very matricola not much accept many magic number
 
-        return
+        return self.milpObjVal
 
 
     def drawOnBrowser(self, accettata):
@@ -482,7 +467,7 @@ class RRManager:
         return
 
     def writeMatlabRegionsFile(self):
-        fh = open("/home/mikel/PycharmProjects/PowerAwareFloorplanning/ThermalMapGen/regions.txt", 'w')
+        #fh = open("/home/mikel/PycharmProjects/PowerAwareFloorplanning/ThermalMapGen/regions.txt", 'w')
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()
 
@@ -508,13 +493,18 @@ class RRManager:
             w1 = round(float(w) + 1)
             a1 = round(float(a))
 
-            fh.write(str(x1) + "\n")
-            fh.write(str(y1) + "\n")
-            fh.write(str(w1) + "\n")
-            fh.write(str(a1) + "\n")
+            #fh.write(str(x1) + "\n")
+            #fh.write(str(y1) + "\n")
+            #fh.write(str(w1) + "\n")
+            #fh.write(str(a1) + "\n")
+            print "Region " + rrname
+            print "x = " + str(x1)
+            print "y = " + str(y1)
+            print "w = " + str(w1)
+            print "a = " + str(a1)
             for rr in self.collection:
                 if rr.name == rrname:
-                    fh.write(str(rr.temp) + "\n")
+                    print "Temp = " + str(rr.temp)
 
 
-        fh.close()
+        #fh.close()

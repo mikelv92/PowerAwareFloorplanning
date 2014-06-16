@@ -1,6 +1,0 @@
-1000000 #thermCond
-0.000001 #asect
-0.20 #sliceHeight 
-0.20 #slicewidth
-10 #airtemp
-10 #airResistance
