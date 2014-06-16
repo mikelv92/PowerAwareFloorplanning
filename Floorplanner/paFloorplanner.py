@@ -54,7 +54,9 @@ def main():
     distanceVector = [[0 for x in xrange(rrCount)] for x in xrange(rrCount)]
     goodSolutions = []
 
-    while not rrManager.isUniformityReached() and saTemperature > 50:
+    fh.incrementalFloorplan(rrManager)
+    while 0:
+    #while not rrManager.isUniformityReached() and saTemperature > 50:
         '''
         choice = randint(1, 2)
         sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
