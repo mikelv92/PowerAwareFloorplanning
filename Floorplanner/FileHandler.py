@@ -1,6 +1,8 @@
 import os
 from copy import copy, deepcopy
 from random import randint
+from ReconfigurableRegion import ReconfigurableRegion
+from SequencePair import SequencePair
 
 class FileHandler:
 #	this method initialize all the physical constants, the power and the resources required by each RR
@@ -227,7 +229,7 @@ class FileHandler:
 
 
             #leggi soluzione e trova i sequence pair, occhio che qua sei fuori dal while quindi c'è soluzione feasible
-            self.generaSequencePair()
+            self.generaSequencePair(rrManager)
             return
 
         #questo dovrebbe "riavviare" nel caso di infeasible
@@ -236,33 +238,66 @@ class FileHandler:
             self.incrementalFloorplan(rrManager)
 
 
-    def generaSequencePair(self):
+    def generateSequencePair(self, rrManager):
 
-
+        seq1 = []
+        seq2 = []
+        col = []
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()
 
-        for rrname in rrManager.collection:
+        for rr in rrManager.collection:
             startIndex = outputAsString.index("w(" + rr.name + ")")
             endIndex = outputAsString.index("\n", startIndex)
-            w = outputAsString[startIndex + 8:endIndex]
+            w1 = outputAsString[startIndex + 8:endIndex]
 
             startIndex = outputAsString.index("a(" + rr.name + ")")
             endIndex = outputAsString.index("\n", startIndex)
-            a = outputAsString[startIndex + 8:endIndex]
+            a1 = outputAsString[startIndex + 8:endIndex]
 
             startIndex = outputAsString.index("x(" + rr.name + ")")
             endIndex = outputAsString.index("\n", startIndex)
-            x = outputAsString[startIndex + 8:endIndex]
+            x1 = outputAsString[startIndex + 8:endIndex]
 
             startIndex = outputAsString.index("y(" + rr.name + ")")
             endIndex = outputAsString.index("\n", startIndex)
-            y = outputAsString[startIndex + 8:endIndex]
+            y1 = outputAsString[startIndex + 8:endIndex]
 
-            x1 = round(float(x))
-            y1 = round(float(y) - 1)
-            w1 = round(float(w) + 1)
-            a1 = round(float(a))
+            x1 = round(float(x1))
+            y1 = round(float(y1) - 1)
+            w1 = round(float(w1) + 1)
+            a1 = round(float(a1))
             #     x,y,w,a
             #addRegion(2,1,8,1);
             addRegions = addRegions + "addRegion(" + str(x1) + "," + str(y1) + "," + str(w1) + "," + str(a1) + ");\n"
+
+            #CX
+            startIndex = outputAsString.index("Cx(" + rr.name + ")")
+            realstartIndex = outputAsString.index(" ", startIndex)
+            endIndex = outputAsString.index("\n", startIndex)
+            cx = outputAsString[realstartIndex + 1:endIndex]
+            #print("Cx " + rrname + " is " + cx)
+            cx = round(float(cx))
+
+            #CY
+            startIndex = outputAsString.index("Cy(" + rr.name + ")")
+            realstartIndex = outputAsString.index(" ", startIndex)
+            endIndex = outputAsString.index("\n", startIndex)
+            cy = outputAsString[realstartIndex + 1:endIndex]
+            #print("Cy " + rrname + " is " + cy)
+            cy = round(float(cy))
+
+            col.append(ReconfigurableRegion(rr.name, cx, cy, 0, 0, None))
+
+        for rr in col:
+            for rrname in seq1:
+                for rrInSeq in col:
+                    if rrname == rr.name:
+                        if rr.cx < rrInSeq.cx: #rr is to the left of rr2
+                            seq1.insert(seq1.index(rrInSeq.name), rr.name)
+                            seq2.insert(seq2.index(rrInSeq.name), rr.name)
+                        if rr.xy > rrInSeq.cy: #rr is above rr2
+                            seq1.insert(seq1.index(rrInSeq.name), rr.name)
+                            seq2.insert(seq2.index(rrInSeq.name) + 1, rr.name)
+
+        return SequencePair(seq1, seq2)
