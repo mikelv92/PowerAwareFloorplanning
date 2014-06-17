@@ -1,599 +1,87 @@
-['rec2', 'rec11', 'rec5', 'rec10', 'rec4', 'rec9', 'rec8', 'rec14', 'rec3', 'rec15', 'rec1', 'rec7', 'rec13', 'rec12', 'rec6']
-['rec13', 'rec12', 'rec14', 'rec11', 'rec10', 'rec5', 'rec2', 'rec15', 'rec3', 'rec4', 'rec8', 'rec7', 'rec1', 'rec6', 'rec9']
-6
- rec7
-13
- rec7 rec15
-11
- rec7 rec15 rec13
-8
- rec7 rec15 rec13 rec10
-[<ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1caac1b320>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b3f8>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b440>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b488>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b4d0>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b518>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b5a8>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b5f0>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b680>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b6c8>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b758>]
-6
- rec8
-2
- rec8 rec3
-2
- rec8 rec3 rec4
-2
- rec8 rec3 rec4 rec5
-rec1
-h(rec1,1)
-not my region
-28
-0
-rec2
-h(rec2,1)
-not my region
-28
-0
-rec3
-h(rec3,1)
-not my region
-28
-0
-rec4
-h(rec4,1)
-not my region
-28
-0
-rec5
-h(rec5,1)
-not my region
-28
-0
-rec6
-h(rec6,1)
-not my region
-28
-0
-rec7
-h(rec7,1)
-rec70
-h(rec7,2)
-rec70
-h(rec7,3)
-rec70
-h(rec7,4)
-rec71
-h(rec7,5)
-rec70
-h(rec7,6)
-rec70
-h(rec7,7)
-rec70
-h(rec7,8)
-rec70
-4
-28
-rec8
-h(rec8,1)
-not my region
-28
-0
-rec9
-h(rec9,1)
-not my region
-28
-0
-rec10
-h(rec10,1)
-rec10 0
-h(rec10,2)
-rec10 0
-h(rec10,3)
-rec10 0
-h(rec10,4)
-rec10 0
-h(rec10,5)
-rec10 1
-h(rec10,6)
-rec10 0
-h(rec10,7)
-rec10 0
-h(rec10,8)
-rec10 0
-4
-28
-rec11
-h(rec11,1)
-not my region
-28
-0
-rec12
-h(rec12,1)
-not my region
-28
-0
-rec13
-h(rec13,1)
-rec13 0
-h(rec13,2)
-rec13 1
-h(rec13,3)
-rec13 0
-h(rec13,4)
-rec13 0
-h(rec13,5)
-rec13 0
-h(rec13,6)
-rec13 0
-h(rec13,7)
-rec13 0
-h(rec13,8)
-rec13 0
-22
-6
-rec14
-h(rec14,1)
-not my region
-28
-0
-rec15
-h(rec15,1)
-rec15 0
-h(rec15,2)
-rec15 0
-h(rec15,3)
-rec15 0
-h(rec15,4)
-rec15 0
-h(rec15,5)
-rec15 0
-h(rec15,6)
-rec15 1
-h(rec15,7)
-rec15 0
-h(rec15,8)
-rec15 0
-9
-28
-[<ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1caac1b320>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b3f8>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b518>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b5f0>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b680>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b6c8>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b758>]
-3
- rec9
-1
- rec9 rec2
-4
- rec9 rec2 rec14
-3
- rec9 rec2 rec14 rec12
-rec1
-h(rec1,1)
-not my region
-33
-0
-rec2
-h(rec2,1)
-not my region
-33
-0
-rec3
-h(rec3,1)
-rec30
-h(rec3,2)
-rec30
-h(rec3,3)
-rec30
-h(rec3,4)
-rec31
-h(rec3,5)
-rec30
-h(rec3,6)
-rec30
-h(rec3,7)
-rec30
-h(rec3,8)
-rec30
-5
-18
-rec4
-h(rec4,1)
-rec40
-h(rec4,2)
-rec40
-h(rec4,3)
-rec40
-h(rec4,4)
-rec40
-h(rec4,5)
-rec40
-h(rec4,6)
-rec40
-h(rec4,7)
-rec40
-h(rec4,8)
-rec41
-4
-22
-rec5
-h(rec5,1)
-rec50
-h(rec5,2)
-rec50
-h(rec5,3)
-rec50
-h(rec5,4)
-rec51
-h(rec5,5)
-rec50
-h(rec5,6)
-rec50
-h(rec5,7)
-rec50
-h(rec5,8)
-rec50
-10
-33
-rec6
-h(rec6,1)
-not my region
-33
-0
-rec7
-h(rec7,1)
-rec70
-h(rec7,2)
-rec70
-h(rec7,3)
-rec70
-h(rec7,4)
-rec71
-h(rec7,5)
-rec70
-h(rec7,6)
-rec70
-h(rec7,7)
-rec70
-h(rec7,8)
-rec70
-4
-28
-rec8
-h(rec8,1)
-rec80
-h(rec8,2)
-rec80
-h(rec8,3)
-rec80
-h(rec8,4)
-rec80
-h(rec8,5)
-rec81
-h(rec8,6)
-rec80
-h(rec8,7)
-rec80
-h(rec8,8)
-rec80
-16
-1
-rec9
-h(rec9,1)
-not my region
-33
-0
-rec10
-h(rec10,1)
-rec10 0
-h(rec10,2)
-rec10 0
-h(rec10,3)
-rec10 0
-h(rec10,4)
-rec10 0
-h(rec10,5)
-rec10 1
-h(rec10,6)
-rec10 0
-h(rec10,7)
-rec10 0
-h(rec10,8)
-rec10 0
-4
-28
-rec11
-h(rec11,1)
-not my region
-33
-0
-rec12
-h(rec12,1)
-not my region
-33
-0
-rec13
-h(rec13,1)
-rec13 0
-h(rec13,2)
-rec13 1
-h(rec13,3)
-rec13 0
-h(rec13,4)
-rec13 0
-h(rec13,5)
-rec13 0
-h(rec13,6)
-rec13 0
-h(rec13,7)
-rec13 0
-h(rec13,8)
-rec13 0
-22
-6
-rec14
-h(rec14,1)
-not my region
-33
-0
-rec15
-h(rec15,1)
-rec15 0
-h(rec15,2)
-rec15 0
-h(rec15,3)
-rec15 0
-h(rec15,4)
-rec15 0
-h(rec15,5)
-rec15 0
-h(rec15,6)
-rec15 1
-h(rec15,7)
-rec15 0
-h(rec15,8)
-rec15 0
-9
-28
-[<ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1caac1b320>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b518>, <ReconfigurableRegion.ReconfigurableRegion instance at 0x7f1cac79b680>]
-1
- rec6
-1
- rec6 rec11
-0
- rec6 rec11 rec1
-excepiton0
-rec1
-h(rec1,1)
-not my region
-33
-0
-rec2
-h(rec2,1)
-rec20
-h(rec2,2)
-rec20
-h(rec2,3)
-rec20
-h(rec2,4)
-rec21
-h(rec2,5)
-rec20
-h(rec2,6)
-rec20
-h(rec2,7)
-rec20
-h(rec2,8)
-rec20
-5
-4
-rec3
-h(rec3,1)
-rec30
-h(rec3,2)
-rec30
-h(rec3,3)
-rec30
-h(rec3,4)
-rec31
-h(rec3,5)
-rec30
-h(rec3,6)
-rec30
-h(rec3,7)
-rec30
-h(rec3,8)
-rec30
-5
-18
-rec4
-h(rec4,1)
-rec40
-h(rec4,2)
-rec40
-h(rec4,3)
-rec40
-h(rec4,4)
-rec40
-h(rec4,5)
-rec40
-h(rec4,6)
-rec40
-h(rec4,7)
-rec40
-h(rec4,8)
-rec41
-4
-22
-rec5
-h(rec5,1)
-rec50
-h(rec5,2)
-rec50
-h(rec5,3)
-rec50
-h(rec5,4)
-rec51
-h(rec5,5)
-rec50
-h(rec5,6)
-rec50
-h(rec5,7)
-rec50
-h(rec5,8)
-rec50
-10
-33
-rec6
-h(rec6,1)
-not my region
-33
-0
-rec7
-h(rec7,1)
-rec70
-h(rec7,2)
-rec70
-h(rec7,3)
-rec70
-h(rec7,4)
-rec71
-h(rec7,5)
-rec70
-h(rec7,6)
-rec70
-h(rec7,7)
-rec70
-h(rec7,8)
-rec70
-4
-28
-rec8
-h(rec8,1)
-rec80
-h(rec8,2)
-rec80
-h(rec8,3)
-rec80
-h(rec8,4)
-rec80
-h(rec8,5)
-rec81
-h(rec8,6)
-rec80
-h(rec8,7)
-rec80
-h(rec8,8)
-rec80
-16
-1
-rec9
-h(rec9,1)
-rec90
-h(rec9,2)
-rec90
-h(rec9,3)
-rec90
-h(rec9,4)
-rec91
-h(rec9,5)
-rec90
-h(rec9,6)
-rec90
-h(rec9,7)
-rec90
-h(rec9,8)
-rec90
-4
-10
-rec10
-h(rec10,1)
-rec10 0
-h(rec10,2)
-rec10 0
-h(rec10,3)
-rec10 0
-h(rec10,4)
-rec10 0
-h(rec10,5)
-rec10 1
-h(rec10,6)
-rec10 0
-h(rec10,7)
-rec10 0
-h(rec10,8)
-rec10 0
-4
-28
-rec11
-h(rec11,1)
-not my region
-33
-0
-rec12
-h(rec12,1)
-rec12 0
-h(rec12,2)
-rec12 1
-h(rec12,3)
-rec12 0
-h(rec12,4)
-rec12 0
-h(rec12,5)
-rec12 0
-h(rec12,6)
-rec12 0
-h(rec12,7)
-rec12 0
-h(rec12,8)
-rec12 0
-4
-29
-rec13
-h(rec13,1)
-rec13 0
-h(rec13,2)
-rec13 1
-h(rec13,3)
-rec13 0
-h(rec13,4)
-rec13 0
-h(rec13,5)
-rec13 0
-h(rec13,6)
-rec13 0
-h(rec13,7)
-rec13 0
-h(rec13,8)
-rec13 0
-22
-6
-rec14
-h(rec14,1)
-rec14 0
-h(rec14,2)
-rec14 0
-h(rec14,3)
-rec14 0
-h(rec14,4)
-rec14 0
-h(rec14,5)
-rec14 0
-h(rec14,6)
-rec14 1
-h(rec14,7)
-rec14 0
-h(rec14,8)
-rec14 0
-16
-1
-rec15
-h(rec15,1)
-rec15 0
-h(rec15,2)
-rec15 0
-h(rec15,3)
-rec15 0
-h(rec15,4)
-rec15 0
-h(rec15,5)
-rec15 0
-h(rec15,6)
-rec15 1
-h(rec15,7)
-rec15 0
-h(rec15,8)
-rec15 0
-9
-28
-[]
+['rec4', 'rec3', 'rec10', 'rec15', 'rec13', 'rec12', 'rec1', 'rec9', 'rec8', 'rec6', 'rec5', 'rec2', 'rec7', 'rec14', 'rec11']
+['rec11', 'rec15', 'rec1', 'rec2', 'rec6', 'rec13', 'rec8', 'rec4', 'rec3', 'rec12', 'rec10', 'rec5', 'rec9', 'rec14', 'rec7']
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+ehm ho finito le regioni
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+not my region (non ho imparato ancora come fare nop negli except)
+Cx rec1 is 6
+Cy rec1 is 6.9999999999999915e+01
+Cx rec2 is 6
+Cy rec2 is 8.9999999999999844e+01
+Cx rec3 is 42
+Cy rec3 is 1.0999999999999997e+02
+Cx rec4 is 15
+Cy rec4 is 1.2999999999999989e+02
+Cx rec5 is 25
+Cy rec5 is 1.0999999999999989e+02
+Cx rec6 is 7
+Cy rec6 is 4.9999999999999915e+01
+Cx rec7 is 30
+Cy rec7 is 8.9999999999999886e+01
+Cx rec8 is 48
+Cy rec8 is 1.4999999999999991e+02
+Cx rec9 is 15
+Cy rec9 is 1.4999999999999991e+02
+Cx rec10 is 26
+Cy rec10 is 2.9999999999999936e+01
+Cx rec11 is 15
+Cy rec11 is 2.9999999999999936e+01
+Cx rec12 is 61
+Cy rec12 is 6.9999999999999915e+01
+Cx rec13 is 73
+Cy rec13 is 6.9999999999999858e+01
+Cx rec14 is 49
+Cy rec14 is 4.9999999999999915e+01
+Cx rec15 is 19
+Cy rec15 is 60
+sq1
+rec4 cx: 5.0 cy: 6.0
+rec9 cx: 5.0 cy: 7.0
+rec2 cx: 0.0 cy: 4.0
+rec1 cx: 0.0 cy: 3.0
+rec3 cx: 18.0 cy: 5.0
+rec8 cx: 15.0 cy: 7.0
+rec5 cx: 7.0 cy: 5.0
+rec6 cx: 0.0 cy: 2.0
+rec7 cx: 12.0 cy: 4.0
+rec10 cx: 10.0 cy: 1.0
+rec11 cx: 5.0 cy: 1.0
+rec12 cx: 28.0 cy: 3.0
+rec15 cx: 7.0 cy: 2.0
+rec14 cx: 16.0 cy: 2.0
+rec13 cx: 33.0 cy: 2.0
+sq2
+rec11 cx: 5.0 cy: 1.0
+rec6 cx: 0.0 cy: 2.0
+rec1 cx: 0.0 cy: 3.0
+rec2 cx: 0.0 cy: 4.0
+rec15 cx: 7.0 cy: 2.0
+rec10 cx: 10.0 cy: 1.0
+rec5 cx: 7.0 cy: 5.0
+rec7 cx: 12.0 cy: 4.0
+rec14 cx: 16.0 cy: 2.0
+rec3 cx: 18.0 cy: 5.0
+rec4 cx: 5.0 cy: 6.0
+rec9 cx: 5.0 cy: 7.0
+rec13 cx: 33.0 cy: 2.0
+rec12 cx: 28.0 cy: 3.0
+rec8 cx: 15.0 cy: 7.0
 SA finito!

@@ -115,7 +115,7 @@ class FileHandler:
 
 
     def incrementalFloorplan(self,rrManager):
-        try:
+        #try:
             quanteregioniallavolta = 4;
             regioniNP = deepcopy(rrManager.collection)
             #regioniNP = ["rec1","rec2","rec3","rec4","rec5","rec6","rec7","rec8","rec9","rec10","rec11","rec12","rec13","rec14","rec15"]
@@ -128,9 +128,9 @@ class FileHandler:
                 try:
                     while(i<quanteregioniallavolta):
                         randomint= randint(0,len(regioniNP)-1)
-                        print randomint
+                        #print randomint
                         np+=" "+str(regioniNP[randomint].name)
-                        print np
+                        #print np
                         tempBuffer.append(regioniNP[randomint].name)
                         del regioniNP[randomint]
                         i+=1
@@ -174,7 +174,7 @@ class FileHandler:
                     xf="param xf :=\n"
                     hf="param hf:\t1\t2\t3\t4\t5\t6\t7\t8:=\n"
                     for rr in rrManager.collection:
-                        print rr.name
+                        #print rr.name
                         startIndex = outputAsString.index("w(" + rr.name + ")")
                         endIndex = outputAsString.index("\n", startIndex)
                         w = outputAsString[startIndex + 8:endIndex]
@@ -198,8 +198,8 @@ class FileHandler:
                             print("not my region (non ho imparato ancora come fare nop negli except)")
 
 
-                        print (int(w))
-                        print (int(x))
+                        #print (int(w))
+                        #print (int(x))
                         wf+="\t"+rr.name+"\t"+str(int(w))+"\n"
                         xf+="\t"+rr.name+"\t"+str(int(x))+"\n"
 
@@ -228,15 +228,19 @@ class FileHandler:
                 os.system("gurobi_cl ResultFile=problem.sol MIPGap=0.2 model.lp TimeLimit=100 > /dev/null")
 
 
-            #leggi soluzione e trova i sequence pair, occhio che qua sei fuori dal while quindi c'è soluzione feasible
-            self.generaSequencePair(rrManager)
+            #leggi soluzione e trova i sequence pair,
+            # occhio che qua sei fuori dal while
+            # quindi ce soluzione feasible
+            self.generateSequencePair(deepcopy(rrManager.collection))
             return
 
         #questo dovrebbe "riavviare" nel caso di infeasible
-        except:
+    """
+        except Exception,e:
+            print e
             print("riavvia")
             self.incrementalFloorplan(rrManager)
-
+"""
 
     def generateSequencePair(self, rrManager):
 
@@ -246,7 +250,7 @@ class FileHandler:
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()
 
-        for rr in rrManager.collection:
+        for rr in rrManager:
             startIndex = outputAsString.index("w(" + rr.name + ")")
             endIndex = outputAsString.index("\n", startIndex)
             w1 = outputAsString[startIndex + 8:endIndex]
@@ -269,14 +273,14 @@ class FileHandler:
             a1 = round(float(a1))
             #     x,y,w,a
             #addRegion(2,1,8,1);
-            addRegions = addRegions + "addRegion(" + str(x1) + "," + str(y1) + "," + str(w1) + "," + str(a1) + ");\n"
+
 
             #CX
             startIndex = outputAsString.index("Cx(" + rr.name + ")")
             realstartIndex = outputAsString.index(" ", startIndex)
             endIndex = outputAsString.index("\n", startIndex)
             cx = outputAsString[realstartIndex + 1:endIndex]
-            #print("Cx " + rrname + " is " + cx)
+            print("Cx " + rr.name + " is " + cx)
             cx = round(float(cx))
 
             #CY
@@ -284,20 +288,40 @@ class FileHandler:
             realstartIndex = outputAsString.index(" ", startIndex)
             endIndex = outputAsString.index("\n", startIndex)
             cy = outputAsString[realstartIndex + 1:endIndex]
-            #print("Cy " + rrname + " is " + cy)
+            print("Cy " + rr.name + " is " + cy)
             cy = round(float(cy))
 
-            col.append(ReconfigurableRegion(rr.name, cx, cy, 0, 0, None))
+            col.append(ReconfigurableRegion(rr.name, x1, y1, w1, a1, None))
 
         for rr in col:
-            for rrname in seq1:
-                for rrInSeq in col:
-                    if rrname == rr.name:
-                        if rr.cx < rrInSeq.cx: #rr is to the left of rr2
-                            seq1.insert(seq1.index(rrInSeq.name), rr.name)
-                            seq2.insert(seq2.index(rrInSeq.name), rr.name)
-                        if rr.xy > rrInSeq.cy: #rr is above rr2
-                            seq1.insert(seq1.index(rrInSeq.name), rr.name)
-                            seq2.insert(seq2.index(rrInSeq.name) + 1, rr.name)
+            h=0
+            j=0
+            for sq in seq1:
+                # 1 a destra di 0
+                if(rr.cx >sq.cx+sq.power):
+                    h+=1
+                    j+=1
+                #  1 sopra 0
+                elif(rr.cy < sq.cy+sq.temp):
+                    h+=1
+                    j=j
+                #  1 sotto 0
+                elif(rr.cy +rr.temp > sq.cy):
+                    h=h
+                    j+=1
+                #  1 a sx di 0
+                else:
+                    h=h
+                    j=j
+            seq1.insert(h,rr)
+            seq2.insert(j,rr)
 
-        return SequencePair(seq1, seq2)
+
+        print("sq1")
+        for rr in seq1:
+            print rr.name+" cx: "+str(rr.cx)+" cy: "+str(rr.cy)
+        print("sq2")
+        for rr in seq2:
+            print rr.name+" cx: "+str(rr.cx)+" cy: "+str(rr.cy)
+
+
