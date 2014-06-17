@@ -1,0 +1,92 @@
+data;
+# set delle regioni da piazzare
+set N := rec1 rec2 rec3 rec4 rec5 rec6 rec7 rec8 rec9 rec10 rec11 rec12 rec13 rec14 rec15 rec16 rec17 rec18 rec19 rec20 rec21 rec22 rec23 rec24 rec25 rec26 rec27 rec28 rec29 rec30 rec31 rec32 rec33 rec34 rec35 rec36 rec37 rec38 rec39 rec40 rec41 rec42 rec43 rec44 rec45 rec46 rec47 rec48 rec49 rec50;
+
+# connessioni tra una regione ed un punto fisso sull'FPGA che rappresenta un IO (lasciare vuoto)
+param:	IO:		ioX		ioY		ioWires :=
+;
+
+# requisiti di risorse per le regioni
+param	c:	CLB	BRAM	DSP :=
+	rec1	50	0	0
+	rec2	50	0	0
+	rec3	50	0	0
+	rec4	50	0	0
+	rec5	50	0	0
+	rec6	50	0	0
+	rec7	50	0	0
+	rec8	50	0	0
+	rec9	50	0	0
+	rec10 	50 	0	0
+	rec11	50	0	0
+	rec12	50	0	0
+	rec13	50	0	0
+	rec14	50	0	0
+	rec15	50	0	0
+	rec16	50	0	0
+	rec17	50	0	0
+	rec18	50	0	0
+	rec19	50	0	0
+	rec20	50	0	0
+	rec21	50	0	0
+	rec22	50	0	0
+	rec23	50	0	0
+	rec24	50	0	0
+	rec25	50	0	0
+	rec26	50	0	0
+	rec27	50	0	0
+	rec28	50	0	0
+	rec29	50	0	0
+	rec30	50	0	0
+	rec31	50	0	0
+	rec32	50	0	0
+	rec33	50	0	0
+	rec34	50	0	0
+	rec35	50	0	0
+	rec36	50	0	0
+	rec37	50	0	0
+	rec38	50	0	0
+	rec39	50	0	0
+	rec40	50	0	0
+	rec41	50	0	0
+	rec42	50	0	0
+	rec43	50	0	0
+	rec44	50	0	0
+	rec45	50	0	0
+	rec46	50	0	0
+	rec47	50	0	0
+	rec48	50	0	0
+	rec49	50	0	0
+	rec50	50	0	0
+;
+
+# interconnessioni (wires) tra le regioni, (esempi qui sotto: 4 fili da rec2 a rec1, 10 fili da rec3 a rec1)
+param comm default 0:=
+		rec1	rec2	40
+		rec3	rec1	100
+		rec5    rec7	40
+		rec3    rec7	40
+		rec5    rec6	40
+		rec2    rec8	40
+		rec9	rec3	40
+		rec10	rec11	40
+		rec12	rec13	40
+;
+
+# pesi assegnati alle metriche della funzione obiettivo, le metriche assumono tutte valori da 0 a 1 (sono normalizzate)
+# peso per la wire length totale
+param qWL := 0.3333333333333333;
+
+# peso per il consumo di risorse totale
+param qR := 0.3333333333333333;
+
+# perso per il "consumo" di perimetro totale
+param qP := 0.3333333333333333;
+
+# pesi per dire quanto mi costa sprecare una CLB, DSP o BRAM, in questo esempio i costi sono tutti unitari e non c'è
+# differenza tra sprecare una risorsa piuttosto che un'altra
+param: rct :=
+	CLB	1
+	DSP	1
+	BRAM	1
+;

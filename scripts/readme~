@@ -1,0 +1,46 @@
+README
+
+
+please install the following packages before running:
+
+1) glpk
+2) gurobi
+scaricare gurobi dal sito in /opt/
+sostiure il ? nei seguenti comandi
+$ tar xvfz gurobi5.6.?_linux64.tar.gz
+$ export GUROBI_HOME="/opt/gurobi56?/linux64"
+$ export PATH="${PATH}:${GUROBI_HOME}/bin"
+
+se LD_LIBRARY_PATH non esiste usare questo comando:
+$ export LD_LIBRARY_PATH="${GUROBI_HOME}/lib"
+
+altrimenti:
+$ export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+
+dal sito fare request academic license e poi:
+$ grbgetkey <licenseCode>
+
+
+3) numpy
+# apt-get install python-numpy
+
+Execution:
+$ cd veloce1
+$ python paFloorplanner.py confu.dat power.txt const.txt > debugVeloce1
+
+$ cd veloce2
+$ python paFloorplanner.py confu.dat power.txt const.txt > debugVeloce2
+
+$ cd veloce3
+$ python paFloorplanner.py confu.dat power.txt const.txt > debugVeloce3
+
+$ cd accurate1
+$ python paFloorplanner.py confu.dat power.txt const.txt > debugAccurate1
+
+$ cd accurate2
+$ python paFloorplanner.py confu.dat power.txt const.txt > debugAccurate2
+
+$ cd accurate3
+$ python paFloorplanner.py confu.dat power.txt const.txt > debugAccurate3
+
+For each folder after execution completes, send us: debug file, gurobi.log file

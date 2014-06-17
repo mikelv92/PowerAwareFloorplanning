@@ -1,0 +1,84 @@
+data;
+
+# --------------------- FPGA DATA --------------------------
+
+# indexes of the rows in the FPGA
+# each row is one reconfigurable tile height
+set R := 1 2 3 4 5 6 7 8; 
+
+# width of the FPGA in terms of tile
+param maxW := 60;
+
+# height of a tile in the FPGA
+param tileH := 20;
+
+# width of a tile in terms of slice resources
+param tileW := 2;
+
+# resource types
+set T := CLB DSP BRAM;
+
+# resource portions
+set P := por1 por2 por3 por4 por5 por6 por7 por8 por9 por10 por11 por12 por13 por14 por15;
+
+#portion resource types density for tiles
+param	d:			CLB		DSP		BRAM :=
+		por1		20		0		0
+		por2		0		0		4
+		por3		20		0		0
+		por4		0		0		4
+		por5		20		0		0
+		por6		0		8		0
+		por7		20		0		0
+		por8		0		0		0	#center IO
+		por9		20		0		0
+		por10		0		0		4
+		por11		20		0		0
+		por12		0		0		4
+		por13		20		0		0
+		por14		0		0		4
+		por15		20		0		0
+		
+										#right IO
+;
+
+#rows occupied by each portion (1 means that a portion crosses a row, 0 otherwise)
+param	rp:		1	2	3	4	5	6	7	8 :=
+		por1	1	1	1	1	1	1	1	1
+		por2	1	1	1	1	1	1	1	1
+		por3	1	1	1	1	1	1	1	1
+		por4	1	1	1	1	1	1	1	1
+		por5	1	1	1	1	1	1	1	1
+		por6	1	1	1	1	1	1	1	1
+		por7	1	1	1	1	1	1	1	1
+		por8	1	1	1	1	1	1	1	1
+		por9	1	1	1	1	1	1	1	1
+		por10	1	1	1	1	1	1	1	1
+		por11	1	1	1	1	1	1	1	1
+		por12	1	1	1	1	1	1	1	1
+		por13	1	1	1	1	1	1	1	1
+		por14	1	1	1	1	1	1	1	1
+		por15	1	1	1	1	1	1	1	1
+;
+
+#coordinates of the portions on the x axis
+param:			x1		x2 :=
+		por1	0		3
+		por2	4		4
+		por3	5		14
+		por4	15		15
+		por5	16		17
+		por6	18		18
+		por7	19		26
+		por8	27		27	#center IO
+		por9	28		39
+		por10	40		40
+		por11	41		50
+		por12	51		51
+		por13	52		55
+		por14	56		56
+		por15	57		60
+;
+
+
+end;

@@ -1,0 +1,492 @@
+['rec9', 'rec2', 'rec6', 'rec1', 'rec11', 'rec8', 'rec7', 'rec13', 'rec10', 'rec3', 'rec5', 'rec14', 'rec4', 'rec12', 'rec15']
+['rec14', 'rec11', 'rec7', 'rec6', 'rec15', 'rec8', 'rec12', 'rec2', 'rec9', 'rec1', 'rec5', 'rec4', 'rec13', 'rec3', 'rec10']
+Max Temp: 961.391588723 Min Temp: 10.2361735279
+IntelligentSwapping
+['rec9', 'rec2', 'rec6', 'rec1', 'rec7', 'rec8', 'rec11', 'rec13', 'rec10', 'rec3', 'rec5', 'rec14', 'rec4', 'rec12', 'rec15']
+['rec14', 'rec11', 'rec7', 'rec6', 'rec15', 'rec8', 'rec12', 'rec2', 'rec9', 'rec1', 'rec5', 'rec4', 'rec13', 'rec3', 'rec10']
+soluzione accettata con Current: 1e+12 New: 241.394176486 Tmax: 36.9820723927 MILP: 0.143752874996
+Region rec1
+x = 8.0
+y = 6.0
+w = 3.0
+a = 2.0
+Temp = 35.5025306705
+Region rec2
+x = 1.0
+y = 6.0
+w = 7.0
+a = 1.0
+Temp = 35.9856581824
+Region rec3
+x = 18.0
+y = 6.0
+w = 6.0
+a = 1.0
+Temp = 35.3168006039
+Region rec4
+x = 48.0
+y = 3.0
+w = 6.0
+a = 1.0
+Temp = 34.9519999374
+Region rec5
+x = 12.0
+y = 3.0
+w = 12.0
+a = 1.0
+Temp = 35.5736892653
+Region rec6
+x = 0.0
+y = 4.0
+w = 3.0
+a = 2.0
+Temp = 36.217455177
+Region rec7
+x = 0.0
+y = 2.0
+w = 3.0
+a = 2.0
+Temp = 36.9820723927
+Region rec8
+x = 3.0
+y = 3.0
+w = 8.0
+a = 3.0
+Temp = 35.7491494309
+Region rec9
+x = 1.0
+y = 7.0
+w = 6.0
+a = 1.0
+Temp = 35.736766757
+Region rec10
+x = 18.0
+y = 7.0
+w = 6.0
+a = 1.0
+Temp = 35.3661029886
+Region rec11
+x = 6.0
+y = 1.0
+w = 6.0
+a = 1.0
+Temp = 36.0665138761
+Region rec12
+x = 17.0
+y = 1.0
+w = 4.0
+a = 2.0
+Temp = 35.680272251
+Region rec13
+x = 12.0
+y = 4.0
+w = 6.0
+a = 4.0
+Temp = 35.8050494248
+Region rec14
+x = 0.0
+y = -0.0
+w = 17.0
+a = 1.0
+Temp = 35.4904350866
+Region rec15
+x = 20.0
+y = 0.0
+w = 11.0
+a = 1.0
+Temp = 35.2075039559
+saTemperature: 4985.0
+Max Temp: 36.9820723927 Min Temp: 34.9519999374
+RandomSwapping
+['rec9', 'rec2', 'rec6', 'rec1', 'rec7', 'rec8', 'rec15', 'rec13', 'rec10', 'rec3', 'rec5', 'rec14', 'rec4', 'rec12', 'rec11']
+['rec14', 'rec11', 'rec7', 'rec6', 'rec15', 'rec8', 'rec12', 'rec2', 'rec9', 'rec1', 'rec5', 'rec4', 'rec13', 'rec3', 'rec10']
+soluzione accettata con Current: 241.394176486 New: 238.859400283 Tmax: 36.716070906 MILP: 0.139524914332
+Region rec1
+x = 7.0
+y = 6.0
+w = 5.0
+a = 1.0
+Temp = 35.5417100599
+Region rec2
+x = 0.0
+y = 6.0
+w = 6.0
+a = 1.0
+Temp = 35.9600812383
+Region rec3
+x = 18.0
+y = 6.0
+w = 6.0
+a = 1.0
+Temp = 35.3109792809
+Region rec4
+x = 50.0
+y = 2.0
+w = 7.0
+a = 1.0
+Temp = 34.9915815734
+Region rec5
+x = 16.0
+y = 2.0
+w = 11.0
+a = 1.0
+Temp = 35.5139175119
+Region rec6
+x = 0.0
+y = 4.0
+w = 3.0
+a = 2.0
+Temp = 36.1431797233
+Region rec7
+x = 0.0
+y = 2.0
+w = 3.0
+a = 2.0
+Temp = 36.716070906
+Region rec8
+x = 3.0
+y = 4.0
+w = 9.0
+a = 2.0
+Temp = 35.7490447868
+Region rec9
+x = 1.0
+y = 7.0
+w = 6.0
+a = 1.0
+Temp = 35.743202463
+Region rec10
+x = 22.0
+y = 7.0
+w = 5.0
+a = 1.0
+Temp = 35.3275327305
+Region rec11
+x = 28.0
+y = 0.0
+w = 5.0
+a = 1.0
+Temp = 36.1289446253
+Region rec12
+x = 41.0
+y = 1.0
+w = 5.0
+a = 1.0
+Temp = 35.5767483974
+Region rec13
+x = 12.0
+y = 4.0
+w = 6.0
+a = 4.0
+Temp = 35.7907189109
+Region rec14
+x = 4.0
+y = 0.0
+w = 18.0
+a = 1.0
+Temp = 35.4343385884
+Region rec15
+x = 3.0
+y = 2.0
+w = 7.0
+a = 2.0
+Temp = 35.703949204
+saTemperature: 4970.045
+Max Temp: 36.716070906 Min Temp: 34.9915815734
+IntelligentSwapping
+['rec9', 'rec2', 'rec6', 'rec15', 'rec7', 'rec8', 'rec1', 'rec13', 'rec10', 'rec3', 'rec5', 'rec14', 'rec4', 'rec12', 'rec11']
+['rec14', 'rec11', 'rec7', 'rec6', 'rec15', 'rec8', 'rec12', 'rec2', 'rec9', 'rec1', 'rec5', 'rec4', 'rec13', 'rec3', 'rec10']
+soluzione scartata due to infeasibility
+Max Temp: 36.716070906 Min Temp: 34.9915815734
+IntelligentSwapping
+['rec9', 'rec2', 'rec6', 'rec1', 'rec7', 'rec8', 'rec15', 'rec13', 'rec10', 'rec3', 'rec5', 'rec14', 'rec4', 'rec12', 'rec11']
+['rec14', 'rec11', 'rec7', 'rec12', 'rec15', 'rec8', 'rec6', 'rec2', 'rec9', 'rec1', 'rec5', 'rec4', 'rec13', 'rec3', 'rec10']
+soluzione accettata con Current: 238.859400283 New: 240.213872358 Tmax: 36.7817034696 MILP: 0.14348430122
+Region rec1
+x = 10.0
+y = 5.0
+w = 3.0
+a = 2.0
+Temp = 35.5624878006
+Region rec2
+x = 4.0
+y = 6.0
+w = 6.0
+a = 1.0
+Temp = 35.9759786243
+Region rec3
+x = 18.0
+y = 5.0
+w = 6.0
+a = 1.0
+Temp = 35.4107959053
+Region rec4
+x = 26.0
+y = 2.0
+w = 6.0
+a = 1.0
+Temp = 35.2467209338
+Region rec5
+x = 14.0
+y = 2.0
+w = 12.0
+a = 1.0
+Temp = 35.4740302693
+Region rec6
+x = 5.0
+y = 5.0
+w = 5.0
+a = 1.0
+Temp = 36.0071092741
+Region rec7
+x = 0.0
+y = 2.0
+w = 2.0
+a = 3.0
+Temp = 36.7817034696
+Region rec8
+x = 3.0
+y = 3.0
+w = 9.0
+a = 2.0
+Temp = 35.7150092926
+Region rec9
+x = 5.0
+y = 7.0
+w = 5.0
+a = 1.0
+Temp = 35.766863554
+Region rec10
+x = 23.0
+y = 6.0
+w = 6.0
+a = 1.0
+Temp = 35.3998691013
+Region rec11
+x = 23.0
+y = -0.0
+w = 6.0
+a = 1.0
+Temp = 36.0585716958
+Region rec12
+x = 14.0
+y = 1.0
+w = 7.0
+a = 1.0
+Temp = 35.605577324
+Region rec13
+x = 13.0
+y = 3.0
+w = 5.0
+a = 5.0
+Temp = 35.7641884306
+Region rec14
+x = 0.0
+y = -0.0
+w = 14.0
+a = 2.0
+Temp = 35.4409957156
+Region rec15
+x = 2.0
+y = 2.0
+w = 11.0
+a = 1.0
+Temp = 35.4220986091
+saTemperature: 4955.134865
+Max Temp: 36.7817034696 Min Temp: 35.2467209338
+IntelligentSwapping
+['rec9', 'rec2', 'rec6', 'rec1', 'rec7', 'rec8', 'rec15', 'rec13', 'rec10', 'rec3', 'rec5', 'rec14', 'rec4', 'rec12', 'rec11']
+['rec14', 'rec11', 'rec7', 'rec12', 'rec15', 'rec8', 'rec13', 'rec2', 'rec9', 'rec1', 'rec5', 'rec4', 'rec6', 'rec3', 'rec10']
+soluzione accettata con Current: 240.213872358 New: 235.358779833 Tmax: 36.7574747294 MILP: 0.124602347567
+Region rec1
+x = 12.0
+y = 6.0
+w = 6.0
+a = 1.0
+Temp = 35.528547176
+Region rec2
+x = 4.0
+y = 6.0
+w = 6.0
+a = 1.0
+Temp = 35.9622938834
+Region rec3
+x = 18.0
+y = 6.0
+w = 6.0
+a = 1.0
+Temp = 35.3605300759
+Region rec4
+x = 41.0
+y = 4.0
+w = 5.0
+a = 1.0
+Temp = 35.0918067752
+Region rec5
+x = 18.0
+y = 2.0
+w = 4.0
+a = 4.0
+Temp = 35.5783360402
+Region rec6
+x = 12.0
+y = 7.0
+w = 6.0
+a = 1.0
+Temp = 36.0348813234
+Region rec7
+x = 1.0
+y = 3.0
+w = 2.0
+a = 3.0
+Temp = 36.7574747294
+Region rec8
+x = 3.0
+y = 4.0
+w = 9.0
+a = 2.0
+Temp = 35.7291029942
+Region rec9
+x = 7.0
+y = 7.0
+w = 5.0
+a = 1.0
+Temp = 35.8001986012
+Region rec10
+x = 46.0
+y = 7.0
+w = 5.0
+a = 1.0
+Temp = 35.2035585224
+Region rec11
+x = 55.0
+y = -0.0
+w = 6.0
+a = 1.0
+Temp = 36.4267538312
+Region rec12
+x = 10.0
+y = 1.0
+w = 5.0
+a = 1.0
+Temp = 35.598199587
+Region rec13
+x = 12.0
+y = 2.0
+w = 6.0
+a = 4.0
+Temp = 35.7948006382
+Region rec14
+x = 1.0
+y = -0.0
+w = 9.0
+a = 2.0
+Temp = 35.3849459117
+Region rec15
+x = 4.0
+y = 2.0
+w = 6.0
+a = 2.0
+Temp = 35.3805699106
+saTemperature: 4940.26946041
+Max Temp: 36.7574747294 Min Temp: 35.0918067752
+IntelligentSwapping
+['rec9', 'rec2', 'rec6', 'rec1', 'rec7', 'rec8', 'rec15', 'rec13', 'rec10', 'rec3', 'rec5', 'rec14', 'rec4', 'rec12', 'rec11']
+['rec14', 'rec11', 'rec7', 'rec12', 'rec15', 'rec8', 'rec13', 'rec2', 'rec9', 'rec1', 'rec5', 'rec10', 'rec6', 'rec3', 'rec4']
+soluzione accettata con Current: 235.358779833 New: 236.46907208 Tmax: 36.800936849 MILP: 0.128077691675
+Region rec1
+x = 10.0
+y = 6.0
+w = 5.0
+a = 1.0
+Temp = 35.5538552341
+Region rec2
+x = 4.0
+y = 6.0
+w = 6.0
+a = 1.0
+Temp = 35.9206035131
+Region rec3
+x = 18.0
+y = 6.0
+w = 4.0
+a = 2.0
+Temp = 35.3610124672
+Region rec4
+x = 52.0
+y = 3.0
+w = 3.0
+a = 2.0
+Temp = 34.9493246541
+Region rec5
+x = 15.0
+y = 3.0
+w = 12.0
+a = 1.0
+Temp = 35.5682046718
+Region rec6
+x = 12.0
+y = 7.0
+w = 6.0
+a = 1.0
+Temp = 36.0244466763
+Region rec7
+x = 0.0
+y = 1.0
+w = 1.0
+a = 5.0
+Temp = 36.800936849
+Region rec8
+x = 1.0
+y = 4.0
+w = 9.0
+a = 2.0
+Temp = 35.6614400911
+Region rec9
+x = 5.0
+y = 7.0
+w = 5.0
+a = 1.0
+Temp = 35.7746244611
+Region rec10
+x = 16.0
+y = 4.0
+w = 2.0
+a = 3.0
+Temp = 35.4628720928
+Region rec11
+x = 17.0
+y = 0.0
+w = 6.0
+a = 1.0
+Temp = 36.0406158573
+Region rec12
+x = 17.0
+y = 1.0
+w = 6.0
+a = 1.0
+Temp = 35.6919706626
+Region rec13
+x = 10.0
+y = 2.0
+w = 5.0
+a = 4.0
+Temp = 35.8418352456
+Region rec14
+x = 0.0
+y = -0.0
+w = 17.0
+a = 1.0
+Temp = 35.482643545
+Region rec15
+x = 5.0
+y = 2.0
+w = 5.0
+a = 2.0
+Temp = 35.4976139789
+saTemperature: 4925.44865202
+Max Temp: 36.800936849 Min Temp: 34.9493246541
+IntelligentSwapping
+['rec9', 'rec2', 'rec6', 'rec1', 'rec7', 'rec4', 'rec15', 'rec13', 'rec10', 'rec3', 'rec5', 'rec14', 'rec8', 'rec12', 'rec11']
+['rec14', 'rec11', 'rec7', 'rec12', 'rec15', 'rec8', 'rec13', 'rec2', 'rec9', 'rec1', 'rec5', 'rec10', 'rec6', 'rec3', 'rec4']
+soluzione accettata con Current: 236.46907208 New
