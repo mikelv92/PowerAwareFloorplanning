@@ -1,6 +1,6 @@
 data;
 # set delle regioni da piazzare
-set N := rec1 rec2 rec3 rec4 rec5 rec6 rec7 rec8 rec9 rec10 rec11 rec12 rec13 rec14 rec15;
+set N := rec1 rec2 rec3 rec4 rec5 rec6 rec7 rec8 rec9 rec10 rec11 rec12 rec13 rec14 rec15 rec16 rec17 rec18 rec19 rec20 rec21 rec22 rec23 rec24 rec25 rec26 rec27 rec28 rec29 rec30;
 
 # connessioni tra una regione ed un punto fisso sull'FPGA che rappresenta un IO (lasciare vuoto)
 param:	IO:		ioX		ioY		ioWires :=
@@ -8,34 +8,67 @@ param:	IO:		ioX		ioY		ioWires :=
 
 # requisiti di risorse per le regioni
 param	c:	CLB	BRAM	DSP :=
-	rec1	100	0	0
-	rec2	100	4	0
-	rec3	100	0	4
-	rec4	100	0	0
-	rec5	200	0	0
-	rec6	100	0	0
-	rec7	100	0	0
-	rec8	300	4	0
-	rec9	100	0	0
-	rec10 	100 	0	0
-	rec11	100	0	0
-	rec12	100	0	0
-	rec13	400	0	0
-	rec14	300	0	0
-	rec15	200	0	0
+	rec19	140	0	0	
+ 	rec29	360	0	0	
+ 	rec20	220	0	0	
+ 	rec13	240	0	0	
+ 	rec8	140	4	0	
+ 	rec5	160	0	4	
+ 	rec24	80	0	0	
+ 	rec9	220	0	0	
+ 	rec15	80	0	0	
+ 	rec30	280	0	0	
+ 	rec22	180	0	0	
+ 	rec3	80	4	0	
+ 	rec14	220	0	0	
+ 	rec6	160	0	0	
+ 	rec11	220	0	0	
+ 	rec12	220	0	0	
+ 	rec27	60	0	0	
+ 	rec26	240	0	0	
+ 	rec28	180	0	0	
+ 	rec23	220	0	0	
+ 	rec21	100	0	0	
+ 	rec18	220	0	0	
+ 	rec25	240	0	0	
+ 	rec10	220	0	0	
+ 	rec7	60	4	0	
+ 	rec2	140	0	0	
+ 	rec1	160	4	0	
+ 	rec4	60	0	0	
+ 	rec17	160	0	0	
+ 	rec16	180	0	0
 ;
 
 # interconnessioni (wires) tra le regioni, (esempi qui sotto: 4 fili da rec2 a rec1, 10 fili da rec3 a rec1)
 param comm default 0:=
-		rec1	rec2	40
-		rec3	rec1	100
-		rec5    rec7	40
-		rec3    rec7	40
-		rec5    rec6	40
-		rec2    rec8	40
-		rec9	rec3	40
-		rec10	rec11	40
-		rec12	rec13	40
+	rec1	rec22	31	
+ 	rec3	rec7	14	
+ 	rec4	rec2	30	
+ 	rec4	rec13	38	
+ 	rec4	rec16	12	
+ 	rec4	rec26	22	
+ 	rec5	rec20	22	
+ 	rec6	rec1	27	
+ 	rec6	rec20	33	
+ 	rec7	rec19	30	
+ 	rec7	rec29	31	
+ 	rec9	rec13	36	
+ 	rec12	rec17	10	
+ 	rec12	rec22	24	
+ 	rec13	rec18	5	
+ 	rec14	rec1	8	
+ 	rec14	rec21	10	
+ 	rec15	rec9	38	
+ 	rec16	rec15	16	
+ 	rec18	rec15	10	
+ 	rec18	rec29	15	
+ 	rec21	rec9	37	
+ 	rec23	rec17	5	
+ 	rec24	rec21	28	
+ 	rec25	rec4	38	
+ 	rec27	rec4	40	
+ 	rec28	rec4	21
 ;
 
 # pesi assegnati alle metriche della funzione obiettivo, le metriche assumono tutte valori da 0 a 1 (sono normalizzate)

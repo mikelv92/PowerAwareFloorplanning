@@ -1,4 +1,5 @@
 import sys
+import os
 import math
 from random import randint
 from random import random
@@ -23,7 +24,7 @@ def main():
     if len(sys.argv) < 3:
         sys.stderr.write('Usage: python paFloorplanner.py <confu.dat> <power.txt> <const.txt>\n')
         sys.exit(-1)
-
+    
     fh = FileHandler(sys.argv[1], sys.argv[2], sys.argv[3])
 
     #Data structures to hold the input information
@@ -46,7 +47,7 @@ def main():
 
     fh.updateDat(rrManager.sequencePair, rrManager.distanceVector)
 
-    saTemperature = 10000000000
+    saTemperature = 112911265
     saCoolingRate = 0.003
 
     currentSolutionCost = 1000000000000.0
@@ -54,9 +55,9 @@ def main():
     distanceVector = [[0 for x in xrange(rrCount)] for x in xrange(rrCount)]
     goodSolutions = []
 
-    #fh.incrementalFloorplan(rrManager)
+    fh.incrementalFloorplan(rrManager)
     #while 0:
-    while not rrManager.isUniformityReached() and saTemperature > 50:
+    while not rrManager.isUniformityReached() and saTemperature > 1:
         '''
         choice = randint(1, 2)
         sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
@@ -96,7 +97,7 @@ def main():
 
     print("SA finito!")
 
-    if saTemperature < 60:
+    if saTemperature < 1:
         print "Searching good Solutions for the best one..."
         bestSolution = goodSolutions[0]
         minCost = goodSolutions[0].cost

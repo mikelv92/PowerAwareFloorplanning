@@ -20,8 +20,8 @@ class RRManager:
     #Se il delta tmax-tmin e minor di epsilon l'algoritmo si ferma
     epsilon = 0.1
     #Pesi da dare al costo della funzione obiettivo, supposed to be between [0,1]
-    weightMILP = 0.5
-    weightSA = 0.5
+    weightMILP = 0.9
+    weightSA = 0.1
     #Decide se normalizzare nella funzione obiettivo, 1 = NON normalizzare, 0 = normalizza
     normalizeMILP = 1
     normalizeSA = 0
@@ -249,7 +249,7 @@ class RRManager:
         self.fh.updateDat(sequencePair, distanceVector)
         os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan2.mod --wlp model.lp --check > /dev/null")
         #os.system("gurobi_cl ResultFile=problem.sol TimeLimit=10 model.lp > /dev/null")
-        os.system("gurobi_cl ResultFile=problem.sol MIPGap=0.2 model.lp TimeLimit=30 > /dev/null")
+        os.system("gurobi_cl ResultFile=problem.sol MIPGap=0.2 TimeLimit=30 model.lp > /dev/null")
         #os.system("gurobi_cl ResultFile=problem.sol model.lp")
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()

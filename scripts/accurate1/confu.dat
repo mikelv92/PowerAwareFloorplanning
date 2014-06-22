@@ -1,6 +1,6 @@
 data;
 # set delle regioni da piazzare
-set N := rec1 rec2 rec3 rec4 rec5 rec6 rec7 rec8 rec9 rec10 rec11 rec12 rec13 rec14 rec15 rec16 rec17 rec18 rec19 rec20 rec21 rec22 rec23 rec24 rec25 rec26 rec27 rec28 rec29 rec30 rec31 rec32 rec33 rec34 rec35 rec36 rec37 rec38 rec39 rec40 rec41 rec42 rec43 rec44 rec45 rec46 rec47 rec48 rec49 rec50;
+set N := rec1 rec2 rec3 rec4 rec5 rec6 rec7 rec8 rec9 rec10 rec11 rec12 rec13 rec14 rec15 rec16 rec17 rec18 rec19 rec20 rec21 rec22 rec23 rec24 rec25 rec26 rec27 rec28 rec29 rec30;
 
 # connessioni tra una regione ed un punto fisso sull'FPGA che rappresenta un IO (lasciare vuoto)
 param:	IO:		ioX		ioY		ioWires :=
@@ -8,69 +8,67 @@ param:	IO:		ioX		ioY		ioWires :=
 
 # requisiti di risorse per le regioni
 param	c:	CLB	BRAM	DSP :=
-	rec1	50	0	0
-	rec2	50	0	0
-	rec3	50	0	0
-	rec4	50	0	0
-	rec5	50	0	0
-	rec6	50	0	0
-	rec7	50	0	0
-	rec8	50	0	0
-	rec9	50	0	0
-	rec10 	50 	0	0
-	rec11	50	0	0
-	rec12	50	0	0
-	rec13	50	0	0
-	rec14	50	0	0
-	rec15	50	0	0
-	rec16	50	0	0
-	rec17	50	0	0
-	rec18	50	0	0
-	rec19	50	0	0
-	rec20	50	0	0
-	rec21	50	0	0
-	rec22	50	0	0
-	rec23	50	0	0
-	rec24	50	0	0
-	rec25	50	0	0
-	rec26	50	0	0
-	rec27	50	0	0
-	rec28	50	0	0
-	rec29	50	0	0
-	rec30	50	0	0
-	rec31	50	0	0
-	rec32	50	0	0
-	rec33	50	0	0
-	rec34	50	0	0
-	rec35	50	0	0
-	rec36	50	0	0
-	rec37	50	0	0
-	rec38	50	0	0
-	rec39	50	0	0
-	rec40	50	0	0
-	rec41	50	0	0
-	rec42	50	0	0
-	rec43	50	0	0
-	rec44	50	0	0
-	rec45	50	0	0
-	rec46	50	0	0
-	rec47	50	0	0
-	rec48	50	0	0
-	rec49	50	0	0
-	rec50	50	0	0
+	rec19	140	0	0	
+ 	rec29	360	0	0	
+ 	rec20	220	0	0	
+ 	rec13	240	0	0	
+ 	rec8	140	4	0	
+ 	rec5	160	0	4	
+ 	rec24	80	0	0	
+ 	rec9	220	0	0	
+ 	rec15	80	0	0	
+ 	rec30	280	0	0	
+ 	rec22	180	0	0	
+ 	rec3	80	4	0	
+ 	rec14	220	0	0	
+ 	rec6	160	0	0	
+ 	rec11	220	0	0	
+ 	rec12	220	0	0	
+ 	rec27	60	0	0	
+ 	rec26	240	0	0	
+ 	rec28	180	0	0	
+ 	rec23	220	0	0	
+ 	rec21	100	0	0	
+ 	rec18	220	0	0	
+ 	rec25	240	0	0	
+ 	rec10	220	0	0	
+ 	rec7	60	4	0	
+ 	rec2	140	0	0	
+ 	rec1	160	4	0	
+ 	rec4	60	0	0	
+ 	rec17	160	0	0	
+ 	rec16	180	0	0
 ;
 
 # interconnessioni (wires) tra le regioni, (esempi qui sotto: 4 fili da rec2 a rec1, 10 fili da rec3 a rec1)
 param comm default 0:=
-		rec1	rec2	40
-		rec3	rec1	100
-		rec5    rec7	40
-		rec3    rec7	40
-		rec5    rec6	40
-		rec2    rec8	40
-		rec9	rec3	40
-		rec10	rec11	40
-		rec12	rec13	40
+	rec1	rec22	31	
+ 	rec3	rec7	14	
+ 	rec4	rec2	30	
+ 	rec4	rec13	38	
+ 	rec4	rec16	12	
+ 	rec4	rec26	22	
+ 	rec5	rec20	22	
+ 	rec6	rec1	27	
+ 	rec6	rec20	33	
+ 	rec7	rec19	30	
+ 	rec7	rec29	31	
+ 	rec9	rec13	36	
+ 	rec12	rec17	10	
+ 	rec12	rec22	24	
+ 	rec13	rec18	5	
+ 	rec14	rec1	8	
+ 	rec14	rec21	10	
+ 	rec15	rec9	38	
+ 	rec16	rec15	16	
+ 	rec18	rec15	10	
+ 	rec18	rec29	15	
+ 	rec21	rec9	37	
+ 	rec23	rec17	5	
+ 	rec24	rec21	28	
+ 	rec25	rec4	38	
+ 	rec27	rec4	40	
+ 	rec28	rec4	21
 ;
 
 # pesi assegnati alle metriche della funzione obiettivo, le metriche assumono tutte valori da 0 a 1 (sono normalizzate)

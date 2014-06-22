@@ -20,11 +20,12 @@ class RRManager:
     #Se il delta tmax-tmin e minor di epsilon l'algoritmo si ferma
     epsilon = 0.1
     #Pesi da dare al costo della funzione obiettivo, supposed to be between [0,1]
-    weightMILP = 0.5
-    weightSA = 0.5
+    weightMILP = 0.1
+    weightSA = 0.9
     #Decide se normalizzare nella funzione obiettivo, 1 = NON normalizzare, 0 = normalizza
     normalizeMILP = 1
     normalizeSA = 0
+    tmax = 0
     def __init__(self, thermCond, aSect, sliceHeight, sliceWidth, airTemp, airResistance, fh):
         self.collection = []
         self.thermCond = thermCond
@@ -216,6 +217,7 @@ class RRManager:
         for i in xrange(1,len(self.collection)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
+        self.tmax=maxTemp
 
         return (self.weightSA *self.normalizeSA* maxTemp + self.normalizeMILP*self.weightMILP * self.milpObjVal)*500
 
@@ -224,6 +226,10 @@ class RRManager:
 #used in case the move is accepted
     def updateSequencePair(self, pair):
         self.sequencePair = pair
+
+
+
+
 
 #returns true in case the difference between the max and the min temperature is less than epsilon
     def isUniformityReached(self):
@@ -241,9 +247,9 @@ class RRManager:
 #system call to gurobi, the MILP solver. After execution parse the result file in order to get the MILP objective value and the actual distances between RRs
     def applyMILP(self, sequencePair, distanceVector):
         self.fh.updateDat(sequencePair, distanceVector)
-        os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan.mod --wlp model.lp --check > /dev/null")
+        os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan2.mod --wlp model.lp --check > /dev/null")
         #os.system("gurobi_cl ResultFile=problem.sol TimeLimit=10 model.lp > /dev/null")
-        os.system("gurobi_cl ResultFile=problem.sol model.lp MIPFocus=1 > /dev/null")
+        os.system("gurobi_cl ResultFile=problem.sol MIPGap=0.2 model.lp TimeLimit=30 > /dev/null")
         #os.system("gurobi_cl ResultFile=problem.sol model.lp")
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()

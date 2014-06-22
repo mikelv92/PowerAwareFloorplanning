@@ -47,7 +47,7 @@ def main():
 
     fh.updateDat(rrManager.sequencePair, rrManager.distanceVector)
 
-    saTemperature = 10000000000
+    saTemperature = 5000
     saCoolingRate = 0.003
 
     currentSolutionCost = 1000000000000.0
@@ -55,9 +55,9 @@ def main():
     distanceVector = [[0 for x in xrange(rrCount)] for x in xrange(rrCount)]
     goodSolutions = []
 
-    #fh.incrementalFloorplan(rrManager)
+    fh.incrementalFloorplan(rrManager)
     #while 0:
-    while not rrManager.isUniformityReached() and saTemperature > 50:
+    while not rrManager.isUniformityReached() and saTemperature > 1:
         '''
         choice = randint(1, 2)
         sequencePair = rrManager.makeSwapMove() #pass this sequence pair to the milp
@@ -97,7 +97,7 @@ def main():
 
     print("SA finito!")
 
-    if saTemperature < 60:
+    if saTemperature < 1:
         print "Searching good Solutions for the best one..."
         bestSolution = goodSolutions[0]
         minCost = goodSolutions[0].cost

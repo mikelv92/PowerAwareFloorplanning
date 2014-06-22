@@ -115,7 +115,7 @@ class FileHandler:
 
 
     def incrementalFloorplan(self,rrManager):
-        #try:
+        try:
             quanteregioniallavolta = 4;
             regioniNP = deepcopy(rrManager.collection)
             #regioniNP = ["rec1","rec2","rec3","rec4","rec5","rec6","rec7","rec8","rec9","rec10","rec11","rec12","rec13","rec14","rec15"]
@@ -169,7 +169,7 @@ class FileHandler:
                     with open("problem.sol", 'r') as f_in:
                         outputAsString = f_in.read()
 
-
+                    print("len1 " + str(len(outputAsString)))
                     wf="param wf :=\n"
                     xf="param xf :=\n"
                     hf="param hf:\t1\t2\t3\t4\t5\t6\t7\t8:=\n"
@@ -195,13 +195,13 @@ class FileHandler:
                             toaddh += "\n"
                             hf+=toaddh
                         except:
-                            print("not my region (non ho imparato ancora come fare nop negli except)")
+                            pass
 
 
                         #print (int(w))
                         #print (int(x))
-                        wf+="\t"+rr.name+"\t"+str(int(w))+"\n"
-                        xf+="\t"+rr.name+"\t"+str(int(x))+"\n"
+                        wf+="\t"+rr.name+"\t"+str(int(float((w))))+"\n"
+                        xf+="\t"+rr.name+"\t"+str(int(float(x)))+"\n"
 
                     wf+=";\n"
                     xf+=";\n"
@@ -223,24 +223,31 @@ class FileHandler:
                 f.write(text)
                 f.truncate()
                 f.close()
-
+		print("sol")
                 os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan_incremental.mod --wlp model.lp --check > /dev/null")
-                os.system("gurobi_cl ResultFile=problem.sol MIPGap=0.2 model.lp TimeLimit=100 > /dev/null")
+		print("gurobi")
+                os.system("gurobi_cl ResultFile=problem.sol MIPFocus=1 MIPGap=0.2 TimeLimit=100 model.lp > /dev/null")
 
 
             #leggi soluzione e trova i sequence pair,
             # occhio che qua sei fuori dal while
             # quindi ce soluzione feasible
-            self.generateSequencePair(deepcopy(rrManager.collection))
-            return
+
+            sequencePair = self.generateSequencePair(deepcopy(rrManager.collection))
+            return sequencePair
+
 
         #questo dovrebbe "riavviare" nel caso di infeasible
-    """
+
         except Exception,e:
             print e
             print("riavvia")
             self.incrementalFloorplan(rrManager)
-"""
+
+#        sequencePair = self.generateSequencePair(deepcopy(rrManager.collection))
+ #       return sequencePair
+
+
 
     def generateSequencePair(self, rrManager):
 
@@ -249,7 +256,7 @@ class FileHandler:
         col = []
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()
-
+        print("len "+str(len(outputAsString)))
         for rr in rrManager:
             startIndex = outputAsString.index("w(" + rr.name + ")")
             endIndex = outputAsString.index("\n", startIndex)
@@ -274,7 +281,7 @@ class FileHandler:
             #     x,y,w,a
             #addRegion(2,1,8,1);
 
-
+            """
             #CX
             startIndex = outputAsString.index("Cx(" + rr.name + ")")
             realstartIndex = outputAsString.index(" ", startIndex)
@@ -290,7 +297,7 @@ class FileHandler:
             cy = outputAsString[realstartIndex + 1:endIndex]
             print("Cy " + rr.name + " is " + cy)
             cy = round(float(cy))
-
+            """
             col.append(ReconfigurableRegion(rr.name, x1, y1, w1, a1, None))
 
         for rr in col:
@@ -318,10 +325,15 @@ class FileHandler:
 
 
         print("sq1")
+        sequence1 = []
+        sequence2 = []
         for rr in seq1:
+            sequence1.append(rr.name)
             print rr.name+" cx: "+str(rr.cx)+" cy: "+str(rr.cy)
         print("sq2")
         for rr in seq2:
+            sequence2.append(rr.name)
             print rr.name+" cx: "+str(rr.cx)+" cy: "+str(rr.cy)
 
+        return SequencePair(sequence1, sequence2)
 

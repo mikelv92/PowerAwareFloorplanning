@@ -20,12 +20,11 @@ class RRManager:
     #Se il delta tmax-tmin e minor di epsilon l'algoritmo si ferma
     epsilon = 0.1
     #Pesi da dare al costo della funzione obiettivo, supposed to be between [0,1]
-    weightMILP = 0.5
-    weightSA = 0.5
+    weightMILP = 0.9
+    weightSA = 0.1
     #Decide se normalizzare nella funzione obiettivo, 1 = NON normalizzare, 0 = normalizza
     normalizeMILP = 1
     normalizeSA = 0
-
     tmax = 0
     def __init__(self, thermCond, aSect, sliceHeight, sliceWidth, airTemp, airResistance, fh):
         self.collection = []
@@ -34,6 +33,7 @@ class RRManager:
         self.sliceHeight = sliceHeight
         self.sliceWidth = sliceWidth
         self.airTemp = airTemp
+        self.normalizeSA = 1 / (self.airTemp + 15)
         self.airResistance = airResistance
         self.tempArray = []
         self.sequencePair = SequencePair(list(), list())
@@ -217,18 +217,19 @@ class RRManager:
         for i in xrange(1,len(self.collection)):
             if self.collection[i].temp > maxTemp:
                 maxTemp = self.collection[i].temp
-
-        if self.normalizeSA == 0 :
-            self.normalizeSA = 1/maxTemp
-        if self.normalizeMILP == 0 :
-            self.normalizetMILP = 1/self.milpObjVal
-
         self.tmax=maxTemp
 
         return (self.weightSA *self.normalizeSA* maxTemp + self.normalizeMILP*self.weightMILP * self.milpObjVal)*500
+
+
+
 #used in case the move is accepted
     def updateSequencePair(self, pair):
         self.sequencePair = pair
+
+
+
+
 
 #returns true in case the difference between the max and the min temperature is less than epsilon
     def isUniformityReached(self):
@@ -246,9 +247,9 @@ class RRManager:
 #system call to gurobi, the MILP solver. After execution parse the result file in order to get the MILP objective value and the actual distances between RRs
     def applyMILP(self, sequencePair, distanceVector):
         self.fh.updateDat(sequencePair, distanceVector)
-        os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan.mod --wlp model.lp --check > /dev/null")
+        os.system("glpsol -d base.dat -d /tmp/temp.dat -m floorplan2.mod --wlp model.lp --check > /dev/null")
         #os.system("gurobi_cl ResultFile=problem.sol TimeLimit=10 model.lp > /dev/null")
-        os.system("gurobi_cl ResultFile=problem.sol MIPGap=0.2 model.lp TimeLimit=100 > /dev/null")
+        os.system("gurobi_cl ResultFile=problem.sol MIPGap=0.2 model.lp TimeLimit=30 > /dev/null")
         #os.system("gurobi_cl ResultFile=problem.sol model.lp")
         with open("problem.sol", 'r') as f_in:
             outputAsString = f_in.read()
@@ -288,7 +289,6 @@ class RRManager:
 
         return self.milpObjVal
 
-#creates a file index.html to visualize the current floorplan, temperature  and objective value; opens this file on the browser; prints a screenshot and finally closes the open tab. To execute this method you need the program “imagemagick” and “xdotool”
     def drawOnBrowser(self, accettata):
 
 
@@ -461,21 +461,6 @@ class RRManager:
                     print "Temp = " + str(rr.temp)
 
 
-<<<<<<< HEAD
-        #fh.close()
-=======
-        fh.close()
-
-
-
-
-
-
-
-
-
-
-
     '''def makeDistanceVectorMove(self):
         choice = randint(0, 1)
         if choice == 0:
@@ -525,4 +510,3 @@ class RRManager:
         self.distanceVector = vector
 
     '''
->>>>>>> 907e1619dab4d26d1462a1c48bdbd7ff3016ded6
